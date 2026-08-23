@@ -4,7 +4,26 @@
 
 SEDB is an experimental AI-native data infrastructure project for storing not only values, but also the evolution of fields, claims, provenance, epistemic status, and the reasons why a schema expands, converges, splits, merges, or becomes inactive.
 
-This repository is currently in the **design and local-first development stage**. The first implementation will be developed and validated locally before larger code snapshots are synchronized to GitHub.
+This repository is the stable public anchor for SEDB's **local-first development**. Tested source, documentation, demo, and evidence bundles are synchronized here as versioned snapshots after local validation. The current public checkpoint is **v0.4B**.
+
+SEDB remains experimental. These snapshots are not a claim of production readiness, general autonomous authority, or fitness for every database workload.
+
+## Validated snapshots
+
+Each ZIP is a self-contained local checkpoint. The archive bytes are published unchanged from the validated candidates.
+
+| Snapshot | Focus | Tests | SHA-256 |
+|---|---|---:|---|
+| [`SEDB-v0.1-local.zip`](./SEDB-v0.1-local.zip) | Sparse dynamic-field MVP | Historical checkpoint | `1b604a8c6bcc82440ec914e0c54312c922549487a86494aec2f19b904befdd20` |
+| [`SEDB-v0.2A-local.zip`](./SEDB-v0.2A-local.zip) | Canonical field governance | Historical checkpoint | `5ba27a7591ea3e32e0a4eb2b2cd7b162421a67665860bc8e9c30f559939df73d` |
+| [`SEDB-v0.2B-local.zip`](./SEDB-v0.2B-local.zip) | Semantic candidates without automatic mutation | Historical checkpoint | `514c6df9f3c06c29b465ce2fec4fa21d9fe38d9ded94df76c5422d39d41a1293` |
+| [`SEDB-v0.3A-local.zip`](./SEDB-v0.3A-local.zip) | Explainable field utility and explicit lifecycle application | Historical checkpoint | `bab240d98166f9f5db306e5ef000e337f6ce05b0bc31b700a2dd1e46794277cd` |
+| [`SEDB-v0.3B-local.zip`](./SEDB-v0.3B-local.zip) | Reviewed multi-field families | 107 passed | `f964c766ddc8951452ddc6bd9c944155bc76335c5a3513e4ec2525abf690dc67` |
+| [`SEDB-v0.3C-local.zip`](./SEDB-v0.3C-local.zip) | Governed provider-neutral AI Field Agent runtime | 137 passed | `c4a41ec7d933a08486716711f36f679e8fd7211a20313ab56651f64d4f495bf9` |
+| [`SEDB-v0.4A-local.zip`](./SEDB-v0.4A-local.zip) | Evidence-aware multi-Agent coordination and advisory consensus | 160 passed | `680834df8e098c602aa5402f870229b70a0f3e267146cbe2f988cd4c1f304645` |
+| [`SEDB-v0.4B-local.zip`](./SEDB-v0.4B-local.zip) | Reflexive autonomous canonical commits inside delegated authority envelopes | 189 passed | `159f0928415811a434e885d50e94846266474725723d25dac426170874b844d8` |
+
+Before publication, every newly added snapshot was independently extracted and checked with its complete test suite, Python compilation, JavaScript syntax validation, packaged SHA-256 manifests, demo hashes, strict UTF-8 decoding, Markdown delimiter checks, SQLite `integrity_check`, ZIP CRC, archive-path safety, transient-file detection, and a high-confidence secret scan.
 
 ---
 
@@ -148,7 +167,7 @@ Planned core components:
 | `provenance` | Source and derivation tracking |
 | `search_index` | Search, filtering, classification and retrieval support |
 
-The first local prototype is currently expected to use **Python + SQLite + a browser-based UI**, while keeping the logical model portable enough for later PostgreSQL, DuckDB, Parquet, or distributed implementations.
+The current local snapshots use **Python + SQLite + a browser-based UI**, while keeping the logical model portable enough for later PostgreSQL, DuckDB, Parquet, or distributed implementations.
 
 ---
 
@@ -187,7 +206,7 @@ The UI therefore should not behave like a conventional spreadsheet that renders 
 
 ## 6. Initial MVP boundary
 
-The first local MVP is intended to validate the architecture rather than maximize features.
+The original local MVP boundary was intended to validate the architecture rather than maximize features.
 
 Target capabilities:
 
@@ -209,7 +228,7 @@ Not yet claimed:
 
 - production readiness;
 - distributed scale;
-- autonomous schema governance without review;
+- unconstrained autonomous authority outside explicitly delegated, bounded envelopes;
 - replacement of relational, graph, vector, or document databases in all workloads.
 
 ---
@@ -242,6 +261,7 @@ The project will be developed locally first because the application is expected 
 
 ## Status
 
-**Stage:** Architecture defined / local implementation pending  
-**Repository role:** Public anchor and stable snapshot destination  
-**Current priority:** Unbounded Dynamic Field Layer MVP
+- **Stage:** Validated local implementation snapshots through v0.4B
+- **Repository role:** Public anchor and stable snapshot destination
+- **Current priority:** Reflexive autonomous canonical commits with explicit delegated authority, reversible-first execution, and auditable history
+- **Licensing status:** No public software license has been selected; repository visibility does not itself grant reuse rights
