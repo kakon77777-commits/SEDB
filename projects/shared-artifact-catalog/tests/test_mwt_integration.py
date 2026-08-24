@@ -85,3 +85,63 @@ def test_mwt_bootstrap_represents_mixed_catalog_idempotently(
         for record in store.find("component")
     )
     assert before == source_hashes(original)
+
+
+def test_mwt_bootstrap_ignores_registered_non_mwt_families(
+    project_dir: Path, tmp_path: Path
+) -> None:
+    catalog_root = tmp_path / "catalog"
+    classification = (
+        catalog_root
+        / "00_Inbox"
+        / "MWT_2026-08-24"
+        / "MWT_CLASSIFICATION.md"
+    )
+    classification.parent.mkdir(parents=True)
+    classification.write_text("# MWT test classification\n", encoding="utf-8")
+
+    mwt_root = catalog_root / "10_Theory" / "MWT" / "Candidate"
+    mwt_root.mkdir(parents=True)
+    (mwt_root / "paper.md").write_text("理論", encoding="utf-8")
+
+    other_root = (
+        catalog_root
+        / "30_Research"
+        / "Self_Constraint_Cognitive_Runtime"
+        / "Executable_Experiments"
+        / "Other_Package"
+    )
+    other_root.mkdir(parents=True)
+    (other_root / "experiment.py").write_text("VALUE = 1\n", encoding="utf-8")
+
+    real_config = CatalogConfig.load(project_dir / "catalog-config.json")
+    config = replace(
+        real_config,
+        catalog_root=catalog_root,
+        database_path=tmp_path / "catalog.sqlite",
+        allowed_copy_roots=(catalog_root,),
+        package_roots=(
+            "10_Theory/MWT/Candidate",
+            (
+                "30_Research/Self_Constraint_Cognitive_Runtime/"
+                "Executable_Experiments/Other_Package"
+            ),
+        ),
+    )
+    store = CatalogStore.open(config.database_path)
+    store.ensure_schema()
+
+    result = bootstrap_mwt(config, store, FakeTemporal())
+    packages = {
+        record["values"]["source_relpath"]: record
+        for record in store.find("package")
+    }
+
+    assert result.package_count == 1
+    assert packages["10_Theory/MWT/Candidate"]["values"][
+        "verification_state"
+    ] == "verified_integrity_candidate"
+    assert (
+        "30_Research/Self_Constraint_Cognitive_Runtime/"
+        "Executable_Experiments/Other_Package"
+    ) not in packages

@@ -21,9 +21,12 @@ From the SEDB repository root:
 ```powershell
 $env:PYTHONPATH = 'current\src;projects\shared-artifact-catalog'
 python projects/shared-artifact-catalog/catalog.py init
-python projects/shared-artifact-catalog/catalog.py ingest
+python projects/shared-artifact-catalog/bootstrap_mwt.py
+python projects/shared-artifact-catalog/bootstrap_self_constraint.py
 python projects/shared-artifact-catalog/catalog.py export
 ```
+
+Each family bootstrap scans only the package roots it owns, applies its language/status/routing metadata, and is idempotent. `catalog.py ingest` remains available for a metadata-neutral scan of every registered package root.
 
 The local database is `shared-artifact-catalog.sqlite` beside this README and is ignored by Git.
 

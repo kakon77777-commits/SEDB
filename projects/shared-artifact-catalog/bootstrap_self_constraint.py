@@ -18,6 +18,7 @@ from temporal import CtclClient, create_temporal_anchor
 
 UNBOUNDED_AXIOM = "https://unboundedaxiom.org/"
 NEOK = "https://thisoneisneok.com/"
+FAMILY = "Self_Constraint_Cognitive_Runtime"
 
 
 @dataclass(frozen=True)
@@ -39,111 +40,149 @@ def _slug(name: str) -> str:
 def _descriptor(relative: str) -> PackageDescriptor:
     normalized = relative.replace("\\", "/")
     name = Path(relative).name
+    parts = normalized.split("/")
+    if len(parts) < 2 or parts[1] != FAMILY:
+        raise ValueError(f"unmapped self-constraint package root: {relative}")
+
     if normalized.startswith("10_Theory/"):
-        canonicality = (
-            "canonical_candidate"
-            if name == "MWT_v0.1_First_Cycle_Canonical_Pack"
-            else "public_draft_candidate"
-        )
+        languages = ("zh-Hant",) if "/zh-Hant/" in normalized else ("en",)
         return PackageDescriptor(
             ("theory", "documentation"),
             "verified_integrity_candidate",
-            canonicality,
-            ("zh-Hant", "en"),
+            "canonical_extracted_set",
+            languages,
             (),
             (),
             (UNBOUNDED_AXIOM,),
-            "MWT theory candidate retained without publication authority.",
+            "Focused self-constraint or cognitive-runtime theory set retained without publication authority.",
         )
+
     if normalized.startswith("20_Applications/"):
+        verification = (
+            "independently_verified_runtime_candidate"
+            if name.startswith("Addressable_Cognitive_Runtime")
+            else "independently_verified_offline_candidate"
+        )
         return PackageDescriptor(
             (
                 "experimental_application",
                 "application",
                 "source_code",
                 "validation_evidence",
+                "documentation",
             ),
-            "verified_runtime_candidate",
+            verification,
             "latest_candidate",
-            ("en",),
-            ("en",),
-            ("JavaScript",),
+            ("zh-Hant", "en"),
+            ("en", "zh-Hant"),
+            ("Python",),
             (NEOK,),
-            "Latest supplied DGW experimental web application candidate.",
+            "Latest supplied experimental runtime candidate; no deployment or live-provider authority is implied.",
         )
-    if "/DGW_Version_History/" in normalized:
+
+    if "/ACR_Version_History/" in normalized:
         return PackageDescriptor(
-            ("archive", "research_evidence", "source_code", "validation_evidence"),
+            (
+                "archive",
+                "research_evidence",
+                "source_code",
+                "validation_evidence",
+                "documentation",
+            ),
             "reported_validation",
             "superseded",
+            ("zh-Hant", "en"),
             ("en",),
-            ("en",),
-            ("JavaScript",),
+            ("Python",),
             (),
-            "Historical DGW release retained for research provenance.",
+            "Historical cumulative ACR release retained for research provenance.",
         )
+
+    if "/Harness_Version_History/" in normalized:
+        return PackageDescriptor(
+            (
+                "archive",
+                "research_evidence",
+                "source_code",
+                "validation_evidence",
+                "documentation",
+            ),
+            "reported_validation",
+            "superseded",
+            ("en", "zh-Hant"),
+            ("en", "zh-Hant"),
+            ("Python",),
+            (),
+            "Historical Self-Constraint Harness release retained for research provenance.",
+        )
+
+    if "/Executable_Experiments/" in normalized:
+        is_scl = name.startswith("SCL_")
+        independently_verified = is_scl or "v0.2" in name
+        return PackageDescriptor(
+            (
+                "research_evidence",
+                "experimental_application",
+                "source_code",
+                "validation_evidence",
+                "documentation",
+            )
+            + (("theory",) if is_scl else ()),
+            (
+                "independently_verified_test_suite"
+                if independently_verified
+                else "supplied_research_package"
+            ),
+            "current_research" if independently_verified else "superseded",
+            ("en",),
+            ("en",),
+            ("Python", "JavaScript") if is_scl else ("Python",),
+            (),
+            "Executable bounded research experiment; not foundation-model or universal-effect evidence.",
+        )
+
     if "/Reference_Source_Packs/" in normalized:
         return PackageDescriptor(
-            ("research_evidence", "source_code", "documentation"),
-            "verified_reference",
+            (
+                "research_evidence",
+                "theory",
+                "documentation",
+                "validation_evidence",
+            ),
+            "verified_duplicate_source_pack",
             "supporting",
             ("zh-Hant", "en"),
             (),
-            ("Python",),
             (),
-            "MWT reference source pack with schemas, examples, and supporting code.",
+            (),
+            "Supporting theory source pack whose principal papers match the extracted canonical set.",
         )
-    if "/Executable_Spikes/" in normalized:
+
+    if "/Legacy_Standalone_Duplicates" in normalized:
         return PackageDescriptor(
-            ("research_evidence", "experimental_application", "source_code"),
-            "verified_reference",
-            "research_spike",
-            ("en",),
-            (),
-            ("Python",),
-            (),
-            "Executable finite-world research spike; not a product runtime.",
-        )
-    if "/Legacy_Duplicate_Bundles/" in normalized:
-        return PackageDescriptor(
-            ("archive", "theory"),
+            ("archive", "theory", "documentation"),
             "verified_duplicate",
             "superseded_duplicate",
             ("zh-Hant",),
             (),
             (),
             (),
-            "Legacy bundle whose Markdown content duplicates canonical-pack files.",
+            "Standalone supplied papers retained as byte-verified duplicate source originals.",
         )
-    if "/Dependent_or_PostCycle_Extensions/" in normalized:
-        programming = ("Python",) if "SWL_02" in name else ()
-        categories = ["needs_review", "documentation"]
-        if "MWT_11" in name:
-            categories.append("theory")
-        if programming:
-            categories.append("source_code")
-        return PackageDescriptor(
-            tuple(categories),
-            "needs_review",
-            "post_cycle_unresolved",
-            ("zh-Hant", "en"),
-            (),
-            programming,
-            (),
-            "Dependent or post-cycle extension held for sequencing review.",
-        )
-    if "/Theory_Drafts_and_Precursors/" in normalized:
+
+    if normalized.startswith("90_Needs_Review/"):
         return PackageDescriptor(
             ("needs_review", "theory", "documentation"),
-            "needs_review",
-            "draft_or_precursor",
-            ("zh-Hant", "en"),
+            "text_reviewed_visual_qa_unavailable",
+            "legacy_theory_papers",
+            ("en",),
             (),
             (),
             (),
-            "Theory draft or precursor retained without automatic promotion.",
+            "Unique legacy theory papers held for substantive review and DOCX visual QA.",
         )
-    raise ValueError(f"unmapped MWT package root: {relative}")
+
+    raise ValueError(f"unmapped self-constraint package root: {relative}")
 
 
 def _changed_values(record: dict, desired: dict) -> dict:
@@ -153,7 +192,7 @@ def _changed_values(record: dict, desired: dict) -> dict:
     }
 
 
-def bootstrap_mwt(
+def bootstrap_self_constraint(
     config: CatalogConfig,
     store: CatalogStore,
     temporal_client: CtclClient,
@@ -161,8 +200,8 @@ def bootstrap_mwt(
     classification_record = (
         config.catalog_root
         / "00_Inbox"
-        / "MWT_2026-08-24"
-        / "MWT_CLASSIFICATION.md"
+        / "Self_Constraint_Experimental_Harness_2026-08-25"
+        / "SELF_CONSTRAINT_CLASSIFICATION.md"
     )
     if not classification_record.is_file():
         raise FileNotFoundError(classification_record)
@@ -172,7 +211,7 @@ def bootstrap_mwt(
         item
         for item in config.package_roots
         if len(Path(item).as_posix().split("/")) >= 2
-        and Path(item).as_posix().split("/")[1] == "MWT"
+        and Path(item).as_posix().split("/")[1] == FAMILY
     )
     ingest_result = ingest_package_paths(
         (config.catalog_root / item for item in family_roots),
@@ -211,9 +250,7 @@ def bootstrap_mwt(
         if changes:
             metadata_updates.append((package, changes))
 
-        components = store.find(
-            "component", parent_package_id=package["id"]
-        )
+        components = store.find("component", parent_package_id=package["id"])
         for component in components:
             media_class = component["values"].get("media_class")
             component_values: dict = {}
@@ -221,13 +258,11 @@ def bootstrap_mwt(
                 component_values["content_languages"] = list(
                     descriptor.content_languages
                 )
-            if media_class in {"source"} and descriptor.interface_languages:
+            if media_class == "source" and descriptor.interface_languages:
                 component_values["interface_languages"] = list(
                     descriptor.interface_languages
                 )
-            component_changes = _changed_values(
-                component, component_values
-            )
+            component_changes = _changed_values(component, component_values)
             if component_changes:
                 metadata_updates.append((component, component_changes))
 
@@ -247,7 +282,7 @@ def bootstrap_mwt(
         anchor_id = create_temporal_anchor(
             store,
             temporal_client,
-            "mwt_bootstrap",
+            "self_constraint_bootstrap",
             timezone_name=config.timezone,
         )["id"]
 
@@ -256,7 +291,7 @@ def bootstrap_mwt(
             (
                 record["id"],
                 {**changes, "temporal_anchor_id": anchor_id},
-                "artifact-catalog:mwt-bootstrap",
+                "artifact-catalog:self-constraint-bootstrap",
             )
             for record, changes in metadata_updates
         ]
@@ -280,7 +315,9 @@ def bootstrap_mwt(
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Bootstrap the MWT catalog")
+    parser = argparse.ArgumentParser(
+        description="Bootstrap the self-constraint catalog family"
+    )
     parser.add_argument(
         "--config",
         type=Path,
@@ -291,7 +328,7 @@ def main(argv: list[str] | None = None) -> int:
     store = CatalogStore.open(config.database_path)
     store.ensure_schema()
     client = CtclClient(config.ctcl_base_url, config.ctcl_timeout_seconds)
-    result = bootstrap_mwt(config, store, client)
+    result = bootstrap_self_constraint(config, store, client)
     print(json.dumps(asdict(result), ensure_ascii=False, sort_keys=True))
     return 0
 
