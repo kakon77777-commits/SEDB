@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "catalog_root": "D:\\Ai\\work together\\Theory_Application_Research_Staging",
+  "database_path": "shared-artifact-catalog.sqlite",
+  "allowed_copy_roots": [
+    "D:\\Ai"
+  ],
+  "library_zones": [
+    "10_Theory",
+    "20_Applications",
+    "30_Research",
+    "40_Translation_Workspace",
+    "90_Needs_Review"
+  ],
+  "translation_zone": "40_Translation_Workspace",
+  "excluded_names": [
+    ".git",
+    "__pycache__",
+    ".pytest_cache",
+    "node_modules",
+    "target",
+    "shared-artifact-catalog.sqlite",
+    "shared-artifact-catalog.sqlite-wal",
+    "shared-artifact-catalog.sqlite-shm",
+    "ARTIFACT_CATALOG.md"
+  ],
+  "package_roots": [],
+  "ctcl": {
+    "base_url": "https://commoninstant.org",
+    "timeout_seconds": 8,
+    "timezone": "Asia/Taipei"
+  }
+}
