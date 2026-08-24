@@ -1,0 +1,184 @@
+{
+  "campaign_benchmark": {
+    "campaign_status": "completed",
+    "cell_count_after": 0,
+    "cell_count_before": 0,
+    "database": "demo/sedb-campaign-benchmark-v0.4a.sqlite",
+    "elapsed_seconds": 1.606748,
+    "field_count_after": 0,
+    "field_count_before": 0,
+    "key_count": 8,
+    "packet_count": 8,
+    "packet_statuses": [
+      "weak_agreement"
+    ],
+    "runs": 80,
+    "work_items": 80
+  },
+  "governance_demo": {
+    "campaign_id": "19a968702d964457ac3dd0ff3d4e6f7c",
+    "campaign_status": "completed",
+    "cell_count_after": 1,
+    "cell_count_before": 1,
+    "database": "demo/sedb-campaign-governance-v0.4a.sqlite",
+    "field_count_after": 2,
+    "field_count_before": 2,
+    "independent_support_min": 2,
+    "linked_runs": 5,
+    "packet_count": 2,
+    "packet_statuses": [
+      "strong_agreement",
+      "incompatible"
+    ],
+    "packets": [
+      {
+        "basis_sha256": "fdb7fe9cb1d2430b2f2522c0dea6be34568703ef09ee68bd0c390fe619f8d9d3",
+        "campaign_id": "19a968702d964457ac3dd0ff3d4e6f7c",
+        "created_at": "2026-08-22T19:01:01.258708Z",
+        "evidence": {
+          "backends": [
+            "deterministic-discovery-v1",
+            "external-suggestion-v1"
+          ],
+          "basis_hashes": [
+            "7f665dc3e12f49d1a44855599213360114be336bb3760dcf37d208b2f0ddbfba"
+          ],
+          "members": [
+            {
+              "action_id": 1,
+              "backend": "deterministic-discovery-v1",
+              "basis_sha256": "7f665dc3e12f49d1a44855599213360114be336bb3760dcf37d208b2f0ddbfba",
+              "evidence_refs": [
+                "obs:1#/publication_type"
+              ],
+              "label": "Publication Type",
+              "observation_root_sha256": "4d5ce9df3ce4cd1a2a26da618fec820e18e175f564a72bd62128356ffcfe044b",
+              "outcome": "CREATED_PROPOSAL",
+              "reason": "Discovered as a repeated structural field in the observation packet.",
+              "run_id": "1dd76068b770438c87b57ea9ffdcc152",
+              "value_type": "text"
+            },
+            {
+              "action_id": 2,
+              "backend": "deterministic-discovery-v1",
+              "basis_sha256": "7f665dc3e12f49d1a44855599213360114be336bb3760dcf37d208b2f0ddbfba",
+              "evidence_refs": [
+                "obs:2#/publication_type"
+              ],
+              "label": "Publication Type",
+              "observation_root_sha256": "4d5ce9df3ce4cd1a2a26da618fec820e18e175f564a72bd62128356ffcfe044b",
+              "outcome": "SKIPPED_PENDING_PROPOSAL",
+              "reason": "Discovered as a repeated structural field in the observation packet.",
+              "run_id": "123b95bfc3c24f65ac5078e038764409",
+              "value_type": "text"
+            },
+            {
+              "action_id": 3,
+              "backend": "external-suggestion-v1",
+              "basis_sha256": "7f665dc3e12f49d1a44855599213360114be336bb3760dcf37d208b2f0ddbfba",
+              "evidence_refs": [
+                "external:publication-type"
+              ],
+              "label": "Publication Type",
+              "observation_root_sha256": "cbbc0b808d562c892397409b5e4e293a43a70be035d17ea88e4f556147eea9e5",
+              "outcome": "SKIPPED_PENDING_PROPOSAL",
+              "reason": "campaign evidence external:publication-type",
+              "run_id": "89bf5377d52643fca16281aeae8df8f4",
+              "value_type": "text"
+            }
+          ],
+          "observation_roots": [
+            "4d5ce9df3ce4cd1a2a26da618fec820e18e175f564a72bd62128356ffcfe044b",
+            "cbbc0b808d562c892397409b5e4e293a43a70be035d17ea88e4f556147eea9e5"
+          ]
+        },
+        "group_id": "e441b8226e7848a4a72ff0db726dee9f",
+        "id": "a01e5d8401b84c16ad22db6739cac375",
+        "metrics": {
+          "avg_pair_score": 1.0,
+          "backend_count": 2,
+          "basis_count": 1,
+          "conflict_count": 0,
+          "evidence_root_count": 2,
+          "independent_support": 2,
+          "min_pair_score": 1.0,
+          "raw_support": 3,
+          "value_types": [
+            "text"
+          ]
+        },
+        "policy_version": "consensus-v1",
+        "status": "strong_agreement",
+        "summary": "publication_type: strong_agreement; raw=3, independent=2"
+      },
+      {
+        "basis_sha256": "fdb7fe9cb1d2430b2f2522c0dea6be34568703ef09ee68bd0c390fe619f8d9d3",
+        "campaign_id": "19a968702d964457ac3dd0ff3d4e6f7c",
+        "created_at": "2026-08-22T19:01:01.258708Z",
+        "evidence": {
+          "backends": [
+            "external-suggestion-v1"
+          ],
+          "basis_hashes": [
+            "7f665dc3e12f49d1a44855599213360114be336bb3760dcf37d208b2f0ddbfba"
+          ],
+          "members": [
+            {
+              "action_id": 4,
+              "backend": "external-suggestion-v1",
+              "basis_sha256": "7f665dc3e12f49d1a44855599213360114be336bb3760dcf37d208b2f0ddbfba",
+              "evidence_refs": [
+                "external:review-text"
+              ],
+              "label": "Review Status",
+              "observation_root_sha256": "44889504ed179364a411d04d39164e81dda8f7afe78eeaddfa5cd5204ae6de07",
+              "outcome": "CREATED_PROPOSAL",
+              "reason": "campaign evidence external:review-text",
+              "run_id": "071a77d053db4213b11019be5d434e6a",
+              "value_type": "text"
+            },
+            {
+              "action_id": 5,
+              "backend": "external-suggestion-v1",
+              "basis_sha256": "7f665dc3e12f49d1a44855599213360114be336bb3760dcf37d208b2f0ddbfba",
+              "evidence_refs": [
+                "external:review-bool"
+              ],
+              "label": "Review Status",
+              "observation_root_sha256": "e9a374e506c392032c91a7db3f6531ca813b161fbcb43a2003361a1ab84676f9",
+              "outcome": "SKIPPED_PENDING_PROPOSAL",
+              "reason": "campaign evidence external:review-bool",
+              "run_id": "6924435b92be46429a392713de5fc66a",
+              "value_type": "boolean"
+            }
+          ],
+          "observation_roots": [
+            "44889504ed179364a411d04d39164e81dda8f7afe78eeaddfa5cd5204ae6de07",
+            "e9a374e506c392032c91a7db3f6531ca813b161fbcb43a2003361a1ab84676f9"
+          ]
+        },
+        "group_id": "8dc378ace72f42adace3336149a2fcbd",
+        "id": "6381e676344441b8ac9915a4e84e5a61",
+        "metrics": {
+          "avg_pair_score": 0.54,
+          "backend_count": 1,
+          "basis_count": 1,
+          "conflict_count": 1,
+          "evidence_root_count": 2,
+          "independent_support": 2,
+          "min_pair_score": 0.54,
+          "raw_support": 2,
+          "value_types": [
+            "boolean",
+            "text"
+          ]
+        },
+        "policy_version": "consensus-v1",
+        "status": "incompatible",
+        "summary": "review_status: incompatible; raw=2, independent=2"
+      }
+    ],
+    "raw_support_max": 3,
+    "work_items": 5
+  }
+}

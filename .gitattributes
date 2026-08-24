@@ -1,0 +1,3 @@
+# Preserve release-derived trees and immutable archives byte-for-byte.
+current/** -text
+releases/** -text

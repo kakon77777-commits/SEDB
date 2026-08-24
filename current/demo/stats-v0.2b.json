@@ -1,0 +1,11 @@
+{
+  "active_fields": 10000,
+  "cells": 9,
+  "converged_fields": 0,
+  "density": 0.0003,
+  "entities": 3,
+  "fields": 10000,
+  "logical_capacity": 30000,
+  "proposals": 0,
+  "views": 1
+}

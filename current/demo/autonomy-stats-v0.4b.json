@@ -1,0 +1,31 @@
+{
+  "autonomy_stats": {
+    "autonomous_commit_rate": 0.5,
+    "commit_count": 1,
+    "commit_failure_count": 1,
+    "decision_count": 3,
+    "defer_count": 0,
+    "defer_rate": 0.0,
+    "effective_autonomy_proxy": 0.6666666666666666,
+    "escalate_count": 1,
+    "escalation_rate": 0.3333333333333333,
+    "execute_count": 2,
+    "idle_count": 0,
+    "novel_action_execute_rate": 1.0,
+    "refuse_count": 0,
+    "rollback_count": 1,
+    "rollback_rate": 1.0
+  },
+  "canonical_fields_after_commit": 1,
+  "canonical_fields_before": 0,
+  "commit_count": 1,
+  "commit_id": "126555cb18454d86b3d7d8cd094e4ef8",
+  "conflict_commit": null,
+  "conflict_decision": "ESCALATE",
+  "db_path": "demo/sedb-autonomy-governance-v0.4b.sqlite",
+  "novel_commit_failure": "CAPABILITY_MISSING",
+  "novel_decision": "EXECUTE",
+  "rollback_count": 1,
+  "rollback_id": "70518bdc6aa7491882b53ed9e8aed20c",
+  "rolled_back_field_status": "deprecated"
+}

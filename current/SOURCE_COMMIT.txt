@@ -1,0 +1,4 @@
+branch: local-v0.4b
+source_commit: 139b9952bb283b2e95f7690d76e3c5fbcdc680aa
+date: 2026-08-23
+note: source_commit identifies the v0.4B code/docs/release-evidence checkpoint; provenance/manifest metadata is committed afterward.

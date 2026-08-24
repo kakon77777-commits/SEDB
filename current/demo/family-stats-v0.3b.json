@@ -1,0 +1,33 @@
+{
+  "governance_demo": {
+    "cell_count_after_reviews": 2,
+    "cell_count_before_reviews": 2,
+    "database": "demo/sedb-family-governance-v0.3b.sqlite",
+    "families_by_type": {
+      "duplicate": 1,
+      "related": 1
+    },
+    "field_count_after_reviews": 12,
+    "field_count_before_reviews": 12,
+    "proposals": 4,
+    "review_decisions": [
+      "duplicate_family",
+      "related_family",
+      "split",
+      "reject"
+    ],
+    "reviews": 4,
+    "split_created_family": false
+  },
+  "registry_benchmark": {
+    "bounded_pair_upper_bound": 60000,
+    "database": "demo/sedb-family-10k-v0.3b.sqlite",
+    "elapsed_seconds": 4.974185,
+    "fields": 10000,
+    "max_neighbors": 6,
+    "naive_all_pairs": 49995000,
+    "planted_families": 2,
+    "planted_families_found": 2,
+    "proposals": 2
+  }
+}

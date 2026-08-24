@@ -1,0 +1,38 @@
+{
+  "governance_demo": {
+    "applied_old_unused_status": "converged",
+    "database": "demo/sedb-utility-governance-v0.3a.sqlite",
+    "entities": 10,
+    "fields": 7,
+    "lifecycle_assessment_links": 1,
+    "pending_semantic_candidates": 1,
+    "recommendations": {
+      "fresh_empty": "insufficient_evidence",
+      "old_unused": "converge_candidate",
+      "protected_unused": "keep",
+      "reactivation_signal": "reactivate_candidate",
+      "semantic_review": "review",
+      "task_supported": "keep"
+    },
+    "scores": {
+      "fresh_empty": 0.15,
+      "old_unused": 0.15,
+      "protected_unused": 0.15,
+      "reactivation_signal": 0.195,
+      "semantic_review": 0.045,
+      "task_supported": 0.55
+    }
+  },
+  "registry_benchmark": {
+    "assessments": 10000,
+    "database": "demo/sedb-utility-10k-v0.3a.sqlite",
+    "elapsed_seconds": 0.476007,
+    "entities": 3,
+    "fields": 10000,
+    "limit_fields": 10000,
+    "policy_version": "utility-v1",
+    "recommendations": {
+      "converge_candidate": 10000
+    }
+  }
+}

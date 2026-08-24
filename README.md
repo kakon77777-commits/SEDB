@@ -8,20 +8,41 @@ This repository is the stable public anchor for SEDB's **local-first development
 
 SEDB remains experimental. These snapshots are not a claim of production readiness, general autonomous authority, or fitness for every database workload.
 
+## Repository layout
+
+- [`current/`](./current/) — the directly browsable, tested v0.4B source tree, including code, tests, demos, release evidence, and detailed documentation;
+- [`releases/`](./releases/) — immutable ZIP snapshots from v0.1 through v0.4B;
+- [`docs/`](./docs/) — project-level reference material, beginning with the [technical whitepaper](./docs/SEDB_Unbounded_Dynamic_Field_Technical_Whitepaper_v0.1.md);
+- `README.md` — the stable repository entry point;
+- `.git/` — local Git history and synchronization metadata. It is hidden by default and must remain in place for version control.
+
+### Work with the current source
+
+From the repository root on Windows PowerShell:
+
+```powershell
+cd .\current
+python -m pip install -e .
+python -m pytest -q
+sedb --help
+```
+
+The files under `current/` were extracted from the validated v0.4B candidate. The corresponding ZIP remains unchanged under `releases/` as the immutable checkpoint.
+
 ## Validated snapshots
 
 Each ZIP is a self-contained local checkpoint. The archive bytes are published unchanged from the validated candidates.
 
 | Snapshot | Focus | Tests | SHA-256 |
 |---|---|---:|---|
-| [`SEDB-v0.1-local.zip`](./SEDB-v0.1-local.zip) | Sparse dynamic-field MVP | Historical checkpoint | `1b604a8c6bcc82440ec914e0c54312c922549487a86494aec2f19b904befdd20` |
-| [`SEDB-v0.2A-local.zip`](./SEDB-v0.2A-local.zip) | Canonical field governance | Historical checkpoint | `5ba27a7591ea3e32e0a4eb2b2cd7b162421a67665860bc8e9c30f559939df73d` |
-| [`SEDB-v0.2B-local.zip`](./SEDB-v0.2B-local.zip) | Semantic candidates without automatic mutation | Historical checkpoint | `514c6df9f3c06c29b465ce2fec4fa21d9fe38d9ded94df76c5422d39d41a1293` |
-| [`SEDB-v0.3A-local.zip`](./SEDB-v0.3A-local.zip) | Explainable field utility and explicit lifecycle application | Historical checkpoint | `bab240d98166f9f5db306e5ef000e337f6ce05b0bc31b700a2dd1e46794277cd` |
-| [`SEDB-v0.3B-local.zip`](./SEDB-v0.3B-local.zip) | Reviewed multi-field families | 107 passed | `f964c766ddc8951452ddc6bd9c944155bc76335c5a3513e4ec2525abf690dc67` |
-| [`SEDB-v0.3C-local.zip`](./SEDB-v0.3C-local.zip) | Governed provider-neutral AI Field Agent runtime | 137 passed | `c4a41ec7d933a08486716711f36f679e8fd7211a20313ab56651f64d4f495bf9` |
-| [`SEDB-v0.4A-local.zip`](./SEDB-v0.4A-local.zip) | Evidence-aware multi-Agent coordination and advisory consensus | 160 passed | `680834df8e098c602aa5402f870229b70a0f3e267146cbe2f988cd4c1f304645` |
-| [`SEDB-v0.4B-local.zip`](./SEDB-v0.4B-local.zip) | Reflexive autonomous canonical commits inside delegated authority envelopes | 189 passed | `159f0928415811a434e885d50e94846266474725723d25dac426170874b844d8` |
+| [`SEDB-v0.1-local.zip`](./releases/SEDB-v0.1-local.zip) | Sparse dynamic-field MVP | Historical checkpoint | `1b604a8c6bcc82440ec914e0c54312c922549487a86494aec2f19b904befdd20` |
+| [`SEDB-v0.2A-local.zip`](./releases/SEDB-v0.2A-local.zip) | Canonical field governance | Historical checkpoint | `5ba27a7591ea3e32e0a4eb2b2cd7b162421a67665860bc8e9c30f559939df73d` |
+| [`SEDB-v0.2B-local.zip`](./releases/SEDB-v0.2B-local.zip) | Semantic candidates without automatic mutation | Historical checkpoint | `514c6df9f3c06c29b465ce2fec4fa21d9fe38d9ded94df76c5422d39d41a1293` |
+| [`SEDB-v0.3A-local.zip`](./releases/SEDB-v0.3A-local.zip) | Explainable field utility and explicit lifecycle application | Historical checkpoint | `bab240d98166f9f5db306e5ef000e337f6ce05b0bc31b700a2dd1e46794277cd` |
+| [`SEDB-v0.3B-local.zip`](./releases/SEDB-v0.3B-local.zip) | Reviewed multi-field families | 107 passed | `f964c766ddc8951452ddc6bd9c944155bc76335c5a3513e4ec2525abf690dc67` |
+| [`SEDB-v0.3C-local.zip`](./releases/SEDB-v0.3C-local.zip) | Governed provider-neutral AI Field Agent runtime | 137 passed | `c4a41ec7d933a08486716711f36f679e8fd7211a20313ab56651f64d4f495bf9` |
+| [`SEDB-v0.4A-local.zip`](./releases/SEDB-v0.4A-local.zip) | Evidence-aware multi-Agent coordination and advisory consensus | 160 passed | `680834df8e098c602aa5402f870229b70a0f3e267146cbe2f988cd4c1f304645` |
+| [`SEDB-v0.4B-local.zip`](./releases/SEDB-v0.4B-local.zip) | Reflexive autonomous canonical commits inside delegated authority envelopes | 189 passed | `159f0928415811a434e885d50e94846266474725723d25dac426170874b844d8` |
 
 Before publication, every newly added snapshot was independently extracted and checked with its complete test suite, Python compilation, JavaScript syntax validation, packaged SHA-256 manifests, demo hashes, strict UTF-8 decoding, Markdown delimiter checks, SQLite `integrity_check`, ZIP CRC, archive-path safety, transient-file detection, and a high-confidence secret scan.
 

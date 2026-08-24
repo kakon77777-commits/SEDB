@@ -1,0 +1,2 @@
+2014f9d23a162c1fcb6de04149ee008ff8debc67243cb325c924fd5894138e54  demo/sedb-campaign-governance-v0.4a.sqlite
+479ff6093436dd707ea019e8eee24a5a95aedafa8bc39d6749ac1cf60e066a39  demo/sedb-campaign-benchmark-v0.4a.sqlite

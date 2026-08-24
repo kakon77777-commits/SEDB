@@ -1,0 +1,22 @@
+{
+  "active_fields": 6,
+  "aliases": 2,
+  "cells": 1,
+  "converged_fields": 0,
+  "density": 0.125,
+  "entities": 1,
+  "field_relations": 1,
+  "fields": 8,
+  "lineage_edges": 3,
+  "logical_capacity": 8,
+  "merge_source_cells": 1,
+  "merge_target_cells": 0,
+  "normalized_duplicate_outcome": "alias_existing",
+  "proposal_decisions": 2,
+  "proposals": 2,
+  "semantic_alias_decision": "alias",
+  "semantic_candidates": 2,
+  "semantic_reviews": 2,
+  "versions": 9,
+  "views": 0
+}

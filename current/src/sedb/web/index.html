@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SEDB — Unbounded Dynamic Field</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <div>
+      <div class="eyebrow">LOCAL-FIRST · v0.4B</div>
+      <h1>SEDB</h1>
+      <p>AI-Native Unbounded Dynamic Field Database</p>
+    </div>
+    <button id="refreshAll">重新整理</button>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>狀態</h2>
+      <div id="stats" class="stats"></div>
+      <p class="hint">核心規則：新增欄位 ≠ 必須填值。Blank = 沒有 sparse cell。</p>
+    </section>
+
+    <section class="panel two-col">
+      <div>
+        <h2>新增動態欄位</h2>
+        <form id="fieldForm" class="stack">
+          <input name="key" placeholder="field_key" required>
+          <input name="label" placeholder="欄位名稱" required>
+          <input name="namespace" value="global" placeholder="namespace">
+          <select name="value_type">
+            <option>text</option><option>integer</option><option>number</option>
+            <option>boolean</option><option>array</option><option>object</option><option>json</option>
+          </select>
+          <textarea name="description" placeholder="語義／用途"></textarea>
+          <button>新增欄位</button>
+        </form>
+      </div>
+      <div>
+        <h2>欄位 Registry</h2>
+        <div class="toolbar">
+          <input id="fieldSearch" placeholder="搜尋 key / label / description">
+          <button id="fieldSearchBtn">搜尋</button>
+        </div>
+        <div id="fieldList" class="scroll-list"></div>
+      </div>
+    </section>
+
+    <section class="panel two-col">
+      <div>
+        <h2>Field Governance</h2>
+        <form id="proposalForm" class="stack">
+          <input name="key" placeholder="proposed_field_key" required>
+          <input name="label" placeholder="提案欄位名稱" required>
+          <input name="namespace" value="global" placeholder="namespace">
+          <textarea name="reason" placeholder="為什麼需要這個欄位？" required></textarea>
+          <input name="proposed_by" value="browser:user" placeholder="proposed_by">
+          <button>建立 Proposal</button>
+        </form>
+      </div>
+      <div>
+        <h2>Pending Proposals</h2>
+        <div id="proposalList" class="scroll-list"></div>
+        <p class="hint">接受前會先做 deterministic normalized duplicate check；重複 proposal 只會成為 alias，不會偷偷建立第二個 canonical field。</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Semantic Candidates</h2>
+      <div class="toolbar">
+        <button id="scanSimilarity">掃描 Registry 候選</button>
+        <span class="hint">分數只提供候選；不會自動 merge / alias。</span>
+      </div>
+      <div id="semanticCandidateList" class="scroll-list"></div>
+    </section>
+
+    <section class="panel two-col">
+      <div>
+        <h2>Field Families</h2>
+        <div class="stack">
+          <input id="familySeedRef" placeholder="seed field id / key / alias">
+          <div class="toolbar">
+            <button id="familyGenerateBtn">Generate Family Proposal</button>
+            <button id="familyRegistryScanBtn">Registry Family Scan</button>
+          </div>
+          <input id="familyReviewReason" placeholder="Review reason（確認 family 必填）">
+          <p class="hint">Proposal 使用 complete-link coherence；確認 family 不會自動 merge / alias / 搬 cell。</p>
+        </div>
+      </div>
+      <div>
+        <h2>Family Proposals / Families</h2>
+        <div id="familyProposalList" class="scroll-list"></div>
+        <div id="fieldFamilyList" class="scroll-list"></div>
+      </div>
+    </section>
+
+    <section class="panel two-col">
+      <div>
+        <h2>Field Utility</h2>
+        <div class="stack">
+          <input id="utilityFieldRef" placeholder="field id / key / alias">
+          <div class="toolbar">
+            <button id="utilityAssessBtn">Assess</button>
+            <button id="utilityRegistryScan">Registry Utility Scan</button>
+          </div>
+          <textarea id="utilityGuardrailReason" placeholder="Guardrail 原因（protect / unprotect 必填）"></textarea>
+          <div class="toolbar">
+            <button id="utilityProtectBtn">Protect</button>
+            <button id="utilityUnprotectBtn">Unprotect</button>
+          </div>
+          <input id="utilityApplyReason" placeholder="Apply recommendation 的人工／Agent 審核理由">
+          <p class="hint">Assessment 只產生建議；只有下方明確的 Apply 按鈕才會觸發 lifecycle transition。</p>
+        </div>
+      </div>
+      <div>
+        <h2>Utility Assessments</h2>
+        <div id="utilityGuardrailState" class="hint"></div>
+        <div id="utilityAssessmentList" class="scroll-list"></div>
+      </div>
+    </section>
+
+    <section class="panel two-col" data-autonomy-panel="canonical-commit">
+      <div>
+        <h2>Reflexive Autonomy</h2>
+        <p class="hint">Decision ≠ Commit。Inside-envelope canonical actions can commit autonomously after public-state preflight; consensus is evidence, not authority.</p>
+        <form id="autonomyExecuteForm" class="stack">
+          <textarea id="autonomyAction" rows="7">{
+  "type": "accept_proposal",
+  "proposal_id": "",
+  "reason": "Autonomous canonical commit"
+}</textarea>
+          <input id="autonomyConsensusPacket" placeholder="Optional consensus packet id">
+          <button type="submit">Decide + Execute</button>
+        </form>
+      </div>
+      <div>
+        <h2>Decision / Commit Receipts</h2>
+        <div id="autonomyStats" class="hint"></div>
+        <pre id="autonomyReceipt">尚無 autonomy receipt</pre>
+      </div>
+    </section>
+
+    <section class="panel two-col" data-campaign-panel="advisory-only">
+      <div>
+        <h2>Multi-Agent Campaigns</h2>
+        <p class="hint">Evidence-aware coordination only：campaign 可以分派 work、連結既有 Agent run、產生 consensus/conflict packet；不能直接修改 canonical fields 或 cells。</p>
+        <div class="stack">
+          <input id="campaignName" placeholder="Campaign name" value="Field Campaign">
+          <textarea id="campaignTask">Discover and compare missing field proposals.</textarea>
+          <button id="campaignCreate">Create Campaign</button>
+          <input id="campaignSelectedId" placeholder="campaign id">
+          <button id="campaignAggregate">Aggregate Consensus</button>
+        </div>
+      </div>
+      <div>
+        <h2>Campaigns / Consensus Packets</h2>
+        <div id="campaignList" class="scroll-list"></div>
+        <pre id="campaignDetail"></pre>
+      </div>
+    </section>
+
+    <section class="panel two-col" data-agent-panel="advisory-only">
+      <div>
+        <h2>AI Field Agent</h2>
+        <p class="hint">Advisory only：Agent 可以觀察、提案、評分與評估；不能建立 canonical field、搬 cell、merge/split 或 Apply lifecycle。</p>
+        <div class="stack">
+          <label>Deterministic observation JSON</label>
+          <textarea id="agentDeterministicInput">{"records":[{"paper":"P001","publication_type":"preprint","ai_assistance_disclosed":true}]}</textarea>
+          <button id="agentRunDeterministic">Run Deterministic Agent</button>
+          <label>External suggestion JSON</label>
+          <textarea id="agentExternalInput">{"suggestions":[{"key":"ai_assistance_disclosed","label":"AI Assistance Disclosed","value_type":"boolean","reason":"External advisory suggestion","confidence":0.9,"evidence_refs":[]}]}</textarea>
+          <button id="agentRunExternal">Run External Suggestion Agent</button>
+        </div>
+      </div>
+      <div>
+        <h2>Agent Runs / Receipts</h2>
+        <div id="agentRunList" class="scroll-list"></div>
+        <pre id="agentRunDetail"></pre>
+      </div>
+    </section>
+
+    <section class="panel two-col">
+      <div>
+        <h2>新增 Entity</h2>
+        <form id="entityForm" class="stack">
+          <input name="label" placeholder="名稱" required>
+          <input name="kind" value="record" placeholder="kind">
+          <button>新增 Entity</button>
+        </form>
+      </div>
+      <div>
+        <h2>Entities</h2>
+        <div id="entityList" class="scroll-list"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Task View / 動態投影</h2>
+      <form id="viewForm" class="view-form">
+        <input name="name" placeholder="View 名稱" required>
+        <input name="field_keys" placeholder="欄位 key，以逗號分隔，例如 year,verified,country" required>
+        <button>建立投影</button>
+      </form>
+      <div class="toolbar">
+        <select id="viewSelect"></select>
+        <button id="loadView">載入</button>
+        <button id="prevFields">← 前一窗</button>
+        <button id="nextFields">後一窗 →</button>
+        <span id="windowInfo"></span>
+      </div>
+      <div class="matrix-wrap"><table id="matrix"></table></div>
+      <p class="hint">只渲染目前欄位窗；即使 Registry 有 10,000+ 欄，也不會建立 10,000 個 DOM 欄位。</p>
+    </section>
+
+    <section class="panel">
+      <h2>全域搜尋</h2>
+      <div class="toolbar">
+        <input id="globalSearch" placeholder="欄位、Entity、cell 內容">
+        <button id="globalSearchBtn">搜尋</button>
+      </div>
+      <pre id="searchResults"></pre>
+    </section>
+  </main>
+
+  <div id="toast" aria-live="polite"></div>
+  <script src="/app.js"></script>
+</body>
+</html>

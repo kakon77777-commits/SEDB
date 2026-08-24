@@ -1,0 +1,50 @@
+{
+  "governance_demo": {
+    "agent_actions": 11,
+    "agent_runs": 4,
+    "budget_run_id": "928a46794b4a46e59ebc0341e6ae6eb9",
+    "budget_run_proposals_created": 0,
+    "budget_run_status": "budget_exhausted",
+    "cell_count_after_runs": 1,
+    "cell_count_before_runs": 1,
+    "database": "demo/sedb-agent-governance-v0.3c.sqlite",
+    "denied_intent": "set_cell",
+    "denied_mutation_receipts": 1,
+    "denied_run_id": "3d2f79a0775546efbf758997b8286ec3",
+    "deterministic_outcomes": [
+      "CREATED_PROPOSAL",
+      "SCORED_PROPOSAL",
+      "SKIPPED_ALREADY_REPRESENTED",
+      "ASSESSED_FIELD",
+      "SKIPPED_ALREADY_REPRESENTED",
+      "ASSESSED_FIELD",
+      "CREATED_PROPOSAL",
+      "SCORED_PROPOSAL"
+    ],
+    "deterministic_run_id": "e32ddea0175647ddb3cdb380f012b943",
+    "deterministic_run_status": "completed",
+    "external_outcomes": [
+      "CREATED_PROPOSAL"
+    ],
+    "external_run_id": "2bc4d82be601424181d52ccd62bd1547",
+    "external_run_status": "completed",
+    "field_count_after_runs": 2,
+    "field_count_before_runs": 2,
+    "proposals_created": 3,
+    "semantic_candidates": 4,
+    "utility_assessments": 2
+  },
+  "observation_benchmark": {
+    "cell_count_after": 0,
+    "cell_count_before": 0,
+    "database": "demo/sedb-agent-observation-v0.3c.sqlite",
+    "elapsed_seconds": 0.867795,
+    "field_count_after": 0,
+    "field_count_before": 0,
+    "field_width": 20,
+    "proposals_created": 20,
+    "records": 2000,
+    "run_status": "completed",
+    "steps": 21
+  }
+}

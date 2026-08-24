@@ -1,0 +1,9 @@
+branch: local-v0.4b
+2b04a09 chore: import SEDB v0.4A baseline
+0de840d docs: define reflexive autonomous canonical commit kernel
+6909245 feat: add autonomy commit ledgers
+e3a78aa feat: add open world authority decisions
+5e6cca8 feat: add minimum necessary commit constraints
+e0c8036 feat: add atomic autonomous canonical commits
+2692c8a feat: add compensating rollback receipts
+139b995 release: prepare SEDB v0.4B autonomous commit checkpoint

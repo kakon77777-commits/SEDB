@@ -1,0 +1,10 @@
+{
+  "all_pairs_if_naive": 49995000,
+  "bounded_pair_upper_bound": 60000,
+  "elapsed_seconds": 7.983901,
+  "expected_duplicate_pairs_found": 2,
+  "fields": 10000,
+  "max_neighbors": 6,
+  "persisted_candidates": 2,
+  "threshold": 0.95
+}
