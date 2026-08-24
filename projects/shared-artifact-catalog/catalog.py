@@ -3,8 +3,10 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+from dataclasses import asdict
 from pathlib import Path
 
+from copy_artifact import copy_artifact
 from paths import CatalogConfig
 from schema import CatalogStore
 from taxonomy import (
@@ -51,6 +53,21 @@ def build_parser() -> argparse.ArgumentParser:
     register.add_argument("proposal_id")
     register.add_argument("--registrar", required=True)
     _config_argument(register)
+
+    copy_command = subparsers.add_parser("copy")
+    copy_command.add_argument("record_id")
+    copy_command.add_argument("--destination", type=Path, required=True)
+    copy_command.add_argument(
+        "--mode",
+        choices=["package", "component", "dependency_closure"],
+        required=True,
+    )
+    copy_command.add_argument("--include-required", action="store_true")
+    copy_command.add_argument("--purpose", required=True)
+    copy_command.add_argument("--responsibility-ref", required=True)
+    copy_command.add_argument("--requester-claim", default="")
+    copy_command.add_argument("--host-task-id", default="unresolved")
+    _config_argument(copy_command)
     return parser
 
 
@@ -113,6 +130,25 @@ def main(argv: list[str] | None = None) -> int:
                 values.get("parent_category_id", ""),
                 args.registrar,
                 anchor["id"],
+            )
+        elif args.command == "copy":
+            client = CtclClient(
+                config.ctcl_base_url, config.ctcl_timeout_seconds
+            )
+            result = asdict(
+                copy_artifact(
+                    store=store,
+                    config=config,
+                    record_id=args.record_id,
+                    destination=args.destination,
+                    mode=args.mode,
+                    include_required=args.include_required,
+                    purpose=args.purpose,
+                    responsibility_ref=args.responsibility_ref,
+                    requester_claim=args.requester_claim,
+                    host_task_id=args.host_task_id,
+                    temporal_client=client,
+                )
             )
         else:
             raise ValueError(f"unsupported command: {args.command}")
