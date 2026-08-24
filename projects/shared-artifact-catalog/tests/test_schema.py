@@ -103,3 +103,73 @@ def test_catalog_database_integrity_is_ok(tmp_path) -> None:
     store.ensure_schema()
 
     assert store.integrity_check() == "ok"
+
+
+def test_bulk_create_is_atomic_and_matches_single_record_shape(tmp_path) -> None:
+    store = CatalogStore.open(tmp_path / "catalog.sqlite")
+    store.ensure_schema()
+
+    created = store.create_records_bulk(
+        [
+            {
+                "entity_id": "package:bulk",
+                "kind": "package",
+                "label": "Bulk package",
+                "values": {"title": "Bulk package", "version": 1},
+                "source": "test",
+            },
+            {
+                "entity_id": "component:bulk",
+                "kind": "component",
+                "label": "paper.md",
+                "values": {
+                    "title": "paper.md",
+                    "parent_package_id": "package:bulk",
+                    "sha256": "abc",
+                },
+                "source": "test",
+            },
+        ]
+    )
+
+    assert [record["id"] for record in created] == [
+        "package:bulk",
+        "component:bulk",
+    ]
+    assert created[1]["values"]["parent_package_id"] == "package:bulk"
+
+    with pytest.raises(ValueError, match="duplicate record id in batch"):
+        store.create_records_bulk(
+            [
+                {
+                    "entity_id": "package:duplicate",
+                    "kind": "package",
+                    "label": "one",
+                    "values": {},
+                },
+                {
+                    "entity_id": "package:duplicate",
+                    "kind": "package",
+                    "label": "two",
+                    "values": {},
+                },
+            ]
+        )
+    assert not store._entity_exists("package:duplicate")
+
+
+def test_bulk_current_update_is_atomic_and_refuses_event_kind(tmp_path) -> None:
+    store = CatalogStore.open(tmp_path / "catalog.sqlite")
+    store.ensure_schema()
+    package = store.create_record("package", "p", {"title": "old"})
+    event = store.create_record("copy_event", "event", {"outcome": "refused"})
+
+    with pytest.raises(ValueError, match="immutable event"):
+        store.update_current_bulk(
+            [
+                (package["id"], {"title": "new"}, "test"),
+                (event["id"], {"outcome": "copied"}, "test"),
+            ]
+        )
+
+    assert store.get_record(package["id"])["values"]["title"] == "old"

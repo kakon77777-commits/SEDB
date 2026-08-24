@@ -168,73 +168,89 @@ def _active(records: list[dict]) -> list[dict]:
     ]
 
 
-def _resolve_package(
-    store: CatalogStore, snapshot: PackageSnapshot
-) -> tuple[dict | None, str]:
-    exact = store.find("package", source_relpath=snapshot.source_relpath)
-    if len(exact) == 1:
-        current = exact[0]
-        values = current["values"]
-        if values.get("availability_state") == "missing":
-            return current, "reappeared"
-        if values.get("manifest_sha256") != snapshot.manifest_sha256:
-            return current, "content_changed"
-        return current, "unchanged"
-    same_manifest = _active(
-        store.find(
-            "package", manifest_sha256=snapshot.manifest_sha256
-        )
-    )
-    if len(same_manifest) == 1:
-        return same_manifest[0], "moved"
-    return None, "first_seen"
-
-
-def _resolve_component(
-    store: CatalogStore,
-    package_id: str,
-    snapshot: ComponentSnapshot,
-) -> tuple[dict | None, str]:
-    exact = store.find(
-        "component",
-        parent_package_id=package_id,
-        source_relpath=snapshot.relpath,
-    )
-    if len(exact) == 1:
-        current = exact[0]
-        values = current["values"]
-        if values.get("availability_state") == "missing":
-            return current, "reappeared"
-        if values.get("sha256") != snapshot.sha256:
-            return current, "content_changed"
-        if values.get("source_path") != str(snapshot.source_path):
-            return current, "path_rebound"
-        return current, "unchanged"
-    same_content = _active(
-        store.find(
-            "component",
-            parent_package_id=package_id,
-            sha256=snapshot.sha256,
-        )
-    )
-    if len(same_content) == 1:
-        return same_content[0], "renamed"
-    return None, "first_seen"
-
-
 def _build_plans(
     snapshots: Iterable[PackageSnapshot], store: CatalogStore
 ) -> list[PackagePlan]:
+    packages = store.find("package")
+    components = store.find("component")
+    packages_by_relpath: dict[str, list[dict]] = {}
+    packages_by_manifest: dict[str, list[dict]] = {}
+    for package in packages:
+        values = package["values"]
+        packages_by_relpath.setdefault(
+            str(values.get("source_relpath", "")), []
+        ).append(package)
+        if values.get("availability_state") != "missing":
+            packages_by_manifest.setdefault(
+                str(values.get("manifest_sha256", "")), []
+            ).append(package)
+    components_by_package: dict[str, list[dict]] = {}
+    components_by_relpath: dict[tuple[str, str], list[dict]] = {}
+    components_by_hash: dict[tuple[str, str], list[dict]] = {}
+    for component in components:
+        values = component["values"]
+        package_id = str(values.get("parent_package_id", ""))
+        components_by_package.setdefault(package_id, []).append(component)
+        components_by_relpath.setdefault(
+            (package_id, str(values.get("source_relpath", ""))), []
+        ).append(component)
+        if values.get("availability_state") != "missing":
+            components_by_hash.setdefault(
+                (package_id, str(values.get("sha256", ""))), []
+            ).append(component)
+
     plans: list[PackagePlan] = []
     for snapshot in snapshots:
-        package, package_action = _resolve_package(store, snapshot)
+        exact_packages = packages_by_relpath.get(snapshot.source_relpath, [])
+        if len(exact_packages) == 1:
+            package = exact_packages[0]
+            package_values = package["values"]
+            if package_values.get("availability_state") == "missing":
+                package_action = "reappeared"
+            elif package_values.get("manifest_sha256") != snapshot.manifest_sha256:
+                package_action = "content_changed"
+            else:
+                package_action = "unchanged"
+        else:
+            same_manifest = packages_by_manifest.get(
+                snapshot.manifest_sha256, []
+            )
+            if len(same_manifest) == 1:
+                package = same_manifest[0]
+                package_action = "moved"
+            else:
+                package = None
+                package_action = "first_seen"
         package_id = package["id"] if package else f"package:{uuid4().hex}"
         component_plans: list[ComponentPlan] = []
         seen_ids: set[str] = set()
         for component_snapshot in snapshot.components:
-            component, action = _resolve_component(
-                store, package_id, component_snapshot
+            exact_components = components_by_relpath.get(
+                (package_id, component_snapshot.relpath), []
             )
+            if len(exact_components) == 1:
+                component = exact_components[0]
+                component_values = component["values"]
+                if component_values.get("availability_state") == "missing":
+                    action = "reappeared"
+                elif component_values.get("sha256") != component_snapshot.sha256:
+                    action = "content_changed"
+                elif component_values.get("source_path") != str(
+                    component_snapshot.source_path
+                ):
+                    action = "path_rebound"
+                else:
+                    action = "unchanged"
+            else:
+                same_content = components_by_hash.get(
+                    (package_id, component_snapshot.sha256), []
+                )
+                if len(same_content) == 1:
+                    component = same_content[0]
+                    action = "renamed"
+                else:
+                    component = None
+                    action = "first_seen"
             component_id = (
                 component["id"]
                 if component
@@ -252,7 +268,7 @@ def _build_plans(
 
         if package:
             for component in _active(
-                store.find("component", parent_package_id=package_id)
+                components_by_package.get(package_id, [])
             ):
                 if component["id"] not in seen_ids:
                     component_plans.append(

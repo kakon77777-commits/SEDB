@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 from uuid import uuid4
@@ -299,31 +301,163 @@ class CatalogStore:
         entity_id: str | None = None,
         source: str = "artifact-catalog",
     ) -> dict[str, Any]:
-        record_id = entity_id or f"{kind}:{uuid4().hex}"
-        if self._entity_exists(record_id):
-            raise ValueError(f"record already exists: {record_id}")
-        payload = values or {}
-        self._validate_field_keys(payload)
-        self.entities.create_entity(
-            label=label, kind=kind, entity_id=record_id
-        )
-        for key, value in payload.items():
-            self.entities.set_cell(record_id, key, value, source=source)
-        return self.get_record(record_id)
+        return self.create_records_bulk(
+            [
+                {
+                    "entity_id": entity_id or f"{kind}:{uuid4().hex}",
+                    "kind": kind,
+                    "label": label,
+                    "values": values or {},
+                    "source": source,
+                }
+            ]
+        )[0]
+
+    def create_records_bulk(
+        self,
+        specs: list[dict[str, Any]],
+        *,
+        return_records: bool = True,
+    ) -> list[dict[str, Any]]:
+        if not specs:
+            return []
+        ids = [str(spec["entity_id"]) for spec in specs]
+        if len(ids) != len(set(ids)):
+            raise ValueError("duplicate record id in batch")
+        for spec in specs:
+            label = str(spec["label"]).strip()
+            kind = str(spec["kind"]).strip()
+            if not label or not kind:
+                raise ValueError("record kind and label are required")
+
+        with self.db.connect() as connection:
+            placeholders = ",".join("?" for _ in ids)
+            existing = connection.execute(
+                f"SELECT id FROM entities WHERE id IN ({placeholders})", ids
+            ).fetchall()
+            if existing:
+                raise ValueError(f"record already exists: {existing[0]['id']}")
+            field_rows = connection.execute(
+                "SELECT id,key FROM fields"
+            ).fetchall()
+            field_ids = {row["key"]: row["id"] for row in field_rows}
+            for spec in specs:
+                for key in dict(spec.get("values") or {}):
+                    if key not in field_ids:
+                        raise KeyError(f"field not found: {key}")
+
+            now = datetime.now(timezone.utc).isoformat().replace(
+                "+00:00", "Z"
+            )
+            entity_rows = [
+                (
+                    str(spec["entity_id"]),
+                    str(spec["kind"]).strip(),
+                    str(spec["label"]).strip(),
+                    now,
+                    now,
+                )
+                for spec in specs
+            ]
+            cell_rows: list[tuple[Any, ...]] = []
+            for spec in specs:
+                source = str(spec.get("source") or "artifact-catalog")
+                for key, value in dict(spec.get("values") or {}).items():
+                    cell_rows.append(
+                        (
+                            str(spec["entity_id"]),
+                            field_ids[key],
+                            json.dumps(
+                                value,
+                                ensure_ascii=False,
+                                sort_keys=True,
+                                separators=(",", ":"),
+                            ),
+                            source,
+                            None,
+                            now,
+                        )
+                    )
+            connection.executemany(
+                "INSERT INTO entities(id,kind,label,created_at,updated_at) VALUES(?,?,?,?,?)",
+                entity_rows,
+            )
+            if cell_rows:
+                connection.executemany(
+                    "INSERT INTO cells(entity_id,field_id,value_json,source,confidence,updated_at) VALUES(?,?,?,?,?,?)",
+                    cell_rows,
+                )
+        if not return_records:
+            return []
+        return [self.get_record(entity_id) for entity_id in ids]
 
     def get_record(self, entity_id: str) -> dict[str, Any]:
         return self.entities.get_entity(entity_id, include_cells=True)
 
     def find(self, kind: str, **cell_filters: Any) -> list[dict[str, Any]]:
-        results: list[dict[str, Any]] = []
-        for stub in self.entities.list_entities(limit=10_000):
-            if stub["kind"] != kind:
-                continue
-            record = self.get_record(stub["id"])
-            values = record["values"]
-            if all(values.get(key) == value for key, value in cell_filters.items()):
-                results.append(record)
-        return results
+        clauses = ["e.kind=?"]
+        params: list[Any] = [kind]
+        for index, (key, value) in enumerate(cell_filters.items()):
+            self.fields.get_field(key)
+            clauses.append(
+                f"""
+                EXISTS (
+                    SELECT 1
+                    FROM cells c{index}
+                    JOIN fields f{index} ON f{index}.id=c{index}.field_id
+                    WHERE c{index}.entity_id=e.id
+                      AND f{index}.key=?
+                      AND c{index}.value_json=?
+                )
+                """
+            )
+            params.extend(
+                [
+                    key,
+                    json.dumps(
+                        value,
+                        ensure_ascii=False,
+                        sort_keys=True,
+                        separators=(",", ":"),
+                    ),
+                ]
+            )
+        sql = (
+            "SELECT e.* FROM entities e WHERE "
+            + " AND ".join(clauses)
+            + " ORDER BY e.created_at,e.id"
+        )
+        with self.db.connect() as connection:
+            entity_rows = connection.execute(sql, params).fetchall()
+            records = {row["id"]: dict(row) for row in entity_rows}
+            for record in records.values():
+                record["values"] = {}
+                record["cells"] = {}
+            ids = list(records)
+            for start in range(0, len(ids), 500):
+                chunk = ids[start : start + 500]
+                placeholders = ",".join("?" for _ in chunk)
+                cell_rows = connection.execute(
+                    f"""
+                    SELECT c.entity_id,f.key,c.value_json,c.source,c.confidence,c.updated_at
+                    FROM cells c
+                    JOIN fields f ON f.id=c.field_id
+                    WHERE c.entity_id IN ({placeholders})
+                    ORDER BY c.entity_id,f.key
+                    """,
+                    chunk,
+                ).fetchall()
+                for cell in cell_rows:
+                    value = json.loads(cell["value_json"])
+                    record = records[cell["entity_id"]]
+                    record["values"][cell["key"]] = value
+                    record["cells"][cell["key"]] = {
+                        "value": value,
+                        "source": cell["source"],
+                        "confidence": cell["confidence"],
+                        "updated_at": cell["updated_at"],
+                    }
+        return list(records.values())
 
     def update_current(
         self,
@@ -331,15 +465,79 @@ class CatalogStore:
         values: dict[str, Any],
         source: str = "artifact-catalog",
     ) -> dict[str, Any]:
-        record = self.get_record(entity_id)
-        if record["kind"] not in MUTABLE_KINDS:
-            raise ValueError(
-                f"immutable event record cannot be updated: {record['kind']}"
-            )
-        self._validate_field_keys(values)
-        for key, value in values.items():
-            self.entities.set_cell(entity_id, key, value, source=source)
+        self.update_current_bulk([(entity_id, values, source)])
         return self.get_record(entity_id)
+
+    def update_current_bulk(
+        self,
+        updates: list[tuple[str, dict[str, Any], str]],
+    ) -> None:
+        if not updates:
+            return
+        ids = [entity_id for entity_id, _, _ in updates]
+        if len(ids) != len(set(ids)):
+            raise ValueError("duplicate current record id in update batch")
+        with self.db.connect() as connection:
+            placeholders = ",".join("?" for _ in ids)
+            rows = connection.execute(
+                f"SELECT id,kind FROM entities WHERE id IN ({placeholders})",
+                ids,
+            ).fetchall()
+            by_id = {row["id"]: row["kind"] for row in rows}
+            for entity_id in ids:
+                if entity_id not in by_id:
+                    raise KeyError(f"entity not found: {entity_id}")
+                if by_id[entity_id] not in MUTABLE_KINDS:
+                    raise ValueError(
+                        f"immutable event record cannot be updated: {by_id[entity_id]}"
+                    )
+            field_rows = connection.execute(
+                "SELECT id,key FROM fields"
+            ).fetchall()
+            field_ids = {row["key"]: row["id"] for row in field_rows}
+            for _, values, _ in updates:
+                for key in values:
+                    if key not in field_ids:
+                        raise KeyError(f"field not found: {key}")
+
+            now = datetime.now(timezone.utc).isoformat().replace(
+                "+00:00", "Z"
+            )
+            cell_rows: list[tuple[Any, ...]] = []
+            for entity_id, values, source in updates:
+                for key, value in values.items():
+                    cell_rows.append(
+                        (
+                            entity_id,
+                            field_ids[key],
+                            json.dumps(
+                                value,
+                                ensure_ascii=False,
+                                sort_keys=True,
+                                separators=(",", ":"),
+                            ),
+                            source,
+                            None,
+                            now,
+                        )
+                    )
+            if cell_rows:
+                connection.executemany(
+                    """
+                    INSERT INTO cells(entity_id,field_id,value_json,source,confidence,updated_at)
+                    VALUES(?,?,?,?,?,?)
+                    ON CONFLICT(entity_id,field_id) DO UPDATE SET
+                        value_json=excluded.value_json,
+                        source=excluded.source,
+                        confidence=excluded.confidence,
+                        updated_at=excluded.updated_at
+                    """,
+                    cell_rows,
+                )
+            connection.executemany(
+                "UPDATE entities SET updated_at=? WHERE id=?",
+                [(now, entity_id) for entity_id in ids],
+            )
 
     def create_relation(
         self,

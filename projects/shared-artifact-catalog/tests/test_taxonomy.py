@@ -6,6 +6,7 @@ from schema import CatalogStore
 from taxonomy import (
     UserApprovalRequired,
     add_classification,
+    add_classifications_bulk,
     propose_category,
     register_additive_category,
     register_additive_relation_type,
@@ -235,3 +236,34 @@ def test_invalid_anchor_leaves_no_registered_category(
         )
 
     assert store.find("category", stable_key="orphan_category") == []
+
+
+def test_bulk_classification_creates_each_missing_relation_once(
+    store: CatalogStore, anchor: str
+) -> None:
+    specs = [
+        {
+            "entity_id": f"component:bulk-{index}",
+            "kind": "component",
+            "label": f"component-{index}",
+            "values": {"title": f"component-{index}"},
+        }
+        for index in range(100)
+    ]
+    store.create_records_bulk(specs, return_records=False)
+    pairs = [
+        (f"component:bulk-{index}", category)
+        for index in range(100)
+        for category in ("category:theory", "category:documentation")
+    ]
+
+    first = add_classifications_bulk(
+        store, pairs, "catalog-registrar", anchor
+    )
+    second = add_classifications_bulk(
+        store, pairs, "catalog-registrar", anchor
+    )
+
+    assert first == 200
+    assert second == 0
+    assert len(store.find("relation", relation_type="classified_as")) == 200

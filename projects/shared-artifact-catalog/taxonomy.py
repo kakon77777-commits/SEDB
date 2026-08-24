@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import re
+import json
 from typing import Any
+from uuid import uuid4
 
 from schema import CatalogStore
 from temporal import get_effective_temporal_anchor
@@ -290,6 +292,97 @@ def add_classification(
         anchor_id,
         source=f"artifact-catalog:taxonomy:{registrar}",
     )
+
+
+def existing_classification_pairs(
+    store: CatalogStore,
+) -> set[tuple[str, str]]:
+    classified_as = json.dumps(
+        "classified_as",
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    )
+    with store.db.connect() as connection:
+        rows = connection.execute(
+            """
+            SELECT source.value_json AS source_json,
+                   target.value_json AS target_json
+            FROM entities e
+            JOIN cells relation ON relation.entity_id=e.id
+            JOIN fields relation_field ON relation_field.id=relation.field_id
+            JOIN cells source ON source.entity_id=e.id
+            JOIN fields source_field ON source_field.id=source.field_id
+            JOIN cells target ON target.entity_id=e.id
+            JOIN fields target_field ON target_field.id=target.field_id
+            WHERE e.kind='relation'
+              AND relation_field.key='relation_type'
+              AND relation.value_json=?
+              AND source_field.key='source_record_id'
+              AND target_field.key='target_record_id'
+            """,
+            (classified_as,),
+        ).fetchall()
+    return {
+        (str(json.loads(row["source_json"])), str(json.loads(row["target_json"])))
+        for row in rows
+    }
+
+
+def add_classifications_bulk(
+    store: CatalogStore,
+    pairs: list[tuple[str, str]],
+    registrar: str,
+    anchor_id: str,
+) -> int:
+    _require_anchor(store, anchor_id)
+    existing = existing_classification_pairs(store)
+    normalized: list[tuple[str, str]] = []
+    seen = set(existing)
+    category_cache: dict[str, str] = {}
+    for source_id, category in pairs:
+        if category not in category_cache:
+            category_cache[category] = _resolve_category(store, category)["id"]
+        pair = (source_id, category_cache[category])
+        if pair in seen:
+            continue
+        seen.add(pair)
+        normalized.append(pair)
+    if not normalized:
+        return 0
+
+    source_ids = sorted({source_id for source_id, _ in normalized})
+    placeholders = ",".join("?" for _ in source_ids)
+    with store.db.connect() as connection:
+        found = {
+            row["id"]
+            for row in connection.execute(
+                f"SELECT id FROM entities WHERE id IN ({placeholders})",
+                source_ids,
+            ).fetchall()
+        }
+    missing = [source_id for source_id in source_ids if source_id not in found]
+    if missing:
+        raise KeyError(f"entity not found: {missing[0]}")
+
+    specs = [
+        {
+            "entity_id": f"relation:{uuid4().hex}",
+            "kind": "relation",
+            "label": f"{source_id} classified_as {category_id}",
+            "values": {
+                "source_record_id": source_id,
+                "target_record_id": category_id,
+                "relation_type": "classified_as",
+                "temporal_anchor_id": anchor_id,
+                "registrar": registrar,
+            },
+            "source": f"artifact-catalog:taxonomy:{registrar}",
+        }
+        for source_id, category_id in normalized
+    ]
+    store.create_records_bulk(specs, return_records=False)
+    return len(specs)
 
 
 def require_user_gate(operation: str) -> None:

@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from schema import CatalogStore
-from taxonomy import show_record
+from temporal import get_effective_temporal_anchor
 
 
 @dataclass(frozen=True)
@@ -28,30 +28,18 @@ def _list(value) -> str:
     return ", ".join(_text(item) for item in value)
 
 
-def _category_labels(store: CatalogStore, record_id: str) -> list[str]:
-    labels: list[str] = []
-    for relation in store.find(
-        "relation",
-        source_record_id=record_id,
-        relation_type="classified_as",
-    ):
-        category = store.get_record(relation["values"]["target_record_id"])
-        labels.append(category["label"])
-    return sorted(set(labels), key=str.casefold)
-
-
-def _anchor(store: CatalogStore, record_id: str) -> dict:
-    return show_record(store, record_id).get("latest_version_anchor") or {}
-
-
 def _metadata_lines(
-    store: CatalogStore, record: dict, *, digest_key: str
+    record: dict,
+    *,
+    digest_key: str,
+    category_labels: dict[str, list[str]],
+    anchors: dict[str, dict],
 ) -> list[str]:
     values = record["values"]
-    anchor = _anchor(store, record["id"])
+    anchor = anchors.get(record["id"], {})
     return [
         f"- ID: `{record['id']}`",
-        f"- Categories: {_list(_category_labels(store, record['id']))}",
+        f"- Categories: {_list(category_labels.get(record['id'], []))}",
         f"- Content languages: {_list(values.get('content_languages', []))}",
         f"- Interface languages: {_list(values.get('interface_languages', []))}",
         f"- Programming languages: {_list(values.get('programming_languages', []))}",
@@ -77,6 +65,48 @@ def render_catalog(store: CatalogStore) -> str:
             item["id"],
         ),
     )
+    categories = {
+        item["id"]: item["label"] for item in store.find("category")
+    }
+    category_labels: dict[str, list[str]] = {}
+    for relation in store.find("relation", relation_type="classified_as"):
+        values = relation["values"]
+        label = categories.get(str(values.get("target_record_id")))
+        if label:
+            category_labels.setdefault(
+                str(values.get("source_record_id")), []
+            ).append(label)
+    for labels in category_labels.values():
+        labels[:] = sorted(set(labels), key=str.casefold)
+
+    latest_event: dict[str, dict] = {}
+    version_events = [
+        *store.find("package_version_event"),
+        *store.find("component_version_event"),
+    ]
+    for event in version_events:
+        source_id = str(event["values"].get("source_record_id", ""))
+        current = latest_event.get(source_id)
+        if current is None or (event["created_at"], event["id"]) > (
+            current["created_at"],
+            current["id"],
+        ):
+            latest_event[source_id] = event
+    anchor_ids = {
+        str(event["values"].get("temporal_anchor_id"))
+        for event in latest_event.values()
+        if event["values"].get("temporal_anchor_id")
+    }
+    effective_anchors = {
+        anchor_id: get_effective_temporal_anchor(store, anchor_id)
+        for anchor_id in anchor_ids
+    }
+    anchors = {
+        source_id: effective_anchors.get(
+            str(event["values"].get("temporal_anchor_id")), {}
+        )
+        for source_id, event in latest_event.items()
+    }
     by_package: dict[str, list[dict]] = {}
     for component in components:
         parent = _text(component["values"].get("parent_package_id"))
@@ -96,7 +126,14 @@ def render_catalog(store: CatalogStore) -> str:
         summary = _text(package["values"].get("summary"))
         if summary:
             lines.extend([summary, ""])
-        lines.extend(_metadata_lines(store, package, digest_key="manifest_sha256"))
+        lines.extend(
+            _metadata_lines(
+                package,
+                digest_key="manifest_sha256",
+                category_labels=category_labels,
+                anchors=anchors,
+            )
+        )
         children = by_package.get(package["id"], [])
         if children:
             lines.extend(["", "### Components", ""])
@@ -106,7 +143,12 @@ def render_catalog(store: CatalogStore) -> str:
             )
             lines.extend([f"#### {component_title}", ""])
             lines.extend(
-                _metadata_lines(store, component, digest_key="sha256")
+                _metadata_lines(
+                    component,
+                    digest_key="sha256",
+                    category_labels=category_labels,
+                    anchors=anchors,
+                )
             )
             lines.append("")
         lines.append("")
@@ -117,7 +159,12 @@ def render_catalog(store: CatalogStore) -> str:
         for component in orphans:
             lines.extend([f"### {_text(component['label'])}", ""])
             lines.extend(
-                _metadata_lines(store, component, digest_key="sha256")
+                _metadata_lines(
+                    component,
+                    digest_key="sha256",
+                    category_labels=category_labels,
+                    anchors=anchors,
+                )
             )
             lines.append("")
     return "\n".join(lines).rstrip() + "\n"
