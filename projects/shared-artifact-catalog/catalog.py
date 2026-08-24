@@ -16,6 +16,7 @@ from taxonomy import (
     show_record,
 )
 from temporal import CtclClient, create_temporal_anchor
+from translation import complete_translation, start_translation
 
 
 DEFAULT_CONFIG = Path(__file__).with_name("catalog-config.json")
@@ -68,6 +69,20 @@ def build_parser() -> argparse.ArgumentParser:
     copy_command.add_argument("--requester-claim", default="")
     copy_command.add_argument("--host-task-id", default="unresolved")
     _config_argument(copy_command)
+
+    translate_start = subparsers.add_parser("translate-start")
+    translate_start.add_argument("source_component_id")
+    translate_start.add_argument("--target-language", required=True)
+    translate_start.add_argument("--scope", required=True)
+    translate_start.add_argument("--translator-claim", default="")
+    translate_start.add_argument("--host-task-id", default="unresolved")
+    _config_argument(translate_start)
+
+    translate_complete = subparsers.add_parser("translate-complete")
+    translate_complete.add_argument("job_id")
+    translate_complete.add_argument("--translator-claim", default="")
+    translate_complete.add_argument("--host-task-id", default="unresolved")
+    _config_argument(translate_complete)
     return parser
 
 
@@ -146,6 +161,36 @@ def main(argv: list[str] | None = None) -> int:
                     purpose=args.purpose,
                     responsibility_ref=args.responsibility_ref,
                     requester_claim=args.requester_claim,
+                    host_task_id=args.host_task_id,
+                    temporal_client=client,
+                )
+            )
+        elif args.command == "translate-start":
+            client = CtclClient(
+                config.ctcl_base_url, config.ctcl_timeout_seconds
+            )
+            result = asdict(
+                start_translation(
+                    store=store,
+                    config=config,
+                    source_component_id=args.source_component_id,
+                    target_language=args.target_language,
+                    translation_scope=args.scope,
+                    translator_claim=args.translator_claim,
+                    host_task_id=args.host_task_id,
+                    temporal_client=client,
+                )
+            )
+        elif args.command == "translate-complete":
+            client = CtclClient(
+                config.ctcl_base_url, config.ctcl_timeout_seconds
+            )
+            result = asdict(
+                complete_translation(
+                    store=store,
+                    config=config,
+                    job_id=args.job_id,
+                    translator_claim=args.translator_claim,
                     host_task_id=args.host_task_id,
                     temporal_client=client,
                 )
