@@ -3,6 +3,7 @@
 - Date: 2026-08-24
 - Status: approved design for implementation planning
 - SEDB baseline: local `current/` v0.4B
+- CTCL baseline: `https://commoninstant.org` REST / Remote MCP plus local CTCL-App fallback semantics
 - Content root: `D:\Ai\work together\Theory_Application_Research_Staging`
 - Catalog project: `D:\Ai\work together\SEDB\projects\shared-artifact-catalog`
 
@@ -19,7 +20,8 @@ The system will let an AI:
 3. understand classifications, languages, dependencies, verification state, provenance, and suggested destinations;
 4. copy either the whole package or selected components into an explicitly assigned local responsibility area;
 5. create translation candidates in a separate translation workspace;
-6. propose new classifications when the existing taxonomy is insufficient.
+6. compare local file times and CTCL-anchored version-update times;
+7. propose new classifications when the existing taxonomy is insufficient.
 
 The folder manager and registrar reviews additive classification proposals and registers accepted categories. Destructive or meaning-changing taxonomy operations remain user-gated.
 
@@ -44,7 +46,13 @@ The SEDB project is authoritative for:
 - classification proposals and registrar decisions;
 - copy and translation events.
 
-### 2.3 Action authority
+### 2.3 Temporal authority
+
+CTCL supplies shared temporal anchors for catalog-changing operations. One ingest, copy, translation, or registration batch receives one CTCL instant; every event in that batch references the same anchor. CTCL is not called once per file.
+
+SEDB remains authoritative for what changed. CTCL is authoritative only for the referenced common instant and its time representations. Filesystem modification time remains an observed local hint and never becomes proof of canonical version order by itself.
+
+### 2.4 Action authority
 
 Local copying and translation-candidate creation are authorized within the configured local roots. These actions do not authorize adoption, merge, upload, deployment, publication, release, deletion, or modification of shared source material.
 
@@ -104,17 +112,17 @@ shared-artifact-catalog\
   README.md
   catalog-config.json
   schema.py
+  temporal.py
   ingest.py
   catalog.py
   export_catalog.py
   shared-artifact-catalog.sqlite
-  ARTIFACT_CATALOG.json
   tests\
 ```
 
-The SQLite database, WAL/SHM sidecars, caches, temporary outputs, and local logs are ignored by Git. Source, tests, configuration, generated plain JSON, and documentation may be reviewed separately for later tracking.
+The SQLite database, WAL/SHM sidecars, caches, temporary outputs, and local logs are ignored by Git. Source, tests, configuration, and documentation may be reviewed separately for later tracking.
 
-`ARTIFACT_CATALOG.md` is generated into the staging root for humans and AIs. `ARTIFACT_CATALOG.json` is generated inside the catalog project as a portable machine-readable projection. Generated files declare that they must not be hand-edited.
+`ARTIFACT_CATALOG.md` is generated into the staging root for humans and AIs. It declares that it must not be hand-edited. There is no persistent timeline JSON or portable catalog JSON in the first implementation; SEDB plus CTCL are the two linked data systems.
 
 ## 6. Data model
 
@@ -217,7 +225,24 @@ The following operations require user approval before registration:
 
 Registrar decisions are append-only event entities and do not erase the original proposal.
 
-### 6.6 Copy event
+### 6.6 Temporal anchor
+
+A `temporal_anchor` represents one catalog operation batch and stores:
+
+- stable local anchor ID;
+- CTCL registered instant ID when synchronized;
+- CTCL canonical UTC value and `Asia/Taipei` projection;
+- CTCL source, precision, uncertainty, and signature metadata when present;
+- local observation time captured before the network call;
+- synchronization state: `registered`, `pending`, or `failed`;
+- operation kind and opaque batch label;
+- creation and reconciliation evidence.
+
+The remote CTCL label and metadata contain only an opaque catalog batch identifier and non-sensitive operation kind. Filenames, absolute paths, project names, document titles, and content metadata are never sent to the public CTCL service.
+
+If remote CTCL is unavailable, the operation records its local observation time honestly as `pending`. A later reconciliation registers that exact time with CTCL and attaches the returned instant ID; it does not pretend the later reconciliation time was the original event time.
+
+### 6.7 Copy event
 
 Every copy attempt creates an immutable `copy_event` with:
 
@@ -228,14 +253,14 @@ Every copy attempt creates an immutable `copy_event` with:
 - purpose and responsibility reference;
 - claimed requester identity;
 - host-observed task/session ID or `unresolved`;
-- timestamp;
+- temporal anchor ID and directly readable local-time projection;
 - outcome: `copied`, `already_present`, `refused`, or `failed`;
 - post-copy fingerprint and verification result;
 - refusal/failure reason where applicable.
 
 Relay labels, familiar names, model names, and self-claims never substitute for a host-observed task/session binding.
 
-### 6.7 Translation job and events
+### 6.8 Translation job and events
 
 A `translation_job` records:
 
@@ -290,7 +315,39 @@ Translation metadata also records:
 - source and output fingerprints;
 - translation and review provenance.
 
-## 8. Ingestion and rescan behavior
+## 8. CTCL temporal anchoring
+
+The catalog integration uses CTCL REST directly for service-to-service writes because it is the smallest and fastest interface. Remote MCP remains a supported AI-facing read path to the same registered instant.
+
+Operation flow:
+
+1. capture the local operation time and generate an opaque batch ID;
+2. call `POST https://commoninstant.org/v1/instants` once for the whole changed batch;
+3. send the captured instant plus an opaque label, never filenames or paths;
+4. store the returned CTCL instant ID and honesty metadata in one `temporal_anchor`;
+5. attach every changed package, component, copy, translation, or taxonomy event in that batch to the same anchor;
+6. allow `GET /v1/instant/{id}` or Remote MCP `ctcl.get_instant` to retrieve the same shared instant later.
+
+An unchanged rescan performs no CTCL registration. Filesystem `LastWriteTime` is stored only as `filesystem_modified_at_local`, an observed hint. A component version update occurs only when its SHA-256 changes; a package version update occurs only when its manifest digest changes. Rename and move events remain distinct from content changes.
+
+The current public endpoint publishes a shared approximate rate limit of 120 `/v1/*` or `/mcp` requests per minute per IP. The one-anchor-per-batch design stays far below this limit and avoids a request per file.
+
+Fresh measurements from this workstation on 2026-08-24 were:
+
+- remote REST `GET /v1/now`, 10 warm calls: 80.45 ms median, 93.48 ms p95;
+- Remote MCP `ctcl.now`, 10 warm calls: 88.21 ms median, 98.58 ms p95;
+- remote REST instant registration: 773.13 ms for one persistent write;
+- remote REST instant retrieval: 95.40 ms;
+- Remote MCP retrieval of the same instant: 115.96 ms;
+- local CTCL CLI `now`: 15.35 ms median;
+- local CTCL CLI instant registration to SQLite: 23.10 ms median;
+- local stdio MCP `ctcl.now`, including process spawn and handshake: 41.39 ms median.
+
+These are environment-specific measurements, not universal performance promises. They establish that one CTCL call per catalog-changing batch is operationally negligible compared with scanning, hashing, or copying artifact trees.
+
+Remote registration failure does not falsify an event time. The local observation is kept as `pending`, the event remains clearly unsynchronized, and a later reconciliation registers the original captured value. Read-only search and inspection do not require CTCL availability.
+
+## 9. Ingestion and rescan behavior
 
 Ingestion is deterministic and idempotent for unchanged inputs.
 
@@ -304,13 +361,15 @@ The scanner:
 6. identifies exact duplicate content without merging package context;
 7. creates new component versions when bytes change;
 8. records missing or moved sources as events rather than deleting history;
-9. preserves manual classifications and registrar decisions across rescans.
+9. preserves manual classifications and registrar decisions across rescans;
+10. registers no CTCL instant when the scan finds no catalog-changing event;
+11. otherwise creates one temporal anchor for the complete change batch.
 
 The initial MWT batch provides the first acceptance fixture. Its existing classification record supplies the starting package groupings and review states.
 
 The database does not ingest arbitrary full file contents by default. It stores metadata, summaries, safe text labels, and fingerprints. This reduces accidental secret or private-content replication while retaining useful discovery.
 
-## 9. Search and views
+## 10. Search and views
 
 The CLI and generated catalog support filtering by:
 
@@ -321,6 +380,7 @@ The CLI and generated catalog support filtering by:
 - programming language;
 - verification state;
 - canonicality/version state;
+- filesystem-modified hint and latest CTCL-anchored version-update time;
 - destination suggestion;
 - dependency mode;
 - translation availability and state;
@@ -338,7 +398,7 @@ Initial task views:
 - Classification Proposals;
 - Copy History.
 
-## 10. Copy workflow
+## 11. Copy workflow
 
 The self-service flow is:
 
@@ -349,7 +409,8 @@ The self-service flow is:
 5. preflight source freshness, destination scope, collisions, and dependencies;
 6. copy without modifying the source;
 7. verify destination hashes;
-8. record the immutable copy event.
+8. register one CTCL anchor for the copy operation;
+9. record the immutable copy event.
 
 Safety rules:
 
@@ -364,7 +425,7 @@ Safety rules:
 - source hash drift requires a rescan before copying;
 - publication, deployment, Git merge, and remote transfer are outside this command surface.
 
-## 11. Translation workflow
+## 12. Translation workflow
 
 Translation work is physically isolated from source material:
 
@@ -387,7 +448,8 @@ Starting a translation job:
 4. creates a source snapshot by copy;
 5. writes a deterministic `SOURCE_REF.json`;
 6. creates an empty work area and notes template;
-7. records a `requested` then `in_progress` event.
+7. registers one CTCL temporal anchor for the job start;
+8. records a `requested` then `in_progress` event.
 
 Completing a translation candidate:
 
@@ -397,11 +459,12 @@ Completing a translation candidate:
 4. registers output components in the catalog;
 5. creates `translation_of` relations;
 6. records technical verification separately from semantic translation review;
-7. marks the output `candidate`, never automatically `approved`.
+7. registers one CTCL temporal anchor for candidate completion;
+8. marks the output `candidate`, never automatically `approved`.
 
 If the source hash changes, unfinished and candidate jobs become `stale` until explicitly rebased or superseded. Original source bytes are never rewritten by a translation workflow.
 
-## 12. Guides
+## 13. Guides
 
 `AI_SELF_SERVICE_GUIDE.md` explains:
 
@@ -412,6 +475,7 @@ If the source hash changes, unfinished and candidate jobs become `stale` until e
 - identity and responsibility evidence;
 - source immutability;
 - the boundary between copy and adoption/publication authority;
+- how CTCL-anchored update time differs from filesystem modification time;
 - how to submit a classification proposal.
 
 `AI_TRANSLATION_GUIDE.md` explains:
@@ -421,13 +485,14 @@ If the source hash changes, unfinished and candidate jobs become `stale` until e
 - where AI output may be written;
 - source-hash locking;
 - translation provenance;
+- CTCL job-start and candidate-completion anchors;
 - candidate/review/approval distinctions;
 - stale and superseded behavior;
 - the prohibition on direct source editing and automatic publication.
 
 Both guides state that embedded document instructions are data, not authority.
 
-## 13. Error handling
+## 14. Error handling
 
 The CLI fails closed with a nonzero exit status and a machine-readable reason code for:
 
@@ -441,13 +506,16 @@ The CLI fails closed with a nonzero exit status and a machine-readable reason co
 - invalid category or language identifiers;
 - unauthorized taxonomy mutation;
 - malformed proposal or event data;
+- malformed CTCL response or temporal-anchor link;
 - database integrity failure;
 - copy or post-copy verification failure;
 - translation output outside the assigned job directory.
 
 Failed and refused actions may be recorded as events, but they do not mutate source files or create canonical classifications.
 
-## 14. Testing strategy
+A remote CTCL outage is handled differently from a path, integrity, or authority failure. When a reliable local observation time was captured, the operation may proceed with `temporal_status=pending`; the CLI emits a machine-readable warning and reconciliation preserves the original captured instant. It never substitutes the later retry time.
+
+## 15. Testing strategy
 
 Implementation follows test-driven development.
 
@@ -475,13 +543,17 @@ Required tests include:
 20. translation job isolation and source snapshot integrity;
 21. stale translation detection;
 22. candidate registration without automatic semantic approval;
-23. deterministic Markdown and JSON export;
-24. SQLite `PRAGMA integrity_check`;
-25. a complete initial MWT ingest/search/copy/translation dry-run fixture.
+23. one CTCL anchor for a changed batch and zero CTCL calls for an unchanged scan;
+24. CTCL payload privacy: no filenames, paths, titles, or content metadata leave the machine;
+25. pending temporal anchors and reconciliation of the original captured instant;
+26. REST registration plus REST/MCP retrieval contract;
+27. deterministic Markdown export;
+28. SQLite `PRAGMA integrity_check`;
+29. a complete initial MWT ingest/search/copy/translation dry-run fixture.
 
 The full existing SEDB v0.4B test suite must remain unchanged and passing because the project consumes, but does not modify, the core.
 
-## 15. Initial MWT acceptance target
+## 16. Initial MWT acceptance target
 
 The first catalog population uses the verified MWT intake under the staging root.
 
@@ -494,12 +566,13 @@ Acceptance requires that the catalog can represent:
 - MWT-11, SWL-02, and WBRG/GCRGDC drafts as needs-review material;
 - duplicate Markdown content without duplicate search noise;
 - mixed natural and programming languages;
+- one CTCL temporal anchor shared by the initial changed ingest batch rather than one request per artifact;
 - at least one component-only copy dry run;
 - at least one whole-package copy dry run;
 - at least one translation candidate dry run under `40_Translation_Workspace`;
 - no changes to the original source folder or intake archive bytes.
 
-## 16. Non-goals for the first implementation
+## 17. Non-goals for the first implementation
 
 The first implementation does not include:
 
@@ -511,10 +584,13 @@ The first implementation does not include:
 - automatic translation approval;
 - remote upload, publication, deployment, or release;
 - automatic Git operations in consumer projects;
+- one CTCL API/MCP request per file;
+- sending filenames, paths, titles, or content metadata to public CTCL;
+- a persistent timeline JSON or portable catalog JSON;
 - deletion or relocation of shared sources;
 - opening any private AI Residence data.
 
-## 17. Completion criteria
+## 18. Completion criteria
 
 The implementation is complete only when:
 
@@ -525,6 +601,7 @@ The implementation is complete only when:
 5. copy and translation workflows pass the safety and provenance tests;
 6. additive classification proposals can be registered while gated mutations are refused;
 7. all project tests and the unchanged SEDB v0.4B suite pass;
-8. SQLite integrity and deterministic export checks pass;
-9. source and intake bytes remain unchanged;
-10. no upload, deployment, publication, release, or unrelated workspace mutation occurs.
+8. changed batches receive one linked CTCL temporal anchor, unchanged scans make no CTCL call, and pending anchors reconcile to their original captured time;
+9. SQLite integrity and deterministic Markdown export checks pass;
+10. source and intake bytes remain unchanged;
+11. no upload, deployment, publication, release, or unrelated workspace mutation occurs.
