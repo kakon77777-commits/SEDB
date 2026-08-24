@@ -7,6 +7,8 @@ from dataclasses import asdict
 from pathlib import Path
 
 from copy_artifact import copy_artifact
+from export_catalog import write_catalog
+from ingest import ingest_registered_packages
 from paths import CatalogConfig
 from schema import CatalogStore
 from taxonomy import (
@@ -15,7 +17,7 @@ from taxonomy import (
     search_records,
     show_record,
 )
-from temporal import CtclClient, create_temporal_anchor
+from temporal import CtclClient, create_temporal_anchor, reconcile_pending
 from translation import complete_translation, start_translation
 
 
@@ -29,6 +31,19 @@ def _config_argument(parser: argparse.ArgumentParser) -> None:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="SEDB shared artifact catalog")
     subparsers = parser.add_subparsers(dest="command", required=True)
+
+    init = subparsers.add_parser("init")
+    _config_argument(init)
+
+    ingest = subparsers.add_parser("ingest")
+    _config_argument(ingest)
+
+    export = subparsers.add_parser("export")
+    export.add_argument("--output", type=Path)
+    _config_argument(export)
+
+    reconcile = subparsers.add_parser("reconcile-time")
+    _config_argument(reconcile)
 
     search = subparsers.add_parser("search")
     search.add_argument("query")
@@ -103,7 +118,32 @@ def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     try:
         config, store = _open(args.config)
-        if args.command == "search":
+        if args.command == "init":
+            translation_root = config.catalog_root / config.translation_zone
+            translation_root.mkdir(parents=True, exist_ok=True)
+            result = {
+                "database_path": str(config.database_path),
+                "translation_workspace": str(translation_root),
+                "initialized": True,
+            }
+        elif args.command == "ingest":
+            client = CtclClient(
+                config.ctcl_base_url, config.ctcl_timeout_seconds
+            )
+            result = asdict(
+                ingest_registered_packages(config, store, client)
+            )
+        elif args.command == "export":
+            output = args.output or (
+                config.catalog_root / "ARTIFACT_CATALOG.md"
+            )
+            result = asdict(write_catalog(store, output))
+        elif args.command == "reconcile-time":
+            client = CtclClient(
+                config.ctcl_base_url, config.ctcl_timeout_seconds
+            )
+            result = reconcile_pending(store, client)
+        elif args.command == "search":
             result = search_records(
                 store,
                 args.query,
