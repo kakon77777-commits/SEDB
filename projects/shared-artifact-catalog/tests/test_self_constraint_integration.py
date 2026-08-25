@@ -71,13 +71,13 @@ def test_self_constraint_bootstrap_routes_languages_and_status_idempotently(
         "theory": (
             "10_Theory/Self_Constraint_Cognitive_Runtime/"
             "UnboundedAxiom_Candidates_Not_Published/zh-Hant/"
-            "ACR_Theory_Canonical_Set_v0.1"
+            "ACR_Phase12_Unified_Theory_Source_Set_v0.2"
         ),
         "application": (
             "20_Applications/Self_Constraint_Cognitive_Runtime/"
             "NeoK_Experimental_Candidates_Not_Published/"
-            "Addressable_Cognitive_Runtime_MVP_v0.1_Phase10_"
-            "Commitment_Store_2026-08-24"
+            "ACR_Phase12_PAGL_Milestone2_DRS_Access_View_"
+            "v0.2_2026-08-25"
         ),
         "history": (
             "30_Research/Self_Constraint_Cognitive_Runtime/"
@@ -90,7 +90,9 @@ def test_self_constraint_bootstrap_routes_languages_and_status_idempotently(
         ),
         "reference": (
             "30_Research/Self_Constraint_Cognitive_Runtime/"
-            "Reference_Source_Packs/Strategic_Cognitive_Source_Pack"
+            "Reference_Source_Packs/"
+            "ACR_Phase12_Unified_Autonomy_Governance_Integration_"
+            "Pack_v0.2_2026-08-25"
         ),
         "duplicate": (
             "30_Research/Self_Constraint_Cognitive_Runtime/"
@@ -160,7 +162,9 @@ def test_self_constraint_bootstrap_routes_languages_and_status_idempotently(
 
     assert theory["values"]["content_languages"] == ["zh-Hant"]
     assert theory["values"]["suggested_routes"] == [UNBOUNDED_AXIOM]
-    assert theory["values"]["canonicality_state"] == "canonical_extracted_set"
+    assert theory["values"][
+        "canonicality_state"
+    ] == "open_revision_source_set"
     assert _category_ids(store, theory["id"]) >= {
         "category:theory",
         "category:documentation",
@@ -170,7 +174,10 @@ def test_self_constraint_bootstrap_routes_languages_and_status_idempotently(
     assert application["values"]["suggested_routes"] == [NEOK]
     assert application["values"][
         "verification_state"
-    ] == "independently_verified_runtime_candidate"
+    ] == "independently_verified_milestone_candidate"
+    assert application["values"][
+        "canonicality_state"
+    ] == "latest_incomplete_milestone"
     assert _category_ids(store, application["id"]) >= {
         "category:experimental_application",
         "category:application",
@@ -187,6 +194,12 @@ def test_self_constraint_bootstrap_routes_languages_and_status_idempotently(
         "category:theory",
         "category:documentation",
     }
+    assert reference["values"][
+        "verification_state"
+    ] == "verified_preimplementation_integration_pack"
+    assert reference["values"][
+        "canonicality_state"
+    ] == "open_revision_anchor"
     assert duplicate["values"]["verification_state"] == "verified_duplicate"
     assert review["values"][
         "verification_state"

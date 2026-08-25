@@ -46,23 +46,51 @@ def _descriptor(relative: str) -> PackageDescriptor:
 
     if normalized.startswith("10_Theory/"):
         languages = ("zh-Hant",) if "/zh-Hant/" in normalized else ("en",)
+        is_phase12_open_revision = name.startswith(
+            "ACR_Phase12_Unified_Theory_Source_Set_"
+        )
         return PackageDescriptor(
             ("theory", "documentation"),
             "verified_integrity_candidate",
-            "canonical_extracted_set",
+            (
+                "open_revision_source_set"
+                if is_phase12_open_revision
+                else "canonical_extracted_set"
+            ),
             languages,
             (),
             (),
             (UNBOUNDED_AXIOM,),
-            "Focused self-constraint or cognitive-runtime theory set retained without publication authority.",
+            (
+                "Phase-12 unified theory source set retained as an open-revision publication candidate."
+                if is_phase12_open_revision
+                else "Focused self-constraint or cognitive-runtime theory set retained without publication authority."
+            ),
         )
 
     if normalized.startswith("20_Applications/"):
-        verification = (
-            "independently_verified_runtime_candidate"
-            if name.startswith("Addressable_Cognitive_Runtime")
-            else "independently_verified_offline_candidate"
-        )
+        is_phase12_milestone = name.startswith("ACR_Phase12_PAGL_Milestone")
+        if is_phase12_milestone:
+            verification = "independently_verified_milestone_candidate"
+            canonicality = "latest_incomplete_milestone"
+            summary = (
+                "Latest supplied executable Phase-12 milestone candidate; "
+                "explicitly not a complete Phase-12 release."
+            )
+        elif name.startswith("Addressable_Cognitive_Runtime"):
+            verification = "independently_verified_runtime_candidate"
+            canonicality = "latest_candidate"
+            summary = (
+                "Latest supplied experimental runtime candidate; no deployment "
+                "or live-provider authority is implied."
+            )
+        else:
+            verification = "independently_verified_offline_candidate"
+            canonicality = "latest_candidate"
+            summary = (
+                "Latest supplied experimental runtime candidate; no deployment "
+                "or live-provider authority is implied."
+            )
         return PackageDescriptor(
             (
                 "experimental_application",
@@ -72,12 +100,12 @@ def _descriptor(relative: str) -> PackageDescriptor:
                 "documentation",
             ),
             verification,
-            "latest_candidate",
+            canonicality,
             ("zh-Hant", "en"),
             ("en", "zh-Hant"),
             ("Python",),
             (NEOK,),
-            "Latest supplied experimental runtime candidate; no deployment or live-provider authority is implied.",
+            summary,
         )
 
     if "/ACR_Version_History/" in normalized:
@@ -142,6 +170,9 @@ def _descriptor(relative: str) -> PackageDescriptor:
         )
 
     if "/Reference_Source_Packs/" in normalized:
+        is_phase12_integration = name.startswith(
+            "ACR_Phase12_Unified_Autonomy_Governance_Integration_Pack_"
+        )
         return PackageDescriptor(
             (
                 "research_evidence",
@@ -149,13 +180,21 @@ def _descriptor(relative: str) -> PackageDescriptor:
                 "documentation",
                 "validation_evidence",
             ),
-            "verified_duplicate_source_pack",
-            "supporting",
+            (
+                "verified_preimplementation_integration_pack"
+                if is_phase12_integration
+                else "verified_duplicate_source_pack"
+            ),
+            "open_revision_anchor" if is_phase12_integration else "supporting",
             ("zh-Hant", "en"),
             (),
             (),
             (),
-            "Supporting theory source pack whose principal papers match the extracted canonical set.",
+            (
+                "Verified Phase-12 pre-implementation integration anchor with preserved source archives."
+                if is_phase12_integration
+                else "Supporting theory source pack whose principal papers match the extracted canonical set."
+            ),
         )
 
     if "/Legacy_Standalone_Duplicates" in normalized:
