@@ -81,7 +81,9 @@ def test_self_constraint_bootstrap_routes_languages_and_status_idempotently(
         ),
         "history": (
             "30_Research/Self_Constraint_Cognitive_Runtime/"
-            "ACR_Version_History/Addressable_Cognitive_Runtime_Phase9.8"
+            "ACR_Version_History/"
+            "Addressable_Cognitive_Runtime_MVP_v0.1_Phase11_"
+            "Context_Compression_2026-08-24"
         ),
         "experiment": (
             "30_Research/Self_Constraint_Cognitive_Runtime/"
@@ -186,6 +188,9 @@ def test_self_constraint_bootstrap_routes_languages_and_status_idempotently(
     }
 
     assert history["values"]["canonicality_state"] == "superseded"
+    assert history["values"][
+        "verification_state"
+    ] == "independently_verified_historical_runtime"
     assert experiment["values"][
         "verification_state"
     ] == "independently_verified_test_suite"

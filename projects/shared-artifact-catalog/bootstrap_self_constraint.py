@@ -109,6 +109,9 @@ def _descriptor(relative: str) -> PackageDescriptor:
         )
 
     if "/ACR_Version_History/" in normalized:
+        independently_verified = (
+            "Phase10_" in name or "Phase11_" in name
+        )
         return PackageDescriptor(
             (
                 "archive",
@@ -117,13 +120,21 @@ def _descriptor(relative: str) -> PackageDescriptor:
                 "validation_evidence",
                 "documentation",
             ),
-            "reported_validation",
+            (
+                "independently_verified_historical_runtime"
+                if independently_verified
+                else "reported_validation"
+            ),
             "superseded",
             ("zh-Hant", "en"),
             ("en",),
             ("Python",),
             (),
-            "Historical cumulative ACR release retained for research provenance.",
+            (
+                "Independently verified historical ACR runtime retained after a newer supplied milestone."
+                if independently_verified
+                else "Historical cumulative ACR release retained for research provenance."
+            ),
         )
 
     if "/Harness_Version_History/" in normalized:
