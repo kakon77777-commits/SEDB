@@ -141,6 +141,12 @@ FIELDS = [
      "attention. Unattended (a push-triggered pipeline) -> it must stand, because the use moment is "
      "unpredictable and, until the provider supports OIDC, nothing can mint a credential at that "
      "moment. Verified 2026-08-25: Cloudflare+Wrangler has no OIDC (workers-sdk#11434 open)."),
+    ("unattended_consumers", "Unattended consumers", "text",
+     "Consumers that read this credential at a moment NOBODY CHOSE — a push trigger, a cron, a "
+     "webhook. Listed separately from `consumers` because attendedness is a property of the CONSUMER, "
+     "not of the credential, and one credential can have both kinds. An attended-tier credential with "
+     "an unattended consumer is the exact shape that broke efficientnewlanguage.org: fine on the "
+     "attended path, permanently broken on the other one."),
     ("stored_copies", "Stored copies", "text",
      "Every place holding this credential's VALUE, as a list. Rotation invalidates all of them at "
      "once, so they have to be enumerable rather than prose. This is the field that answers 'who is "
@@ -192,8 +198,13 @@ class LendingRuleViolation(ValueError):
     """A registration that the tier's own invariant forbids."""
 
 
-def check_lending_rules(tier, attended, consumers):
-    """Refuse registrations whose tier contradicts how the credential is used."""
+def check_lending_rules(tier, attended, consumers, unattended_consumers=None):
+    """Refuse registrations whose tier contradicts how the credential is used.
+
+    Attendedness belongs to the CONSUMER, not the credential. A credential is
+    only as attended as its least attended reader, so a tier that permits a
+    short life is a contradiction the moment something unattended reads it.
+    """
     if tier and tier not in TIERS:
         raise LendingRuleViolation(
             "unknown tier %r; must be one of %s" % (tier, ", ".join(sorted(TIERS))))
@@ -205,6 +216,14 @@ def check_lending_rules(tier, attended, consumers):
             "tier %s requires attended=%s, got attended=%s. The tier is decided by whether a human "
             "is present at USE time, not by how long the credential lives."
             % (tier, spec["attended"], bool(attended)))
+    if spec["attended"] and unattended_consumers:
+        raise LendingRuleViolation(
+            "tier %s declares a human is present at use time, but these consumers read it at a moment "
+            "nobody chooses: %s. A credential is only as attended as its LEAST attended reader, so "
+            "every rotation will break those consumers and their failures will carry no information "
+            "because they fail every time. Either remove the unattended trigger, or register this as "
+            "T0_STANDING and stop rotating it."
+            % (tier, unattended_consumers))
     if spec["may_destroy_after_use"] and consumers:
         raise LendingRuleViolation(
             "tier %s is destroyed when the borrower reports done, so it cannot be the credential an "
@@ -401,7 +420,7 @@ def op_issue(args) -> int:
     # reached once the registration is known to be legal.
     attended = None if args.attended is None else bool(args.attended)
     try:
-        check_lending_rules(args.tier, attended, args.consumers)
+        check_lending_rules(args.tier, attended, args.consumers, args.unattended_consumer)
     except LendingRuleViolation as e:
         print("REFUSED: %s" % e)
         print("  (nothing was written — this check runs before the first cell)")
@@ -424,6 +443,8 @@ def op_issue(args) -> int:
         _set(entities, args.id, "attended", attended)
     if args.copy:
         _set(entities, args.id, "stored_copies", list(args.copy))
+    if args.unattended_consumer:
+        _set(entities, args.id, "unattended_consumers", list(args.unattended_consumer))
     if args.durable:
         _set(entities, args.id, "durable", True)
     print("issued: %s" % args.id)
@@ -681,6 +702,8 @@ def main(argv=None) -> int:
                    help="a human is present when this credential is USED")
     i.add_argument("--unattended", dest="attended", action="store_false",
                    help="read by a pipeline at a moment nobody chooses")
+    i.add_argument("--unattended-consumer", dest="unattended_consumer", action="append", default=[],
+                   help="a consumer that reads at a moment nobody chooses (push trigger, cron); repeatable")
     i.add_argument("--copy", action="append", default=[],
                    help="a place holding the VALUE; repeatable. Rotation kills all of them at once.")
     i.add_argument("--at", default="")
