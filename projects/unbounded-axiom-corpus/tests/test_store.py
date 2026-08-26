@@ -6,7 +6,7 @@ from sedb.db import Database
 from sedb.fields import FieldService
 from sedb.views import ViewService
 from source import load_month
-from store import CorpusStore, SchemaConflictError
+from store import CorpusStore, SchemaConflictError, StorageError
 
 
 def cfg(tmp_path):
@@ -216,3 +216,86 @@ def test_future_non_owned_cell_is_ignored(tmp_path, write_registry):
 
     assert plan.unchanged == ("lm-000001",)
     assert plan.blocked is False
+
+
+def test_apply_creates_exact_entities_and_nonblank_cells(tmp_path, write_registry):
+    store = CorpusStore.open(cfg(tmp_path))
+    store.ensure_schema()
+    selected = selection(
+        write_registry,
+        [
+            paper("lm-000001", created=None),
+            paper("lm-000002"),
+        ],
+    )
+    plan = store.plan(selected)
+
+    result = store.apply(plan)
+
+    assert result.created_entities == 2
+    assert result.created_cells == sum(
+        len(record.values) for record in selected.papers
+    )
+    assert store.entities.get_entity("lm-000001")["cells"].get(
+        "created_date"
+    ) is None
+    assert store.integrity_check() == "ok"
+
+
+def test_apply_refuses_a_blocked_plan_before_writing(tmp_path, write_registry):
+    store = CorpusStore.open(cfg(tmp_path))
+    store.ensure_schema()
+    original = selection(write_registry, [paper("lm-000001")])
+    seed_paper(store, original.papers[0])
+    changed = selection(
+        write_registry,
+        [paper("lm-000001", title="Changed"), paper("lm-000002")],
+    )
+
+    with pytest.raises(StorageError) as exc:
+        store.apply(store.plan(changed))
+
+    assert exc.value.reason_code == "blocked_plan"
+    with pytest.raises(KeyError):
+        store.entities.get_entity("lm-000002")
+
+
+def test_injected_cell_failure_rolls_back_whole_batch(
+    tmp_path,
+    write_registry,
+    monkeypatch,
+):
+    store = CorpusStore.open(cfg(tmp_path))
+    store.ensure_schema()
+    selected = selection(
+        write_registry,
+        [paper("lm-000001"), paper("lm-000002")],
+    )
+    original = store._insert_cells
+
+    def fail_after_one(conn, rows):
+        original(conn, rows[:1])
+        raise OSError("injected write failure")
+
+    monkeypatch.setattr(store, "_insert_cells", fail_after_one)
+
+    with pytest.raises(StorageError) as exc:
+        store.apply(store.plan(selected))
+
+    assert exc.value.reason_code == "storage_failure"
+    assert store.stats()["paper_entities"] == 0
+    assert store.db.scalar("SELECT COUNT(*) FROM cells") == 0
+    assert store.integrity_check() == "ok"
+
+
+def test_rerun_after_apply_is_no_op_plan(tmp_path, write_registry):
+    store = CorpusStore.open(cfg(tmp_path))
+    store.ensure_schema()
+    selected = selection(write_registry, [paper("lm-000001")])
+    store.apply(store.plan(selected))
+
+    rerun = store.plan(selected)
+
+    assert rerun.new == ()
+    assert rerun.unchanged == ("lm-000001",)
+    assert rerun.blocked is False

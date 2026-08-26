@@ -2,9 +2,10 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass
+from datetime import datetime, timezone
 from typing import Any
 
-from config import FIELD_SPECS, ProjectConfig
+from config import CELL_SOURCE, FIELD_SPECS, ProjectConfig
 from sedb.db import Database
 from sedb.entities import EntityService
 from sedb.fields import FieldService
@@ -75,6 +76,17 @@ class DiffPlan:
     @property
     def blocked(self) -> bool:
         return bool(self.conflicts or self.missing_from_source)
+
+
+@dataclass(frozen=True)
+class WriteResult:
+    created_entities: int
+    created_cells: int
+    integrity: str
+
+
+def _now() -> str:
+    return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 
 
 class CorpusStore:
@@ -342,3 +354,127 @@ class CorpusStore:
                 sorted(missing, key=lambda item: item.paper_id)
             ),
         )
+
+    def _insert_cells(self, conn, rows: list[tuple]) -> None:
+        conn.executemany(
+            """
+            INSERT INTO cells(
+                entity_id,
+                field_id,
+                value_json,
+                source,
+                confidence,
+                updated_at
+            )
+            VALUES(?,?,?,?,?,?)
+            """,
+            rows,
+        )
+
+    def apply(self, plan: DiffPlan) -> WriteResult:
+        if plan.blocked:
+            raise StorageError(
+                "blocked_plan",
+                "blocked difference plan cannot be applied",
+            )
+        if not plan.new:
+            return WriteResult(0, 0, self.integrity_check())
+
+        now = _now()
+        try:
+            with self.db.connect() as conn:
+                conn.execute("BEGIN IMMEDIATE")
+                field_rows = conn.execute(
+                    "SELECT id,key FROM fields WHERE namespace=?",
+                    (self.config.namespace,),
+                ).fetchall()
+                field_ids = {row["key"]: row["id"] for row in field_rows}
+                expected_keys = {spec.key for spec in FIELD_SPECS}
+                if expected_keys - field_ids.keys():
+                    raise StorageError(
+                        "storage_failure",
+                        "owned field IDs changed after successful schema preflight",
+                    )
+
+                conn.executemany(
+                    """
+                    INSERT INTO entities(id,kind,label,created_at,updated_at)
+                    VALUES(?,?,?,?,?)
+                    """,
+                    [
+                        (
+                            paper.paper_id,
+                            self.config.entity_kind,
+                            paper.label,
+                            now,
+                            now,
+                        )
+                        for paper in plan.new
+                    ],
+                )
+                cell_rows = [
+                    (
+                        paper.paper_id,
+                        field_ids[key],
+                        json.dumps(
+                            value,
+                            ensure_ascii=False,
+                            sort_keys=True,
+                            separators=(",", ":"),
+                        ),
+                        CELL_SOURCE,
+                        None,
+                        now,
+                    )
+                    for paper in plan.new
+                    for key, value in paper.values.items()
+                ]
+                self._insert_cells(conn, cell_rows)
+
+                ids = [paper.paper_id for paper in plan.new]
+                id_marks = ",".join("?" for _ in ids)
+                entity_count = conn.execute(
+                    f"SELECT COUNT(*) FROM entities WHERE id IN ({id_marks})",
+                    ids,
+                ).fetchone()[0]
+                cell_count = conn.execute(
+                    f"SELECT COUNT(*) FROM cells WHERE entity_id IN ({id_marks})",
+                    ids,
+                ).fetchone()[0]
+                if entity_count != len(plan.new) or cell_count != len(cell_rows):
+                    raise StorageError(
+                        "readback_failure",
+                        "created entity/cell counts do not match plan",
+                    )
+
+                for paper in plan.new:
+                    actual = {
+                        row["key"]: json.loads(row["value_json"])
+                        for row in conn.execute(
+                            """
+                            SELECT f.key,c.value_json
+                            FROM cells c
+                            JOIN fields f ON f.id=c.field_id
+                            WHERE c.entity_id=? AND f.namespace=?
+                            """,
+                            (paper.paper_id, self.config.namespace),
+                        ).fetchall()
+                    }
+                    if actual != paper.values:
+                        raise StorageError(
+                            "readback_failure",
+                            f"paper readback mismatch: {paper.paper_id}",
+                        )
+
+                integrity = conn.execute("PRAGMA integrity_check").fetchone()[0]
+                if integrity != "ok":
+                    raise StorageError(
+                        "integrity_failure",
+                        f"SQLite integrity check failed: {integrity}",
+                    )
+
+            return WriteResult(len(plan.new), len(cell_rows), "ok")
+        except StorageError:
+            raise
+        except Exception as exc:
+            raise StorageError("storage_failure", str(exc)) from exc
