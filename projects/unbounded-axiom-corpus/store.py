@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass
 from typing import Any
 
@@ -8,6 +9,10 @@ from sedb.db import Database
 from sedb.entities import EntityService
 from sedb.fields import FieldService
 from sedb.views import ViewService
+from source import PaperRecord, RegistrySelection
+
+
+MISSING = {"state": "missing"}
 
 
 class SchemaConflictError(RuntimeError):
@@ -36,6 +41,40 @@ class InitResult:
     fields_reused: int
     view_created: bool
     integrity: str
+
+
+@dataclass(frozen=True)
+class FieldDifference:
+    field: str
+    expected: Any
+    actual: Any
+    reason: str
+
+
+@dataclass(frozen=True)
+class RecordConflict:
+    paper_id: str
+    reason_code: str
+    differences: tuple[FieldDifference, ...]
+
+
+@dataclass(frozen=True)
+class MissingSourceRecord:
+    paper_id: str
+    actual_month: str
+
+
+@dataclass(frozen=True)
+class DiffPlan:
+    month: str
+    new: tuple[PaperRecord, ...]
+    unchanged: tuple[str, ...]
+    conflicts: tuple[RecordConflict, ...]
+    missing_from_source: tuple[MissingSourceRecord, ...]
+
+    @property
+    def blocked(self) -> bool:
+        return bool(self.conflicts or self.missing_from_source)
 
 
 class CorpusStore:
@@ -189,3 +228,117 @@ class CorpusStore:
             "by_month": {row["month"]: row["count"] for row in month_rows},
             "integrity": self.integrity_check(),
         }
+
+    def _owned_state(self) -> dict[str, dict[str, Any]]:
+        owned = tuple(spec.key for spec in FIELD_SPECS)
+        placeholders = ",".join("?" for _ in owned)
+        with self.db.connect() as conn:
+            entities = {
+                row["id"]: {
+                    "kind": row["kind"],
+                    "label": row["label"],
+                    "values": {},
+                }
+                for row in conn.execute(
+                    "SELECT id,kind,label FROM entities"
+                ).fetchall()
+            }
+            rows = conn.execute(
+                f"""
+                SELECT c.entity_id,f.key,c.value_json
+                FROM cells c
+                JOIN fields f ON f.id=c.field_id
+                WHERE f.namespace=? AND f.key IN ({placeholders})
+                """,
+                (self.config.namespace, *owned),
+            ).fetchall()
+
+        for row in rows:
+            if row["entity_id"] in entities:
+                entities[row["entity_id"]]["values"][row["key"]] = json.loads(
+                    row["value_json"]
+                )
+        return entities
+
+    def plan(self, selection: RegistrySelection) -> DiffPlan:
+        state = self._owned_state()
+        source_by_id = {paper.paper_id: paper for paper in selection.papers}
+        new = []
+        unchanged = []
+        conflicts = []
+
+        for paper in selection.papers:
+            actual = state.get(paper.paper_id)
+            if actual is None:
+                new.append(paper)
+                continue
+
+            differences = []
+            if actual["kind"] != self.config.entity_kind:
+                differences.append(
+                    FieldDifference(
+                        "entity.kind",
+                        self.config.entity_kind,
+                        actual["kind"],
+                        "value_mismatch",
+                    )
+                )
+            if actual["label"] != paper.label:
+                differences.append(
+                    FieldDifference(
+                        "entity.label",
+                        paper.label,
+                        actual["label"],
+                        "value_mismatch",
+                    )
+                )
+
+            actual_values = actual["values"]
+            for spec in FIELD_SPECS:
+                expected = paper.values.get(spec.key, MISSING)
+                observed = actual_values.get(spec.key, MISSING)
+                if expected != observed:
+                    differences.append(
+                        FieldDifference(
+                            spec.key,
+                            expected,
+                            observed,
+                            "value_mismatch",
+                        )
+                    )
+
+            if differences:
+                reason_code = (
+                    "month_reassignment"
+                    if any(diff.field == "month" for diff in differences)
+                    else "source_conflict"
+                )
+                conflicts.append(
+                    RecordConflict(
+                        paper.paper_id,
+                        reason_code,
+                        tuple(sorted(differences, key=lambda diff: diff.field)),
+                    )
+                )
+            else:
+                unchanged.append(paper.paper_id)
+
+        missing = []
+        for paper_id, actual in state.items():
+            if actual["kind"] != self.config.entity_kind:
+                continue
+            if (
+                actual["values"].get("month") == selection.month
+                and paper_id not in source_by_id
+            ):
+                missing.append(MissingSourceRecord(paper_id, selection.month))
+
+        return DiffPlan(
+            month=selection.month,
+            new=tuple(sorted(new, key=lambda item: item.paper_id)),
+            unchanged=tuple(sorted(unchanged)),
+            conflicts=tuple(sorted(conflicts, key=lambda item: item.paper_id)),
+            missing_from_source=tuple(
+                sorted(missing, key=lambda item: item.paper_id)
+            ),
+        )

@@ -1,14 +1,30 @@
 import pytest
 
-from config import FIELD_SPECS, ProjectConfig, TASK_VIEW_NAME
+from conftest import paper
+from config import CELL_SOURCE, FIELD_SPECS, ProjectConfig, TASK_VIEW_NAME
 from sedb.db import Database
 from sedb.fields import FieldService
 from sedb.views import ViewService
+from source import load_month
 from store import CorpusStore, SchemaConflictError
 
 
 def cfg(tmp_path):
     return ProjectConfig(tmp_path / "papers.json", tmp_path / "corpus.sqlite")
+
+
+def selection(write_registry, items, month="2026-04"):
+    return load_month(write_registry(items), month)
+
+
+def seed_paper(store, record):
+    entity = store.entities.create_entity(
+        entity_id=record.paper_id,
+        label=record.label,
+        kind=store.config.entity_kind,
+    )
+    for key, value in record.values.items():
+        store.entities.set_cell(entity["id"], key, value, source=CELL_SOURCE)
 
 
 def test_init_is_idempotent_and_creates_exact_view(tmp_path):
@@ -93,3 +109,110 @@ def test_empty_stats_are_sparse_and_integrity_is_ok(tmp_path):
     assert stats["cells"] == 0
     assert stats["density"] == 0.0
     assert stats["integrity"] == "ok"
+
+
+def test_new_and_unchanged_are_deterministic(tmp_path, write_registry):
+    store = CorpusStore.open(cfg(tmp_path))
+    store.ensure_schema()
+    selected = selection(
+        write_registry,
+        [paper("lm-000001"), paper("lm-000002")],
+    )
+
+    first = store.plan(selected)
+    seed_paper(store, selected.papers[0])
+    second = store.plan(selected)
+
+    assert [item.paper_id for item in first.new] == ["lm-000001", "lm-000002"]
+    assert [item.paper_id for item in second.new] == ["lm-000002"]
+    assert second.unchanged == ("lm-000001",)
+
+
+def test_conflict_and_new_block_the_plan(tmp_path, write_registry):
+    store = CorpusStore.open(cfg(tmp_path))
+    store.ensure_schema()
+    original = selection(
+        write_registry,
+        [paper("lm-000001", title="Old")],
+    )
+    seed_paper(store, original.papers[0])
+    changed = selection(
+        write_registry,
+        [
+            paper(
+                "lm-000001",
+                title="New",
+                hash="sha256:" + "b" * 64,
+            ),
+            paper("lm-000002"),
+        ],
+    )
+
+    plan = store.plan(changed)
+
+    assert plan.blocked is True
+    assert [item.paper_id for item in plan.new] == ["lm-000002"]
+    assert plan.conflicts[0].paper_id == "lm-000001"
+    assert {diff.field for diff in plan.conflicts[0].differences} == {
+        "entity.label",
+        "title",
+        "sha256",
+    }
+
+
+def test_missing_from_source_blocks_new_records(tmp_path, write_registry):
+    store = CorpusStore.open(cfg(tmp_path))
+    store.ensure_schema()
+    original = selection(write_registry, [paper("lm-000001")])
+    seed_paper(store, original.papers[0])
+    current = selection(write_registry, [paper("lm-000002")])
+
+    plan = store.plan(current)
+
+    assert plan.blocked is True
+    assert [item.paper_id for item in plan.new] == ["lm-000002"]
+    assert [item.paper_id for item in plan.missing_from_source] == ["lm-000001"]
+
+
+def test_month_reassignment_is_global_identity_conflict(tmp_path, write_registry):
+    store = CorpusStore.open(cfg(tmp_path))
+    store.ensure_schema()
+    april = selection(
+        write_registry,
+        [paper("lm-000001", month="2026-04")],
+        "2026-04",
+    )
+    seed_paper(store, april.papers[0])
+    may = selection(
+        write_registry,
+        [paper("lm-000001", month="2026-05")],
+        "2026-05",
+    )
+
+    plan = store.plan(may)
+
+    assert plan.conflicts[0].reason_code == "month_reassignment"
+    assert plan.conflicts[0].differences[0].field == "month"
+
+
+def test_future_non_owned_cell_is_ignored(tmp_path, write_registry):
+    store = CorpusStore.open(cfg(tmp_path))
+    store.ensure_schema()
+    selected = selection(write_registry, [paper("lm-000001")])
+    seed_paper(store, selected.papers[0])
+    store.fields.create_field(
+        key="theory_family",
+        label="Theory family",
+        namespace="future",
+    )
+    store.entities.set_cell(
+        "lm-000001",
+        "theory_family",
+        "MWT",
+        source="future:proposal",
+    )
+
+    plan = store.plan(selected)
+
+    assert plan.unchanged == ("lm-000001",)
+    assert plan.blocked is False
