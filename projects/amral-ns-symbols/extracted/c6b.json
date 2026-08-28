@@ -1,0 +1,244 @@
+[
+  {
+    "key": "ns.c6.c6b.f_visc_down",
+    "latex": "F_{\\rm visc}^{\\downarrow}",
+    "label_zh": "黏性（衰減側）強迫類",
+    "label_en": "viscous (decay-side) forcing class",
+    "definition_zh": "C5 粗糙強迫類拆分後的第一支，對應黏性／平滑側的 turnover（衰減型貢獻）。C6-B.1 證明黏性項在帶號導數極大點恆非正（$\\Delta f(x_\\ast,t)\\le0$），故 $F_{\\rm visc}^{\\downarrow}$ 不可能作為正向尖峰再生引擎；C6-B.2（Viscous Half-Cycle Elimination）據此將其從 $H/F$ candidate cycle 的正向 re-entry 路徑中永久剔除。",
+    "definition_en": "The first branch produced by splitting C5's coarse forcing class: the viscous/smoothing-side turnover (decay-type contribution). Since Theorem C6-B.1 shows the viscous term is never positive at the signed derivative maximum ($\\Delta f(x_\\ast,t)\\le0$), $F_{\\rm visc}^{\\downarrow}$ cannot serve as a positive peak-regeneration engine; C6-B.2 (Viscous Half-Cycle Elimination) accordingly removes it permanently from the positive re-entry branch of the $H/F$ candidate cycle.",
+    "notes": "Together with $F_{\\rm NL}^{\\pm}$ this is C6-B's core split of C5-L's undifferentiated forcing class $\\mathfrak V_k^{visc}+\\mathfrak V_k^{NL}$."
+  },
+  {
+    "key": "ns.c6.c6b.f_nl_pm",
+    "latex": "F_{\\rm NL}^{\\pm}",
+    "label_zh": "投影非線性強迫類（可正可負）",
+    "label_en": "projected nonlinear forcing class (signed)",
+    "definition_zh": "C5 粗糙強迫類拆分後的第二支：投影非線性強迫，其對所選尖峰分量的作用可能是穩定（負向）也可能是增長（正向）。與 $F_{\\rm visc}^{\\downarrow}$ 不同，唯有此支具備成為正向 $H$ re-entry 引擎的可能性，因而是本輪後續全部 alignment／coherence 分析的對象。",
+    "definition_en": "The second branch from splitting C5's coarse forcing class: the projected nonlinear forcing, whose effect on the selected peak component may be either stabilizing (negative) or growing (positive). Unlike $F_{\\rm visc}^{\\downarrow}$, only this branch can possibly serve as a positive $H$ re-entry engine, making it the object of all subsequent alignment/coherence analysis in this round."
+  },
+  {
+    "key": "ns.c6.c6b.a_k",
+    "latex": "A_k(t)=\\max_{|\\zeta|=k,\\ i}\\|D^\\zeta u_i(t)\\|_\\infty",
+    "label_zh": "k 階導數尖峰振幅",
+    "label_en": "order-k derivative peak amplitude",
+    "definition_zh": "在時間 $t$，取所有 $k$ 階空間導數分量（對多重指標 $\\zeta$ 與向量分量 $i$ 取最大）的 $L^\\infty$ 範數之最大值，即該階導數場的整體尖峰振幅。C6-B 圍繞其正向變化（peak regeneration）建立全輪論證，是 Theorem C6-B.1、正向變分帳本（§6）與其後所有 re-entry lemma 的基礎物件。",
+    "definition_en": "At time $t$, the maximum $L^\\infty$ norm over all order-$k$ spatial derivative components (maximized over multi-index $\\zeta$ and vector component $i$) — the overall peak amplitude of the order-$k$ derivative field. C6-B's entire argument (Theorem C6-B.1, the positive-variation ledger of §6, and every subsequent re-entry lemma) is organized around when and how this quantity can grow.",
+    "defining_relation": "A_k(t)=\\max_{|\\zeta|=k,\\ i}\\|D^\\zeta u_i(t)\\|_\\infty"
+  },
+  {
+    "key": "ns.c6.c6b.gamma_ell_duh",
+    "latex": "\\Gamma_\\ell^{Duh}",
+    "label_zh": "Duhamel 相干係數",
+    "label_en": "Duhamel coherence coefficient",
+    "definition_zh": "實際非線性響應 $\\|Z_\\ell\\|_\\infty$ 與其容量上界 $\\mathfrak C_\\ell^{Duh}$ 之比值，取值於 $[0,1]$。$\\Gamma^{Duh}\\approx1$ 表示時間／空間／分量貢獻在響應範數中相干疊加；$\\Gamma^{Duh}\\ll1$ 表示大量 Duhamel 抵消；$\\Gamma^{Duh}=0$ 表示儘管強迫容量為正，響應仍完全抵消。C6-B.3 證明沒有通用下界 $\\Gamma_\\ell^{Duh}\\ge c>0$ 能單由容量推出，這是全篇（乃至提議中 C6-C）最核心的 typed edge coordinate。",
+    "definition_en": "The ratio of the actual nonlinear response $\\|Z_\\ell\\|_\\infty$ to its capacity upper bound $\\mathfrak C_\\ell^{Duh}$, valued in $[0,1]$. $\\Gamma^{Duh}\\approx1$ means time/space/component contributions add coherently in the response norm; $\\Gamma^{Duh}\\ll1$ means substantial Duhamel cancellation; $\\Gamma^{Duh}=0$ means complete cancellation despite positive forcing capacity. C6-B.3 proves no universal lower bound $\\Gamma_\\ell^{Duh}\\ge c>0$ follows from capacity alone — arguably the single most central typed edge coordinate in this round (and the proposed C6-C).",
+    "defining_relation": "\\Gamma_\\ell^{Duh}=\\frac{\\|Z_\\ell\\|_\\infty}{\\mathfrak C_\\ell^{Duh}}\\in[0,1]",
+    "notes": "§0 and §28 use the unsubscripted $\\Gamma^{Duh}$ for the same concept, as one coordinate of the re-entry coherence vector $\\Gamma^{re}$."
+  },
+  {
+    "key": "ns.c6.c6b.f_nl_coh",
+    "latex": "F_{\\rm NL}^{coh}",
+    "label_zh": "相干非線性強迫",
+    "label_en": "coherent nonlinear forcing",
+    "definition_zh": "同時滿足 Duhamel 相干性、響應對繼承熱核的優勢、分量選擇相干性、鏈尺度符號厚度、定理適用合法性，以及整個定理窗口時間持續性等全部前提條件的非線性強迫事件。Theorem C6-B.7（Conditional Nonlinear Re-entry Theorem）證明唯有 $F_{\\rm NL}^{coh}\\to H$ 條件成立，而非粗糙的 $F_{\\rm NL}\\to H$。",
+    "definition_en": "A projected-nonlinear forcing event satisfying all of: Duhamel response coherence, response dominance over inherited heat, component-selection coherence, chain-scale sign thickness, theorem setup legality, and whole-window temporal persistence. Theorem C6-B.7 (Conditional Nonlinear Re-entry Theorem) proves only the conditional $F_{\\rm NL}^{coh}\\to H$ — not the coarse $F_{\\rm NL}\\to H$.",
+    "defining_relation": "F_{\\rm NL}^{coh}\\to H"
+  },
+  {
+    "key": "ns.c6.c6b.h_force",
+    "latex": "H_{\\rm force}",
+    "label_zh": "產生強迫的 H 子型",
+    "label_en": "forcing-producing subtype of H",
+    "definition_zh": "持久壞窗類 $H$ 的一個子型，其後續演化會經由黏性或投影非線性 turnover congestion 產生新的強迫（$H\\Rightarrow H_{\\rm compact}\\vee F_{\\rm visc}\\vee F_{\\rm NL}$，§36）。由於 $H\\not\\Rightarrow F$ 並非無條件成立，唯有落在 $H_{\\rm force}$ 子型中的 $H$ 才可能啟動 $H/F$ candidate cycle 的下一世代，是 Theorem C6-B.9（Typed $H/F$ Cycle Reduction）中循環兩端的物件。",
+    "definition_en": "A subtype of the persistent-bad-window class $H$: the branch whose subsequent evolution produces new forcing via viscous or projected-nonlinear turnover congestion ($H\\Rightarrow H_{\\rm compact}\\vee F_{\\rm visc}\\vee F_{\\rm NL}$, §36). Since $H\\not\\Rightarrow F$ does not hold unconditionally, only $H$ lying in the $H_{\\rm force}$ subtype can possibly initiate the next generation of the $H/F$ candidate cycle; it is the object at both ends of the cycle in Theorem C6-B.9 (Typed $H/F$ Cycle Reduction).",
+    "defining_relation": "H\\Rightarrow H_{\\rm compact}\\vee F_{\\rm visc}\\vee F_{\\rm NL}"
+  },
+  {
+    "key": "ns.c6.c6b.f_signed_component",
+    "latex": "f(x,t)=\\sigma D^\\zeta u_i(x,t)",
+    "label_zh": "帶號極大化導數分量場",
+    "label_en": "signed maximizing derivative component field",
+    "definition_zh": "在 $A_k$ 的極大化分量／符號被達到的時空點，選取符號 $\\sigma\\in\\{\\pm1\\}$ 與對應導數分量 $D^\\zeta u_i$，構造純量場 $f=\\sigma D^\\zeta u_i$，使其在空間極大點 $x_\\ast$ 處等於正值 $A_k(t)$。此構造把 $L^\\infty$ 極大值問題化為單一純量拋物方程，是 Theorem C6-B.1（黏性不能再生 $D^k$ 尖峰）證明所依賴的最大值原理工具。",
+    "definition_en": "At a space-time point where the maximizing component/sign of $A_k$ is attained, one chooses a sign $\\sigma\\in\\{\\pm1\\}$ and the corresponding derivative component $D^\\zeta u_i$ to form the scalar field $f=\\sigma D^\\zeta u_i$, equal to the positive value $A_k(t)$ at the spatial maximum $x_\\ast$. This reduces the $L^\\infty$-peak problem to a single scalar parabolic equation, the maximum-principle device behind the proof of Theorem C6-B.1 (viscosity cannot regenerate the $D^k$ peak).",
+    "defining_relation": "f(x,t)=\\sigma D^\\zeta u_i(x,t),\\qquad \\sigma\\in\\{\\pm1\\},\\qquad f(x_\\ast,t)=A_k(t)>0"
+  },
+  {
+    "key": "ns.c6.c6b.n_k_proj",
+    "latex": "\\mathcal N_k^{proj}(t)",
+    "label_zh": "投影非線性強迫範數",
+    "label_en": "projected nonlinear forcing norm",
+    "definition_zh": "Leray 投影非線性項 $\\mathbb P((u\\cdot\\nabla)u)$ 之 $k$ 階導數，在所有分量／符號中取最大的 $L^\\infty$ 範數。這是本輪唯一能正向驅動 $A_k$ 尖峰增長的來源項，貫穿 Theorem C6-B.1（$D^+A_k\\le\\mathcal N_k^{proj}$）、正向變分帳本、對齊係數 $\\alpha_k^{peak}$、再生效率 $\\eta_k^{grow}$ 等全部後續論證。",
+    "definition_en": "The order-$k$ derivative of the Leray-projected nonlinear term $\\mathbb P((u\\cdot\\nabla)u)$, maximized in $L^\\infty$ norm over all components/signs. This is the only source term in this round capable of positively driving growth of the $A_k$ peak, running through Theorem C6-B.1 ($D^+A_k\\le\\mathcal N_k^{proj}$), the positive-variation ledger, the alignment coefficient $\\alpha_k^{peak}$, and the regeneration efficiency $\\eta_k^{grow}$.",
+    "defining_relation": "\\mathcal N_k^{proj}(t)=\\max_{|\\zeta|=k,i}\\left\\|D^\\zeta\\mathbb P((u\\cdot\\nabla)u)_i\\right\\|_\\infty"
+  },
+  {
+    "key": "ns.c6.c6b.dini_derivative_a_k",
+    "latex": "D^+A_k(t)",
+    "label_zh": "$A_k$ 的上 Dini 導數",
+    "label_en": "upper Dini derivative of $A_k$",
+    "definition_zh": "尖峰振幅 $A_k$ 在時間 $t$ 的上（右）Dini 導數，用以在 $A_k$ 未必處處可微時仍嚴謹描述其瞬時增長率。此為 Theorem C6-B.1 的核心量：因帶號空間極大點滿足 $\\Delta f(x_\\ast,t)\\le0$，故 $D^+A_k(t)\\le\\mathcal N_k^{proj}(t)$——黏性項對尖峰增長的貢獻恆非正，正向增長只能來自投影非線性項。",
+    "definition_en": "The upper (right) Dini derivative of the peak amplitude $A_k$ at time $t$, used to rigorously bound its instantaneous growth rate even where $A_k$ need not be everywhere differentiable. This is the central object of Theorem C6-B.1: since $\\Delta f(x_\\ast,t)\\le0$ at the signed spatial maximum, $D^+A_k(t)\\le\\mathcal N_k^{proj}(t)$ — the viscous contribution to peak growth is never positive, so positive growth can only come from the projected nonlinear term.",
+    "defining_relation": "D^+A_k(t)\\le\\mathcal N_k^{proj}(t)"
+  },
+  {
+    "key": "ns.c6.c6b.var_i_plus_log_r_k",
+    "latex": "\\operatorname{Var}_I^+\\log\\mathcal R_k",
+    "label_zh": "Grujić–Xu 根的正向變分",
+    "label_en": "positive variation of the Grujić–Xu root",
+    "definition_zh": "對 Grujić–Xu 正規化根 $\\mathcal R_k=A_k^{1/(k+1)}/(c^{k/(k+1)}(k!)^{1/(k+1)})$ 只計正向增量的變分（相對於 C5-L 原本計絕對變動的 $\\operatorname{Var}_I\\log\\mathcal R_k$）。C6-B 證明此正向變分僅受投影非線性強迫（經 $A_k$ 正規化後）的時間積分控制，即「正向根再生只受非線性源限制」——黏性項對其無貢獻。",
+    "definition_en": "The \"positive-part-only\" variation of the Grujić–Xu normalized root $\\mathcal R_k=A_k^{1/(k+1)}/(c^{k/(k+1)}(k!)^{1/(k+1)})$, refining C5-L's original absolute-variation quantity $\\operatorname{Var}_I\\log\\mathcal R_k$. C6-B shows this positive variation is bounded solely by the time integral of the $A_k$-normalized projected nonlinear forcing — \"positive root regeneration is nonlinear-source limited,\" with no viscous contribution.",
+    "defining_relation": "\\operatorname{Var}_I^+\\log\\mathcal R_k\\le\\frac1{k+1}\\int_I\\frac{\\mathcal N_k^{proj}(t)}{A_k(t)}dt",
+    "notes": "$\\mathcal R_k$ itself (the explicit Grujić–Xu root formula) is inherited from C5-L / Grujić–Xu, not newly introduced by C6-B; the positive-part (\"+\") refinement and its nonlinear-only bound are C6-B's addition."
+  },
+  {
+    "key": "ns.c6.c6b.f_nl_plus",
+    "latex": "F_{\\rm NL}^{+}",
+    "label_zh": "正向（增長支）非線性強迫",
+    "label_en": "positive/growth branch of nonlinear forcing",
+    "definition_zh": "$F_{\\rm NL}^{\\pm}$ 中僅取正向（增長）作用的分支，是 C6-B.2 論證後「$H/F$ candidate cycle 唯一還存活的正向回返分支」。它出現在本輪最終化簡的循環 $H_{\\rm force}\\to F_{\\rm NL}^{+}\\dashrightarrow H_{\\rm force}$（Theorem C6-B.9）中，連接 $H_{\\rm force}$ 與後續 coherence-gated re-entry。",
+    "definition_en": "The positive/growth-only branch of $F_{\\rm NL}^{\\pm}$ — after C6-B.2's argument, \"the only surviving positive-return branch of the $H/F$ candidate cycle.\" It appears in this round's final reduced cycle $H_{\\rm force}\\to F_{\\rm NL}^{+}\\dashrightarrow H_{\\rm force}$ (Theorem C6-B.9), bridging $H_{\\rm force}$ to the subsequent coherence-gated re-entry."
+  },
+  {
+    "key": "ns.c6.c6b.y_ell",
+    "latex": "Y_\\ell",
+    "label_zh": "繼承熱核部分",
+    "label_en": "inherited heat part",
+    "definition_zh": "mild-form（Duhamel）表示中，$\\ell$ 階導數解 $D^\\ell u(t_1)=Y_\\ell+Z_\\ell$ 分解裡純由初始時刻 $t_0$ 資料經熱半群演化而來、不含非線性響應的一項。§18 的 One-Time Sign-Reentry Lemma 要求 $Y_\\ell$ 相對於非線性響應足夠小（$\\|Y_\\ell\\|_\\infty\\le\\epsilon A_Z$），生成的符號厚集合才會真正遺傳到實際導數場。",
+    "definition_en": "In the mild-form (Duhamel) decomposition $D^\\ell u(t_1)=Y_\\ell+Z_\\ell$, the part coming purely from evolving the initial data at $t_0$ under the heat semigroup, with no nonlinear contribution. The One-Time Sign-Reentry Lemma (§18-19) requires $Y_\\ell$ to be sufficiently small relative to the nonlinear response ($\\|Y_\\ell\\|_\\infty\\le\\epsilon A_Z$) for the generated sign-thick set to actually be inherited by the real derivative field.",
+    "defining_relation": "Y_\\ell=D^\\ell e^{\\nu(t_1-t_0)\\Delta}u(t_0)"
+  },
+  {
+    "key": "ns.c6.c6b.z_ell",
+    "latex": "Z_\\ell",
+    "label_zh": "非線性 Duhamel 響應",
+    "label_en": "nonlinear Duhamel response",
+    "definition_zh": "mild-form 分解 $D^\\ell u(t_1)=Y_\\ell+Z_\\ell$ 中由非線性項經 Duhamel 積分產生的部分。這是本輪判斷「強迫能否重新生成尖峰」的核心物件：其大小僅被 Duhamel capacity $\\mathfrak C_\\ell^{Duh}$ 上界，其相干程度由 $\\Gamma_\\ell^{Duh}$ 量化，其符號厚集合 $E_Z$ 決定能否觸發 one-time sign-reentry。",
+    "definition_en": "In the mild-form decomposition $D^\\ell u(t_1)=Y_\\ell+Z_\\ell$, the part produced by the Duhamel integral of the nonlinear term. This is the central object for whether forcing can regenerate a peak in this round: its magnitude is only upper-bounded by the Duhamel capacity $\\mathfrak C_\\ell^{Duh}$, its coherence is quantified by $\\Gamma_\\ell^{Duh}$, and its sign-thick high set $E_Z$ determines whether it can trigger one-time sign-reentry.",
+    "defining_relation": "Z_\\ell=-\\int_{t_0}^{t_1}D^\\ell e^{\\nu(t_1-s)\\Delta}\\mathbb P((u\\cdot\\nabla)u)(s)ds"
+  },
+  {
+    "key": "ns.c6.c6b.c_ell_duh",
+    "latex": "\\mathfrak C_\\ell^{Duh}",
+    "label_zh": "Duhamel 響應容量",
+    "label_en": "Duhamel (response) capacity",
+    "definition_zh": "對非線性 Duhamel 積分核取範數後逐時間積分所得的上界量，由三角不等式滿足 $\\|Z_\\ell\\|_\\infty\\le\\mathfrak C_\\ell^{Duh}$。這只是容量上界，不是響應下界——正是 §9 到 §11（C6-B.3 Duhamel-Capacity No-Go）強調的核心區分：強迫容量大不代表實際響應大。",
+    "definition_en": "The upper-bound quantity obtained by integrating the norm of the nonlinear Duhamel kernel in time, satisfying the triangle inequality $\\|Z_\\ell\\|_\\infty\\le\\mathfrak C_\\ell^{Duh}$. This is only a capacity upper bound, not a response lower bound — the distinction emphasized from §9 through §11 (C6-B.3, the Duhamel-Capacity No-Go): large forcing capacity does not imply large actual response.",
+    "defining_relation": "\\mathfrak C_\\ell^{Duh}=\\int_{t_0}^{t_1}\\left\\|D^\\ell e^{\\nu(t_1-s)\\Delta}\\mathbb P((u\\cdot\\nabla)u)(s)\\right\\|_\\infty ds"
+  },
+  {
+    "key": "ns.c6.c6b.alpha_k_peak",
+    "latex": "\\alpha_k^{peak}(t)",
+    "label_zh": "尖峰源對齊係數",
+    "label_en": "peak source-alignment coefficient",
+    "definition_zh": "在帶號極大化導數點 $x_\\ast(t)$，投影非線性源實際朝向增大該尖峰方向的分量（正部分）與整體投影非線性強迫範數 $\\mathcal N_k^{proj}$ 之比值。§12 指出即使 $\\mathcal N_k^{proj}$ 很大，若 $\\alpha_k^{peak}\\approx0$（源與尖峰方向錯位），瞬時尖峰仍不會被正向驅動——強迫量值與對齊方向是兩個不同座標。",
+    "definition_en": "At the signed maximizing derivative point $x_\\ast(t)$, the ratio of the positive part of the projected nonlinear source's component actually aligned toward increasing that peak, to the overall projected nonlinear forcing norm $\\mathcal N_k^{proj}$. §12 shows that even when $\\mathcal N_k^{proj}$ is large, if $\\alpha_k^{peak}\\approx0$ (source misaligned with the peak direction), the instantaneous peak is still not positively driven — forcing magnitude and alignment direction are distinct coordinates.",
+    "defining_relation": "\\alpha_k^{peak}(t)=\\frac{\\left[-\\sigma D^\\zeta\\mathbb P((u\\cdot\\nabla)u)_i(x_\\ast,t)\\right]_+}{\\mathcal N_k^{proj}(t)}\\in[0,1]"
+  },
+  {
+    "key": "ns.c6.c6b.eta_k_grow",
+    "latex": "\\eta_k^{grow}",
+    "label_zh": "再生（增長）效率",
+    "label_en": "regeneration / growth efficiency",
+    "definition_zh": "區間 $[t_0,t_1]$ 內尖峰振幅實際淨增量（正部分）與同區間投影非線性強迫累積供給量之比值，量化「花費的非線性容量」轉化為「實際尖峰再生」的效率。當某循環世代 $\\eta_k^{grow}\\to0$，代表花費越來越多非線性容量卻未相應再生尖峰——這是 cycle-break／critical-coherence 的訊號，而非 $H$ re-entry 的證據，也是提議中 C6-C 論文（proof obligation C3）要進一步研究的物件。",
+    "definition_en": "The ratio of the actual net positive increase in peak amplitude over $[t_0,t_1]$ to the accumulated projected nonlinear forcing supplied over the same interval, quantifying how efficiently spent nonlinear capacity converts into actual peak regeneration. When $\\eta_k^{grow}\\to0$ along a recurrent cycle generation, increasing nonlinear capacity is spent without regenerating a comparable peak — a signal of cycle-break/critical-coherence, not evidence of $H$ re-entry, and flagged as a target for the proposed C6-C paper (proof obligation C3).",
+    "defining_relation": "\\eta_k^{grow}=\\frac{[A_k(t_1)-A_k(t_0)]_+}{\\int_{t_0}^{t_1}\\mathcal N_k^{proj}(s)ds}\\in[0,1]"
+  },
+  {
+    "key": "ns.c6.c6b.reentry_gate_chain",
+    "latex": "F_{\\rm NL}\\to R_{\\rm amp}\\to R_{\\rm select}\\to R_{\\rm sign}\\to R_{\\rm setup}\\to R_{\\rm persist}\\to H",
+    "label_zh": "強迫再入五道中介閘門鏈",
+    "label_en": "forcing-reentry five-gate chain",
+    "definition_zh": "§16 將粗糙邊 $F_{\\rm NL}\\to H$ 拆解為五個必須依序通過的中介閘門：$R_{\\rm amp}$（未被抵消的 Duhamel 響應／尖峰再生）、$R_{\\rm select}$（生成分量在壞點仍是定理選中的分量／符號）、$R_{\\rm sign}$（鏈尺度空間符號厚度）、$R_{\\rm setup}$（Grujić–Xu 定理進入合法性）與 $R_{\\rm persist}$（整個定理窗口失敗）。這條鏈是本輪從「強迫很大」到「$H$」之間全部具體引理（C6-B.5、C6-B.6、C6-B.7 等）依序填補的骨架。",
+    "definition_en": "§16 decomposes the coarse edge $F_{\\rm NL}\\to H$ into five intermediate gates that must be passed in sequence: $R_{\\rm amp}$ (noncancelled Duhamel response / peak regeneration), $R_{\\rm select}$ (the generated component remains the theorem-selected component/sign at the bad point), $R_{\\rm sign}$ (chain-scale spatial sign-thickness), $R_{\\rm setup}$ (Grujić–Xu theorem-entry legality), and $R_{\\rm persist}$ (entire theorem-window failure). This chain is the skeleton that all of this round's concrete lemmas (C6-B.5, C6-B.6, C6-B.7, etc.) fill in on the way from \"forcing is large\" to \"$H$.\""
+  },
+  {
+    "key": "ns.c6.c6b.e_z",
+    "latex": "E_Z",
+    "label_zh": "響應鏈尺度高值集合",
+    "label_en": "response chain-scale high set",
+    "definition_zh": "非線性 Duhamel 響應某分量／符號 $\\sigma Z_{\\ell,i}$ 超過閾值 $\\lambda_ZA_Z$（其中 $A_Z=\\|Z_\\ell\\|_\\infty$ 為響應峰值振幅）之空間點集合。C6-B.5（One-Time Sign-Reentry Lemma）要求此集合滿足 1D 鏈尺度符號厚度條件（對所有尺度 $[\\nu]$ 皆有 $b_{E_Z}(x_0,r,[\\nu])>\\delta$），才可能將 Duhamel 響應的「大」轉化為 Grujić–Xu 意義下的「壞幾何」，回應 C6-B.4 no-go 所指出「振幅大不蘊含符號厚集合」的缺口。",
+    "definition_en": "The spatial set on which some component/sign $\\sigma Z_{\\ell,i}$ of the nonlinear Duhamel response exceeds the threshold $\\lambda_ZA_Z$ (where $A_Z=\\|Z_\\ell\\|_\\infty$ is the response peak amplitude). The One-Time Sign-Reentry Lemma (C6-B.5) requires this set to satisfy a 1D chain-scale sign-thickness condition ($b_{E_Z}(x_0,r,[\\nu])>\\delta$ for all scales $[\\nu]$) before the \"largeness\" of the Duhamel response can be converted into Grujić–Xu-type \"bad geometry,\" addressing the gap flagged by the C6-B.4 no-go (\"large amplitude does not imply a sign-thick set\").",
+    "defining_relation": "E_Z=\\left\\{x:\\sigma Z_{\\ell,i}(x)>\\lambda_ZA_Z\\right\\},\\qquad b_{E_Z}(x_0,r,[\\nu])>\\delta\\ \\ \\forall[\\nu]",
+    "notes": "$A_Z=\\|Z_\\ell\\|_\\infty$ (§17) is the local shorthand naming the response amplitude used to set $E_Z$'s threshold. The 1D chain-scale thickness function $b_E(\\cdot)$ itself is inherited notation from an earlier round (sign geometry / chain harmonic compatibility); C6-B applies it to the new set $E_Z$."
+  },
+  {
+    "key": "ns.c6.c6b.epsilon_inherited_ratio",
+    "latex": "\\epsilon",
+    "label_zh": "繼承場比例",
+    "label_en": "inherited-field ratio",
+    "definition_zh": "界定繼承熱核部分 $Y_\\ell$ 相對於響應峰值振幅 $A_Z$ 之「小」程度的比例常數，設定為 $\\|Y_\\ell\\|_\\infty\\le\\epsilon A_Z$。C6-B.5（One-Time Sign-Reentry Lemma）的門檻條件 $\\lambda_Z-\\epsilon>\\lambda(1+\\epsilon)$ 要求 $\\epsilon$ 充分小，繼承場才不會淹沒響應在符號厚集合 $E_Z$ 上造成的優勢，是一次性強迫再入憑證 $\\mathsf{REC}_1$ 的成分之一。",
+    "definition_en": "The ratio constant bounding how \"small\" the inherited heat part $Y_\\ell$ is relative to the response peak amplitude $A_Z$, set via $\\|Y_\\ell\\|_\\infty\\le\\epsilon A_Z$. The threshold condition of the One-Time Sign-Reentry Lemma (C6-B.5), $\\lambda_Z-\\epsilon>\\lambda(1+\\epsilon)$, requires $\\epsilon$ sufficiently small so the inherited field does not swamp the dominance the response creates on $E_Z$; it is one component of the re-entry certificate $\\mathsf{REC}_1$.",
+    "defining_relation": "\\|Y_\\ell\\|_\\infty\\le\\epsilon A_Z"
+  },
+  {
+    "key": "ns.c6.c6b.m_sel",
+    "latex": "m_{\\rm sel}",
+    "label_zh": "分量選擇邊際",
+    "label_en": "component-selection margin",
+    "definition_zh": "在基準點 $x_0$，被生成／檢驗的導數分量／符號之值，減去該點所有其他分量／符號絕對值中的最大者。Grujić–Xu 空間測試是從實際導數張量在 $x_0$「被選中」的分量出發，故 C6-B.5 生成的符號厚集合唯有在 $m_{\\rm sel}>0$（清潔充分門檻）時才真正有效，否則定理可能選中另一個幾何不同的分量／符號。",
+    "definition_en": "At the reference point $x_0$, the value of the generated/tested derivative component/sign minus the maximum absolute value among all other components/signs at that point. Since the Grujić–Xu spatial test operates on whichever component is actually \"selected\" from the derivative tensor at $x_0$, the sign-thick set generated by C6-B.5 is effective only when $m_{\\rm sel}>0$ (a clean sufficient gate) — otherwise the theorem may select a different component/sign with different geometry.",
+    "defining_relation": "m_{\\rm sel}=\\sigma D^\\ell u_i(x_0)-\\max_{(\\zeta',j)\\ne(\\zeta,i)}|D^{\\zeta'}u_j(x_0)|"
+  },
+  {
+    "key": "ns.c6.c6b.rec_1",
+    "latex": "\\mathsf{REC}_{1}",
+    "label_zh": "一次性強迫再入憑證",
+    "label_en": "one-time forcing re-entry certificate",
+    "definition_zh": "§21 定義的憑證物件，收集確立「一次性符號再入」（C6-B.5）所需的五個 typed 座標：Duhamel 相干係數 $\\Gamma_\\ell^{Duh}$（須非退化）、繼承場比例 $\\epsilon$（須低於閾值）、響應閾值分量 $\\lambda_Z$（須滿足 $\\lambda_Z-\\epsilon>\\lambda(1+\\epsilon)$）、選擇邊際 $m_{\\rm sel}$（須為正）與符號厚度 $\\beta_Z$（須大於 $\\delta$）。此憑證遠強於「$F_{\\rm NL}$ 很大」這一粗糙條件。",
+    "definition_en": "The certificate object defined in §21, collecting the five typed coordinates needed to establish a \"one-time sign-reentry\" event (C6-B.5): the Duhamel coherence coefficient $\\Gamma_\\ell^{Duh}$ (must be nondegenerate), the inherited-field ratio $\\epsilon$ (must be below threshold), the response threshold fraction $\\lambda_Z$ (must satisfy $\\lambda_Z-\\epsilon>\\lambda(1+\\epsilon)$), the selection margin $m_{\\rm sel}$ (must be positive), and the sign-thickness $\\beta_Z$ (must exceed $\\delta$). This certificate is far stronger than the coarse condition \"$F_{\\rm NL}$ is large.\"",
+    "defining_relation": "\\mathsf{REC}_{1}=\\left\\{\\Gamma_\\ell^{Duh},\\epsilon,\\lambda_Z,m_{\\rm sel},\\beta_Z\\right\\}"
+  },
+  {
+    "key": "ns.c6.c6b.theta_ell",
+    "latex": "\\Theta_\\ell(s,t_\\ast)",
+    "label_zh": "時間擾動量",
+    "label_en": "temporal perturbation",
+    "definition_zh": "$\\ell$ 階導數場在另一時刻 $s$ 與參考壞時刻 $t_\\ast$ 之間的 $L^\\infty$ 差異。C6-B.6（Sign-Thickness Persistence Lemma）證明只要 $(1+\\lambda)\\Theta_\\ell(s,t_\\ast)<m$，同一符號厚集合在時刻 $s$ 仍落在實際導數場的高值集合內，是把「一次性符號厚事件」延伸為「窗口持續性」（§22-26）論證鏈的核心控制量，並由 C5-L 的 $\\|\\partial_tD^\\ell u\\|_\\infty\\le C\\nu A_{\\ell+2}+\\mathcal N_\\ell^{proj}$ 估計其時間積分上界（§25）。",
+    "definition_en": "The $L^\\infty$ difference of the order-$\\ell$ derivative field between another time $s$ and the reference bad time $t_\\ast$. The Sign-Thickness Persistence Lemma (C6-B.6) shows that whenever $(1+\\lambda)\\Theta_\\ell(s,t_\\ast)<m$, the same sign-thick set remains inside the actual derivative high set at time $s$ — the central control quantity extending a one-time sign-thick event into window persistence (§22-26), whose time integral is in turn bounded via C5-L's $\\|\\partial_tD^\\ell u\\|_\\infty\\le C\\nu A_{\\ell+2}+\\mathcal N_\\ell^{proj}$ (§25).",
+    "defining_relation": "\\Theta_\\ell(s,t_\\ast)=\\|D^\\ell u(s)-D^\\ell u(t_\\ast)\\|_\\infty"
+  },
+  {
+    "key": "ns.c6.c6b.m_threshold_margin",
+    "latex": "m",
+    "label_zh": "符號厚度閾值優勢邊際",
+    "label_en": "sign-thickness threshold dominance margin",
+    "definition_zh": "在參考壞時刻 $t_\\ast$，壞集合 $E$ 上實際導數分量超出理論門檻 $\\lambda A_\\ell(t_\\ast)$ 的嚴格盈餘量（$m>0$）。C6-B.6（Sign-Thickness Persistence Lemma）證明只要時間擾動 $\\Theta_\\ell$ 累積量低於 $m/(1+\\lambda)$，此優勢邊際便足以撐過整個定理窗口。§28 的再入相干向量 $\\Gamma^{re}$ 中，同一概念以 $m_{\\rm thr}$（「實際閾值優勢邊際」）之名收錄。",
+    "definition_en": "At the reference bad time $t_\\ast$, the strict surplus by which the actual derivative component on the bad set $E$ exceeds the theoretical threshold $\\lambda A_\\ell(t_\\ast)$ ($m>0$). The Sign-Thickness Persistence Lemma (C6-B.6) shows that as long as the accumulated temporal perturbation $\\Theta_\\ell$ stays below $m/(1+\\lambda)$, this dominance margin survives the entire theorem window. The re-entry coherence vector $\\Gamma^{re}$ (§28) records this same concept under the name $m_{\\rm thr}$ (\"actual threshold dominance margin\").",
+    "defining_relation": "\\sigma D^\\ell u_i(x,t_\\ast)\\ge\\lambda A_\\ell(t_\\ast)+m\\quad(x\\in E),\\qquad m>0",
+    "notes": "Bare single-letter \"$m$\" is the notation used at its point of definition (§22) and through the C6-B.6 proof (§23-25); §28's summary vector $\\Gamma^{re}$ relabels the same quantity $m_{\\rm thr}$."
+  },
+  {
+    "key": "ns.c6.c6b.beta_z",
+    "latex": "\\beta_Z",
+    "label_zh": "空間符號厚度",
+    "label_en": "spatial sign-thickness",
+    "definition_zh": "量化響應高值集合 $E_Z$ 之 1D 鏈尺度厚度的純量，須滿足 $\\beta_Z>\\delta$ 方能算作真正「符號厚」（即 §17 條件 $b_{E_Z}(x_0,r,[\\nu])>\\delta\\ \\forall[\\nu]$ 的簡記）。它是一次性強迫 re-entry 憑證 $\\mathsf{REC}_1$（§21）的成分之一，也是再入相干向量 $\\Gamma^{re}$（§28）中以邊際 $\\beta_Z-\\delta$ 形式出現的座標；當某循環世代 $\\beta_{Z,n}\\downarrow\\delta$（§29），代表符號厚度正朝臨界飽和退化。",
+    "definition_en": "The scalar quantifying the 1D chain-scale thickness of the response high set $E_Z$; it must satisfy $\\beta_Z>\\delta$ to count as genuinely \"sign-thick\" (shorthand for the §17 condition $b_{E_Z}(x_0,r,[\\nu])>\\delta\\ \\forall[\\nu]$). It is one component of the one-time forcing re-entry certificate $\\mathsf{REC}_1$ (§21) and enters the re-entry coherence vector $\\Gamma^{re}$ (§28) as the margin coordinate $\\beta_Z-\\delta$; when a recurrent generation has $\\beta_{Z,n}\\downarrow\\delta$ (§29), sign-thickness is degenerating toward critical saturation.",
+    "defining_relation": "\\beta_Z>\\delta"
+  },
+  {
+    "key": "ns.c6.c6b.pi_time",
+    "latex": "\\Pi_{\\rm time}",
+    "label_zh": "持續性儲備",
+    "label_en": "persistence reserve",
+    "definition_zh": "再入相干向量 $\\Gamma^{re}$（§28）的分量之一，代表符號厚度優勢邊際 $m$ 能抵抗多少時間擾動累積（即 §25 給出的持續性充分條件 $(1+\\lambda)\\int(C\\nu A_{\\ell+2}+\\mathcal N_\\ell^{proj})dt<m$ 所反映的餘裕）而仍撐過整個定理窗口。當某循環世代 $\\Pi_{{\\rm time},n}\\downarrow0$（§29），代表持續性儲備正在耗盡，是 Forcing-Reentry Critical Saturation 的訊號之一。",
+    "definition_en": "One component of the re-entry coherence vector $\\Gamma^{re}$ (§28), representing how much accumulated temporal perturbation the sign-thickness dominance margin $m$ can withstand (the \"slack\" reflected by the persistence sufficient condition $(1+\\lambda)\\int(C\\nu A_{\\ell+2}+\\mathcal N_\\ell^{proj})dt<m$ of §25) while still surviving the whole theorem window. When a recurrent generation has $\\Pi_{{\\rm time},n}\\downarrow0$ (§29), the persistence reserve is being depleted — one signal of Forcing-Reentry Critical Saturation."
+  },
+  {
+    "key": "ns.c6.c6b.setup_flag",
+    "latex": "\\mathsf{Setup}",
+    "label_zh": "定理適用旗標",
+    "label_en": "theorem-entry (setup) flag",
+    "definition_zh": "再入相干向量 $\\Gamma^{re}$（§28）的分量之一，標記 Grujić–Xu 定理在給定 $(\\ell,t')$ 是否合法適用（theorem setup legal，見 §26 條件 1、§35 的 B-W2 setup failure 情形）。此旗標不成立時，即便其餘相干座標皆為正，符號厚事件仍不能計入 $H$。",
+    "definition_en": "One component of the re-entry coherence vector $\\Gamma^{re}$ (§28), flagging whether the Grujić–Xu theorem is legally applicable at the given $(\\ell,t')$ (theorem setup legal; cf. §26 condition 1, and the B-W2 \"setup failure\" case of §35). If this flag fails, a sign-thick event cannot count toward $H$ regardless of how positive the other coherence coordinates are."
+  },
+  {
+    "key": "ns.c6.c6b.gamma_re",
+    "latex": "\\Gamma^{re}",
+    "label_zh": "再入相干向量",
+    "label_en": "re-entry coherence vector",
+    "definition_zh": "C6-B 對內部 $F$ metadata 的擴充：一個七維座標向量，蒐羅 Duhamel 不抵消程度、非線性容量轉尖峰增長效率、分量選擇邊際、空間符號厚度邊際、閾值優勢邊際、持續性儲備與定理適用旗標。此為附掛在 $F_{\\rm NL}\\to H$ 邊上的 typed edge metadata；在 Theorem C6-B.9（Typed $H/F$ Cycle Reduction）中以「$\\Gamma^{re}$ gates」之名標註循環箭頭，並在 §49 被歸結為新的最小循環問題：這些座標能否在無限多次再生世代中同時保持非退化。",
+    "definition_en": "C6-B's enrichment of internal $F$ metadata: a seven-coordinate vector collecting Duhamel noncancellation, nonlinear-capacity-to-peak-growth efficiency, component-selection margin, spatial sign-thickness margin, threshold dominance margin, persistence reserve, and the theorem-entry flag. This is typed edge metadata attached to the $F_{\\rm NL}\\to H$ edge; it labels the cycle arrow in Theorem C6-B.9 (Typed $H/F$ Cycle Reduction, as \"$\\Gamma^{re}$ gates\"), and §49 distills it into the new minimal cycle question: whether these coordinates can remain simultaneously nondegenerate over infinitely many re-entry generations.",
+    "defining_relation": "\\Gamma^{re}=\\left(\\Gamma^{Duh},\\eta^{grow},m_{\\rm sel},\\beta_Z-\\delta,m_{\\rm thr},\\Pi_{\\rm time},\\mathsf{Setup}\\right)"
+  }
+]

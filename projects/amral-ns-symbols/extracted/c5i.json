@@ -1,0 +1,275 @@
+[
+  {
+    "key": "ns.c5.c5i.normalized_chain_amplitude",
+    "latex": "\\mathcal{R}(k,c,t)",
+    "label_zh": "正規化鏈振幅",
+    "label_en": "normalized chain amplitude",
+    "definition_zh": "第1.1節引入的Grujić–Xu正規化導數根振幅，用以在固定區段正規化常數c下比較各階導數的相對大小。",
+    "definition_en": "The Grujić–Xu normalized derivative-root amplitude introduced in §1.1, used to compare derivative orders under a fixed section normalization constant c.",
+    "defining_relation": "\\mathcal{R}(k,c,t)=\\frac{\\|D^ku(t)\\|_\\infty^{1/(k+1)}}{c^{k/(k+1)}(k!)^{1/(k+1)}}",
+    "notes": "Faithful encoding of Grujić–Xu 2024 Definition 3.15; reused as the chain-root coordinate of the compact C5-I state."
+  },
+  {
+    "key": "ns.c5.c5i.derivative_sections",
+    "latex": "\\ell_{i+1}=\\phi(\\ell_i),\\quad\\phi(x)\\ge 2x",
+    "label_zh": "導數區段",
+    "label_en": "derivative sections",
+    "definition_zh": "第1.1節以指數分離的導數階區間[ℓ_i,ℓ_{i+1}]與增長函數φ(x)≥2x將導數階切成sections。",
+    "definition_en": "Exponentially separated derivative-order intervals [ℓ_i,ℓ_{i+1}] with growth φ(x)≥2x, introduced in §1.1 to partition derivative orders into sections.",
+    "notes": "Carries over from Grujić–Xu Definition 3.15; later hosts the sectionwise sign-defect measures μ_i^{SG}."
+  },
+  {
+    "key": "ns.c5.c5i.section_maximizer",
+    "latex": "m_i",
+    "label_zh": "區段極大子",
+    "label_en": "section maximizer",
+    "definition_zh": "第1.1節在每個區段[ℓ_i,ℓ_{i+1}]上選取使R(j,c(ℓ_i),t)達到最大的階m_i。",
+    "definition_en": "The order m_i in each section [ℓ_i,ℓ_{i+1}] that maximises R(j,c(ℓ_i),t), selected in §1.1.",
+    "defining_relation": "\\mathcal{R}(m_i,c(\\ell_i),t)=\\max_{\\ell_i\\le j\\le\\ell_{i+1}}\\mathcal{R}(j,c(\\ell_i),t)"
+  },
+  {
+    "key": "ns.c5.c5i.type_A",
+    "latex": "\\text{Type-\\mathcal{A}}",
+    "label_zh": "A型區段",
+    "label_en": "Type-A section",
+    "definition_zh": "第2節稱區段為Type-A，若存在更高階k_i>ℓ_{i+1}使其正規化振幅追上或超越當前區段極大值。",
+    "definition_en": "A section is Type-A, as defined in §2, if some higher order k_i>ℓ_{i+1} eventually catches or overtakes the current section maximum.",
+    "notes": "C5-I does not prove Type-A implies all levels spatially good; only a same-time ascent-gain puncture is obtained in §30–31."
+  },
+  {
+    "key": "ns.c5.c5i.type_B",
+    "latex": "\\text{Type-\\mathcal{B}}",
+    "label_zh": "B型區段",
+    "label_en": "Type-B section",
+    "definition_zh": "第2節稱區段為Type-B，若當前區段極大值嚴格支配整個更高階尾部。",
+    "definition_en": "A section is Type-B, as defined in §2, if the current section maximum strictly dominates the entire higher-order tail.",
+    "notes": "Sign-thick descending-root toll is geometrically compatible with Type-B, but published Theorem 3.9 / Corollary 3.12 already stabilize descending chains."
+  },
+  {
+    "key": "ns.c5.c5i.chain_scale_radius",
+    "latex": "r_k(s)",
+    "label_zh": "鏈尺度半徑",
+    "label_en": "chain-scale radius",
+    "definition_zh": "第3節定義Theorem 3.14可容許的最大空間檢驗半徑，作為符號幾何與下降引理的鏈尺度。",
+    "definition_en": "The maximal spatially admissible inspection radius of Theorem 3.14, defined in §3 and used as the chain scale for sign geometry and the descent lemma.",
+    "defining_relation": "r_k(s)=\\frac{1}{2\\widetilde{\\mathcal{C}}(\\|u_0\\|,\\ell,k)\\|D^ku(s)\\|_\\infty^{1/(k+1)}}"
+  },
+  {
+    "key": "ns.c5.c5i.theorem_constant",
+    "latex": "\\widetilde{\\mathcal{C}}_k",
+    "label_zh": "定理常數",
+    "label_en": "theorem constant",
+    "definition_zh": "第3節與第24節中依賴初值、區段與階的published常數，同時控制鏈半徑與定理時間窗。",
+    "definition_en": "The published constant depending on initial data, section, and order, appearing in §3 and §24, that controls both the chain radius and the theorem time window.",
+    "notes": "C5-I does not assume a growth bound on \\widetilde{\\mathcal{C}}_k sufficient to force d_k\\to 1."
+  },
+  {
+    "key": "ns.c5.c5i.selected_sign_high_set",
+    "latex": "V_{\\lambda,k}^{j,\\pm}(s)",
+    "label_zh": "選定符號高位集",
+    "label_en": "selected sign high set",
+    "definition_zh": "第3節定義選定分量與符號的超位集，作為1D弦佔有率與調和測度檢驗的載體。",
+    "definition_en": "The selected-component/sign superlevel set defined in §3, serving as the carrier of 1D chord occupancy and harmonic-measure tests.",
+    "defining_relation": "V_{\\lambda,k}^{j,\\pm}(s)=\\{x:(D^ku)_j^{\\pm}(x,s)>\\lambda A_k(s)\\}"
+  },
+  {
+    "key": "ns.c5.c5i.derivative_amplitude",
+    "latex": "A_k(s)",
+    "label_zh": "導數振幅",
+    "label_en": "derivative amplitude",
+    "definition_zh": "第3節以A_k(s)=\\|D^ku(s)\\|_\\infty記第k階導數的空間上確界振幅。",
+    "definition_en": "The spatial supremum amplitude of the k-th derivative, defined in §3 by A_k(s)=\\|D^ku(s)\\|_\\infty.",
+    "defining_relation": "A_k(s)=\\|D^ku(s)\\|_\\infty"
+  },
+  {
+    "key": "ns.c5.c5i.theorem_parameters",
+    "latex": "(\\lambda,\\delta)",
+    "label_zh": "定理參數對",
+    "label_en": "theorem parameter pair",
+    "definition_zh": "第4節給出與調和測度條件一致選取的published參數對，並要求1/(1+λ)<δ<1。",
+    "definition_en": "The published parameter pair of §4, chosen consistently with the harmonic-measure condition and required to satisfy 1/(1+λ)<δ<1."
+  },
+  {
+    "key": "ns.c5.c5i.occupancy_margin",
+    "latex": "\\kappa_{\\lambda,\\delta}",
+    "label_zh": "佔有裕度",
+    "label_en": "occupancy margin",
+    "definition_zh": "第4節與第22節定義由參數對誘導的正裕度，作為符號厚弦下降引理的係數。",
+    "definition_en": "The positive margin induced by the theorem parameter pair, defined in §4 and §22, which appears as the coefficient in the sign-thick chord descent lemma.",
+    "defining_relation": "\\kappa_{\\lambda,\\delta}=(1+\\lambda)\\delta-1>0"
+  },
+  {
+    "key": "ns.c5.c5i.chord_occupancy",
+    "latex": "b_E(x_0,r,[\\nu])",
+    "label_zh": "弦佔有率",
+    "label_en": "chord occupancy",
+    "definition_zh": "第5節定義可測集E沿過x_0、方向[ν]、半徑r的單位化1D弦佔有率，取值於[0,1]。",
+    "definition_en": "The normalized 1D chord occupancy of a measurable set E through x_0 in projective direction [ν] at radius r, defined in §5 and valued in [0,1].",
+    "defining_relation": "b_E(x_0,r,[\\nu])=\\frac{1}{2r}\\mathcal{H}^1\\bigl(E\\cap(x_0-r\\nu,x_0+r\\nu)\\bigr)"
+  },
+  {
+    "key": "ns.c5.c5i.best_directional_occupancy",
+    "latex": "\\beta_E(x_0,r)",
+    "label_zh": "最佳方向佔有率",
+    "label_en": "best directional occupancy",
+    "definition_zh": "第6節取所有射影方向上弦佔有率的下確界；β_E≤δ等價於存在定理可用的稀疏方向。",
+    "definition_en": "The infimum of chord occupancies over all projective directions, defined in §6; β_E≤δ is equivalent to existence of a theorem-usable sparse direction.",
+    "defining_relation": "\\beta_E(x_0,r)=\\inf_{[\\nu]\\in\\mathbb{RP}^2}b_E(x_0,r,[\\nu])"
+  },
+  {
+    "key": "ns.c5.c5i.spatial_geometry_pass",
+    "latex": "\\mathsf{SG}_k(s)",
+    "label_zh": "空間幾何通過指標",
+    "label_en": "spatial geometry pass",
+    "definition_zh": "第7節以二值指標SG_k(s)=1表示level k在時間s對所有基點皆存在半徑≤r_k的δ-稀疏方向，此即Theorem 3.14的真正空間通過。",
+    "definition_en": "The binary indicator of §7, with SG_k(s)=1 iff every basepoint at time s admits a δ-sparse direction at some radius ≤r_k; this is the genuine spatial pass of Theorem 3.14.",
+    "defining_relation": "\\mathsf{SG}_k(s)=1\\iff\\forall x_0\\,\\exists\\,0<\\rho\\le r_k(s):\\ \\beta_{V_{\\lambda,k}^{j(x_0),\\pm(x_0)}}(x_0,\\rho)\\le\\delta"
+  },
+  {
+    "key": "ns.c5.c5i.angular_sign_profile",
+    "latex": "b_k([\\nu])",
+    "label_zh": "角向符號剖面",
+    "label_en": "angular sign profile",
+    "definition_zh": "第9節在壞見證點x_k與最大鏈半徑r_k上記錄各方向的弦佔有率，得到取值於(δ,1]的L^∞(RP^2)函數。",
+    "definition_en": "The L^∞(RP^2) function of §9 recording chord occupancy in every direction at the bad witness x_k and maximal chain radius r_k, with values strictly above δ.",
+    "notes": "Recurrent profiles compactify by C5-I.1 as a weak-* limit in L^∞(RP^2), yielding an isotropically sign-thick derivative core."
+  },
+  {
+    "key": "ns.c5.c5i.harmonic_measure_map",
+    "latex": "h(\\beta)",
+    "label_zh": "調和測度映射",
+    "label_en": "harmonic-measure map",
+    "definition_zh": "第12節以Solynin極值估計把線上主動集佔有率β映成調和測度下界，且h嚴格遞減。",
+    "definition_en": "The strictly decreasing Solynin extremal lower bound of §12 converting line active-set occupancy β into a harmonic-measure lower bound.",
+    "defining_relation": "h(\\beta)=\\frac{2}{\\pi}\\arcsin\\frac{1-\\beta^2}{1+\\beta^2}"
+  },
+  {
+    "key": "ns.c5.c5i.descent_coefficient",
+    "latex": "d_k(c)",
+    "label_zh": "下降係數",
+    "label_en": "descent coefficient",
+    "definition_zh": "第25節將鏈尺度振幅下降改寫成相鄰正規化根振幅的乘子，並含階乘與定理常數修正。",
+    "definition_en": "The adjacent-order multiplier of §25 converting chain-scale amplitude descent into a comparison of normalized roots, including factorial and theorem-constant corrections.",
+    "defining_relation": "d_k(c)=\\left(\\frac{\\kappa_{\\lambda,\\delta}}{2\\widetilde{\\mathcal{C}}_k}\\right)^{1/k}c^{1/[k(k+1)]}\\frac{(k!)^{1/(k+1)}}{((k-1)!)^{1/k}}",
+    "notes": "C5-I does not assume d_k→1; that would require extra control on the growth of \\widetilde{\\mathcal{C}}_k."
+  },
+  {
+    "key": "ns.c5.c5i.bad_core_mass_fraction",
+    "latex": "\\Phi_k^{bad}",
+    "label_zh": "壞核局部質量分數",
+    "label_en": "bad-core mass fraction",
+    "definition_zh": "第17節定義壞核球B_{r_k}(x_k)內第k階導數L^2質量佔全局L_k^2的分數。",
+    "definition_en": "The fraction of global k-th derivative L^2 mass sitting in the bad-core ball B_{r_k}(x_k), defined in §17.",
+    "defining_relation": "\\Phi_k^{bad}=\\frac{\\int_{B_{r_k}(x_k)}|D^ku|^2\\,dx}{L_k^2},\\qquad L_k=\\|D^ku\\|_2"
+  },
+  {
+    "key": "ns.c5.c5i.effective_volume",
+    "latex": "V_k^{eff}",
+    "label_zh": "有效體積",
+    "label_en": "effective volume",
+    "definition_zh": "第17–18節沿用C5-H有效體積V_k^{eff}=L_k^2/A_k^2，並用以把壞核分數改寫成r_k^3/V_k^{eff}。",
+    "definition_en": "The C5-H effective volume V_k^{eff}=L_k^2/A_k^2, reused in §17–18 to rewrite the bad-core fraction as a multiple of r_k^3/V_k^{eff}.",
+    "defining_relation": "V_k^{eff}=L_k^2/A_k^2=\\mathfrak{N}_k\\Lambda_k^{-3}",
+    "notes": "Carries over from C5-H; couples sign-thick cores to spectral-cell multiplicity."
+  },
+  {
+    "key": "ns.c5.c5i.spectral_cell_multiplicity",
+    "latex": "\\mathfrak{N}_k",
+    "label_zh": "譜胞重數",
+    "label_en": "spectral-cell multiplicity",
+    "definition_zh": "第18節沿用C5-H譜胞重數，說明巨大重數可使單個符號厚核只承擔很小的全局導數質量分數。",
+    "definition_en": "The C5-H spectral-cell multiplicity reused in §18, showing that a large multiplicity can make a single sign-thick core carry only a small global derivative-mass fraction.",
+    "notes": "Carries over from C5-H; sign-thick cores and spectral-cell multiplicity are compatible but coupled motifs."
+  },
+  {
+    "key": "ns.c5.c5i.bad_core_multiplicity",
+    "latex": "N_k",
+    "label_zh": "壞核重數",
+    "label_en": "bad-core multiplicity",
+    "definition_zh": "第19節以同一level/time兩兩不交壞球的個數為壞核重數，並由有效體積對r_k^3的比上界控制。",
+    "definition_en": "The number of pairwise disjoint bad balls at a fixed level and time, introduced in §19 and bounded by a multiple of V_k^{eff}/r_k^3."
+  },
+  {
+    "key": "ns.c5.c5i.section_defect_measure",
+    "latex": "\\mu_i^{SG}",
+    "label_zh": "區段符號缺陷測度",
+    "label_en": "section sign-defect measure",
+    "definition_zh": "第37節把區段內各階的二值幾何失敗指標平均成[0,1]上的子概率測度，用以緊緻化符號缺陷在階空間的分佈。",
+    "definition_en": "The subprobability measure on [0,1] of §37 averaging binary geometry-failure indicators along a section, used to compactify the order-space distribution of sign defects.",
+    "defining_relation": "\\mu_i^{SG}=\\frac{1}{\\ell_{i+1}-\\ell_i+1}\\sum_{k=\\ell_i}^{\\ell_{i+1}}g_{i,k}\\,\\delta_{\\theta_{i,k}},\\quad g_{i,k}=1-\\mathsf{SG}_k,\\quad\\theta_{i,k}=\\frac{k-\\ell_i}{\\ell_{i+1}-\\ell_i}",
+    "notes": "Vanishing μ_*^{SG}=0 does not imply Theorem 3.14 closure, since a single bad level per ever-larger section still blocks an all-order hypothesis."
+  },
+  {
+    "key": "ns.c5.c5i.normalized_chain_time",
+    "latex": "\\tau_k",
+    "label_zh": "正規化鏈時間",
+    "label_en": "normalized chain time",
+    "definition_zh": "第43節把Theorem 3.14的後期時間窗正規化到[1/4,1]，無對齊定理時間時則取值於墳場點∂_T。",
+    "definition_en": "The normalized Theorem 3.14 later-time coordinate of §43, valued in [1/4,1] when an admissible evaluation exists and at the cemetery point ∂_T otherwise.",
+    "defining_relation": "\\tau_k=\\widetilde{\\mathcal{C}}_k A_k(t)^{2/(k+1)}(s-t)\\in[1/4,1]",
+    "notes": "Different derivative orders generally use different theorem-admissible times, so same-time descent inequalities cannot be blindly multiplied across k (G-TIMESTITCH)."
+  },
+  {
+    "key": "ns.c5.c5i.compact_state",
+    "latex": "\\Theta^{I}",
+    "label_zh": "C5-I緊緻狀態",
+    "label_en": "C5-I compact state",
+    "definition_zh": "第57節把鏈根、型態、空間通過、正規化時間、佔有率、角向剖面、壞核質量、譜胞重數與壞階位置打包成可子列緊緻化的區塊狀態。",
+    "definition_en": "The block/level state of §57 packing chain roots, type, spatial pass, normalized time, occupancy, angular profile, bad-core mass, multiplicity, and bad-order location into a subsequentially compactifiable object.",
+    "defining_relation": "\\Theta^{I}=\\langle\\mathcal{R}_k,\\mathsf{T}_i,\\mathsf{SG}_k,\\tau_k,\\beta_k,b_k(\\cdot),\\Phi_k^{bad},\\mathfrak{N}_k,\\theta_i^{bad}\\rangle"
+  },
+  {
+    "key": "ns.c5.c5i.sign_thick_chord_descent",
+    "latex": "A_{k-1}\\ge\\kappa_{\\lambda,\\delta} r_k A_k",
+    "label_zh": "符號厚弦下降引理",
+    "label_en": "sign-thick chord descent lemma",
+    "definition_zh": "第22節的C5-I.3：在壞見證點沿選定座標線積分同號厚弦，強迫低一階振幅至少為裕度乘上r_k A_k。",
+    "definition_en": "C5-I.3 of §22: integrating a same-sign thick chord through a bad witness along a selected coordinate line forces the lower-order amplitude to be at least the occupancy margin times r_k A_k.",
+    "defining_relation": "A_{k-1}\\ge\\kappa_{\\lambda,\\delta} r_k A_k"
+  },
+  {
+    "key": "ns.c5.c5i.harmonic_or_descent_dichotomy",
+    "latex": "\\mathsf{SG}_k(s)=1\\ \\vee\\ \\mathcal{R}(k-1,c,s)\\ge d_k(c)\\mathcal{R}(k,c,s)",
+    "label_zh": "調和或下降二分法",
+    "label_en": "harmonic-or-descent dichotomy",
+    "definition_zh": "第27節的C5-I.4：在定理可容許時間，每個k≥1要嘛空間幾何通過，要嘛正規化根振幅付出下降係數d_k的toll。",
+    "definition_en": "C5-I.4 of §27: at a theorem-admissible time, every k≥1 either spatially passes or pays a descending-root toll with coefficient d_k.",
+    "defining_relation": "\\mathsf{SG}_k(s)=1\\quad\\text{or}\\quad\\mathcal{R}(k-1,c,s)\\ge d_k(c)\\mathcal{R}(k,c,s)",
+    "notes": "Main new bridge of this round; the contrapositive in §28 says a sufficiently steep adjacent root ascent forces chain-scale sign sparseness."
+  },
+  {
+    "key": "ns.c5.c5i.type_a_puncture_criterion",
+    "latex": "\\frac{\\mathcal{R}(K,c,s)}{\\mathcal{R}(J,c,s)}>\\prod_{n=J+1}^{K}d_n(c)^{-1}\\ \\Rightarrow\\ \\exists n\\in(J,K]:\\mathsf{SG}_n(s)=1",
+    "label_zh": "A型穿刺準則",
+    "label_en": "Type-A puncture criterion",
+    "definition_zh": "第30節的C5-I.5：同一時間上若區間[J,K]的上升增益超過下降係數倒數之積，則該區間不能全部空間失敗，至少一階必須調和通過。",
+    "definition_en": "C5-I.5 of §30: a same-time ascent gain on [J,K] larger than the product of inverse descent coefficients cannot have every intermediate level spatially bad, so at least one harmonic-pass level must puncture the interval."
+  },
+  {
+    "key": "ns.c5.c5i.harmonic_critical_saturation",
+    "latex": "\\beta_\\ast=\\delta",
+    "label_zh": "調和臨界飽和缺陷",
+    "label_en": "harmonic critical-saturation defect",
+    "definition_zh": "第11節與第34節稱反覆壞核的最佳佔有率弱極限恰等於定理閾值δ的情形為調和臨界飽和，對應I-SGCRIT而非有限階通過。",
+    "definition_en": "The I-SGCRIT regime of §11 and §34 in which recurrent bad-core best occupancies weak-limit exactly to the theorem threshold δ; this is a boundary saturation of finite-level failures, not a finite-level pass.",
+    "notes": "Analogous to C5-H a-priori saturation: the survivor lives increasingly close to the sufficient regularity boundary rather than violating it by a fixed margin (G-HSAT)."
+  },
+  {
+    "key": "ns.c5.c5i.joint_section_alphabet",
+    "latex": "\\mathsf{Z}_\\ast\\in\\{A_G,A_B,B_G,B_B,\\mathrm{TIME}\\}",
+    "label_zh": "型態–幾何聯合字母",
+    "label_en": "joint type-geometry alphabet",
+    "definition_zh": "第40–41節把每個區段標成Type-A/B與GOOD/BAD的有限字母，另加無對齊定理時間的TIME墳場，從而使無窮區段列具有最終常值聯合型態。",
+    "definition_en": "The finite alphabet of §40–41 labelling each section by Type-A/B and GOOD/BAD, plus a TIME cemetery when no theorem-admissible evaluation can be aligned, so that infinite section sequences admit eventually constant joint types."
+  },
+  {
+    "key": "ns.c5.c5i.line_section_sign_process",
+    "latex": "\\chi_k([\\nu],s)",
+    "label_zh": "線截符號過程",
+    "label_en": "line-section sign process",
+    "definition_zh": "第62節在正規化弦s∈[-1,1]上追蹤選定高位集的指示函數，作為下一輪C5-J的主要對象。",
+    "definition_en": "The indicator of the selected high set along the normalized chord s∈[-1,1], introduced in §62 as the primary object of the next round C5-J.",
+    "defining_relation": "\\chi_k([\\nu],s)=1_{V_{\\lambda,k}^{j,\\pm}}(x_k+r_k s\\nu)",
+    "notes": "Scheduled as the main object of C5-J, living on RP^2×[-1,1] and recording occupancy, interval fragmentation, and neighboring-order correlations beyond total chord occupancy."
+  }
+]

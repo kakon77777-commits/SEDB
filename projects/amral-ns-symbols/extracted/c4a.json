@@ -1,0 +1,263 @@
+[
+  {
+    "key": "ns.c4.c4a.ancestry_sequence",
+    "latex": "\\Gamma_n=(t_n,x_n,R_n,q_n,\\sigma_n)",
+    "label_zh": "祖先事件序列",
+    "label_en": "Ancestry event sequence",
+    "definition_zh": "第4節定義的候選 blow-up 祖先序列，記錄時間、位置、尺度、頻率殼層與手性符號五個座標。",
+    "definition_en": "A candidate blow-up ancestry sequence introduced in §4, recording time, location, scale, frequency shell, and chirality sign.",
+    "defining_relation": "\\Gamma_n=(t_n,x_n,R_n,q_n,\\sigma_n),\\quad t_n\\uparrow T_\\ast,\\quad R_n\\downarrow0,\\quad R_n\\asymp\\lambda_{q_n}^{-1}"
+  },
+  {
+    "key": "ns.c4.c4a.viscous_time_window",
+    "latex": "I_n=\\left[t_n-\\theta\\dfrac{R_n^2}{\\nu},\\,t_n\\right]",
+    "label_zh": "黏性尺度時間窗",
+    "label_en": "Viscous-scale time window",
+    "definition_zh": "第4節以 parabolic／黏性尺度 $R_n^2/\\nu$ 為長度定義的時間窗，作為各 channel 是否「同時活躍」的共同比較基準。",
+    "definition_en": "The parabolic (viscous-scale) time window of length $\\sim R_n^2/\\nu$ defined in §4, serving as the common clock against which channel activity is compared.",
+    "defining_relation": "I_n=\\left[t_n-\\theta\\dfrac{R_n^2}{\\nu},\\,t_n\\right]"
+  },
+  {
+    "key": "ns.c4.c4a.ancestry_core_ball",
+    "latex": "B_n=B(x_n,cR_n)",
+    "label_zh": "祖先核心球",
+    "label_en": "Ancestry core ball",
+    "definition_zh": "第4節定義以 $x_n$ 為心、半徑正比於 $R_n$ 的空間球，作為 carrier label 中「core」的參考區域。",
+    "definition_en": "The spatial ball centered at $x_n$ with radius proportional to $R_n$, defined in §4 as the reference region for the carrier label \"core\"."
+  },
+  {
+    "key": "ns.c4.c4a.phase_space_event_window",
+    "latex": "W_n=I_n\\times B_n\\times[q_n-C,q_n+C]\\times\\{\\pm\\}",
+    "label_zh": "相空間事件窗",
+    "label_en": "Phase-space event window",
+    "definition_zh": "第4節將時間窗、核心球、頻率殼層鄰域與手性符號合併成的相空間窗，提供所有 channel 共同的 ancestry 標記。",
+    "definition_en": "The phase-space window combining the time window, core ball, frequency-shell neighborhood, and chirality sign, defined in §4 to give every channel a common ancestry tag.",
+    "defining_relation": "W_n=I_n\\times B_n\\times[q_n-C,q_n+C]\\times\\{\\pm\\}"
+  },
+  {
+    "key": "ns.c4.c4a.unified_survivor_state",
+    "latex": "\\mathfrak S_n=\\left\\langle\\Gamma_n,\\mathbf L_n,\\mathbf C_n,\\mathbf G_n,\\mathbf D_n\\right\\rangle",
+    "label_zh": "統一倖存者狀態",
+    "label_en": "Unified Survivor State",
+    "definition_zh": "第5節定義的核心物件，把 ancestry、load、carrier、gate、defect 五個向量打包成單一狀態，是全篇 state-transition 架構的基本單位。",
+    "definition_en": "The central object of §5, packaging the ancestry tuple with the load, carrier, gate, and defect vectors into a single state — the basic unit of the paper's state-transition architecture.",
+    "defining_relation": "\\mathfrak S_n=\\left\\langle\\Gamma_n,\\mathbf L_n,\\mathbf C_n,\\mathbf G_n,\\mathbf D_n\\right\\rangle"
+  },
+  {
+    "key": "ns.c4.c4a.load_vector",
+    "latex": "\\mathbf L_n=\\left(L_n^{UV},L_n^{Hel},L_n^{Str},L_n^{Op},L_n^{Pr},L_n^{Der}\\right)",
+    "label_zh": "負載向量",
+    "label_en": "Load vector",
+    "definition_zh": "第6節定義的六分量向量，分別記錄 UV、螺旋度、應變、算子、壓力、導數六個 survivor channel 各自的臨界負載。",
+    "definition_en": "The six-component vector defined in §6, recording the critical load carried by each of the UV, helicity, strain, operator, pressure, and derivative survivor channels."
+  },
+  {
+    "key": "ns.c4.c4a.miller_operator_defect",
+    "latex": "\\mathcal Q_{SV}",
+    "label_zh": "Miller 應變—渦度算子缺陷",
+    "label_en": "Miller strain-vorticity operator defect",
+    "definition_zh": "第2節（E4）引自 Miller 的算子，量化 full Navier–Stokes 與其正則 strain–vorticity 交互模型之間的偏差，並在第6節作為 operator load 的核心量。",
+    "definition_en": "The operator cited from Miller in §2 (E4), quantifying the defect between full Navier–Stokes and its regular strain-vorticity interaction model, used in §6 as the core quantity of the operator load.",
+    "notes": "External operator carried in from Miller's paper (arXiv:2407.02691); reused as the Operator load component of $\\mathbf L_n$ and referenced again in the §27 cross-channel coupling table."
+  },
+  {
+    "key": "ns.c4.c4a.carrier_label",
+    "latex": "C_n^a\\in\\{\\mathrm{core},\\mathrm{near},\\mathrm{far},\\mathrm{exterior},\\mathrm{async},\\mathrm{unknown}\\}",
+    "label_zh": "承載標籤",
+    "label_en": "Carrier label",
+    "definition_zh": "第7節為每個 channel $a$ 定義的六值標籤，標示該 channel 的負載主要在哪種空間／時間關係中被觀測到或支付。",
+    "definition_en": "The six-valued label defined in §7 for each channel $a$, indicating where — core, near, far, exterior, async, or unknown — its load is observed or paid."
+  },
+  {
+    "key": "ns.c4.c4a.gate_vector",
+    "latex": "\\mathbf G_n=\\left(G_n^{FC},G_n^{Adj},G_n^{PUI},G_n^{Miller},G_n^{Mid},G_n^{Dir},G_n^{Chain}\\right)",
+    "label_zh": "閘門向量",
+    "label_en": "Gate vector",
+    "definition_zh": "第8節定義的七分量向量，每個分量對應一個已知 sufficient regularity 判準是否真正關閉；依約定 $G=0$ 表示閘門仍開，$G=1$ 表示已閉合並迫使 singular chain 終止。",
+    "definition_en": "The seven-component vector defined in §8, each entry tracking whether a known sufficient-regularity criterion has actually closed, with $G=0$ meaning the gate is still open and $G=1$ meaning it has closed and forces the singular chain to terminate.",
+    "defining_relation": "\\mathbf G_n=\\left(G_n^{FC},G_n^{Adj},G_n^{PUI},G_n^{Miller},G_n^{Mid},G_n^{Dir},G_n^{Chain}\\right),\\qquad G=0\\ (\\text{open}),\\quad G=1\\ (\\text{closed})"
+  },
+  {
+    "key": "ns.c4.c4a.defect_vector",
+    "latex": "\\mathbf D_n=\\left(D_n^{IR},D_n^{UV},D_n^{Sp},D_n^{Tm},D_n^{Pr},D_n^{Op},D_n^{Fl}\\right)",
+    "label_zh": "缺陷向量",
+    "label_en": "Defect vector",
+    "definition_zh": "第9節定義的七分量向量，收納任何未被 local state 吸收、必須保留而不得憑空消失的 channel debt。",
+    "definition_en": "The seven-component vector defined in §9 that absorbs any channel debt not captured by the local state, so that the debt is preserved rather than allowed to vanish."
+  },
+  {
+    "key": "ns.c4.c4a.debt_preservation_identity",
+    "latex": "\\mu_a=\\mu_a|_{W_n}+\\mu_a|_{W_n^c}",
+    "label_zh": "債務保存恆等式（No-Deletion Rule）",
+    "label_en": "Debt preservation identity (No-Deletion Rule)",
+    "definition_zh": "第26節給出的精確分割恆等式，呼應第9節的 source-preservation rule，禁止把 local window 外未觀測到的 channel 負載直接當作零。",
+    "definition_en": "The exact splitting identity of §26, echoing the source-preservation rule of §9, which forbids treating a channel's load outside the local window as if it were zero.",
+    "defining_relation": "\\mu_a=\\mu_a|_{W_n}+\\mu_a|_{W_n^c},\\qquad \\mu_a(W_n)<\\tau\\ \\Rightarrow\\ \\text{missing debt}=\\mu_a(W_n^c)"
+  },
+  {
+    "key": "ns.c4.c4a.mandatory_channel_set",
+    "latex": "\\mathcal M\\subset\\{UV,Hel,Str,Op,Pr,Der\\}",
+    "label_zh": "必要 channel 集合",
+    "label_en": "Mandatory channel set",
+    "definition_zh": "第10節為特定 branch 固定的一組必須被檢驗同步的 channel 子集，是定義 active-time set 與後續同步準則的前提。",
+    "definition_en": "The subset of channels fixed as mandatory for a given branch in §10, the premise against which active-time sets and later synchronization criteria are defined."
+  },
+  {
+    "key": "ns.c4.c4a.active_time_set",
+    "latex": "E_{a,n}=\\{t\\in I_n: L_a(t;\\Gamma_n)\\ge\\tau_a\\}",
+    "label_zh": "活躍時間集",
+    "label_en": "Active-time set",
+    "definition_zh": "第10節定義的集合，記錄 channel $a$ 的負載在時間窗 $I_n$ 內超過門檻 $\\tau_a$ 的所有時刻，是整個同步理論的基本觀測量。",
+    "definition_en": "The set defined in §10 of times within $I_n$ at which channel $a$'s load exceeds threshold $\\tau_a$ — the basic observable underlying the entire synchronization theory.",
+    "defining_relation": "E_{a,n}=\\left\\{t\\in I_n: L_a(t;\\Gamma_n)\\ge\\tau_a\\right\\}"
+  },
+  {
+    "key": "ns.c4.c4a.strong_synchronization",
+    "latex": "\\bigcap_{a\\in\\mathcal M}E_{a,n}\\ne\\varnothing",
+    "label_zh": "強同步",
+    "label_en": "Strong synchronization",
+    "definition_zh": "第11節定義的狀態：mandatory channels 的 active-time set 交集非空，且交集中存在某刻使所有 channel 的 carrier 皆為 core 或 near，才合法宣稱單一聯合倖存事件。",
+    "definition_en": "The condition defined in §11 — the mandatory channels' active-time sets intersect nonemptily, and at some point in that intersection every channel's carrier is core or near — that legally licenses the claim of one joint survivor event.",
+    "defining_relation": "\\bigcap_{a\\in\\mathcal M}E_{a,n}\\ne\\varnothing\\ \\text{ and }\\ \\exists\\,s_n\\in\\bigcap_aE_{a,n}:\\ \\text{all carriers}\\in\\{\\mathrm{core},\\mathrm{near}\\}"
+  },
+  {
+    "key": "ns.c4.c4a.synchronization_hierarchy",
+    "latex": "\\text{Sync-0}\\prec\\text{Sync-1}\\prec\\text{Sync-2}\\prec\\text{Sync-3}\\prec\\text{Sync-4}",
+    "label_zh": "同步層級",
+    "label_en": "Synchronization hierarchy",
+    "definition_zh": "第12節劃分的五層架構（Marginal、Temporal、Scale、Spatial、Causal），把「同步」從單純邊際必要條件收斂為可合法轉移的因果狀態，Sync-4 為 C4 的終極目標。",
+    "definition_en": "The five-level hierarchy (Marginal, Temporal, Scale, Spatial, Causal) laid out in §12, sharpening \"synchronization\" from mere marginal necessity into a causally transitionable state, with Sync-4 as C4's ultimate target."
+  },
+  {
+    "key": "ns.c4.c4a.marginal_divergence_nogo",
+    "latex": "\\int f=\\int g=\\infty\\ \\not\\Rightarrow\\ \\{f>0\\}\\cap\\{g>0\\}\\ne\\varnothing",
+    "label_zh": "邊際發散同步不可行定理（C4-A.1）",
+    "label_en": "Marginal Divergence Synchronization No-Go (C4-A.1)",
+    "definition_zh": "第13節的定理13.1，以錯開的 disjoint time windows 顯式構造兩個積分皆發散卻乘積恆零的密度，證明邊際發散並不蘊含 pointwise 交集。",
+    "definition_en": "Theorem 13.1 in §13, which explicitly constructs two densities on staggered disjoint time windows whose integrals both diverge yet whose product vanishes identically, proving marginal divergence does not imply pointwise intersection.",
+    "defining_relation": "f=\\tfrac{2^n}{n}1_{I_n^L},\\ g=\\tfrac{2^n}{n}1_{I_n^R};\\quad \\int f=\\int g=\\infty,\\quad fg\\equiv0",
+    "notes": "§14 extends this to m channels staggered into m disjoint sub-blocks per window, showing finite-time divergent tolls can be perfectly staggered for any finite channel family."
+  },
+  {
+    "key": "ns.c4.c4a.g_sync_hard_guard",
+    "latex": "\\text{G-SYNC}",
+    "label_zh": "G-SYNC 硬性防護",
+    "label_en": "G-SYNC hard guard",
+    "definition_zh": "第15節依定理13.1設立的硬性規則，禁止直接由「channel A 發散＋channel B 發散」推出「A 與 B 同時偏大」，任何交集宣稱都須額外提供 persistence／overlap／heredity／turnover 之一。",
+    "definition_en": "The hard rule set in §15 on the strength of Theorem 13.1, forbidding the inference \"channel A diverges + channel B diverges ⇒ A and B are simultaneously large\" unless persistence, overlap, heredity, or turnover is separately supplied.",
+    "defining_relation": "\\text{Channel A diverges}+\\text{Channel B diverges}\\ \\boxed{\\not\\Rightarrow}\\ \\text{A and B simultaneously large}",
+    "notes": "Reprised in §40 as one of eight named guards (G-SYNC, G-DEBT, G-CARRIER, G-TIME, G-SPATIAL, G-HERED, G-TERM, G-REC) forming the interface contract for X-Integration."
+  },
+  {
+    "key": "ns.c4.c4a.persistence_to_sync_lemma",
+    "latex": "\\left|\\bigcap_{a=1}^mE_a\\right|\\ge\\left(1-\\sum_{a=1}^m\\varepsilon_a\\right)|I|",
+    "label_zh": "持續性至同步引理（C4-A.2）",
+    "label_en": "Persistence-to-Synchronization Lemma (C4-A.2)",
+    "definition_zh": "第16節定理16.1，以 union bound 證明若每個 channel 的非活躍測度比例不超過 $\\varepsilon_a$，則所有 channel 活躍集的交集測度至少為 $(1-\\sum\\varepsilon_a)|I|$。",
+    "definition_en": "Theorem 16.1 in §16, proved via a union bound, showing that if each channel's inactive-measure fraction is at most $\\varepsilon_a$, the intersection of all active sets has measure at least $(1-\\sum\\varepsilon_a)|I|$.",
+    "defining_relation": "|I\\setminus E_a|\\le\\varepsilon_a|I|\\ \\Longrightarrow\\ \\left|\\bigcap_{a=1}^mE_a\\right|\\ge\\left(1-\\sum_{a=1}^m\\varepsilon_a\\right)|I|"
+  },
+  {
+    "key": "ns.c4.c4a.temporal_desync_debt",
+    "latex": "\\sum_{a=1}^m\\varepsilon_a\\ge1",
+    "label_zh": "時間去同步債務（C4-A.3）",
+    "label_en": "Temporal Desynchronization Debt (C4-A.3)",
+    "definition_zh": "第18節由定理16.1的逆否命題得出：若 mandatory channels 的活躍集交集為空，則各 channel 非活躍比例 $\\varepsilon_a$ 之和必須至少為1，代表必須支付相當份量的 channel switching。",
+    "definition_en": "Derived in §18 as the contrapositive of Theorem 16.1 — if the mandatory channels' active sets have empty intersection, their inactive fractions $\\varepsilon_a$ must sum to at least 1, forcing a substantial amount of channel switching to be paid.",
+    "defining_relation": "\\bigcap_{a=1}^mE_a=\\varnothing\\ \\Longrightarrow\\ \\sum_{a=1}^m\\varepsilon_a\\ge1,\\qquad \\varepsilon_a=\\frac{|I\\setminus E_a|}{|I|}"
+  },
+  {
+    "key": "ns.c4.c4a.recurrent_desynchronizer_lemma",
+    "latex": "\\exists\\,a_\\ast:\\ \\varepsilon_{a_\\ast,n_j}\\ge\\tfrac1m\\ \\text{along a subsequence }n_j",
+    "label_zh": "復發去同步者引理（C4-A.4）",
+    "label_en": "Recurrent Desynchronizer Lemma (C4-A.4)",
+    "definition_zh": "第19節由鴿籠原理證明：若每個窗口都未達成完全同步，則有限 channel 族中必存在某一 channel $a_\\ast$，在無窮多子序列窗口上反覆貢獻至少 $1/m$ 的去同步比例。",
+    "definition_en": "Proved by a pigeonhole argument in §19: if no window achieves full synchronization, some channel $a_\\ast$ among the finite family must repeatedly contribute a desynchronization fraction of at least $1/m$ along an infinite subsequence of windows.",
+    "defining_relation": "\\sum_{a=1}^m\\varepsilon_{a,n}\\ge1\\ \\Longrightarrow\\ \\exists\\,a_\\ast,\\{n_j\\}:\\ \\varepsilon_{a_\\ast,n_j}\\ge\\tfrac1m",
+    "notes": "Introduces the recurrently desynchronizing channel $a_\\ast$, which §20 reframes as a turnover-cost question carried forward as the announced topic of C4-B."
+  },
+  {
+    "key": "ns.c4.c4a.spatial_carrier_synchronization",
+    "latex": "X_{a,n}(t),\\qquad \\operatorname{dist}(X_{a,n}(t),x_n)\\lesssim R_n",
+    "label_zh": "空間承載同步",
+    "label_en": "Spatial carrier synchronization",
+    "definition_zh": "第21節定義 channel $a$ 的承載區域函數 $X_{a,n}(t)$，並規定強 Sync-3 須使所有 mandatory channel 的承載區域與 ancestry 中心 $x_n$ 保持 $O(R_n)$ 距離內，否則債務須標記進 $D_n^{Sp},D_n^{Pr},D_n^{Op}$。",
+    "definition_en": "§21 defines each channel's carrier-region function $X_{a,n}(t)$ and requires, for strong Sync-3, that every mandatory channel's carrier stay within $O(R_n)$ of the ancestry center $x_n$, failing which the debt must be flagged into $D_n^{Sp}, D_n^{Pr}, D_n^{Op}$.",
+    "defining_relation": "\\operatorname{dist}(X_{a,n}(t),x_n)\\lesssim R_n\\quad\\text{for all mandatory }a"
+  },
+  {
+    "key": "ns.c4.c4a.legal_transition",
+    "latex": "\\mathfrak S_n\\rightsquigarrow\\mathfrak S_{n+1}",
+    "label_zh": "合法奇異轉移",
+    "label_en": "Legal singular transition",
+    "definition_zh": "第23節定義的合法狀態轉移，須同時滿足 T1–T8 八條規則，涵蓋時序、尺度逃逸、因果父證、缺陷保存、規範保存、壓力與算子溯源、以及閘門終止。",
+    "definition_en": "The legal state transition defined in §23, required to jointly satisfy eight conditions T1–T8 covering time ordering, scale escape, the causal parent certificate, defect preservation, gauge preservation, pressure and operator provenance, and gate termination."
+  },
+  {
+    "key": "ns.c4.c4a.singular_survivor_chain",
+    "latex": "\\mathfrak S_0\\rightsquigarrow\\mathfrak S_1\\rightsquigarrow\\mathfrak S_2\\rightsquigarrow\\cdots",
+    "label_zh": "C4 奇異倖存者鏈",
+    "label_en": "C4 Singular Survivor Chain",
+    "definition_zh": "第24節定義的無窮合法轉移序列，要求 $t_n\\uparrow T_\\ast$、$R_n\\downarrow0$ 且所有 regularity gate 永不關閉；此序列是否存在即為 C4 的終極問題。",
+    "definition_en": "The infinite legal-transition sequence defined in §24, requiring $t_n\\uparrow T_\\ast$, $R_n\\downarrow0$, and that no regularity gate ever closes; whether such a chain exists is C4's ultimate question."
+  },
+  {
+    "key": "ns.c4.c4a.asynchronous_survivor_bundle",
+    "latex": "\\mathfrak B_n=\\{\\mathfrak S_n^{UV},\\mathfrak S_n^{Str},\\mathfrak S_n^{Op},\\mathfrak S_n^{Pr},\\mathfrak S_n^{Der}\\}",
+    "label_zh": "非同步倖存者束",
+    "label_en": "Asynchronous Survivor Bundle",
+    "definition_zh": "第25節在尚未證明同步前定義的較弱物件，僅要求各 channel 分量共享世代標籤與大致 blow-up 時間，不假設同時、同心或同一因果分支。",
+    "definition_en": "The weaker object defined in §25 for use before synchronization is established, requiring only that each channel's component share a generation tag and approximate blow-up time, without assuming the same time, center, or causal branch."
+  },
+  {
+    "key": "ns.c4.c4a.finite_recurrent_gate_failure_reduction",
+    "latex": "\\mathcal F=\\{F_1,\\ldots,F_M\\}\\ \\Longrightarrow\\ \\exists F_\\ast\\ \\text{recurrent}",
+    "label_zh": "有限復發閘門失敗化約（C4-A.5）",
+    "label_en": "Finite Recurrent Gate-Failure Reduction (C4-A.5)",
+    "definition_zh": "第30節以鴿籠原理證明，若每個奇異轉移都須使有限 gate 族 $\\mathcal F$ 中至少一個失敗，則任何無窮奇異鏈必存在某個 $F_\\ast$ 在無窮子序列上反覆失敗，使 C4 只需追蹤單一復發障礙類。",
+    "definition_en": "§30 proves by pigeonhole that if every singular transition must fail at least one gate from the finite family $\\mathcal F$, an infinite singular chain must contain some $F_\\ast$ that fails recurrently along a subsequence, letting C4 track just one recurrent obstruction class.",
+    "notes": "§31 catalogues six candidate recurrent-failure branches RF-1 through RF-6: synchronization failure, spatial carrier separation, pressure concentration escape, derivative globalization failure, chain-gate failure, and mean/pointwise fluctuation failure."
+  },
+  {
+    "key": "ns.c4.c4a.temporal_sync_deficit",
+    "latex": "\\Delta_{\\rm sync}(I)=\\sum_{a=1}^m\\frac{|I\\setminus E_a|}{|I|}",
+    "label_zh": "時間同步赤字",
+    "label_en": "Temporal synchronization deficit",
+    "definition_zh": "第35節定義（並於第42節以窗口索引版本 $\\Delta_{\\rm sync,n}$ 重述）的量化門檻：$\\Delta_{\\rm sync}<1$ 保證存在聯合同步時刻，唯有 $\\Delta_{\\rm sync}\\ge1$ 才允許 route 保持非同步。",
+    "definition_en": "The quantitative threshold defined in §35 (restated windowed as $\\Delta_{\\rm sync,n}$ in §42): $\\Delta_{\\rm sync}<1$ guarantees a joint synchronized instant exists, while only $\\Delta_{\\rm sync}\\ge1$ permits the route to remain asynchronous.",
+    "defining_relation": "\\Delta_{\\rm sync}(I)=\\sum_{a=1}^m\\frac{|I\\setminus E_a|}{|I|},\\qquad \\Delta_{\\rm sync}<1\\iff\\text{full temporal synchronization exists}"
+  },
+  {
+    "key": "ns.c4.c4a.spatial_sync_deficit",
+    "latex": "\\Delta_{\\rm sp,n}=\\max_{a,b\\in\\mathcal M}\\frac{|x_{a,n}-x_{b,n}|}{R_n}",
+    "label_zh": "空間同步赤字",
+    "label_en": "Spatial synchronization deficit",
+    "definition_zh": "第36節定義的量，以 carrier 中心點兩兩距離除以 $R_n$ 衡量空間分散程度；$O(1)$ 可併入 bounded rescaled cluster，發散則形成空間非同步的 survivor bundle。",
+    "definition_en": "The quantity defined in §36 measuring spatial spread as the pairwise carrier-center distance normalized by $R_n$; an $O(1)$ value allows merging into a bounded rescaled cluster, while divergence produces a spatially asynchronous survivor bundle."
+  },
+  {
+    "key": "ns.c4.c4a.causal_sync_deficit",
+    "latex": "\\Delta_{\\rm her,n}",
+    "label_zh": "因果同步赤字",
+    "label_en": "Causal synchronization deficit",
+    "definition_zh": "第37節定義的量，彙總 parent→child 轉移中壓力效率、平均應變方向、相位效率、算子承載與導數閘門等正規化轉移缺陷，目前尚無統一有限預算，是 C4 的終極缺口。",
+    "definition_en": "The quantity defined in §37 aggregating the normalized parent-to-child transition defect across pressure efficiency, mean-strain direction, phase efficiency, operator carrier, and derivative gate; it currently has no unified finite budget and remains C4's ultimate gap."
+  },
+  {
+    "key": "ns.c4.c4a.unified_closure_principle",
+    "latex": "\\text{UCP-1}\\ \\text{through}\\ \\text{UCP-7}",
+    "label_zh": "C4 統一閉合原則",
+    "label_en": "C4 Unified Closure Principle",
+    "definition_zh": "第38節列出的七條原則，陳述任何假設性無窮奇異鏈必須同時滿足的結構性後果；UCP-1至UCP-6已建立為精確結果，UCP-7仍是下一前沿。",
+    "definition_en": "The seven principles listed in §38 stating the structural consequences any hypothetical infinite singular chain must simultaneously satisfy; UCP-1 through UCP-6 are established as exact results, while UCP-7 remains the next frontier."
+  },
+  {
+    "key": "ns.c4.c4a.etn_c4",
+    "latex": "\\mathfrak T^{C4}=\\left(\\mathfrak S_n,\\mathfrak S_{n+1},\\operatorname{Transition},\\operatorname{DebtFlow},\\operatorname{GateStatus}\\right)",
+    "label_zh": "C4 版擴展張力網絡",
+    "label_en": "C4-version Extended Tension Network (ETN)",
+    "definition_zh": "第39節把 True ETN 從單一時間切片的張力向量重新詮釋為涵蓋轉移、債務流與閘門狀態的五元組，核心問題由「哪個張力最大」轉為所有必要張力能否在狀態轉移中合法共同傳遞。",
+    "definition_en": "§39 reinterprets the True ETN from a single-time-slice tension vector into a five-tuple spanning transition, debt flow, and gate status, shifting the central question from \"which tension is largest\" to whether all mandatory tensions can be jointly and legally carried through the state transition.",
+    "notes": "Reuses the \"True ETN / 無限維張力場\" object listed under Internal dependencies from prior rounds, reframed here for the C4 state-transition setting."
+  }
+]

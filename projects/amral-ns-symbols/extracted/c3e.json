@@ -1,0 +1,386 @@
+[
+  {
+    "key": "ns.c3.c3e.p_high_pass",
+    "latex": "P_{>J}",
+    "label_zh": "高頻投影算子",
+    "label_en": "High-pass projector",
+    "definition_zh": "第1節定義的光滑 Littlewood–Paley 高頻投影算子，投影到頻率 $|\\xi|\\gtrsim\\lambda_J$ 的部分；熱半群作用其上滿足指數譜隙衰減 $\\|e^{\\nu\\tau\\Delta}P_{>J}f\\|_{L^p}\\le Ce^{-c\\nu\\lambda_J^2\\tau}\\|P_{>J}f\\|_{L^p}$。",
+    "definition_en": "The smooth Littlewood–Paley high-pass projector onto frequencies $|\\xi|\\gtrsim\\lambda_J$, introduced in Section 1; the heat semigroup restricted to its range obeys the exponential spectral-gap decay $\\|e^{\\nu\\tau\\Delta}P_{>J}f\\|_{L^p}\\le Ce^{-c\\nu\\lambda_J^2\\tau}\\|P_{>J}f\\|_{L^p}$.",
+    "notes": "$C\\ge1,c>0$ 為 universal constants；其後固定 $p=3$。"
+  },
+  {
+    "key": "ns.c3.c3e.lambda_dyadic",
+    "latex": "\\lambda_J=2^J",
+    "label_zh": "截止頻率（dyadic 尺度）",
+    "label_en": "Dyadic cutoff frequency",
+    "definition_zh": "第1節定義的 dyadic 截止頻率 $\\lambda_J=2^J$；同一記法自第11節起以 shell 指標重寫為 $\\lambda_q=2^q$，用於局部 block 分析。",
+    "definition_en": "The dyadic cutoff/shell frequency $\\lambda_J=2^J$ defined in Section 1; the same pattern is reused from Section 11 onward as $\\lambda_q=2^q$ for local shell-indexed analysis.",
+    "defining_relation": "\\lambda_J=2^J"
+  },
+  {
+    "key": "ns.c3.c3e.duhamel_hightail",
+    "latex": "\\mathcal N_J[s,t]",
+    "label_zh": "高頻尾端 Duhamel 非線性項",
+    "label_en": "High-tail Duhamel nonlinear term",
+    "definition_zh": "第2節定義，將 Duhamel 公式投影到 $>J$ 頻段後得到的非線性來源項，是黏性窗口更新定理的核心驅動項。",
+    "definition_en": "Defined in Section 2 as the high-frequency projection of the Duhamel nonlinear term; the driving source in the viscous-window renewal theorem.",
+    "defining_relation": "\\mathcal N_J[s,t]=\\int_s^t e^{\\nu(t-r)\\Delta}P_{>J}\\mathbb P\\nabla\\cdot(u\\otimes u)(r)\\,dr"
+  },
+  {
+    "key": "ns.c3.c3e.h_hightail_norm",
+    "latex": "H_J(t)=\\|P_{>J}u(t)\\|_3",
+    "label_zh": "高頻尾端範數",
+    "label_en": "High-tail norm",
+    "definition_zh": "第2節定義的 $L^3$ 高頻尾端範數；第3節在窗口端點離散化為 $H_m=H_J(t_m)$，第7節 XViscRenew 證書中再標記為窗口起訖值 $H_{\\rm in},H_{\\rm out}$。",
+    "definition_en": "The $L^3$ high-tail norm defined in Section 2; discretized at window endpoints as $H_m=H_J(t_m)$ in Section 3, and relabeled as window-boundary values $H_{\\rm in},H_{\\rm out}$ inside the XViscRenew certificate of Section 7.",
+    "defining_relation": "H_J(t)=\\|P_{>J}u(t)\\|_3",
+    "notes": "$H_{\\rm in},H_{\\rm out}$ 文中未明寫等式，依上下文即窗口首尾的 $H_m$ 值。"
+  },
+  {
+    "key": "ns.c3.c3e.theta_window_param",
+    "latex": "\\theta>0",
+    "label_zh": "窗口尺度參數",
+    "label_en": "Window-scale parameter",
+    "definition_zh": "第3節固定的正參數，用來設定黏性窗口長度 $\\tau_J=\\theta/(\\nu\\lambda_J^2)$；選 $\\theta$ 足夠大使收縮比 $\\rho=Ce^{-c\\theta}<1$。",
+    "definition_en": "A fixed positive parameter from Section 3 that sets the viscous window length $\\tau_J=\\theta/(\\nu\\lambda_J^2)$; chosen large enough that the contraction ratio $\\rho=Ce^{-c\\theta}<1$."
+  },
+  {
+    "key": "ns.c3.c3e.tau_viscous_window",
+    "latex": "\\tau_J=\\dfrac{\\theta}{\\nu\\lambda_J^2}",
+    "label_zh": "黏性窗口長度",
+    "label_en": "Viscous window duration",
+    "definition_zh": "第3節定義的單一黏性窗口時間長度，本輪核心尺度；後續以同一 $O((\\nu\\lambda^2)^{-1})$ 形式重複出現為 $\\tau_q$（第18節）與 $\\tau_{q_n},\\tau_n$（第19節 Zeno 定理），皆為同一概念在不同指標下的重寫。",
+    "definition_en": "The single viscous-window time length defined in Section 3, the round's central time scale; the same $O((\\nu\\lambda^2)^{-1})$ form recurs re-indexed as $\\tau_q$ (Section 18) and $\\tau_{q_n},\\tau_n$ (Zeno Theorem 19.1).",
+    "defining_relation": "\\tau_J=\\frac{\\theta}{\\nu\\lambda_J^2}"
+  },
+  {
+    "key": "ns.c3.c3e.rho_contraction",
+    "latex": "\\rho:=Ce^{-c\\theta}<1",
+    "label_zh": "窗口收縮比",
+    "label_en": "Window contraction ratio",
+    "definition_zh": "第3節定義的線性繼承收縮比（範例取 $\\rho\\le1/4$），滿足遞迴 $H_m\\le\\rho H_{m-1}+S_m$；為 Viscous-Window Renewal Theorem（定理4.1）與 X 證書 G-INHERIT 守衛的核心常數。",
+    "definition_en": "The linear-inheritance contraction ratio (fixed e.g. at $\\rho\\le1/4$) from Section 3, satisfying the recursion $H_m\\le\\rho H_{m-1}+S_m$; the key constant in the Viscous-Window Renewal Theorem (Thm 4.1) and the G-INHERIT guard.",
+    "defining_relation": "\\rho:=Ce^{-c\\theta}<1"
+  },
+  {
+    "key": "ns.c3.c3e.s_window_source",
+    "latex": "S_m=\\|\\mathcal N_J[t_{m-1},t_m]\\|_3",
+    "label_zh": "窗口累積非線性來源量",
+    "label_en": "Window-integrated source magnitude",
+    "definition_zh": "第3節定義，單一黏性窗口內非線性來源項的 $L^3$ 範數；定理4.1證明中取 $S_\\ast=\\max_jS_j$，第7、21節分別以 $S_n$ 出現在 XViscRenew 與 XLocalHet 證書中。",
+    "definition_en": "The $L^3$ norm of the nonlinear source over one viscous window, from Section 3; the proof of Theorem 4.1 uses $S_\\ast=\\max_jS_j$, and it reappears as $S_n$ inside both the XViscRenew (Sec.7) and XLocalHet (Sec.21) certificates.",
+    "defining_relation": "S_m=\\|\\mathcal N_J[t_{m-1},t_m]\\|_3"
+  },
+  {
+    "key": "ns.c3.c3e.i_star_renewal_window",
+    "latex": "I_n^\\star",
+    "label_zh": "已認證的更新窗口",
+    "label_en": "Certified renewal window",
+    "definition_zh": "第6節結合 C1 序列與定理4.1所得的具體窗口：對每個 $n$ 存在 $I_n^\\star\\subset[t_{n-1},t_n]$ 使來源量達到 $A_n$ 量級且窗長受控（推論6.1），是 UV renewal chain 的存在性見證。",
+    "definition_en": "The concrete window produced in Section 6 by combining C1's sequences with Theorem 4.1: for each $n$ there is $I_n^\\star\\subset[t_{n-1},t_n]$ whose source reaches scale $A_n$ while its length stays controlled (Corollary 6.1); it witnesses the UV renewal chain's existence.",
+    "defining_relation": "\\|\\mathcal N_{J_n}[I_n^\\star]\\|_3\\gtrsim A_n,\\quad |I_n^\\star|\\lesssim(\\nu2^{2J_n})^{-1}"
+  },
+  {
+    "key": "ns.c3.c3e.xviscrenew",
+    "latex": "\\operatorname{XViscRenew}_n=\\left\\langle J_n,I_n^\\star,\\tau_{J_n},H_{\\rm in},H_{\\rm out},S_n,\\rho,\\operatorname{Prov}_n\\right\\rangle",
+    "label_zh": "黏性窗口更新證書",
+    "label_en": "Viscous-window renewal certificate",
+    "definition_zh": "第7節定義的 X-Integration 證書元組，打包每一代高頻更新事件的尺度、窗口、起訖範數、來源量、收縮比與親緣資訊，須通過 G-TIME/G-SOURCE/G-INHERIT/G-PROV/G-RENEW 五個守衛。",
+    "definition_en": "The X-Integration certificate tuple defined in Section 7, packaging each generation's scale, window, boundary norms, source magnitude, contraction ratio, and provenance; must pass the five guards G-TIME/G-SOURCE/G-INHERIT/G-PROV/G-RENEW.",
+    "defining_relation": "\\operatorname{XViscRenew}_n=\\left\\langle J_n,I_n^\\star,\\tau_{J_n},H_{\\rm in},H_{\\rm out},S_n,\\rho,\\operatorname{Prov}_n\\right\\rangle"
+  },
+  {
+    "key": "ns.c3.c3e.g_time",
+    "latex": "\\text{G-TIME}:\\ |I_n^\\star|\\lesssim(\\nu2^{2J_n})^{-1}",
+    "label_zh": "G-TIME 守衛",
+    "label_en": "G-TIME guard",
+    "definition_zh": "第7節 XViscRenew 證書的守衛之一，要求更新窗口長度不超過黏性時間尺度 $(\\nu2^{2J_n})^{-1}$。",
+    "definition_en": "One of the guards on the XViscRenew certificate (Sec.7), requiring the renewal window's length to stay within the viscous time scale $(\\nu2^{2J_n})^{-1}$.",
+    "defining_relation": "|I_n^\\star|\\lesssim(\\nu2^{2J_n})^{-1}"
+  },
+  {
+    "key": "ns.c3.c3e.g_source",
+    "latex": "\\text{G-SOURCE}:\\ S_n=\\|\\mathcal N_{J_n}[I_n^\\star]\\|_3\\gtrsim A_n",
+    "label_zh": "G-SOURCE 守衛",
+    "label_en": "G-SOURCE guard",
+    "definition_zh": "第7節守衛，要求該窗口內實際非線性來源量達到目標量級 $A_n$。",
+    "definition_en": "The Section 7 guard requiring the actual nonlinear source magnitude in the window to reach the target scale $A_n$.",
+    "defining_relation": "S_n=\\|\\mathcal N_{J_n}[I_n^\\star]\\|_3\\gtrsim A_n"
+  },
+  {
+    "key": "ns.c3.c3e.g_inherit",
+    "latex": "\\text{G-INHERIT}:\\ \\rho<1",
+    "label_zh": "G-INHERIT 守衛",
+    "label_en": "G-INHERIT guard",
+    "definition_zh": "第7節守衛，限制線性繼承在一個黏性窗口後最多保留 fraction $\\rho<1$，其餘必須來自新的非線性來源。",
+    "definition_en": "The Section 7 guard capping linear inheritance across one viscous window at fraction $\\rho<1$; the remainder must come from fresh nonlinear source.",
+    "defining_relation": "\\rho<1"
+  },
+  {
+    "key": "ns.c3.c3e.g_prov",
+    "latex": "\\text{G-PROV}",
+    "label_zh": "G-PROV 守衛",
+    "label_en": "G-PROV guard",
+    "definition_zh": "第7節守衛，要求來源必須來自原始 $\\mathbb P\\nabla\\cdot(u\\otimes u)$ 項，不得為外加 forcing。",
+    "definition_en": "The Section 7 guard requiring the source to originate from the genuine $\\mathbb P\\nabla\\cdot(u\\otimes u)$ term rather than any external forcing."
+  },
+  {
+    "key": "ns.c3.c3e.g_renew",
+    "latex": "\\text{G-RENEW}",
+    "label_zh": "G-RENEW 守衛",
+    "label_en": "G-RENEW guard",
+    "definition_zh": "第7節守衛，聲明上一代證書合法不代表下一代自動合法，每個更高 $J_n$ 都必須在更短窗口內重新取得非線性來源證書。",
+    "definition_en": "The Section 7 guard stating that a valid certificate at one generation does not automatically transfer; each higher $J_n$ must re-earn its nonlinear-source certificate in a shorter window."
+  },
+  {
+    "key": "ns.c3.c3e.prov_n",
+    "latex": "\\operatorname{Prov}_n",
+    "label_zh": "親子世系來源標記",
+    "label_en": "Parent-child provenance",
+    "definition_zh": "在 XViscRenew（第7節）與 XLocalHet（第21節）證書中都出現的分量，記錄該代來源與上一代 parent 之間的合法承接關係，防止不合法的來源重複計數。",
+    "definition_en": "A component appearing in both the XViscRenew (Sec.7) and XLocalHet (Sec.21) certificates, recording the legitimate parent-child lineage of a generation's source so as to prevent illegitimate double-counting."
+  },
+  {
+    "key": "ns.c3.c3e.n_loc_het",
+    "latex": "\\mathcal N_J^{\\rm loc,het}",
+    "label_zh": "局部異手性來源分量",
+    "label_en": "Local heterochiral source component",
+    "definition_zh": "第8節將高頻來源分解為 $\\mathcal N_J=\\mathcal N_J^{\\rm loc,het}+\\mathcal N_J^{\\rm rem}$ 中的第一項，只含 bounded scale-ratio（$c_1\\lambda\\le k,p,q\\le c_2\\lambda$）的異手性 triad 交互作用，是本輪聚焦分析的對象。",
+    "definition_en": "The first term in the decomposition $\\mathcal N_J=\\mathcal N_J^{\\rm loc,het}+\\mathcal N_J^{\\rm rem}$ (Sec.8), containing only heterochiral triad interactions with bounded scale ratio ($c_1\\lambda\\le k,p,q\\le c_2\\lambda$); this round's main object of study.",
+    "defining_relation": "\\mathcal N_J=\\mathcal N_J^{\\rm loc,het}+\\mathcal N_J^{\\rm rem}"
+  },
+  {
+    "key": "ns.c3.c3e.n_rem",
+    "latex": "\\mathcal N_J^{\\rm rem}",
+    "label_zh": "剩餘來源分量",
+    "label_en": "Remainder source component",
+    "definition_zh": "第8節分解中的第二項，收納 strongly nonlocal heterochiral、homochiral、boundary/cross-band 及其他尚未被 reduction 排除的來源；本輪尚未證明其全域可忽略。",
+    "definition_en": "The second term in Section 8's decomposition, collecting strongly-nonlocal heterochiral, homochiral, boundary/cross-band, and other not-yet-eliminated sources; this round does not prove it is globally negligible.",
+    "defining_relation": "\\mathcal N_J=\\mathcal N_J^{\\rm loc,het}+\\mathcal N_J^{\\rm rem}"
+  },
+  {
+    "key": "ns.c3.c3e.triad_tau",
+    "latex": "\\tau=(\\mathbf k,\\mathbf p,\\mathbf q;s_k,s_p,s_q)",
+    "label_zh": "螺旋三元組標記",
+    "label_en": "Helical triad label",
+    "definition_zh": "第9節記法，標記一個由波數 $\\mathbf k,\\mathbf p,\\mathbf q$ 與各自螺旋號 $s_k,s_p,s_q$ 構成的 helical triad，是本輪相位—振幅分析的基本單位。",
+    "definition_en": "The Section 9 notation labeling one helical triad by wavevectors $\\mathbf k,\\mathbf p,\\mathbf q$ together with their helicity signs $s_k,s_p,s_q$; the basic unit of this round's phase-amplitude analysis.",
+    "notes": "此三元組記法可能承接自更早的 C3-A/B 輪（helical pair production），本輪在其上新增相位、振幅權重與效率的具體結構。"
+  },
+  {
+    "key": "ns.c3.c3e.mode_amp_phase",
+    "latex": "u^{s_k}(\\mathbf k)=a_ke^{i\\phi_k}",
+    "label_zh": "模態振幅—相位分解",
+    "label_en": "Mode amplitude-phase decomposition",
+    "definition_zh": "第9節將 helical 模態係數寫成振幅 $a_k$ 與相位 $\\phi_k$ 的極式；$p,q$ 分量同理定義 $a_p,\\phi_p,a_q,\\phi_q$。",
+    "definition_en": "Section 9 writes each helical mode coefficient in polar form as amplitude $a_k$ times a phase factor; the $p,q$ components $a_p,\\phi_p,a_q,\\phi_q$ are defined analogously.",
+    "defining_relation": "u^{s_k}(\\mathbf k)=a_ke^{i\\phi_k}"
+  },
+  {
+    "key": "ns.c3.c3e.gamma_tau",
+    "latex": "\\gamma_\\tau",
+    "label_zh": "幾何/基底相位",
+    "label_en": "Geometric/basis phase",
+    "definition_zh": "第9節記法，吸收 helical 基底選取所帶來的所有幾何相位，併入 effective triad phase $\\Phi_\\tau$ 的定義中。",
+    "definition_en": "The Section 9 term absorbing all geometric phase arising from the choice of helical basis, folded into the effective triad phase $\\Phi_\\tau$."
+  },
+  {
+    "key": "ns.c3.c3e.phi_triad",
+    "latex": "\\Phi_\\tau=\\phi_k+\\phi_p+\\phi_q+\\gamma_\\tau",
+    "label_zh": "有效三元組相位",
+    "label_en": "Effective triad phase",
+    "definition_zh": "第9節定義的 effective triad phase，決定 triad 生成是正是負；符號慣例（$\\sin$或$\\cos$）不影響本文結論。",
+    "definition_en": "The effective triad phase defined in Section 9, which determines whether a triad's production is positive or negative; the sign convention ($\\sin$ vs $\\cos$) does not affect the paper's conclusions.",
+    "defining_relation": "\\Phi_\\tau=\\phi_k+\\phi_p+\\phi_q+\\gamma_\\tau"
+  },
+  {
+    "key": "ns.c3.c3e.r_tau_production",
+    "latex": "\\mathcal R_\\tau=W_\\tau a_ka_pa_q\\sigma_\\tau",
+    "label_zh": "單三元組帶號產生量",
+    "label_en": "Signed triad production",
+    "definition_zh": "第9節定義的單一 helical triad 帶號產生率，由振幅權重 $W_\\tau$ 與相位效率 $\\sigma_\\tau$ 相乘而成，是後續 $\\mathcal M_\\lambda,\\mathcal P_\\lambda,\\eta_\\lambda$ 的基本構件。",
+    "definition_en": "The signed production rate of a single helical triad, defined in Section 9 as amplitude weight $W_\\tau$ times phase efficiency $\\sigma_\\tau$; the basic building block for the later $\\mathcal M_\\lambda,\\mathcal P_\\lambda,\\eta_\\lambda$.",
+    "defining_relation": "\\mathcal R_\\tau=W_\\tau a_ka_pa_q\\sigma_\\tau"
+  },
+  {
+    "key": "ns.c3.c3e.w_tau_weight",
+    "latex": "W_\\tau\\ge0",
+    "label_zh": "三元組振幅權重",
+    "label_en": "Triad amplitude weight",
+    "definition_zh": "第9節定義，由波數與螺旋幾何決定的非負振幅權重，出現在 $\\mathcal R_\\tau$ 與 $\\mathcal M_\\lambda$ 的定義中。",
+    "definition_en": "The nonnegative amplitude weight determined by wavenumber and helical geometry, defined in Section 9 and used in both $\\mathcal R_\\tau$ and $\\mathcal M_\\lambda$."
+  },
+  {
+    "key": "ns.c3.c3e.sigma_tau",
+    "latex": "-1\\le\\sigma_\\tau\\le1",
+    "label_zh": "相位效率（單三元組）",
+    "label_en": "Phase efficiency (single triad)",
+    "definition_zh": "第9節定義，單一 triad 的相位效率，數值上是 $\\sin\\Phi_\\tau$ 或 $\\cos\\Phi_\\tau$ 之一（依 convention），量測相位對齊帶來的產生效率折損。",
+    "definition_en": "The phase efficiency of a single triad, defined in Section 9, numerically equal to $\\sin\\Phi_\\tau$ or $\\cos\\Phi_\\tau$ depending on convention; measures how phase alignment discounts the production rate.",
+    "defining_relation": "-1\\le\\sigma_\\tau\\le1"
+  },
+  {
+    "key": "ns.c3.c3e.triad_family_loc_het",
+    "latex": "\\mathfrak T_\\lambda^{\\rm loc,het}",
+    "label_zh": "局部異手性三元組族",
+    "label_en": "Local heterochiral triad family",
+    "definition_zh": "第10節定義，尺度 $\\lambda$ 上所有 bounded scale-ratio 異手性 helical triads 所構成的集合，是 $\\mathcal M_\\lambda,\\mathcal P_\\lambda$ 求和範圍；第22節簡寫為 $\\mathfrak T_q$。",
+    "definition_en": "The set of all bounded-scale-ratio heterochiral helical triads at scale $\\lambda$, defined in Section 10 as the summation range for $\\mathcal M_\\lambda,\\mathcal P_\\lambda$; abbreviated $\\mathfrak T_q$ in Section 22.",
+    "defining_relation": "c_1\\lambda\\le k,p,q\\le c_2\\lambda"
+  },
+  {
+    "key": "ns.c3.c3e.m_lambda_capacity",
+    "latex": "\\mathcal M_\\lambda(t)=\\sum_{\\tau\\in\\mathfrak T_\\lambda^{\\rm loc,het}}W_\\tau a_ka_pa_q",
+    "label_zh": "瞬時最大振幅容量",
+    "label_en": "Instantaneous maximal amplitude capacity",
+    "definition_zh": "第10節定義的瞬時 amplitude capacity 上界，把所有局部異手性 triads 的振幅權重相加而不計相位；第11節重寫為 $\\mathcal M_q$ 並給出估計 $\\mathcal M_q\\le C\\lambda_q^{7/2}U_q^3$。",
+    "definition_en": "The instantaneous amplitude-capacity bound defined in Section 10, summing amplitude weights over all local heterochiral triads while ignoring phase; rewritten as $\\mathcal M_q$ in Section 11, where it is bounded by $\\mathcal M_q\\le C\\lambda_q^{7/2}U_q^3$.",
+    "defining_relation": "\\mathcal M_\\lambda(t)=\\sum_{\\tau\\in\\mathfrak T_\\lambda^{\\rm loc,het}}W_\\tau a_ka_pa_q"
+  },
+  {
+    "key": "ns.c3.c3e.p_lambda_production",
+    "latex": "\\mathcal P_\\lambda(t)=\\left[\\sum_{\\tau\\in\\mathfrak T_\\lambda^{\\rm loc,het}}\\mathcal R_\\tau\\right]_+",
+    "label_zh": "實際正產生量",
+    "label_en": "Actual positive production",
+    "definition_zh": "第10節定義，局部異手性 triads 帶號產生量加總後取正部，滿足 $0\\le\\mathcal P_\\lambda\\le\\mathcal M_\\lambda$；自第11節起重寫為 $\\mathcal P_q$。",
+    "definition_en": "Defined in Section 10 as the positive part of the summed signed production over local heterochiral triads, satisfying $0\\le\\mathcal P_\\lambda\\le\\mathcal M_\\lambda$; rewritten as $\\mathcal P_q$ from Section 11 onward.",
+    "defining_relation": "\\mathcal P_\\lambda(t)=\\left[\\sum_{\\tau\\in\\mathfrak T_\\lambda^{\\rm loc,het}}\\mathcal R_\\tau\\right]_+"
+  },
+  {
+    "key": "ns.c3.c3e.eta_lambda_efficiency",
+    "latex": "\\eta_\\lambda(t)=\\mathcal P_\\lambda(t)/\\mathcal M_\\lambda(t)",
+    "label_zh": "相位—同調效率",
+    "label_en": "Phase-coherence efficiency",
+    "definition_zh": "第10節定義的本輪核心診斷量，$\\eta_\\lambda\\in[0,1]$（分母為零時取0），量測局部異手性 triads 相位對齊程度；文中強調這是精確的 normalized diagnostic 而非 turbulence closure。",
+    "definition_en": "This round's central diagnostic quantity, defined in Section 10, with $\\eta_\\lambda\\in[0,1]$ (0 when the denominator vanishes), measuring how phase-aligned the local heterochiral triads are; the paper stresses this is an exact normalized diagnostic, not a turbulence closure.",
+    "defining_relation": "\\eta_\\lambda(t)=\\begin{cases}\\dfrac{\\mathcal P_\\lambda(t)}{\\mathcal M_\\lambda(t)},&\\mathcal M_\\lambda(t)>0,\\\\0,&\\mathcal M_\\lambda(t)=0.\\end{cases}"
+  },
+  {
+    "key": "ns.c3.c3e.u_q_shell_norm",
+    "latex": "U_q=\\left(\\sum_{|r-q|\\le C_0}\\|u_r\\|_2^2\\right)^{1/2}",
+    "label_zh": "局部 shell L² 範數",
+    "label_en": "Local shell L² norm",
+    "definition_zh": "第11節定義，鄰近 dyadic shells（$|r-q|\\le C_0$）速度分量的合併 $L^2$ 範數，用於界定局部 critical trilinear 上界 $\\mathcal M_q\\le C\\lambda_q^{7/2}U_q^3$ 與臨界振幅 $A_q^{\\rm crit}$。",
+    "definition_en": "Defined in Section 11 as the combined $L^2$ norm of velocity over neighboring dyadic shells ($|r-q|\\le C_0$); used to bound the local critical trilinear term, $\\mathcal M_q\\le C\\lambda_q^{7/2}U_q^3$, and to define the critical amplitude $A_q^{\\rm crit}$.",
+    "defining_relation": "U_q=\\left(\\sum_{|r-q|\\le C_0}\\|u_r\\|_2^2\\right)^{1/2}"
+  },
+  {
+    "key": "ns.c3.c3e.d_q_crit_dissipation",
+    "latex": "\\mathcal D_q^{\\rm crit}\\asymp\\nu\\lambda_q^3U_q^2",
+    "label_zh": "局部臨界黏性耗散尺度",
+    "label_en": "Local critical viscous dissipation scale",
+    "definition_zh": "第12節定義的同一 local block 之臨界黏性耗散量級，與 $\\mathcal P_q$ 相除給出決定 $\\eta_q,A_q^{\\rm crit}$ 的核心比值。",
+    "definition_en": "The critical viscous dissipation scale of the same local block, defined in Section 12; dividing $\\mathcal P_q$ by it yields the ratio central to $\\eta_q$ and $A_q^{\\rm crit}$.",
+    "defining_relation": "\\mathcal D_q^{\\rm crit}\\asymp\\nu\\lambda_q^3U_q^2"
+  },
+  {
+    "key": "ns.c3.c3e.a_q_crit_amplitude",
+    "latex": "A_q^{\\rm crit}=\\lambda_q^{1/2}U_q",
+    "label_zh": "局部臨界振幅",
+    "label_en": "Local critical amplitude",
+    "definition_zh": "第12節定義，在 N–S scaling 下 dimensionless/critical 的局部振幅量；定理13.1（Coherence–Amplitude Tradeoff）給出核心不等式 $\\eta_qA_q^{\\rm crit}\\gtrsim\\nu$，是本輪第二個核心量。",
+    "definition_en": "The local amplitude quantity that is dimensionless/critical under N–S scaling, defined in Section 12; Theorem 13.1 (the Coherence–Amplitude Tradeoff) gives the key inequality $\\eta_qA_q^{\\rm crit}\\gtrsim\\nu$, making this the round's second central quantity.",
+    "defining_relation": "A_q^{\\rm crit}=\\lambda_q^{1/2}U_q"
+  },
+  {
+    "key": "ns.c3.c3e.i_q_window",
+    "latex": "I_q",
+    "label_zh": "更新窗口（通用記法）",
+    "label_en": "Renewal window (generic)",
+    "definition_zh": "第16節起使用的通用黏性窗口記法，用來定義窗口內累積量 $M_q(I_q),P_q(I_q),\\bar\\eta_q(I_q)$；同一角色在第21節寫作 $I_n$，第24節相空間 cell 中寫作 $I_\\lambda$。",
+    "definition_en": "The generic viscous-window notation used from Section 16 onward to define window-integrated quantities $M_q(I_q),P_q(I_q),\\bar\\eta_q(I_q)$; the same role is written $I_n$ in Section 21 and $I_\\lambda$ in the Section 24 phase-space cell.",
+    "defining_relation": "|I_\\lambda|\\sim(\\nu\\lambda^2)^{-1}"
+  },
+  {
+    "key": "ns.c3.c3e.m_q_integrated_capacity",
+    "latex": "M_q(I_q)=\\int_{I_q}\\mathcal M_q(t)\\,dt",
+    "label_zh": "窗口累積振幅容量",
+    "label_en": "Window-integrated amplitude capacity",
+    "definition_zh": "第16節定義，將瞬時容量 $\\mathcal M_q(t)$ 對整個更新窗口 $I_q$ 積分所得的（非花體）$M_q(I_q)$，與瞬時版本是不同的記法層級。",
+    "definition_en": "Defined in Section 16 as the time-integral of the instantaneous capacity $\\mathcal M_q(t)$ over the whole renewal window $I_q$; the plain-letter $M_q(I_q)$ is a distinct notational layer from the script $\\mathcal M_q(t)$.",
+    "defining_relation": "M_q(I_q)=\\int_{I_q}\\mathcal M_q(t)\\,dt"
+  },
+  {
+    "key": "ns.c3.c3e.p_q_integrated_production",
+    "latex": "P_q(I_q)=\\int_{I_q}\\mathcal P_q(t)\\,dt",
+    "label_zh": "窗口累積實際產生量",
+    "label_en": "Window-integrated actual production",
+    "definition_zh": "第16節定義，瞬時正產生量 $\\mathcal P_q(t)$ 對窗口 $I_q$ 的時間積分。",
+    "definition_en": "Defined in Section 16 as the time-integral of the instantaneous positive production $\\mathcal P_q(t)$ over the window $I_q$.",
+    "defining_relation": "P_q(I_q)=\\int_{I_q}\\mathcal P_q(t)\\,dt"
+  },
+  {
+    "key": "ns.c3.c3e.eta_bar_q_weighted",
+    "latex": "\\bar\\eta_q(I_q)=P_q(I_q)/M_q(I_q)",
+    "label_zh": "窗口加權相位效率",
+    "label_en": "Window-weighted phase efficiency",
+    "definition_zh": "第16節定義的窗口平均相位效率，$\\bar\\eta_q(I_q)\\in[0,1]$；若某更新事件需要 $P_q(I_q)\\ge B_q$，則必須 $\\bar\\eta_q(I_q)\\ge B_q/M_q(I_q)$。",
+    "definition_en": "The window-averaged phase efficiency defined in Section 16, with $\\bar\\eta_q(I_q)\\in[0,1]$; a renewal event requiring $P_q(I_q)\\ge B_q$ forces $\\bar\\eta_q(I_q)\\ge B_q/M_q(I_q)$.",
+    "defining_relation": "\\bar\\eta_q(I_q)=\\frac{P_q(I_q)}{M_q(I_q)}"
+  },
+  {
+    "key": "ns.c3.c3e.xlocalhet",
+    "latex": "\\operatorname{XLocalHet}_n=\\left\\langle q_n,I_n,\\mathcal P_n,\\mathcal M_n,\\bar\\eta_n,A_n^{\\rm crit},\\mathcal G_n,\\mathcal S_n,\\operatorname{Prov}_n\\right\\rangle",
+    "label_zh": "局部異手性 Zeno 鏈證書",
+    "label_en": "Local-heterochiral Zeno-chain certificate",
+    "definition_zh": "第21節定義的第二個 X-Integration 證書元組，用來檢驗一條 hypothetical local singular chain 在每個 genealogy 步驟是否同時具備尺度、窗口、產生量、容量、相位效率、臨界振幅、triad 幾何、空間支撐與親緣資訊。",
+    "definition_en": "The second X-Integration certificate tuple, defined in Section 21, used to check whether a hypothetical local singular chain carries scale, window, production, capacity, phase efficiency, critical amplitude, triad geometry, spatial support, and provenance at every genealogy step.",
+    "defining_relation": "\\operatorname{XLocalHet}_n=\\left\\langle q_n,I_n,\\mathcal P_n,\\mathcal M_n,\\bar\\eta_n,A_n^{\\rm crit},\\mathcal G_n,\\mathcal S_n,\\operatorname{Prov}_n\\right\\rangle"
+  },
+  {
+    "key": "ns.c3.c3e.g_n_triad_geometry",
+    "latex": "\\mathcal G_n",
+    "label_zh": "螺旋三元組幾何",
+    "label_en": "Helical triad geometry",
+    "definition_zh": "第21節 XLocalHet 證書的分量之一，記錄第 $n$ 代 helical triad 的幾何資訊；本輪僅列為證書欄位，具體結構留待 C3-F 發展。",
+    "definition_en": "One component of the XLocalHet certificate (Sec.21), recording the helical triad geometry at generation $n$; this round only lists it as a certificate field, leaving its concrete structure to C3-F.",
+    "notes": "本輪未給出 $\\mathcal G_n$ 的具體公式，屬 placeholder。"
+  },
+  {
+    "key": "ns.c3.c3e.s_n_spatial_support",
+    "latex": "\\mathcal S_n",
+    "label_zh": "空間支撐/集中資訊",
+    "label_en": "Spatial support/concentration information",
+    "definition_zh": "第21節 XLocalHet 證書的分量之一，記錄第 $n$ 代的空間支撐或集中資訊，呼應第23–24節的空間集中接口，但本輪未給出具體公式，留待 C3-F。",
+    "definition_en": "Another XLocalHet certificate component (Sec.21) recording generation-$n$ spatial support/concentration data, echoing the Sec.23–24 spatial-concentration interface; left without an explicit formula in this round, deferred to C3-F.",
+    "notes": "屬 placeholder，尚未展開。"
+  },
+  {
+    "key": "ns.c3.c3e.r_t_concentration_radius",
+    "latex": "R(t)\\sim\\sqrt{T_\\ast-t}",
+    "label_zh": "集中球半徑",
+    "label_en": "Concentration ball radius",
+    "definition_zh": "第23節引用 Barker–Prange 結果，Type-I-like 情境下 critical $L^3$ mass 集中所在的 shrinking ball 半徑量級，與 parabolic 頻率尺度互為倒數：$R(t)\\lambda(t)\\sim1$；屬 conditional spatial interface，非本文自證結果。",
+    "definition_en": "Cited from Barker–Prange in Section 23: under Type-I-like scenarios, the shrinking-ball radius at which critical $L^3$ mass concentrates, reciprocal to the parabolic frequency scale via $R(t)\\lambda(t)\\sim1$; introduced only as a conditional spatial interface, not proved in this paper.",
+    "defining_relation": "R(t)\\sim\\sqrt{T_\\ast-t}"
+  },
+  {
+    "key": "ns.c3.c3e.c_lambda_phase_space_cell",
+    "latex": "\\mathcal C_\\lambda=B(x_\\lambda,c\\lambda^{-1})\\times\\{\\xi:|\\xi|\\sim\\lambda\\}\\times I_\\lambda",
+    "label_zh": "聯合空間—頻率相空間胞元",
+    "label_en": "Joint space-frequency phase-space cell",
+    "definition_zh": "第24節定義，把空間球、頻率殼與時間窗口組合成單一相空間胞元；singular genealogy 若存在，需要一串 $\\mathcal C_{\\lambda_1}\\rightsquigarrow\\mathcal C_{\\lambda_2}\\rightsquigarrow\\cdots$ 在 space、frequency、time、helicity、phase 五個方向保持合法關聯，是通往下一輪 C3-F 的橋接構造。",
+    "definition_en": "Defined in Section 24 by combining a spatial ball, a frequency shell, and a time window into a single phase-space cell; a hypothetical singular genealogy would need a chain $\\mathcal C_{\\lambda_1}\\rightsquigarrow\\mathcal C_{\\lambda_2}\\rightsquigarrow\\cdots$ staying legally linked across space, frequency, time, helicity, and phase — the bridge construct toward the next round, C3-F.",
+    "defining_relation": "\\mathcal C_\\lambda=B(x_\\lambda,c\\lambda^{-1})\\times\\{\\xi:|\\xi|\\sim\\lambda\\}\\times I_\\lambda"
+  },
+  {
+    "key": "ns.c3.c3e.u_q_alpha_wavepacket",
+    "latex": "u_q=\\sum_\\alpha u_{q,\\alpha}",
+    "label_zh": "空間局部化波包分解",
+    "label_en": "Spatially localized wave-packet decomposition",
+    "definition_zh": "第29節（C3-F proof obligations, F1）預告的記法，把 dyadic shell $u_q$ 再分解成空間局部化波包 $u_{q,\\alpha}$，用以建立 $(q,\\alpha,s)$ 來源圖；本輪僅作為下一輪任務的前導定義。",
+    "definition_en": "Notation previewed in Section 29 (C3-F proof obligation F1), further decomposing the dyadic shell $u_q$ into spatially localized wave packets $u_{q,\\alpha}$ to build a $(q,\\alpha,s)$ provenance graph; introduced here only as a lead-in to the next round's task.",
+    "defining_relation": "u_q=\\sum_\\alpha u_{q,\\alpha}",
+    "notes": "屬 C3-F 前導定義，非本輪已證結果。"
+  },
+  {
+    "key": "ns.c3.c3e.overlap_operator",
+    "latex": "\\operatorname{Overlap}(u_{k,\\alpha},u_{p,\\beta},u_{q,\\gamma})",
+    "label_zh": "空間重疊算子",
+    "label_en": "Spatial overlap operator",
+    "definition_zh": "第29節（F3）預告的記法，用來檢驗三個 Fourier shell 波包是否在物理空間真正重疊，而非只有代數 triad 關係；為 C3-F 的 Spatial overlap guard 任務鋪墊。",
+    "definition_en": "Notation previewed in Section 29 (F3) to test whether three Fourier-shell wave packets physically overlap in space, rather than merely satisfying an algebraic triad relation; sets up C3-F's Spatial Overlap Guard task.",
+    "defining_relation": "\\operatorname{Overlap}(u_{k,\\alpha},u_{p,\\beta},u_{q,\\gamma})",
+    "notes": "屬 C3-F 前導定義，非本輪已證結果。"
+  }
+]

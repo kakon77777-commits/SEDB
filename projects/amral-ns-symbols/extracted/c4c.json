@@ -1,0 +1,270 @@
+[
+  {
+    "key": "ns.c4.c4c.shared_event_coupling",
+    "latex": "\\mathcal E,\\ L^A,\\ L^B,\\quad \\mathcal E\\Rightarrow B_1\\vee\\cdots\\vee B_m",
+    "label_zh": "共享事件耦合",
+    "label_en": "Shared-Event Coupling",
+    "definition_zh": "第2-3節提出本輪的策略轉向：單一真正 N–S 事件 $\\mathcal E$ 若同時強迫兩通道負載 $L^A\\ge a_0$ 與 $L^B\\ge b_0$ 稱強共享事件耦合，若只強迫若干結果之一 $B_1\\vee\\cdots\\vee B_m$ 則稱分支邊。",
+    "definition_en": "The round's strategic pivot from Sections 2-3: a single genuine Navier-Stokes event $\\mathcal E$ forcing both $L^A\\ge a_0$ and $L^B\\ge b_0$ at once is a strong shared-event coupling, while forcing only one of several outcomes $B_1\\vee\\cdots\\vee B_m$ is a (weaker) branching edge.",
+    "defining_relation": "\\mathcal E \\Rightarrow L^A\\ge a_0,\\ \\ \\mathcal E\\Rightarrow L^B\\ge b_0 \\ \\Longrightarrow\\ A\\stackrel{\\mathcal E}{\\Longleftrightarrow}B;\\qquad \\mathcal E \\Rightarrow B_1\\vee\\cdots\\vee B_m",
+    "notes": "Replaces C4-B's question of independently-recurring channels; Guard G-SHARED (Section 50) forbids all consequent branches vanishing once the antecedent holds under carrier relay."
+  },
+  {
+    "key": "ns.c4.c4c.helical_triad",
+    "latex": "k\\le p\\le q,\\quad e_k,e_p,e_q,\\quad s_k,s_p,s_q\\in\\{\\pm1\\}",
+    "label_zh": "螺旋三元組",
+    "label_en": "Helical Triad",
+    "definition_zh": "第4節設定的單一 Fourier 三元組，波數 $k\\le p\\le q$、模態能量 $e_k,e_p,e_q$ 與螺旋號 $s_k,s_p,s_q\\in\\{\\pm1\\}$，同時滿足能量守恆與螺旋守恆。",
+    "definition_en": "The single Fourier triad set up in Section 4, with wavenumbers $k\\le p\\le q$, modal energies $e_k,e_p,e_q$, and helicity signs $s_k,s_p,s_q\\in\\{\\pm1\\}$, subject to joint energy and helicity conservation."
+  },
+  {
+    "key": "ns.c4.c4c.theta_tau",
+    "latex": "\\Theta_\\tau",
+    "label_zh": "三元組導數係數",
+    "label_en": "Triad Derivative Coefficient",
+    "definition_zh": "第4節由單一三元組的能量與螺旋守恆聯立解出的唯一比例係數，決定三個模態能量導數所構成的向量。",
+    "definition_en": "The unique proportionality coefficient solved in Section 4 from a single triad's energy- and helicity-conservation constraints, fixing the vector of the three modal energy derivatives.",
+    "defining_relation": "(\\dot e_k,\\dot e_p,\\dot e_q) = \\Theta_\\tau\\left(s_pp-s_qq,\\ s_qq-s_kk,\\ s_kk-s_pp\\right)"
+  },
+  {
+    "key": "ns.c4.c4c.helical_classes",
+    "latex": "\\mathrm I:(+++),\\ \\mathrm{II}:(+--),\\ \\mathrm{III}:(+-+),\\ \\mathrm{IV}:(++-)",
+    "label_zh": "螺旋類別 I–IV",
+    "label_en": "Helical Classes I-IV",
+    "definition_zh": "第5節依最小模態螺旋號固定為正後，把三元組螺旋號組合分成同手性 Class I 與三種異手性 Class II、III、IV。",
+    "definition_en": "Section 5's four-way classification of triad helicity-sign patterns, with the smallest-wavenumber mode fixed positive: homochiral Class I versus heterochiral Classes II, III, IV.",
+    "notes": "Class IV is the exact critical case with $\\mathcal R_{IV}=G_{IV}^q$ (Section 8), unlike II/III which can degenerate (Section 10)."
+  },
+  {
+    "key": "ns.c4.c4c.pair_production",
+    "latex": "\\mathcal R_\\tau",
+    "label_zh": "臨界對產生量",
+    "label_en": "Critical Pair Production",
+    "definition_zh": "第6節沿用 C3-B 定義的三元組臨界螺旋對產生量，同手性時恆為零，異手性時等於 unique-sign 模態能量導數乘上係數 $r_\\tau$。",
+    "definition_en": "The triad's critical helical pair-production quantity, carried over from C3-B and defined in Section 6: identically zero for homochiral triads, and equal to $r_\\tau$ times the unique-sign modal energy derivative for heterochiral ones.",
+    "defining_relation": "\\mathcal R_\\tau=0\\ (\\text{homochiral});\\qquad \\mathcal R_\\tau=r_\\tau\\dot e_{\\rm uniq}\\ (\\text{heterochiral})",
+    "notes": "Concretely $\\mathcal R_{II}=k(q-p)\\Theta$, $\\mathcal R_{III}=p(q-k)\\Theta$, $\\mathcal R_{IV}=q(k-p)\\Theta$ (Section 6)."
+  },
+  {
+    "key": "ns.c4.c4c.high_mode_gain",
+    "latex": "G_\\tau^q",
+    "label_zh": "最高模能量增益",
+    "label_en": "Highest-Mode Energy Gain",
+    "definition_zh": "第7節定義的三元組臨界加權最高模能量增益，只計入 $\\dot e_q>0$ 的部分並以波數 $q$ 加權。",
+    "definition_en": "Defined in Section 7 as the triad's critical-weighted highest-mode energy gain, counting only the positive part of $\\dot e_q$ and weighted by wavenumber $q$.",
+    "defining_relation": "G_\\tau^q=q[\\dot e_q]_+"
+  },
+  {
+    "key": "ns.c4.c4c.c4c2_heterochiral_gain_theorem",
+    "latex": "\\text{C4-C.2}",
+    "label_zh": "異手性增益蘊含正對產生",
+    "label_en": "C4-C.2: Heterochiral Gain Is Positive Pair Production",
+    "definition_zh": "第9節證明的定理：對所有異手性 Class II–IV，只要最高模能量增益 $\\dot e_q>0$ 即得正臨界對產生 $\\mathcal R_\\tau>0$，第56節稱其為本輪最重要的單三元組螺旋結果。",
+    "definition_en": "The theorem proved in Section 9: for every heterochiral Class II-IV, positive highest-mode energy gain $\\dot e_q>0$ forces positive critical pair production $\\mathcal R_\\tau>0$; flagged in Section 56 as the round's most important single-triad helical result.",
+    "defining_relation": "\\text{heterochiral},\\ \\dot e_q>0\\ \\Longrightarrow\\ \\mathcal R_\\tau>0"
+  },
+  {
+    "key": "ns.c4.c4c.coupling_ratio",
+    "latex": "\\kappa_\\tau=\\dfrac{\\mathcal R_\\tau}{G_\\tau^q}",
+    "label_zh": "對產生／增益耦合比",
+    "label_en": "Pair-Production/Gain Coupling Ratio",
+    "definition_zh": "第8-12節定義的耦合比 $\\kappa_\\tau=\\mathcal R_\\tau/G_\\tau^q$：Class IV 恆為1（C4-C.3），Class II、III 在局部可比 $k,p\\ge c_Lq$ 且徑向間隙不退化（$\\ge\\delta q$）時有下界 $c_L\\delta/2$，但間隙趨零時退化至0（第10節）。",
+    "definition_en": "The coupling ratio $\\kappa_\\tau=\\mathcal R_\\tau/G_\\tau^q$ from Sections 8-12: identically 1 for Class IV (C4-C.3), bounded below by $c_L\\delta/2$ for Class II/III under local comparability $k,p\\ge c_Lq$ and a non-degenerate radial gap ($\\ge\\delta q$), but degenerating to 0 as the gap closes (Section 10).",
+    "defining_relation": "\\kappa_\\tau=\\frac{\\mathcal R_\\tau}{G_\\tau^q};\\qquad \\kappa_{IV}=1;\\qquad \\kappa_{II},\\kappa_{III}\\ge\\frac{c_L\\delta}{2}\\ \\text{(robust regime)}"
+  },
+  {
+    "key": "ns.c4.c4c.aggregate_gain",
+    "latex": "G^+=G_{\\rm hom}+G_{\\rm deg}+G_{\\rm rob}",
+    "label_zh": "聚合正增益分解",
+    "label_en": "Aggregate Positive-Gain Decomposition",
+    "definition_zh": "第13節在有限 Galerkin 截斷中定義的聚合正增益 $G^+=G_{\\rm hom}+G_{\\rm deg}+G_{\\rm rob}$，把所有 $\\dot e_q>0$ 三元組的高模增益依同手性、退化異手性、穩健異手性三類求和。",
+    "definition_en": "The aggregate positive gain $G^+=G_{\\rm hom}+G_{\\rm deg}+G_{\\rm rob}$ defined in Section 13 within a finite Galerkin truncation, summing the high-mode gain of every $\\dot e_q>0$ triad into homochiral, gap-degenerate heterochiral, and robust heterochiral parts."
+  },
+  {
+    "key": "ns.c4.c4c.positive_variation",
+    "latex": "P_+=\\sum_\\tau[\\mathcal R_\\tau]_+",
+    "label_zh": "三元組正螺旋變化量",
+    "label_en": "Triadwise Positive Helical Variation",
+    "definition_zh": "第14節定義的所有三元組正對產生量總和 $P_+$，由穩健耦合可得下界 $P_+\\ge c(c_L,\\delta)G_{\\rm rob}$。",
+    "definition_en": "Defined in Section 14 as the sum $P_+$ of positive pair production over all triads, bounded below by $P_+\\ge c(c_L,\\delta)G_{\\rm rob}$ via the robust coupling bound."
+  },
+  {
+    "key": "ns.c4.c4c.net_production",
+    "latex": "P_-=\\sum_\\tau[-\\mathcal R_\\tau]_+,\\quad \\mathcal R_{\\rm net}=P_+-P_-",
+    "label_zh": "淨螺旋對產生",
+    "label_en": "Negative Variation & Net Pair Production",
+    "definition_zh": "第15節定義的負向三元組對產生總和 $P_-$ 與全域淨螺旋對產生 $\\mathcal R_{\\rm net}=P_+-P_-$，說明穩健正對產生仍可能被同時發生的負三元組完全抵消。",
+    "definition_en": "Section 15's sum of negative-triad pair production $P_-$ and the global net helical pair production $\\mathcal R_{\\rm net}=P_+-P_-$, showing robust positive production can still be entirely offset by simultaneous negative triads."
+  },
+  {
+    "key": "ns.c4.c4c.c4c4_cancellation_dichotomy",
+    "latex": "\\text{C4-C.4}",
+    "label_zh": "穩健增益抵消二分法",
+    "label_en": "C4-C.4: Robust-Gain Cancellation Dichotomy",
+    "definition_zh": "第16節證明：固定 $0<\\eta<1$，若 $G_{\\rm rob}>0$，則淨螺旋生產分支 $[\\mathcal R_{\\rm net}]_+\\ge\\eta cG_{\\rm rob}$ 與抵消分支 $P_-\\ge(1-\\eta)cG_{\\rm rob}$ 至少一者成立。",
+    "definition_en": "Proved in Section 16: for fixed $0<\\eta<1$, if $G_{\\rm rob}>0$ then either the net-helicity branch $[\\mathcal R_{\\rm net}]_+\\ge\\eta cG_{\\rm rob}$ or the cancellation branch $P_-\\ge(1-\\eta)cG_{\\rm rob}$ must hold."
+  },
+  {
+    "key": "ns.c4.c4c.uv_amplitude",
+    "latex": "a_q^\\sigma=\\dfrac{\\|u_q^\\sigma\\|_\\infty}{\\nu\\lambda_q}",
+    "label_zh": "UV 臨界振幅",
+    "label_en": "UV Critical Amplitude",
+    "definition_zh": "第19節重新強調的 C3-G first-crossing 振幅比 $a_q^\\sigma$，本質是振幅／範數事件而非模態能量導數／通量事件，是本輪關鍵區分的起點。",
+    "definition_en": "The C3-G first-crossing amplitude ratio $a_q^\\sigma$, re-centered in Section 19 as an amplitude/norm event rather than a modal energy-derivative/flux event — the starting point of the round's key distinction.",
+    "defining_relation": "a_q^\\sigma=\\frac{\\|u_q^\\sigma\\|_\\infty}{\\nu\\lambda_q}",
+    "notes": "Carried over from NS_C3G_FirstCrossing_CausalAncestry_DepletionNoGo_v0.1; this round shows it does NOT by itself force positive energy gain (no-go NG-C1, Section 49)."
+  },
+  {
+    "key": "ns.c4.c4c.c4c5_phase_rearrangement_nogo",
+    "latex": "u_\\theta(x)=\\sum_{m=1}^{N}a_mh_me^{i(k_m\\cdot x+\\theta_m)}",
+    "label_zh": "相位重排無go定理",
+    "label_en": "C4-C.5: Phase-Rearrangement No-Go",
+    "definition_zh": "第20節構造同一 dyadic shell內固定振幅 $|a_m|$、只變相位 $\\theta_m$ 的場 $u_\\theta$，證明 $\\|u_\\theta\\|_2$ 與相位無關但 $\\|u_\\theta\\|_\\infty$ 可隨相位路徑增加，說明振幅資訊本身無法代數決定 shell 能量通量正負號。",
+    "definition_en": "Section 20 constructs a field $u_\\theta$ on one dyadic shell with fixed amplitudes $|a_m|$ and varying phases $\\theta_m$, showing $\\|u_\\theta\\|_2$ is phase-independent while $\\|u_\\theta\\|_\\infty$ can grow along a smooth phase path, so amplitude information alone cannot algebraically fix the sign of shell energy flux.",
+    "defining_relation": "\\frac{d}{dt}\\|u_{\\theta(t)}\\|_2^2=0\\quad\\text{while}\\quad \\|u_{\\theta(t)}\\|_\\infty\\ \\text{increases}",
+    "notes": "Not a Navier-Stokes solution construction; it is the proof vehicle for the Amplitude-to-Flux Barrier (Section 21)."
+  },
+  {
+    "key": "ns.c4.c4c.amplitude_flux_barrier",
+    "latex": "a_q^\\sigma\\uparrow\\ \\not\\Rightarrow\\ \\dot e_q>0\\ \\text{or}\\ \\Phi_q>0",
+    "label_zh": "振幅—通量障礙",
+    "label_en": "Amplitude-to-Flux Barrier",
+    "definition_zh": "第21節命名（第44節重申）的本輪最關鍵缺口：UV 振幅 $a_q^\\sigma$ 或 $\\|P_{>J}u\\|_3$ 增大無法單靠範數代數推出模態能量導數 $\\dot e_q>0$ 或 shell 通量 $\\Phi_q>0$，因此 C1 first-crossing 錨點尚不能直接接上 C4-C 螺旋三元組能量轉移代數。",
+    "definition_en": "The round's headline gap, named in Section 21 and restated in Section 44: growth of the UV amplitude $a_q^\\sigma$ or $\\|P_{>J}u\\|_3$ cannot, by norm algebra alone, yield $\\dot e_q>0$ or positive shell flux $\\Phi_q>0$, so the C1 first-crossing anchor cannot yet attach to C4-C's helical triad transfer algebra.",
+    "notes": "Guard G-AMPFLUX (Section 50); paired with Helical Cancellation Packing as the two priority targets for the next round C4-D (Sections 52-53)."
+  },
+  {
+    "key": "ns.c4.c4c.uv_critical_stock",
+    "latex": "H_{q,\\sigma}=\\lambda_q\\|u_q^\\sigma\\|_2^2;\\quad \\|S_q^\\sigma\\|_2^2,\\ \\|\\omega_q^\\sigma\\|_2^2",
+    "label_zh": "UV 臨界庫存",
+    "label_en": "UV Critical Stock",
+    "definition_zh": "第22-25節由 UV 振幅 $a_q^\\sigma\\ge\\beta$ 經 Bernstein 不等式推出的同時刻庫存下界：螺旋臨界 shell 庫存 $H_{q,\\sigma}$（C4-C.6，第23節）與應變、渦度 shell 庫存（C4-C.7，第24節）皆滿足 $\\gtrsim\\nu^2\\beta^2$ 型下界，屬 stock synchronization 而非 production synchronization。",
+    "definition_en": "The same-time stock lower bounds derived in Sections 22-25 from $a_q^\\sigma\\ge\\beta$ via the Bernstein inequality: helical critical shell stock $H_{q,\\sigma}$ (C4-C.6, Section 23) and strain/vorticity shell stock (C4-C.7, Section 24) all satisfy $\\gtrsim\\nu^2\\beta^2$-type lower bounds, i.e. stock synchronization rather than production synchronization.",
+    "defining_relation": "H_{q,\\sigma}=\\lambda_q\\|u_q^\\sigma\\|_2^2;\\qquad a_q^\\sigma\\ge\\beta\\ \\Longrightarrow\\ \\frac{H_{q,\\sigma}}{\\nu^2}\\ge c\\beta^2",
+    "notes": "Forms Sync subset C1 (Section 48); each new carrier pays an O(1) normalized stock toll but only a summable O(lambda_qn^{-1}) energy cost (Section 26), so carrier relay still survives."
+  },
+  {
+    "key": "ns.c4.c4c.stock_to_production_barrier",
+    "latex": "\\text{critical stock}\\ \\not\\Rightarrow\\ \\text{production}",
+    "label_zh": "庫存—生產障礙",
+    "label_en": "Stock-to-Production Barrier",
+    "definition_zh": "第45節命名的第二個缺口：儘管 UV 振幅同步了螺旋、應變、渦度庫存，庫存可以靜態存在，目前尚無法由庫存推出正的生產、伸展或算子逃逸。",
+    "definition_en": "The second named gap, from Section 45: although UV amplitude synchronizes helical, strain, and vorticity stock, stock can sit statically, and no bridge yet forces positive production, stretching, or operator escape from it.",
+    "notes": "Corresponds to no-go NG-C3 (Section 49) and Guard G-STOCKPROD (Section 50)."
+  },
+  {
+    "key": "ns.c4.c4c.local_strain_growth",
+    "latex": "G_\\chi=E_\\chi'+D_\\chi",
+    "label_zh": "局部應變增長率",
+    "label_en": "Local Strain-Growth Rate",
+    "definition_zh": "第27節沿用 C3-O adjoint cutoff 定義的局部量 $G_\\chi=E_\\chi'+D_\\chi$，等於三個邊界／自放大項之和 $A_\\chi+B_\\chi^B+B_\\chi^P$。",
+    "definition_en": "The local quantity $G_\\chi=E_\\chi'+D_\\chi$ from Section 27, carried over from the C3-O adjoint cutoff, equal to the sum of three self-amplification/boundary terms $A_\\chi+B_\\chi^B+B_\\chi^P$."
+  },
+  {
+    "key": "ns.c4.c4c.strain_self_amplification",
+    "latex": "A_\\chi=-2\\int\\chi\\det S",
+    "label_zh": "應變自放大項",
+    "label_en": "Strain Self-Amplification Term",
+    "definition_zh": "第27節定義的局部應變自放大項 $A_\\chi=-2\\int\\chi\\det S$，是局部應變增長分解 $G_\\chi$ 的第一支。",
+    "definition_en": "Defined in Section 27 as $A_\\chi=-2\\int\\chi\\det S$, the self-amplification branch of the local strain-growth decomposition $G_\\chi$."
+  },
+  {
+    "key": "ns.c4.c4c.betchov_current",
+    "latex": "B_\\chi^B=\\tfrac13\\int\\nabla\\chi\\cdot F_B",
+    "label_zh": "Betchov 邊界流",
+    "label_en": "Betchov Boundary Current",
+    "definition_zh": "第27節定義、第29節由精確局部 Betchov 恆等式連結的邊界流項 $B_\\chi^B$，滿足 $V_\\chi=2A_\\chi-4B_\\chi^B$。",
+    "definition_en": "The boundary current $B_\\chi^B$ defined in Section 27 and tied to the exact local Betchov identity in Section 29 via $V_\\chi=2A_\\chi-4B_\\chi^B$.",
+    "notes": "C4-C.9 (Section 30) shows $A_\\chi\\ge a>0$ forces $|B_\\chi^B|\\ge a/4$ or $V_\\chi\\ge a$."
+  },
+  {
+    "key": "ns.c4.c4c.pressure_current",
+    "latex": "B_\\chi^P=\\int\\nabla\\chi\\cdot F_p",
+    "label_zh": "局部壓力流",
+    "label_en": "Local Pressure Current",
+    "definition_zh": "第27節定義的局部壓力邊界流項 $B_\\chi^P=\\int\\nabla\\chi\\cdot F_p$，是局部應變增長分解 $G_\\chi$ 的第三支。",
+    "definition_en": "Defined in Section 27 as $B_\\chi^P=\\int\\nabla\\chi\\cdot F_p$, the pressure branch of the local strain-growth decomposition $G_\\chi$."
+  },
+  {
+    "key": "ns.c4.c4c.c4c8_strain_growth_trichotomy",
+    "latex": "\\text{C4-C.8}",
+    "label_zh": "應變增長三分法",
+    "label_en": "C4-C.8: Local Strain-Growth Trichotomy",
+    "definition_zh": "第28節定理28.1：若 $G_\\chi\\ge g>0$，則自放大項、Betchov流、壓力流三者至少一者達 $g/3$，證法僅用三項總和等於 $G_\\chi$ 的三角不等式。",
+    "definition_en": "Theorem 28.1 in Section 28: if $G_\\chi\\ge g>0$ then at least one of the self-amplification, Betchov-current, and pressure-current terms reaches $g/3$, proved by a bare triangle-inequality argument on the three-term sum."
+  },
+  {
+    "key": "ns.c4.c4c.vortex_stretching_local",
+    "latex": "V_\\chi=\\int\\chi\\,\\omega\\cdot S\\omega",
+    "label_zh": "局部渦度伸展量",
+    "label_en": "Local Vortex Stretching",
+    "definition_zh": "第29節定義的局部渦度伸展量 $V_\\chi$，經精確局部 Betchov 關係滿足 $V_\\chi=2A_\\chi-4B_\\chi^B$，並在第32節被 middle-strain 與 principal-alignment 兩支加權渦度控制。",
+    "definition_en": "The local vortex-stretching quantity $V_\\chi$ from Section 29, satisfying the exact local Betchov relation $V_\\chi=2A_\\chi-4B_\\chi^B$, and bounded in Section 32 by a middle-strain-weighted plus a principal-alignment-weighted vorticity branch.",
+    "defining_relation": "V_\\chi=2A_\\chi-4B_\\chi^B",
+    "notes": "C4-C.10 (Section 31) combines this with C4-C.8/C4-C.9 to force strain growth into pressure, Betchov, or vortex stretching; C4-C.11 (Section 33) further splits the vortex-stretching branch by geometry."
+  },
+  {
+    "key": "ns.c4.c4c.mean_strain_pressure_decomp",
+    "latex": "M_\\chi'=-Q_\\chi-P_\\chi",
+    "label_zh": "平均應變—壓力分解",
+    "label_en": "Mean-Strain/Pressure Decomposition",
+    "definition_zh": "第34節定義的 adjoint mean-strain transport 分解 $M_\\chi'=-Q_\\chi-P_\\chi$，其中 $Q_\\chi$ 為應變—渦度二次型、$P_\\chi$ 為局部壓力 Hessian 積分，C4-C.12（第35節）證 $|P_\\chi|\\ge p_0$ 強迫 $|M_\\chi'|\\ge p_0/2$ 或 $|Q_\\chi|\\ge p_0/2$。",
+    "definition_en": "The adjoint mean-strain-transport decomposition $M_\\chi'=-Q_\\chi-P_\\chi$ from Section 34, where $Q_\\chi$ is a quadratic strain/vorticity functional and $P_\\chi$ a local pressure-Hessian integral; C4-C.12 (Section 35) shows $|P_\\chi|\\ge p_0$ forces $|M_\\chi'|\\ge p_0/2$ or $|Q_\\chi|\\ge p_0/2$."
+  },
+  {
+    "key": "ns.c4.c4c.miller_operator",
+    "latex": "\\mathcal Q_{SV}=P_{st}\\left((u\\cdot\\nabla)S+S^2+\\tfrac34\\omega\\otimes\\omega\\right)",
+    "label_zh": "Miller 應變—渦度算子",
+    "label_en": "Miller Strain-Vorticity Operator",
+    "definition_zh": "第36節在 $\\nu=1$ 正規化下引入的 Miller 算子 $\\mathcal Q_{SV}$，將 strain-vorticity interaction 投影到 $P_{st}$，第38節之 Miller escape 版本要求 $\\|\\mathcal Q_{SV}\\|_2\\ge c\\|-\\Delta S\\|_2$。",
+    "definition_en": "The Miller operator $\\mathcal Q_{SV}$ introduced in Section 36 under $\\nu=1$ normalization, projecting the strain-vorticity interaction through $P_{st}$; the Miller-escape version in Section 38 requires $\\|\\mathcal Q_{SV}\\|_2\\ge c\\|-\\Delta S\\|_2$.",
+    "defining_relation": "\\mathcal Q_{SV}=P_{st}\\left((u\\cdot\\nabla)S+S^2+\\tfrac34\\omega\\otimes\\omega\\right)=\\mathcal A_{adv}+\\mathcal A_{S^2}+\\mathcal A_{\\omega^2}"
+  },
+  {
+    "key": "ns.c4.c4c.operator_sources_debt",
+    "latex": "\\mathcal A_{adv},\\ \\mathcal A_{S^2},\\ \\mathcal A_{\\omega^2}",
+    "label_zh": "算子來源與抵消債",
+    "label_en": "Operator Sources & Cancellation Debt",
+    "definition_zh": "第36節分解 Miller 算子的三個投影來源（平流、應變平方、渦度二次），C4-C.13（第37節）證任一者達 $d/3$，第39節指出若 $\\mathcal A_{\\omega^2}$ 大但 $\\mathcal Q_{SV}$ 小，則平流／應變平方分量必須同步抵消該差額，稱算子抵消債。",
+    "definition_en": "The three projected sources of the Miller operator from Section 36 (advection, strain-square, vorticity-quadratic); C4-C.13 (Section 37) shows at least one reaches $d/3$, and Section 39 shows that if $\\mathcal A_{\\omega^2}$ is large while $\\mathcal Q_{SV}$ is small, the advection/strain-square components must absorb the difference, termed the Operator Cancellation Debt.",
+    "defining_relation": "\\|\\mathcal A_{adv}+\\mathcal A_{S^2}\\|_2\\ \\ge\\ \\|\\mathcal A_{\\omega^2}\\|_2-\\|\\mathcal Q_{SV}\\|_2",
+    "notes": "Guard G-OPCANCEL (Section 50) forbids inferring a large full Miller operator from one large projected component alone (no-go NG-C5, Section 49)."
+  },
+  {
+    "key": "ns.c4.c4c.helical_cancellation_packing",
+    "latex": "\\textbf{Helical Cancellation Packing}",
+    "label_zh": "螺旋抵消堆積問題",
+    "label_en": "Helical Cancellation Packing",
+    "definition_zh": "第46節命名的第三個缺口：穩健異手性增益只給三元組正變化量 $P_+\\gtrsim G_{\\rm rob}$，並非全域淨生產 $[\\mathcal R_{\\rm net}]_+$，因仍可能被 $P_-$ 抵消，與 Amplitude-to-Flux Barrier 並列第52節「下一輪應直接攻」的兩個目標。",
+    "definition_en": "The third named gap, from Section 46: robust heterochiral gain only gives triadwise positive variation $P_+\\gtrsim G_{\\rm rob}$, not global net production $[\\mathcal R_{\\rm net}]_+$, since $P_-$ can still cancel it; flagged in Section 52, alongside the Amplitude-to-Flux Barrier, as one of two targets the next round should attack directly.",
+    "notes": "Directly feeds proof obligation D6 for the next round C4-D (Section 54)."
+  },
+  {
+    "key": "ns.c4.c4c.local_to_operator_bridge",
+    "latex": "\\textbf{Local-to-Operator Bridge}",
+    "label_zh": "局部—算子橋接問題",
+    "label_en": "Local-to-Operator Bridge",
+    "definition_zh": "第47節命名的第四個缺口：局部渦度伸展量 $V_\\chi$ 大只給局部幾何與局部渦度二次負荷，因投影、局部化與抵消，尚不能直接推出全域 Miller 算子逃逸 $\\|\\mathcal Q_{SV}\\|_2/\\|\\Delta S\\|_2$ 大。",
+    "definition_en": "The fourth named gap, from Section 47: a large local vortex-stretching quantity $V_\\chi$ only yields local geometry and local vorticity-quadratic load; projection, localization, and cancellation still block a direct implication to a large global Miller operator escape ratio $\\|\\mathcal Q_{SV}\\|_2/\\|\\Delta S\\|_2$.",
+    "notes": "Section 40 gives the one directional bound that does hold: $\\|P_{st}(\\omega\\otimes\\omega)\\|_2\\ge|\\int\\omega\\cdot S\\omega|/\\|S\\|_2$."
+  },
+  {
+    "key": "ns.c4.c4c.closure_graph",
+    "latex": "\\text{High-mode gain}\\to\\text{hom}\\vee\\text{deg}\\vee\\text{net}\\vee\\text{cancel};\\ \\ \\text{Strain growth}\\to\\text{pressure}\\vee\\text{Betchov}\\vee\\text{stretch}",
+    "label_zh": "共享事件封閉圖",
+    "label_en": "Shared-Event Closure Graph v0.1",
+    "definition_zh": "第41節彙整本輪七條 exact／conditional 共享事件邊（振幅→庫存、穩健異手性增益→正螺旋變化、高模增益→四分支、應變增長→三分支、渦度伸展→兩分支、壓力活躍→兩分支、Miller 逃逸→三分支）而成的封閉圖，第55節列為尚 OPEN 的整體閉合。",
+    "definition_en": "The synthesis object from Section 41 collecting the round's seven exact/conditional shared-event edges (amplitude to stock; robust heterochiral gain to positive helical variation; high-mode gain to a four-way branch; strain growth to a three-way branch; vortex stretching to a two-way branch; pressure-active to a two-way branch; Miller escape to a three-way branch); Section 55 lists full graph closure as still OPEN.",
+    "notes": "Sync subsets C1-C4 (Section 48) are the graph's current seed nodes; Section 49's five no-gos (NG-C1 to NG-C5) mark edges the graph does NOT yet contain."
+  },
+  {
+    "key": "ns.c4.c4c.true_etn_shared",
+    "latex": "\\Theta^{shared}=\\left\\langle \\mathcal E,\\operatorname{CarrierID},\\operatorname{LoadVector},\\operatorname{BranchSet},\\operatorname{CancellationDebt},\\operatorname{Prov}\\right\\rangle",
+    "label_zh": "True ETN 共享事件狀態",
+    "label_en": "True ETN Shared-Event State",
+    "definition_zh": "第51節更新的 True ETN 狀態元組 $\\Theta^{shared}$，把事件、carrier識別、負載向量、分支集合、抵消債與 provenance 打包，並給出螺旋三元組的具體實例 $\\Theta_\\tau^{gain}$。",
+    "definition_en": "The updated True ETN state tuple from Section 51, packaging the event, carrier identity, load vector, branch set, cancellation debt, and provenance, together with a concrete helical-triad instance $\\Theta_\\tau^{gain}$.",
+    "defining_relation": "\\Theta_\\tau^{gain}=\\left\\langle (k,p,q),(s_k,s_p,s_q),G_\\tau^q,\\mathcal R_\\tau,\\kappa_\\tau,\\operatorname{Gap}\\right\\rangle",
+    "notes": "Extends the True ETN / infinite-dimensional tension field framework listed among this document's internal dependencies."
+  }
+]

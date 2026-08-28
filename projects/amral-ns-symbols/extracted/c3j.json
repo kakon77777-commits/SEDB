@@ -1,0 +1,299 @@
+[
+  {
+    "key": "ns.c3.c3j.high_pass_profile",
+    "latex": "h",
+    "label_zh": "高通輪廓函數",
+    "label_en": "high-pass profile function",
+    "definition_zh": "第2節引入的固定光滑函數 $h\\in C^\\infty([0,\\infty))$，滿足 $0\\le h\\le1$、$h(r)=0$（$r\\le1$）、$h(r)=1$（$r\\ge2$）且 $h'\\ge0$，用以構造移動頻率前緣的 Fourier 乘子 $A_\\Lambda$。",
+    "definition_en": "The fixed smooth cutoff profile $h\\in C^\\infty([0,\\infty))$ introduced in Sec. 2, with $0\\le h\\le1$, $h(r)=0$ for $r\\le1$, $h(r)=1$ for $r\\ge2$, $h'\\ge0$; used to build the moving-frontier Fourier multiplier $A_\\Lambda$.",
+    "defining_relation": "h(r)=0\\ (r\\le1),\\quad h(r)=1\\ (r\\ge2),\\quad h'\\ge0",
+    "notes": "第5節取 $m(r)=h(r)^2$ 作為 $M_\\Lambda$ 的 symbol，用於證明 gauge sweep 的符號。"
+  },
+  {
+    "key": "ns.c3.c3j.moving_frontier",
+    "latex": "\\Lambda(t)",
+    "label_zh": "移動頻率前緣",
+    "label_en": "moving frequency frontier",
+    "definition_zh": "第2節引入的隨時間變化正值頻率前緣 $\\Lambda(t)>0$，取代先前各輪的固定整數 frontier $Q$，是本輪頻譜 gauge sweep 分析的核心自由度。",
+    "definition_en": "The time-dependent positive frequency frontier $\\Lambda(t)>0$ introduced in Sec. 2, replacing the fixed integer frontier $Q$ of earlier rounds; the core moving degree of freedom behind this round's spectral gauge-sweep analysis.",
+    "notes": "與 C3-G/H/I 使用的離散整數 frontier $Q$ 相關但不同：$\\Lambda(t)$ 連續可微，使 $\\dot\\Lambda(t)$ 有意義。"
+  },
+  {
+    "key": "ns.c3.c3j.moving_multiplier",
+    "latex": "A_{\\Lambda(t)}",
+    "label_zh": "移動頻率 Fourier 乘子",
+    "label_en": "moving-frontier Fourier multiplier",
+    "definition_zh": "第2節定義的 self-adjoint Fourier multiplier，symbol 為 $a_\\Lambda(\\xi)=h(|\\xi|/\\Lambda(t))$，把 $h$ 依 $\\Lambda(t)$ 縮放到頻率空間，構成移動 high-pass filter。",
+    "definition_en": "The self-adjoint Fourier multiplier defined in Sec. 2 with symbol $a_\\Lambda(\\xi)=h(|\\xi|/\\Lambda(t))$, rescaling $h$ in frequency space by the moving frontier $\\Lambda(t)$ to act as a moving high-pass filter.",
+    "defining_relation": "a_\\Lambda(\\xi)=h\\left(\\frac{|\\xi|}{\\Lambda(t)}\\right)",
+    "notes": "常簡寫 $A_\\Lambda$；因 $\\Lambda(t)$ 隨 $t$ 變化，$A_\\Lambda$ 不與 $\\partial_t$ 交換，這正是 gauge sweep $\\mathcal G_\\Lambda$ 的來源。"
+  },
+  {
+    "key": "ns.c3.c3j.squared_multiplier",
+    "latex": "M_\\Lambda",
+    "label_zh": "平方頻率乘子",
+    "label_en": "squared frequency multiplier",
+    "definition_zh": "第2節定義 $M_\\Lambda=A_\\Lambda^2$，symbol 為 $m(|\\xi|/\\Lambda)$（$m(r)=h(r)^2$，第5節），用於構造二次型能量 $E_\\Lambda=\\frac12\\langle u,M_\\Lambda u\\rangle$。",
+    "definition_en": "Defined in Sec. 2 as $M_\\Lambda=A_\\Lambda^2$, symbol $m(|\\xi|/\\Lambda)$ with $m(r)=h(r)^2$ (Sec. 5); used to form the quadratic energy $E_\\Lambda=\\frac12\\langle u,M_\\Lambda u\\rangle$.",
+    "defining_relation": "M_\\Lambda=A_\\Lambda^2",
+    "notes": "第5節證明 $\\dot\\Lambda\\ge0\\Rightarrow\\partial_tm(|\\xi|/\\Lambda)\\le0$（因 $m'\\ge0$），此即 $\\mathcal G_\\Lambda\\le0$ 的關鍵引理。"
+  },
+  {
+    "key": "ns.c3.c3j.moving_spectral_energy",
+    "latex": "E_\\Lambda(t)",
+    "label_zh": "移動頻譜能量",
+    "label_en": "moving spectral energy",
+    "definition_zh": "第3節定義 $E_\\Lambda(t)=\\frac12\\|A_{\\Lambda(t)}u(t)\\|_2^2=\\frac12\\langle u,M_\\Lambda u\\rangle$，即被移動 high-pass filter 篩出的能量，是定理4.1（C3-J.1）平衡律的主角。",
+    "definition_en": "Defined in Sec. 3 as $E_\\Lambda(t)=\\frac12\\|A_{\\Lambda(t)}u(t)\\|_2^2=\\frac12\\langle u,M_\\Lambda u\\rangle$, the energy captured by the moving high-pass filter; the central quantity of Theorem 4.1 (C3-J.1).",
+    "defining_relation": "E_\\Lambda(t)=\\frac12\\|A_{\\Lambda(t)}u(t)\\|_2^2=\\frac12\\langle u,M_\\Lambda u\\rangle",
+    "notes": "當 $\\Lambda$ 固定時退化為第25節的 gauge-corrected spectral balance。"
+  },
+  {
+    "key": "ns.c3.c3j.spectral_gauge_sweep",
+    "latex": "\\mathcal G_\\Lambda",
+    "label_zh": "頻譜 gauge sweep",
+    "label_en": "spectral gauge sweep",
+    "definition_zh": "定理4.1（C3-J.1）中 $\\dot E_\\Lambda$ 分解出的第一項，$\\mathcal G_\\Lambda=\\frac12\\langle u,\\dot M_\\Lambda u\\rangle$，代表純因前緣移動造成的能量重新標記而非真實非線性轉移；第5節證明 $\\dot\\Lambda\\ge0\\Rightarrow\\mathcal G_\\Lambda\\le0$。",
+    "definition_en": "The first term in the Theorem 4.1 decomposition of $\\dot E_\\Lambda$: $\\mathcal G_\\Lambda=\\frac12\\langle u,\\dot M_\\Lambda u\\rangle$, pure relabeling from the moving frontier, not genuine nonlinear transfer; Sec. 5 shows $\\dot\\Lambda\\ge0\\Rightarrow\\mathcal G_\\Lambda\\le0$.",
+    "defining_relation": "\\mathcal G_\\Lambda=\\frac12\\langle u,\\dot M_\\Lambda u\\rangle",
+    "notes": "Guard code G-SWEEP-F（第32節）保存此項；時間積分記為 $G_\\Lambda=\\int\\mathcal G_\\Lambda$（第29節，見 spectral ledger）。"
+  },
+  {
+    "key": "ns.c3.c3j.spectral_nonlinear_transfer",
+    "latex": "\\Phi_\\Lambda",
+    "label_zh": "頻譜非線性轉移通量",
+    "label_en": "genuine spectral nonlinear transfer",
+    "definition_zh": "定理4.1分解的第二項，$\\Phi_\\Lambda=-\\langle B(u,u),M_\\Lambda u\\rangle$，代表真正因非線性項進入 filtered high side 的頻譜轉移，扣除 $\\mathcal G_\\Lambda$ 後才是 genuine dynamics。",
+    "definition_en": "The second term in the Theorem 4.1 decomposition: $\\Phi_\\Lambda=-\\langle B(u,u),M_\\Lambda u\\rangle$, the genuine nonlinear spectral transfer into the filtered high side, distinct from the gauge sweep $\\mathcal G_\\Lambda$.",
+    "defining_relation": "\\Phi_\\Lambda=-\\langle B(u,u),M_\\Lambda u\\rangle",
+    "notes": "積分版 $F_\\Lambda=\\int\\Phi_\\Lambda$（第29節）；其正變差 $\\operatorname{Var}_+(\\Phi_\\Lambda)$（第26節）是 C3-J.5 no-go 的主角。"
+  },
+  {
+    "key": "ns.c3.c3j.abs_freq",
+    "latex": "\\operatorname{AbsFreq}=q",
+    "label_zh": "絕對頻率殼層標記",
+    "label_en": "absolute-shell frequency label",
+    "definition_zh": "第7節引入的 X-Integration 保存量，記錄 Fourier content 所在的絕對（非相對）殼層 $q$；第6節以通用符號 $r$ 表示同一概念（如定理15.1的固定殼層）。與 $\\operatorname{RelFreq}$ 不得互相取代。",
+    "definition_en": "The X-Integration bookkeeping quantity from Sec. 7, recording the absolute (not frontier-relative) shell index $q$; the generic variable $r$ (Sec. 6, Thm 15.1) denotes the same notion. Must not be conflated with $\\operatorname{RelFreq}$.",
+    "notes": "對應 guard code G-ABS（第32節）。"
+  },
+  {
+    "key": "ns.c3.c3j.rel_freq",
+    "latex": "\\operatorname{RelFreq}=q-Q",
+    "label_zh": "相對頻率殼層指標",
+    "label_en": "relative-shell (frontier-relative) index",
+    "definition_zh": "第7節定義 $\\operatorname{RelFreq}=q-Q$（第6節記作 $j_Q=r-Q$，或簡寫 $j=q-Q$），是殼層相對於移動前緣 $Q$ 的位置；No-Go 6.1 證明此標記改變（如 UV→IR）不蘊含真正的向下頻譜轉移。",
+    "definition_en": "Defined in Sec. 7 as $\\operatorname{RelFreq}=q-Q$ (written $j_Q=r-Q$ in Sec. 6, or $j=q-Q$), the shell's position relative to moving frontier $Q$; No-Go 6.1 shows a change in this label does not imply genuine downscale spectral transfer.",
+    "defining_relation": "\\operatorname{RelFreq}=q-Q",
+    "notes": "對應 guard code G-REL（第32節）。與 AbsFreq 的區分是本輪 no-go 論證核心。"
+  },
+  {
+    "key": "ns.c3.c3j.moving_spatial_core",
+    "latex": "\\chi(t,x)",
+    "label_zh": "移動空間核心截止函數",
+    "label_en": "moving spatial-core cutoff",
+    "definition_zh": "第8節定義 $\\chi(t,x)=\\chi_0\\left(\\frac{x-X(t)}{R(t)}\\right)$（$0\\le\\chi_0\\le1$），以移動中心 $X(t)$ 與可能收縮的半徑 $R(t)$ 描述局部核心，$z=(x-X(t))/R(t)$（第11節）；是 $\\Lambda(t)$ 的空間對應物。",
+    "definition_en": "Defined in Sec. 8 as $\\chi(t,x)=\\chi_0\\left(\\frac{x-X(t)}{R(t)}\\right)$ ($0\\le\\chi_0\\le1$), with moving center $X(t)$ and shrinking/expanding radius $R(t)$, $z=(x-X(t))/R(t)$ (Sec. 11); the spatial counterpart of $\\Lambda(t)$.",
+    "defining_relation": "\\chi(t,x)=\\chi_0\\left(\\frac{x-X(t)}{R(t)}\\right)",
+    "notes": "第11節給出 $\\partial_t\\chi=-\\left[\\dot X(t)+\\frac{\\dot R(t)}{R(t)}(x-X(t))\\right]\\cdot\\nabla\\chi$，是 $\\mathcal G_\\chi$ 的來源。"
+  },
+  {
+    "key": "ns.c3.c3j.local_kinetic_energy",
+    "latex": "E_\\chi(t)",
+    "label_zh": "局部核心動能",
+    "label_en": "local core-weighted kinetic energy",
+    "definition_zh": "第8節定義 $E_\\chi(t)=\\int\\chi(t,x)\\frac{|u(x,t)|^2}{2}\\,dx$，是定理10.1（C3-J.2）空間版能量平衡律的主角，對應頻譜版的 $E_\\Lambda$。",
+    "definition_en": "Defined in Sec. 8 as $E_\\chi(t)=\\int\\chi(t,x)\\frac{|u(x,t)|^2}{2}\\,dx$, the central quantity of the spatial-core balance Theorem 10.1 (C3-J.2), the spatial analogue of $E_\\Lambda$.",
+    "defining_relation": "E_\\chi(t)=\\int\\chi(t,x)\\frac{|u(x,t)|^2}{2}\\,dx"
+  },
+  {
+    "key": "ns.c3.c3j.spatial_gauge_sweep",
+    "latex": "\\mathcal G_\\chi",
+    "label_zh": "空間 gauge sweep",
+    "label_en": "spatial-core gauge sweep",
+    "definition_zh": "定理10.1（C3-J.2）中 $\\dot E_\\chi$ 分解的第一項，$\\mathcal G_\\chi=\\int\\frac{|u|^2}{2}\\partial_t\\chi\\,dx$，代表純因核心中心/半徑移動造成的能量重新標記（第11-12節），非真實 packet transport。",
+    "definition_en": "The first term in the Theorem 10.1 decomposition of $\\dot E_\\chi$: $\\mathcal G_\\chi=\\int\\frac{|u|^2}{2}\\partial_t\\chi\\,dx$, pure relabeling from the moving center/radius of the core (Sec. 11-12), not genuine packet transport.",
+    "defining_relation": "\\mathcal G_\\chi=\\int\\frac{|u|^2}{2}\\partial_t\\chi\\,dx",
+    "notes": "對應 guard G-SWEEP-X；積分版記為 $G_\\chi=\\int\\mathcal G_\\chi$（第30節）。No-Go 12.1 的核心。"
+  },
+  {
+    "key": "ns.c3.c3j.advective_boundary_flux",
+    "latex": "\\Phi_\\chi^{\\rm adv}",
+    "label_zh": "對流／壓力邊界通量",
+    "label_en": "advective/pressure boundary flux",
+    "definition_zh": "定理10.1分解的第二項，$\\Phi_\\chi^{\\rm adv}=\\int\\left(\\frac{|u|^2}{2}+p\\right)u\\cdot\\nabla\\chi\\,dx$，是真正流體/壓力通過局部邊界的通量。",
+    "definition_en": "The second term of Theorem 10.1: $\\Phi_\\chi^{\\rm adv}=\\int\\left(\\frac{|u|^2}{2}+p\\right)u\\cdot\\nabla\\chi\\,dx$, the genuine advective/pressure flux across the localized boundary.",
+    "defining_relation": "\\Phi_\\chi^{\\rm adv}=\\int\\left(\\frac{|u|^2}{2}+p\\right)u\\cdot\\nabla\\chi\\,dx",
+    "notes": "積分版 $F_\\chi^{adv}$（第30節）。"
+  },
+  {
+    "key": "ns.c3.c3j.diffusive_boundary_flux",
+    "latex": "\\Phi_\\chi^{\\rm diff}",
+    "label_zh": "黏性邊界通量",
+    "label_en": "viscous diffusive boundary flux",
+    "definition_zh": "定理10.1分解的第三項，$\\Phi_\\chi^{\\rm diff}=\\nu\\int\\frac{|u|^2}{2}\\Delta\\chi\\,dx$，是黏性擴散穿越局部化邊界的貢獻。",
+    "definition_en": "The third term of Theorem 10.1: $\\Phi_\\chi^{\\rm diff}=\\nu\\int\\frac{|u|^2}{2}\\Delta\\chi\\,dx$, the viscous-diffusion contribution across the localized boundary.",
+    "defining_relation": "\\Phi_\\chi^{\\rm diff}=\\nu\\int\\frac{|u|^2}{2}\\Delta\\chi\\,dx",
+    "notes": "積分版 $F_\\chi^{diff}$（第30節）。"
+  },
+  {
+    "key": "ns.c3.c3j.reentry_certificate",
+    "latex": "\\operatorname{ReEntryCert}",
+    "label_zh": "真正 re-entry 證書",
+    "label_en": "genuine re-entry certificate",
+    "definition_zh": "第13節定義六元組 $\\operatorname{ReEntryCert}=\\langle$絕對來源身分, moving gauge, 真實邊界通量, 非線性頻譜通量, 黏性擴散, commutators$\\rangle$，第31節精煉為加法分解 $\\operatorname{Entry}=\\operatorname{GaugeSweep}+\\operatorname{PhysicalFlux}+\\operatorname{SpectralTransfer}+\\operatorname{Diffusion}+\\operatorname{Commutator}$；只有扣除 GaugeSweep 後的部分才算 genuine re-entry。",
+    "definition_en": "The 6-tuple from Sec. 13, $\\operatorname{ReEntryCert}=\\langle$absolute source identity, moving gauge, true boundary flux, nonlinear spectral flux, viscous diffusion, commutators$\\rangle$; refined in Sec. 31 into $\\operatorname{Entry}=\\operatorname{GaugeSweep}+\\operatorname{PhysicalFlux}+\\operatorname{SpectralTransfer}+\\operatorname{Diffusion}+\\operatorname{Commutator}$, with only the non-gauge remainder counting as genuine re-entry.",
+    "notes": "本輪最核心的方法論定義，統合 $\\mathcal G_\\Lambda,\\Phi_\\Lambda,\\mathcal G_\\chi,\\Phi_\\chi^{adv},\\Phi_\\chi^{diff},[\\chi,A_\\Lambda]$ 等所有先前定義的項。"
+  },
+  {
+    "key": "ns.c3.c3j.phase_space_commutator",
+    "latex": "[\\chi,A_\\Lambda]",
+    "label_zh": "相空間局部化交換子",
+    "label_en": "phase-space localization commutator",
+    "definition_zh": "第14節指出同時做空間截止 $\\chi$ 與頻率截止 $A_\\Lambda$ 時 $\\chi A_\\Lambda\\ne A_\\Lambda\\chi$，其交換子一般不可忽略（尤其在 $R\\sim\\Lambda^{-1}$ 的 ancestry core 中為 order-one）；X-Integration 以 $G_{\\rm COMM}$ 保存其來源項。",
+    "definition_en": "Sec. 14 notes that simultaneous spatial cutoff $\\chi$ and frequency cutoff $A_\\Lambda$ give $\\chi A_\\Lambda\\ne A_\\Lambda\\chi$; the commutator is generally non-negligible (order-one when $R\\sim\\Lambda^{-1}$), and X-Integration records its source as $G_{\\rm COMM}$.",
+    "defining_relation": "\\chi A_\\Lambda\\ne A_\\Lambda\\chi",
+    "notes": "$G_{\\rm COMM}$ 等同 guard code G-COMM（第32節），無獨立顯式公式。"
+  },
+  {
+    "key": "ns.c3.c3j.direct_reuse_bound",
+    "latex": "C_L",
+    "label_zh": "絕對殼層直接複用上界",
+    "label_en": "absolute-shell direct-reuse bound",
+    "definition_zh": "常數 $C_L$ 源自 C3-G 的 parent window 條件 $Q-C_L\\le p<Q$；本輪定理15.1（第15節）新證明固定絕對殼層 $r$ 在所有整數前緣 $Q$ 中最多只能作 $C_L$ 個 frontier levels 的 direct local parent。",
+    "definition_en": "The constant $C_L$ originates from C3-G's parent-window condition $Q-C_L\\le p<Q$; this round's new Theorem 15.1 (Sec. 15) proves a fixed absolute shell $r$ can be direct local parent for at most $C_L$ frontier levels among all integer $Q$.",
+    "defining_relation": "r\\in[Q-C_L,\\,Q-1]\\iff Q\\in[r+1,\\,r+C_L]",
+    "notes": "$C_L$ 符號承自 C3-G；C3-J 的新貢獻是此複用次數上界定理本身（gauge-invariant no-double-counting statement，第16節）。"
+  },
+  {
+    "key": "ns.c3.c3j.shell_helicity_component",
+    "latex": "u_q^\\sigma",
+    "label_zh": "絕對殼層螺旋分量",
+    "label_en": "shell helicity-sign component",
+    "definition_zh": "第17節設 $u_q^\\sigma=\\Delta_qP^\\sigma u$，滿足 $\\partial_tu_q^\\sigma=\\nu\\Delta u_q^\\sigma-\\Delta_qP^\\sigma\\mathbb P\\nabla\\cdot(u\\otimes u)$，是第18-24節固定殼層時間正則性分析的對象。",
+    "definition_en": "Sec. 17 sets $u_q^\\sigma=\\Delta_qP^\\sigma u$, obeying $\\partial_tu_q^\\sigma=\\nu\\Delta u_q^\\sigma-\\Delta_qP^\\sigma\\mathbb P\\nabla\\cdot(u\\otimes u)$; the object of the fixed-shell time-regularity analysis in Sec. 18-24.",
+    "notes": "定理18.1證明 $\\|\\partial_tu_q^\\sigma(t)\\|_\\infty\\le C[\\nu\\lambda_q^{7/2}E_0^{1/2}+\\lambda_q^4E_0]$，是 $a_q^\\sigma$ Lipschitz 界的基礎。$\\Delta_q,P^\\sigma$ 為系列既有算子。"
+  },
+  {
+    "key": "ns.c3.c3j.normalized_shell_amplitude",
+    "latex": "a_q^\\sigma(t)",
+    "label_zh": "正規化殼層振幅",
+    "label_en": "normalized shell amplitude",
+    "definition_zh": "第19節精確定義 $a_q^\\sigma(t)=\\frac{\\|u_q^\\sigma(t)\\|_\\infty}{\\nu\\lambda_q}$（第0節回顧 C3-I 時已用同記號但未給出此精確正規化），是 hysteresis 理論（定理21.1）的判準量。",
+    "definition_en": "Sec. 19 gives the precise definition $a_q^\\sigma(t)=\\frac{\\|u_q^\\sigma(t)\\|_\\infty}{\\nu\\lambda_q}$ (used informally without this exact normalization when recalling C3-I in Sec. 0); the threshold quantity driving the hysteresis theorem (Thm 21.1).",
+    "defining_relation": "a_q^\\sigma(t)=\\frac{\\|u_q^\\sigma(t)\\|_\\infty}{\\nu\\lambda_q}",
+    "notes": "第0節的 $T_Q=\\inf\\{t:\\exists q\\ge Q,\\sigma,\\ a_q^\\sigma(t)\\ge\\beta_*\\}$ 承自 C3-I，用同一記號 $a_q^\\sigma$ 但單一門檻 $\\beta_*$，不同於本輪雙門檻 $\\beta_0,\\beta_1$。"
+  },
+  {
+    "key": "ns.c3.c3j.lipschitz_constant",
+    "latex": "L_q",
+    "label_zh": "殼層 Lipschitz 常數",
+    "label_en": "shell Lipschitz constant",
+    "definition_zh": "第19節證明 $|a_q^\\sigma(t)-a_q^\\sigma(s)|\\le L_q|t-s|$，其中 $L_q\\le C\\left[\\lambda_q^{5/2}E_0^{1/2}+\\frac{\\lambda_q^3}{\\nu}E_0\\right]$，是定理21.1上界與第23節正規化時間間隙下界的關鍵輸入。",
+    "definition_en": "Sec. 19 proves $|a_q^\\sigma(t)-a_q^\\sigma(s)|\\le L_q|t-s|$ with $L_q\\le C\\left[\\lambda_q^{5/2}E_0^{1/2}+\\frac{\\lambda_q^3}{\\nu}E_0\\right]$; the key input to the Theorem 21.1 upcrossing bound and Sec. 23's time-gap lower bound.",
+    "defining_relation": "L_q\\le C\\left[\\lambda_q^{5/2}E_0^{1/2}+\\frac{\\lambda_q^3}{\\nu}E_0\\right]"
+  },
+  {
+    "key": "ns.c3.c3j.hysteresis_thresholds",
+    "latex": "\\beta_0,\\beta_1",
+    "label_zh": "雙門檻 hysteresis 參數",
+    "label_en": "two-threshold hysteresis pair",
+    "definition_zh": "第20節取 $0<\\beta_0<\\beta_1$，定義一次 complete upcrossing 為不相交區間 $[s_m,t_m]$ 滿足 $a_q^\\sigma(s_m)\\le\\beta_0$、$a_q^\\sigma(t_m)\\ge\\beta_1$，排除門檻附近 infinitesimal jitter 被誤記為 re-entry。",
+    "definition_en": "Sec. 20 fixes $0<\\beta_0<\\beta_1$, defining a complete upcrossing as a disjoint interval $[s_m,t_m]$ with $a_q^\\sigma(s_m)\\le\\beta_0$ and $a_q^\\sigma(t_m)\\ge\\beta_1$, excluding infinitesimal threshold jitter from counting as re-entry.",
+    "notes": "對應 guard G-HYST（第32節）。與第0節回顧 C3-I 的單一門檻 $\\beta_*$ 不同，是本輪新引入的雙門檻機制。"
+  },
+  {
+    "key": "ns.c3.c3j.upcrossing_count",
+    "latex": "N_q^{\\rm up}",
+    "label_zh": "完整 upcrossing 次數",
+    "label_en": "complete-upcrossing count",
+    "definition_zh": "定理21.1（C3-J.3）證明固定 $(q,\\sigma)$ 在 $[0,T_*)$ 內的 complete upcrossing 次數 $N_q^{\\rm up}\\le1+\\frac{L_qT_*}{\\beta_1-\\beta_0}<\\infty$，即同一絕對殼層的 separated hysteretic reactivation 次數有限。",
+    "definition_en": "Theorem 21.1 (C3-J.3) proves the complete-upcrossing count for fixed $(q,\\sigma)$ on $[0,T_*)$ satisfies $N_q^{\\rm up}\\le1+\\frac{L_qT_*}{\\beta_1-\\beta_0}<\\infty$: finitely many separated hysteretic reactivations per fixed absolute shell.",
+    "defining_relation": "N_q^{\\rm up}\\le1+\\frac{L_qT_*}{\\beta_1-\\beta_0}",
+    "notes": "第39節 K2 提議研究加權和 $\\sum_qw_qN_q^{up}$ 是否有 scale-critical 上界，留待 C3-K；本輪認為 ordinary energy 權重仍太弱。"
+  },
+  {
+    "key": "ns.c3.c3j.normalized_time_gap",
+    "latex": "\\delta_q",
+    "label_zh": "黏性正規化時間間隙",
+    "label_en": "viscous-normalized hysteresis time gap",
+    "definition_zh": "第23節定義 $\\delta_q=\\nu\\lambda_q^2\\Delta t_q$（$\\Delta t_q\\ge\\frac{\\beta_1-\\beta_0}{L_q}$ 為每次 upcrossing 最短物理時間），只得到弱下界 $\\delta_q\\gtrsim C\\lambda_q^{-1}$，故 $\\delta_q\\to0$ 未被排除；C3-J.4 證明僅用 energy inequality 無法修復此崩塌。",
+    "definition_en": "Sec. 23 defines $\\delta_q=\\nu\\lambda_q^2\\Delta t_q$ (with $\\Delta t_q\\ge\\frac{\\beta_1-\\beta_0}{L_q}$ the minimum time per upcrossing), obtaining only $\\delta_q\\gtrsim C\\lambda_q^{-1}$, so $\\delta_q\\to0$ is not excluded; C3-J.4 shows energy inequality alone cannot repair this.",
+    "defining_relation": "\\delta_q=\\nu\\lambda_q^2\\Delta t_q",
+    "notes": "呼應 C3-H 的 $\\delta_n\\to0$ causal-limit collapse（同類量，符號隨輪次改變）。K7（第39節）將其重述為待證 $\\nu\\lambda_q^2\\Delta t_q\\ge\\delta_0>0$。"
+  },
+  {
+    "key": "ns.c3.c3j.positive_flux_variation",
+    "latex": "\\operatorname{Var}_+(\\Phi_\\Lambda)",
+    "label_zh": "正頻譜通量變差",
+    "label_en": "positive spectral flux variation",
+    "definition_zh": "第26節定義 $\\operatorname{Var}_+(\\Phi_\\Lambda)=\\int_0^T[\\Phi_\\Lambda(t)]_+\\,dt$，計數真正「進入 high side」的累積量；C3-J.5（命題27.1）證明 signed energy identity 只控制 $\\int\\Phi_\\Lambda$，不控制此正變差或 $\\int|\\Phi_\\Lambda|$。",
+    "definition_en": "Sec. 26 defines $\\operatorname{Var}_+(\\Phi_\\Lambda)=\\int_0^T[\\Phi_\\Lambda(t)]_+\\,dt$, counting cumulative genuine entry into the high side; C3-J.5 (Prop. 27.1) proves the signed energy identity controls only $\\int\\Phi_\\Lambda$, not this positive variation or $\\int|\\Phi_\\Lambda|$.",
+    "defining_relation": "\\operatorname{Var}_+(\\Phi_\\Lambda)=\\int_0^T[\\Phi_\\Lambda(t)]_+\\,dt",
+    "notes": "Guard G-NET/VAR（第32節）要求區分 signed net flux 與此正變差。K3（第39節）提議逐殼層版本 $\\int[\\Phi_q]_+dt$。"
+  },
+  {
+    "key": "ns.c3.c3j.sign_changing_counterexample",
+    "latex": "\\Phi_N(t)=N\\sin(Nt)",
+    "label_zh": "符號反轉反例函數",
+    "label_en": "sign-changing counterexample function",
+    "definition_zh": "命題27.1（C3-J.5）證明中的具體構造：$\\Phi_N(t)=N\\sin(Nt)$，其 signed integral 可保持 $O(1)$（甚至沿特定週期為零），但 $\\int[\\Phi_N]_+\\,dt\\sim cN$，展示 signed balance identity 本身不控制 total positive flux variation。",
+    "definition_en": "The explicit construction in the proof of Prop. 27.1 (C3-J.5): $\\Phi_N(t)=N\\sin(Nt)$, whose signed integral stays $O(1)$ (even vanishing along special periods) while $\\int[\\Phi_N]_+\\,dt\\sim cN$, showing a signed balance identity alone cannot control total positive flux variation.",
+    "defining_relation": "\\Phi_N(t)=N\\sin(Nt),\\quad\\int[\\Phi_N]_+\\,dt\\sim cN",
+    "notes": "純代數反例（algebraic counter-ledger），非直接來自 N–S 方程本身。"
+  },
+  {
+    "key": "ns.c3.c3j.spectral_ledger",
+    "latex": "\\Delta E_\\Lambda+D_\\Lambda=G_\\Lambda+F_\\Lambda",
+    "label_zh": "移動頻譜 re-entry 帳本",
+    "label_en": "moving spectral re-entry ledger",
+    "definition_zh": "第29節給出的時間積分版平衡式，其中 $G_\\Lambda=\\int\\mathcal G_\\Lambda$、$F_\\Lambda=\\int\\Phi_\\Lambda$、$D_\\Lambda=\\nu\\int_0^T\\|\\nabla A_\\Lambda u\\|_2^2dt$；說明觀察到的 $\\Delta E_\\Lambda$ 不能直接稱為 spectral transfer，須先扣除 $G_\\Lambda$。",
+    "definition_en": "The time-integrated ledger identity from Sec. 29, with $G_\\Lambda=\\int\\mathcal G_\\Lambda$, $F_\\Lambda=\\int\\Phi_\\Lambda$, dissipation $D_\\Lambda=\\nu\\int_0^T\\|\\nabla A_\\Lambda u\\|_2^2dt$; an observed $\\Delta E_\\Lambda$ cannot be called spectral transfer until $G_\\Lambda$ is subtracted.",
+    "notes": "大寫 $G_\\Lambda,F_\\Lambda$（時間積分）與第4節逐點 $\\mathcal G_\\Lambda,\\Phi_\\Lambda$ 需區分。$\\Lambda$ 固定時 $G_\\Lambda=0$，退化為第25節的 gauge-corrected balance。"
+  },
+  {
+    "key": "ns.c3.c3j.spatial_ledger",
+    "latex": "\\Delta E_\\chi+D_\\chi=G_\\chi+F_\\chi^{adv}+F_\\chi^{diff}",
+    "label_zh": "移動空間 re-entry 帳本",
+    "label_en": "moving spatial re-entry ledger",
+    "definition_zh": "第30節的空間版帳本，$G_\\chi=\\int\\mathcal G_\\chi$、$F_\\chi^{adv}=\\int\\Phi_\\chi^{adv}$、$F_\\chi^{diff}=\\int\\Phi_\\chi^{diff}$；說明 $\\Delta E_\\chi>0$ 不是 genuine packet inflow 的證明，可能純由邊界掃過造成。",
+    "definition_en": "The spatial analogue ledger from Sec. 30, with $G_\\chi=\\int\\mathcal G_\\chi$, $F_\\chi^{adv}=\\int\\Phi_\\chi^{adv}$, $F_\\chi^{diff}=\\int\\Phi_\\chi^{diff}$; $\\Delta E_\\chi>0$ is not by itself a certificate of genuine packet inflow, since it may come purely from boundary sweep.",
+    "notes": "對應頻譜版的 spectral ledger 條目。"
+  },
+  {
+    "key": "ns.c3.c3j.ancestry_core",
+    "latex": "\\mathcal C_n",
+    "label_zh": "移動相空間 ancestry core",
+    "label_en": "moving phase-space ancestry core",
+    "definition_zh": "第31節提到「真正的 moving ancestry core：$\\mathcal C_n$」，同時具有 center、spatial radius、frequency frontier、time window 四個可變自由度；合法 re-entry certificate 須針對此物件分離 GaugeSweep 與其餘四類貢獻。",
+    "definition_en": "Sec. 31 refers to the true moving ancestry core $\\mathcal C_n$, simultaneously varying in center, spatial radius, frequency frontier, and time window; a legal re-entry certificate must separate GaugeSweep from the other four contributions for this object.",
+    "notes": "記號可能承自 C3-F（Phase-Space Ancestry Cone）；本檔案未重新給出精確構造式，與 C3-F cone 的確切關係有不確定性。"
+  },
+  {
+    "key": "ns.c3.c3j.entry_type_taxonomy",
+    "latex": "\\text{Type }0,\\ldots,\\text{Type }5",
+    "label_zh": "Defect re-entry 六型分類",
+    "label_en": "six-way defect re-entry taxonomy",
+    "definition_zh": "第33節提出新分類：Type 0 gauge pseudo-entry（只有 GaugeSweep≠0）、Type 1 direct local entry、Type 2 spectral transport entry、Type 3 spatial transport entry、Type 4 diffusive entry、Type 5 mixed phase-space entry；取代第7節較粗的 R-GAUGE/R-DYN 二分法。",
+    "definition_en": "Sec. 33 proposes: Type 0 gauge pseudo-entry (only GaugeSweep≠0), Type 1 direct local entry, Type 2 spectral transport entry, Type 3 spatial transport entry, Type 4 diffusive entry, Type 5 mixed phase-space entry; refining the coarser R-GAUGE/R-DYN split of Sec. 7.",
+    "notes": "R-GAUGE（$q$ fixed, $Q$ moved）大致對應 Type 0；R-DYN 對應 Type 1-5 之並集。"
+  },
+  {
+    "key": "ns.c3.c3j.transport_congestion_branches",
+    "latex": "\\text{Branch A},\\ \\text{Branch B}",
+    "label_zh": "傳輸 vs 擁塞二分支",
+    "label_en": "transport-vs-congestion dichotomy",
+    "definition_zh": "第37節提出 Branch A（genuine repeated transport：扣除 gauge 後 positive flux variation 持續很大）與 Branch B（frontier sweeps through pre-existing structure：re-entry 主要是既有 multiscale field 被移動 gauge 重新標記）；直接導出下一輪 C3-K 的 K5/K6 proof obligations。",
+    "definition_en": "Sec. 37 introduces Branch A (genuine repeated transport: gauge-corrected positive flux variation stays persistently large) versus Branch B (frontier sweeps through pre-existing structure: re-entry is mostly relabeling by the moving gauge); this directly motivates the K5/K6 obligations of the next round, C3-K.",
+    "notes": "本輪收尾、開啟 C3-K 的核心概念分野（\"transport problem\" vs \"occupancy problem\"，第37節末）。"
+  },
+  {
+    "key": "ns.c3.c3j.occupancy_functional",
+    "latex": "\\mathfrak O(q,t)",
+    "label_zh": "絕對殼層佔用泛函",
+    "label_en": "absolute-shell occupancy functional",
+    "definition_zh": "第39節 K1 提議定義的泛函 $\\mathfrak O(q,t)$，記錄絕對殼層 $q$ 的 critical amplitude、spatial packet multiplicity、helicity、phase efficiency，避免 relative-gauge 混淆；本輪僅提出構想，未給出精確公式，留待 C3-K 建構。",
+    "definition_en": "The functional $\\mathfrak O(q,t)$ proposed in K1 (Sec. 39), meant to record an absolute shell $q$'s critical amplitude, spatial packet multiplicity, helicity, and phase efficiency, avoiding relative-gauge confusion; only proposed here, with construction left to C3-K.",
+    "notes": "屬 forward-looking proof obligation，非本輪已證定義；與 Branch B 的 \"growing absolute multiscale occupancy\"（K5）呼應。"
+  }
+]

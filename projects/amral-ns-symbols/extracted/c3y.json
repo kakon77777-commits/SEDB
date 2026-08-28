@@ -1,0 +1,273 @@
+[
+  {
+    "key": "ns.c3.c3y.a_k",
+    "latex": "A_k(s) = \\|D^k u(s)\\|_\\infty",
+    "label_zh": "k階導數上確界範數",
+    "label_en": "k-th derivative sup-norm",
+    "definition_zh": "第1節在 $\\nu=1$ normalization（與 Grujić–Xu 一致）下定義 $A_k(s)=\\|D^ku(s)\\|_\\infty$，是全篇三個尺度與所有 threshold exponent 的共同基礎量。",
+    "definition_en": "Section 1 defines $A_k(s)=\\|D^ku(s)\\|_\\infty$ under the $\\nu=1$ normalization matching Grujić--Xu, the base quantity underlying every scale and exponent in this round.",
+    "defining_relation": "A_k(s) = \\|D^k u(s)\\|_\\infty"
+  },
+  {
+    "key": "ns.c3.c3y.r_apr",
+    "latex": "R_{\\rm apr}^{(k)} = C_{\\rm apr}(u_0,k)\\,A_k^{-1/(k+3/2)}",
+    "label_zh": "能量先驗尺度",
+    "label_en": "energy a-priori scale",
+    "definition_zh": "第2.1節由 Grujić–Xu Theorem 3.7 給出三維能量先驗尺度 $R_{\\rm apr}^{(k)}$，其常數主要由 $\\|u_0\\|_2$ 等固定資料決定。",
+    "definition_en": "Section 2.1 gives the three-dimensional energy a-priori scale $R_{\\rm apr}^{(k)}$ from Grujić--Xu Theorem 3.7, with constants determined mainly by $\\|u_0\\|_2$ and other fixed data.",
+    "defining_relation": "R_{\\rm apr}^{(k)} = C_{\\rm apr}(u_0,k)\\,A_k^{-1/(k+3/2)}",
+    "notes": "三尺度中最粗，第3節證明 R_dir < R_chain < R_apr。"
+  },
+  {
+    "key": "ns.c3.c3y.a_apr_exponent",
+    "latex": "a_{\\rm apr}(k) = \\dfrac{1}{k+3/2}",
+    "label_zh": "先驗尺度指數",
+    "label_en": "a-priori scaling exponent",
+    "definition_zh": "第2.1節定義 $R_{\\rm apr}^{(k)}$ 的 scaling exponent $a_{\\rm apr}(k)=1/(k+3/2)$，用於第3節的三尺度排序與第4節的兩個 scaling gap。",
+    "definition_en": "Section 2.1 defines the scaling exponent $a_{\\rm apr}(k)=1/(k+3/2)$ of $R_{\\rm apr}^{(k)}$, used in Section 3's scale ordering and Section 4's two scaling gaps."
+  },
+  {
+    "key": "ns.c3.c3y.r_dir",
+    "latex": "R_{\\rm dir}^{(k)} = C_{\\rm dir}(k,M,u_0)\\,A_k^{-\\frac{3/2}{k+3/2}}",
+    "label_zh": "直接有限k正則性尺度",
+    "label_en": "direct finite-k regularity scale",
+    "definition_zh": "第2.2節給出 Grujić–Xu Theorem 3.5 要求 component/sign superlevel set 需具備 local 1D sparseness 的尺度 $R_{\\rm dir}^{(k)}$。",
+    "definition_en": "Section 2.2 gives the scale $R_{\\rm dir}^{(k)}$ at which Grujić--Xu Theorem 3.5 requires the component/sign superlevel set to have local 1D sparseness.",
+    "defining_relation": "R_{\\rm dir}^{(k)} = C_{\\rm dir}(k,M,u_0)\\,A_k^{-\\frac{3/2}{k+3/2}}",
+    "notes": "三尺度中最細，是 direct route 的目標尺度。"
+  },
+  {
+    "key": "ns.c3.c3y.a_dir_exponent",
+    "latex": "a_{\\rm dir}(k) = \\dfrac{3/2}{k+3/2}",
+    "label_zh": "直接尺度指數",
+    "label_en": "direct scaling exponent",
+    "definition_zh": "第2.2節定義 $R_{\\rm dir}^{(k)}$ 的 scaling exponent $a_{\\rm dir}(k)=(3/2)/(k+3/2)$，是三個指數中最大者。",
+    "definition_en": "Section 2.2 defines the scaling exponent $a_{\\rm dir}(k)=(3/2)/(k+3/2)$ of $R_{\\rm dir}^{(k)}$, the largest of the three exponents."
+  },
+  {
+    "key": "ns.c3.c3y.r_chain",
+    "latex": "R_{\\rm chain}^{(k)} = C_{\\rm chain}(\\ell,k,u_0)\\,A_k^{-1/(k+1)}",
+    "label_zh": "鏈輔助正則性尺度",
+    "label_en": "chain-assisted regularity scale",
+    "definition_zh": "第2.3節給出當 level $k$ 位於 admissible ascending derivative chain 且時間/常數條件成立時，Grujić–Xu Theorem 3.14 把目標尺度改善為 $R_{\\rm chain}^{(k)}$。",
+    "definition_en": "Section 2.3 gives $R_{\\rm chain}^{(k)}$, the improved target scale Grujić--Xu Theorem 3.14 provides when level $k$ lies on an admissible ascending derivative chain and the time/constant hypotheses hold.",
+    "defining_relation": "R_{\\rm chain}^{(k)} = C_{\\rm chain}(\\ell,k,u_0)\\,A_k^{-1/(k+1)}",
+    "notes": "介於 R_dir 與 R_apr 之間，是 derivative-chain dynamics 把 required scale 拉回的中間尺度。"
+  },
+  {
+    "key": "ns.c3.c3y.a_chain_exponent",
+    "latex": "a_{\\rm chain}(k) = \\dfrac{1}{k+1}",
+    "label_zh": "鏈尺度指數",
+    "label_en": "chain scaling exponent",
+    "definition_zh": "第2.3節定義 $R_{\\rm chain}^{(k)}$ 的 scaling exponent $a_{\\rm chain}(k)=1/(k+1)$，介於 $a_{\\rm apr}$ 與 $a_{\\rm dir}$ 之間。",
+    "definition_en": "Section 2.3 defines the scaling exponent $a_{\\rm chain}(k)=1/(k+1)$ of $R_{\\rm chain}^{(k)}$, lying strictly between $a_{\\rm apr}$ and $a_{\\rm dir}$."
+  },
+  {
+    "key": "ns.c3.c3y.delta_a_dir",
+    "latex": "\\Delta a_{\\rm dir} = a_{\\rm dir}-a_{\\rm apr} = \\dfrac{1}{2(k+3/2)}",
+    "label_zh": "直接尺度差",
+    "label_en": "direct scaling gap",
+    "definition_zh": "第4節（C3-Y.1）定義 $\\Delta a_{\\rm dir}=a_{\\rm dir}-a_{\\rm apr}=1/(2(k+3/2))$，量化從先驗尺度推進到直接尺度所需的指數差距。",
+    "definition_en": "Section 4 (C3-Y.1) defines $\\Delta a_{\\rm dir}=a_{\\rm dir}-a_{\\rm apr}=1/(2(k+3/2))$, quantifying the exponent gap needed to push from the a-priori scale to the direct scale."
+  },
+  {
+    "key": "ns.c3.c3y.delta_a_chain",
+    "latex": "\\Delta a_{\\rm chain} = a_{\\rm chain}-a_{\\rm apr} = \\dfrac{1}{2(k+1)(k+3/2)}",
+    "label_zh": "鏈尺度差",
+    "label_en": "chain scaling gap",
+    "definition_zh": "第4節（C3-Y.1）定義 $\\Delta a_{\\rm chain}=a_{\\rm chain}-a_{\\rm apr}=1/(2(k+1)(k+3/2))$，並得出 $\\Delta a_{\\rm dir}/\\Delta a_{\\rm chain}=k+1$，是本輪第一個核心 identity。",
+    "definition_en": "Section 4 (C3-Y.1) defines $\\Delta a_{\\rm chain}=a_{\\rm chain}-a_{\\rm apr}=1/(2(k+1)(k+3/2))$ and shows $\\Delta a_{\\rm dir}/\\Delta a_{\\rm chain}=k+1$, the round's first core identity."
+  },
+  {
+    "key": "ns.c3.c3y.omega_kc",
+    "latex": "\\Omega_{k,c}(s) = \\{x : |D^k u(x,s)| > cA_k(s)\\}",
+    "label_zh": "量級高值集",
+    "label_en": "magnitude high set",
+    "definition_zh": "第5節對固定 $0<c<1$ 定義 magnitude high set $\\Omega_{k,c}(s)$，為建立 uniformly-local intermittency condition 的基礎集合。",
+    "definition_en": "Section 5 defines the magnitude high set $\\Omega_{k,c}(s)$ for a fixed constant $0<c<1$, the underlying set used to build the uniformly-local intermittency condition.",
+    "defining_relation": "\\Omega_{k,c}(s) = \\{x : |D^k u(x,s)| > cA_k(s)\\}",
+    "notes": "第6節證明所有 component/sign superlevel set S_{k,λ}^{i,±}（當 c≤λ）皆為其子集。"
+  },
+  {
+    "key": "ns.c3.c3y.phi_kc",
+    "latex": "\\Phi_{k,c}(s;R) = \\sup_{x_0\\in\\mathbb R^3}\\dfrac{|\\Omega_{k,c}(s)\\cap B_R(x_0)|}{|B_R|}",
+    "label_zh": "均勻局部活躍體積因子",
+    "label_en": "uniform-local active-volume factor",
+    "definition_zh": "第5節定義 $\\Phi_{k,c}(s;R)$ 為對所有空間點取 sup 的均勻局部活躍體積因子，第20節指出這才是真正 theorem-ready 的量，而非 ancestry-local 的 $\\phi_{p,R}$。",
+    "definition_en": "Section 5 defines $\\Phi_{k,c}(s;R)$ as the uniform-local active-volume factor taken as a sup over all spatial points; Section 20 identifies this, not the ancestry-local $\\phi_{p,R}$, as the true theorem-ready quantity.",
+    "defining_relation": "\\Phi_{k,c}(s;R) = \\sup_{x_0\\in\\mathbb R^3}\\dfrac{|\\Omega_{k,c}(s)\\cap B_R(x_0)|}{|B_R|}",
+    "notes": "與 ancestry-local φ_{p,R}（第19節）形成本輪核心對比；兩者間的 upper bound 仍是開放問題，留給 C3-Z 的 Z1。"
+  },
+  {
+    "key": "ns.c3.c3y.s_klambda",
+    "latex": "S_{k,\\lambda}^{i,\\pm} = \\{x : (D^k u)_i^\\pm(x) > \\lambda A_k\\}",
+    "label_zh": "分量/正負號超水平集",
+    "label_en": "component/sign superlevel set",
+    "definition_zh": "第6節引入 Grujić–Xu geometric criteria 所用的 component/sign superlevel set $S_{k,\\lambda}^{i,\\pm}$，當 $c\\le\\lambda$ 時它是 $\\Omega_{k,c}$ 的子集。",
+    "definition_en": "Section 6 introduces the component/sign superlevel set $S_{k,\\lambda}^{i,\\pm}$ used by the Grujić--Xu geometric criteria, a subset of $\\Omega_{k,c}$ whenever $c\\le\\lambda$."
+  },
+  {
+    "key": "ns.c3.c3y.r_vol",
+    "latex": "r_{\\rm vol} = C_\\delta\\,\\Phi^{1/3}\\,R",
+    "label_zh": "體積轉一維尺度",
+    "label_en": "volume-to-line transfer scale",
+    "definition_zh": "第7節由 C3-W 的 volume-to-one-dimensional-sparseness lemma 導出尺度 $r_{\\rm vol}=C_\\delta\\Phi^{1/3}R$，在此尺度上 $S_{k,\\lambda}^{i,\\pm}$ 於某方向具 1D $\\delta$-sparse 性質。",
+    "definition_en": "Section 7 derives, via the C3-W volume-to-one-dimensional-sparseness lemma, the scale $r_{\\rm vol}=C_\\delta\\Phi^{1/3}R$ at which $S_{k,\\lambda}^{i,\\pm}$ is 1D $\\delta$-sparse along some direction.",
+    "notes": "承接自 C3-W 引理；第8、10節分別以 r_vol ≤ R_dir^(k) 或 R_chain^(k) 推出 θ_k^dir、θ_k^chain。"
+  },
+  {
+    "key": "ns.c3.c3y.theta_k_dir",
+    "latex": "\\theta_k^{\\rm dir} = 3\\Delta a_{\\rm dir} = \\dfrac{3}{2(k+3/2)}",
+    "label_zh": "直接體積門檻指數",
+    "label_en": "direct volume threshold exponent",
+    "definition_zh": "第8節導出使 $r_{\\rm vol}\\le R_{\\rm dir}^{(k)}$ 所需的活躍體積門檻指數 $\\theta_k^{\\rm dir}=3/(2(k+3/2))$，是真正 theorem-ready 的 finite-$k$ direct threshold。",
+    "definition_en": "Section 8 derives the active-volume threshold exponent $\\theta_k^{\\rm dir}=3/(2(k+3/2))$ needed for $r_{\\rm vol}\\le R_{\\rm dir}^{(k)}$, the genuine theorem-ready finite-$k$ direct threshold.",
+    "defining_relation": "\\Phi \\le C_k^{\\rm dir}A_k^{-\\theta_k^{\\rm dir}},\\qquad \\theta_k^{\\rm dir}=3\\Delta a_{\\rm dir}=\\dfrac{3}{2(k+3/2)}",
+    "notes": "第14節給出大 k 漸近行為 θ_k^dir ~ 3/(2k) = O(k^-1)；第16節於 k=2 給出數值 3/7。"
+  },
+  {
+    "key": "ns.c3.c3y.direct_bridge_theorem",
+    "latex": "\\text{Theorem 9.1 (C3-Y.2)}",
+    "label_zh": "直接間歇性橋接定理",
+    "label_en": "Direct Intermittency Bridge Theorem",
+    "definition_zh": "第9節的定理9.1（C3-Y.2）給出條件式應用模板：若在 Grujić–Xu Theorem 3.5 全部 hypotheses 下 $\\Phi_{k,c}(s;R_{\\rm apr}^{(k)})\\le C_k^{\\rm dir}A_k(s)^{-\\theta_k^{\\rm dir}}$ 成立，則 $T_\\ast$ 不是奇異時間。",
+    "definition_en": "Theorem 9.1 (C3-Y.2) in Section 9 is a conditional application template: under the full hypotheses of Grujić--Xu Theorem 3.5, if $\\Phi_{k,c}(s;R_{\\rm apr}^{(k)})\\le C_k^{\\rm dir}A_k(s)^{-\\theta_k^{\\rm dir}}$ holds, then $T_\\ast$ is not a singular time.",
+    "notes": "不需要 derivative-chain hypothesis，是本輪唯一不涉及 chain gate 的 closure 定理。"
+  },
+  {
+    "key": "ns.c3.c3y.theta_k_chain",
+    "latex": "\\theta_k^{\\rm chain} = 3\\Delta a_{\\rm chain} = \\dfrac{3}{2(k+1)(k+3/2)}",
+    "label_zh": "鏈輔助體積門檻指數",
+    "label_en": "chain-assisted volume threshold exponent",
+    "definition_zh": "第10節導出使 $r_{\\rm vol}\\le R_{\\rm chain}^{(k)}$ 所需的活躍體積門檻指數 $\\theta_k^{\\rm chain}=3/(2(k+1)(k+3/2))$，須配合 derivative-chain gate 方能使用。",
+    "definition_en": "Section 10 derives the active-volume threshold exponent $\\theta_k^{\\rm chain}=3/(2(k+1)(k+3/2))$ needed for $r_{\\rm vol}\\le R_{\\rm chain}^{(k)}$, usable only in conjunction with the derivative-chain gate.",
+    "defining_relation": "\\Phi \\le C_{\\ell,k}^{\\rm chain}A_k^{-\\theta_k^{\\rm chain}},\\qquad \\theta_k^{\\rm chain}=3\\Delta a_{\\rm chain}=\\dfrac{3}{2(k+1)(k+3/2)}",
+    "notes": "第14節給出大 k 漸近行為 θ_k^chain ~ 3/(2k^2) = O(k^-2)；第17節於 k=2 給出數值 1/7，即 C3-X 原 φ_2 ≲ A_2^{-1/7} 的正式身分。"
+  },
+  {
+    "key": "ns.c3.c3y.chain_bridge_theorem",
+    "latex": "\\text{Theorem 11.1 (C3-Y.3)}",
+    "label_zh": "鏈輔助間歇性橋接定理",
+    "label_en": "Chain-Assisted Intermittency Bridge Theorem",
+    "definition_zh": "第11節的定理11.1（C3-Y.3）給出條件式應用模板：在 Grujić–Xu Theorem 3.14 全部 hypotheses（含 ascending-chain condition）下，若 $\\Phi_{k,c}(s;R_{\\rm apr}^{(k)})\\le C_{\\ell,k}^{\\rm chain}A_k(s)^{-\\theta_k^{\\rm chain}}$ 成立，則 $T_\\ast$ 不是奇異時間。",
+    "definition_en": "Theorem 11.1 (C3-Y.3) in Section 11 is a conditional application template: under the full hypotheses of Grujić--Xu Theorem 3.14 (including the ascending-chain condition), if $\\Phi_{k,c}(s;R_{\\rm apr}^{(k)})\\le C_{\\ell,k}^{\\rm chain}A_k(s)^{-\\theta_k^{\\rm chain}}$ holds, then $T_\\ast$ is not a singular time."
+  },
+  {
+    "key": "ns.c3.c3y.ascending_chain_condition",
+    "latex": "\\dfrac{\\|D^ju(t)\\|_\\infty^{1/(j+1)}}{c^{j/(j+1)}(j!)^{1/(j+1)}} \\le \\dfrac{\\|D^ku(t)\\|_\\infty^{1/(k+1)}}{c^{k/(k+1)}(k!)^{1/(k+1)}},\\quad \\ell\\le j\\le k",
+    "label_zh": "上升鏈條件",
+    "label_en": "ascending-chain condition",
+    "definition_zh": "第11節定理11.1的 hypothesis 2 引用 Grujić–Xu Theorem 3.8 的 ascending-chain condition，要求 factorial-normalized derivative magnitude 在 $\\ell\\le j\\le k$ 範圍內由 level $k$ 主導所有較低 level。",
+    "definition_en": "Hypothesis 2 of Theorem 11.1 in Section 11 cites the ascending-chain condition from Grujić--Xu Theorem 3.8, requiring the factorial-normalized derivative magnitude at level $k$ to dominate all lower levels $\\ell\\le j\\le k$.",
+    "notes": "第39節將此與 Theorem 3.8（ascending）、Theorem 3.9（descending）並列並聲明本輪不重新證明這些外部定理；第40節 guard G-CHAINLOAD 要求必須保存 (3.8)、(3.9) 兩式。"
+  },
+  {
+    "key": "ns.c3.c3y.tradeoff_identity",
+    "latex": "\\dfrac{\\theta_k^{\\rm dir}}{\\theta_k^{\\rm chain}} = k+1",
+    "label_zh": "導數鏈／間歇性權衡恆等式",
+    "label_en": "Derivative-Chain / Intermittency Tradeoff Identity",
+    "definition_zh": "第12節（C3-Y.4）證明 $\\theta_k^{\\rm dir}/\\theta_k^{\\rm chain}=k+1$，即 derivative-chain dynamics 把空間間歇性所需的 power-law exponent 負擔精確降低 $k+1$ 倍，是本輪最主要的新 structural result。",
+    "definition_en": "Section 12 (C3-Y.4) proves $\\theta_k^{\\rm dir}/\\theta_k^{\\rm chain}=k+1$, showing derivative-chain dynamics reduces the power-law exponent burden of spatial intermittency by exactly a factor of $k+1$ -- the main new structural result of this round.",
+    "defining_relation": "\\dfrac{\\theta_k^{\\rm dir}}{\\theta_k^{\\rm chain}} = k+1",
+    "notes": "與第4節 Δa_dir/Δa_chain = k+1 為同一比值（因 θ=3Δa）；第18節於 k=2 給出具體版本比值 3。"
+  },
+  {
+    "key": "ns.c3.c3y.k2_status_correction",
+    "latex": "\\phi_2\\lesssim A_2^{-1/7} \\;=\\; \\theta_2^{\\rm chain}\\text{-scaling},\\qquad \\theta_2^{\\rm dir}=\\dfrac37 \\ne \\theta_2^{\\rm chain}=\\dfrac17",
+    "label_zh": "k=2結果之定位修正",
+    "label_en": "k=2 exponent status correction",
+    "definition_zh": "第0節與第15–18、35節將 C3-X 的 $\\phi_2\\lesssim A_2^{-1/7}$ 正式修正定位為 chain-assisted scale-gap closure exponent（即 $\\theta_2^{\\rm chain}=1/7$）而非 standalone $k=2$ regularity theorem，真正 theorem-ready 的 direct 門檻是 $\\theta_2^{\\rm dir}=3/7$。",
+    "definition_en": "Section 0 and Sections 15--18, 35 formally reclassify C3-X's $\\phi_2\\lesssim A_2^{-1/7}$ as the chain-assisted scale-gap closure exponent ($\\theta_2^{\\rm chain}=1/7$) rather than a standalone $k=2$ regularity theorem, with the genuine theorem-ready direct threshold being $\\theta_2^{\\rm dir}=3/7$.",
+    "notes": "NG-Y1（第43節）明確陳述 φ_2 ≲ A_2^{-1/7} ⇒ regularity 為 FALSE in general；差值 3/7-1/7=2/7 即 derivative-chain dynamics 補上的部分（第35節）。"
+  },
+  {
+    "key": "ns.c3.c3y.ancestry_local_phi",
+    "latex": "\\phi_{p,R}",
+    "label_zh": "祖系局部有效體積因子",
+    "label_en": "ancestry-local effective-volume factor",
+    "definition_zh": "第19節指出 $\\phi_{p,R}$ 承接自 C3-W/X，是單一 ancestry core 的 local effective-volume factor，與本輪均勻局部的 $\\Phi_{k,c}$ 形成對比。",
+    "definition_en": "Section 19 identifies $\\phi_{p,R}$, carried over from C3-W/X, as the local effective-volume factor of a single ancestry core, contrasted in this round with the uniform-local $\\Phi_{k,c}$.",
+    "notes": "No-Go 19.1：φ_{p,R}(x_ancestry) ≪ 1 不推出 Φ_{k,c} ≪ 1，是第20節 Local Ancestry / Global Criterion Separation 的直接依據。"
+  },
+  {
+    "key": "ns.c3.c3y.local_global_separation",
+    "latex": "\\text{Local Ancestry / Global Criterion Separation}",
+    "label_zh": "局部祖系與全域判準分離",
+    "label_en": "Local Ancestry / Global Criterion Separation",
+    "definition_zh": "第20節命名此原則：derivative/intermittency bridge 真正需要追蹤的是均勻局部量 $\\Phi_{k,c}(s;R_{\\rm apr})$，而非單一 ancestry core 的 $\\phi_{p,R}(x_n)$。",
+    "definition_en": "Section 20 names this principle: the derivative/intermittency bridge must track the uniform-local quantity $\\Phi_{k,c}(s;R_{\\rm apr})$, not the single ancestry core's $\\phi_{p,R}(x_n)$.",
+    "notes": "第21節列出三條未完成的 globalization route（Y-G1單一主導cluster、Y-G2 multi-core cover、Y-G3 localized geometric theorem），留待 C3-Z 的 Z1、Z2 處理。"
+  },
+  {
+    "key": "ns.c3.c3y.temporal_gate",
+    "latex": "s-t \\asymp A_k(t)^{-\\frac{3}{k+3/2}}\\ (\\text{direct}),\\qquad s-t \\asymp A_k(t)^{-\\frac{2}{k+1}}\\ (\\text{chain})",
+    "label_zh": "時間門檻排程",
+    "label_en": "temporal gate schematic",
+    "definition_zh": "第23節指出 direct 與 chain theorem 皆非同時刻判準，需 escape time $t$ 之後某 later time $s=s(t)$ 落在指定 analytic window，並給出兩者 $s-t$ 的 schematic scaling。",
+    "definition_en": "Section 23 notes that neither the direct nor chain theorem is a same-time criterion -- both require a later time $s=s(t)$ after the escape time $t$ to land in a specified analytic window, and gives the schematic scaling of $s-t$ for each route.",
+    "notes": "第24節（Time-gate no-go）指出 escape time 的小 Φ_k(t) 不保證 later slice 的 Φ_k(s(t)) 仍小，spatial gap closure 與 temporal gate closure 是兩個不同 proof obligations。"
+  },
+  {
+    "key": "ns.c3.c3y.load_dir",
+    "latex": "\\mathfrak{L}_k^{\\rm dir} = \\dfrac{\\Phi_{k,c}(s;R_{\\rm apr})}{C_k^{\\rm dir}A_k(s)^{-\\theta_k^{\\rm dir}}}",
+    "label_zh": "直接封閉負載",
+    "label_en": "direct closure load",
+    "definition_zh": "第25節定義 direct closure load $\\mathfrak{L}_k^{\\rm dir}$，當其 $\\le1$ 且 Theorem 3.5 全部時間/分量 hypotheses 成立時可推出 regularity extension。",
+    "definition_en": "Section 25 defines the direct closure load $\\mathfrak{L}_k^{\\rm dir}$; when it is $\\le1$ together with the full time/component hypotheses of Theorem 3.5, regularity extension follows.",
+    "defining_relation": "\\mathfrak{L}_k^{\\rm dir} = \\dfrac{\\Phi_{k,c}(s;R_{\\rm apr})}{C_k^{\\rm dir}A_k(s)^{-\\theta_k^{\\rm dir}}}"
+  },
+  {
+    "key": "ns.c3.c3y.load_chain",
+    "latex": "\\mathfrak{L}_{\\ell,k}^{\\rm chain} = \\dfrac{\\Phi_{k,c}(s;R_{\\rm apr})}{C_{\\ell,k}^{\\rm chain}A_k(s)^{-\\theta_k^{\\rm chain}}}",
+    "label_zh": "鏈輔助封閉負載",
+    "label_en": "chain closure load",
+    "definition_zh": "第26節定義 chain closure load $\\mathfrak{L}_{\\ell,k}^{\\rm chain}$，當其 $\\le1$ 且 ascending-chain condition、time gate 與 theorem 常數條件皆成立時可推出 Theorem 3.14 closure。",
+    "definition_en": "Section 26 defines the chain closure load $\\mathfrak{L}_{\\ell,k}^{\\rm chain}$; when it is $\\le1$ together with the ascending-chain condition, time gate, and theorem constant conditions, Theorem 3.14 closure follows.",
+    "defining_relation": "\\mathfrak{L}_{\\ell,k}^{\\rm chain} = \\dfrac{\\Phi_{k,c}(s;R_{\\rm apr})}{C_{\\ell,k}^{\\rm chain}A_k(s)^{-\\theta_k^{\\rm chain}}}"
+  },
+  {
+    "key": "ns.c3.c3y.load_best",
+    "latex": "\\mathfrak{L}_k^{best} = \\min\\{\\mathfrak{L}_k^{\\rm dir},\\ \\mathfrak{L}_{\\ell,k}^{\\rm chain}\\text{ if admissible}\\}",
+    "label_zh": "最佳路由負載",
+    "label_en": "adaptive routing score",
+    "definition_zh": "第27節定義 formal routing score $\\mathfrak{L}_k^{best}$，取 direct 與（若 chain gate 開啟）chain load 之最小值；若存在 admissible $k$ 使其 $\\le1$，regularity route 即封閉。",
+    "definition_en": "Section 27 defines the formal routing score $\\mathfrak{L}_k^{best}$ as the minimum of the direct load and (if the chain gate is open) the chain load; if some admissible $k$ achieves $\\mathfrak{L}_k^{best}\\le1$, the regularity route closes.",
+    "defining_relation": "\\mathfrak{L}_k^{best} = \\min\\{\\mathfrak{L}_k^{\\rm dir},\\ \\mathfrak{L}_{\\ell,k}^{\\rm chain}\\text{ if admissible}\\}",
+    "notes": "第38節強調最佳 derivative level 不能只比較指數 θ_k，必須比較 𝔏_k^best 本身，因高階導數與 theorem 常數也可能快速增長。"
+  },
+  {
+    "key": "ns.c3.c3y.joint_routing_principle",
+    "latex": "\\textbf{Pressure Concentration}\\cap\\textbf{Derivative-Bridge Failure at Every Admissible Gate}",
+    "label_zh": "聯合集中路由原則",
+    "label_en": "Joint-Concentration Routing Principle",
+    "definition_zh": "第32節（C3-Y.5）證明若 pressure concentration branch 成立，則 derivative side 必須對每個 theorem-admissible $k$ 同時發生 Y-J1至Y-J5 中至少一項失敗，假設性奇異性才能維持。",
+    "definition_en": "Section 32 (C3-Y.5) proves that if the pressure concentration branch holds, the derivative side must simultaneously fail via at least one of Y-J1 through Y-J5 at every theorem-admissible $k$ for a hypothetical singularity to survive.",
+    "notes": "第42節重述為本輪後的 main survivor；五個子失敗模式為 Y-J1（𝔏_k^best>1）、Y-J2（globalization failure）、Y-J3（temporal gate failure）、Y-J4（chain gate failure）、Y-J5（threshold/interface failure）。"
+  },
+  {
+    "key": "ns.c3.c3y.theta_ps",
+    "latex": "\\Theta_{P/S}",
+    "label_zh": "壓力／應變共位參數",
+    "label_en": "pressure-strain co-location parameter",
+    "definition_zh": "第33節回顧 C3-X 曾區分 $\\Theta_{P/S}>0$ 與 $\\Theta_{P/S}\\to0$ 兩種情形，並指出即使 pressure 與 strain active sets 完全空間分離，只要 derivative geometric theorem 的 global hypotheses 閉合，regularity 仍成立。",
+    "definition_en": "Section 33 recalls C3-X's distinction between $\\Theta_{P/S}>0$ and $\\Theta_{P/S}\\to0$, and shows regularity still holds even when pressure and strain active sets are fully spatially segregated, provided the derivative geometric theorem's global hypotheses close.",
+    "notes": "承接自 C3-X；本輪結論是 co-location 並非最本質的邏輯介面，真正本質是 pressure singular branch 交 derivative-geometry theorem failure。"
+  },
+  {
+    "key": "ns.c3.c3y.theta_k_di",
+    "latex": "\\Theta_k^{DI} = \\left\\langle A_k, R_{\\rm apr}^{(k)}, R_{\\rm chain}^{(k)}, R_{\\rm dir}^{(k)}, \\Phi_k, \\theta_k^{\\rm dir}, \\theta_k^{\\rm chain}, \\mathsf{ChainGate}_k, \\mathsf{TimeGate}_k, \\mathfrak{L}_k^{best} \\right\\rangle",
+    "label_zh": "導數／間歇性狀態",
+    "label_en": "derivative/intermittency state tuple",
+    "definition_zh": "第41節在 True ETN 架構下把本輪所有量打包成狀態元組 $\\Theta_k^{DI}$，供全系列狀態簿記使用。",
+    "definition_en": "Section 41 packages this round's quantities into the state tuple $\\Theta_k^{DI}$ within the True ETN bookkeeping framework used across the series."
+  },
+  {
+    "key": "ns.c3.c3y.theta_k_joint",
+    "latex": "\\Theta_k^{joint} = \\left\\langle \\Theta_k^{DI}, \\text{pressure concentration certificate}, \\text{pressure provenance} \\right\\rangle",
+    "label_zh": "聯合壓力狀態",
+    "label_en": "joint pressure state tuple",
+    "definition_zh": "第41節把 $\\Theta_k^{DI}$ 擴充為聯合壓力狀態 $\\Theta_k^{joint}$，額外納入 pressure concentration certificate 與 pressure provenance，對應第32節的 Joint-Concentration Routing。",
+    "definition_en": "Section 41 extends $\\Theta_k^{DI}$ into the joint pressure state $\\Theta_k^{joint}$, adding a pressure concentration certificate and pressure provenance, corresponding to Section 32's Joint-Concentration Routing.",
+    "notes": "延續 True ETN 記法，是全系列狀態簿記的最新一層。"
+  }
+]

@@ -1,0 +1,276 @@
+[
+  {
+    "key": "ns.c4.c4e.transport_free_remainder",
+    "latex": "R_q^\\sigma",
+    "label_zh": "去傳輸剩餘項",
+    "label_en": "Transport-free remainder",
+    "definition_zh": "第3節將 C4-D 的殼層非線性源 $N_q^\\sigma$ 減去低模傳輸項定義出 $R_q^\\sigma=N_q^\\sigma-v_q\\cdot\\nabla f$，使殼層方程變成 $\\partial_tf-\\nu\\Delta f+v_q\\cdot\\nabla f+R_q^\\sigma=0$。",
+    "definition_en": "Section 3 defines $R_q^\\sigma=N_q^\\sigma-v_q\\cdot\\nabla f$ by subtracting the low-mode transport term from C4-D's shell nonlinear source $N_q^\\sigma$, turning the shell equation into $\\partial_tf-\\nu\\Delta f+v_q\\cdot\\nabla f+R_q^\\sigma=0$.",
+    "defining_relation": "R_q^\\sigma = N_q^\\sigma - v_q\\cdot\\nabla f,\\qquad \\partial_t f - \\nu\\Delta f + v_q\\cdot\\nabla f + R_q^\\sigma = 0",
+    "notes": "Supersedes C4-D's use of the full $N_q^\\sigma$ as source; every subsequent amplitude/work/overcapacity argument in this round is re-run on $R_q^\\sigma$ instead (formalized as guard G-TFREE in §47)."
+  },
+  {
+    "key": "ns.c4.c4e.low_transport_velocity",
+    "latex": "v_q = u_{\\le q-L_0}",
+    "label_zh": "低模傳輸速度",
+    "label_en": "Low transport velocity",
+    "definition_zh": "第2節在固定支撐間隙 $L_0\\ge4$ 下，將無散度的低頻截斷速度場 $v_q=u_{\\le q-L_0}$ 定義為驅動殼層方程的傳輸速度。",
+    "definition_en": "Section 2 defines the divergence-free low-frequency-truncated velocity $v_q=u_{\\le q-L_0}$, with fixed support gap $L_0\\ge4$, as the transport velocity in the shell equation."
+  },
+  {
+    "key": "ns.c4.c4e.shell_nonlinear_source",
+    "latex": "N_q^\\sigma = \\Delta_q P^\\sigma \\mathbb P \\nabla\\cdot(u\\otimes u)",
+    "label_zh": "殼層非線性源",
+    "label_en": "Shell nonlinear source",
+    "definition_zh": "第3節重述 C4-D 的殼層非線性源 $N_q^\\sigma=\\Delta_qP^\\sigma\\mathbb P\\nabla\\cdot(u\\otimes u)$，作為定義去傳輸剩餘項 $R_q^\\sigma$ 的起點。",
+    "definition_en": "Section 3 restates C4-D's shell nonlinear source $N_q^\\sigma=\\Delta_qP^\\sigma\\mathbb P\\nabla\\cdot(u\\otimes u)$ as the starting point for defining the transport-free remainder $R_q^\\sigma$.",
+    "notes": "Explicitly labeled in the text as the \"C4-D shell source\" (§3); C4-E's contribution is to split it via $v_q$, not to redefine it."
+  },
+  {
+    "key": "ns.c4.c4e.sup_norm_maximum",
+    "latex": "M(t) = \\|f(t)\\|_\\infty",
+    "label_zh": "上確界振幅",
+    "label_en": "Sup-norm maximum",
+    "definition_zh": "第4節（C4-E.1）在可微時刻取 $M(t)=\\|f(t)\\|_\\infty$ 及其極值方向 $e_t$，證明純傳輸項在極值點恰好消失，故 $M'(t)\\le-e_t\\cdot R_q^\\sigma(t,x_t)$。",
+    "definition_en": "Section 4 (C4-E.1) takes $M(t)=\\|f(t)\\|_\\infty$ at a differentiability time and shows the pure-transport term vanishes exactly at the maximizer, giving $M'(t)\\le-e_t\\cdot R_q^\\sigma(t,x_t)$.",
+    "defining_relation": "M(t)=\\|f(t)\\|_\\infty,\\qquad M'(t)\\le -e_t\\cdot R_q^\\sigma(t,x_t)"
+  },
+  {
+    "key": "ns.c4.c4e.max_point_direction",
+    "latex": "e_t = f(t,x_t)/M(t)",
+    "label_zh": "極值方向向量",
+    "label_en": "Maximizer direction",
+    "definition_zh": "第4節在振幅取得最大值的點 $x_t$ 定義單位方向 $e_t=f(t,x_t)/M(t)$，用以使純傳輸項在該點的貢獻恰為零。",
+    "definition_en": "Section 4 defines the unit direction $e_t=f(t,x_t)/M(t)$ at the maximizer $x_t$, used to show the pure-transport contribution vanishes there."
+  },
+  {
+    "key": "ns.c4.c4e.shell_nonlinear_work",
+    "latex": "W_q^\\sigma = -\\int f\\cdot N_q^\\sigma\\,dx",
+    "label_zh": "殼層非線性作功",
+    "label_en": "Shell nonlinear work",
+    "definition_zh": "第5節（C4-E.2）因 $\\nabla\\cdot v_q=0$，證明全域殼層作功 $W_q^\\sigma=-\\int f\\cdot N_q^\\sigma dx$ 精確等於 $-\\int f\\cdot R_q^\\sigma dx$，即傳輸項對作功亦無貢獻。",
+    "definition_en": "Section 5 (C4-E.2) shows that since $\\nabla\\cdot v_q=0$, the global shell work $W_q^\\sigma=-\\int f\\cdot N_q^\\sigma dx$ equals exactly $-\\int f\\cdot R_q^\\sigma dx$, so transport contributes nothing to the work either.",
+    "defining_relation": "W_q^\\sigma = -\\int f\\cdot N_q^\\sigma\\,dx = -\\int f\\cdot R_q^\\sigma\\,dx",
+    "notes": "Together with C4-E.1 this establishes that amplitude growth and shell energy work are driven by the same transport-free remainder (§5 boxed conclusion)."
+  },
+  {
+    "key": "ns.c4.c4e.refined_source_efficiency",
+    "latex": "\\eta_R(t) = \\dfrac{-e_t\\cdot R_q^\\sigma(t,x_t)}{\\|R_q^\\sigma(t)\\|_\\infty}",
+    "label_zh": "精化源效率",
+    "label_en": "Refined source efficiency",
+    "definition_zh": "第6節將 C4-D 的源效率改以 $R_q^\\sigma$ 取代 $N_q^\\sigma$ 重新定義為 $\\eta_R(t)$，在 $M'>0$ 時滿足 $0<\\eta_R\\le1$。",
+    "definition_en": "Section 6 redefines C4-D's source efficiency as $\\eta_R(t)$, replacing $N_q^\\sigma$ with $R_q^\\sigma$, satisfying $0<\\eta_R\\le1$ whenever $M'>0$."
+  },
+  {
+    "key": "ns.c4.c4e.transport_free_overcapacity_impulse",
+    "latex": "\\mathfrak S_q^R := \\dfrac{1}{\\nu\\lambda_q}\\int_I \\|R_q^\\sigma(t)\\|_\\infty\\,dt \\ge s_0",
+    "label_zh": "去傳輸源超載脈衝",
+    "label_en": "Transport-free source-overcapacity impulse",
+    "definition_zh": "第7節將 C4-D 的 source-overcapacity impulse 升級為以 $R_q^\\sigma$ 定義的 $\\mathfrak S_q^R$，重新詮釋為「變形／跨尺度剩餘脈衝」而非純傳輸容量。",
+    "definition_en": "Section 7 upgrades C4-D's source-overcapacity impulse to $\\mathfrak S_q^R$, defined via $R_q^\\sigma$, reinterpreted as a \"deformation/interscale remainder impulse\" rather than pure transport capacity.",
+    "defining_relation": "\\mathfrak S_q^R := \\frac{1}{\\nu\\lambda_q}\\int_I \\|R_q^\\sigma(t)\\|_\\infty\\,dt \\ge s_0,\\qquad s_0\\asymp\\frac{\\beta_1-\\beta_0}{\\eta_0}"
+  },
+  {
+    "key": "ns.c4.c4e.comparable_shell_envelope",
+    "latex": "V_q = \\sum_{|p-q|\\le C_0} U_p,\\qquad U_p(t)=\\|u_p(t)\\|_\\infty",
+    "label_zh": "可比殼層振幅包絡",
+    "label_en": "Comparable-shell amplitude envelope",
+    "definition_zh": "第8節先定義單殼層振幅 $U_p(t)=\\|u_p(t)\\|_\\infty$，再以固定 LP cutoff 常數 $C_0$ 加總鄰近殼層得到可比包絡 $V_q=\\sum_{|p-q|\\le C_0}U_p$。",
+    "definition_en": "Section 8 first defines the single-shell amplitude $U_p(t)=\\|u_p(t)\\|_\\infty$, then sums over neighboring shells within the fixed LP cutoff $C_0$ to get the comparable envelope $V_q=\\sum_{|p-q|\\le C_0}U_p$."
+  },
+  {
+    "key": "ns.c4.c4e.low_mode_gradient_load",
+    "latex": "G_{<q} = \\sum_{r\\le q-L_0} \\lambda_r U_r",
+    "label_zh": "低模梯度負載",
+    "label_en": "Low-mode gradient load",
+    "definition_zh": "第8節定義低模梯度負載 $G_{<q}=\\sum_{r\\le q-L_0}\\lambda_rU_r$，第14節證明它與渦量殼層範數 $\\|\\omega_r\\|_\\infty\\asymp\\lambda_rU_r$ 同級，是一個 critical vorticity/strain $L^\\infty$ 負載。",
+    "definition_en": "Section 8 defines the low-mode gradient load $G_{<q}=\\sum_{r\\le q-L_0}\\lambda_rU_r$; Section 14 shows it is comparable to the vorticity shell norm $\\|\\omega_r\\|_\\infty\\asymp\\lambda_rU_r$, making it a critical vorticity/strain $L^\\infty$ load.",
+    "defining_relation": "G_{<q} = \\sum_{r\\le q-L_0} \\lambda_r U_r",
+    "notes": "Its $O(1)$ lower bound (E-SHEAR) is identified with the Cheskidov–Dai frequency-localized critical vorticity criterion cited in §1."
+  },
+  {
+    "key": "ns.c4.c4e.high_high_pair_load",
+    "latex": "H_q^{HH} = \\sum_{p\\ge q-C_0} U_p\\widetilde U_p,\\qquad \\widetilde U_p=\\sum_{|r-p|\\le C_0}U_r",
+    "label_zh": "高頻對載量",
+    "label_en": "High-high pair load",
+    "definition_zh": "第8節定義高頻對載量 $H_q^{HH}=\\sum_{p\\ge q-C_0}U_p\\widetilde U_p$，其中 $\\widetilde U_p=\\sum_{|r-p|\\le C_0}U_r$，捕捉 Bony 分解中高高交互作用對輸出殼層 $q$ 的貢獻。",
+    "definition_en": "Section 8 defines the high-high pair load $H_q^{HH}=\\sum_{p\\ge q-C_0}U_p\\widetilde U_p$ with $\\widetilde U_p=\\sum_{|r-p|\\le C_0}U_r$, capturing the high-high Bony-decomposition contribution to output shell $q$."
+  },
+  {
+    "key": "ns.c4.c4e.theorem_transport_free_remainder_estimate",
+    "latex": "\\|R_q^\\sigma\\|_\\infty \\le C\\left[G_{<q}V_q + \\lambda_q H_q^{HH}\\right]",
+    "label_zh": "去傳輸剩餘項估計定理",
+    "label_en": "Transport-Free Remainder Estimate",
+    "definition_zh": "第9節定理9.1（C4-E.3）用 low-high commutator 估計與 Bony 分解證明 $\\|R_q^\\sigma\\|_\\infty\\le C[G_{<q}V_q+\\lambda_qH_q^{HH}]$，把去傳輸剩餘項精確控制在低模梯度負載與高高對載量之和。",
+    "definition_en": "Section 9's Theorem 9.1 (C4-E.3) uses a low-high commutator estimate plus Bony decomposition to prove $\\|R_q^\\sigma\\|_\\infty\\le C[G_{<q}V_q+\\lambda_qH_q^{HH}]$, bounding the transport-free remainder by the low-mode gradient load and high-high pair load.",
+    "defining_relation": "\\|R_q^\\sigma\\|_\\infty \\le C\\left[G_{<q} V_q + \\lambda_q H_q^{HH}\\right]",
+    "notes": "Proved via $R_q^\\sigma=[T_q^\\sigma,v_q\\cdot\\nabla]u+T_q^\\sigma((u-v_q)\\cdot\\nabla u)$ with $T_q^\\sigma=\\Delta_qP^\\sigma\\mathbb P$ (§9 proof architecture)."
+  },
+  {
+    "key": "ns.c4.c4e.critical_amplitude",
+    "latex": "a_p = \\dfrac{U_p}{\\nu\\lambda_p}",
+    "label_zh": "臨界振幅",
+    "label_en": "Critical amplitude",
+    "definition_zh": "第10節定義無量綱臨界振幅 $a_p=U_p/(\\nu\\lambda_p)$，是貫穿本輪、界定 crossing threshold $\\beta_0,\\beta_1$ 的核心變量。",
+    "definition_en": "Section 10 defines the dimensionless critical amplitude $a_p=U_p/(\\nu\\lambda_p)$, the core variable running through the round that defines the crossing thresholds $\\beta_0,\\beta_1$.",
+    "defining_relation": "a_p = \\frac{U_p}{\\nu\\lambda_p}",
+    "notes": "The per-shell version of the $\\beta_0\\to\\beta_1$ crossing variable whose recurrence C4-D established (§0)."
+  },
+  {
+    "key": "ns.c4.c4e.dimensionless_hh_congestion",
+    "latex": "\\mathfrak h_q = \\dfrac{H_q^{HH}}{\\nu^2\\lambda_q^2}",
+    "label_zh": "無量綱高頻對壅塞量",
+    "label_en": "Dimensionless high-high congestion",
+    "definition_zh": "第10節將高頻對載量無量綱化為 $\\mathfrak h_q=H_q^{HH}/(\\nu^2\\lambda_q^2)$，連同 $\\mathfrak g_q=G_{<q}/(\\nu\\lambda_q^2)$ 與 $\\mathfrak v_q=V_q/(\\nu\\lambda_q)$，把定理9.1改寫成臨界形式 $\\|R_q^\\sigma\\|_\\infty/(\\nu^2\\lambda_q^3)\\le C[\\mathfrak g_q\\mathfrak v_q+\\mathfrak h_q]$。",
+    "definition_en": "Section 10 nondimensionalizes the high-high pair load as $\\mathfrak h_q=H_q^{HH}/(\\nu^2\\lambda_q^2)$, which together with $\\mathfrak g_q=G_{<q}/(\\nu\\lambda_q^2)$ and $\\mathfrak v_q=V_q/(\\nu\\lambda_q)$ recasts Theorem 9.1 into the critical form $\\|R_q^\\sigma\\|_\\infty/(\\nu^2\\lambda_q^3)\\le C[\\mathfrak g_q\\mathfrak v_q+\\mathfrak h_q]$.",
+    "defining_relation": "\\mathfrak h_q = \\frac{H_q^{HH}}{\\nu^2\\lambda_q^2},\\qquad \\frac{\\|R_q^\\sigma\\|_\\infty}{\\nu^2\\lambda_q^3}\\le C\\left[\\mathfrak g_q\\mathfrak v_q+\\mathfrak h_q\\right]",
+    "notes": "Later split into near/far parts (§15) and drives the Small-Threshold Far-Relay Theorem (§17)."
+  },
+  {
+    "key": "ns.c4.c4e.viscous_normalized_time",
+    "latex": "d\\tau = \\nu\\lambda_q^2\\,dt",
+    "label_zh": "黏性正規化時間",
+    "label_en": "Viscous-normalized time",
+    "definition_zh": "第11節引入黏性正規化時間 $d\\tau=\\nu\\lambda_q^2dt$，將 $\\mathfrak S_q^R$ 重寫成 $\\int[\\mathfrak g_q\\mathfrak v_q+\\mathfrak h_q]d\\tau$ 的形式。",
+    "definition_en": "Section 11 introduces the viscous-normalized time $d\\tau=\\nu\\lambda_q^2dt$, rewriting $\\mathfrak S_q^R$ as $\\int[\\mathfrak g_q\\mathfrak v_q+\\mathfrak h_q]d\\tau$."
+  },
+  {
+    "key": "ns.c4.c4e.frontier_cap",
+    "latex": "q\\ge Q+C_0,\\qquad a_p(t)\\le\\beta_1\\ (p\\ge Q)",
+    "label_zh": "前沿上限條件",
+    "label_en": "Frontier cap",
+    "definition_zh": "第12節針對 first-frontier/frontier-safe crossing（$q\\ge Q+C_0$），假設 crossing 前所有相關高殼層滿足 $a_p(t)\\le\\beta_1$，由此得出 $\\mathfrak v_q\\le C_1\\beta_1$。",
+    "definition_en": "Section 12, for a first-frontier/frontier-safe crossing ($q\\ge Q+C_0$), assumes $a_p(t)\\le\\beta_1$ on all relevant high shells before crossing, giving $\\mathfrak v_q\\le C_1\\beta_1$."
+  },
+  {
+    "key": "ns.c4.c4e.theorem_source_overcapacity_routing",
+    "latex": "\\mathfrak S_q^R\\ge s_0 \\;\\Rightarrow\\; \\text{E-SHEAR}\\ \\vee\\ \\text{E-HH}",
+    "label_zh": "源超載路由定理",
+    "label_en": "Source-Overcapacity Routing Theorem",
+    "definition_zh": "第13節定理 C4-E.4 證明在 frontier cap 下，若 $\\mathfrak S_q^R\\ge s_0$，則必有 E-SHEAR（低模梯度負載時間積分達標）或 E-HH（高高壅塞量達標）成立。",
+    "definition_en": "Section 13's Theorem C4-E.4 proves that under the frontier cap, $\\mathfrak S_q^R\\ge s_0$ forces either E-SHEAR (the time-integrated low-mode gradient load reaches threshold) or E-HH (the high-high congestion reaches threshold).",
+    "defining_relation": "\\int_I G_{<q}(t)\\,dt \\ge c\\frac{s_0}{\\beta_1} \\ (\\text{E-SHEAR}) \\qquad \\vee \\qquad \\int_I \\mathfrak h_q(t)\\,d\\tau \\ge c\\,s_0 \\ (\\text{E-HH})"
+  },
+  {
+    "key": "ns.c4.c4e.e_shear_condition",
+    "latex": "\\text{E-SHEAR}:\\quad \\int_I G_{<q}(t)\\,dt \\gtrsim 1",
+    "label_zh": "E-SHEAR 條件",
+    "label_en": "E-SHEAR condition",
+    "definition_zh": "第13節首次引入 E-SHEAR，第14節在固定遲滯比 $\\beta_0=\\vartheta\\beta_1$ 下證明它給出真正 $O(1)$ 的臨界低模渦量／應變負荷，與 Cheskidov–Dai frequency-localized 判準同一導數層級。",
+    "definition_en": "First introduced in Section 13, E-SHEAR is shown in Section 14 — under a fixed hysteresis ratio $\\beta_0=\\vartheta\\beta_1$ — to give a genuine $O(1)$ critical low-mode vorticity/strain toll, at the same derivative level as the Cheskidov–Dai frequency-localized criterion.",
+    "defining_relation": "\\int_I G_{<q}(t)\\,dt \\ge c\\,\\frac{s_0}{\\beta_1} \\;\\xrightarrow{\\ \\beta_0=\\vartheta\\beta_1\\ }\\; \\int_I G_{<q}(t)\\,dt \\gtrsim 1",
+    "notes": "Renamed the \"UV–Low-Strain Synchronization Motif\" $\\mathrm{M}_2$ later in the round (§35, §37)."
+  },
+  {
+    "key": "ns.c4.c4e.near_far_hh_split",
+    "latex": "\\mathfrak h_q = \\mathfrak h_q^{near,L} + \\mathfrak h_q^{far,L}",
+    "label_zh": "高高壅塞近／遠分解",
+    "label_en": "Near/far high-high split",
+    "definition_zh": "第15節固定 $L\\ge C_0$，把高高壅塞量分解成近部 $\\mathfrak h_q^{near,L}$（$q-C_0\\le p\\le q+L$）與遠部 $\\mathfrak h_q^{far,L}$（$p>q+L$）。",
+    "definition_en": "Section 15 fixes $L\\ge C_0$ and splits the high-high congestion into a near part $\\mathfrak h_q^{near,L}$ ($q-C_0\\le p\\le q+L$) and a far part $\\mathfrak h_q^{far,L}$ ($p>q+L$).",
+    "notes": "Section 16 shows $\\mathfrak h_q^{near,L}\\le C_L\\beta_1^2$ under the frontier cap — the key input to the Far-Relay Theorem."
+  },
+  {
+    "key": "ns.c4.c4e.theorem_small_threshold_far_relay",
+    "latex": "\\beta_1\\le\\dfrac{c_\\vartheta}{2\\theta C_L} \\;\\Rightarrow\\; \\int_I \\mathfrak h_q^{far,L}\\,d\\tau \\ge c\\beta_1",
+    "label_zh": "小閾值遠距接力定理",
+    "label_en": "Small-Threshold Far-Relay Theorem",
+    "definition_zh": "第17節定理 C4-E.5 證明當閾值 $\\beta_1$ 足夠小時，E-HH 分支必進一步把高高源容量逼到嚴格更高頻的遠部 $p\\ge q+L$，本文稱之為 Strict Higher-Frequency Source Relay。",
+    "definition_en": "Section 17's Theorem C4-E.5 proves that once the threshold $\\beta_1$ is sufficiently small, the E-HH branch must further push the high-high source capacity into the strictly-higher-frequency far part $p\\ge q+L$, termed the Strict Higher-Frequency Source Relay.",
+    "defining_relation": "\\beta_1\\le\\frac{c_\\vartheta}{2\\theta C_L} \\;\\Rightarrow\\; \\int_I \\mathfrak h_q^{far,L}\\,d\\tau \\ge c\\beta_1",
+    "notes": "Feeds directly into C4-E.6 (§20), where this far-relay mechanism is identified with C4-D's Rank Defect to form the Higher-Frequency Relay motif."
+  },
+  {
+    "key": "ns.c4.c4e.higher_frequency_relay_motif",
+    "latex": "\\mathrm{M}_4:\\ \\text{Higher-Frequency Relay}",
+    "label_zh": "高頻接力母題",
+    "label_en": "Higher-Frequency Relay motif",
+    "definition_zh": "第20節（C4-E.6）證明 C4-D 的 Rank Defect 與 C4-E 的 Strict Higher-Frequency Source Relay 雖非同一數值 observable，卻屬同一結構母題，統一命名為 Higher-Frequency Relay（即 $\\mathrm{M}_4$）。",
+    "definition_en": "Section 20 (C4-E.6) shows that C4-D's Rank Defect and C4-E's Strict Higher-Frequency Source Relay, while not the same numerical observable, share one structural motif, unified as the Higher-Frequency Relay ($\\mathrm{M}_4$).",
+    "notes": "This is the round's first genuine branch merge (§44): Source Overcapacity + Rank Defect now share one \"higher-frequency provenance\" certificate (§20 boxed statement)."
+  },
+  {
+    "key": "ns.c4.c4e.relay_to_active_parent_gap",
+    "latex": "q\\longleftarrow p,\\quad p\\ge q+L \\;\\not\\Rightarrow\\; a_p\\ge\\beta",
+    "label_zh": "接力—活躍母代缺口",
+    "label_en": "Relay-to-Active-Parent gap",
+    "definition_zh": "第21節指出 Higher-Frequency Relay 只給出有向的絕對頻率邊 $q\\leftarrow p$（$p\\ge q+L$），目前無法直接推出 $a_p\\ge\\beta$，此缺口稱為 Relay-to-Active-Parent Bridge，第39節再稱為 Relay-to-Activity Gap。",
+    "definition_en": "Section 21 notes that Higher-Frequency Relay only yields a directed absolute-frequency edge $q\\leftarrow p$ ($p\\ge q+L$), which cannot yet imply $a_p\\ge\\beta$; this gap is named the Relay-to-Active-Parent Bridge in §21 and the Relay-to-Activity Gap in §39.",
+    "notes": "Listed as proof obligations F1/F2 for the next round C4-F (§51)."
+  },
+  {
+    "key": "ns.c4.c4e.homochiral_triad_exact_split",
+    "latex": "(\\dot e_k,\\dot e_p,\\dot e_q) = \\Theta(p-q,\\,q-k,\\,k-p)",
+    "label_zh": "同手性三元組精確分裂",
+    "label_en": "Homochiral triad exact split",
+    "definition_zh": "第22節對 Class I（$(+++)$）同手性三元組寫出精確能量導數 $(\\dot e_k,\\dot e_p,\\dot e_q)=\\Theta(p-q,q-k,k-p)$，當最高模 $q$ 得能（$\\Theta<0$）時同時給出 $g_q=(p-k)|\\Theta|>0$ 與 $g_k=(q-p)|\\Theta|>0$，且 $-\\dot e_p=g_q+g_k$。",
+    "definition_en": "Section 22 writes the exact triad energy derivative $(\\dot e_k,\\dot e_p,\\dot e_q)=\\Theta(p-q,q-k,k-p)$ for the homochiral Class I ($(+++)$) triad; when the highest mode $q$ gains energy ($\\Theta<0$) this simultaneously gives $g_q=(p-k)|\\Theta|>0$ and $g_k=(q-p)|\\Theta|>0$, with $-\\dot e_p=g_q+g_k$.",
+    "defining_relation": "g_q:=\\dot e_q=(p-k)|\\Theta|>0,\\qquad g_k:=\\dot e_k=(q-p)|\\Theta|>0,\\qquad -\\dot e_p=(q-k)|\\Theta|=g_q+g_k",
+    "notes": "This exact algebra (from Waleffe) underlies §23's \"homochiral high-mode gain is bidirectional\" and is explicitly contrasted with Biferale–Titi's decimated-model regularity result in §46."
+  },
+  {
+    "key": "ns.c4.c4e.lemma_homochiral_gap_or_reverse",
+    "latex": "g_q>0 \\;\\Rightarrow\\; \\text{E-HGAP}\\ \\vee\\ \\text{E-HREV}",
+    "label_zh": "同手性間隙或反向共得引理",
+    "label_en": "Homochiral Gap-or-Reverse-Co-Gain Lemma",
+    "definition_zh": "第24節引理 C4-E.7 證明對固定 $0<\\delta<1$，只要最高模得能 $g_q>0$，則必有 E-HGAP（$q-p<\\delta(p-k)$，徑向間隙退化）或 E-HREV（$g_k\\ge\\delta g_q$，最小模可比得能）成立，證明只需 $g_k/g_q=(q-p)/(p-k)$。",
+    "definition_en": "Section 24's Lemma C4-E.7 proves that for fixed $0<\\delta<1$, whenever the highest mode gains energy ($g_q>0$), either E-HGAP ($q-p<\\delta(p-k)$, radial gap degeneration) or E-HREV ($g_k\\ge\\delta g_q$, comparable co-gain of the smallest mode) must hold, via the identity $g_k/g_q=(q-p)/(p-k)$.",
+    "defining_relation": "\\text{E-HGAP}:\\ q-p<\\delta(p-k) \\qquad\\vee\\qquad \\text{E-HREV}:\\ g_k\\ge \\delta g_q",
+    "notes": "E-HGAP/E-HREV labels are reused in §26's homochiral branch-compression trichotomy alongside E-HNONLOCAL ($k/q<c_L$)."
+  },
+  {
+    "key": "ns.c4.c4e.bidirectional_critical_work_split",
+    "latex": "kg_k \\ge c_L\\delta\\,qg_q",
+    "label_zh": "雙向臨界作功分裂",
+    "label_en": "Bidirectional Critical Work Split",
+    "definition_zh": "第25節在額外假設 $k\\ge c_Lq$ 下，由 E-HREV 導出臨界加權版本 $kg_k\\ge c_L\\delta\\,qg_q$，說明未退化的局部同手性 UV 得能必同時產生可比的臨界加權低模得能，本文稱之為 Bidirectional Critical Work Split。",
+    "definition_en": "Section 25, under the additional assumption $k\\ge c_Lq$, upgrades E-HREV to the critical-weighted bound $kg_k\\ge c_L\\delta\\,qg_q$, showing that non-degenerate local homochiral UV gain necessarily produces comparable critical-weighted lower-mode gain — named the Bidirectional Critical Work Split."
+  },
+  {
+    "key": "ns.c4.c4e.near_equilateral_radial_condensation",
+    "latex": "\\text{Class III}:\\quad q-k<\\delta q \\;\\Rightarrow\\; (1-\\delta)q<k\\le p\\le q",
+    "label_zh": "近等邊徑向凝聚",
+    "label_en": "Near-Equilateral Radial Condensation",
+    "definition_zh": "第28節定義 Class III 徑向退化 $q-k<\\delta q$，由 $k\\le p\\le q$ 立即得三個徑向量級全落在相對厚度 $\\delta$ 內，本文稱為 Near-Equilateral Radial Condensation。",
+    "definition_en": "Section 28 defines the Class III radial degeneration $q-k<\\delta q$; since $k\\le p\\le q$, this immediately forces all three radial magnitudes into a relative thickness $\\delta$, named Near-Equilateral Radial Condensation.",
+    "notes": "Contrasted with Class II (§27, $q-p\\le k$, nonlocal two-high/one-low geometry); together with homochiral upper-gap collapse these feed the Spectral-Geometry Degeneration Motif (§29)."
+  },
+  {
+    "key": "ns.c4.c4e.spectral_geometry_degeneration_motif",
+    "latex": "\\mathrm{M}_6:\\ \\text{Spectral-Geometry Degeneration}",
+    "label_zh": "頻譜幾何退化母題",
+    "label_en": "Spectral-Geometry Degeneration motif",
+    "definition_zh": "第29節把強非局部性、Class II 上間隙塌縮、Class III 近等邊徑向凝聚與同手性上間隙塌縮統一記為 Spectral-Geometry Degeneration（即 $\\mathrm{M}_6$），其共通角色是使螺旋共享事件耦合係數失去固定下界。",
+    "definition_en": "Section 29 unifies strong nonlocality, Class II upper-gap collapse, Class III near-equilateral radial condensation, and homochiral upper-gap collapse as Spectral-Geometry Degeneration ($\\mathrm{M}_6$), whose common role is that the helical shared-event coupling coefficient loses its fixed lower bound.",
+    "notes": "Also absorbs C4-D's \"Homochiral Dominance\" branch whenever E-HGAP/E-HNONLOCAL fires rather than E-HREV (§26)."
+  },
+  {
+    "key": "ns.c4.c4e.critical_work_variation_motif",
+    "latex": "\\mathfrak V_q^{work} = \\dfrac{\\lambda_q}{\\nu^2}\\int_I\\left(W_q^++W_q^-\\right)dt",
+    "label_zh": "臨界作功變異母題",
+    "label_en": "Critical Work-Variation motif",
+    "definition_zh": "第31節定義 $\\mathfrak V_q^{work}=\\frac{\\lambda_q}{\\nu^2}\\int_I(W_q^++W_q^-)dt$，第30節證明空間作功抵消、穩健螺旋抵消與同手性雙向反向得能三個 C4-D 分支都強迫 $\\mathfrak V_q^{work}\\gtrsim1$，統一稱為 Critical Work-Variation Motif（即 $\\mathrm{M}_5$）。",
+    "definition_en": "Section 31 defines $\\mathfrak V_q^{work}=\\frac{\\lambda_q}{\\nu^2}\\int_I(W_q^++W_q^-)dt$; Section 30 shows spatial work cancellation, robust helical cancellation, and homochiral bidirectional reverse co-gain — three C4-D branches — all force $\\mathfrak V_q^{work}\\gtrsim1$, unified as the Critical Work-Variation Motif ($\\mathrm{M}_5$).",
+    "defining_relation": "\\mathfrak V_q^{work} = \\frac{\\lambda_q}{\\nu^2}\\int_I\\left(W_q^++W_q^-\\right)dt \\gtrsim 1",
+    "notes": "§32 stresses this is genuinely unconstrained: ordinary energy balance only controls $W_q^+-W_q^-$, not $W_q^++W_q^-$ — the \"signed balance ≠ total variation\" gap recurring from C3/C4."
+  },
+  {
+    "key": "ns.c4.c4e.theorem_uv_motif_compression",
+    "latex": "\\{\\mathrm{M}_1,\\ldots,\\mathrm{M}_6\\}",
+    "label_zh": "UV遞迴母題壓縮定理",
+    "label_en": "UV Recurrent Motif Compression Theorem",
+    "definition_zh": "第37節定理37.1（C4-E.8）在 frontier-safe、固定遲滯比與充分小閾值 $\\beta_1\\le\\beta_\\ast(L,\\theta,\\vartheta)$ 下，證明每個 critical UV shell crossing 必進六類母題之一：三個 closure-friendly（$\\mathrm{M}_1$ Persistence、$\\mathrm{M}_2$ Low-Strain Sync、$\\mathrm{M}_3$ Helical Sync）與三個真正未解的 escape 母題（$\\mathrm{M}_4$ Relay、$\\mathrm{M}_5$ Work Variation、$\\mathrm{M}_6$ Spectral Degeneration）。",
+    "definition_en": "Section 37's Theorem 37.1 (C4-E.8) proves that under frontier-safety, a fixed hysteresis ratio, and a sufficiently small threshold $\\beta_1\\le\\beta_\\ast(L,\\theta,\\vartheta)$, every critical UV shell crossing falls into one of six motifs: three closure-friendly ($\\mathrm{M}_1$ Persistence, $\\mathrm{M}_2$ Low-Strain Sync, $\\mathrm{M}_3$ Helical Sync) and three genuinely unresolved escape motifs ($\\mathrm{M}_4$ Relay, $\\mathrm{M}_5$ Work Variation, $\\mathrm{M}_6$ Spectral Degeneration).",
+    "defining_relation": "\\text{every crossing}\\in\\{\\mathrm{M}_1,\\mathrm{M}_2,\\mathrm{M}_3,\\mathrm{M}_4,\\mathrm{M}_5,\\mathrm{M}_6\\},\\quad \\beta_1\\le\\beta_\\ast(L,\\theta,\\vartheta)",
+    "notes": "§38 shows an infinite blow-up sequence must recur in a fixed $\\mathrm{M}_*$; if $\\mathrm{M}_*\\in\\{\\mathrm{M}_1,\\mathrm{M}_2,\\mathrm{M}_3\\}$ this already yields new synchronization, so the genuinely unresolved recurrent case is $\\mathrm{M}_4\\vee\\mathrm{M}_5\\vee\\mathrm{M}_6$ (§38, §53)."
+  },
+  {
+    "key": "ns.c4.c4e.true_etn_uv_state",
+    "latex": "\\Theta_n^{UV} = \\langle q_n,\\beta_0,\\beta_1,R_{q_n}^\\sigma,G_{<q_n},\\mathfrak h_{q_n}^{far},\\mathfrak V_{q_n}^{work},\\operatorname{SpectralGeometry},\\operatorname{HelicalNet},\\operatorname{RelayEdge}\\rangle",
+    "label_zh": "UV母題狀態元組",
+    "label_en": "UV motif state tuple",
+    "definition_zh": "第48節把 True ETN 框架更新為 UV 母題狀態元組 $\\Theta_n^{UV}$，紀錄第 $n$ 次 crossing 的殼層指標、閾值、去傳輸剩餘、低模負載、遠高高壅塞、作功變異與各幾何／螺旋／接力指標，並配上母題標籤 $\\mathsf M_n\\in\\{\\mathrm{M}_1,\\ldots,\\mathrm{M}_6\\}$。",
+    "definition_en": "Section 48 updates the True ETN framework to the UV motif state tuple $\\Theta_n^{UV}$, recording the $n$-th crossing's shell index, thresholds, transport-free remainder, low-mode load, far high-high congestion, work variation, and geometric/helical/relay indicators, tagged with a motif label $\\mathsf M_n\\in\\{\\mathrm{M}_1,\\ldots,\\mathrm{M}_6\\}$.",
+    "notes": "True ETN is the cross-round bookkeeping object referenced throughout the AMRAL NS series (see Internal Dependencies: \"True ETN / 無限維張力場\")."
+  }
+]

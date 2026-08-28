@@ -1,0 +1,302 @@
+[
+  {
+    "key": "ns.c6.c6h.mathfrak_b_original",
+    "latex": "\\mathfrak B",
+    "label_zh": "粗粒化邊界面字母表（原始十類）",
+    "label_en": "Coarse-grained boundary-face alphabet (original ten)",
+    "definition_zh": "C6-G 將所有 critical faces 粗粒化後得到的十元邊界面集合，涵蓋 $B_{LOAD}, B_{COH}, B_{SEG}, B_{GEOM}, B_{FIELD}, B_{MEAN}, B_{PROV}, B_{HER}, B_{SETUP}, B_{CAP^\\infty}$。C6-H 全篇的核心任務即是對此集合進行語意分類與逐步約簡，最終縮至六元終端物理面字母表 $\\mathfrak B_{phys}^{(2)}$。",
+    "definition_en": "The ten-element set of boundary faces obtained by coarse-graining all critical faces in C6-G, comprising $B_{LOAD}, B_{COH}, B_{SEG}, B_{GEOM}, B_{FIELD}, B_{MEAN}, B_{PROV}, B_{HER}, B_{SETUP}, B_{CAP^\\infty}$. The entire C6-H round is organized around semantically classifying and progressively reducing this alphabet down to the six-element terminal physical alphabet $\\mathfrak B_{phys}^{(2)}$.",
+    "defining_relation": "\\mathfrak B = \\{ B_{LOAD}, B_{COH}, B_{SEG}, B_{GEOM}, B_{FIELD}, B_{MEAN}, B_{PROV}, B_{HER}, B_{SETUP}, B_{CAP^\\infty} \\}",
+    "notes": "Originates in the prior round C6-G, not newly defined by C6-H; restated here as the starting point for this round's reduction."
+  },
+  {
+    "key": "ns.c6.c6h.b_field",
+    "latex": "B_{FIELD}",
+    "label_zh": "場捕獲邊失效面",
+    "label_en": "Field-capture edge-failure face",
+    "definition_zh": "Type E（edge-failure boundary）的一個例子，代表 source-to-field capture 失敗、response dominance 失敗、derivative realization 失敗，或所選分量喪失嚴格 margin。依 C6-H.1 的結論，由於此類敘述僅說明「所嘗試的邊未能複合」而不指定唯一新的 PDE 物理狀態，$B_{FIELD}$ 被正式自物理邊界 SCC node list 中移除，僅保留作為 transition-failure metadata。",
+    "definition_en": "An instance of a Type E (edge-failure) boundary, meaning source-to-field capture fails, response dominance fails, derivative realization fails, or the selected component loses strict margin. By the conclusion of C6-H.1, since such statements only say \"the attempted edge did not compose\" without specifying a unique new PDE physical state, $B_{FIELD}$ is formally removed from the physical boundary SCC node list and retained only as transition-failure metadata.",
+    "notes": "Classification table in §36 records its status as \"REMOVED AS NODE.\""
+  },
+  {
+    "key": "ns.c6.c6h.b_her",
+    "latex": "B_{HER}",
+    "label_zh": "遺傳性邊失效面",
+    "label_en": "Heredity edge-failure face",
+    "definition_zh": "另一個 Type E（edge-failure boundary）例子，代表 geometry heredity 失敗、pressure heredity 失敗、window persistence 失敗，或 shared-source heredity 失敗。與 $B_{FIELD}$ 同理，依 C6-H.1 之 Edge-Boundary Node No-Go，$B_{HER}$ 亦自物理邊界 SCC 節點清單中移除，僅作為 transition-failure metadata 保留。",
+    "definition_en": "Another instance of a Type E (edge-failure) boundary: geometry heredity fails, pressure heredity fails, window persistence fails, or shared-source heredity fails. Like $B_{FIELD}$, by the Edge-Boundary Node No-Go of C6-H.1, $B_{HER}$ is likewise removed from the physical boundary SCC node list and retained only as transition-failure metadata.",
+    "notes": "Classification table in §36 records its status as \"REMOVED AS NODE.\""
+  },
+  {
+    "key": "ns.c6.c6h.b_load",
+    "latex": "B_{LOAD}",
+    "label_zh": "負載崩塌／正規化面",
+    "label_en": "Load-collapse / normalization face",
+    "definition_zh": "屬於 Type N（Normalization boundary）的邊界面，意指某條 cycle/generation 邊上實現的 physical toll 相對於所選正規化尺度趨於零。它既非純粹的物理形狀面，也非 edge failure，而是依賴合法正規化尺度的極限現象；在 C6-H.5（Coherence Dichotomy）與 C6-H.6（Middle-Gap Dichotomy）中皆作為兩個分支之一出現，並保留在最終六元物理邊界字母表 $\\mathfrak B_{phys}^{(2)}$ 中，狀態為 OPEN（未被 uniform finite-energy budget 消除）。",
+    "definition_en": "A Type N (normalization) boundary face: a physical toll realized along a chosen cycle/generation edge tends to zero relative to the legal normalization scale. It is neither a pure physical-shape face nor an edge failure, but a genuine limiting regime tied to the normalization scale; it appears as one branch in both the Coherence Dichotomy (C6-H.5) and the Middle-Gap Dichotomy (C6-H.6), and survives into the final six-face alphabet $\\mathfrak B_{phys}^{(2)}$ with status OPEN (not coercively eliminated by the finite-energy budget).",
+    "notes": "Section 34 stresses $B_{LOAD}$ is \"not an external regularity sink in general\" — a survivor may reroute, change edge, or move to another face after load-collapse."
+  },
+  {
+    "key": "ns.c6.c6h.b_cap_infty",
+    "latex": "B_{CAP^\\infty}",
+    "label_zh": "無窮容量邊界面",
+    "label_en": "Boundary-at-infinity / capacity-at-infinity face",
+    "definition_zh": "Type $\\infty$（Boundary at infinity）邊界面，意指一個正規化容量／回應比或物理臨界容量發散，僅能在緊化（compactification）後表示，例如 $\\widehat C=C/(1+C)\\to1$。它是 C6-H.5 與 C6-H.6 兩個二分法定理中「容量發散」分支的共同終點，也是最終六元物理字母表 $\\mathfrak B_{phys}^{(2)}$ 的成員；§33 強調其發散並不自動構成矛盾，狀態維持 OPEN。",
+    "definition_en": "The Type $\\infty$ (boundary-at-infinity) face: a normalized capacity/response ratio or physical critical capacity diverges, representable only after compactification, e.g. $\\widehat C=C/(1+C)\\to1$. It is the common terminus of the \"capacity diverges\" branch in both the Coherence Dichotomy (C6-H.5) and the Middle-Gap Dichotomy (C6-H.6), and remains a member of the final six-face alphabet $\\mathfrak B_{phys}^{(2)}$; §33 stresses that divergence is not automatically a contradiction, and its status stays OPEN.",
+    "defining_relation": "\\widehat C = \\frac{C}{1+C} \\to 1",
+    "notes": "Reached via both H-B1 ($COH\\to LOAD\\vee CAP^\\infty$) and H-B2 ($GAP\\to LOAD\\vee CAP^\\infty$)."
+  },
+  {
+    "key": "ns.c6.c6h.rho_e_theta",
+    "latex": "\\rho_e(\\theta)",
+    "label_zh": "邊型保留量（reserve）",
+    "label_en": "Edge reserve quantity",
+    "definition_zh": "屬於某個 typed transition $e:X\\to Y$ 定義域的一般 reserve 函數，是 C6-H.1（Edge-Boundary Node No-Go）命題的中心對象。該命題證明：若 $\\rho_e(\\theta_n)\\to0$ 在極限中僅意味著 $\\theta_n\\notin\\operatorname{Dom}(e)$，而未確定唯一的物理 PDE 狀態類別，則面 $\\{\\rho_e=0\\}$ 不能被當作獨立的物理動態節點使用——這是 $B_{FIELD}$、$B_{HER}$ 被剔除出物理邊界 SCC 字母表的理論依據。",
+    "definition_en": "A generic reserve function belonging to the domain of some typed transition $e:X\\to Y$; the central object of Proposition C6-H.1 (Edge-Boundary Node No-Go). The proposition shows that if $\\rho_e(\\theta_n)\\to0$ only implies $\\theta_n\\notin\\operatorname{Dom}(e)$ in the limit — without pinning down a unique physical PDE state class — then the face $\\{\\rho_e=0\\}$ cannot be used as an independent physical dynamic node; this is the theoretical basis for removing $B_{FIELD}$ and $B_{HER}$ from the physical boundary SCC alphabet.",
+    "notes": "Generic/schematic notation, instantiated concretely by the FIELD and HER edge-failure examples in §4."
+  },
+  {
+    "key": "ns.c6.c6h.b_setup",
+    "latex": "B_{SETUP}",
+    "label_zh": "設置／合法性面",
+    "label_en": "Setup / legality face",
+    "definition_zh": "代表 theorem entry 失敗、legal reference scale 不可得、ancestry/provenance interface 未建立，或 remaining-time gate 不可得，本質上正是 C5/C6 的 legality class $A$。C6-H.2（Setup Quotient）證明 $B_{SETUP}\\equiv A$，因此就物理 recurrent SCC 分析而言將其自物理邊界字母表中移除（quotiented），不再視為獨立面。",
+    "definition_en": "Represents theorem-entry failure, unavailability of a legal reference scale, an unestablished ancestry/provenance interface, or an unavailable remaining-time gate — essentially identical to the C5/C6 legality class $A$. C6-H.2 (Setup Quotient) proves $B_{SETUP}\\equiv A$, so for the purpose of physical recurrent SCC analysis it is removed (quotiented) from the physical boundary alphabet rather than treated as an independent face.",
+    "defining_relation": "B_{SETUP} \\equiv A",
+    "notes": "Classification table in §36 records its status as \"QUOTIENTED.\""
+  },
+  {
+    "key": "ns.c6.c6h.mathfrak_b_phys_1",
+    "latex": "\\mathfrak B_{phys}^{(1)}",
+    "label_zh": "第一次約簡後之物理邊界字母表（七元）",
+    "label_en": "First reduced physical boundary alphabet (seven-element)",
+    "definition_zh": "在 C6-H.1（移除 $B_{FIELD},B_{HER}$）與 C6-H.2（將 $B_{SETUP}$ 商去為 $A$）之語意商化後得到的七元集合，將物理邊界問題自原本的十個粗粒化超類縮減為七個超類，是本輪第一個里程碑式的約簡結果。",
+    "definition_en": "The seven-element set obtained after the semantic quotients of C6-H.1 (removing $B_{FIELD}, B_{HER}$) and C6-H.2 (quotienting $B_{SETUP}$ into $A$); it shrinks the physical boundary problem from the original ten coarse-grained superclasses to seven, marking the round's first reduction milestone.",
+    "defining_relation": "\\mathfrak B_{phys}^{(1)} = \\{ B_{LOAD}, B_{COH}, B_{SEG}, B_{GEOM}, B_{MEAN}, B_{PROV}, B_{CAP^\\infty} \\}",
+    "notes": "Superseded later in the same round by the six-element $\\mathfrak B_{phys}^{(2)}$ (§35) after the coherence and middle-gap dichotomies."
+  },
+  {
+    "key": "ns.c6.c6h.ns_scaling_u_p",
+    "latex": "u_\\lambda(x,t) = \\lambda u(\\lambda x,\\lambda^2t)",
+    "label_zh": "Navier–Stokes 拋物型重新標度（速度／壓力）",
+    "label_en": "Navier–Stokes parabolic rescaling (velocity/pressure)",
+    "definition_zh": "標準三維不可壓縮 Navier–Stokes 方程的拋物型自相似重新標度：速度場依 $u_\\lambda(x,t)=\\lambda u(\\lambda x,\\lambda^2t)$、壓力場依 $p_\\lambda(x,t)=\\lambda^2p(\\lambda x,\\lambda^2t)$ 標度。此標度是 §12–§13 動能與黏性耗散標度計算，以及 C6-H.3（Scaling Obstruction to Uniform Energy Coercivity）定理的基礎，用以證明 scale-invariant UV event 無法承載 uniform positive kinetic-energy debt。",
+    "definition_en": "The standard parabolic self-similar rescaling of 3D incompressible Navier–Stokes: the velocity field scales as $u_\\lambda(x,t)=\\lambda u(\\lambda x,\\lambda^2t)$ and the pressure field as $p_\\lambda(x,t)=\\lambda^2p(\\lambda x,\\lambda^2t)$. This rescaling underlies the kinetic-energy and viscous-dissipation scaling computations of §12–§13 and Theorem C6-H.3 (Scaling Obstruction to Uniform Energy Coercivity), which shows that scale-invariant UV events cannot carry a uniform positive kinetic-energy debt.",
+    "defining_relation": "u_\\lambda(x,t) = \\lambda u(\\lambda x,\\lambda^2t), \\quad p_\\lambda(x,t) = \\lambda^2 p(\\lambda x,\\lambda^2t)",
+    "notes": "The vorticity scaling $\\omega_\\lambda=\\lambda^2\\omega(\\lambda x,\\lambda^2t)$ (§17, §40) is a derived consequence of this rescaling, not an independent primary definition."
+  },
+  {
+    "key": "ns.c6.c6h.d_e_dissipation",
+    "latex": "D_E[u;I]",
+    "label_zh": "事件視窗上的黏性耗散量",
+    "label_en": "Viscous dissipation over an event window",
+    "definition_zh": "對時間窗 $I=(a,b)$ 上速度場 $u$ 定義的黏性耗散量（即 $\\nu\\int_I\\|\\nabla u(s)\\|_2^2ds$）；在 N–S 重新標度下，窗口本身變為 $I_\\lambda=(\\lambda^{-2}a,\\lambda^{-2}b)$，而該量滿足 $D_E[u_\\lambda;I_\\lambda]=\\lambda^{-1}D_E[u;I]$。此標度律是 C6-H.3 定理與 §37 finite-energy coercivity audit 的關鍵工具：因 $D_E$ 隨 $\\lambda\\to\\infty$ 趨於零，scale-invariant boundary metadata 無法單獨導出 uniform positive energy debt。",
+    "definition_en": "The viscous dissipation of velocity field $u$ over a time window $I=(a,b)$ (i.e. $\\nu\\int_I\\|\\nabla u(s)\\|_2^2ds$); under N–S rescaling the window itself becomes $I_\\lambda=(\\lambda^{-2}a,\\lambda^{-2}b)$, and the quantity obeys $D_E[u_\\lambda;I_\\lambda]=\\lambda^{-1}D_E[u;I]$. This scaling law is the key tool behind Theorem C6-H.3 and the finite-energy coercivity audit of §37: because $D_E\\to0$ as $\\lambda\\to\\infty$, scale-invariant boundary metadata alone cannot force a uniform positive energy debt.",
+    "defining_relation": "D_E[u_\\lambda;I_\\lambda] = \\lambda^{-1} D_E[u;I]",
+    "notes": "Referred to informally as $D_{energy}$ in the round's opening summary (§0); the same object underlies the event-indexed shorthand $D_E$ used in the C6-H.3 proof (§15) and the threshold $D_E\\ge\\varepsilon_0>0$ discussed throughout."
+  },
+  {
+    "key": "ns.c6.c6h.mathcal_e_event_class",
+    "latex": "\\mathcal E",
+    "label_zh": "尺度不變事件類",
+    "label_en": "Scale-invariant event class",
+    "definition_zh": "一個非空的 local/parabolic N–S 事件類，僅由 scale-invariant metadata 定義且在 N–S 重新標度下封閉，是定理 C6-H.3（Scaling Obstruction to Uniform Energy Coercivity）陳述與證明的中心對象。該定理證明：不存在形如 $\\nu\\int_{I_E}\\|\\nabla u\\|_2^2dt\\ge\\varepsilon_0>0$、且 $\\varepsilon_0$ 與尺度無關的估計，能單純由成員資格 $E\\in\\mathcal E$ 導出。",
+    "definition_en": "A nonempty class of local/parabolic N–S events defined solely by scale-invariant metadata and closed under N–S rescaling; the central object of Theorem C6-H.3 (Scaling Obstruction to Uniform Energy Coercivity). The theorem proves that no estimate of the form $\\nu\\int_{I_E}\\|\\nabla u\\|_2^2dt\\ge\\varepsilon_0>0$, with $\\varepsilon_0$ independent of scale, can follow solely from membership $E\\in\\mathcal E$.",
+    "notes": "The proof rescales a fixed $E\\in\\mathcal E$ by $\\lambda\\to\\infty$, keeping it in $\\mathcal E$ while its dissipation $D_E(\\lambda)=\\lambda^{-1}D_E\\to0$, yielding the contradiction."
+  },
+  {
+    "key": "ns.c6.c6h.d_n_finite_budget",
+    "latex": "d_n",
+    "label_zh": "有限總預算之逐項量",
+    "label_en": "Finite global budget summand",
+    "definition_zh": "C6-H.4（Finite Budget vs Critical Barrier Distinction）中「有限總體預算」概念的代表符號，滿足 $\\sum_n d_n<\\infty$（例如總動能耗散）。此類預算唯有在存在正下界 $d_n\\ge d_0>0$ 時才能用以排除無限多事件，但 C6-H.3 的標度論證顯示，對純粹 dimensionless UV metadata 而言此下界不可能成立，這正是 C6 boundary-cycle program 必須轉向 critical barrier 型 debt 的理由。",
+    "definition_en": "The representative symbol for the \"finite global budget\" notion in C6-H.4 (Finite Budget vs Critical Barrier Distinction), satisfying $\\sum_n d_n<\\infty$ (e.g. total kinetic-energy dissipation). Such a budget is useful for excluding infinitely many events only if a positive lower bound $d_n\\ge d_0>0$ holds, but the scaling argument of C6-H.3 shows this lower bound cannot hold for purely dimensionless UV metadata — the reason the C6 boundary-cycle program must switch to critical-barrier-type debt.",
+    "defining_relation": "\\sum_n d_n < \\infty",
+    "notes": "Contrasted directly with $b_n/b_{crit}$ (the critical-barrier notion) in the same section, C6-H.4."
+  },
+  {
+    "key": "ns.c6.c6h.b_n_critical_barrier",
+    "latex": "b_n, b_{crit}",
+    "label_zh": "臨界障礙量與其門檻值",
+    "label_en": "Critical barrier quantity and threshold",
+    "definition_zh": "C6-H.4 中「critical barrier」概念的代表符號：一個 scale-invariant 量 $b_n$ 具有正規性門檻 $b_n<b_{crit}\\Rightarrow\\mathrm{REG}$，因此假設性 blow-up 必迫使 $b_n\\ge b_{crit}$ 沿相關高尺度子序列成立，但這不蘊含任何 summability。此概念與 finite budget（$d_n$）形成本輪核心方法論對比，並在 §39 進一步強調 critical barrier coercivity 不等於 finite-budget cycle elimination。",
+    "definition_en": "The representative symbol for the \"critical barrier\" notion in C6-H.4: a scale-invariant quantity $b_n$ carries a regularity threshold $b_n<b_{crit}\\Rightarrow\\mathrm{REG}$, so hypothetical blow-up forces $b_n\\ge b_{crit}$ along a relevant high-scale subsequence, with no summability implied. This concept is contrasted methodologically with the finite budget ($d_n$), and §39 further stresses that critical barrier coercivity is not equivalent to finite-budget cycle elimination.",
+    "defining_relation": "b_n < b_{crit} \\Rightarrow \\mathrm{REG}",
+    "notes": "Concretely instantiated by the Cheskidov–Dai quantity $\\mathfrak B_q^\\omega$ in §19."
+  },
+  {
+    "key": "ns.c6.c6h.mathfrak_b_q_omega",
+    "latex": "\\mathfrak B_q^\\omega",
+    "label_zh": "Cheskidov–Dai 頻殼渦量障礙量",
+    "label_en": "Cheskidov–Dai shell-vorticity barrier quantity",
+    "definition_zh": "依 Cheskidov–Dai frequency-localized regularity criterion schematically 定義的頻殼渦量積分 $\\mathfrak B_q^\\omega=\\int_{\\mathcal T_q}^{T^\\ast}\\|\\Delta_q\\omega(t)\\|_\\infty dt$，滿足 $\\limsup_{q\\to\\infty}\\mathfrak B_q^\\omega<c_\\nu\\Rightarrow\\mathrm{REG}$。它是 §19「critical-barrier coercivity」的典型模型，示範 critical barrier（而非 finite energy budget）才是適合 UV recurrence 的 debt 型態。",
+    "definition_en": "The shell-vorticity integral $\\mathfrak B_q^\\omega=\\int_{\\mathcal T_q}^{T^\\ast}\\|\\Delta_q\\omega(t)\\|_\\infty dt$ schematically defined from the Cheskidov–Dai frequency-localized regularity criterion, satisfying $\\limsup_{q\\to\\infty}\\mathfrak B_q^\\omega<c_\\nu\\Rightarrow\\mathrm{REG}$. It is the canonical model of \"critical-barrier coercivity\" in §19, demonstrating that a critical barrier — not a finite energy budget — is the right kind of debt for UV recurrence.",
+    "defining_relation": "\\mathfrak B_q^\\omega = \\int_{\\mathcal T_q}^{T^\\ast} \\|\\Delta_q\\omega(t)\\|_\\infty dt",
+    "notes": "Its scaling behavior under dyadic rescaling ($\\lambda=2^m$, shell index shift $q\\mapsto q+m$) is examined in §40, showing it retains a fixed threshold across scales — unlike $D_E$."
+  },
+  {
+    "key": "ns.c6.c6h.gamma_n_coherence",
+    "latex": "\\Gamma_n",
+    "label_zh": "相干性係數",
+    "label_en": "Coherence coordinate",
+    "definition_zh": "一般相干性座標 $\\Gamma_n=R_n/C_n\\to0$，其中 $R_n$ 為已實現的 response/toll，$C_n$ 為可用的 source capacity；涵蓋 Duhamel coherence、operator positive-growth efficiency、local/far pressure coherence 等具體例子。它是定理 C6-H.5（Coherence Boundary Dichotomy）的中心對象，該定理證明取子序列後必有 $R_n\\to0$（即 $B_{LOAD}$）或 $C_n/R_n=\\Gamma_n^{-1}\\to\\infty$（即 $B_{CAP^\\infty}$）兩者之一成立。",
+    "definition_en": "A generic coherence coordinate $\\Gamma_n=R_n/C_n\\to0$, where $R_n$ is the realized response/toll and $C_n$ the available source capacity; it covers concrete instances such as Duhamel coherence, operator positive-growth efficiency, and local/far pressure coherence. It is the central object of Theorem C6-H.5 (Coherence Boundary Dichotomy), which proves that after passing to a subsequence either $R_n\\to0$ (i.e. $B_{LOAD}$) or $C_n/R_n=\\Gamma_n^{-1}\\to\\infty$ (i.e. $B_{CAP^\\infty}$) must hold.",
+    "defining_relation": "\\Gamma_n = \\frac{R_n}{C_n} \\to 0",
+    "notes": "Structurally paralleled later by $R_M/C_M$ (§31, the MEAN-face analogue) and by $\\mathfrak K=C/R$ (§48, the generalized relative-capacity object)."
+  },
+  {
+    "key": "ns.c6.c6h.b_coh",
+    "latex": "B_{COH}",
+    "label_zh": "相干性邊界面",
+    "label_en": "Coherence boundary face",
+    "definition_zh": "原始十元字母表中的一員，代表以 $\\Gamma_n=R_n/C_n\\to0$ 型態呈現的一般相干性座標崩潰的邊界。C6-H.5（Coherence Boundary Dichotomy）證明每一個此類崩潰子序列必然精煉為 $B_{LOAD}$ 或 $B_{CAP^\\infty}$ 之一，因此 $B_{COH}$ 本身在 §23 被移除，不再作為獨立終端物理節點，但其內部機制仍保留為有用的 metadata。",
+    "definition_en": "A member of the original ten-face alphabet, representing collapse of a generic coherence coordinate of the form $\\Gamma_n=R_n/C_n\\to0$. The Coherence Boundary Dichotomy (C6-H.5) proves that every recurrent coherence-collapse subsequence refines to either $B_{LOAD}$ or $B_{CAP^\\infty}$; consequently $B_{COH}$ itself is removed in §23 as an independent terminal physical boundary node, though its internal mechanism remains useful metadata.",
+    "defining_relation": "B_{COH} \\Longrightarrow B_{LOAD} \\vee B_{CAP^\\infty}",
+    "notes": "The elimination route is certified as transition H-B1 in §42."
+  },
+  {
+    "key": "ns.c6.c6h.vartheta_s",
+    "latex": "\\vartheta(S)",
+    "label_zh": "中隙比",
+    "label_en": "Middle-gap ratio",
+    "definition_zh": "由 C5-E 定義的中隙比 $\\vartheta(S)=\\lambda_2^+\\lambda_3/|S|^2$（$S$ 為應變張量，$\\lambda_2^+,\\lambda_3$ 為其相關特徵值量），在 C6-H 中被重新引用作為 §24–§25「Middle-gap boundary」與定理 C6-H.6（Middle-Gap Boundary Dichotomy）的基礎座標，用以刻畫 $B_{GEOM}$ 中會被消去的 middle-gap 子面。",
+    "definition_en": "The middle-gap ratio $\\vartheta(S)=\\lambda_2^+\\lambda_3/|S|^2$ ($S$ the strain tensor, $\\lambda_2^+,\\lambda_3$ its associated eigenvalue quantities), originally defined in C5-E and re-invoked in C6-H as the base coordinate for §24–§25 \"Middle-gap boundary\" and Theorem C6-H.6 (Middle-Gap Boundary Dichotomy), used to characterize the middle-gap subface of $B_{GEOM}$ that gets eliminated.",
+    "defining_relation": "\\vartheta(S) = \\frac{\\lambda_2^+\\lambda_3}{|S|^2}",
+    "notes": "Originates in round C5-E, not newly defined by C6-H; restated here as the foundation for the C6-H.6 dichotomy and the definition of $B_{GAP}$."
+  },
+  {
+    "key": "ns.c6.c6h.m_delta",
+    "latex": "M_\\delta",
+    "label_zh": "中隙負載積分",
+    "label_en": "Middle-gap load integral",
+    "definition_zh": "定義為 $M_\\delta=\\int_{\\{\\vartheta\\le\\delta\\}}\\lambda_2^+|S|^2dx$，即在中隙比低於門檻 $\\delta$ 的區域上之加權應變積分。搭配 C5-E 已證的不等式 $\\int_{\\{\\vartheta\\le\\delta\\}}|S|^3dx\\ge M_\\delta/(\\sqrt6\\,\\delta)$，是定理 C6-H.6（Middle-Gap Boundary Dichotomy）的核心量：沿 $\\delta_n\\downarrow0$ 取子序列後，$M_{\\delta_n}\\to0$（即 $B_{LOAD}$）或 $M_{\\delta_n}\\ge m_0>0$（迫使三次應變積分發散，即 $B_{CAP^\\infty}$）。",
+    "definition_en": "Defined as $M_\\delta=\\int_{\\{\\vartheta\\le\\delta\\}}\\lambda_2^+|S|^2dx$, a weighted strain integral over the region where the middle-gap ratio falls below threshold $\\delta$. Combined with the C5-E inequality $\\int_{\\{\\vartheta\\le\\delta\\}}|S|^3dx\\ge M_\\delta/(\\sqrt6\\,\\delta)$, it is the central quantity of Theorem C6-H.6 (Middle-Gap Boundary Dichotomy): along a subsequence $\\delta_n\\downarrow0$, either $M_{\\delta_n}\\to0$ (i.e. $B_{LOAD}$) or $M_{\\delta_n}\\ge m_0>0$ (forcing the cubic strain integral to diverge, i.e. $B_{CAP^\\infty}$).",
+    "defining_relation": "M_\\delta = \\int_{\\{\\vartheta\\le\\delta\\}} \\lambda_2^+ |S|^2dx",
+    "notes": "The companion inequality driving the dichotomy, $\\int_{\\{\\vartheta\\le\\delta\\}}|S|^3dx \\ge \\frac{M_\\delta}{\\sqrt6\\,\\delta}$, was proved in C5-E."
+  },
+  {
+    "key": "ns.c6.c6h.b_gap",
+    "latex": "B_{GAP}",
+    "label_zh": "中隙崩塌子面",
+    "label_en": "Middle-gap collapse subface",
+    "definition_zh": "$B_{GEOM}$ 之下的中隙崩塌子面，由定理 C6-H.6（Middle-Gap Boundary Dichotomy）證明必精煉為 $B_{LOAD}\\vee B_{CAP^\\infty}$（即 transition H-B2）。因此在最終物理邊界字母表中，$B_{GAP}$ 本身不再作為獨立終端節點，只有殘餘的 $B_{GEOM}^{res}$ 保留為 OPEN 物理面；分類表（§36）將其狀態記為「reducible geometry / REMOVED」。",
+    "definition_en": "The middle-gap collapse subface within $B_{GEOM}$, proved by Theorem C6-H.6 (Middle-Gap Boundary Dichotomy) to refine to $B_{LOAD}\\vee B_{CAP^\\infty}$ (transition H-B2). Consequently $B_{GAP}$ itself is no longer an independent terminal node in the final physical boundary alphabet; only the residual $B_{GEOM}^{res}$ survives as an OPEN physical face. The classification table (§36) records its status as \"reducible geometry / REMOVED.\"",
+    "defining_relation": "B_{GAP} \\Longrightarrow B_{LOAD} \\vee B_{CAP^\\infty}",
+    "notes": "Not a member of the original ten-face $\\mathfrak B$ (which lists only $B_{GEOM}$); introduced in C6-H as the explicit gap-collapse component that $B_{GEOM}$ decomposes into."
+  },
+  {
+    "key": "ns.c6.c6h.b_geom_res",
+    "latex": "B_{GEOM}^{res}",
+    "label_zh": "殘餘幾何面",
+    "label_en": "Residual geometry face",
+    "definition_zh": "§26 定義的殘餘幾何面，涵蓋 $B_{GEOM}$ 中扣除已被 C6-H.6 消去的中隙子面（$B_{GAP}$）後仍存留的物理幾何臨界性，包括 harmonic sign saturation、directional cone degeneration、axis-margin collapse、signature-induced geometric criticality。它取代原本的 $B_{GEOM}$ 進入最終六元字母表 $\\mathfrak B_{phys}^{(2)}$，狀態為 OPEN。",
+    "definition_en": "The residual geometry face defined in §26: the physical geometric criticalities remaining within $B_{GEOM}$ after the middle-gap subface ($B_{GAP}$) is eliminated by C6-H.6, including harmonic sign saturation, directional cone degeneration, axis-margin collapse, and signature-induced geometric criticality. It replaces the original $B_{GEOM}$ in the final six-element alphabet $\\mathfrak B_{phys}^{(2)}$, with status OPEN.",
+    "notes": "Conceptually $B_{GEOM} = B_{GAP} \\cup B_{GEOM}^{res}$ — only the gap subface is coercively removed; the residual is not shown to incur any uniform finite-energy cost."
+  },
+  {
+    "key": "ns.c6.c6h.kappa_lambda_delta",
+    "latex": "\\kappa_{\\lambda,\\delta}",
+    "label_zh": "調和飽和下降係數",
+    "label_en": "Descent coefficient (harmonic saturation)",
+    "definition_zh": "C5-L 所證的下降係數 $\\kappa_{\\lambda,\\delta}=(1+\\lambda)\\delta-1>0$，用以說明當 $\\beta\\downarrow\\delta$ 自壞側逼近時，harmonic critical saturation 並非零成本。C6-H §27 引用此結果指出：即使 harmonic sign saturation 成立，它仍會導致 persistent derivative-order descent debt，但目前尚無已知的 globally finite all-order 總和，因此屬於 critical barrier/debt 而非 finite-budget elimination。",
+    "definition_en": "The descent coefficient $\\kappa_{\\lambda,\\delta}=(1+\\lambda)\\delta-1>0$ proved in C5-L, showing that harmonic critical saturation is not zero-cost as $\\beta\\downarrow\\delta$ approaches from the bad side. C6-H §27 invokes this to argue that harmonic sign saturation still routes to a persistent derivative-order descent debt, for which no globally finite all-order sum is currently known — placing it in the critical-barrier/debt category rather than finite-budget elimination.",
+    "defining_relation": "\\kappa_{\\lambda,\\delta} = (1+\\lambda)\\delta - 1 > 0",
+    "notes": "Originates in round C5-L, not newly defined by C6-H; cited here to support §27's conclusion that harmonic saturation is not cost-free."
+  },
+  {
+    "key": "ns.c6.c6h.b_seg",
+    "latex": "B_{SEG}",
+    "label_zh": "分離面",
+    "label_en": "Segregation face",
+    "definition_zh": "涵蓋 temporal phase segregation、spatial source segregation、target diffusion、core multiplicity、shared-source thickness collapse 等現象的物理面。儘管 C3/C5 提供了 active-worldvolume bounds、effective-volume multiplicity bounds 等工具，但因高頻權重隨尺度衰減，one-new-scale-per-generation 情境仍可存活，故 §28 指出 $B_{SEG}$ 未被 finite kinetic-energy budget coercively 消除，§29 進一步將其標明為 C6-H.3 標度障礙的直接實例，保留在最終字母表 $\\mathfrak B_{phys}^{(2)}$ 中，狀態 OPEN。",
+    "definition_en": "The physical face covering temporal phase segregation, spatial source segregation, target diffusion, core multiplicity, and shared-source thickness collapse. Although C3/C5 supply active-worldvolume bounds and effective-volume multiplicity bounds among other tools, high-frequency weights decay with scale, so one-new-scale-per-generation scenarios survive; §28 shows $B_{SEG}$ is not coercively eliminated by the finite kinetic-energy budget, and §29 identifies this as a direct instance of the C6-H.3 scaling obstruction. It remains in the final alphabet $\\mathfrak B_{phys}^{(2)}$ with status OPEN.",
+    "notes": "Classification table in §36 records its \"Current route\" as \"multiplicity/diffusion,\" type \"physical.\""
+  },
+  {
+    "key": "ns.c6.c6h.b_mean",
+    "latex": "B_{MEAN}",
+    "label_zh": "平均旋轉面",
+    "label_en": "Mean-rotation face",
+    "definition_zh": "代表 coherent quadratic forcing 被 $M_\\chi'$（而非壓力）吸收的分支；大的瞬時 $|M_\\chi'|$ 可導致 mean-strain growth、rotation、oscillatory variation。§30 指出目前並無已知的、針對假設性奇異點附近 $M_\\chi$ 之 universal globally finite total-variation budget，因此 $B_{MEAN}$ 仍是物理邊界候選面，保留於最終六元字母表 $\\mathfrak B_{phys}^{(2)}$ 中，狀態 OPEN。",
+    "definition_en": "Represents the branch where coherent quadratic forcing is absorbed by $M_\\chi'$ rather than by pressure; a large instantaneous $|M_\\chi'|$ can produce mean-strain growth, rotation, or oscillatory variation. §30 notes that no universal globally finite total-variation budget for $M_\\chi$ near a hypothetical singularity is currently known, so $B_{MEAN}$ remains a physical boundary candidate, retained in the final six-element alphabet $\\mathfrak B_{phys}^{(2)}$ with status OPEN.",
+    "notes": "§31 develops a structural (not fully proved) coherence-type analogue for this face using $C_M, R_M$."
+  },
+  {
+    "key": "ns.c6.c6h.m_chi",
+    "latex": "M_\\chi, M_\\chi'",
+    "label_zh": "平均旋轉量與其變化率",
+    "label_en": "Mean-rotation quantity and its rate",
+    "definition_zh": "支撐 $B_{MEAN}$ 面的底層物理量 $M_\\chi$（近假設性奇異點的 mean/rotation 相關量），其瞬時變化率記為 $M_\\chi'$，coherent quadratic forcing 由此吸收而非由壓力吸收。本檔案未重述其完整定義式，視為承接自先前 C6 討論的既有記號；§31 以 $M_\\chi'$ 的時間積分建構 mean-variation capacity $C_M$。",
+    "definition_en": "The underlying physical quantity $M_\\chi$ supporting the $B_{MEAN}$ face (a mean/rotation-related quantity near a hypothetical singularity), whose instantaneous rate is denoted $M_\\chi'$; coherent quadratic forcing is absorbed by this rate rather than by pressure. This file does not restate its full defining formula, treating it as notation inherited from earlier C6 discussion; §31 builds the mean-variation capacity $C_M$ from the time integral of $M_\\chi'$.",
+    "notes": "Defining formula not given in this file; presumed defined in an earlier C6 round. Do not confuse $M_\\chi$ (mean-rotation state) with $M_\\delta$ (middle-gap load integral, §24) — unrelated despite the similar letter M."
+  },
+  {
+    "key": "ns.c6.c6h.c_m_r_m",
+    "latex": "C_M, R_M",
+    "label_zh": "平均變化容量與已實現淨變化",
+    "label_en": "Mean-variation capacity and realized net change",
+    "definition_zh": "§31 定義的一對量：正的 mean-variation capacity $C_M=\\int|M_\\chi'|dt$，與已實現的淨平均變化 $R_M=|M_\\chi(t_1)-M_\\chi(t_0)|$，滿足 $R_M\\le C_M$。低效率 $R_M/C_M\\to0$ 會導出「net-load collapse 或 variation-capacity inflation」，結構上類比於 $B_{COH}$ 的 $\\Gamma_n$ 機制，但文中明確指出這僅是結構類比，並非已完成的消去定理（不提供 globally finite capacity bound）。",
+    "definition_en": "A pair of quantities defined in §31: the positive mean-variation capacity $C_M=\\int|M_\\chi'|dt$ and the realized net mean change $R_M=|M_\\chi(t_1)-M_\\chi(t_0)|$, satisfying $R_M\\le C_M$. Low efficiency $R_M/C_M\\to0$ yields \"net-load collapse $\\vee$ variation-capacity inflation,\" structurally analogous to the $\\Gamma_n$ mechanism of $B_{COH}$ — but the text explicitly flags this as only a structural analogue, not a completed elimination theorem (it supplies no globally finite capacity bound).",
+    "defining_relation": "C_M = \\int|M_\\chi'|dt, \\quad R_M = |M_\\chi(t_1)-M_\\chi(t_0)|, \\quad R_M\\le C_M",
+    "notes": "Explicitly NOT a proved dichotomy like C6-H.5; the text calls it \"a structural analogue of $B_{COH}$, not a completed elimination theorem.\""
+  },
+  {
+    "key": "ns.c6.c6h.b_prov",
+    "latex": "B_{PROV}",
+    "label_zh": "壓力／溯源面",
+    "label_en": "Pressure/provenance face",
+    "definition_zh": "涵蓋 local-pressure takeover、far-pressure heredity loss、signature boundary（$\\det F\\to0$）、pressure-source fragmentation、local/far cancellation 等現象的物理面。§32 指出雖然某些壓力區制已被已發表的 pressure/intermittency 條件外部地 regularity-killed，但目前程序中並無定理保證每一條通往 $B_{PROV}$ 的路徑都會進入那些有利壓力區制，因此 $B_{PROV}$ 仍是物理邊界候選面，保留於最終字母表中，狀態 OPEN。",
+    "definition_en": "The physical face covering local-pressure takeover, far-pressure heredity loss, the signature boundary ($\\det F\\to0$), pressure-source fragmentation, and local/far cancellation. §32 notes that although some pressure regimes are externally regularity-killed by published pressure/intermittency conditions, no theorem in the current program guarantees that every approach to $B_{PROV}$ enters those favorable regimes; hence $B_{PROV}$ remains a physical boundary candidate, retained in the final alphabet with status OPEN.",
+    "notes": "The signature quantity $\\det F$ appearing in this face's description is not itself redefined in this file (inherited notation for a provenance/signature tensor $F$ from earlier rounds)."
+  },
+  {
+    "key": "ns.c6.c6h.mathfrak_b_phys_2",
+    "latex": "\\mathfrak B_{phys}^{(2)}",
+    "label_zh": "第二次約簡後之物理邊界字母表（六元）",
+    "label_en": "Second reduced physical boundary alphabet (six-element)",
+    "definition_zh": "在邊界商化、setup 商化、coherence 二分法（C6-H.5）、middle-gap 二分法（C6-H.6）四項結果綜合之下得到的六元集合，是本輪 C6-H 的主要邊界狀態壓縮結果，也是 C6-H.8（Boundary SCC Audit）的分析對象——該六個物理邊界類之間目前無任何已 certified 的非平凡 directed cycle。",
+    "definition_en": "The six-element set obtained by combining the edge-boundary quotient, setup quotient, coherence dichotomy (C6-H.5), and middle-gap dichotomy (C6-H.6); this is the main boundary-state compression result of C6-H and the object analyzed by C6-H.8 (Boundary SCC Audit), which finds no certified nontrivial closed directed cycle among these six physical boundary classes.",
+    "defining_relation": "\\mathfrak B_{phys}^{(2)} = \\{ B_{LOAD}, B_{SEG}, B_{GEOM}^{res}, B_{MEAN}, B_{PROV}, B_{CAP^\\infty} \\}",
+    "notes": "Restated with identical membership as $\\mathfrak B_{phys}^{C6H}$ in §57's formal ETN summary — the two notations denote the same six-element set."
+  },
+  {
+    "key": "ns.c6.c6h.mathfrak_k",
+    "latex": "\\mathfrak K",
+    "label_zh": "相對容量",
+    "label_en": "Relative capacity",
+    "definition_zh": "§48 對一般事件定義的相對容量 $\\mathfrak K=C/R\\ge1$，其中 $R>0$ 為已實現的 toll，$C$ 為 source/variation capacity；coherence collapse 即對應 $\\mathfrak K\\to\\infty$。此符號統一了 $\\Gamma_n^{-1}$（§22）與 $C_M/R_M$（§31）的模式，作為「realized-load / required-capacity duality」（§47）的正式表述，並被列為下一階段 C6-I 應探究 $\\mathfrak K$ 能否在與 blow-up 及有限能量相容的情況下無限發散的關鍵物件。",
+    "definition_en": "The relative capacity $\\mathfrak K=C/R\\ge1$ defined in §48 for a generic event, where $R>0$ is the realized toll and $C$ the source/variation capacity; coherence collapse corresponds to $\\mathfrak K\\to\\infty$. This symbol unifies the pattern seen in $\\Gamma_n^{-1}$ (§22) and $C_M/R_M$ (§31) as the formal expression of the \"realized-load / required-capacity duality\" (§47), and is flagged as a key object for the planned next round C6-I to determine whether $\\mathfrak K$ can diverge indefinitely while remaining compatible with blow-up and finite energy.",
+    "defining_relation": "\\mathfrak K = \\frac{C}{R} \\ge 1",
+    "notes": "Forward-looking object; explicitly proposed in §48 as an open question for the next paper, C6-I."
+  },
+  {
+    "key": "ns.c6.c6h.b_crit_vector",
+    "latex": "\\mathbf B^{crit}",
+    "label_zh": "臨界障礙向量",
+    "label_en": "Critical barrier vector",
+    "definition_zh": "§49 定義的一般臨界障礙向量 $\\mathbf B^{crit}=(B_\\omega,B_{\\rm harm},B_{\\rm middle},B_{\\rm op},B_{\\rm press},B_{\\rm chain})$，六個座標依序代表 frequency-localized vorticity toll、harmonic/sign geometry status、middle-eigenvalue critical toll、strain-vorticity operator toll、pressure criticality、derivative-chain root/clock geometry。與能量不同，這些座標具有 scale-critical 或 theorem-threshold 意義，是 §50「boundary recurrence should be measured in critical coordinates」方法論主張的具體物件，並構成 §57 中 $\\Theta_B^{C6H}$ 狀態元組的一個分量。",
+    "definition_en": "The generic critical barrier vector $\\mathbf B^{crit}=(B_\\omega,B_{\\rm harm},B_{\\rm middle},B_{\\rm op},B_{\\rm press},B_{\\rm chain})$ defined in §49, whose six coordinates represent, in order, the frequency-localized vorticity toll, harmonic/sign geometry status, middle-eigenvalue critical toll, strain-vorticity operator toll, pressure criticality, and derivative-chain root/clock geometry. Unlike energy, these coordinates carry scale-critical or theorem-threshold meaning; it is the concrete object behind the §50 methodological claim that \"boundary recurrence should be measured in critical coordinates,\" and forms one component of the $\\Theta_B^{C6H}$ state tuple in §57.",
+    "defining_relation": "\\mathbf B^{crit} = \\left( B_\\omega, B_{\\rm harm}, B_{\\rm middle}, B_{\\rm op}, B_{\\rm press}, B_{\\rm chain} \\right)",
+    "notes": "Forward-looking formalization proposed for the planned next round, C6-I (see §54, proof obligation I4)."
+  },
+  {
+    "key": "ns.c6.c6h.b_ast",
+    "latex": "B_\\ast",
+    "label_zh": "邊界飽和佔位符（承自 C6-G）",
+    "label_en": "Boundary-saturated placeholder (inherited from C6-G)",
+    "definition_zh": "承接自 C6-G 的 minimal survivor frontier 框架 $GP_{\\rm uniform}\\vee HF_{\\rm uniform}\\vee B_\\ast\\vee A$ 中的抽象佔位符，代表任一未具體化的邊界飽和情形。§51 中 C6-H 將其正式精煉（refine）為六元具體集合 $B_\\ast\\in\\{LOAD,SEG,GEOM^{res},MEAN,PROV,CAP^\\infty\\}$，使 boundary-saturated survivor alphabet 由十個粗粒化超類縮至六個物理面，而 $GP_{\\rm uniform}$ 與 $HF_{\\rm uniform}$ 則未被本輪觸及。",
+    "definition_en": "The abstract placeholder inherited from C6-G's minimal-survivor-frontier schema $GP_{\\rm uniform}\\vee HF_{\\rm uniform}\\vee B_\\ast\\vee A$, representing any unspecified boundary-saturated case. In §51, C6-H formally refines it into the concrete six-element set $B_\\ast\\in\\{LOAD,SEG,GEOM^{res},MEAN,PROV,CAP^\\infty\\}$, shrinking the boundary-saturated survivor alphabet from ten coarse-grained superclasses to six physical faces; $GP_{\\rm uniform}$ and $HF_{\\rm uniform}$ are left untouched by this round.",
+    "defining_relation": "B_\\ast \\in \\{ LOAD, SEG, GEOM^{res}, MEAN, PROV, CAP^\\infty \\}",
+    "notes": "The symbol itself originates in C6-G; only its refinement into a concrete six-element range is new to C6-H."
+  },
+  {
+    "key": "ns.c6.c6h.theta_b_c6h",
+    "latex": "\\Theta_B^{C6H}",
+    "label_zh": "C6-H 邊界狀態元組（ETN 更新）",
+    "label_en": "C6-H boundary state tuple (ETN update)",
+    "definition_zh": "§57「True ETN update」定義的邊界狀態八元組 $\\Theta_B^{C6H}=\\langle$ boundary type, physical face, scaling degree, absolute load, critical barrier vector, capacity ratio, edge metadata, kill gates $\\rangle$，是本輪對邊界節點所需追蹤資訊的正式彙整，取代原先僅記錄 kinetic energy cost 的作法，呼應 §50 的方法論主張，為 C6-I 之後的 critical-coordinate 邊界圖分析提供資料結構基礎。",
+    "definition_en": "The eight-component boundary state tuple $\\Theta_B^{C6H}=\\langle$ boundary type, physical face, scaling degree, absolute load, critical barrier vector, capacity ratio, edge metadata, kill gates $\\rangle$ defined in §57 (\"True ETN update\"). It formally consolidates the information that must be tracked at each boundary node, replacing the earlier practice of recording only the kinetic-energy cost, echoes the §50 methodological claim, and provides the data-structure basis for the critical-coordinate boundary-graph analysis planned for C6-I.",
+    "defining_relation": "\\Theta_B^{C6H} = \\left\\langle \\text{boundary type}, \\text{physical face}, \\text{scaling degree}, \\text{absolute load}, \\text{critical barrier vector}, \\text{capacity ratio}, \\text{edge metadata}, \\text{kill gates} \\right\\rangle",
+    "notes": "\"ETN\" is not expanded within this file; treated here as terminology inherited from the broader C6 framework. §57 also restates the reduced alphabet as $\\mathfrak B_{phys}^{C6H}$, identical in membership to $\\mathfrak B_{phys}^{(2)}$."
+  }
+]

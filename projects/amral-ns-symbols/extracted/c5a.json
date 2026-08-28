@@ -1,0 +1,227 @@
+[
+  {
+    "key": "ns.c5.c5a.unit_time_variable",
+    "latex": "s",
+    "label_zh": "單位時間變數",
+    "label_en": "Unit-time variable",
+    "definition_zh": "在第2節中定義，將實體收縮時間窗線性映射至(0,1)區間的無因次化變數。",
+    "definition_en": "Defined in Section 2 as the dimensionless variable linearly mapping the physical shrinking time window to the (0,1) interval.",
+    "defining_relation": "s=\\frac{t-\\tau_j}{L_j}\\in(0,1)"
+  },
+  {
+    "key": "ns.c5.c5a.compactified_viscous_time",
+    "latex": "\\widehat\\Theta_j^{time}",
+    "label_zh": "緊緻化黏滯時間",
+    "label_en": "Compactified viscous time",
+    "definition_zh": "在第2節中引入，記錄單位時間重整化後保留的相對黏滯尺度，並映射至[0,1]區間。",
+    "definition_en": "Introduced in Section 2, mapping the preserved relative viscous scale under unit-time renormalization to the [0,1] interval.",
+    "defining_relation": "\\widehat\\Theta_j^{time} = \\frac{\\Theta_j^{time}}{1+\\Theta_j^{time}}"
+  },
+  {
+    "key": "ns.c5.c5a.ancestry_compact_space",
+    "latex": "\\mathcal K_{\\rm anc}",
+    "label_zh": "繼承幾何緊緻空間",
+    "label_en": "Ancestry geometry compact space",
+    "definition_zh": "在第3節中定義，包含尺度比例與位移距離之緊緻化座標以及方向向量的空間。",
+    "definition_en": "Defined in Section 3 as the space containing the compactified coordinates of scale ratios, displacement distances, and direction vectors."
+  },
+  {
+    "key": "ns.c5.c5a.middle_strain_prob_measure",
+    "latex": "\\mu_j^{mid}",
+    "label_zh": "中度應變機率測度",
+    "label_en": "Middle-strain probability measure",
+    "definition_zh": "在第4節中定義，以中度應變特徵值與應變張量範數平方之積分作為權重的單位時間機率測度。",
+    "definition_en": "Defined in Section 4 as a unit-time probability measure weighted by the integral of the middle-strain eigenvalue and squared strain tensor norm.",
+    "defining_relation": "d\\mu_j^{mid}(s) = \\frac{L_jm_j(t_j(s))}{\\mathcal M_j}ds"
+  },
+  {
+    "key": "ns.c5.c5a.energy_drop_fraction",
+    "latex": "\\alpha_j^{mid}",
+    "label_zh": "中度應變能量下降比",
+    "label_en": "Middle-strain energy drop fraction",
+    "definition_zh": "在第4節中定義，為能量下降量與中度應變總增量之比值。",
+    "definition_en": "Defined in Section 4 as the ratio of energy drop to the total middle-strain growth on the window.",
+    "defining_relation": "\\alpha_j^{mid} = \\frac{\\Delta E_{0,j}}{\\mathcal M_j}"
+  },
+  {
+    "key": "ns.c5.c5a.dissipation_fraction",
+    "latex": "\\delta_j^{mid}",
+    "label_zh": "黏滯耗散分率",
+    "label_en": "Dissipation fraction",
+    "definition_zh": "在第4節中定義，為應變耗散積分與中度應變總增量之比值。",
+    "definition_en": "Defined in Section 4 as the ratio of the strain dissipation integral to the total middle-strain growth on the window.",
+    "defining_relation": "\\delta_j^{mid} = \\frac{D_{0,j}}{\\mathcal M_j}"
+  },
+  {
+    "key": "ns.c5.c5a.operator_growth_rate",
+    "latex": "h_j(t)",
+    "label_zh": "算子能量成長率",
+    "label_en": "Operator energy growth rate",
+    "definition_zh": "在第5節中定義，為包含黏滯耗散與渦度交互作用的算子動能一階導數。",
+    "definition_en": "Defined in Section 5 as the first derivative of the operator kinetic energy including viscous dissipation and vorticity interaction.",
+    "defining_relation": "h_j(t) = \\nu(\\zeta r_\\nu-1)\\|\\Delta S\\|_2^2"
+  },
+  {
+    "key": "ns.c5.c5a.operator_positive_measure",
+    "latex": "\\mu_j^{op,+}",
+    "label_zh": "算子正向成長測度",
+    "label_en": "Operator positive growth measure",
+    "definition_zh": "在第5節中定義，以算子能量成長率正部為權重歸一化的次機率測度。",
+    "definition_en": "Defined in Section 5 as the normalized subprobability measure weighted by the positive part of the operator energy growth rate.",
+    "defining_relation": "d\\mu_j^{op,+}(s) = \\frac{L_j[h_j(t_j(s))]_+}{V_j^{op}}ds"
+  },
+  {
+    "key": "ns.c5.c5a.operator_negative_measure",
+    "latex": "\\mu_j^{op,-}",
+    "label_zh": "算子負向成長測度",
+    "label_en": "Operator negative growth measure",
+    "definition_zh": "在第5節中定義，以算子能量衰減量為權重歸一化的次機率測度。",
+    "definition_en": "Defined in Section 5 as the normalized subprobability measure weighted by the negative part of the operator energy growth rate.",
+    "defining_relation": "d\\mu_j^{op,-}(s) = \\frac{L_j[-h_j(t_j(s))]_+}{V_j^{op}}ds"
+  },
+  {
+    "key": "ns.c5.c5a.compensation_bias",
+    "latex": "\\beta_j^{op}",
+    "label_zh": "補償偏移量",
+    "label_en": "Compensation bias",
+    "definition_zh": "在第5節中定義，反映正負算子能量成長差異相對於總變差的比例。",
+    "definition_en": "Defined in Section 5 as the ratio of the net operator energy change to the total variation.",
+    "defining_relation": "\\beta_j^{op} = \\frac{P_j-N_j}{P_j+N_j}"
+  },
+  {
+    "key": "ns.c5.c5a.compactified_ratio_coordinate",
+    "latex": "\\rho",
+    "label_zh": "緊緻化比值座標",
+    "label_en": "Compactified ratio coordinate",
+    "definition_zh": "在第6節中定義，為容許非線性交互項與耗散項之比值趨於無限大而引入的[0,1]區間座標。",
+    "definition_en": "Defined in Section 6 as a [0,1] coordinate to accommodate the ratio of nonlinear interactions to dissipation blowing up to infinity.",
+    "defining_relation": "\\rho=\\frac{r_\\nu}{1+r_\\nu}"
+  },
+  {
+    "key": "ns.c5.c5a.compactified_alignment_angle",
+    "latex": "\\gamma",
+    "label_zh": "緊緻化對齊角",
+    "label_en": "Compactified alignment angle coordinate",
+    "definition_zh": "在第6節中定義，將算子幾何的對齊參數映射至[-1,1]區間的緊緻座標。",
+    "definition_en": "Defined in Section 6 as a compact coordinate mapping the alignment parameter of the operator geometry into the [-1,1] interval.",
+    "defining_relation": "\\gamma=\\frac2\\pi\\arctan(g)"
+  },
+  {
+    "key": "ns.c5.c5a.operator_angle_compact_space",
+    "latex": "\\mathcal K_{\\rm op}",
+    "label_zh": "算子角度緊緻空間",
+    "label_en": "Operator-angle compact space",
+    "definition_zh": "在第6節中定義，包含所有緊緻化算子比值與角度座標的封閉緊緻狀態空間。",
+    "definition_en": "Defined in Section 6 as the closed, compact state space containing all compactified operator ratio and angle coordinates."
+  },
+  {
+    "key": "ns.c5.c5a.operator_angle_variation_measure",
+    "latex": "\\eta_j^{op}",
+    "label_zh": "算子角度變差測度",
+    "label_en": "Operator-angle variation measure",
+    "definition_zh": "在第7節中定義，以總變差為權重分布於單位時間與算子角度緊緻空間上的機率測度。",
+    "definition_en": "Defined in Section 7 as a probability measure on the unit time and operator-angle compact space, weighted by absolute operator growth.",
+    "defining_relation": "\\eta_j^{op} = \\left( s, \\Phi_{\\rm op}(r_\\nu,\\zeta) \\right)_\\# \\left[ \\frac{|h_j(t)|dt}{V_j^{op}} \\right]"
+  },
+  {
+    "key": "ns.c5.c5a.mean_variation_compact_amplitude",
+    "latex": "a_{M,j}",
+    "label_zh": "緊緻化平均變差振幅",
+    "label_en": "Compactified mean variation amplitude",
+    "definition_zh": "在第8節中定義，為伴隨核心無因次化變差總量映射至[0,1]區間的緊緻振幅。",
+    "definition_en": "Defined in Section 8 as the compactified amplitude mapping the dimensionless total variation of the adjoint core to the [0,1] interval."
+  },
+  {
+    "key": "ns.c5.c5a.mean_variation_vector_measure",
+    "latex": "\\mathbf m_j^M",
+    "label_zh": "平均變差向量測度",
+    "label_en": "Mean-variation vector measure",
+    "definition_zh": "在第8節中定義，以伴隨核心的時間導數分布所建構的向量測度。",
+    "definition_en": "Defined in Section 8 as a vector measure constructed from the time derivative of the adjoint core.",
+    "defining_relation": "d\\mathbf m_j^M(s) = \\frac{L_jM_{\\chi_j}'(t_j(s))} {\\int_{J_j}|M_{\\chi_j}'(t)|dt}ds"
+  },
+  {
+    "key": "ns.c5.c5a.quadratic_coherence",
+    "latex": "\\kappa_j^Q",
+    "label_zh": "二次抵消相干性",
+    "label_en": "Quadratic cancellation coherence",
+    "definition_zh": "在第9節中定義，衡量二次空間分布淨量相對於總強度的比值，趨於零代表強烈抵消。",
+    "definition_en": "Defined in Section 9 as the ratio of net quadratic spatial distribution to absolute intensity, where approaching zero indicates strong cancellation.",
+    "defining_relation": "\\kappa_j^Q=\\frac{|B_j^Q|}{A_j^Q}"
+  },
+  {
+    "key": "ns.c5.c5a.seven_point_compact_space",
+    "latex": "\\mathcal K_Q",
+    "label_zh": "七點見證緊緻空間",
+    "label_en": "Seven-point witness compact space",
+    "definition_zh": "在第9節中定義，透過卡拉西奧多里約化記錄二次抵消特徵方向與權重的有限維緊緻空間。",
+    "definition_en": "Defined in Section 9 as a finite-dimensional compact space recording the discrete directions and weights of quadratic cancellation via Carathéodory reduction."
+  },
+  {
+    "key": "ns.c5.c5a.pressure_spatial_prob_measure",
+    "latex": "\\nu_j^P",
+    "label_zh": "壓力空間機率測度",
+    "label_en": "Pressure spatial probability measure",
+    "definition_zh": "在第10節中定義，在特定壓力激發時刻將局部壓力場分佈正規化所得的空間測度。",
+    "definition_en": "Defined in Section 10 as the normalized spatial measure of the local pressure field at a specific active pressure time.",
+    "defining_relation": "d\\nu_j^P(y) = \\frac{(R_j^P)^3|p(x_j^P+R_j^Py,t_j^P)|^{3/2}} {Z_j^P}dy"
+  },
+  {
+    "key": "ns.c5.c5a.compactified_pressure_mass",
+    "latex": "a_j^P",
+    "label_zh": "緊緻化壓力質量",
+    "label_en": "Compactified pressure mass",
+    "definition_zh": "在第10節中定義，將無因次局部壓力總量映射至[0,1]區間的狀態變數。",
+    "definition_en": "Defined in Section 10 as the state variable mapping the dimensionless total local pressure mass to the [0,1] interval."
+  },
+  {
+    "key": "ns.c5.c5a.compactified_pressure_oscillation",
+    "latex": "\\widehat\\Pi_j^{(2)}",
+    "label_zh": "緊緻化壓力震盪",
+    "label_en": "Compactified pressure oscillation",
+    "definition_zh": "在第10節中定義，捕捉對海森矩陣敏感的局部壓力場震盪並映射至[0,1]區間。",
+    "definition_en": "Defined in Section 10 as the parameter capturing the Hessian-sensitive local pressure oscillation, mapped to the [0,1] interval."
+  },
+  {
+    "key": "ns.c5.c5a.compactified_derivative_load",
+    "latex": "\\widehat{\\mathfrak L}_j",
+    "label_zh": "緊緻化導數負載",
+    "label_en": "Compactified derivative load",
+    "definition_zh": "在第11節中定義，將高階導數閉包負載映射至[0,1]區間的狀態變數。",
+    "definition_en": "Defined in Section 11 as the state variable mapping the best higher-order derivative closure load to the [0,1] interval."
+  },
+  {
+    "key": "ns.c5.c5a.motif_activation_vector",
+    "latex": "a_j^{motif}",
+    "label_zh": "圖案啟動向量",
+    "label_en": "Motif activation vector",
+    "definition_zh": "在第12節中定義，記錄六種補償圖案活躍狀態的布林向量，用於抽取最終穩定的圖案組合。",
+    "definition_en": "Defined in Section 12 as a boolean vector recording the active states of the six compensation motifs, used to extract an eventually constant pattern."
+  },
+  {
+    "key": "ns.c5.c5a.unified_state_vector",
+    "latex": "\\Theta_j^{C5}",
+    "label_zh": "C5統一狀態向量",
+    "label_en": "Unified C5 state vector",
+    "definition_zh": "在第13節中定義，統合所有緊緻化測度、振幅與幾何元資料的補償圖案狀態向量。",
+    "definition_en": "Defined in Section 13 as the state vector unifying all compactified measures, amplitudes, and geometric metadata for the compensation motifs."
+  },
+  {
+    "key": "ns.c5.c5a.limit_state_vector",
+    "latex": "\\Theta_\\ast^{C5}",
+    "label_zh": "循環補償極限狀態",
+    "label_en": "Recurrent compensation-motif limit state",
+    "definition_zh": "在第14節與第25節中證明存在，為無窮生存梯隊在緊緻化拓樸下收斂的元資料相容性極限。",
+    "definition_en": "Proved to exist in Sections 14 and 25, representing the convergent metadata compatibility limit of an infinite survivor ladder under compact topologies.",
+    "notes": "Does not imply full-field critical compactness, serving only as a necessary metadata limit state."
+  },
+  {
+    "key": "ns.c5.c5a.overlap_spectrum",
+    "latex": "\\mathfrak O_{j,n}",
+    "label_zh": "尺度相依重疊頻譜",
+    "label_en": "Scale-dependent overlap spectrum",
+    "definition_zh": "在第19節中定義，用於量化不同時間尺度下中度應變與算子正成長測度的重疊程度。",
+    "definition_en": "Defined in Section 19 as the integral quantifying the overlap between the middle-strain and operator positive growth measures at varying time scales.",
+    "defining_relation": "\\mathfrak O_{j,n} = \\int_{[0,1]^2} K_n(s,t) d\\mu_j^{mid}(s) d\\mu_j^{op,+}(t)"
+  }
+]

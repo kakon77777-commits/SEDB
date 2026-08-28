@@ -1,0 +1,231 @@
+[
+  {
+    "key": "ns.c5.c5d.local_quadratic_tensor",
+    "latex": "Q(S,\\omega)",
+    "label_zh": "局部二次張量",
+    "label_en": "Local quadratic tensor",
+    "definition_zh": "在第2節中定義為應變平方與渦度張量二次項的組合，用以捕捉N-S方程式局部真實的非線性交互作用。",
+    "definition_en": "Defined in Section 2 as the combination of strain squared and vorticity tensor quadratic terms to capture local true nonlinear interactions of the N-S equations.",
+    "defining_relation": "Q(S,\\omega) = S^2 + \\frac{1}{4}\\omega\\otimes\\omega - \\frac{1}{4}|\\omega|^2I"
+  },
+  {
+    "key": "ns.c5.c5d.normalized_strain_direction",
+    "latex": "K",
+    "label_zh": "正規化正中間應變方向",
+    "label_en": "Normalized positive-middle strain direction",
+    "definition_zh": "在第3節中定義為跡數為零、弗羅貝尼烏斯範數為1且中間特徵值嚴格大於零的單位應變張量方向。",
+    "definition_en": "Defined in Section 3 as a trace-free, unit Frobenius norm strain tensor direction with a strictly positive middle eigenvalue.",
+    "defining_relation": "K \\in \\operatorname{Sym}_0(3), \\quad |K|_F=1, \\quad k_2 > 0"
+  },
+  {
+    "key": "ns.c5.c5d.ordered_eigenvalues",
+    "latex": "k_1, k_2, k_3",
+    "label_zh": "排序特徵值",
+    "label_en": "Ordered eigenvalues",
+    "definition_zh": "在第3節中引入，表示單位張量 $K$ 的三個由小到大排序的特徵值，其中 $k_1 < 0$ 且 $k_2, k_3 > 0$。",
+    "definition_en": "Introduced in Section 3 as the three eigenvalues of the unit tensor $K$, ordered from smallest to largest, where $k_1 < 0$ and $k_2, k_3 > 0$."
+  },
+  {
+    "key": "ns.c5.c5d.most_compressive_eigenvector",
+    "latex": "e_1",
+    "label_zh": "最大壓縮特徵向量",
+    "label_en": "Most-compressive eigenvector",
+    "definition_zh": "在第3節中定義為對應於最小特徵值 $k_1$ 的單位特徵向量，代表局部流體形變中最強的壓縮方向。",
+    "definition_en": "Defined in Section 3 as the unit eigenvector corresponding to the smallest eigenvalue $k_1$, representing the direction of strongest compression in local fluid deformation."
+  },
+  {
+    "key": "ns.c5.c5d.strong_middle_shape_parameter",
+    "latex": "\\theta_K",
+    "label_zh": "強中間形狀參數",
+    "label_en": "Strong-middle shape parameter",
+    "definition_zh": "在第4節中定義為 $k_2$ 與 $k_3$ 的乘積，用以量化正規化應變形狀遠離退化邊界 $\\lambda_2=0$ 的程度。",
+    "definition_en": "Defined in Section 4 as the product of $k_2$ and $k_3$, quantifying how far the normalized strain shape is from the degenerate boundary $\\lambda_2=0$.",
+    "defining_relation": "\\theta_K = k_2 k_3 = k_1^2 - \\frac{1}{2} > 0"
+  },
+  {
+    "key": "ns.c5.c5d.compressive_axis_test_tensor",
+    "latex": "H_K",
+    "label_zh": "壓縮軸測試張量",
+    "label_en": "Compressive-axis test tensor",
+    "definition_zh": "在第5節中定義的半空間測試泛函，能確保任意渦度與應變平方項在其作用下皆嚴格為正。",
+    "definition_en": "Defined in Section 5 as a half-space test functional under which both arbitrary vorticity and strain-square contributions are strictly positive.",
+    "defining_relation": "H_K = e_1 \\otimes e_1 - \\frac{1+\\theta_K}{2} I"
+  },
+  {
+    "key": "ns.c5.c5d.strong_middle_cone_radius",
+    "latex": "\\delta_K",
+    "label_zh": "強中間錐半徑",
+    "label_en": "Strong-middle cone radius",
+    "definition_zh": "在第9節中定義的容許擾動半徑，確保在該半徑內的應變方向仍保持二次半空間正定性。",
+    "definition_en": "Defined in Section 9 as the allowable perturbation radius ensuring that strain directions within it maintain quadratic half-space positivity."
+  },
+  {
+    "key": "ns.c5.c5d.strong_middle_pointwise_strain_cone",
+    "latex": "\\mathcal{C}_K",
+    "label_zh": "強中間逐點應變錐",
+    "label_en": "Strong-middle pointwise strain cone",
+    "definition_zh": "在第9節中定義為以 $K$ 為中心且半徑為 $\\delta_K$ 的單位應變方向集合，保證局部二次張量的一致同調性。",
+    "definition_en": "Defined in Section 9 as the set of unit strain directions within radius $\\delta_K$ from $K$, guaranteeing uniform coherence of the local quadratic tensor.",
+    "defining_relation": "\\mathcal{C}_K = \\{ V \\in \\operatorname{Sym}_0(3) : |V|_F = 1, |V-K|_F \\le \\delta_K \\}"
+  },
+  {
+    "key": "ns.c5.c5d.unit_half_space_functional",
+    "latex": "\\widehat{H}_K",
+    "label_zh": "單位半空間泛函",
+    "label_en": "Unit half-space functional",
+    "definition_zh": "在第12節中定義為正規化後的 $H_K$，用以測量二次張量落入嚴格半空間的下界餘裕。",
+    "definition_en": "Defined in Section 12 as the normalized $H_K$, used to measure the margin by which the quadratic tensor falls into a strict half-space."
+  },
+  {
+    "key": "ns.c5.c5d.half_space_margin",
+    "latex": "\\gamma_K",
+    "label_zh": "半空間餘裕",
+    "label_en": "Half-space margin",
+    "definition_zh": "在第12節中定義為嚴格正的下界常數，代表強中間錐內二次方向的幾何一致性強度。",
+    "definition_en": "Defined in Section 12 as the strictly positive lower bound constant representing the geometric coherence strength of quadratic directions within the strong-middle cone."
+  },
+  {
+    "key": "ns.c5.c5d.strict_quadratic_half_space",
+    "latex": "\\mathcal{H}_K^+",
+    "label_zh": "嚴格二次半空間",
+    "label_en": "Strict quadratic half-space",
+    "definition_zh": "在第13節中定義的五維球面子集，包含所有由強中間應變錐產生的正規化二次張量方向，其凸包不包含原點。",
+    "definition_en": "Defined in Section 13 as the subset of the five-dimensional sphere containing all normalized quadratic tensor directions generated by the strong-middle strain cone, whose convex hull strictly excludes the origin."
+  },
+  {
+    "key": "ns.c5.c5d.weighted_local_quadratic_mass",
+    "latex": "A_\\chi^Q",
+    "label_zh": "加權局部二次質量",
+    "label_en": "Weighted local quadratic mass",
+    "definition_zh": "在第14節中定義為局部二次張量範數的空間積分，代表該區域內的總二次交互作用強度。",
+    "definition_en": "Defined in Section 14 as the spatial integral of the local quadratic tensor norm, representing the total quadratic interaction intensity in the region."
+  },
+  {
+    "key": "ns.c5.c5d.weighted_local_quadratic_mean",
+    "latex": "B_\\chi^Q",
+    "label_zh": "加權局部二次均值",
+    "label_en": "Weighted local quadratic mean",
+    "definition_zh": "在第14節中定義為局部二次張量本身的空間加權積分矩陣。",
+    "definition_en": "Defined in Section 14 as the spatially weighted integral matrix of the local quadratic tensor itself."
+  },
+  {
+    "key": "ns.c5.c5d.local_quadratic_mean_coherence",
+    "latex": "\\kappa_\\chi^Q",
+    "label_zh": "局部二次均值同調性",
+    "label_en": "Local quadratic mean coherence",
+    "definition_zh": "在第14節中定義為均值矩陣大小與總二次質量之比，用以量化七點抵消機制的失效程度。",
+    "definition_en": "Defined in Section 14 as the ratio of the mean matrix magnitude to the total quadratic mass, quantifying the failure of the Seven-Point cancellation mechanism.",
+    "defining_relation": "\\kappa_\\chi^Q = \\frac{|B_\\chi^Q|}{A_\\chi^Q}"
+  },
+  {
+    "key": "ns.c5.c5d.quadratic_mass_leakage_fraction",
+    "latex": "\\varepsilon_\\chi^K",
+    "label_zh": "二次質量洩漏比例",
+    "label_en": "Quadratic-mass leakage fraction",
+    "definition_zh": "在第18節中定義為落在強中間錐外部的二次質量比例，是七點抵消存活的必要代價。",
+    "definition_en": "Defined in Section 18 as the fraction of quadratic mass falling outside the strong-middle cone, acting as a necessary cost for Seven-Point cancellation survival.",
+    "defining_relation": "\\varepsilon_\\chi^K = \\frac{\\int_{\\mathbb{R}^3 \\setminus G_K} \\chi |Q| dx}{A_\\chi^Q}"
+  },
+  {
+    "key": "ns.c5.c5d.local_mean_strain_matrix",
+    "latex": "\\bar{S}_R",
+    "label_zh": "局部平均應變矩陣",
+    "label_en": "Local mean strain matrix",
+    "definition_zh": "在第24節中定義為尺度 $R$ 上的空間加權平均應變，為平均應變錐分析的基礎對象。",
+    "definition_en": "Defined in Section 24 as the spatially weighted mean strain at scale $R$, serving as the base object for mean-strain cone analysis.",
+    "notes": "Must be carefully distinguished from pointwise strain; linking mean coherence to pointwise coherence requires derivative/fluctuation bounds (Sec 23-24)."
+  },
+  {
+    "key": "ns.c5.c5d.normalized_mean_direction",
+    "latex": "K_R",
+    "label_zh": "正規化平均方向",
+    "label_en": "Normalized mean direction",
+    "definition_zh": "在第24節中定義為 $\\bar{S}_R$ 除以其範數所得到的平均應變單位方向矩陣。",
+    "definition_en": "Defined in Section 24 as the unit mean strain direction matrix obtained by dividing $\\bar{S}_R$ by its norm."
+  },
+  {
+    "key": "ns.c5.c5d.relative_strain_fluctuation",
+    "latex": "\\eta_R^S",
+    "label_zh": "相對應變漲落",
+    "label_en": "Relative strain fluctuation",
+    "definition_zh": "在第25節中定義為局部應變相對於平均應變矩陣大小的最大偏差比例。",
+    "definition_en": "Defined in Section 25 as the ratio of maximum local strain deviation to the magnitude of the mean strain matrix.",
+    "defining_relation": "\\eta_R^S = \\frac{\\|S - \\bar{S}_R\\|_{L^\\infty}}{|\\bar{S}_R|}"
+  },
+  {
+    "key": "ns.c5.c5d.mean_strain_critical_amplitude",
+    "latex": "\\mu_R",
+    "label_zh": "平均應變臨界振幅",
+    "label_en": "Mean-strain critical amplitude",
+    "definition_zh": "在第31節中定義的無因次量，代表平均應變在給定尺度下的強度，若夠大則自動保證非退化的二次強度。",
+    "definition_en": "Defined in Section 31 as a dimensionless quantity representing the mean strain intensity at a given scale, ensuring nondegenerate quadratic intensity when sufficiently large."
+  },
+  {
+    "key": "ns.c5.c5d.weighted_local_pressure_hessian_mean",
+    "latex": "P_\\chi",
+    "label_zh": "加權局部壓力海森均值",
+    "label_en": "Weighted local pressure Hessian mean",
+    "definition_zh": "在第32節中定義為伴隨壓力張量的積分，當二次抵消失效時被迫重新進入平衡方程並承擔定向補償。",
+    "definition_en": "Defined in Section 32 as the integral of the adjoint pressure tensor, which is forced to re-enter the balance equations and assume oriented compensation when quadratic cancellation fails."
+  },
+  {
+    "key": "ns.c5.c5d.critical_pressure_oscillation",
+    "latex": "\\Pi_R^{(2)}",
+    "label_zh": "臨界壓力振盪",
+    "label_en": "Critical pressure oscillation",
+    "definition_zh": "在第34節中引入，用以量化壓力相對於仿射函數的局部偏差，受到半空間幾何的強制下界約束。",
+    "definition_en": "Introduced in Section 34 to quantify the local deviation of pressure from affine functions, forced into a lower bound by the half-space geometry.",
+    "defining_relation": "\\Pi_R^{(2)} = \\nu^{-2} \\inf_{\\ell\\in\\mathcal{A}_1} \\|p - \\ell\\|_{L^{3/2}(B_{CR})}"
+  },
+  {
+    "key": "ns.c5.c5d.far_harmonic_pressure_matrix",
+    "latex": "F",
+    "label_zh": "遠場調和壓力矩陣",
+    "label_en": "Far harmonic pressure matrix",
+    "definition_zh": "在第36節中定義的無跡對稱矩陣，代表從遠方主導局部核心的共同背景壓力海森。",
+    "definition_en": "Defined in Section 36 as a trace-free symmetric matrix representing the common background pressure Hessian dominating local cores from afar."
+  },
+  {
+    "key": "ns.c5.c5d.compressive_axis_stf_projector",
+    "latex": "G(e)",
+    "label_zh": "壓縮軸無跡對稱投影子",
+    "label_en": "Compressive-axis STF projector",
+    "definition_zh": "在第38節中定義為從半空間泛函中提取出與遠場壓力配對的無跡部分，是引發多核心凸包阻礙的關鍵物件。",
+    "definition_en": "Defined in Section 38 as the trace-free part extracted from the half-space functional that pairs with far pressure, serving as the key object triggering multi-core convex-hull obstructions.",
+    "defining_relation": "G(e) = e \\otimes e - \\frac{1}{3}I \\in \\operatorname{Sym}_0(3)"
+  },
+  {
+    "key": "ns.c5.c5d.normalized_strain_direction_measure",
+    "latex": "\\nu_j^S",
+    "label_zh": "正規化應變方向測度",
+    "label_en": "Normalized strain-direction measure",
+    "definition_zh": "在第45節中定義的局部極限測度，用於捕捉應變方向在五維球面上的機率分佈與集中現象。",
+    "definition_en": "Defined in Section 45 as a local limit measure used to capture the probability distribution and concentration of strain directions on the five-dimensional sphere."
+  },
+  {
+    "key": "ns.c5.c5d.quadratic_direction_measure",
+    "latex": "\\nu_j^Q",
+    "label_zh": "二次方向測度",
+    "label_en": "Quadratic-direction measure",
+    "definition_zh": "在第45節中定義的測度，追蹤由七點抵消機制等極限程序產生的正規化二次張量分佈。",
+    "definition_en": "Defined in Section 45 as a measure tracking the limit distribution of normalized quadratic tensors arising from procedures like the Seven-Point cancellation mechanism."
+  },
+  {
+    "key": "ns.c5.c5d.strong_middle_shape_variable",
+    "latex": "\\vartheta(S)",
+    "label_zh": "強中間形狀變數",
+    "label_en": "Strong-middle shape variable",
+    "definition_zh": "在第51節中定義為未正規化應變矩陣的中間正特徵值與最大特徵值之積除以範數平方，提供半空間機制的逐點餘裕來源。",
+    "definition_en": "Defined in Section 51 as the product of the positive middle and largest eigenvalues divided by the squared norm of the unnormalized strain, providing the pointwise margin source for the half-space mechanism.",
+    "defining_relation": "\\vartheta(S) = \\frac{\\lambda_2^+(S) \\lambda_3(S)}{|S|_F^2}"
+  },
+  {
+    "key": "ns.c5.c5d.spatial_matrix_state",
+    "latex": "\\Theta_\\ast^{SM}",
+    "label_zh": "C5-D 空間-矩陣狀態",
+    "label_en": "C5-D spatial-matrix state",
+    "definition_zh": "在第58節中定義的真實ETN更新，囊括了極限狀態下的應變、二次測度、強中間餘裕以及壓縮軸投影組態等空間幾何元數據。",
+    "definition_en": "Defined in Section 58 as the True ETN update encapsulating spatial geometric metadata such as strain/quadratic measures, strong-middle margin, and compressive-axis configurations in the limit state.",
+    "defining_relation": "\\Theta_\\ast^{SM} = \\langle \\nu_\\ast^S, \\nu_\\ast^Q, \\theta_\\ast, \\gamma_\\ast, \\varepsilon_\\ast^{cone}, \\mathcal{U}_\\ast^{(7)}, \\mu_\\ast^R, \\Pi_\\ast^{(2)}, \\mathcal{G}_\\ast^{axis} \\rangle"
+  }
+]

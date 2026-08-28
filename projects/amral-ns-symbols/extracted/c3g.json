@@ -1,0 +1,368 @@
+[
+  {
+    "key": "ns.c3.c3g.a_q_sigma",
+    "latex": "a_q^\\sigma(t) = \\frac{\\|u_q^\\sigma(t)\\|_\\infty}{\\nu\\lambda_q}",
+    "label_zh": "臨界 dyadic shell 振幅",
+    "label_en": "Critical dyadic shell amplitude",
+    "definition_zh": "第 1 節定義的無因次臨界殼層振幅：以黏性尺度 $\\nu\\lambda_q$ 對 helical dyadic shell 速度的 $L^\\infty$ 範數正規化，取代前一輪 packet $L^2$ 振幅，是貫穿全文的核心度量。",
+    "definition_en": "The dimensionless critical shell amplitude defined in Section 1, normalizing the $L^\\infty$ norm of the helical dyadic shell velocity by the viscous scale $\\nu\\lambda_q$; replaces the previous round's packet $L^2$ amplitude and is the central quantity used throughout this round.",
+    "defining_relation": "a_q^\\sigma(t) = \\frac{\\|u_q^\\sigma(t)\\|_\\infty}{\\nu\\lambda_q}",
+    "notes": "N–S scaling 不變、無因次；下標 $q$ 為 dyadic shell 指標，上標 $\\sigma\\in\\{+,-\\}$ 為 helicity sign。"
+  },
+  {
+    "key": "ns.c3.c3g.u_q_sigma",
+    "latex": "u_q^\\sigma = \\Delta_qP^\\sigma u",
+    "label_zh": "Helical dyadic shell 速度",
+    "label_en": "Helical dyadic shell velocity",
+    "definition_zh": "第 1、3 節使用的量，為速度場先經 helicity 投影 $P^\\sigma$ 再做 Littlewood–Paley dyadic 投影 $\\Delta_q$ 所得之分量，滿足 $u_p=u_p^++u_p^-$。",
+    "definition_en": "The velocity component obtained by applying the helicity projector $P^\\sigma$ and then the Littlewood–Paley dyadic projector $\\Delta_q$ to $u$; satisfies $u_p=u_p^++u_p^-$.",
+    "defining_relation": "u_q^\\sigma = \\Delta_qP^\\sigma u",
+    "notes": "$\\Delta_q$、$P^\\sigma$ 可能承襲自更早輪次的 helicity-classified 框架，本輪重新用於定義 $a_q^\\sigma$。"
+  },
+  {
+    "key": "ns.c3.c3g.lambda_q",
+    "latex": "\\lambda_q=2^q",
+    "label_zh": "Dyadic 頻率尺度",
+    "label_en": "Dyadic frequency scale",
+    "definition_zh": "第 1 節重申的 dyadic 頻率定義，$q$ 為 Littlewood–Paley shell 整數指標，用於正規化振幅 $a_q^\\sigma$ 及黏性視窗長度。",
+    "definition_en": "The dyadic frequency scale with integer Littlewood–Paley shell index $q$; used to normalize the amplitude $a_q^\\sigma$ and viscous window lengths throughout.",
+    "defining_relation": "\\lambda_q=2^q"
+  },
+  {
+    "key": "ns.c3.c3g.helicity_sign",
+    "latex": "\\sigma\\in\\{+,-\\}",
+    "label_zh": "Helicity 符號指標",
+    "label_en": "Helicity sign label",
+    "definition_zh": "標記正、負 helical 分量的符號指標，貫穿全文用於 shell-sign node $(q,\\sigma)$ 及各 helical 分解。",
+    "definition_en": "The sign index labeling positive/negative helical components, used throughout for shell-sign nodes $(q,\\sigma)$ and helical decompositions.",
+    "defining_relation": "\\sigma\\in\\{+,-\\}"
+  },
+  {
+    "key": "ns.c3.c3g.dissipation_wavenumber",
+    "latex": "\\Lambda(t) = \\lambda_{Q(t)}",
+    "label_zh": "耗散波數",
+    "label_en": "Dissipation wavenumber",
+    "definition_zh": "第 2 節引入的 Cheskidov–Shvydkoy 型耗散波數，定義為 $\\lambda_{Q(t)}$；C2 已證 hypothetical blow-up 要求 $\\Lambda\\notin L^{5/2}(0,T_\\ast)$，故必為 unbounded。",
+    "definition_en": "The Cheskidov–Shvydkoy-type dissipation wavenumber introduced in Section 2, defined as $\\lambda_{Q(t)}$; C2 shows hypothetical blow-up forces $\\Lambda\\notin L^{5/2}(0,T_\\ast)$, hence $\\Lambda$ must be unbounded.",
+    "defining_relation": "\\Lambda(t)=\\lambda_{Q(t)}"
+  },
+  {
+    "key": "ns.c3.c3g.cutoff_index",
+    "latex": "Q(t)",
+    "label_zh": "耗散截止指標",
+    "label_en": "Dissipation cutoff index",
+    "definition_zh": "第 2 節定義：使所有 $p\\ge Q(t)$ 的 shells 皆滿足 $\\lambda_p^{-1}\\|u_p(t)\\|_\\infty<c_0\\nu$ 的最低 cutoff 整數指標，決定 $\\Lambda(t)=\\lambda_{Q(t)}$。",
+    "definition_en": "The lowest cutoff integer index such that every shell $p\\ge Q(t)$ satisfies $\\lambda_p^{-1}\\|u_p(t)\\|_\\infty<c_0\\nu$; determines $\\Lambda(t)=\\lambda_{Q(t)}$.",
+    "notes": "與第 14 節起用作 frontier level 的自由整數參數 $Q$ 為不同物件（後者非時間相依），勿混淆。"
+  },
+  {
+    "key": "ns.c3.c3g.c0_threshold",
+    "latex": "c_0",
+    "label_zh": "耗散門檻常數",
+    "label_en": "Dissipation threshold constant",
+    "definition_zh": "第 2 節定義 $Q(t)$ 所用的固定小常數，並推出 $Q(t)$ 附近存在 active shell 滿足 $\\|u_p(t)\\|_\\infty/(\\nu\\lambda_p)\\gtrsim c_0$，故至少一 helicity sign 滿足 $a_p^\\sigma\\gtrsim c_0/2$。",
+    "definition_en": "The fixed small constant used to define $Q(t)$ in Section 2; yields an active shell near $Q(t)$ with $\\|u_p(t)\\|_\\infty/(\\nu\\lambda_p)\\gtrsim c_0$, hence some helicity sign satisfies $a_p^\\sigma\\gtrsim c_0/2$."
+  },
+  {
+    "key": "ns.c3.c3g.c_dagger",
+    "latex": "c_\\dagger",
+    "label_zh": "恆常活躍門檻常數",
+    "label_en": "Persistent-activity constant",
+    "definition_zh": "External/derived interface 2.1（第 2 節）給出的固定正常數：hypothetical $T_\\ast<\\infty$ 下，存在任意大 $q$、時刻 $t<T_\\ast$ 與符號 $\\sigma$ 使 $a_q^\\sigma(t)\\ge c_\\dagger$。",
+    "definition_en": "The fixed positive constant from External/derived interface 2.1 (Section 2): under hypothetical $T_\\ast<\\infty$, arbitrarily large $q$, times $t<T_\\ast$, and signs $\\sigma$ satisfy $a_q^\\sigma(t)\\ge c_\\dagger$.",
+    "defining_relation": "a_q^\\sigma(t)\\ge c_\\dagger",
+    "notes": "第 13 節取 $\\beta_\\ast<c_\\dagger$ 以確保任意高頻 shells 皆會 first-cross。"
+  },
+  {
+    "key": "ns.c3.c3g.local_operator",
+    "latex": "\\mathcal L_q^\\sigma",
+    "label_zh": "局部來源算子",
+    "label_en": "Local (bounded scale-ratio) source operator",
+    "definition_zh": "第 3 節將非線性來源分解為 $\\mathcal L_q^\\sigma+\\mathcal R_q^\\sigma$ 中保留 bounded scale-ratio 局部交互作用的部分，明確定義為對 $|p-q|,|r-q|\\le C_L$ 的求和。",
+    "definition_en": "In the Section 3 decomposition $\\mathcal L_q^\\sigma+\\mathcal R_q^\\sigma$ of the nonlinear source, the part retaining bounded-scale-ratio local interactions, explicitly the sum over $|p-q|,|r-q|\\le C_L$.",
+    "defining_relation": "\\mathcal L_q^\\sigma=\\sum_{|p-q|\\le C_L,\\,|r-q|\\le C_L,\\,\\sigma_1,\\sigma_2}\\Delta_qP^\\sigma\\mathbb P\\nabla\\cdot(u_p^{\\sigma_1}\\otimes u_r^{\\sigma_2})"
+  },
+  {
+    "key": "ns.c3.c3g.remainder_operator",
+    "latex": "\\mathcal R_q^\\sigma",
+    "label_zh": "非局部殘餘算子",
+    "label_en": "Nonlocal remainder operator",
+    "definition_zh": "第 3 節非線性來源分解中的非局部／未解析餘項，其在一個 crossing window 上的正規化 Duhamel 貢獻記為 $\\operatorname{Rem}_q^\\sigma(I)$，是 eventual local-source dominance 假設的控制對象。",
+    "definition_en": "The nonlocal/unresolved remainder part of the Section 3 nonlinear-source decomposition; its normalized Duhamel contribution over a window is denoted $\\operatorname{Rem}_q^\\sigma(I)$ and is what the eventual local-source dominance hypothesis controls.",
+    "notes": "與第 30 節引自 C3-B 的量 $\\mathcal R(t)$（helicity pair-production 判準）為不同符號，僅字母偶合，勿混淆。"
+  },
+  {
+    "key": "ns.c3.c3g.C_L",
+    "latex": "C_L",
+    "label_zh": "局部交互作用尺度半徑",
+    "label_en": "Local-interaction scale radius",
+    "definition_zh": "第 3 節固定的常數，界定「局部」parent 的尺度範圍 $|p-q|\\le C_L$，貫穿全文用於 Critical Activation DAG 邊的尺度跳躍界。",
+    "definition_en": "The fixed constant from Section 3 bounding the scale range $|p-q|\\le C_L$ of a \"local\" parent; used throughout for the bounded shell-jump of edges in the Critical Activation DAG.",
+    "defining_relation": "|p-q|\\le C_L"
+  },
+  {
+    "key": "ns.c3.c3g.M_L",
+    "latex": "M_L<\\infty",
+    "label_zh": "局部 parent 類型數",
+    "label_en": "Number of local parent types",
+    "definition_zh": "第 3 節：固定 $C_L$ 後，局部 parent 的類型數 $M_L<\\infty$，用於定理 9.1 中界定 $\\beta_\\ast$ 的上界公式。",
+    "definition_en": "With $C_L$ fixed, the finite number $M_L<\\infty$ of local parent types (Section 3), entering the upper bound formula for $\\beta_\\ast$ in Theorem 9.1."
+  },
+  {
+    "key": "ns.c3.c3g.viscous_ds",
+    "latex": "ds=\\nu\\lambda_q^2\\,dt",
+    "label_zh": "無因次黏性時間",
+    "label_en": "Dimensionless viscous time",
+    "definition_zh": "第 5 節定義的重新標度時間變數，使局部來源在一個視窗內的正規化貢獻不再殘留 $\\lambda_q$，是本輪 criticality 的關鍵觀察。",
+    "definition_en": "The rescaled time variable defined in Section 5, ensuring the normalized local-source contribution over one window carries no residual $\\lambda_q$ — the key criticality observation of this round.",
+    "defining_relation": "ds=\\nu\\lambda_q^2\\,dt"
+  },
+  {
+    "key": "ns.c3.c3g.theta_window",
+    "latex": "\\theta",
+    "label_zh": "無因次視窗長度",
+    "label_en": "Dimensionless window length",
+    "definition_zh": "第 5–6 節固定的正參數，為局部黏性視窗 $|I_q|=\\theta/(\\nu\\lambda_q^2)$ 在無因次時間中的長度，並決定第 6 節收縮因子 $\\rho=C_he^{-c_h\\theta}$。",
+    "definition_en": "The fixed positive parameter (Sections 5–6) giving the dimensionless length of the local viscous window $|I_q|=\\theta/(\\nu\\lambda_q^2)$, and determining the contraction factor $\\rho=C_he^{-c_h\\theta}$ in Section 6."
+  },
+  {
+    "key": "ns.c3.c3g.I_q",
+    "latex": "|I_q|=\\frac{\\theta}{\\nu\\lambda_q^2}",
+    "label_zh": "局部黏性視窗",
+    "label_en": "Local viscous window",
+    "definition_zh": "第 5 節定義的與 shell $q$ 相關之時間視窗長度；第 7 節起具體化為 crossing window $I=[t-\\theta(\\nu\\lambda_q^2)^{-1},t]$，是 $\\operatorname{Rem}_q^\\sigma(I)$ 與定理 9.1 證明的作用域。",
+    "definition_en": "The window length associated to shell $q$ defined in Section 5; from Section 7 onward instantiated as the concrete crossing window $I=[t-\\theta(\\nu\\lambda_q^2)^{-1},t]$, the domain on which $\\operatorname{Rem}_q^\\sigma(I)$ and the Theorem 9.1 proof operate.",
+    "defining_relation": "|I_q|=\\theta/(\\nu\\lambda_q^2)"
+  },
+  {
+    "key": "ns.c3.c3g.heat_decay_const",
+    "latex": "C_h,\\ c_h",
+    "label_zh": "熱核衰減常數",
+    "label_en": "Heat-kernel decay constants",
+    "definition_zh": "第 6 節 annular heat decay 估計 $\\|e^{\\nu\\tau\\Delta}u_q^\\sigma\\|_\\infty\\le C_he^{-c_h\\nu\\lambda_q^2\\tau}\\|u_q^\\sigma\\|_\\infty$ 中的常數，用以定義收縮因子 $\\rho=C_he^{-c_h\\theta}$。",
+    "definition_en": "The constants in the Section 6 annular heat-decay estimate $\\|e^{\\nu\\tau\\Delta}u_q^\\sigma\\|_\\infty\\le C_he^{-c_h\\nu\\lambda_q^2\\tau}\\|u_q^\\sigma\\|_\\infty$, used to define the contraction factor $\\rho=C_he^{-c_h\\theta}$.",
+    "defining_relation": "\\|e^{\\nu\\tau\\Delta}u_q^\\sigma\\|_\\infty\\le C_he^{-c_h\\nu\\lambda_q^2\\tau}\\|u_q^\\sigma\\|_\\infty",
+    "notes": "此處 $\\tau$ 為熱半群時間差變數，與 $\\tau_{q,\\sigma}$（first-crossing 時刻）及第 26 節 triad 指標 $\\tau$ 為三種不同用法。"
+  },
+  {
+    "key": "ns.c3.c3g.rho_contraction",
+    "latex": "\\rho=C_he^{-c_h\\theta}<1",
+    "label_zh": "單視窗收縮因子",
+    "label_en": "One-window contraction factor",
+    "definition_zh": "第 6 節由固定 $\\theta$ 使熱核衰減達到的收縮率 $\\rho<1$，貫穿定理 9.1 的 Duhamel 不等式與第 24 節 persistence 遞迴 $a_m\\le\\rho a_{m-1}$。",
+    "definition_en": "The contraction ratio $\\rho<1$ obtained in Section 6 by fixing $\\theta$ so heat-kernel decay dominates; used throughout Theorem 9.1's Duhamel inequality and the Section 24 persistence recurrence $a_m\\le\\rho a_{m-1}$.",
+    "defining_relation": "\\rho=C_he^{-c_h\\theta}<1"
+  },
+  {
+    "key": "ns.c3.c3g.rem_q_sigma",
+    "latex": "\\operatorname{Rem}_q^\\sigma(I)\\le\\varepsilon\\beta",
+    "label_zh": "正規化非局部餘項",
+    "label_en": "Normalized nonlocal remainder",
+    "definition_zh": "第 7 節定義：非局部殘餘 $\\mathcal R_q^\\sigma$ 在 child crossing window $I=[t-\\theta(\\nu\\lambda_q^2)^{-1},t]$ 上的正規化 Duhamel 貢獻，eventual local-source dominance 假設要求其 $\\le\\varepsilon\\beta$。",
+    "definition_en": "Defined in Section 7 as the normalized Duhamel contribution of the nonlocal remainder $\\mathcal R_q^\\sigma$ over the child crossing window $I=[t-\\theta(\\nu\\lambda_q^2)^{-1},t]$; the eventual local-source dominance hypothesis requires it to be $\\le\\varepsilon\\beta$.",
+    "defining_relation": "\\operatorname{Rem}_q^\\sigma(I)\\le\\varepsilon\\beta"
+  },
+  {
+    "key": "ns.c3.c3g.epsilon_bound",
+    "latex": "0\\le\\varepsilon<1-\\rho",
+    "label_zh": "非局部餘項容忍度",
+    "label_en": "Nonlocal remainder tolerance",
+    "definition_zh": "第 7 節參數，滿足 $0\\le\\varepsilon<1-\\rho$，界定 eventual local-source dominance 假設中非局部項可容忍的大小。",
+    "definition_en": "The Section 7 parameter satisfying $0\\le\\varepsilon<1-\\rho$, bounding how large the nonlocal contribution may be under the eventual local-source dominance hypothesis.",
+    "defining_relation": "0\\le\\varepsilon<1-\\rho"
+  },
+  {
+    "key": "ns.c3.c3g.local_dominance",
+    "latex": "\\textbf{eventual local-source dominance}",
+    "label_zh": "最終局部來源主導假設",
+    "label_en": "Eventual local-source dominance (hypothesis)",
+    "definition_zh": "第 7 節命名的核心路線假設：非局部殘餘的正規化 Duhamel 貢獻滿足 $\\operatorname{Rem}_q^\\sigma(I)\\le\\varepsilon\\beta$（$\\varepsilon<1-\\rho$）；本輪幾乎所有定理（9.1、15.1、18.1）皆以此為條件。",
+    "definition_en": "The named route hypothesis of Section 7: the nonlocal remainder's normalized Duhamel contribution satisfies $\\operatorname{Rem}_q^\\sigma(I)\\le\\varepsilon\\beta$ with $\\varepsilon<1-\\rho$; nearly every theorem in this round (9.1, 15.1, 18.1) is conditional on it.",
+    "notes": "C3-C/D 已建立 suppression/compensation debt，但尚未無條件證明此假設對所有 hypothetical blow-up 成立。"
+  },
+  {
+    "key": "ns.c3.c3g.beta_threshold",
+    "latex": "\\beta>0",
+    "label_zh": "一般 first-crossing 門檻",
+    "label_en": "Generic first-crossing threshold",
+    "definition_zh": "第 8 節固定的一般性門檻值，用於定義 $\\tau_{q,\\sigma}=\\inf\\{t>0:a_q^\\sigma(t)\\ge\\beta\\}$；定理 9.1 進一步構造出滿足額外條件的具體值 $\\beta_\\ast$。",
+    "definition_en": "The generic fixed threshold from Section 8 used to define $\\tau_{q,\\sigma}=\\inf\\{t>0:a_q^\\sigma(t)\\ge\\beta\\}$; Theorem 9.1 later constructs a specific value $\\beta_\\ast$ satisfying additional requirements."
+  },
+  {
+    "key": "ns.c3.c3g.shell_sign_node",
+    "latex": "(q,\\sigma)",
+    "label_zh": "Shell-sign 節點",
+    "label_en": "Shell-sign node",
+    "definition_zh": "第 8 節起將 dyadic shell 指標 $q$ 與 helicity sign $\\sigma$ 併為一節點，作為 first-crossing 時間 $\\tau_{q,\\sigma}$ 及 Critical Activation DAG 頂點集 $\\mathcal V_\\beta$ 的基本單位。",
+    "definition_en": "From Section 8 onward, the pairing of dyadic shell index $q$ with helicity sign $\\sigma$ into a single node, the basic unit for first-crossing times $\\tau_{q,\\sigma}$ and the vertex set $\\mathcal V_\\beta$ of the Critical Activation DAG.",
+    "defining_relation": "(q,\\sigma)"
+  },
+  {
+    "key": "ns.c3.c3g.tau_q_sigma",
+    "latex": "\\tau_{q,\\sigma}=\\inf\\{t>0:a_q^\\sigma(t)\\ge\\beta\\}",
+    "label_zh": "First-crossing 時刻",
+    "label_en": "First-crossing time",
+    "definition_zh": "第 8 節核心定義：shell-sign node $(q,\\sigma)$ 首次使 $a_q^\\sigma(t)\\ge\\beta$ 的時刻，未達標則設為 $\\infty$。定理 9.1 證明 child 與其 local parent 有嚴格排序 $\\tau_{p,\\sigma_p}<\\tau_{q,\\sigma}$。",
+    "definition_en": "The core Section 8 definition: the first time a shell-sign node $(q,\\sigma)$ satisfies $a_q^\\sigma(t)\\ge\\beta$; set to $\\infty$ if never crossed. Theorem 9.1 proves a strict ordering $\\tau_{p,\\sigma_p}<\\tau_{q,\\sigma}$ between a child and its local parent.",
+    "defining_relation": "\\tau_{q,\\sigma}=\\inf\\{t>0:a_q^\\sigma(t)\\ge\\beta\\}",
+    "notes": "同一字母 $\\tau$ 亦在第 6 節作熱半群時間差、在第 26–27 節作 triad 指標使用，三者意義不同。"
+  },
+  {
+    "key": "ns.c3.c3g.beta_star",
+    "latex": "\\beta_\\ast>0",
+    "label_zh": "臨界 first-crossing 門檻值",
+    "label_en": "Critical first-crossing threshold value",
+    "definition_zh": "定理 9.1（C3-G.1）證明存在的具體門檻，只依賴 $\\theta,\\rho,\\varepsilon,C,M_L$，滿足 $0<\\beta_\\ast<(1-\\rho-\\varepsilon)/(CM_L\\theta)$，保證 child first crossing 必有更早的 local parent first crossing。",
+    "definition_en": "The specific threshold whose existence Theorem 9.1 (C3-G.1) proves, depending only on $\\theta,\\rho,\\varepsilon,C,M_L$, satisfying $0<\\beta_\\ast<(1-\\rho-\\varepsilon)/(CM_L\\theta)$; guarantees a child's first crossing forces an earlier local parent first crossing.",
+    "defining_relation": "0<\\beta_\\ast<\\dfrac{1-\\rho-\\varepsilon}{CM_L\\theta}"
+  },
+  {
+    "key": "ns.c3.c3g.V_beta",
+    "latex": "\\mathcal V_\\beta=\\{(q,\\sigma):\\tau_{q,\\sigma}<T_\\ast\\}",
+    "label_zh": "活化節點集",
+    "label_en": "Activation node set",
+    "definition_zh": "第 12 節定義的 Critical Activation DAG 頂點集，收集所有在 blow-up 時間前 first-cross 門檻的 shell-sign nodes。",
+    "definition_en": "The vertex set of the Critical Activation DAG defined in Section 12, collecting all shell-sign nodes that first-cross the threshold before the blow-up time.",
+    "defining_relation": "\\mathcal V_\\beta=\\{(q,\\sigma):\\tau_{q,\\sigma}<T_\\ast\\}"
+  },
+  {
+    "key": "ns.c3.c3g.activation_dag",
+    "latex": "\\textbf{Critical Activation DAG}",
+    "label_zh": "臨界活化 DAG",
+    "label_en": "Critical Activation DAG",
+    "definition_zh": "第 12 節命名的有向無環圖：頂點集 $\\mathcal V_\\beta$，邊為定理 9.1 選出的 parent-child 關係 $(p,\\sigma_p)\\to(q,\\sigma)$，因 $\\tau_p<\\tau_q$ 保證無迴圈，並受 $|p-q|\\le C_L$ 局部尺度限制。",
+    "definition_en": "The directed acyclic graph named in Section 12: vertex set $\\mathcal V_\\beta$, edges given by the parent-child relation $(p,\\sigma_p)\\to(q,\\sigma)$ selected by Theorem 9.1, acyclic because $\\tau_p<\\tau_q$, further constrained by the local scale bound $|p-q|\\le C_L$.",
+    "defining_relation": "(p,\\sigma_p)\\longrightarrow(q,\\sigma),\\quad \\tau_p<\\tau_q,\\quad |p-q|\\le C_L"
+  },
+  {
+    "key": "ns.c3.c3g.T_Q",
+    "latex": "T_Q=\\inf\\{\\tau_{q,\\sigma}:q\\ge Q,\\ \\sigma\\in\\{+,-\\}\\}",
+    "label_zh": "前沿穿越時刻",
+    "label_en": "Frontier crossing time",
+    "definition_zh": "第 14 節定義：頻率 $\\ge Q$ 的所有 nodes 中最早的 first-crossing 時刻；hypothetical blow-up 下 $T_Q<T_\\ast$ 且 $T_Q\\uparrow T_\\ast$（$Q\\to\\infty$）。定理 15.1 以此建立跨頻率邊界的 parent 存在性。",
+    "definition_en": "Defined in Section 14 as the earliest first-crossing time among all nodes with frequency $\\ge Q$; under hypothetical blow-up, $T_Q<T_\\ast$ and $T_Q\\uparrow T_\\ast$ as $Q\\to\\infty$. Theorem 15.1 uses it to establish parent existence across the frequency boundary.",
+    "defining_relation": "T_Q=\\inf\\{\\tau_{q,\\sigma}:q\\ge Q,\\ \\sigma\\in\\{+,-\\}\\}",
+    "notes": "此處整數 $Q$ 為自由 frontier 參數，與第 2 節時間相依的 $Q(t)$ 為不同物件，僅共用字母。"
+  },
+  {
+    "key": "ns.c3.c3g.phase_space_edge",
+    "latex": "(q_p,\\sigma_p,x_p,t_p)\\to(q_c,\\sigma_c,x_c,t_c)",
+    "label_zh": "相空間因果邊",
+    "label_en": "Phase-space causal edge",
+    "definition_zh": "第 17 節將 shell-level 因果邊升級為相空間邊，結合 C3-F 的空間局域性（$\\eta_q\\ge\\eta_0$ 下 $|x_c-x_p|\\lesssim\\lambda_p^{-1}$）與本輪 first-crossing 時間排序 $t_p<t_c$、尺度界 $|q_c-q_p|\\le C_L$。",
+    "definition_en": "Section 17 upgrades the shell-level causal edge to a phase-space edge, combining C3-F's spatial locality ($|x_c-x_p|\\lesssim\\lambda_p^{-1}$ when $\\eta_q\\ge\\eta_0$) with this round's first-crossing temporal order $t_p<t_c$ and scale bound $|q_c-q_p|\\le C_L$.",
+    "defining_relation": "|q_c-q_p|\\le C_L,\\quad t_p<t_c,\\quad |x_c-x_p|\\lesssim\\lambda_p^{-1}",
+    "notes": "局域效率 $\\eta_q$、半徑 $R_q$ 為 C3-F 既有符號，本節僅重用以構造新的相空間邊，未在此重新定義。"
+  },
+  {
+    "key": "ns.c3.c3g.ancestry_ray",
+    "latex": "v_0\\to v_1\\to v_2\\to\\cdots",
+    "label_zh": "因果祖源鏈節點",
+    "label_en": "Ancestry ray node",
+    "definition_zh": "第 18–20 節：由 Critical Activation DAG 中依 first-crossing 排序串連的節點鏈 $v_n$；第 19 節證明沿無限鏈頻率必 $\\sup_nq_n=\\infty$，第 33 節將其座標具體化為 $(x_n,t_n,\\lambda_n,\\sigma_n)$ 供 renormalization 使用。",
+    "definition_en": "Sections 18–20: nodes $v_n$ chained by first-crossing order within the Critical Activation DAG; Section 19 proves any infinite such chain forces $\\sup_nq_n=\\infty$; Section 33 instantiates its coordinates as $(x_n,t_n,\\lambda_n,\\sigma_n)$ for the renormalization construction.",
+    "defining_relation": "v_0\\to v_1\\to\\cdots\\to v_N,\\quad q_N\\to\\infty",
+    "notes": "同一記號 $v_n$ 於第 33 節被重用來標記 rescaled velocity profile $v_n(y,s)$（見該條目），兩種用法透過同一祖源點串接，非同型物件。"
+  },
+  {
+    "key": "ns.c3.c3g.r_minus",
+    "latex": "r_->1",
+    "label_zh": "尺度幾何增長率",
+    "label_en": "Geometric scale growth rate",
+    "definition_zh": "第 20 節假設沿 ray 的尺度滿足 $\\lambda_{n+1}\\ge r_-\\lambda_n$，用以套用 C3-F 的 ancestry-cone theorem 得出 $x_n\\to x_\\ast$、$t_n\\to T_\\ast$。",
+    "definition_en": "Section 20 assumes the scales along the ray satisfy $\\lambda_{n+1}\\ge r_-\\lambda_n$, invoked to apply C3-F's ancestry-cone theorem yielding $x_n\\to x_\\ast$ and $t_n\\to T_\\ast$.",
+    "defining_relation": "\\lambda_{n+1}\\ge r_-\\lambda_n,\\quad r_->1"
+  },
+  {
+    "key": "ns.c3.c3g.triad_conservation",
+    "latex": "\\dot e_k+\\dot e_p+\\dot e_q=0,\\quad s_kk\\dot e_k+s_pp\\dot e_p+s_qq\\dot e_q=0",
+    "label_zh": "Triad 能量／helicity 守恆恆等式",
+    "label_en": "Triad energy/helicity conservation identities",
+    "definition_zh": "第 26 節命題 26.1 引用的 triadwise 守恆律：$e_k,e_p,e_q$ 為 triad 三波數之能量，$s_k,s_p,s_q$ 為對應 helicity 符號；兩恆等式僅將轉移向量限制在一維方向 $\\mathbf v_\\tau$。",
+    "definition_en": "The triadwise conservation laws invoked in Proposition 26.1 (Section 26): $e_k,e_p,e_q$ are the energies of the three triad wavenumbers, $s_k,s_p,s_q$ their helicity signs; together the identities confine the transfer vector to the one-dimensional direction $\\mathbf v_\\tau$.",
+    "defining_relation": "\\dot e_k+\\dot e_p+\\dot e_q=0,\\quad s_kk\\dot e_k+s_pp\\dot e_p+s_qq\\dot e_q=0",
+    "notes": "此處 $k,p,q$ 為 triad 波數標籤，承襲自 C3-A 框架，與本輪前段作 dyadic shell 指標的 $p,q$ 用法不同。"
+  },
+  {
+    "key": "ns.c3.c3g.Theta_tau",
+    "latex": "\\Theta_\\tau(t)",
+    "label_zh": "帶號轉移係數",
+    "label_en": "Signed transfer coefficient",
+    "definition_zh": "命題 26.1 核心構造：$\\dot{\\mathbf e}=\\Theta_\\tau(t)\\mathbf v_\\tau$ 中的純量係數；守恆代數未固定其正負號，故 $\\Theta_\\tau$ 可正可負，donor/receiver 角色可反轉，是 monotone depletion no-go 的關鍵。",
+    "definition_en": "The core construction of Proposition 26.1 (Section 26): the scalar coefficient in $\\dot{\\mathbf e}=\\Theta_\\tau(t)\\mathbf v_\\tau$; the conservation algebra fixes no sign for it, so $\\Theta_\\tau$ can be positive or negative and donor/receiver roles can reverse — the key to the monotone-depletion no-go.",
+    "defining_relation": "\\dot{\\mathbf e}=\\Theta_\\tau(t)\\mathbf v_\\tau",
+    "notes": "下標 $\\tau$ 標記 triad，與 $\\tau_{q,\\sigma}$（first-crossing 時刻）字母相同但意義無關。"
+  },
+  {
+    "key": "ns.c3.c3g.v_tau",
+    "latex": "\\mathbf v_\\tau",
+    "label_zh": "Triad 轉移方向向量",
+    "label_en": "Triad transfer direction vector",
+    "definition_zh": "第 26–27 節固定的一維轉移方向向量，是 $\\dot{\\mathbf e}=\\Theta_\\tau(t)\\mathbf v_\\tau$ 中唯一由守恆律限定的部分；第 27 節以 $\\Theta(t)=\\sin t$ 構造出符合守恆恆等式但能量前後交換的反例。",
+    "definition_en": "The fixed one-dimensional transfer-direction vector of Sections 26–27, the only part of $\\dot{\\mathbf e}=\\Theta_\\tau(t)\\mathbf v_\\tau$ pinned down by the conservation laws; Section 27 builds an explicit counterexample with $\\Theta(t)=\\sin t$ satisfying the conservation identities while energy oscillates back and forth."
+  },
+  {
+    "key": "ns.c3.c3g.use_p",
+    "latex": "\\operatorname{Use}(p)",
+    "label_zh": "天真 parent 使用量",
+    "label_en": "Naive parent-use functional",
+    "definition_zh": "第 25、29 節提出並否證的功能量：試圖以 $\\operatorname{Use}(p)\\le$ parent 初始能量、或 $\\operatorname{Use}(p)=$ children 總輸出 來界定 parent 可用資源，因守恆代數僅給 signed exchange 而不成立。",
+    "definition_en": "The functional proposed and refuted in Sections 25 and 29: attempts to bound a parent's usable resource by $\\operatorname{Use}(p)\\le$ its initial energy, or define it as total children output; fails because conservation algebra gives only signed exchange, not monotone depletion.",
+    "defining_relation": "\\operatorname{Use}(p)\\le\\text{initial energy of }p"
+  },
+  {
+    "key": "ns.c3.c3g.ledger_p",
+    "latex": "\\operatorname{Ledger}(p)",
+    "label_zh": "Parent 資源帳本",
+    "label_en": "Parent resource ledger",
+    "definition_zh": "第 29 節提出取代 $\\operatorname{Use}(p)$ 的正確結構：由儲存振幅、進帳 recharge、出帳 transfer、黏性損耗、相位反轉、重用次數組成，平衡式為「終存量＝初存量＋recharge－帶號轉出－黏性不可逆損耗」。",
+    "definition_en": "The correct multi-component structure proposed in Section 29 to replace $\\operatorname{Use}(p)$: a ledger of stored amplitude, incoming recharge, outgoing transfer, viscous loss, phase reversals, and reuse times, with balance \"ending stock = initial stock + recharge − outgoing signed transfer − viscous irreversible loss.\"",
+    "defining_relation": "\\operatorname{Ledger}(p)=\\left\\langle\\text{stored amplitude},\\text{incoming recharge},\\text{outgoing transfer},\\text{viscous loss},\\text{phase reversals},\\text{reuse times}\\right\\rangle"
+  },
+  {
+    "key": "ns.c3.c3g.a_m_seq",
+    "latex": "a_m\\le\\rho a_{m-1}",
+    "label_zh": "視窗索引振幅序列",
+    "label_en": "Window-indexed amplitude sequence",
+    "definition_zh": "第 24 節考慮某固定 shell 振幅在連續黏性視窗間若無非線性補注僅滿足線性遞迴 $a_m\\le\\rho a_{m-1}$，則 $M$ 個視窗後仍達 $\\beta$ 需初始儲量 $a_0\\ge\\beta\\rho^{-M}$，呈指數增長要求。",
+    "definition_en": "Section 24 considers a fixed shell amplitude across successive viscous windows: absent nonlinear recharge it obeys the linear recurrence $a_m\\le\\rho a_{m-1}$, so remaining $\\ge\\beta$ after $M$ windows requires an initial reserve $a_0\\ge\\beta\\rho^{-M}$, growing exponentially in $M$.",
+    "defining_relation": "a_m\\le\\rho^ma_0,\\qquad a_0\\ge\\beta\\rho^{-M}"
+  },
+  {
+    "key": "ns.c3.c3g.S_j",
+    "latex": "S_j",
+    "label_zh": "第 j 視窗正規化補注",
+    "label_en": "Normalized recharge in window j",
+    "definition_zh": "第 25 節 recharge recurrence 引入的量：第 $j$ 個黏性視窗中非線性來源對振幅的正規化補注貢獻，顯示 reusable parent 的資源實為「儲存振幅＋折現 recharge 歷史」而非單一初始 token。",
+    "definition_en": "Introduced in the Section 25 recharge recurrence: the normalized nonlinear-source contribution to the amplitude within the $j$-th viscous window; shows a reusable parent's resource is really \"stored amplitude plus discounted recharge history,\" not a single initial token.",
+    "defining_relation": "a_M\\le\\rho^Ma_0+\\sum_{j=1}^M\\rho^{M-j}S_j"
+  },
+  {
+    "key": "ns.c3.c3g.rescaled_profile",
+    "latex": "v_n(y,s)=\\lambda_n^{-1}u\\left(x_n+\\lambda_n^{-1}y,t_n+\\lambda_n^{-2}s\\right)",
+    "label_zh": "重標度速度剖面",
+    "label_en": "Rescaled velocity profile",
+    "definition_zh": "第 33 節（C3-H 展望）對 causal ray 上第 $n$ 個祖源點 $(x_n,t_n,\\lambda_n,\\sigma_n)$ 作 N–S 臨界重標度所得之場，將尺度 $\\lambda_n$ 送到 unit scale，是後續 compactness/rigidity 分析（H1–H6）的出發點。",
+    "definition_en": "Section 33's (C3-H preview) critical N–S rescaling of $u$ about the $n$-th ancestry point $(x_n,t_n,\\lambda_n,\\sigma_n)$ on the causal ray, sending the scale $\\lambda_n$ to unit scale; the starting point for the subsequent compactness/rigidity analysis (H1–H6).",
+    "defining_relation": "v_n(y,s)=\\lambda_n^{-1}u(x_n+\\lambda_n^{-1}y,\\ t_n+\\lambda_n^{-2}s)",
+    "notes": "與第 18–20 節作 DAG 節點用的 $v_n$ 共用記號；此處具體指重標度後的函數。"
+  },
+  {
+    "key": "ns.c3.c3g.v_infty",
+    "latex": "v_n\\to v_\\infty",
+    "label_zh": "重標度極限剖面",
+    "label_en": "Rescaled limit profile",
+    "definition_zh": "第 34 節 H1（Compactness class）中 $v_n$ 抽取子列後的極限；H2（Nontriviality）要求 first-crossing threshold 在極限中保留使 $v_\\infty\\not\\equiv0$，是 C3-H 待解的核心對象。",
+    "definition_en": "The limit of a subsequence of $v_n$ under H1 (Compactness class, Section 34); H2 (Nontriviality) requires the first-crossing threshold to survive in the limit so that $v_\\infty\\not\\equiv0$ — the central open object for C3-H.",
+    "defining_relation": "v_n\\to v_\\infty,\\qquad v_\\infty\\not\\equiv0"
+  },
+  {
+    "key": "ns.c3.c3g.c3h_target",
+    "latex": "\\textbf{C3-H — Ancestry Renormalization and Rigidity Interface}",
+    "label_zh": "下一輪目標 C3-H",
+    "label_en": "Next-round target C3-H",
+    "definition_zh": "第 33 節本輪結尾正式命名的下一輪主題：對 causal ancestry ray 做臨界重標度，檢驗能否產生比既有 critical-element/profile-decomposition 更強、可被排除的 rigidity 結構；本輪僅定義目標與 proof obligations（H1–H6），未解決。",
+    "definition_en": "The next round's theme, formally named at the end of this round (Section 33): apply critical rescaling to the causal ancestry ray and test whether it yields a rigidity structure stronger than, and excludable via, existing critical-element/profile-decomposition theory; this round only states the target and proof obligations (H1–H6), leaving it open.",
+    "notes": "屬本輪向前指涉的命名，非本輪已解決之內容。"
+  }
+]

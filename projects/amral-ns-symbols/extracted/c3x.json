@@ -1,0 +1,275 @@
+[
+  {
+    "key": "ns.c3.c3x.pressure_hessian_forcing",
+    "latex": "P_{\\chi,R}",
+    "label_zh": "局部平均應變壓力驅動",
+    "label_en": "Local mean-strain pressure forcing",
+    "definition_zh": "第0節與第1節引入的截斷壓力Hessian積分，量測壓力二階導數在球$B_R$上被$\\chi_R$加權後的局部驅動量。",
+    "definition_en": "A cutoff-weighted integral of the pressure Hessian introduced in Sections 0-1, measuring the local forcing exerted by $\\nabla^2p$ on the ball $B_R$.",
+    "defining_relation": "P_{\\chi,R}=\\int \\chi_R\\nabla^2p\\,dx"
+  },
+  {
+    "key": "ns.c3.c3x.hessian_pressure_oscillation",
+    "latex": "\\Pi_R^{(2)}",
+    "label_zh": "二階（Hessian敏感）壓力振盪",
+    "label_en": "Hessian-sensitive second-order pressure oscillation",
+    "definition_zh": "第1節定義的量，將常見的對常數取下確界改為對仿射函數類$\\mathcal A_1$取下確界，使其對純線性壓力場不敏感。",
+    "definition_en": "Defined in Section 1, it replaces the usual infimum over constants with an infimum over the affine function class $\\mathcal A_1$, rendering the oscillation insensitive to purely affine pressure fields.",
+    "defining_relation": "\\Pi_R^{(2)}(t)=\\frac{1}{\\nu^2}\\inf_{\\ell\\in\\mathcal A_1}\\|p(t)-\\ell\\|_{L^{3/2}(B_{2R})},\\quad \\mathcal A_1=\\{a+b\\cdot x\\}",
+    "notes": "精煉自C3-W用來推導$\\int\\chi_R\\partial_i\\partial_jp=\\int(p-c)\\partial_i\\partial_j\\chi_R$的常數扣除識別式，本輪改為扣除最佳仿射逼近。"
+  },
+  {
+    "key": "ns.c3.c3x.thm_hessian_pressure_bound",
+    "latex": "\\frac{R}{\\nu^2}\\left|\\int\\chi_R\\nabla^2p\\,dx\\right|\\le C\\Pi_R^{(2)}",
+    "label_zh": "C3-X.1：Hessian敏感壓力界",
+    "label_en": "C3-X.1: Hessian-Sensitive Pressure Bound",
+    "definition_zh": "第2節定理2.1，藉由對仿射函數的兩次分部積分與Hölder不等式，證明壓力Hessian驅動力可被$\\Pi_R^{(2)}$控制。",
+    "definition_en": "Theorem 2.1 in Section 2, proved via a double integration by parts against an affine function and Hölder's inequality, showing the pressure-Hessian forcing is controlled by $\\Pi_R^{(2)}$.",
+    "notes": "此不等式左側即為第3節定義的$\\pi_R$，故本定理等價於$\\pi_R\\le C\\Pi_R^{(2)}$。"
+  },
+  {
+    "key": "ns.c3.c3x.normalized_pressure_forcing",
+    "latex": "\\pi_R",
+    "label_zh": "正規化壓力驅動量",
+    "label_en": "Normalized pressure forcing",
+    "definition_zh": "第3節定義的無因次化壓力Hessian驅動量，用以刻劃壓力活躍核心的強度閾值。",
+    "definition_en": "The dimensionless pressure-Hessian forcing defined in Section 3, used to set the intensity threshold for a pressure-active core.",
+    "defining_relation": "\\pi_R=\\frac{R}{\\nu^2}\\left|\\int\\chi_R\\nabla^2p\\,dx\\right|"
+  },
+  {
+    "key": "ns.c3.c3x.pressure_active_core",
+    "latex": "\\pi_R\\ge b>0",
+    "label_zh": "b-壓力活躍核心",
+    "label_en": "$b$-pressure-active core",
+    "definition_zh": "第3節命名的條件，指正規化壓力驅動量$\\pi_R$在尺度$R$上不低於正閾值$b$的區域。",
+    "definition_en": "A named condition from Section 3 requiring the normalized forcing $\\pi_R$ to stay at or above a positive threshold $b$ at scale $R$."
+  },
+  {
+    "key": "ns.c3.c3x.thm_critical_pressure_mass",
+    "latex": "\\int_{B_{2R}}|p|^{3/2}dx\\ge cb^{3/2}\\nu^3",
+    "label_zh": "C3-X.2：臨界壓力質量證書",
+    "label_en": "C3-X.2: Critical Pressure-Mass Certificate",
+    "definition_zh": "第4節定理4.1，證明$b$-壓力活躍核心必然攜帶與尺度$R$無關的臨界$L^{3/2}$壓力質量下界。",
+    "definition_en": "Theorem 4.1 in Section 4, proving that a $b$-pressure-active core necessarily carries a scale-invariant lower bound on its critical $L^{3/2}$ pressure mass.",
+    "defining_relation": "\\pi_R\\ge b \\ \\Longrightarrow\\ \\inf_{\\ell\\in\\mathcal A_1}\\|p-\\ell\\|_{L^{3/2}(B_{2R})}\\ge cb\\nu^2 \\ \\Longrightarrow\\ \\int_{B_{2R}}|p|^{3/2}dx\\ge cb^{3/2}\\nu^3"
+  },
+  {
+    "key": "ns.c3.c3x.thm_small_volume_certificate",
+    "latex": "|U_n|\\to0,\\ \\ \\inf_n\\int_{U_n}|p(t_n)|^{3/2}dx>0",
+    "label_zh": "C3-X.3：小體積壓力集中證書",
+    "label_en": "C3-X.3: Small-Volume Pressure Concentration Certificate",
+    "definition_zh": "第6節（另稱定理6.1）證明若壓力活躍核心數$m_n$與尺度$R_n$滿足$m_nR_n^3\\to0$但$\\inf_n m_nb_n^{3/2}>0$，則存在測度趨零卻壓力質量不趨零的集合序列$U_n$。",
+    "definition_en": "Section 6 (also cited as Theorem 6.1) shows that if core count $m_n$ and scale $R_n$ satisfy $m_nR_n^3\\to0$ while $\\inf_n m_nb_n^{3/2}>0$, there exist sets $U_n$ with vanishing measure but non-vanishing pressure mass.",
+    "notes": "此證書即第7-8節中被接到Constantin壓力一致可積性判準外部介面的機制，說明$|p|^{3/2}$沿該序列失去一致可積性。"
+  },
+  {
+    "key": "ns.c3.c3x.strain_gradient_tensor",
+    "latex": "g=\\nabla S\\asymp D^2u",
+    "label_zh": "應變梯度張量",
+    "label_en": "Strain-gradient tensor",
+    "definition_zh": "第0節與第9節沿用C3-W記號，將應變張量的梯度$g=\\nabla S$等同於速度場二階導數$D^2u$的量級。",
+    "definition_en": "Carried over from C3-W's notation in Sections 0 and 9, identifying the gradient of the strain tensor $g=\\nabla S$ with the second derivative $D^2u$ up to constants.",
+    "notes": "沿用自前一輪C3-W；本輪未重新定義，僅延續使用以建立$\\Omega_c$。"
+  },
+  {
+    "key": "ns.c3.c3x.strain_active_set",
+    "latex": "\\Omega_c",
+    "label_zh": "應變活躍集",
+    "label_en": "Strain-active set",
+    "definition_zh": "第9節沿用C3-W的定義，指應變梯度超過其上確界某比例$c$的超水平集。",
+    "definition_en": "Section 9 reuses C3-W's definition of the superlevel set where the strain gradient exceeds a fixed fraction $c$ of its supremum.",
+    "defining_relation": "\\Omega_c=\\{x\\in B_R: |g(x)|>c\\|g\\|_\\infty\\}",
+    "notes": "沿用自C3-W；本輪在其上疊加壓力測度$\\mu_p$以定義第10節的$\\Theta_{P/S}$。"
+  },
+  {
+    "key": "ns.c3.c3x.overlap_coefficient",
+    "latex": "\\Theta_{P/S}",
+    "label_zh": "壓力–應變重疊係數",
+    "label_en": "Pressure-strain overlap coefficient",
+    "definition_zh": "第10節定義，以壓力測度$d\\mu_p=|p|^{3/2}dx$計算應變活躍集$\\Omega_c$承載的壓力質量佔全域比例，值域在$[0,1]$。",
+    "definition_en": "Defined in Section 10 using the pressure measure $d\\mu_p=|p|^{3/2}dx$, it is the fraction of pressure mass carried by the strain-active set $\\Omega_c$, taking values in $[0,1]$.",
+    "defining_relation": "d\\mu_p=|p|^{3/2}dx,\\qquad \\Theta_{P/S}=\\frac{\\mu_p(\\Omega_c)}{\\mu_p(B_{2R})}\\in[0,1]"
+  },
+  {
+    "key": "ns.c3.c3x.colocated_segregated_dichotomy",
+    "latex": "\\text{X-J1: }\\Theta_{P/S}\\ge\\theta_0>0;\\quad \\text{X-J2: }\\Theta_{P/S}\\to0",
+    "label_zh": "共位／分離集中二分法（X-J1／X-J2）",
+    "label_en": "Co-located / segregated concentration dichotomy (X-J1 / X-J2)",
+    "definition_zh": "第11節提出的二分條件，區分壓力臨界質量是否以固定比例落在應變活躍集上（共位X-J1）或趨於落在其外（分離X-J2）。",
+    "definition_en": "A dichotomy introduced in Section 11 distinguishing whether critical pressure mass retains a fixed fraction on the strain-active set (co-located, X-J1) or drifts outside it (segregated, X-J2)."
+  },
+  {
+    "key": "ns.c3.c3x.thm_colocated_certificate",
+    "latex": "\\int_{\\Omega_c}|p|^{3/2}dx\\ge c\\theta_0b^{3/2}\\nu^3",
+    "label_zh": "C3-X.4：共位聯合集中證書",
+    "label_en": "C3-X.4: Co-Located Joint Concentration Certificate",
+    "definition_zh": "第12節結果，證明當核心為$b$-壓力活躍且$\\Theta_{P/S}\\ge\\theta_0$時，壓力質量集中在體積至多與$\\phi_{p,R}R^3$同階的稀疏應變活躍集$\\Omega_c$上。",
+    "definition_en": "A result in Section 12 showing that when a core is $b$-pressure-active with $\\Theta_{P/S}\\ge\\theta_0$, pressure mass concentrates on the sparse strain-active set $\\Omega_c$, whose volume is at most of order $\\phi_{p,R}R^3$."
+  },
+  {
+    "key": "ns.c3.c3x.active_volume_fraction",
+    "latex": "\\phi_{p,R}",
+    "label_zh": "有效活躍體積分率",
+    "label_en": "Effective active-volume fraction",
+    "definition_zh": "第9節沿用C3-W記號，刻劃應變活躍集$\\Omega_c$相對球$B_R$體積的比例上界。",
+    "definition_en": "Reused from C3-W in Section 9, it bounds the relative volume of the strain-active set via a fraction of $R^3$.",
+    "notes": "定義關係為$|\\Omega_c|\\le C_c\\phi_{p,R}R^3$；沿用自C3-W，第16節起推廣為對任意導數階數$k$索引的$\\phi_k$。"
+  },
+  {
+    "key": "ns.c3.c3x.sparseness_scale",
+    "latex": "r_{\\rm sp}",
+    "label_zh": "一維稀疏化尺度",
+    "label_en": "One-dimensional sparseness scale",
+    "definition_zh": "第9節沿用C3-W volume-to-line定理的結論，指高梯度集在此尺度上退化為近似一維的稀疏結構。",
+    "definition_en": "Reused in Section 9 from C3-W's volume-to-line theorem, this is the scale at which the high-gradient set degenerates into an approximately one-dimensional sparse structure.",
+    "defining_relation": "r_{\\rm sp}\\sim \\phi_{p,R}^{1/3}R",
+    "notes": "沿用自C3-W；第24節推廣為帶階數上標的$r_{\\rm sp}^{(k)}$並用於定義$\\mathfrak A_k$。"
+  },
+  {
+    "key": "ns.c3.c3x.regularity_scale",
+    "latex": "\\ell_{\\rm reg}^{(k)}",
+    "label_zh": "k階正則性尺度",
+    "label_en": "Regularity-class sparseness scale (level $k$)",
+    "definition_zh": "第14節引入，取自Grujić–Xu高階導數稀疏化層級中，第$k$階正則性判準所需要的尺度。",
+    "definition_en": "Introduced in Section 14, the scale required by the level-$k$ regularity criterion within the Grujić–Xu higher-derivative sparseness hierarchy.",
+    "defining_relation": "\\ell_{\\rm reg}^{(k)}\\sim A_k^{-1/(k+1)}"
+  },
+  {
+    "key": "ns.c3.c3x.apriori_scale",
+    "latex": "\\ell_{\\rm apr}^{(k)}",
+    "label_zh": "k階先驗尺度",
+    "label_en": "Energy-level a-priori sparseness scale (level $k$)",
+    "definition_zh": "第14節引入，是由能量估計自然給出、與正則性尺度$\\ell_{\\rm reg}^{(k)}$相差一個代數因子的先驗尺度。",
+    "definition_en": "Introduced in Section 14, the a-priori scale naturally supplied by energy estimates, differing from the regularity scale $\\ell_{\\rm reg}^{(k)}$ by an algebraic factor.",
+    "defining_relation": "\\ell_{\\rm apr}^{(k)}\\sim A_k^{-1/(k+3/2)}"
+  },
+  {
+    "key": "ns.c3.c3x.derivative_norm",
+    "latex": "A_k",
+    "label_zh": "k階導數上確界範數",
+    "label_en": "$k$-th derivative sup-norm",
+    "definition_zh": "第14節定義，為速度場第$k$階導數的上確界範數，是本節起所有尺度指數公式的基準量。",
+    "definition_en": "Defined in Section 14 as the sup-norm of the $k$-th velocity derivative, serving as the reference quantity for every scaling-exponent formula from this section onward.",
+    "defining_relation": "A_k=\\|D^ku\\|_\\infty"
+  },
+  {
+    "key": "ns.c3.c3x.level_k_active_volume",
+    "latex": "\\phi_k",
+    "label_zh": "k階活躍體積分率",
+    "label_en": "Level-$k$ active-volume fraction",
+    "definition_zh": "第16節將$\\phi_{p,R}$推廣到任意導數階數$k$的高強度集活躍體積分率。",
+    "definition_en": "Section 16 generalizes $\\phi_{p,R}$ to the active-volume fraction of the intense set at an arbitrary derivative level $k$.",
+    "notes": "$k=2$特例即第18-19節討論的$\\phi_2$；第40節Y3提議將其進一步推廣到$D^ku$的volume-to-line稀疏化。"
+  },
+  {
+    "key": "ns.c3.c3x.volume_sparseness",
+    "latex": "r_{\\rm vol}",
+    "label_zh": "體積誘導稀疏化尺度",
+    "label_en": "Volume-induced sparseness scale",
+    "definition_zh": "第16節由C3-W volume-to-line定理搭配$R=\\ell_{\\rm apr}^{(k)}$推得，是額外體積收縮所能達到的一維稀疏尺度。",
+    "definition_en": "Derived in Section 16 by combining C3-W's volume-to-line theorem with $R=\\ell_{\\rm apr}^{(k)}$, this is the one-dimensional sparseness attainable through extra volume shrinkage.",
+    "notes": "定義關係為$r_{\\rm vol}\\lesssim\\phi_k^{1/3}A_k^{-1/(k+3/2)}$；第42節結論將其重新併回$r_{\\rm sp}$記號（$r_{\\rm sp}\\sim\\phi_k^{1/3}\\ell_{\\rm apr}^{(k)}$）。"
+  },
+  {
+    "key": "ns.c3.c3x.thm_gap_closure_lemma",
+    "latex": "\\phi_k\\lesssim A_k^{-\\vartheta_k}",
+    "label_zh": "C3-X.5：有限k體積缺口封閉引理",
+    "label_en": "C3-X.5: Finite-$k$ Volume Gap-Closure Lemma",
+    "definition_zh": "第17節定理17.1，證明只要活躍體積分率$\\phi_k$滿足代數門檻$\\phi_k\\lesssim A_k^{-\\vartheta_k}$，體積誘導稀疏尺度便能壓到正則性尺度$\\ell_{\\rm reg}^{(k)}$。",
+    "definition_en": "Theorem 17.1 in Section 17, proving that once the active-volume fraction $\\phi_k$ meets the algebraic threshold $\\phi_k\\lesssim A_k^{-\\vartheta_k}$, the volume-induced sparseness scale collapses onto the regularity scale $\\ell_{\\rm reg}^{(k)}$.",
+    "defining_relation": "\\phi_k\\le CA_k^{-\\vartheta_k}\\ \\Longrightarrow\\ r_{\\rm vol}\\lesssim A_k^{-1/(k+1)}=\\ell_{\\rm reg}^{(k)}"
+  },
+  {
+    "key": "ns.c3.c3x.gap_exponent",
+    "latex": "\\vartheta_k",
+    "label_zh": "缺口封閉指數",
+    "label_en": "Gap-closure exponent",
+    "definition_zh": "第0節預告、第17節證明的代數指數，量化在導數階數$k$上補齊正則性尺度與先驗尺度之間差距所需的額外活躍體積冪次。",
+    "definition_en": "Previewed in Section 0 and proved in Section 17, this algebraic exponent quantifies the extra active-volume power needed to close the gap between the regularity and a-priori scales at derivative level $k$.",
+    "defining_relation": "\\vartheta_k=\\frac{3}{2(k+1)(k+3/2)},\\qquad \\vartheta_2=\\frac17,\\qquad \\vartheta_k\\sim\\frac{3}{2k^2}\\to0",
+    "notes": "$k=2$特例$\\vartheta_2=1/7$於第18節算出，並在第19節命名為Second-Derivative Intermittency Gap-Closing Threshold。"
+  },
+  {
+    "key": "ns.c3.c3x.second_derivative_threshold",
+    "latex": "\\phi_2\\sim A_2^{-1/7}",
+    "label_zh": "二階導數間歇性缺口封閉閾值",
+    "label_en": "Second-Derivative Intermittency Gap-Closing Threshold",
+    "definition_zh": "第19節命名的具體閾值，是$k=2$情形下區分「體積收縮過強」與「稀疏化仍不足」兩種情況的自然分界。",
+    "definition_en": "A named threshold from Section 19, marking the natural dividing line at $k=2$ between volume collapse that overshoots the gap-closure requirement and collapse that still falls short of it.",
+    "notes": "第22節指出，若要避免自動進入k=2正則尺度，倖存者需維持反向不等式$\\phi_2\\gtrsim A_2^{-1/7}$。"
+  },
+  {
+    "key": "ns.c3.c3x.gap_load",
+    "latex": "\\mathfrak G_k",
+    "label_zh": "間歇性缺口負載",
+    "label_en": "Intermittency gap-load",
+    "definition_zh": "第21節定義的無因次量，其值$\\lesssim1$表示尺度已封閉（scale-closed），$\\gg1$表示仍未封閉（scale-open）。",
+    "definition_en": "A dimensionless quantity defined in Section 21, where $\\mathfrak G_k\\lesssim1$ signals the scale-closed regime and $\\mathfrak G_k\\gg1$ signals the scale-open regime.",
+    "defining_relation": "\\mathfrak G_k=\\phi_kA_k^{\\vartheta_k};\\quad \\mathfrak G_k\\lesssim1\\ (\\text{closed}),\\ \\ \\mathfrak G_k\\gg1\\ (\\text{open})",
+    "notes": "第35節推廣為雙變數版本$\\mathfrak G(k,\\phi,A)=\\phi A^{\\vartheta_k}$，並在第36節指出$\\mathfrak G_k\\ll1$反而不利倖存者。"
+  },
+  {
+    "key": "ns.c3.c3x.analyticity_radius",
+    "latex": "\\rho_{\\rm an}^{(k)}",
+    "label_zh": "k階解析半徑",
+    "label_en": "Analyticity radius (level $k$)",
+    "definition_zh": "第24節引入，表示在選定時間切片與導數鏈分支中可用的空間解析半徑，屬外部harmonic-measure理論的量。",
+    "definition_en": "Introduced in Section 24 as the available spatial analyticity radius on a selected time slice and derivative-chain branch, drawn from the external harmonic-measure framework.",
+    "notes": "第33節指出其非純形式量，最新refined analyticity文獻持續改善其下界估計，但不能直接當任意奇異祖先的無條件下界。"
+  },
+  {
+    "key": "ns.c3.c3x.analyticity_scale_ratio",
+    "latex": "\\mathfrak A_k",
+    "label_zh": "解析尺度比",
+    "label_en": "Analyticity-scale ratio",
+    "definition_zh": "第24節定義，比較稀疏化尺度與解析半徑；當$\\mathfrak A_k\\lesssim1$且其餘介面條件對齊時，幾何正則性機制可被啟動。",
+    "definition_en": "Defined in Section 24, this ratio compares the sparseness scale to the analyticity radius; when $\\mathfrak A_k\\lesssim1$ and the remaining interface hypotheses align, the geometric regularity mechanism can activate.",
+    "defining_relation": "\\mathfrak A_k=\\frac{r_{\\rm sp}^{(k)}}{\\rho_{\\rm an}^{(k)}}"
+  },
+  {
+    "key": "ns.c3.c3x.thm_analyticity_escape_necessity",
+    "latex": "\\rho_{\\rm an}^{(k)}\\ll r_{\\rm sp}^{(k)}\\ \\text{(X-A1)}",
+    "label_zh": "C3-X.6：解析尺度逃逸必要性",
+    "label_en": "C3-X.6: Analyticity-Scale Escape Necessity",
+    "definition_zh": "第25節的條件式介面定理，要求假設性奇異祖先至少滿足三者之一：解析半徑塌縮（X-A1）、閾值/分量錯配（X-A2）或時間/鏈錯配（X-A3），合稱需支付「解析/介面逃逸債」。",
+    "definition_en": "A conditional interface theorem in Section 25 requiring a hypothetical singular ancestry to satisfy at least one of three escape routes — analyticity-radius collapse (X-A1), threshold/component mismatch (X-A2), or time/chain mismatch (X-A3) — jointly termed the Analyticity/Interface Escape Debt.",
+    "notes": "三條件之首X-A1給出唯一明確不等式$\\rho_{\\rm an}^{(k)}\\ll r_{\\rm sp}^{(k)}$；X-A2、X-A3為定性描述，無獨立公式。"
+  },
+  {
+    "key": "ns.c3.c3x.nogo_pressure_rescue",
+    "latex": "\\text{pressure concentration} \\not\\Rightarrow \\text{singularity rescue}",
+    "label_zh": "No-Go 26.1：壓力集中無法解除幾何正則性",
+    "label_en": "No-Go 26.1: Pressure Concentration Cannot Rescue Geometric Regularity",
+    "definition_zh": "第26節的邏輯性結果，指出若某時間切片已完全滿足Grujić型幾何正則性判準的全部假設，壓力再怎麼集中也不能將其救回奇異。",
+    "definition_en": "A logical result in Section 26 establishing that once a time slice fully satisfies a Grujić-type geometric regularity criterion's hypotheses, no degree of pressure concentration can rescue it back into singularity.",
+    "notes": "此No-Go是第27節聯合倖存交集$\\mathcal S_{\\rm joint}$要求兩分支同時失敗的邏輯依據。"
+  },
+  {
+    "key": "ns.c3.c3x.joint_survivor_intersection",
+    "latex": "\\mathcal S_{\\rm joint}",
+    "label_zh": "C3-X.7：聯合倖存交集",
+    "label_en": "C3-X.7: Joint Survivor Intersection",
+    "definition_zh": "第27節定義，證明假設性奇異點必須同時落在「臨界壓力一致可積性控制失效」與「解析性/稀疏化幾何封閉失效」兩集合的交集中，且此交集為平行必要條件而非已證蘊涵關係。",
+    "definition_en": "Defined in Section 27, this establishes that a hypothetical singularity must lie in the intersection of \"critical pressure uniform-integrability control fails\" and \"analyticity/sparseness geometric closure fails,\" as a parallel necessary condition rather than a proven implication either way.",
+    "defining_relation": "\\mathcal S_{\\rm pressure}=\\{\\text{critical pressure UI control fails}\\},\\ \\ \\mathcal S_{\\rm strain}=\\{\\text{analyticity/sparseness closure fails}\\},\\ \\ \\mathcal S_{\\rm joint}=\\mathcal S_{\\rm pressure}\\cap\\mathcal S_{\\rm strain}",
+    "notes": "第42節結論以「Pressure Concentration ∩ Analyticity-Scale Escape」重述此交集，為全文標題級結論，並開啟下一輪C3-Y。"
+  },
+  {
+    "key": "ns.c3.c3x.diversification_debt",
+    "latex": "\\Theta_{P/S}\\to0",
+    "label_zh": "聯合集中多樣化債",
+    "label_en": "Joint-Concentration Diversification Debt",
+    "definition_zh": "第30節命名，指當$\\Theta_{P/S}\\to0$（分離情形）時，單一核心圖像必須拆成壓力載體與應變擾動載體至少兩種局部角色來承擔奇異性。",
+    "definition_en": "Named in Section 30, this is the requirement that when $\\Theta_{P/S}\\to0$ (the segregated branch), the single-core picture must split into at least two local roles — a pressure carrier and a strain-fluctuation carrier — to sustain the hypothetical singularity.",
+    "notes": "與第11節X-J2（Segregated）分支對應，說明分離本身不構成矛盾而是額外負擔。"
+  },
+  {
+    "key": "ns.c3.c3x.true_etn_state",
+    "latex": "\\Theta_R^{joint}",
+    "label_zh": "True ETN聯合狀態向量",
+    "label_en": "True ETN joint state vector",
+    "definition_zh": "第38節將本輪結果寫入的狀態元組，把壓力狀態$\\Theta_R^{press}$、應變狀態$\\Theta_R^{strain}$與重疊係數$\\Theta_{P/S}$打包為聯合狀態$\\Theta_R^{joint}$。",
+    "definition_en": "Section 38 packages this round's results into a state tuple, combining the pressure state $\\Theta_R^{press}$, strain state $\\Theta_R^{strain}$, and overlap coefficient $\\Theta_{P/S}$ into the joint state $\\Theta_R^{joint}$.",
+    "notes": "隸屬跨輪持續追蹤的True ETN／無限維張力場物件（見文末Internal dependencies），非本輪獨有的一次性記號。"
+  }
+]

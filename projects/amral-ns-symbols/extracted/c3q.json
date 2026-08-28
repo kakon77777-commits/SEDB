@@ -1,0 +1,441 @@
+[
+  {
+    "key": "ns.c3.c3q.n_raw",
+    "latex": "\\mathcal N_{\\rm raw}",
+    "label_zh": "原始應變非線性算子",
+    "label_en": "Raw strain nonlinearity",
+    "definition_zh": "未投影的對稱非線性矩陣（§2），滿足完整應變方程 ∂_tS − νΔS + 𝒩_raw + ∇²p = 0；是本輪 Pressure–Projection 分解的出發點。",
+    "definition_en": "The unprojected symmetric nonlinear matrix (§2), appearing in the full strain equation ∂_tS − νΔS + 𝒩_raw + ∇²p = 0; the starting object for this round's pressure-projection decomposition.",
+    "defining_relation": "\\mathcal N_{\\rm raw} = (u\\cdot\\nabla)S + S^2 + \\frac14\\omega\\otimes\\omega - \\frac14|\\omega|^2I"
+  },
+  {
+    "key": "ns.c3.c3q.n_proj",
+    "latex": "\\mathcal N_{\\rm proj}",
+    "label_zh": "投影應變非線性算子",
+    "label_en": "Projected strain nonlinearity",
+    "definition_zh": "定理3.1（§3）定義為 𝒩_proj = P_st 𝒩_raw；與 ∇²p 構成正交分解 𝒩_raw = 𝒩_proj − ∇²p，且 ‖𝒩_raw‖² = ‖𝒩_proj‖² + ‖∇²p‖²（定理4.1，§4）。",
+    "definition_en": "Defined in Theorem 3.1 (§3) as 𝒩_proj = P_st 𝒩_raw; together with ∇²p it gives the orthogonal decomposition 𝒩_raw = 𝒩_proj − ∇²p and the Pythagoras identity ‖𝒩_raw‖² = ‖𝒩_proj‖² + ‖∇²p‖² (Thm 4.1, §4).",
+    "defining_relation": "\\mathcal N_{\\rm proj} = P_{st}\\mathcal N_{\\rm raw}",
+    "notes": "§7 rewrites it as P_st((u·∇)S+S²+¼ω⊗ω) after using P_st(|ω|²I)=0; combined with 𝒩_SV's −½ coefficient this reproduces 𝒬_SV's ¾ω⊗ω coefficient from §0 exactly, so there is no inconsistency between the two stated forms."
+  },
+  {
+    "key": "ns.c3.c3q.n_sv",
+    "latex": "\\mathcal N_{SV}",
+    "label_zh": "SV模型非線性項",
+    "label_en": "SV-model nonlinearity",
+    "definition_zh": "§7定義為 𝒩_SV = −(1/2)P_st(ω⊗ω)，用以將 Miller 算子改寫為 𝒬_SV = 𝒩_proj − 𝒩_SV，區分「投影完整非線性」與「應變–渦度自放大模型非線性」。",
+    "definition_en": "Defined in §7 as 𝒩_SV = −(1/2)P_st(ω⊗ω), used to rewrite the Miller operator as 𝒬_SV = 𝒩_proj − 𝒩_SV, separating the projected full nonlinearity from the strain-vorticity self-amplification model nonlinearity.",
+    "defining_relation": "\\mathcal N_{SV} = -\\frac12 P_{st}(\\omega\\otimes\\omega)"
+  },
+  {
+    "key": "ns.c3.c3q.q_sv",
+    "latex": "\\mathcal Q_{SV}",
+    "label_zh": "Miller算子",
+    "label_en": "Miller operator",
+    "definition_zh": "承自C3-P（§0），定義為 P_st((u·∇)S+S²+(3/4)ω⊗ω)；本輪新證明 𝒬_SV = 𝒩_proj − 𝒩_SV（§7），並明確警告它不是 ∇²p 在同一Pythagoras分解中的互補分量（§8）。",
+    "definition_en": "Inherited from C3-P (§0), defined as P_st((u·∇)S+S²+(3/4)ω⊗ω); this round newly proves 𝒬_SV = 𝒩_proj − 𝒩_SV (§7) and explicitly warns it is NOT the complementary component to ∇²p in the same Pythagorean decomposition as 𝒩_proj (§8).",
+    "defining_relation": "\\mathcal Q_{SV} = P_{st}\\left((u\\cdot\\nabla)S + S^2 + \\frac34\\omega\\otimes\\omega\\right)",
+    "notes": "§8 forbids writing ‖𝒩_raw‖² = ‖𝒬_SV‖² + ‖∇²p‖² — this does NOT hold in general, unlike the true Pythagoras pair (𝒩_proj, ∇²p)."
+  },
+  {
+    "key": "ns.c3.c3q.p_st",
+    "latex": "P_{st}",
+    "label_zh": "應變約束正交投影",
+    "label_en": "Strain-constraint orthogonal projection",
+    "definition_zh": "§1定義為 L²_st 的 L²正交投影算子；關鍵性質 P_st(∇²p)=0，即壓力Hessian完全落在約束補空間中，是本輪一切正交性論證的基礎。",
+    "definition_en": "Defined in §1 as the L²-orthogonal projection onto L²_st; the key property P_st(∇²p)=0 (pressure Hessian lies entirely in the complement space) underlies every orthogonality argument in this round.",
+    "defining_relation": "P_{st}(\\nabla^2p)=0"
+  },
+  {
+    "key": "ns.c3.c3q.l2_st",
+    "latex": "L^2_{st}",
+    "label_zh": "應變約束子空間",
+    "label_en": "Strain constraint subspace",
+    "definition_zh": "§1定義為全空間應變約束子空間，S(t)、∂_tS、ΔS（光滑regime下）皆位於其中，並與Hessian matrix fields等constraint-complement方向正交。",
+    "definition_en": "Defined in §1 as the whole-space strain constraint subspace containing S(t), ∂_tS, and ΔS (in the smooth regime), orthogonal to Hessian-matrix-field complement directions."
+  },
+  {
+    "key": "ns.c3.c3q.pressure_source_f",
+    "latex": "f",
+    "label_zh": "壓力Poisson源項",
+    "label_en": "Pressure Poisson source",
+    "definition_zh": "§5定義為 −Δp=f:=tr((∇u)²)（§16寫作tr(A²)）；分解為近/遠場 f=f_near+f_far（§16），是遠場調和壓力分析的出發點，且 ‖∇²p‖₂=‖f‖₂（定理5.1）。",
+    "definition_en": "Defined in §5 via −Δp=f:=tr((∇u)²) (written tr(A²) in §16); split into near/far parts f=f_near+f_far (§16), the starting point of the far-pressure harmonic analysis, with ‖∇²p‖₂=‖f‖₂ (Thm 5.1).",
+    "defining_relation": "-\\Delta p = f := \\operatorname{tr}((\\nabla u)^2)"
+  },
+  {
+    "key": "ns.c3.c3q.h_p0",
+    "latex": "H_p^0",
+    "label_zh": "各向異性壓力Hessian",
+    "label_en": "Anisotropic (trace-free) pressure Hessian",
+    "definition_zh": "§6定義為壓力Hessian的無跡部分 H_p^0=∇²p−(1/3)(Δp)I；恆等式 ‖H_p^0‖²=(2/3)‖f‖² 顯示它佔壓力源範數的固定比例，非任意小殘量。",
+    "definition_en": "Defined in §6 as the trace-free part of the pressure Hessian, H_p^0=∇²p−(1/3)(Δp)I; the identity ‖H_p^0‖²=(2/3)‖f‖² shows it is a fixed fraction of the source norm, not an arbitrarily small residual.",
+    "defining_relation": "H_p^0 = \\nabla^2p - \\frac13(\\Delta p)I,\\qquad \\|H_p^0\\|_2^2=\\frac23\\|f\\|_2^2"
+  },
+  {
+    "key": "ns.c3.c3q.g_projcomp",
+    "latex": "G_{\\rm PROJCOMP}",
+    "label_zh": "投影來源守則",
+    "label_en": "Projection-provenance guard",
+    "definition_zh": "§10新增的X-Integration guard：任何同時使用壓力與投影應變算子的論證，須分別標記「range channel」P_st𝒩_raw與「complement channel」−(I−P_st)𝒩_raw=∇²p，不得將兩者當同一純量力相減。",
+    "definition_en": "X-Integration guard introduced in §10: any argument mixing pressure and the projected strain operator must separately tag the range channel P_st𝒩_raw and the complement channel −(I−P_st)𝒩_raw=∇²p, and may not subtract them as if they were the same scalar force.",
+    "notes": "§38 lists a further set of seven named guards (G-PORTH…G-REDIST); the document does not explicitly state whether these supersede or merely refine G_PROJCOMP."
+  },
+  {
+    "key": "ns.c3.c3q.g_porth",
+    "latex": "G-PORTH",
+    "label_zh": "守則：壓力—投影正交",
+    "label_en": "Guard: pressure-projection orthogonality",
+    "definition_zh": "§38新增守則，保存核心事實 𝒩_proj⊥∇²p，供後續論證引用而不必重證。",
+    "definition_en": "Guard added in §38 preserving the core fact 𝒩_proj⊥∇²p for later arguments to cite without re-proving.",
+    "defining_relation": "\\mathcal N_{\\rm proj}\\perp\\nabla^2p"
+  },
+  {
+    "key": "ns.c3.c3q.g_qshift",
+    "latex": "G-QSHIFT",
+    "label_zh": "守則：算子非投影非線性",
+    "label_en": "Guard: operator is not the projected nonlinearity",
+    "definition_zh": "§38守則，強調 𝒬_SV 不等於 𝒩_proj，禁止誤套Pythagoras恆等式（即不可寫 ‖𝒩_raw‖²=‖𝒬_SV‖²+‖∇²p‖²）。",
+    "definition_en": "Guard from §38 emphasizing 𝒬_SV ≠ 𝒩_proj, forbidding misapplication of the Pythagoras identity with 𝒬_SV in place of 𝒩_proj."
+  },
+  {
+    "key": "ns.c3.c3q.g_oploc",
+    "latex": "G-OPLOC",
+    "label_zh": "守則：算子逃逸定位",
+    "label_en": "Guard: operator-escape localization",
+    "definition_zh": "§38守則，要求任何 global operator escape 的論證必須標明其 core/exterior carrier（見§13-15的Q_c/Q_e二分法）。",
+    "definition_en": "Guard from §38 requiring any global-operator-escape argument to specify its core/exterior carrier (cf. the Q_c/Q_e dichotomy of §13-15)."
+  },
+  {
+    "key": "ns.c3.c3q.g_harm",
+    "latex": "G-HARM",
+    "label_zh": "守則：調和壓力主項",
+    "label_en": "Guard: harmonic pressure leading object",
+    "definition_zh": "§38守則，標記遠場調和壓力的主要對象為 H_0∈Sym_0(3)，供後續章節（§16以下）引用。",
+    "definition_en": "Guard from §38 tagging the far-harmonic-pressure leading object as H_0∈Sym_0(3), referenced by later sections (§16 onward)."
+  },
+  {
+    "key": "ns.c3.c3q.g_halign",
+    "latex": "G-HALIGN",
+    "label_zh": "守則：壓力對齊係數",
+    "label_en": "Guard: pressure alignment coefficient",
+    "definition_zh": "§38守則，保存對齊係數定義 ζ_R=−H_0:M_R/(|H_0||M_R|)，供後續耦合論證引用。",
+    "definition_en": "Guard from §38 preserving the alignment-coefficient definition ζ_R=−H_0:M_R/(|H_0||M_R|) for later coupling arguments.",
+    "defining_relation": "\\zeta_R=-\\frac{H_0:M_R}{|H_0||M_R|}"
+  },
+  {
+    "key": "ns.c3.c3q.g_phorizon",
+    "latex": "G-PHORIZON",
+    "label_zh": "守則：壓力視界",
+    "label_en": "Guard: pressure horizon",
+    "definition_zh": "§38守則，要求檢查遠場壓力解耦時必須核對 κ^{-3}𝔈_R（或pressure-work版本）的大小，對應§27-28的兩個視界。",
+    "definition_en": "Guard from §38 requiring any far-pressure decoupling claim to check the size of κ^{-3}𝔈_R (or its pressure-work analogue), corresponding to the two horizons of §27-28."
+  },
+  {
+    "key": "ns.c3.c3q.g_redist",
+    "latex": "G-REDIST",
+    "label_zh": "守則：無跡重分配",
+    "label_en": "Guard: trace-free redistribution",
+    "definition_zh": "§38守則，提醒trace-free遠場壓力並非sign-definite的耗散/depletion機制（見§17,33-34）。",
+    "definition_en": "Guard from §38 reminding that trace-free far pressure is not a sign-definite dissipation/depletion mechanism (cf. §17, §33-34)."
+  },
+  {
+    "key": "ns.c3.c3q.d_sv",
+    "latex": "d_{SV}(t)",
+    "label_zh": "Miller逃逸比值",
+    "label_en": "Miller escape ratio",
+    "definition_zh": "§11正式定義 d_SV(t)=‖𝒬_SV(t)‖₂/‖−ΔS(t)‖₂；Miller定理要求若 T*<∞ 則 limsup_{t↑T*} d_SV(t)≥1。",
+    "definition_en": "Formally defined in §11 as d_SV(t)=‖𝒬_SV(t)‖₂/‖−ΔS(t)‖₂; Miller's theorem requires limsup_{t↑T*} d_SV(t)≥1 whenever T*<∞.",
+    "defining_relation": "d_{SV}(t) = \\frac{\\|\\mathcal Q_{SV}(t)\\|_2}{\\|-\\Delta S(t)\\|_2}"
+  },
+  {
+    "key": "ns.c3.c3q.chi_cutoff",
+    "latex": "\\chi",
+    "label_zh": "核心/外部截斷函數",
+    "label_en": "Core/exterior cutoff function",
+    "definition_zh": "§12引入的截斷函數 0≤χ≤1，用以將全域算子範數與消散範數分裂為核心（χ）與外部（1−χ）兩部分，是§13定理13.1二分法的工具。",
+    "definition_en": "Cutoff function 0≤χ≤1 introduced in §12, splitting global operator and dissipation norms into core (χ) and exterior (1−χ) parts; the tool behind the Theorem 13.1 dichotomy of §13."
+  },
+  {
+    "key": "ns.c3.c3q.q_core_ext",
+    "latex": "Q_{\\rm c},\\ Q_{\\rm e}",
+    "label_zh": "核心/外部算子範數",
+    "label_en": "Core/exterior operator norms",
+    "definition_zh": "§12定義 Q_c²=∫χ|𝒬_SV|²dx、Q_e²=∫(1−χ)|𝒬_SV|²dx，滿足 Q_c²+Q_e²=‖𝒬_SV‖₂²，是定理13.1二分法的基礎量。",
+    "definition_en": "Defined in §12 as Q_c²=∫χ|𝒬_SV|²dx and Q_e²=∫(1−χ)|𝒬_SV|²dx, satisfying Q_c²+Q_e²=‖𝒬_SV‖₂²; the basic quantities behind the Theorem 13.1 dichotomy.",
+    "defining_relation": "Q_{\\rm c}^2=\\int\\chi|\\mathcal Q_{SV}|^2dx,\\quad Q_{\\rm e}^2=\\int(1-\\chi)|\\mathcal Q_{SV}|^2dx"
+  },
+  {
+    "key": "ns.c3.c3q.d_core_ext",
+    "latex": "D_{\\rm c},\\ D_{\\rm e}",
+    "label_zh": "核心/外部消散範數",
+    "label_en": "Core/exterior dissipation norms",
+    "definition_zh": "§12定義 D_c²=∫χ|ΔS|²dx、D_e²=∫(1−χ)|ΔS|²dx，滿足 D_c²+D_e²=‖ΔS‖₂²，與Q_c,Q_e配對用於算子逃逸定位二分法（定理13.1）。",
+    "definition_en": "Defined in §12 as D_c²=∫χ|ΔS|²dx and D_e²=∫(1−χ)|ΔS|²dx, satisfying D_c²+D_e²=‖ΔS‖₂²; paired with Q_c,Q_e in the operator-escape localization dichotomy (Theorem 13.1).",
+    "defining_relation": "D_{\\rm c}^2=\\int\\chi|\\Delta S|^2dx,\\quad D_{\\rm e}^2=\\int(1-\\chi)|\\Delta S|^2dx"
+  },
+  {
+    "key": "ns.c3.c3q.q_op_core_defect",
+    "latex": "\\text{Q-OP-CORE},\\ \\text{Q-OP-DEFECT}",
+    "label_zh": "算子逃逸核心/缺陷分支",
+    "label_en": "Operator-escape core/defect branches",
+    "definition_zh": "§14由 limsup d_SV≥1 沿子序列 t_n 推出：固定核心截斷 χ_n 後，至少一分支無窮多次成立——Q-OP-CORE 或 Q-OP-DEFECT。",
+    "definition_en": "Derived in §14 from limsup d_SV≥1 along a subsequence t_n with fixed core cutoff χ_n: at least one of the two branches, Q-OP-CORE or Q-OP-DEFECT, holds infinitely often.",
+    "defining_relation": "Q_{{\\rm c},n}\\ge(1-\\varepsilon)D_{{\\rm c},n}\\ \\text{(Q-OP-CORE)},\\qquad Q_{{\\rm e},n}\\ge(1-\\varepsilon)D_{{\\rm e},n}\\ \\text{(Q-OP-DEFECT)}",
+    "notes": "§15 cautions this is observational localization only — \"operator field is large inside core\", not proof that its provenance is purely local (nonlocal projection P_st can still mix in exterior sources)."
+  },
+  {
+    "key": "ns.c3.c3q.kappa",
+    "latex": "\\kappa",
+    "label_zh": "遠場分離因子",
+    "label_en": "Far-field separation factor",
+    "definition_zh": "承自C3-P並在本輪系統化使用（§16起，κ≥4），為壓力源與ancestry核心 B_R(x_0) 的距離倍率（κR）；本輪的遠場補償界（§24）、enstrophy debt 𝔈_R≳κ²（§25-26）與兩個壓力視界（§27-28）均以κ為尺度參數。",
+    "definition_en": "Inherited from C3-P and used systematically from §16 onward (κ≥4); the multiple of R by which the pressure source is separated from the ancestry ball B_R(x_0) (distance κR). This round's far-pressure compensation bound (§24), enstrophy debt 𝔈_R≳κ² (§25-26), and the two pressure horizons (§27-28) are all scaled by κ."
+  },
+  {
+    "key": "ns.c3.c3q.ancestry_ball",
+    "latex": "B_R(x_0)",
+    "label_zh": "Ancestry核心球",
+    "label_en": "Ancestry core ball",
+    "definition_zh": "§16半徑R、心x_0的空間球，作為壓力源近/遠場分解（f_near/f_far）與遠場壓力調和性（p_far在B_R(x_0)內harmonic）的參考域。",
+    "definition_en": "The radius-R ball centered at x_0 (§16), the reference domain for the near/far pressure-source split and for the harmonicity of p_far inside B_R(x_0)."
+  },
+  {
+    "key": "ns.c3.c3q.h0",
+    "latex": "H_0",
+    "label_zh": "遠場調和壓力Hessian",
+    "label_en": "Far-harmonic pressure Hessian",
+    "definition_zh": "§16定義為 H_0=∇²p_far(x_0)∈Sym_0(3)，滿足 |H_0|≤Cκ^{-3}R^{-3}‖∇u‖₂²；因無跡，特徵值滿足h_1<0<h_3（§17），故非sign-definite depletion。",
+    "definition_en": "Defined in §16 as H_0=∇²p_far(x_0)∈Sym_0(3), bounded by |H_0|≤Cκ^{-3}R^{-3}‖∇u‖₂²; being trace-free its eigenvalues satisfy h_1<0<h_3 (§17), so it cannot act as sign-definite depletion.",
+    "defining_relation": "H_0=\\nabla^2p_{\\rm far}(x_0),\\qquad |H_0|\\le C\\kappa^{-3}R^{-3}\\|\\nabla u\\|_2^2"
+  },
+  {
+    "key": "ns.c3.c3q.p_far",
+    "latex": "p_{\\rm far}",
+    "label_zh": "遠場壓力",
+    "label_en": "Far pressure",
+    "definition_zh": "§16由 f=f_near+f_far 誘導的壓力分量；在ancestry球B_R(x_0)內為調和函數，其Hessian在x_0處即為H_0。",
+    "definition_en": "The pressure component induced by f_far (§16); harmonic inside the ancestry ball B_R(x_0), with Hessian equal to H_0 at x_0."
+  },
+  {
+    "key": "ns.c3.c3q.e_far",
+    "latex": "E_{\\rm far}",
+    "label_zh": "遠場壓力空間變異項",
+    "label_en": "Far-pressure spatial-variation remainder",
+    "definition_zh": "§0、§16中 ∇²p_far=H_0+E_far 的剩餘項，相對常數項H_0多帶一個κ^{-1}的空間變異抑制因子；是Θ_p張量的分量之一（§39）。",
+    "definition_en": "The remainder term in ∇²p_far=H_0+E_far (§0, §16), carrying an extra κ^{-1} spatial-variation suppression factor relative to the constant leading term H_0; a component of the Θ_p tuple (§39).",
+    "defining_relation": "\\nabla^2p_{\\rm far}=H_0+E_{\\rm far}"
+  },
+  {
+    "key": "ns.c3.c3q.h0_eigenvalues",
+    "latex": "h_1\\le h_2\\le h_3",
+    "label_zh": "H_0的特徵值",
+    "label_en": "Eigenvalues of H_0",
+    "definition_zh": "§17，H_0的三個排序特徵值；因無跡滿足h_1+h_2+h_3=0，故必有h_1<0<h_3（定理17.1：無均勻調和壓力耗散）。",
+    "definition_en": "The three ordered eigenvalues of H_0 (§17); trace-freeness forces h_1+h_2+h_3=0, hence h_1<0<h_3 (Theorem 17.1: no uniform harmonic-pressure depletion).",
+    "defining_relation": "h_1+h_2+h_3=0,\\qquad h_1<0<h_3"
+  },
+  {
+    "key": "ns.c3.c3q.dt_lambda_p_far",
+    "latex": "(D_t\\lambda_i)_{p,{\\rm far}}",
+    "label_zh": "遠場壓力對應變特徵值的物質導數貢獻",
+    "label_en": "Far-pressure material-derivative contribution to a strain eigenvalue",
+    "definition_zh": "§18定義：在局部應變特徵向量e_i簡單的點，遠場壓力對特徵值λ_i物質導數的貢獻為 −e_i^⊤H_0e_i。",
+    "definition_en": "Defined in §18: at a point where the local strain eigenvector e_i is simple, the far-pressure contribution to the material derivative of eigenvalue λ_i equals −e_i^⊤H_0e_i.",
+    "defining_relation": "(D_t\\lambda_i)_{p,{\\rm far}} = -e_i^\\top H_0e_i"
+  },
+  {
+    "key": "ns.c3.c3q.h_i_s",
+    "latex": "h_i^{(S)}",
+    "label_zh": "應變特徵框架下的壓力分量",
+    "label_en": "Pressure component in the local strain eigenframe",
+    "definition_zh": "§18/§33定義為 h_i^{(S)}=e_i^⊤H_0e_i，滿足Σh_i^{(S)}=0；促進中間應變λ_2^+成長需h_2^{(S)}<0，但無跡性迫使另一方向h_j^{(S)}>0，構成§33的Trace-Free Redistribution Debt。",
+    "definition_en": "Defined in §18/§33 as h_i^{(S)}=e_i^⊤H_0e_i, satisfying Σh_i^{(S)}=0; promoting middle-strain growth λ_2^+ requires h_2^{(S)}<0, but trace-freeness forces some other h_j^{(S)}>0 — the §33 Trace-Free Redistribution Debt.",
+    "defining_relation": "h_i^{(S)}=e_i^\\top H_0e_i,\\qquad h_1^{(S)}+h_2^{(S)}+h_3^{(S)}=0"
+  },
+  {
+    "key": "ns.c3.c3q.sym0_3",
+    "latex": "\\operatorname{Sym}_0(3)",
+    "label_zh": "三維無跡對稱矩陣空間",
+    "label_en": "Space of trace-free symmetric 3×3 matrices",
+    "definition_zh": "H_0與M_R所棲身的5維向量空間（§16,19）；本輪多處利用其有限維(5D)特性論證遠場壓力motif的緊緻性（§35）與多核matrix packing的可能性（§42 R4）。",
+    "definition_en": "The 5-dimensional space in which H_0 and M_R live (§16, §19); its finite-dimensionality is repeatedly used to argue compactness of the far-pressure motif (§35) and the possibility of multi-core matrix packing (§42, R4)."
+  },
+  {
+    "key": "ns.c3.c3q.chi_r",
+    "latex": "\\chi_R",
+    "label_zh": "尺度R局部化截斷",
+    "label_en": "Scale-R localization cutoff",
+    "definition_zh": "§19引入之尺度R局部化函數，用於定義局部應變均值矩陣M_R（§19）與局部應變存量𝔖_R（§22）。",
+    "definition_en": "The scale-R localization function introduced in §19, used to define the local strain-mean matrix M_R (§19) and the local strain stock 𝔖_R (§22)."
+  },
+  {
+    "key": "ns.c3.c3q.m_r",
+    "latex": "M_R",
+    "label_zh": "局部應變均值矩陣",
+    "label_en": "Local strain mean matrix",
+    "definition_zh": "§19定義 M_R=∫χ_R S dx；與H_0的Frobenius內積構成遠場壓力對局部應變能的貢獻 B_{H_0}=−H_0:M_R。",
+    "definition_en": "Defined in §19 as M_R=∫χ_R S dx; its Frobenius inner product with H_0 gives the far-pressure contribution to local strain energy, B_{H_0}=−H_0:M_R.",
+    "defining_relation": "M_R=\\int\\chi_R S\\,dx"
+  },
+  {
+    "key": "ns.c3.c3q.b_h0",
+    "latex": "B_{H_0}",
+    "label_zh": "常數遠場矩陣的壓力流貢獻",
+    "label_en": "Constant far-matrix pressure-current contribution",
+    "definition_zh": "§19-20定義 B_{H_0}=−H_0:M_R=ζ_R|H_0||M_R|，衡量遠場調和壓力對核心局部應變能瞬時成長的貢獻，是C3-N/O pressure current架構的延伸。",
+    "definition_en": "Defined in §19-20 as B_{H_0}=−H_0:M_R=ζ_R|H_0||M_R|, measuring the instantaneous contribution of the far-harmonic pressure to local strain-energy growth in the core, extending the C3-N/O pressure-current framework.",
+    "defining_relation": "B_{H_0}=-H_0:M_R"
+  },
+  {
+    "key": "ns.c3.c3q.zeta_r",
+    "latex": "\\zeta_R",
+    "label_zh": "壓力對齊係數",
+    "label_en": "Pressure alignment coefficient",
+    "definition_zh": "§20定義 ζ_R=−H_0:M_R/(|H_0||M_R|)∈[-1,1]；ζ_R>0是遠場壓力能支援局部正應變能成長所需的matrix anti-alignment條件。",
+    "definition_en": "Defined in §20 as ζ_R=−H_0:M_R/(|H_0||M_R|)∈[-1,1]; ζ_R>0 is the matrix-anti-alignment condition needed for far pressure to support positive local strain-energy growth.",
+    "defining_relation": "\\zeta_R=-\\frac{H_0:M_R}{|H_0||M_R|}\\in[-1,1]"
+  },
+  {
+    "key": "ns.c3.c3q.h_hat_r",
+    "latex": "\\widehat H_R",
+    "label_zh": "標準化遠場壓力矩陣",
+    "label_en": "Normalized far-pressure matrix",
+    "definition_zh": "§21定義 Ĥ_R=(R⁴/ν²)H_0，是§23-29無因次化壓力視界與enstrophy debt估計的核心量，滿足 |Ĥ_R|≤Cκ^{-3}𝔈_R。",
+    "definition_en": "Defined in §21 as Ĥ_R=(R⁴/ν²)H_0, the central quantity in the dimensionless pressure-horizon and enstrophy-debt estimates of §23-29, satisfying |Ĥ_R|≤Cκ^{-3}𝔈_R.",
+    "defining_relation": "\\widehat H_R=\\frac{R^4}{\\nu^2}H_0"
+  },
+  {
+    "key": "ns.c3.c3q.m_hat_r",
+    "latex": "\\widehat M_R",
+    "label_zh": "標準化局部應變均值",
+    "label_en": "Normalized local strain mean",
+    "definition_zh": "§21定義 M̂_R=(1/(νR))M_R；由Cauchy–Schwarz得界 |M̂_R|≤C𝔖_R^{1/2}（§22）。",
+    "definition_en": "Defined in §21 as M̂_R=(1/(νR))M_R; bounded via Cauchy–Schwarz by |M̂_R|≤C𝔖_R^{1/2} (§22).",
+    "defining_relation": "\\widehat M_R=\\frac{1}{\\nu R}M_R"
+  },
+  {
+    "key": "ns.c3.c3q.b_hat_h0",
+    "latex": "\\widehat B_{H_0}",
+    "label_zh": "標準化壓力流",
+    "label_en": "Normalized pressure-work / current",
+    "definition_zh": "§21定義 B̂_{H_0}=(R³/ν³)B_{H_0}=−Ĥ_R:M̂_R；定理24.1界為 Cκ^{-3}𝔈_R^{3/2}，是§25-28 enstrophy debt與pressure-work horizon的核心量。",
+    "definition_en": "Defined in §21 as B̂_{H_0}=(R³/ν³)B_{H_0}=−Ĥ_R:M̂_R; bounded by Cκ^{-3}𝔈_R^{3/2} in Theorem 24.1, the central quantity behind the §25-28 enstrophy debt and pressure-work horizon.",
+    "defining_relation": "\\widehat B_{H_0}=\\frac{R^3}{\\nu^3}B_{H_0}=-\\widehat H_R:\\widehat M_R,\\qquad |\\widehat B_{H_0}|\\le C\\kappa^{-3}\\mathfrak E_R^{3/2}"
+  },
+  {
+    "key": "ns.c3.c3q.strain_stock",
+    "latex": "\\mathfrak S_R",
+    "label_zh": "局部應變存量",
+    "label_en": "Local strain stock",
+    "definition_zh": "§22定義 𝔖_R=(R/ν²)∫χ_R|S|²dx，滿足𝔖_R≤𝔈_R（§23），用以界定標準化局部應變均值M̂_R的大小。",
+    "definition_en": "Defined in §22 as 𝔖_R=(R/ν²)∫χ_R|S|²dx, satisfying 𝔖_R≤𝔈_R (§23); used to bound the size of the normalized mean M̂_R.",
+    "defining_relation": "\\mathfrak S_R=\\frac{R}{\\nu^2}\\int\\chi_R|S|^2dx"
+  },
+  {
+    "key": "ns.c3.c3q.rescaled_enstrophy",
+    "latex": "\\mathfrak E_R",
+    "label_zh": "重標度全域enstrophy",
+    "label_en": "Rescaled global enstrophy",
+    "definition_zh": "沿用C3-P定義 𝔈_R=(R/ν²)‖∇u‖₂²（§23）；本輪核心新結果為：固定大小的遠場壓力補償迫使 𝔈_R≳κ²（§25，C3-Q.6「Far-Pressure Enstrophy Debt」），驅動§27-28兩個壓力視界的尺度。",
+    "definition_en": "Carried over from C3-P as 𝔈_R=(R/ν²)‖∇u‖₂² (§23); this round's key new result is that any fixed-size far-pressure compensation forces 𝔈_R≳κ² (§25, C3-Q.6 \"Far-Pressure Enstrophy Debt\"), which sets the scale of the two pressure horizons of §27-28.",
+    "defining_relation": "\\mathfrak E_R=\\frac{R}{\\nu^2}\\|\\nabla u\\|_2^2,\\qquad \\mathfrak E_R\\gtrsim\\kappa^2"
+  },
+  {
+    "key": "ns.c3.c3q.hessian_pressure_horizon",
+    "latex": "\\textbf{Hessian Pressure Horizon}",
+    "label_zh": "Hessian壓力視界",
+    "label_en": "Hessian pressure horizon",
+    "definition_zh": "§27命名的尺度：欲使遠場Hessian |Ĥ_R|≤ε，κ須滿足κ≳(𝔈_R/ε)^{1/3}；其重標度半徑隨𝔈_R^{1/3}擴張。",
+    "definition_en": "Named scale defined in §27: forcing the far Hessian |Ĥ_R|≤ε requires κ≳(𝔈_R/ε)^{1/3}; its rescaled radius grows like 𝔈_R^{1/3}.",
+    "defining_relation": "\\kappa\\gtrsim\\left(\\frac{\\mathfrak E_R}{\\varepsilon}\\right)^{1/3}"
+  },
+  {
+    "key": "ns.c3.c3q.pressure_work_horizon",
+    "latex": "\\textbf{pressure-work horizon}",
+    "label_zh": "壓力功視界",
+    "label_en": "Pressure-work horizon",
+    "definition_zh": "§28命名的尺度：欲使 |B̂_{H_0}|≤ε，κ須滿足κ≳𝔈_R^{1/2}ε^{-1/3}；可能比Hessian壓力視界更大。",
+    "definition_en": "Named scale defined in §28: forcing |B̂_{H_0}|≤ε requires κ≳𝔈_R^{1/2}ε^{-1/3}; may exceed the Hessian-amplitude horizon in size.",
+    "defining_relation": "\\kappa\\gtrsim\\mathfrak E_R^{1/2}\\varepsilon^{-1/3}"
+  },
+  {
+    "key": "ns.c3.c3q.trace_free_redistribution_debt",
+    "latex": "\\textbf{Trace-Free Redistribution Debt}",
+    "label_zh": "無跡重分配債",
+    "label_en": "Trace-free redistribution debt",
+    "definition_zh": "§33命名的結構性事實：壓力欲促進中間應變λ_2^+成長（需h_2^{(S)}<0）時，無跡性Σh_i^{(S)}=0迫使必在另一特徵方向同時支付相反符號的重分配（h_j^{(S)}>0）。",
+    "definition_en": "Structural fact named in §33: whenever pressure promotes middle-strain growth λ_2^+ (requiring h_2^{(S)}<0), trace-freeness Σh_i^{(S)}=0 forces it to simultaneously pay an opposite-sign redistribution (h_j^{(S)}>0) in another eigendirection."
+  },
+  {
+    "key": "ns.c3.c3q.h_hat_star",
+    "latex": "\\widehat H_\\ast",
+    "label_zh": "遠場壓力緊緻極限",
+    "label_en": "Far-pressure compactness limit",
+    "definition_zh": "§35，由|Ĥ_n|有界及Sym_0(3)為5維空間，可取子序列使Ĥ_n→Ĥ_*；此僅是leading far-harmonic motif的緊緻性，不代表完整壓力場緊緻。",
+    "definition_en": "In §35, boundedness of |Ĥ_n| together with the 5-dimensionality of Sym_0(3) yields a subsequential limit Ĥ_n→Ĥ_*; this is only compactness of the leading far-harmonic motif, not of the full pressure field.",
+    "defining_relation": "\\widehat H_n\\to\\widehat H_\\ast",
+    "notes": "§36 restates the same limit without the hat, as \"H_*\" — likely the identical object; a minor notational inconsistency in the source."
+  },
+  {
+    "key": "ns.c3.c3q.survivor_qa",
+    "latex": "Q-A",
+    "label_zh": "存活分支Q-A：核心算子／壓力解耦",
+    "label_en": "Survivor branch Q-A: core operator / pressure-decoupled",
+    "definition_zh": "§37分類之一：Q_c≳D_c 且 Ĥ_far→0；singular debt真正位於core投影動力學本身。",
+    "definition_en": "One of the §37 classification branches: Q_c≳D_c and Ĥ_far→0; the singular debt genuinely resides in the core's projected dynamics itself."
+  },
+  {
+    "key": "ns.c3.c3q.survivor_qb",
+    "latex": "Q-B",
+    "label_zh": "存活分支Q-B：核心算子／壓力活躍",
+    "label_en": "Survivor branch Q-B: core operator / pressure-active",
+    "definition_zh": "§37分類之一：Q_c≳D_c 且 Ĥ_far不趨於0；需要算子逃逸與5D遠場壓力矩陣共同維持singular dynamics。",
+    "definition_en": "One of the §37 classification branches: Q_c≳D_c and Ĥ_far does not vanish; operator escape and the 5D far-pressure matrix must jointly sustain the singular dynamics."
+  },
+  {
+    "key": "ns.c3.c3q.survivor_qc",
+    "latex": "Q-C",
+    "label_zh": "存活分支Q-C：外部算子／壓力活躍",
+    "label_en": "Survivor branch Q-C: exterior operator / pressure-active",
+    "definition_zh": "§37分類之一：global Miller debt主要位於exterior，但透過調和壓力矩陣影響core，稱為「defect-fed pressure ancestry」。",
+    "definition_en": "One of the §37 classification branches: the global Miller debt sits mainly in the exterior but still influences the core via the harmonic pressure matrix — termed \"defect-fed pressure ancestry.\""
+  },
+  {
+    "key": "ns.c3.c3q.survivor_qd",
+    "latex": "Q-D",
+    "label_zh": "存活分支Q-D：外部算子／壓力解耦",
+    "label_en": "Survivor branch Q-D: exterior operator / pressure-decoupled",
+    "definition_zh": "§37分類之一：全域singular算子債與目前ancestry core分離，暗示所選核心可能非完整singular driver，需重新selection或多核genealogy。",
+    "definition_en": "One of the §37 classification branches: the global singular operator debt is decoupled from the currently chosen ancestry core, implying the chosen core may not be the complete singular driver and a re-selection or multi-core genealogy is needed."
+  },
+  {
+    "key": "ns.c3.c3q.theta_op",
+    "latex": "\\Theta_{\\rm op}",
+    "label_zh": "投影算子張力",
+    "label_en": "Projected operator tension",
+    "definition_zh": "§39 True ETN更新的三分量之一：Θ_op=(𝒬_SV,d_SV,core/exterior carrier)；與Θ_p構成projection-complement關係，但非同一observable。",
+    "definition_en": "One of three components in the §39 True-ETN update: Θ_op=(𝒬_SV, d_SV, core/exterior carrier); stands in a projection-complement relation to Θ_p without being the same observable.",
+    "defining_relation": "\\Theta_{\\rm op}=(\\mathcal Q_{SV},d_{SV},\\text{core/exterior carrier})"
+  },
+  {
+    "key": "ns.c3.c3q.theta_p",
+    "latex": "\\Theta_{\\rm p}",
+    "label_zh": "約束壓力張力",
+    "label_en": "Constraint pressure tension",
+    "definition_zh": "§39 True ETN更新之一：Θ_p=(H_0,E_far,ζ,𝔈_R,κ)，彙整本輪遠場壓力的全部量化描述子。",
+    "definition_en": "One of the §39 True-ETN components: Θ_p=(H_0,E_far,ζ,𝔈_R,κ), collecting this round's full set of quantitative far-pressure descriptors.",
+    "defining_relation": "\\Theta_{\\rm p}=(H_0,E_{\\rm far},\\zeta,\\mathfrak E_R,\\kappa)",
+    "notes": "Uses \"ζ\" without the R subscript, unlike §20's ζ_R; almost certainly the same alignment coefficient, generically written."
+  },
+  {
+    "key": "ns.c3.c3q.theta_strain",
+    "latex": "\\Theta_{\\rm strain}",
+    "label_zh": "整體應變幾何張力",
+    "label_en": "Bulk strain geometry tension",
+    "definition_zh": "§39 True ETN更新第三分量：Θ_strain=(λ_1,λ_2,λ_3,ξ,det S)，代表應變特徵值、渦度方向與行列式構成的整體幾何資料。",
+    "definition_en": "The third §39 True-ETN component: Θ_strain=(λ_1,λ_2,λ_3,ξ,det S), the bulk geometric data of strain eigenvalues, vorticity direction, and determinant.",
+    "defining_relation": "\\Theta_{\\rm strain}=(\\lambda_1,\\lambda_2,\\lambda_3,\\xi,\\det S)",
+    "notes": "ξ (vorticity direction) appears here without being defined within this document; inherited from earlier rounds in the series."
+  }
+]

@@ -1,0 +1,264 @@
+[
+  {
+    "key": "ns.c3.c3b.d_operator",
+    "latex": "D",
+    "label_zh": "分數階拉普拉斯算子",
+    "label_en": "Fractional Laplacian operator",
+    "definition_zh": "第0節重申的基礎算子 $D=\\sqrt{-\\Delta}$，是全篇所有 $H_\\pm,D_\\pm,\\mathcal E_\\pm$ 等 critical Sobolev 範數量的構造基礎。",
+    "definition_en": "Base operator $D=\\sqrt{-\\Delta}$ restated in Sec. 0; used to build every critical Sobolev-norm quantity ($H_\\pm$, $D_\\pm$, $\\mathcal E_\\pm$) in the paper.",
+    "defining_relation": "D=\\sqrt{-\\Delta}",
+    "notes": "承襲自更早輪次；本輪僅重申作為記號基礎，注意與純量 $D_\\pm(t)$（第0節，另條目）字母相同但意義不同。"
+  },
+  {
+    "key": "ns.c3.c3b.u_pm",
+    "latex": "u^\\pm",
+    "label_zh": "螺旋（手性）投影場",
+    "label_en": "Helical (chirality) projection fields",
+    "definition_zh": "第1節正式定義：divergence-free $u$ 分解出的正/負螺旋分量，滿足 $\\nabla\\times u^\\pm=\\pm Du^\\pm$，且在所有 $D$-生成的 Sobolev 內積下彼此正交。",
+    "definition_en": "Sec. 1 formal definition: the positive/negative helical components of divergence-free $u$, satisfying $\\nabla\\times u^\\pm=\\pm Du^\\pm$ and mutually orthogonal in every $D$-generated Sobolev inner product.",
+    "defining_relation": "u^\\pm=\\frac12\\left(u\\pm D^{-1}\\nabla\\times u\\right)",
+    "notes": "概念源自上一輪 C3-A 的 helical decomposition；本輪第1節給出正式算子公式並推導正交性，為全篇基礎。"
+  },
+  {
+    "key": "ns.c3.c3b.h_pm",
+    "latex": "H_\\pm(t)",
+    "label_zh": "螺旋扇區臨界能量（瞬時）",
+    "label_en": "Helical-sector critical energy (instantaneous)",
+    "definition_zh": "第0節回顧 C3-A 的定義：正/負螺旋分量的 $\\dot H^{1/2}$ 範數平方，是累積量 $\\mathcal E_\\pm$ 的瞬時部分，並在定理5.1證明中用於構造 $S_n\\to\\infty$。",
+    "definition_en": "Recapped from C3-A in Sec. 0: squared $\\dot H^{1/2}$ norm of each helical component, the instantaneous part of $\\mathcal E_\\pm$; used in the proof of Thm 5.1 to build $S_n\\to\\infty$.",
+    "defining_relation": "H_\\pm(t)=\\|D^{1/2}u^\\pm(t)\\|_2^2"
+  },
+  {
+    "key": "ns.c3.c3b.d_pm",
+    "latex": "D_\\pm(t)",
+    "label_zh": "螺旋扇區耗散量",
+    "label_en": "Helical-sector dissipation quantity",
+    "definition_zh": "第0節回顧 C3-A 定義：正/負螺旋分量的 $\\dot H^{3/2}$ 範數平方，出現於 sector balance 方程 $\\frac12H_\\pm'+\\nu D_\\pm=\\mathcal R_\\pm$，其時間積分構成 $\\mathcal E_\\pm$ 的累積耗散部分。",
+    "definition_en": "Recapped from C3-A in Sec. 0: squared $\\dot H^{3/2}$ norm of each helical component in the sector balance $\\frac12H_\\pm'+\\nu D_\\pm=\\mathcal R_\\pm$; its time integral forms the accumulated-dissipation part of $\\mathcal E_\\pm$.",
+    "defining_relation": "D_\\pm(t)=\\|D^{3/2}u^\\pm(t)\\|_2^2",
+    "notes": "此為純量耗散量，與算子 $D=\\sqrt{-\\Delta}$ 僅共用字母，意義不同。"
+  },
+  {
+    "key": "ns.c3.c3b.r_common",
+    "latex": "\\mathcal R(t)",
+    "label_zh": "共同臨界配對產生率",
+    "label_en": "Common critical pair-production rate",
+    "definition_zh": "第3節定義：由 C3-A 的 $\\mathcal R_+=\\mathcal R_-$ 結果導出的單一共同量，等於 $\\mathcal E_\\pm$ 的導數，是全篇（fixed-low bound、UV escape 定理）核心追蹤對象。",
+    "definition_en": "Sec. 3 definition: since $\\mathcal R_+=\\mathcal R_-$ (a C3-A result), a single common rate equal to the derivative of either $\\mathcal E_\\pm$; the central quantity tracked throughout (fixed-low bound, UV-escape theorem).",
+    "defining_relation": "\\mathcal R(t)=\\mathcal E_+'(t)=\\mathcal E_-'(t)",
+    "notes": "sector-wise 版本 $\\mathcal R_\\pm(t)$ 源自 C3-A 的 sector balance；本輪確立兩者相等並統一為 $\\mathcal R(t)$。"
+  },
+  {
+    "key": "ns.c3.c3b.e_pm",
+    "latex": "\\mathcal E_\\pm(t)",
+    "label_zh": "累積臨界螺旋能量",
+    "label_en": "Cumulative critical helical energy",
+    "definition_zh": "第2節定義：瞬時臨界能量 $\\frac12H_\\pm(t)$ 加上耗散時間積分，即 Lei–Lin–Zhou critical-helicity identity 中的量，滿足 $\\mathcal E_+(t)=\\mathcal E_-(t)+c_0$。",
+    "definition_en": "Sec. 2 definition: instantaneous critical energy $\\frac12H_\\pm(t)$ plus time-integrated dissipation; the quantity in the Lei–Lin–Zhou critical-helicity identity, satisfying $\\mathcal E_+(t)=\\mathcal E_-(t)+c_0$.",
+    "defining_relation": "\\mathcal E_\\pm(t)=\\frac12\\|D^{1/2}u^\\pm(t)\\|_2^2+\\nu\\int_0^t\\|D^{3/2}u^\\pm(s)\\|_2^2\\,ds",
+    "notes": "本輪最核心的新量之一；定理5.1（C3-B.1）與推論6.1（C3-B.2）皆以此為主角。"
+  },
+  {
+    "key": "ns.c3.c3b.c0",
+    "latex": "c_0",
+    "label_zh": "初始螺旋偏差常數",
+    "label_en": "Initial helicity-bias constant",
+    "definition_zh": "第2節定義：由初始資料 $u_0^\\pm$ 決定的守恆常數，滿足 $\\mathcal E_+(t)-\\mathcal E_-(t)=c_0$ 對所有存在時間成立（Lei–Lin–Zhou 外部定理）。",
+    "definition_en": "Sec. 2 definition: a conserved constant fixed by initial data $u_0^\\pm$, satisfying $\\mathcal E_+(t)-\\mathcal E_-(t)=c_0$ for all times of smooth existence (external Lei–Lin–Zhou theorem).",
+    "defining_relation": "c_0=\\frac12\\left(\\|D^{1/2}u_0^+\\|_2^2-\\|D^{1/2}u_0^-\\|_2^2\\right)",
+    "notes": "第7節指出：無論 $c_0$ 多大，blow-up 時 $\\mathcal E_\\pm\\to\\infty$ 會使其漸近可忽略。"
+  },
+  {
+    "key": "ns.c3.c3b.s_n",
+    "latex": "S_n",
+    "label_zh": "雙扇區能量和序列",
+    "label_en": "Bi-sector energy sum sequence",
+    "definition_zh": "定理5.1證明中定義：沿 $t_n\\uparrow T_\\ast$ 的 $\\mathcal E_++\\mathcal E_-$ 序列，用以推出 $\\mathcal E_\\pm(t_n)=\\frac{S_n\\pm c_0}{2}\\to\\infty$ 及推論6.1的比值極限1。",
+    "definition_en": "Defined in the proof of Thm 5.1: the sequence $\\mathcal E_++\\mathcal E_-$ along $t_n\\uparrow T_\\ast$, used to derive $\\mathcal E_\\pm(t_n)=\\frac{S_n\\pm c_0}{2}\\to\\infty$ and Cor. 6.1's ratio limit of 1.",
+    "defining_relation": "S_n:=\\mathcal E_+(t_n)+\\mathcal E_-(t_n)"
+  },
+  {
+    "key": "ns.c3.c3b.triad_wavenumbers",
+    "latex": "k,p,q",
+    "label_zh": "傅立葉三元組波數",
+    "label_en": "Fourier triad wavenumbers",
+    "definition_zh": "第9節定義：滿足 closure $\\mathbf k+\\mathbf p+\\mathbf q=0$ 的三個波向量之模，按大小排序 $0<k\\le p\\le q$，是第9–17、25–26節 triad algebra 的基本座標。",
+    "definition_en": "Sec. 9 definition: magnitudes of three wavevectors satisfying the closure $\\mathbf k+\\mathbf p+\\mathbf q=0$, ordered $0<k\\le p\\le q$; the basic coordinates of the triad algebra in Secs. 9-17, 25-26.",
+    "defining_relation": "\\mathbf k+\\mathbf p+\\mathbf q=0, 0<k\\le p\\le q"
+  },
+  {
+    "key": "ns.c3.c3b.helical_signs",
+    "latex": "s_k,s_p,s_q",
+    "label_zh": "三元組螺旋號",
+    "label_en": "Triad helical signs",
+    "definition_zh": "第9節定義：三元組中每個模態各自所屬的螺旋（手性）正負號，決定該 triad 屬於同手性（Class I）或異手性（Class II–IV）。",
+    "definition_en": "Sec. 9 definition: the helicity sign of each triad mode, determining whether the triad is homochiral (Class I) or heterochiral (Classes II-IV).",
+    "defining_relation": "s_k,s_p,s_q\\in\\{+1,-1\\}"
+  },
+  {
+    "key": "ns.c3.c3b.mode_energy",
+    "latex": "e_k,e_p,e_q",
+    "label_zh": "螺旋模態能量密度",
+    "label_en": "Helical mode energy density",
+    "definition_zh": "第9節定義（$e_p,e_q$ 同理）：波數 $\\mathbf k$ 處、其自身螺旋號分量的能量密度，滿足 triad-wise 守恆 $\\dot e_k+\\dot e_p+\\dot e_q=0$ 及 $s_kk\\dot e_k+s_pp\\dot e_p+s_qq\\dot e_q=0$。",
+    "definition_en": "Sec. 9 definition (with $e_p,e_q$ analogous): energy density of the mode at $\\mathbf k$ in its own helical sign, obeying triad-wise conservation $\\dot e_k+\\dot e_p+\\dot e_q=0$ and $s_kk\\dot e_k+s_pp\\dot e_p+s_qq\\dot e_q=0$.",
+    "defining_relation": "e_k=\\frac12|u^{s_k}(\\mathbf k)|^2"
+  },
+  {
+    "key": "ns.c3.c3b.theta_tau",
+    "latex": "\\Theta_\\tau",
+    "label_zh": "三元組轉移零空間純量",
+    "label_en": "Triad transfer nullspace scalar",
+    "definition_zh": "引理10.1定義：因 $(\\dot e_k,\\dot e_p,\\dot e_q)$ 同時正交於 $(1,1,1)$ 與 $(s_kk,s_pp,s_qq)$（一維零空間），所得的比例純量，決定 triad 的實際轉移速率與正負號。",
+    "definition_en": "Lemma 10.1 definition: since $(\\dot e_k,\\dot e_p,\\dot e_q)$ lies in the (one-dimensional) joint orthogonal complement of $(1,1,1)$ and $(s_kk,s_pp,s_qq)$, this proportionality scalar fixes the triad's actual transfer rate and sign.",
+    "defining_relation": "(\\dot e_k,\\dot e_p,\\dot e_q)=\\Theta_\\tau(s_p p-s_q q,s_q q-s_k k,s_k k-s_p p)",
+    "notes": "第31.5節（C3-C.5）指出 $\\Theta_\\tau$ 尚包含 triad phase/amplitude/geometric coefficient，其持續正號性列為未解問題。"
+  },
+  {
+    "key": "ns.c3.c3b.helicity_classes",
+    "latex": "\\mathrm{I},\\mathrm{II},\\mathrm{III},\\mathrm{IV}",
+    "label_zh": "四類螺旋號組態",
+    "label_en": "Four helicity-sign configuration classes",
+    "definition_zh": "第12節定義（固定最小波數號為 $+$ 後）：四種獨立 helicity 組態，I 為同手性，II–IV 為異手性，依 unique sign 落在最小/中間/最大波數區分。",
+    "definition_en": "Sec. 12 definition (after fixing the smallest-wavenumber sign to $+$): the four independent helicity configurations; I is homochiral, II-IV heterochiral, classified by whether the unique sign sits at the smallest/middle/largest wavenumber.",
+    "defining_relation": "\\mathrm{I}:(+++),\\mathrm{II}:(+--),\\mathrm{III}:(+-+),\\mathrm{IV}:(++-)"
+  },
+  {
+    "key": "ns.c3.c3b.script_a_tau",
+    "latex": "\\mathscr A_\\tau",
+    "label_zh": "三元組絕對臨界內容",
+    "label_en": "Triad absolute critical content",
+    "definition_zh": "第11節定義：三元組對 $\\frac12\\|D^{1/2}u\\|_2^2$ 的貢獻量；同手性三元組滿足 $\\dot{\\mathscr A}_\\tau=0$（第13節），異手性則 $\\dot{\\mathscr A}_\\tau=2\\mathcal R_\\tau$（第14節）。",
+    "definition_en": "Sec. 11 definition: a triad's contribution to $\\frac12\\|D^{1/2}u\\|_2^2$; vanishes identically for homochiral triads (Sec. 13, $\\dot{\\mathscr A}_\\tau=0$), while $\\dot{\\mathscr A}_\\tau=2\\mathcal R_\\tau$ for heterochiral ones (Sec. 14).",
+    "defining_relation": "\\mathscr A_\\tau=k e_k+p e_p+q e_q"
+  },
+  {
+    "key": "ns.c3.c3b.script_h_tau",
+    "latex": "\\mathscr H_\\tau",
+    "label_zh": "帶號螺旋度半密度",
+    "label_en": "Signed helicity half-density",
+    "definition_zh": "第11節定義：三元組的帶號螺旋度貢獻，在 nonlinear dynamics 下恆為守恆量 $\\dot{\\mathscr H}_\\tau=0$；Class I 時等於 $\\mathscr A_\\tau$（第13節）。",
+    "definition_en": "Sec. 11 definition: the triad's signed-helicity contribution, exactly conserved under the nonlinear dynamics ($\\dot{\\mathscr H}_\\tau=0$); equals $\\mathscr A_\\tau$ for Class I (Sec. 13).",
+    "defining_relation": "\\mathscr H_\\tau=s_k k e_k+s_p p e_p+s_q q e_q"
+  },
+  {
+    "key": "ns.c3.c3b.r_tau",
+    "latex": "r_\\tau",
+    "label_zh": "唯一螺旋號模態波數",
+    "label_en": "Unique-helicity-sign mode wavenumber",
+    "definition_zh": "第14節定義：異手性三元組中與另兩者號不同的「唯一號模態」之波數，是 UV escape（第23、25節）與 X-guard 框架的核心座標，依 Class II/III/IV 分別等於 $k,p,q$。",
+    "definition_en": "Sec. 14 definition: the wavenumber of the single mode in a heterochiral triad whose sign differs from the other two; the central coordinate of the UV-escape argument (Secs. 23, 25) and X-guard framework, equal to $k,p,q$ in Class II/III/IV respectively."
+  },
+  {
+    "key": "ns.c3.c3b.e_uniq",
+    "latex": "e_{\\rm uniq}",
+    "label_zh": "唯一號模態能量",
+    "label_en": "Unique-sign mode energy",
+    "definition_zh": "第14節定義：波數為 $r_\\tau$ 的唯一螺旋號模態之能量，滿足 $\\dot{\\mathscr A}_\\tau=2r_\\tau\\dot e_{\\rm uniq}$，將 critical pair production 連結到單一模態的能量變化率。",
+    "definition_en": "Sec. 14 definition: the energy of the unique-sign mode at wavenumber $r_\\tau$, satisfying $\\dot{\\mathscr A}_\\tau=2r_\\tau\\dot e_{\\rm uniq}$, linking critical pair production to a single mode's rate of energy change.",
+    "defining_relation": "\\dot{\\mathscr A}_\\tau=2r_\\tau\\dot e_{\\rm uniq}"
+  },
+  {
+    "key": "ns.c3.c3b.r_tau_rate",
+    "latex": "\\mathcal R_\\tau",
+    "label_zh": "三元組配對產生率貢獻",
+    "label_en": "Triad's pair-production rate contribution",
+    "definition_zh": "第14節定義：單一三元組對共同產生率 $\\mathcal R$ 的貢獻，把「critical pair production」重新解讀為波數加權的、流向唯一螺旋號模態的能量轉移。",
+    "definition_en": "Sec. 14 definition: a single triad's contribution to the common production rate $\\mathcal R$, reinterpreting critical pair production as wavenumber-weighted energy transfer into the unique-sign mode.",
+    "defining_relation": "\\mathcal R_\\tau=r_\\tau\\dot e_{\\rm uniq}",
+    "notes": "第16節給出絕對值公式 $|\\mathcal R_\\tau|=r_\\tau\\Delta_\\tau|\\Theta_\\tau|$；第17節給出上界 $|\\mathcal R_\\tau|\\le r_\\tau^2|\\Theta_\\tau|$。"
+  },
+  {
+    "key": "ns.c3.c3b.r_class_formulas",
+    "latex": "\\mathcal R_{\\mathrm{II}},\\mathcal R_{\\mathrm{III}},\\mathcal R_{\\mathrm{IV}}",
+    "label_zh": "分類三元組產生率精確公式",
+    "label_en": "Class-specific exact triad production-rate formulas",
+    "definition_zh": "第15節（Exact triad table）：依引理10.1，Class II/III/IV 各自 unique-sign 模態在最小/中間/最大波數時 $\\mathcal R_\\tau$ 的顯式表達式。",
+    "definition_en": "Sec. 15 (exact triad table): explicit formulas for $\\mathcal R_\\tau$ in Classes II/III/IV, where the unique-sign mode sits at the smallest/middle/largest wavenumber respectively.",
+    "defining_relation": "\\mathcal R_{\\mathrm{II}}=k(q-p)\\Theta_\\tau, \\mathcal R_{\\mathrm{III}}=p(q-k)\\Theta_\\tau, \\mathcal R_{\\mathrm{IV}}=q(k-p)\\Theta_\\tau"
+  },
+  {
+    "key": "ns.c3.c3b.delta_tau",
+    "latex": "\\Delta_\\tau",
+    "label_zh": "同號徑向波數差",
+    "label_en": "Same-sign radial wavenumber gap",
+    "definition_zh": "第16節定義：異手性三元組中另兩個同螺旋號模態的波數差，統一寫出 $|\\mathcal R_\\tau|=r_\\tau\\Delta_\\tau|\\Theta_\\tau|$；$\\Delta_\\tau=0$ 時即使 heterochiral 仍有 $\\mathcal R_\\tau=0$。",
+    "definition_en": "Sec. 16 definition: the wavenumber gap between the two same-sign modes in a heterochiral triad, giving $|\\mathcal R_\\tau|=r_\\tau\\Delta_\\tau|\\Theta_\\tau|$; when $\\Delta_\\tau=0$, $\\mathcal R_\\tau=0$ even though the triad is heterochiral.",
+    "defining_relation": "\\Delta_\\tau=\\left|a_\\tau-b_\\tau\\right|",
+    "notes": "第17節由 triangle inequalities 證明 $0\\le\\Delta_\\tau\\le r_\\tau$；$a_\\tau,b_\\tau$ 泛指該 triad 中除 $r_\\tau$ 外的另兩個波數。"
+  },
+  {
+    "key": "ns.c3.c3b.x_guards",
+    "latex": "G-H, G-U, G-\\Delta, G-GEO, G-PHASE",
+    "label_zh": "X-Guard 最低形成資格五守衛",
+    "label_en": "X-Guard five formation-eligibility conditions",
+    "definition_zh": "第18節定義：一個 triad 要對 $\\mathcal R$ 有非零貢獻須同時通過的五個守衛——異手性、唯一號模態不退化、徑向差非零（$\\Delta_\\tau>0$）、幾何耦合非退化、相位轉移非零（$\\Theta_\\tau\\ne0$），防止把「mixed sign」直接等同「危險 transfer」。",
+    "definition_en": "Sec. 18 definition: five guards a triad must simultaneously pass for nonzero contribution to $\\mathcal R$ — heterochiral, nondegenerate unique-sign participation, nonzero radial gap ($\\Delta_\\tau>0$), nondegenerate geometric coupling, and nonzero phase transfer ($\\Theta_\\tau\\ne0$); prevents conflating 'mixed sign' with 'dangerous transfer.'",
+    "notes": "五守衛併入第29節的 $\\operatorname{XHelUV}_n$ 證書結構前四項。"
+  },
+  {
+    "key": "ns.c3.c3b.r_uniq_pm",
+    "latex": "\\mathcal R_{\\mathrm{uniq}+},\\mathcal R_{\\mathrm{uniq}-}",
+    "label_zh": "全域唯一號產生率分支",
+    "label_en": "Global unique-sign production channels",
+    "definition_zh": "第19節定義：把 $\\mathcal R=\\mathcal R_{\\mathrm{uniq}+}+\\mathcal R_{\\mathrm{uniq}-}$ 依 physical-space bilinear 形式（含螺旋投影 $\\mathbb P^\\pm$）寫出，代表每個 heterochiral triad 只由其唯一號模態計帳一次。",
+    "definition_en": "Sec. 19 definition: splits $\\mathcal R=\\mathcal R_{\\mathrm{uniq}+}+\\mathcal R_{\\mathrm{uniq}-}$ in physical-space bilinear form (via helical projectors $\\mathbb P^\\pm$), each heterochiral triad counted exactly once by its unique-sign mode.",
+    "defining_relation": "\\mathcal R_{\\mathrm{uniq}+}=-\\langle Du^+,\\mathbb P^+((u^-\\cdot\\nabla)u^-)\\rangle, \\mathcal R_{\\mathrm{uniq}-}=-\\langle Du^-,\\mathbb P^-((u^+\\cdot\\nabla)u^+)\\rangle"
+  },
+  {
+    "key": "ns.c3.c3b.p_leq_k",
+    "latex": "P_{\\le K}",
+    "label_zh": "低通傅立葉截斷投影",
+    "label_en": "Low-pass Fourier cutoff projector",
+    "definition_zh": "第20節定義：平滑 Fourier low-pass 投影至波數 $\\le K$，用以定義固定低頻的唯一號產生率 $\\mathcal R_{\\le K}^{\\mathrm{uniq}}$。",
+    "definition_en": "Sec. 20 definition: a smooth Fourier low-pass projector onto wavenumbers $\\le K$, used to define the fixed-low-frequency unique-sign production rate $\\mathcal R_{\\le K}^{\\mathrm{uniq}}$."
+  },
+  {
+    "key": "ns.c3.c3b.r_leq_k_uniq",
+    "latex": "\\mathcal R_{\\le K}^{\\mathrm{uniq}}",
+    "label_zh": "固定低頻唯一號產生率",
+    "label_en": "Fixed-low unique-sign production rate",
+    "definition_zh": "第20節定義，定理21.1（C3-B.3）證明其滿足 $|\\mathcal R_{\\le K}^{\\mathrm{uniq}}(t)|\\le CK^{7/2}\\|u_0\\|_2^3$；第22節證明其時間積分有限，不能承擔 divergent cumulative production。",
+    "definition_en": "Sec. 20 definition, bounded in Thm 21.1 (C3-B.3) by $|\\mathcal R_{\\le K}^{\\mathrm{uniq}}(t)|\\le CK^{7/2}\\|u_0\\|_2^3$; Sec. 22 shows its time integral is finite, so it cannot sustain divergent cumulative production.",
+    "defining_relation": "\\mathcal R_{\\le K}^{\\mathrm{uniq}}=-\\langle DP_{\\le K}u^+,(u^-\\cdot\\nabla)u^-\\rangle-\\langle DP_{\\le K}u^-,(u^+\\cdot\\nabla)u^+\\rangle"
+  },
+  {
+    "key": "ns.c3.c3b.r_gt_k_uniq",
+    "latex": "\\mathcal R_{>K}^{\\mathrm{uniq}}",
+    "label_zh": "高頻唯一號產生率尾項",
+    "label_en": "High-frequency unique-sign production tail",
+    "definition_zh": "第23節定義（定理23.1／C3-B.4核心對象）：總產生率扣除固定低頻部分的餘項；證明若 $T_\\ast<\\infty$，則對任意 fixed $K$ 其正部時間積分必發散——即 Unique-Sign UV Escape。",
+    "definition_en": "Sec. 23 definition (central object of Thm 23.1 / C3-B.4): the remainder of the total production rate after subtracting the fixed-low part; if $T_\\ast<\\infty$, its positive-part time integral diverges for every fixed $K$ — the Unique-Sign UV Escape.",
+    "defining_relation": "\\mathcal R_{>K}^{\\mathrm{uniq}}=\\mathcal R-\\mathcal R_{\\le K}^{\\mathrm{uniq}}"
+  },
+  {
+    "key": "ns.c3.c3b.xheluv_n",
+    "latex": "\\operatorname{XHelUV}_n",
+    "label_zh": "奇異鏈 X-積分證書",
+    "label_en": "Singular-chain X-Integration certificate",
+    "definition_zh": "第29節定義：本輪更新的 X-Integration 證書元組，逐尺度須保存唯一號波數、徑向差、號、相位轉移、產生率與雙扇區累積臨界能量，並列出九項守衛。",
+    "definition_en": "Sec. 29 definition: this round's updated X-Integration certificate tuple, preserved scale-by-scale, packaging the unique-sign wavenumber, radial gap, sign, phase transfer, production rate and both sectors' cumulative critical energy, with nine listed guards.",
+    "defining_relation": "\\operatorname{XHelUV}_n=\\langle r_n,\\Delta_n,s_n,\\Theta_n,\\mathcal R_n,\\mathcal E_n^+,\\mathcal E_n^-,\\operatorname{Prov}_n\\rangle",
+    "notes": "元組末項 $\\operatorname{Prov}_n$（provenance）僅作為元組成分列出，未給出獨立公式，對應第0節『unique-sign mode provenance』新工作項目，信心度較低。"
+  },
+  {
+    "key": "ns.c3.c3b.r_q_uniq",
+    "latex": "\\mathcal R_q^{\\mathrm{uniq}}",
+    "label_zh": "殼層 q 唯一號產生率",
+    "label_en": "Shell-q unique-sign production rate",
+    "definition_zh": "第31節（C3-C.1，下一步 proof obligations）定義：唯一號模態位於 dyadic shell $q$ 的配對產生量，由 C3-B.4 導出 tail law $\\forall Q,\\int[\\sum_{q>Q}\\mathcal R_q^{\\mathrm{uniq}}]_+dt=\\infty$。",
+    "definition_en": "Defined in Sec. 31 (C3-C.1, next-step proof obligations): the pair production carried by the unique-sign mode in dyadic shell $q$; C3-B.4 yields the tail law $\\forall Q,\\int[\\sum_{q>Q}\\mathcal R_q^{\\mathrm{uniq}}]_+dt=\\infty$.",
+    "defining_relation": "\\forall Q,\\int[\\sum_{q>Q}\\mathcal R_q^{\\mathrm{uniq}}]_+dt=\\infty",
+    "notes": "前瞻性定義，銜接下一輪 C3-C，但文字寫在本文件第31節內。"
+  },
+  {
+    "key": "ns.c3.c3b.eta_tau",
+    "latex": "\\eta_\\tau",
+    "label_zh": "相對徑向差比",
+    "label_en": "Relative radial-gap ratio",
+    "definition_zh": "第31節（C3-C.2）定義：徑向差 $\\Delta_\\tau$ 相對唯一號波數 $r_\\tau$ 的比值，用於研究 $\\eta_\\tau\\ll1$ 的近退化三元組是否可被微擾吸收。",
+    "definition_en": "Defined in Sec. 31 (C3-C.2): the ratio of radial gap $\\Delta_\\tau$ to unique-sign wavenumber $r_\\tau$, used to study whether near-radially-degenerate triads ($\\eta_\\tau\\ll1$) can be perturbatively absorbed.",
+    "defining_relation": "\\eta_\\tau=\\frac{\\Delta_\\tau}{r_\\tau}",
+    "notes": "前瞻性定義，屬第31節『下一步 proof obligations』（銜接 C3-C），形式上寫在本文件內。"
+  }
+]

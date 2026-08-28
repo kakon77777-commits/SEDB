@@ -1,0 +1,281 @@
+[
+  {
+    "key": "ns.c3.c3f.t_q_operator",
+    "latex": "\\mathcal T_q",
+    "label_zh": "環形 Leray 臨界算子",
+    "label_en": "Annular Leray critical operator",
+    "definition_zh": "第1節定義的核心新算子 $\\mathcal T_qF=D\\Delta_q\\mathbb P\\nabla\\cdot F$，作用於張量場 $F$，總微分階數為2，其 Fourier multiplier 支撐在 annulus $|\\xi|\\sim\\lambda_q$。",
+    "definition_en": "The round's central new operator (Sec. 1), $\\mathcal T_qF=D\\Delta_q\\mathbb P\\nabla\\cdot F$ acting on a tensor field $F$; total differential order 2, multiplier supported on the annulus $|\\xi|\\sim\\lambda_q$.",
+    "defining_relation": "\\mathcal T_qF=D\\Delta_q\\mathbb P\\nabla\\cdot F"
+  },
+  {
+    "key": "ns.c3.c3f.d_op",
+    "latex": "D=\\sqrt{-\\Delta}",
+    "label_zh": "半階微分算子",
+    "label_en": "Square-root-Laplacian operator",
+    "definition_zh": "第1節引入，與 $\\Delta_q\\mathbb P\\nabla\\cdot$ 組合構成 $\\mathcal T_q$，貢獻1階微分，使 $\\mathcal T_q$ 總階數為2。",
+    "definition_en": "Introduced in Sec. 1; combined with $\\Delta_q\\mathbb P\\nabla\\cdot$ to build $\\mathcal T_q$, contributing order 1 so that $\\mathcal T_q$ has total differential order 2."
+  },
+  {
+    "key": "ns.c3.c3f.k_q_kernel",
+    "latex": "K_q=\\mathcal F^{-1}m_q",
+    "label_zh": "算子核及其縮放",
+    "label_en": "Kernel of 𝒯_q and its dyadic scaling",
+    "definition_zh": "第2節定義 $K_q=\\mathcal F^{-1}m_q$，滿足縮放 $K_q(x)=\\lambda_q^5K(\\lambda_qx)$，其中 $K\\in\\mathcal S(\\mathbb R^3)$ 為固定 Schwartz profile；其 rapid tail decay 是 physical-space quasi-locality 的來源。",
+    "definition_en": "Sec. 2 defines $K_q=\\mathcal F^{-1}m_q$ with scaling $K_q(x)=\\lambda_q^5K(\\lambda_qx)$ for a fixed Schwartz profile $K\\in\\mathcal S(\\mathbb R^3)$; its rapid off-support decay is the source of physical-space quasi-locality.",
+    "defining_relation": "K_q(x)=\\lambda_q^5K(\\lambda_qx)"
+  },
+  {
+    "key": "ns.c3.c3f.dist_ab",
+    "latex": "d=\\operatorname{dist}(A,B)",
+    "label_zh": "支撐集間距離",
+    "label_en": "Support separation distance",
+    "definition_zh": "定理3.1中，$f\\otimes g$ 支撐於 $A$、$h$ 支撐於 $B$ 時兩者的距離，用以量化 off-diagonal interaction 隨 $\\lambda_qd$ 的 rapid decay。",
+    "definition_en": "In Thm 3.1, the distance between support $A$ of $f\\otimes g$ and support $B$ of $h$; controls the rapid decay of the off-diagonal interaction in $\\lambda_qd$."
+  },
+  {
+    "key": "ns.c3.c3f.q_qm_cube",
+    "latex": "Q_{q,m},\\quad \\ell_q=c\\lambda_q^{-1}",
+    "label_zh": "尺度 q 空間分割立方體",
+    "label_en": "Scale-q spatial packet cube",
+    "definition_zh": "第5節在尺度 $\\lambda_q$ 上取的空間立方體格點，$m\\in\\mathbb Z^3$，邊長 $\\ell_q=c\\lambda_q^{-1}$，搭配 smooth bounded-overlap partition $\\sum_m\\chi_{q,m}=1$ 構成 admissible dyadic packet 格架。",
+    "definition_en": "Sec. 5's spatial grid at scale $\\lambda_q$, indexed by $m\\in\\mathbb Z^3$ with side length $\\ell_q=c\\lambda_q^{-1}$, paired with a smooth bounded-overlap partition $\\sum_m\\chi_{q,m}=1$ defining the admissible dyadic packet grid."
+  },
+  {
+    "key": "ns.c3.c3f.u_qm_packet",
+    "latex": "u_{q,m}=\\chi_{q,m}u_q",
+    "label_zh": "局域化 shell packet",
+    "label_en": "Spatially localized shell packet",
+    "definition_zh": "第5節定義，將 shell $u_q$ 乘上分割函數 $\\chi_{q,m}$ 局域化到立方體 $Q_{q,m}$，稱為 admissible dyadic packet；後續 $U_q$ 與 ancestry chain 均建立於此。",
+    "definition_en": "Sec. 5's localization of shell $u_q$ to cube $Q_{q,m}$ via $\\chi_{q,m}$, termed an admissible dyadic packet; the basic unit underlying $U_q$ and the later ancestry chain.",
+    "defining_relation": "u_{q,m}=\\chi_{q,m}u_q",
+    "notes": "Section 5 also allows an optional enlarged projector $\\widetilde\\Delta_q$ to restore strict annular localization if needed."
+  },
+  {
+    "key": "ns.c3.c3f.core_radius_r",
+    "latex": "R",
+    "label_zh": "核心半徑參數",
+    "label_en": "Core radius parameter",
+    "definition_zh": "第6節引入的無量綱參數 $R\\ge1$，定義 parent pair 是否屬於 $R$-core（重疊區域距 output cube 不超過 $R\\lambda_q^{-1}$）或 $R$-tail；是全文 $R_q,R_n,R_\\ast$ 等符號的基底。",
+    "definition_en": "Sec. 6's dimensionless parameter $R\\ge1$ separating parent pairs into $R$-core (overlap region within $R\\lambda_q^{-1}$ of the output cube) versus $R$-tail; the base symbol behind $R_q$, $R_n$, $R_\\ast$ later in the paper."
+  },
+  {
+    "key": "ns.c3.c3f.m_r_branching",
+    "latex": "M_R",
+    "label_zh": "有效核心親代組數上界",
+    "label_en": "Effective core parent-tuple bound",
+    "definition_zh": "命題7.1，固定 $R$ 下每個 output packet 的 effective core parent tuples 數目上界，與 $q$ 無關，$M_R=O(R^3)$ 乘上有限 helicity/角扇區組合因子；是 finite branching 的定量陳述。",
+    "definition_en": "Prop. 7.1's bound on the number of effective core parent tuples per output packet at fixed $R$, independent of $q$, scaling as $M_R=O(R^3)$ times a finite helicity/angular-sector combinatorial factor; the quantitative statement of finite branching.",
+    "defining_relation": "M_R=O(R^3)"
+  },
+  {
+    "key": "ns.c3.c3f.u_q_norm",
+    "latex": "U_q^2=\\sum_m\\|u_{q,m}\\|_2^2",
+    "label_zh": "聚合 packet 範數",
+    "label_en": "Aggregate packet norm",
+    "definition_zh": "第8節定義 $U_q^2=\\sum_m\\|u_{q,m}\\|_2^2$，由 bounded overlap 得 $U_q\\asymp\\|u_q\\|_2$；用於建構 $\\mathcal M_q^{\\rm scale}$ 與第29節 Zeno 論證中的臨界振幅 $A_n^{\\rm crit}$。",
+    "definition_en": "Sec. 8's aggregate norm $U_q^2=\\sum_m\\|u_{q,m}\\|_2^2$, comparable to $\\|u_q\\|_2$ by bounded overlap; feeds into $\\mathcal M_q^{\\rm scale}$ and the critical amplitude $A_n^{\\rm crit}$ in the Sec. 29 Zeno argument.",
+    "defining_relation": "U_q^2=\\sum_m\\|u_{q,m}\\|_2^2"
+  },
+  {
+    "key": "ns.c3.c3f.tail_bound",
+    "latex": "\\mathcal R_q^{\\rm tail}(R)",
+    "label_zh": "Packet 尾端聚合貢獻",
+    "label_en": "Aggregate packet tail contribution",
+    "definition_zh": "定理8.1中，所有距 output 超過 $R\\lambda_q^{-1}$ 的 packet interactions 總和，滿足 $|\\mathcal R_q^{\\rm tail}(R)|\\le C_NR^{-N}\\lambda_q^{7/2}U_q^3$，是 locality–coherence tradeoff（定理10.1）的核心估計量。",
+    "definition_en": "Thm 8.1's sum of all packet interactions farther than $R\\lambda_q^{-1}$ from the output, bounded by $C_NR^{-N}\\lambda_q^{7/2}U_q^3$; the key estimate feeding the locality–coherence tradeoff (Thm 10.1).",
+    "defining_relation": "|\\mathcal R_q^{\\rm tail}(R)|\\le C_NR^{-N}\\lambda_q^{7/2}U_q^3"
+  },
+  {
+    "key": "ns.c3.c3f.m_q_scale",
+    "latex": "\\mathcal M_q^{\\rm scale}=\\lambda_q^{7/2}U_q^3",
+    "label_zh": "尺度化振幅容量",
+    "label_en": "Scaling proxy for amplitude capacity",
+    "definition_zh": "第8節定義 $\\mathcal M_q^{\\rm scale}=\\lambda_q^{7/2}U_q^3$，與 C3-E 的 maximal local amplitude capacity $\\mathcal M_q$ 同 scaling（$\\mathcal M_q\\le C_0\\mathcal M_q^{\\rm scale}$），用以在 tail bound 中取代 $\\mathcal M_q$。",
+    "definition_en": "Sec. 8's $\\mathcal M_q^{\\rm scale}=\\lambda_q^{7/2}U_q^3$, sharing scaling with C3-E's amplitude capacity $\\mathcal M_q$ (via $\\mathcal M_q\\le C_0\\mathcal M_q^{\\rm scale}$); used in place of $\\mathcal M_q$ inside the tail bound.",
+    "defining_relation": "\\mathcal M_q^{\\rm scale}=\\lambda_q^{7/2}U_q^3"
+  },
+  {
+    "key": "ns.c3.c3f.eta_q",
+    "latex": "\\eta_q=\\mathcal P_q/\\mathcal M_q",
+    "label_zh": "相位效率",
+    "label_en": "Phase efficiency",
+    "definition_zh": "承 C3-E 定義 $\\eta_q=\\mathcal P_q/\\mathcal M_q\\in[0,1]$（第9節回顧），本輪賦予其新角色：透過定理10.1，$\\eta_q$ 直接決定維持一半 production 所需的 ancestry core 半徑 $R_q\\gtrsim\\eta_q^{-1/N}$。",
+    "definition_en": "Carried over from C3-E, $\\eta_q=\\mathcal P_q/\\mathcal M_q\\in[0,1]$ (reviewed Sec. 9); this round gives it a new role via Thm 10.1, where $\\eta_q$ directly sets the ancestry core radius $R_q\\gtrsim\\eta_q^{-1/N}$ needed to retain half the production.",
+    "defining_relation": "\\eta_q=\\mathcal P_q/\\mathcal M_q",
+    "notes": "$\\mathcal P_q$ (actual positive local pair production) is likewise carried from C3-E, used here only as η_q's numerator."
+  },
+  {
+    "key": "ns.c3.c3f.r_q_radius",
+    "latex": "R_q\\ge C_N'\\eta_q^{-1/N}",
+    "label_zh": "相干性所需核心半徑",
+    "label_en": "Coherence-required core radius",
+    "definition_zh": "定理10.1，使 $C_NR_q^{-N}\\mathcal M_q^{\\rm scale}\\le\\frac12\\mathcal P_q$ 成立的半徑選擇，充分條件為 $R_q\\ge C_N'\\eta_q^{-1/N}$；沿 ancestry chain 成為第 $n$ 步的位移上界 $R_n$。",
+    "definition_en": "Thm 10.1's radius choice ensuring $C_NR_q^{-N}\\mathcal M_q^{\\rm scale}\\le\\frac12\\mathcal P_q$, sufficient once $R_q\\ge C_N'\\eta_q^{-1/N}$; becomes $R_n$ bounding the spatial displacement at ancestry step $n$.",
+    "defining_relation": "R_q\\ge C_N'\\eta_q^{-1/N}"
+  },
+  {
+    "key": "ns.c3.c3f.b_v",
+    "latex": "B_v",
+    "label_zh": "Output packet 產生量",
+    "label_en": "Output packet production magnitude",
+    "definition_zh": "第12節，output packet $v$ 的 signed/positive production magnitude；core source-selection lemma（引理12.1）即圍繞 $B_v$ 如何被有限多個 parent tuple 貢獻主導而展開。",
+    "definition_en": "Sec. 12's signed/positive production magnitude of output packet $v$; the core source-selection lemma (12.1) shows $B_v$ must be dominated by one of finitely many parent-tuple contributions."
+  },
+  {
+    "key": "ns.c3.c3f.core_parent_set",
+    "latex": "\\mathcal A(v),\\quad \\#\\mathcal A(v)\\le M",
+    "label_zh": "核心親代組集合",
+    "label_en": "Core parent-tuple set",
+    "definition_zh": "第12節，packet $v$ 的 core parent tuple 集合，基數 $\\#\\mathcal A(v)\\le M$；引理12.1證明其中存在 $\\alpha_\\ast$ 使 $|T_{v,\\alpha_\\ast}|\\ge\\frac{1-\\varepsilon}{M}B_v$。",
+    "definition_en": "Sec. 12's set of core parent tuples for packet $v$, with $\\#\\mathcal A(v)\\le M$; Lemma 12.1 shows some $\\alpha_\\ast\\in\\mathcal A(v)$ satisfies $|T_{v,\\alpha_\\ast}|\\ge\\frac{1-\\varepsilon}{M}B_v$."
+  },
+  {
+    "key": "ns.c3.c3f.t_v_alpha",
+    "latex": "T_{v,\\alpha},\\quad T_v^{\\rm tail}",
+    "label_zh": "親代組貢獻量與尾端項",
+    "label_en": "Parent-tuple contribution and tail term",
+    "definition_zh": "第12節，$T_{v,\\alpha}$ 為 core parent tuple $\\alpha\\in\\mathcal A(v)$ 對 $B_v$ 的貢獻，$T_v^{\\rm tail}$（滿足 $|T_v^{\\rm tail}|\\le\\varepsilon B_v$）為其餘尾端貢獻，合成 $B_v\\le|\\sum_\\alpha T_{v,\\alpha}+T_v^{\\rm tail}|$。",
+    "definition_en": "Sec. 12's contribution $T_{v,\\alpha}$ of core parent tuple $\\alpha\\in\\mathcal A(v)$ to $B_v$, plus residual tail $T_v^{\\rm tail}$ (with $|T_v^{\\rm tail}|\\le\\varepsilon B_v$), combining as $B_v\\le|\\sum_\\alpha T_{v,\\alpha}+T_v^{\\rm tail}|$."
+  },
+  {
+    "key": "ns.c3.c3f.ancestry_chain",
+    "latex": "v_0\\rightsquigarrow v_1\\rightsquigarrow v_2\\rightsquigarrow\\cdots",
+    "label_zh": "Packet 世系鏈",
+    "label_en": "Packet ancestry chain",
+    "definition_zh": "第14節起假設的 source-certified packet genealogy 序列，帶特徵尺度 $\\lambda_0<\\lambda_1<\\cdots$、中心 $x_0,x_1,\\ldots$、時刻 $t_0<t_1<\\cdots$；是第16–19節所有收斂/cone定理的研究對象。",
+    "definition_en": "Sec. 14's assumed source-certified packet genealogy, carrying scales $\\lambda_0<\\lambda_1<\\cdots$, centers $x_0,x_1,\\ldots$, and times $t_0<t_1<\\cdots$; the object studied by all convergence/cone theorems in Secs. 16–19."
+  },
+  {
+    "key": "ns.c3.c3f.scale_ratio_bounds",
+    "latex": "r_-\\lambda_n\\le\\lambda_{n+1}\\le r_+\\lambda_n",
+    "label_zh": "尺度跳躍界限",
+    "label_en": "Bounded local scale-jump ratios",
+    "definition_zh": "第14節假設的固定常數 $1<r_-\\le r_+<\\infty$，限制世系鏈相鄰尺度比，確保 $\\lambda_n\\ge\\lambda_0r_-^n$ 幾何增長，供第17、18節加總使用。",
+    "definition_en": "Sec. 14's fixed constants $1<r_-\\le r_+<\\infty$ bounding the successive scale ratio $\\lambda_{n+1}/\\lambda_n$, giving geometric growth $\\lambda_n\\ge\\lambda_0r_-^n$ used in the summations of Secs. 17–18.",
+    "defining_relation": "r_-\\lambda_n\\le\\lambda_{n+1}\\le r_+\\lambda_n"
+  },
+  {
+    "key": "ns.c3.c3f.x_star",
+    "latex": "x_\\ast",
+    "label_zh": "世系空間收斂中心",
+    "label_en": "Ancestry spatial limit center",
+    "definition_zh": "定理16.1，在 $\\sum_nR_n/\\lambda_n<\\infty$ 下 ancestry chain centers $x_n$ 的 Cauchy 極限點，滿足 $|x_n-x_\\ast|\\le C\\sum_{m\\ge n}R_m/\\lambda_m$；coherent route 下進一步得 $|x_n-x_\\ast|\\le C'\\lambda_n^{-1}$（推論17.1）。",
+    "definition_en": "Thm 16.1's Cauchy limit point of ancestry centers $x_n$ under $\\sum_nR_n/\\lambda_n<\\infty$, with $|x_n-x_\\ast|\\le C\\sum_{m\\ge n}R_m/\\lambda_m$; under the coherent route this sharpens to $|x_n-x_\\ast|\\le C'\\lambda_n^{-1}$ (Cor. 17.1)."
+  },
+  {
+    "key": "ns.c3.c3f.t_star_ancestry",
+    "latex": "T_\\ast,\\quad T_\\infty",
+    "label_zh": "世系時間收斂極限",
+    "label_en": "Ancestry temporal limit",
+    "definition_zh": "第18節，由 viscous-window renewal $0<t_{n+1}-t_n\\le C_t(\\nu\\lambda_n^2)^{-1}$ 與 $\\lambda_n$ 幾何增長得 $\\sum_n(\\nu\\lambda_n^2)^{-1}<\\infty$，故 $t_n\\to T_\\infty$；若此鏈代表假設性 terminal singular cascade，則 $T_\\infty=T_\\ast$。",
+    "definition_en": "Sec. 18: viscous-window renewal $0<t_{n+1}-t_n\\le C_t(\\nu\\lambda_n^2)^{-1}$ plus geometric $\\lambda_n$ growth gives $\\sum_n(\\nu\\lambda_n^2)^{-1}<\\infty$, so $t_n\\to T_\\infty$; if the chain represents a hypothetical terminal singular cascade, $T_\\infty=T_\\ast$.",
+    "notes": "T* itself is series-standard (blow-up time); the new content is its identification with T_∞, the quantitative limit of this round's explicit ancestry-chain times."
+  },
+  {
+    "key": "ns.c3.c3f.parabolic_cone",
+    "latex": "\\lambda_n|x_n-x_\\ast|\\le C_x,\\quad \\nu\\lambda_n^2(T_\\ast-t_n)\\le C_t'",
+    "label_zh": "拋物型世系錐",
+    "label_en": "Parabolic ancestry cone",
+    "definition_zh": "定理19.1（C3-F.4）結論：coherent genealogy 被迫滿足 $\\lambda_n|x_n-x_\\ast|\\le C_x$ 且 $\\nu\\lambda_n^2(T_\\ast-t_n)\\le C_t'$；第20節指出其幾何 $\\lambda_n^{-1}\\sim\\sqrt{\\nu(T_\\ast-t_n)}$ 與 Barker–Prange 的 concentration radius $R(t)=O(\\sqrt{T_\\ast-t})$ 相容，但兩者為不同假設下的獨立定理，不能互相取代。",
+    "definition_en": "Thm 19.1 (C3-F.4)'s conclusion that a coherent genealogy is forced into $\\lambda_n|x_n-x_\\ast|\\le C_x$ and $\\nu\\lambda_n^2(T_\\ast-t_n)\\le C_t'$; Sec. 20 notes the resulting geometry $\\lambda_n^{-1}\\sim\\sqrt{\\nu(T_\\ast-t_n)}$ matches Barker–Prange's concentration radius $R(t)=O(\\sqrt{T_\\ast-t})$, though the two remain independent theorems under different hypotheses.",
+    "defining_relation": "\\lambda_n|x_n-x_\\ast|\\le C_x,\\qquad \\nu\\lambda_n^2(T_\\ast-t_n)\\le C_t'"
+  },
+  {
+    "key": "ns.c3.c3f.rooted_tree",
+    "latex": "\\mathcal T",
+    "label_zh": "根樹（與 𝒯_q 記號衝突）",
+    "label_en": "Rooted tree (notation clash with 𝒯_q)",
+    "definition_zh": "第22節為陳述 Kőnig infinity lemma 反例引入的 rooted tree 記號 $\\mathcal T$，與第1節算子 $\\mathcal T_q$ 共用花體 T；兩者為完全不同物件，須依上下文（有無下標 $q$）區分。",
+    "definition_en": "Sec. 22's rooted-tree symbol $\\mathcal T$, used to state the Kőnig's-lemma counterexample to \"finite branching blocks infinite cascades\"; it reuses the same calligraphic T as the operator $\\mathcal T_q$ from Sec. 1, an unrelated object disambiguated only by the $q$ subscript.",
+    "notes": "Confirmed genuine notation overload in the source text, not an artifact of extraction."
+  },
+  {
+    "key": "ns.c3.c3f.c1c_split",
+    "latex": "\\text{C1c-a},\\ \\text{C1c-b},\\ \\text{C1c-c}",
+    "label_zh": "C1c 的三段拆解",
+    "label_en": "Three-way split of C1c",
+    "definition_zh": "第24節將原本單一猜想 C1c（Blowup ⇒ persistent source-preserving genealogy）拆成三段：C1c-a（static packet source selection，本輪已證）、C1c-b（infinite path extraction，離散組合定理）、C1c-c（causal orientation，即目前最關鍵的 open gap）。",
+    "definition_en": "Sec. 24 splits the single conjecture C1c (Blowup ⇒ persistent source-preserving genealogy) into three parts: C1c-a (static packet source selection, proved this round), C1c-b (infinite path extraction, a discrete combinatorial theorem), and C1c-c (causal orientation — the currently critical open gap)."
+  },
+  {
+    "key": "ns.c3.c3f.duhamel_source",
+    "latex": "\\operatorname{Source}[u(r),u(r)]",
+    "label_zh": "Duhamel 非線性源項",
+    "label_en": "Duhamel nonlinear source term",
+    "definition_zh": "第26節，output packet 的 Duhamel 表示 $v(t)=\\text{linear inheritance}+\\int_s^t\\operatorname{Source}[u(r),u(r)]\\,dr$ 中的瞬時非線性源；用以論證 nonlinear integral 大時必存在某 $r<t$ 使瞬時 source 不可忽略，給出 strictly earlier source time。",
+    "definition_en": "Sec. 26's instantaneous nonlinear source in the Duhamel representation $v(t)=\\text{linear inheritance}+\\int_s^t\\operatorname{Source}[u(r),u(r)]\\,dr$; a large nonlinear integral forces some $r<t$ with non-negligible instantaneous source, giving a strictly earlier source time.",
+    "defining_relation": "v(t)=\\text{linear inheritance}+\\int_s^t\\operatorname{Source}[u(r),u(r)]\\,dr"
+  },
+  {
+    "key": "ns.c3.c3f.tau_v_crossing",
+    "latex": "\\tau_v=\\inf\\{t:A_v(t)\\ge a_v\\}",
+    "label_zh": "首次跨閾值時刻",
+    "label_en": "First-crossing time",
+    "definition_zh": "第27節，對 packet amplitude functional $A_v(t)$ 與閾值 $a_v>0$ 定義的首次跨越時刻；causal parenthood 候選判準為 $\\tau_p<\\tau_c$，但此策略目前僅是 proof program，尚缺 amplitude 微分不等式支撐。",
+    "definition_en": "Sec. 27's first time the packet amplitude functional $A_v(t)$ crosses threshold $a_v>0$; the proposed causal criterion is $\\tau_p<\\tau_c$ for parent/child, though this remains only a proof program pending a supporting amplitude differential inequality.",
+    "defining_relation": "\\tau_v=\\inf\\{t:A_v(t)\\ge a_v\\}"
+  },
+  {
+    "key": "ns.c3.c3f.use_reuse",
+    "latex": "\\operatorname{Use}_p,\\ \\operatorname{Reuse}(v_p)",
+    "label_zh": "親代使用量／重複使用量",
+    "label_en": "Parent-use ledger / reuse capacity",
+    "definition_zh": "第28、34節（G2）引入的量，衡量單一 parent packet $p$ 可支持多少 cumulative child production；目標是證 $\\operatorname{Use}_p$ 受 $p$ 的 local energy/helicity/strain budget 控制，以避免對同一 source 的 double counting。",
+    "definition_en": "Introduced in Secs. 28 and 34 (G2), measuring how much cumulative child production a single parent packet $p$ can support; the goal is bounding $\\operatorname{Use}_p$ by $p$'s local energy/helicity/strain budget to prevent double-counting the same source.",
+    "defining_relation": "\\operatorname{Use}_p=\\sum_c\\text{source contribution }p\\to c"
+  },
+  {
+    "key": "ns.c3.c3f.a_n_crit",
+    "latex": "A_n^{\\rm crit}=\\lambda_n^{1/2}U_n\\sim1",
+    "label_zh": "臨界 packet 振幅",
+    "label_en": "Critical packet amplitude",
+    "definition_zh": "第29節 Zeno no-go 論證中設定的臨界振幅假設 $A_n^{\\rm crit}=\\lambda_n^{1/2}U_n\\sim1$，導出 $U_n^2\\sim\\lambda_n^{-1}$，用以檢驗 perfect parabolic ancestry 是否違反 finite energy budget。",
+    "definition_en": "Sec. 29's critical-amplitude ansatz in the Zeno no-go argument, $A_n^{\\rm crit}=\\lambda_n^{1/2}U_n\\sim1$, giving $U_n^2\\sim\\lambda_n^{-1}$; used to test whether perfect parabolic ancestry violates the finite energy budget.",
+    "defining_relation": "A_n^{\\rm crit}=\\lambda_n^{1/2}U_n\\sim1"
+  },
+  {
+    "key": "ns.c3.c3f.d_n_dissipation",
+    "latex": "D_n\\sim\\lambda_n^{-1}",
+    "label_zh": "每代黏性耗散量",
+    "label_en": "Per-generation viscous dissipation",
+    "definition_zh": "第29節，第 $n$ 代 packet 在一個 viscous window 內的 ordinary energy dissipation，$D_n\\sim\\nu\\lambda_n^2U_n^2\\cdot(\\nu\\lambda_n^2)^{-1}\\sim\\lambda_n^{-1}$；因 $\\lambda_n$ 幾何增長，$\\sum_nD_n<\\infty$，證明完美時空局域化仍與 finite energy dissipation 相容（No-Go 29.1）。",
+    "definition_en": "Sec. 29's ordinary energy dissipation of generation $n$ over one viscous window, $D_n\\sim\\nu\\lambda_n^2U_n^2\\cdot(\\nu\\lambda_n^2)^{-1}\\sim\\lambda_n^{-1}$; since $\\lambda_n$ grows geometrically, $\\sum_nD_n<\\infty$, so perfect space-time localization remains compatible with finite energy dissipation bookkeeping (No-Go 29.1).",
+    "defining_relation": "D_n\\sim\\nu\\lambda_n^2U_n^2\\cdot(\\nu\\lambda_n^2)^{-1}\\sim\\lambda_n^{-1}"
+  },
+  {
+    "key": "ns.c3.c3f.xedge",
+    "latex": "\\operatorname{XEdge}=\\langle q_p,m_p,s_p,t_p;q_c,m_c,s_c,t_c;\\mathcal T;\\eta;R;\\operatorname{Prov}\\rangle",
+    "label_zh": "相空間世系候選邊",
+    "label_en": "Phase-space ancestry candidate edge",
+    "definition_zh": "第31節定義的候選 parent-child edge 資料結構，攜帶親/子代的 frequency-space-helicity-time 索引 $(q,m,s,t)$、算子 $\\mathcal T$、效率 $\\eta$、半徑 $R$ 與 provenance $\\operatorname{Prov}$；須通過 G-FREQ 等八個守衛才成立。",
+    "definition_en": "Sec. 31's candidate parent-child edge structure, carrying parent/child frequency-space-helicity-time indices $(q,m,s,t)$, the operator $\\mathcal T$, efficiency $\\eta$, radius $R$, and provenance $\\operatorname{Prov}$; must pass eight named guards to be admitted.",
+    "defining_relation": "\\operatorname{XEdge}=\\langle q_p,m_p,s_p,t_p;q_c,m_c,s_c,t_c;\\mathcal T;\\eta;R;\\operatorname{Prov}\\rangle"
+  },
+  {
+    "key": "ns.c3.c3f.xedge_guards",
+    "latex": "\\text{G-FREQ, G-SPACE, G-TIME, G-TAIL, G-CORE, G-HEL, G-PHASE, G-REUSE}",
+    "label_zh": "XEdge 八守衛",
+    "label_en": "XEdge's eight guards",
+    "definition_zh": "第31節為 XEdge 設下的八項檢核：G-FREQ（$q_c-q_p=O(1)$）、G-SPACE（$|x_c-x_p|\\lesssim R\\lambda_p^{-1}$）、G-TIME（$t_p<t_c$）、G-TAIL（尾端受 $R^{-N}$ 控制）、G-CORE、G-HEL、G-PHASE、G-REUSE；本輪指出最未閉合者為 G-TIME 與 G-REUSE。",
+    "definition_en": "Sec. 31's eight admissibility checks for an XEdge: G-FREQ ($q_c-q_p=O(1)$), G-SPACE ($|x_c-x_p|\\lesssim R\\lambda_p^{-1}$), G-TIME ($t_p<t_c$), G-TAIL ($R^{-N}$-controlled), G-CORE, G-HEL, G-PHASE, G-REUSE; this round flags G-TIME and G-REUSE as least closed.",
+    "defining_relation": "\\text{G-FREQ: }q_c-q_p=O(1);\\ \\text{G-SPACE: }|x_c-x_p|\\lesssim R\\lambda_p^{-1};\\ \\text{G-TIME: }t_p<t_c"
+  },
+  {
+    "key": "ns.c3.c3f.theta_qms",
+    "latex": "\\Theta_{q,m,s}(t),\\quad \\Theta_{q_1,m_1,s_1}\\bowtie\\Theta_{q_2,m_2,s_2}\\longrightarrow\\Theta_{q_3,m_3,s_3}",
+    "label_zh": "細化 ETN 狀態與交互關係",
+    "label_en": "Refined ETN state and interaction relation",
+    "definition_zh": "第32節將 True ETN 狀態記法由僅記頻率的 $\\Theta_q(t)$ 升級為同時記空間格 $m$ 與 helicity/sign $s$ 的 $\\Theta_{q,m,s}(t)$，並用 $\\bowtie$ 表示一對親代狀態交互產生子代狀態，使無限維張力場升級成 time-oriented phase-space tension hypergraph。",
+    "definition_en": "Sec. 32 upgrades the True-ETN state from the frequency-only $\\Theta_q(t)$ to $\\Theta_{q,m,s}(t)$, also indexed by spatial cell $m$ and helicity/sign $s$, with $\\bowtie$ denoting two parent states interacting to produce a child state — upgrading the \"infinite-dimensional tension field\" into a time-oriented phase-space tension hypergraph.",
+    "defining_relation": "\\Theta_{q_1,m_1,s_1}\\bowtie\\Theta_{q_2,m_2,s_2}\\longrightarrow\\Theta_{q_3,m_3,s_3}"
+  },
+  {
+    "key": "ns.c3.c3f.c3g_obligations",
+    "latex": "\\text{G1, G2, G3, G4, G5}",
+    "label_zh": "C3-G 的五項證明義務",
+    "label_en": "C3-G's five proof obligations",
+    "definition_zh": "第34節為下一輪 C3-G 開出的五項任務：G1 first-crossing causal lemma、G2 parent-use ledger（即 $\\operatorname{Use}_p$ 受 budget 控制）、G3 no-double-counting theorem、G4 time-oriented finite-branching tree、G5 depletion along ray。",
+    "definition_en": "Sec. 34's five tasks opening the next round C3-G: G1 first-crossing causal lemma, G2 parent-use ledger (bounding $\\operatorname{Use}_p$ by budget), G3 no-double-counting theorem, G4 time-oriented finite-branching tree (to extract an infinite causal ray), and G5 depletion along ray."
+  }
+]

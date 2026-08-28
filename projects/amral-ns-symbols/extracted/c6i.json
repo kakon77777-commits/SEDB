@@ -1,0 +1,182 @@
+[
+  {
+    "key": "ns.c6.c6i.ns_scaling_transformation",
+    "latex": "u_\\lambda(x,t)=\\lambda u(\\lambda x,\\lambda^2t), \\qquad p_\\lambda(x,t)=\\lambda^2p(\\lambda x,\\lambda^2t)",
+    "label_zh": "N–S 縮放變換",
+    "label_en": "N–S scaling transformation",
+    "definition_zh": "標準 Navier–Stokes 尺度變換：速度依 $\\lambda$ 縮放、壓力依 $\\lambda^2$ 縮放，是本輪一切 scaling degree 計算的基準。",
+    "definition_en": "The standard Navier–Stokes rescaling, with velocity scaling by $\\lambda$ and pressure by $\\lambda^2$; the baseline against which every scaling-degree computation in this round is taken."
+  },
+  {
+    "key": "ns.c6.c6i.scaling_degree",
+    "latex": "a_F \\ (\\text{pointwise}), \\qquad d_Q \\ (\\text{event})",
+    "label_zh": "逐點／事件縮放度",
+    "label_en": "pointwise / event scaling degree",
+    "definition_zh": "本輪縮放代數的基本記號：$a_F$ 為逐點場的縮放度，$d_Q$ 為積分型事件量的縮放度，兩者是後續所有 criticalization 的輸入。",
+    "definition_en": "The round's basic scaling notation: $a_F$ is the pointwise field degree and $d_Q$ the integrated event-quantity degree, both feeding every later criticalization.",
+    "defining_relation": "F_\\lambda = \\lambda^{a_F}F(\\lambda x,\\lambda^2t); \\qquad Q[u_\\lambda;E_\\lambda] = \\lambda^{d_Q}Q[u;E]"
+  },
+  {
+    "key": "ns.c6.c6i.criticalization_operator",
+    "latex": "\\mathscr C_r[Q] = r^{d_Q}Q",
+    "label_zh": "臨界化算子",
+    "label_en": "Criticalization Operator",
+    "definition_zh": "C6-I.1，本輪核心算子：以事件空間尺度 $r$ 對度 $d_Q$ 的事件量做冪次修正，使其在 $\\lambda$-縮放下不變；等價記法 $Q^{crit}=r^{d_Q}Q$ 貫穿全文。",
+    "definition_en": "C6-I.1, the round's central operator: rescales an event quantity of degree $d_Q$ by spatial scale $r$ so the result is invariant under $\\lambda$-rescaling; written equivalently as $Q^{crit}=r^{d_Q}Q$ throughout the paper."
+  },
+  {
+    "key": "ns.c6.c6i.event_aspect_ratio",
+    "latex": "\\theta_J = \\frac{|J|}{r^2}",
+    "label_zh": "事件長寬比",
+    "label_en": "event aspect ratio",
+    "definition_zh": "時間窗 $J$ 與空間尺度 $r$ 的比值，本身縮放不變，用於把時空負載換算為同時刻核心負載。",
+    "definition_en": "The ratio of time window $J$ to $r^2$; itself scale invariant, used to convert spacetime load into same-time core load."
+  },
+  {
+    "key": "ns.c6.c6i.critical_middle_event_mass",
+    "latex": "\\mathfrak M_J^{crit} = rM_J",
+    "label_zh": "臨界中層事件質量",
+    "label_en": "critical middle event mass",
+    "definition_zh": "C6-F 中層時空質量 $M_J$（度 $1$）的臨界化版本，是本輪標舉的關鍵結果之一，縮放不變。",
+    "definition_en": "The scale-invariant criticalization of the C6-F middle spacetime mass $M_J$ (degree $1$); one of the round's headline results.",
+    "defining_relation": "M_J=\\int_J\\int\\lambda_2^+|S|^2\\,dxdt\\ \\ (d_{M_J}=1), \\qquad \\mathfrak M_J^{crit}=rM_J"
+  },
+  {
+    "key": "ns.c6.c6i.critical_operator_event_mass",
+    "latex": "\\mathfrak P_J^{crit} = r^3P_J",
+    "label_zh": "臨界算子事件質量",
+    "label_en": "critical operator event mass",
+    "definition_zh": "C6-F 正算子事件質量 $P_J$（度 $3$）的臨界化版本，同樣是本輪標舉的關鍵結果，縮放不變。",
+    "definition_en": "The scale-invariant criticalization of the C6-F positive operator event mass $P_J$ (degree $3$); likewise one of the round's headline results.",
+    "defining_relation": "P_J=\\int_J[E_1'(t)]_+\\,dt\\ \\ (d_{P_J}=3), \\qquad \\mathfrak P_J^{crit}=r^3P_J"
+  },
+  {
+    "key": "ns.c6.c6i.critical_shared_core_junction",
+    "latex": "\\mathfrak m_\\ast^{crit} \\ge \\frac{\\Omega_{ST}q_0}{\\theta_J}\\mathfrak M_J^{crit}",
+    "label_zh": "臨界共享核心接合定理",
+    "label_en": "Critical Shared-Core Junction Theorem",
+    "definition_zh": "C6-I.2：將 C6-F 的同時刻中層核心負載下界不等式乘上 $r^3$ 並以 $\\theta_J$ 改寫後得到的完全縮放不變版本。",
+    "definition_en": "C6-I.2: the fully scale-invariant rewriting of C6-F's same-time middle core-load lower bound, obtained by multiplying through by $r^3$ and expressing it via $\\theta_J$."
+  },
+  {
+    "key": "ns.c6.c6i.critical_operator_derivative_junction",
+    "latex": "\\mathfrak Q_{E_\\ast}^{crit}\\,\\mathfrak D_{E_\\ast}^{crit} \\ge \\frac{\\Omega_{ST}q_0}{\\theta_J}\\mathfrak P_J^{crit}",
+    "label_zh": "臨界算子—導數接合定理",
+    "label_en": "Critical Operator–Derivative Junction",
+    "definition_zh": "C6-I.3：以臨界化的算子範數與二階導數範數乘積下界 $\\mathfrak P_J^{crit}$，證明 C6-F 的算子/高階導數橋接在臨界尺度下無縮放損失。",
+    "definition_en": "C6-I.3: bounds the product of criticalized operator and second-derivative norms below by $\\mathfrak P_J^{crit}$, showing the C6-F operator/high-derivative bridge survives criticalization with no scaling loss.",
+    "defining_relation": "\\mathfrak Q_E^{crit}=r^{5/2}\\|\\mathcal Q_{SV}\\|_{L^2(E)}, \\qquad \\mathfrak D_E^{crit}=r^{5/2}\\|\\Delta S\\|_{L^2(E)}"
+  },
+  {
+    "key": "ns.c6.c6i.miller_operator_criticality_identity",
+    "latex": "d_{\\int_0^{T^\\ast}\\left(\\|\\mathcal Q_{SV}\\|_{\\dot H^\\alpha}/\\|S\\|_{\\dot H^1}\\right)^{2/(1+\\alpha)}dt} = 0",
+    "label_zh": "Miller 算子臨界性恆等式",
+    "label_en": "Miller Operator Criticality Identity",
+    "definition_zh": "C6-I.4：證明 Miller operator blow-up 判準積分（$p=2/(1+\\alpha)$）的縮放度恆為 $0$，故此判準本身即是道地的臨界 ledger 成員。",
+    "definition_en": "C6-I.4: proves the Miller operator blow-up criterion integral (with $p=2/(1+\\alpha)$) has scaling degree exactly $0$, so it belongs natively to the critical ledger."
+  },
+  {
+    "key": "ns.c6.c6i.critical_ledger_vector",
+    "latex": "\\mathbf L_E^{crit} = \\left(E_{CKN}, B_\\omega, B_{\\rm middle}, B_{\\rm op}, B_{\\rm pressure}, \\mathfrak M_J^{crit}, \\mathfrak P_J^{crit}, \\mathfrak C_S^{crit}, \\mathfrak Q^{crit}, \\mathfrak D^{crit}, \\widehat C^{Duh}, \\widehat{\\mathcal R}_k, \\widehat\\tau_k, \\Gamma, \\Omega, \\ldots\\right)",
+    "label_zh": "臨界帳本向量",
+    "label_en": "Critical Ledger Vector",
+    "definition_zh": "C6-I.5：把所有主要 C6 量統一收進同一個在 N–S 縮放下彼此可比較的向量，取代單一 scalar cycle currency，是本輪核心產物。",
+    "definition_en": "C6-I.5: collects all the main C6 quantities into one vector whose coordinates are mutually comparable under N–S scaling, replacing a single scalar cycle currency — the round's central product."
+  },
+  {
+    "key": "ns.c6.c6i.critical_capacity_infinity_boundary",
+    "latex": "B_{CAP^{crit,\\infty}}",
+    "label_zh": "臨界無窮容量邊界",
+    "label_en": "critical capacity-at-infinity boundary",
+    "definition_zh": "C6-I.6（Raw-Infinity No-Go）證明正度量原始容量 $C\\to\\infty$ 只是 UV 縮放假象，並非真正物理邊界；取代 C6-H 的 $B_{CAP^\\infty}$，成為正式修正後的容量邊界。",
+    "definition_en": "Introduced by C6-I.6 (Raw-Infinity No-Go), which shows raw divergence of a positive-degree capacity is merely UV rescaling, not a genuine physical boundary; replaces C6-H's raw $B_{CAP^\\infty}$ as the corrected capacity boundary.",
+    "defining_relation": "r^{d_C}C\\to\\infty \\quad\\text{or}\\quad C/R\\to\\infty\\ \\ (d_C=d_R)",
+    "notes": "Directly supersedes C6-H's uncriticalized $B_{CAP^\\infty}$."
+  },
+  {
+    "key": "ns.c6.c6i.critical_middle_gap_dichotomy",
+    "latex": "\\mathfrak C_{\\delta}^{S} \\ge \\frac{\\mathfrak M_{\\delta}}{\\sqrt6\\,\\delta}",
+    "label_zh": "臨界中層缺口二分定理",
+    "label_en": "Critical Middle-Gap Dichotomy",
+    "definition_zh": "C6-I.7：criticalize 後的 C5-E 中層缺口不等式；當 $\\delta_n\\to0$ 時，導出臨界負載塌陷（I-GAP-L）或臨界立方項發散為真正 $CAP^{crit,\\infty}$（I-GAP-C）的二分。",
+    "definition_en": "C6-I.7: the criticalized C5-E middle-gap inequality; as $\\delta_n\\to0$ it forces a dichotomy between critical load collapse (I-GAP-L) and the critical cubic term diverging to genuine $CAP^{crit,\\infty}$ (I-GAP-C)."
+  },
+  {
+    "key": "ns.c6.c6i.critical_load_boundary",
+    "latex": "B_{LOAD^{crit}}",
+    "label_zh": "臨界負載邊界",
+    "label_en": "critical load boundary",
+    "definition_zh": "對度 $d_R$ 的事件量定義已實現臨界負載 $R^{crit}=r^{d_R}R$，邊界表示 $R_n^{crit}\\to0$，取代 C6-H 未臨界化的 $LOAD$ 終端。",
+    "definition_en": "For an event quantity of degree $d_R$, the realized critical load is $R^{crit}=r^{d_R}R$, and the boundary means $R_n^{crit}\\to0$; replaces C6-H's uncriticalized $LOAD$ terminal.",
+    "defining_relation": "R^{crit} = r^{d_R}R; \\qquad B_{LOAD^{crit}}:\\ R_n^{crit}\\to0"
+  },
+  {
+    "key": "ns.c6.c6i.critical_boundary_alphabet",
+    "latex": "\\mathfrak B_{crit} = \\{LOAD^{crit},\\, SEG,\\, GEOM^{res},\\, MEAN,\\, PROV,\\, CAP^{crit,\\infty}\\}",
+    "label_zh": "臨界邊界字母表",
+    "label_en": "critical boundary alphabet",
+    "definition_zh": "修正 C6-H 邊界字母表後得到的物理邊界集合，將 $LOAD$、$CAP^\\infty$ 替換為臨界化版本，使全部座標皆縮放一致。",
+    "definition_en": "The corrected C6-H boundary alphabet, with $LOAD$ and $CAP^\\infty$ replaced by their criticalized forms so every member has a scale-consistent interpretation."
+  },
+  {
+    "key": "ns.c6.c6i.geometric_scale_ladder",
+    "latex": "r_n = r_0a^{-n}, \\qquad a>1",
+    "label_zh": "幾何尺度階梯",
+    "label_en": "geometric scale ladder",
+    "definition_zh": "事件空間尺度以幾何速率遞減的序列，用來構造無限 UV 事件序列同時滿足有限總物理時間與有限總能量代價的架構。",
+    "definition_en": "A sequence of event spatial scales decaying geometrically, used to construct an infinite UV event sequence compatible with finite total physical time and finite total energy cost."
+  },
+  {
+    "key": "ns.c6.c6i.critical_zeno_compatibility_lemma",
+    "latex": "\\textbf{fixed nonzero critical toll per scale} \\not\\Rightarrow \\textbf{finite-time contradiction}",
+    "label_zh": "臨界 Zeno 相容性引理",
+    "label_en": "Critical Zeno Compatibility Lemma",
+    "definition_zh": "C6-I.8：在幾何尺度階梯上，每代固定正的無因次臨界代價可與有限總物理時間及有限總原始能量代價同時成立；純屬縮放層次 no-go，不構造真實奇異解。",
+    "definition_en": "C6-I.8: on a geometric scale ladder, a fixed positive dimensionless critical toll per generation is compatible with finite total physical time and finite total raw energy cost; a purely scaling-level no-go, not a construction of an actual singular solution.",
+    "defining_relation": "D_n^{crit}=r_n^{-1}D_n\\ge d_0>0 \\ \\Rightarrow\\ D_n\\ge d_0r_n, \\qquad \\sum_n r_n<\\infty"
+  },
+  {
+    "key": "ns.c6.c6i.log_scale_variable",
+    "latex": "s = -\\log r",
+    "label_zh": "對數尺度變數",
+    "label_en": "log-scale variable",
+    "definition_zh": "把 UV 極限 $r\\downarrow0$ 轉為 $s\\to+\\infty$，使幾何尺度階梯化為等差數列，讓跨代 recurrence 問題成為對數尺度時間中的動力系統。",
+    "definition_en": "Turns the UV limit $r\\downarrow0$ into $s\\to+\\infty$, converting the geometric scale ladder into an arithmetic progression and recasting cross-generation recurrence as a dynamical system in logarithmic scale time."
+  },
+  {
+    "key": "ns.c6.c6i.renormalized_cycle_reframing",
+    "latex": "\\widehat\\Theta(s_n)",
+    "label_zh": "重整化循環重構",
+    "label_en": "Renormalized-Cycle Reframing",
+    "definition_zh": "C6-I.9：主張無限 UV 循環 $E_1,E_2,\\ldots$（$r_n\\downarrow0$）應表示為對數尺度軌道 $\\widehat\\Theta(s_n)$，把 recurrence 問題改寫為此軌道是否有不動點、週期軌道或向 REG 邊界漂移。",
+    "definition_en": "C6-I.9: proposes representing an infinite UV cycle $E_1,E_2,\\ldots$ ($r_n\\downarrow0$) as a log-scale orbit $\\widehat\\Theta(s_n)$, reframing recurrence as whether this orbit has a fixed point, a periodic orbit, or drifts to a REG boundary.",
+    "defining_relation": "E_1,E_2,\\ldots\\ (r_n\\downarrow0) \\ \\longmapsto\\ \\widehat\\Theta(s_n)"
+  },
+  {
+    "key": "ns.c6.c6i.barrier_zeno_no_go",
+    "latex": "\\textbf{a successful C6 cycle proof needs cross-scale structure, not merely per-scale critical non-smallness}",
+    "label_zh": "障壁—Zeno 不可能定理",
+    "label_en": "Barrier-Zeno No-Go",
+    "definition_zh": "C6-I.10：僅由每代固定正臨界障壁代價、有限總動能、有限剩餘時間三者，無法單獨導出矛盾；成功的 C6 循環證明需要額外的跨尺度結構。",
+    "definition_en": "C6-I.10: no contradiction follows solely from a fixed positive critical barrier toll per generation, finite global kinetic energy, and finite remaining time; a successful C6 cycle proof needs additional cross-scale structure.",
+    "defining_relation": "\\sum_n|J_n|<\\infty, \\qquad \\sum_nD_n<\\infty \\ \\ \\text{while criticalized descriptors remain } O(1)"
+  },
+  {
+    "key": "ns.c6.c6i.load_capacity_compactification",
+    "latex": "\\widehat L,\\ \\widehat{\\mathfrak K}",
+    "label_zh": "負載—容量緊化",
+    "label_en": "load–capacity compactification",
+    "definition_zh": "將臨界負載 $L^{crit}$ 與臨界相對容量 $\\mathfrak K^{crit}$ 各以 $x/(1+x)$ 映入緊區間，使 $LOAD^{crit}$ 對應 $\\widehat L=0$、$CAP^{crit,\\infty}$ 對應 $\\widehat{\\mathfrak K}=1$。",
+    "definition_en": "Maps the critical load $L^{crit}$ and critical relative capacity $\\mathfrak K^{crit}$ via $x/(1+x)$ into compact intervals, so $LOAD^{crit}$ is $\\widehat L=0$ and $CAP^{crit,\\infty}$ is $\\widehat{\\mathfrak K}=1$.",
+    "defining_relation": "\\widehat L = \\frac{L^{crit}}{1+L^{crit}}, \\qquad \\widehat{\\mathfrak K} = \\frac{\\mathfrak K^{crit}}{1+\\mathfrak K^{crit}}"
+  },
+  {
+    "key": "ns.c6.c6i.critical_event_state",
+    "latex": "\\Theta_{crit}^{C6I} = \\left\\langle r,\\theta_J,\\mathbf L^{crit},\\mathbf B^{crit},\\widehat L,\\widehat{\\mathfrak K},\\text{joint node},\\text{boundary face},\\text{barrier polarity},\\text{provenance}\\right\\rangle",
+    "label_zh": "臨界事件狀態（C6-I ETN）",
+    "label_en": "critical event state (C6-I ETN update)",
+    "definition_zh": "本輪對 Event-Type-Node 的最終更新，把尺度、長寬比、臨界帳本／障壁向量、緊化負載與容量、障壁極性等打包成單一狀態，其對數尺度版本為 $\\widehat\\Theta(s)$。",
+    "definition_en": "The round's final Event-Type-Node update, packaging scale, aspect ratio, the critical ledger/barrier vectors, compactified load and capacity, and barrier polarity into one state, with log-scale-time version $\\widehat\\Theta(s)$.",
+    "defining_relation": "\\widehat\\Theta(s) = \\Theta_{crit}\\left(r=e^{-s}\\right)"
+  }
+]

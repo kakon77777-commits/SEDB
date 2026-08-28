@@ -1,0 +1,233 @@
+[
+  {
+    "key": "ns.c5.c5f.k_i",
+    "latex": "k_1 \\le k_2 \\le k_3",
+    "label_zh": "歸一化正中間特徵值",
+    "label_en": "Normalized positive-middle eigenvalues",
+    "definition_zh": "在第2節中，定義為正規化且跡為零之對稱張量 $K$ 的排序特徵值，並假設 $k_2 \\ge 0$。",
+    "definition_en": "Introduced in Section 2 as the ordered eigenvalues of a normalized trace-free symmetric tensor $K$ with $k_2 \\ge 0$."
+  },
+  {
+    "key": "ns.c5.c5f.vartheta",
+    "latex": "\\vartheta(K)",
+    "label_zh": "中間能隙參數",
+    "label_en": "Middle gap parameter",
+    "definition_zh": "在第2節中定義的參數，表示第二與第三主特徵值之積，用以量化能隙退化程度。",
+    "definition_en": "Defined in Section 2 as the product of the second and third eigenvalues, quantifying the middle gap degeneration.",
+    "defining_relation": "\\vartheta(K) = k_2 k_3"
+  },
+  {
+    "key": "ns.c5.c5f.p1_k",
+    "latex": "P_1(K)",
+    "label_zh": "最壓縮軸投影子",
+    "label_en": "Compressive-axis projector",
+    "definition_zh": "在第4節中定義，對應於最壓縮特徵值 $k_1$ 的秩一光譜投影子。",
+    "definition_en": "Defined in Section 4 as the rank-one spectral projector corresponding to the most-compressive eigenvalue $k_1$.",
+    "defining_relation": "P_1(K) = e_1(K) \\otimes e_1(K)"
+  },
+  {
+    "key": "ns.c5.c5f.k_ast",
+    "latex": "K_\\ast",
+    "label_zh": "能隙退化極限形狀",
+    "label_en": "Middle-gap limit shape",
+    "definition_zh": "在第6節中指出，當中能隙退化時，應變張量的極限形狀仍保有明確的最壓縮特徵值。",
+    "definition_en": "Identified in Section 6 as the limit strain shape when the middle gap degenerates, retaining a distinct most-compressive eigenvalue.",
+    "defining_relation": "K_\\ast = R_\\ast \\operatorname{diag}\\left(-\\frac{1}{\\sqrt{2}}, 0, \\frac{1}{\\sqrt{2}}\\right) R_\\ast^T"
+  },
+  {
+    "key": "ns.c5.c5f.g_e1",
+    "latex": "G(e_1)",
+    "label_zh": "遠場壓力補償矩陣",
+    "label_en": "Far-pressure compensation matrix",
+    "definition_zh": "在第0節與第19節中提及，用於計算與遠場壓力主導矩陣交互作用的二次幾何。",
+    "definition_en": "Mentioned in Sections 0 and 19 as the quadratic geometry for evaluating interactions with the far-pressure dominant matrix.",
+    "defining_relation": "G(e_1) = e_1 \\otimes e_1 - \\frac{1}{3} I",
+    "notes": "Carried over from C5-D as a core pressure-geometry operator."
+  },
+  {
+    "key": "ns.c5.c5f.h_e_delta",
+    "latex": "H_{e,\\delta}",
+    "label_zh": "精確共軸半空間算子",
+    "label_en": "Exact common-axis half-space operator",
+    "definition_zh": "在第7節中定義的半空間矩陣，證明固定壓縮軸能將所有局部二次方向推入嚴格半空間。",
+    "definition_en": "Defined in Section 7 as the half-space matrix showing that a fixed compressive axis forces all local quadratic directions into a strict half-space.",
+    "defining_relation": "H_{e,\\delta} = e \\otimes e - \\frac{1+\\delta}{2} I"
+  },
+  {
+    "key": "ns.c5.c5f.h_e_sigma",
+    "latex": "H_{e,\\sigma}",
+    "label_zh": "軸帽半空間算子",
+    "label_en": "Axis-cap half-space operator",
+    "definition_zh": "在第11節中定義，為放寬至容許壓縮軸在一個窄圓錐帽內變動的半空間條件算子。",
+    "definition_en": "Defined in Section 11 as the half-space condition operator relaxed to allow the compressive axis to vary within a narrow cap.",
+    "defining_relation": "H_{e,\\sigma} = e \\otimes e - \\frac{1+\\sigma}{2} I"
+  },
+  {
+    "key": "ns.c5.c5f.alpha_delta",
+    "latex": "\\alpha_\\delta",
+    "label_zh": "能隙軸帽半徑",
+    "label_en": "Gap axis-cap radius",
+    "definition_zh": "在第13節中定義，為使所有 Q 方向能落入同一半空間所允許的最大軸傾角閾值。",
+    "definition_en": "Defined in Section 13 as the maximum axis tilt threshold allowing all Q directions to fall into a common half-space.",
+    "defining_relation": "\\alpha_\\delta = \\arcsin \\sqrt{\\frac{\\delta}{2+4\\delta}}"
+  },
+  {
+    "key": "ns.c5.c5f.projective_e",
+    "latex": "[e] \\in \\mathbb{RP}^2",
+    "label_zh": "射影壓縮軸",
+    "label_en": "Projective compressive axis",
+    "definition_zh": "在第16節中指出，因正負方向產生相同投影子，故真實的軸狀態存在於緊緻射影平面中。",
+    "definition_en": "Noted in Section 16 that since opposing directions yield the same projector, the true axis state lies in the compact projective plane."
+  },
+  {
+    "key": "ns.c5.c5f.nu_axis",
+    "latex": "\\nu_j^{axis}",
+    "label_zh": "Q權重軸測度",
+    "label_en": "Q-weighted axis measure",
+    "definition_zh": "在第17節中定義，為推廣至活動 Q 核心上的壓縮軸機率分佈測度。",
+    "definition_en": "Defined in Section 17 as the probability measure of the compressive axis over the active Q cores.",
+    "defining_relation": "\\nu_j^{axis} = P_1(S_j)_\\# \\nu_j^Q"
+  },
+  {
+    "key": "ns.c5.c5f.far_pressure_f",
+    "latex": "F",
+    "label_zh": "遠場壓力前導矩陣",
+    "label_en": "Far-pressure leading matrix",
+    "definition_zh": "在第19節中引用的無跡對稱矩陣，代表共同諧和遠場壓力的主導部分。",
+    "definition_en": "Referenced in Section 19 as the trace-free symmetric matrix representing the leading part of the common harmonic far pressure."
+  },
+  {
+    "key": "ns.c5.c5f.omega_f_minus",
+    "latex": "\\Omega_F^-(c)",
+    "label_zh": "壓力軸約束集",
+    "label_en": "Pressure axis constraint set",
+    "definition_zh": "在第19節中定義，為使得壓縮軸能與遠場壓力產生足夠負向補償的射影方向集合。",
+    "definition_en": "Defined in Section 19 as the set of projective directions where the compressive axis yields sufficient negative compensation with the far pressure.",
+    "defining_relation": "\\Omega_F^-(c) = \\{ [e] \\in \\mathbb{RP}^2 : e^T F e \\le -c \\}"
+  },
+  {
+    "key": "ns.c5.c5f.signature_1",
+    "latex": "(-,+,+)",
+    "label_zh": "壓力標記 I",
+    "label_en": "Pressure signature I",
+    "definition_zh": "在第20節中分類的一種壓力慣性標記，具備單一負特徵值，會導致軸向鎖定於射影帽內。",
+    "definition_en": "Classified in Section 20 as the pressure inertia signature with a single negative eigenvalue, which forces the axis to lock into a projective cap."
+  },
+  {
+    "key": "ns.c5.c5f.signature_2",
+    "latex": "(-,-,+)",
+    "label_zh": "壓力標記 II",
+    "label_en": "Pressure signature II",
+    "definition_zh": "在第20節中分類的另一種壓力慣性標記，具備雙負特徵值，其負二次區域形成一個帶狀而非單一帽區。",
+    "definition_en": "Classified in Section 20 as the pressure inertia signature with two negative eigenvalues, yielding a projective belt rather than a single cap."
+  },
+  {
+    "key": "ns.c5.c5f.alpha_f_c",
+    "latex": "\\alpha_F(c)",
+    "label_zh": "壓力帽半徑",
+    "label_en": "Pressure cap radius",
+    "definition_zh": "在第22節中定義的射影帽半徑，由強負壓力補償邊界 $c$ 與特徵值差距所決定。",
+    "definition_en": "Defined in Section 22 as the projective cap radius dictated by the strong negative pressure margin $c$ and the eigenvalue gaps.",
+    "defining_relation": "\\alpha_F(c) = \\arcsin \\sqrt{\\frac{|f_1|-c}{|f_1|+f_2}}"
+  },
+  {
+    "key": "ns.c5.c5f.vorticity_stock",
+    "latex": "\\mathfrak W_R",
+    "label_zh": "臨界渦度儲備",
+    "label_en": "Critical vorticity stock",
+    "definition_zh": "在第29節中重申，為從 C5-E 繼承而來、在局部核心尺度上的渦度 $L^2$ 物理量。",
+    "definition_en": "Reiterated in Section 29 as the $L^2$ vorticity quantity over the local core scale, inherited from C5-E."
+  },
+  {
+    "key": "ns.c5.c5f.p_st_omega_sq",
+    "latex": "P_{st}(\\omega\\otimes\\omega)",
+    "label_zh": "應變空間渦度二次源",
+    "label_en": "Strain-space projected vorticity-quadratic source",
+    "definition_zh": "在第31節與32節中討論，為映射至 Miller 正交算子架構中的擁擠項。",
+    "definition_en": "Discussed in Sections 31 and 32 as the congestion term mapping to the Miller orthogonal operator architecture."
+  },
+  {
+    "key": "ns.c5.c5f.p_st_perp_omega_sq",
+    "latex": "P_{st}^{\\perp}(\\omega\\otimes\\omega)",
+    "label_zh": "渦度約束補集擁擠",
+    "label_en": "Vorticity constraint-complement congestion",
+    "definition_zh": "在第31節與33節中出現，代表無法直接成為實際壓力黑塞矩陣、而需列入正交約束互補空間的剩餘分量。",
+    "definition_en": "Appeared in Sections 31 and 33 representing the residual component forced into the orthogonal constraint complement space, strictly not the actual pressure Hessian."
+  },
+  {
+    "key": "ns.c5.c5f.strain_derivative_stock",
+    "latex": "\\mathfrak H_R",
+    "label_zh": "應變導數儲備",
+    "label_en": "Strain-derivative stock",
+    "definition_zh": "在第34節中引入，導致必定存在達成尺度臨界振幅的二階速度導數點。",
+    "definition_en": "Introduced in Section 34, which forces the existence of points where the second velocity derivative reaches a scale-critical amplitude."
+  },
+  {
+    "key": "ns.c5.c5f.effective_amplitude_as",
+    "latex": "\\widehat A_S",
+    "label_zh": "歸一化有效振幅",
+    "label_en": "Normalized effective amplitude",
+    "definition_zh": "在第37節中定義，用以衡量 NS 縮放座標下的中間能隙三次方有效振幅。",
+    "definition_en": "Defined in Section 37 as the effective cubic amplitude of the middle gap in NS-scaled coordinates.",
+    "defining_relation": "\\widehat A_S = \\frac{R^2}{\\nu} \\frac{\\|S\\|_3^3}{\\|S\\|_2^2}"
+  },
+  {
+    "key": "ns.c5.c5f.rho_dir",
+    "latex": "\\rho_{\\rm dir}",
+    "label_zh": "直接導數目標尺度",
+    "label_en": "Direct derivative target scale",
+    "definition_zh": "在第39節中分析，對應固定 $k=1$ 的情況，其在空間指數上比中能隙間歇性路徑來得差。",
+    "definition_en": "Analyzed in Section 39 for fixed $k=1$, possessing a spatial exponent structurally less favorable than the middle-gap intermittency route."
+  },
+  {
+    "key": "ns.c5.c5f.rho_chain_k",
+    "latex": "\\rho_{\\rm chain}^{(k)}",
+    "label_zh": "導數鏈輔助尺度",
+    "label_en": "Chain-assisted derivative scale",
+    "definition_zh": "在第43節中引用自 Grujić–Xu 定理 3.14 的輔助尺度，具有形式上更佳的空間指數，但受限於高階導數階層假設。",
+    "definition_en": "Referenced in Section 43 from Grujić–Xu Theorem 3.14, having a formally better spatial exponent but constrained by high-order derivative hierarchy hypotheses."
+  },
+  {
+    "key": "ns.c5.c5f.k_best_j",
+    "latex": "k_j^{best}",
+    "label_zh": "最佳導數階數",
+    "label_en": "Best derivative order",
+    "definition_zh": "在第44節中定義，為在每次遞迴事件中綜合各項閥值與定理條件所選出的最有利導數階數。",
+    "definition_en": "Defined in Section 44 as the most favorable derivative order selected for each recurrent event based on amplitude, sparsity, and theorem thresholds."
+  },
+  {
+    "key": "ns.c5.c5f.theta_axis",
+    "latex": "\\Theta_\\ast^{Axis}",
+    "label_zh": "C5軸向共享狀態",
+    "label_en": "C5 shared axis state",
+    "definition_zh": "在第52節中定義的新狀態向量，封裝了壓縮軸分佈、能隙缺陷與遠場壓力標記。",
+    "definition_en": "Defined in Section 52 as the new state vector encapsulating compressive-axis distribution, gap defect, and far-pressure metadata.",
+    "defining_relation": "\\Theta_\\ast^{Axis} = \\left\\langle \\nu_\\ast^{axis}, \\mathfrak G_\\ast, F_\\ast, \\operatorname{sig}F_\\ast, c_\\ast^P, \\mathfrak C_\\ast^{axis} \\right\\rangle"
+  },
+  {
+    "key": "ns.c5.c5f.c_axis_alpha",
+    "latex": "\\mathfrak C_{\\rm axis}(\\alpha)",
+    "label_zh": "軸向集中統計量",
+    "label_en": "Axis concentration statistic",
+    "definition_zh": "在第53節中定義，用以測量壓縮軸機率測度在任意半徑為 $\\alpha$ 的射影球內的最大質量。",
+    "definition_en": "Defined in Section 53 to measure the maximum mass of the compressive-axis probability measure within any projective ball of radius \\alpha.",
+    "defining_relation": "\\mathfrak C_{\\rm axis}(\\alpha) = \\sup_{[e]\\in\\mathbb{RP}^2} \\nu_\\ast^{axis} ( B_\\alpha([e]) )"
+  },
+  {
+    "key": "ns.c5.c5f.theta_f",
+    "latex": "\\Theta_\\ast^{F}",
+    "label_zh": "C5-F全域狀態向量",
+    "label_en": "C5-F global state vector",
+    "definition_zh": "在第56節中定義，為包含軸、壓力與最佳導數階數等多維屬性的更新版 C5-F 真實 ETN 狀態向量。",
+    "definition_en": "Defined in Section 56 as the updated C5-F True ETN state vector encompassing axes, pressures, and optimal derivative orders.",
+    "defining_relation": "\\Theta_\\ast^{F} = \\left\\langle \\nu_\\ast^{axis}, \\mathfrak G_\\ast, F_\\ast, \\operatorname{sig}F_\\ast, c_\\ast^P, \\mathfrak V_\\ast^{op,\\omega}, \\mathfrak V_\\ast^{\\perp,\\omega}, k_\\ast^{best}, d_\\ast^{der} \\right\\rangle"
+  },
+  {
+    "key": "ns.c5.c5f.c_ast_p",
+    "latex": "c_\\ast^P",
+    "label_zh": "壓力對齊裕度",
+    "label_en": "Pressure alignment margin",
+    "definition_zh": "在第52節中作為 C5 共享狀態的一部分引入，代表壓力能有效鎖定軸的負向補償強度。",
+    "definition_en": "Introduced in Section 52 as part of the C5 shared state, representing the negative compensation strength by which pressure effectively locks the axis."
+  }
+]

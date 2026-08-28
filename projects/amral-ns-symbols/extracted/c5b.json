@@ -1,0 +1,269 @@
+[
+  {
+    "key": "ns.c5.c5b.middle_normalized_load",
+    "latex": "f_j^M(s)",
+    "label_zh": "中間正規化荷載",
+    "label_en": "middle normalized load",
+    "definition_zh": "第3節將紀錄窗內中間應變荷載密度 m_j 對總 toll \\mathcal{M}_j 正規化，得到 [0,1] 上積分為一的非負密度 f_j^M。",
+    "definition_en": "Section 3 normalizes the middle-strain load density m_j against the total middle toll \\mathcal{M}_j to a nonnegative unit-mass density f_j^M on [0,1].",
+    "defining_relation": "f_j^M(s)=\\frac{L_j m_j(t_j(s))}{\\mathcal{M}_j},\\qquad f_j^M\\ge0,\\ \\int_0^1 f_j^M(s)\\,ds=1"
+  },
+  {
+    "key": "ns.c5.c5b.positive_operator_normalized_load",
+    "latex": "f_j^+(s)",
+    "label_zh": "正算子正規化荷載",
+    "label_en": "positive-operator normalized load",
+    "definition_zh": "第4節將算子增長正部 [h_j]_+ 對總正變分 P_j 正規化，得到單位質量密度 f_j^+。",
+    "definition_en": "Section 4 normalizes the positive part [h_j]_+ of operator growth against the total positive variation P_j, yielding the unit-mass density f_j^+.",
+    "defining_relation": "f_j^+(s)=\\frac{L_j[h_j(t_j(s))]_+}{P_j},\\qquad f_j^+\\ge0,\\ \\int_0^1 f_j^+\\,ds=1",
+    "notes": "P_j>0 is inherited from the C4-J record identity P_j-N_j=\\Delta E_{1,j}>0."
+  },
+  {
+    "key": "ns.c5.c5b.opposing_operator_normalized_load",
+    "latex": "f_j^-(s)",
+    "label_zh": "反相算子正規化荷載",
+    "label_en": "opposing-operator normalized load",
+    "definition_zh": "第5節在 N_j>0 時將 [-h_j]_+ 對總反相變分正規化為單位質量密度 f_j^-，否則令其恆為零。",
+    "definition_en": "Section 5 sets f_j^- to the unit-mass normalization of [-h_j]_+ when N_j>0, and to the zero function when N_j=0.",
+    "defining_relation": "f_j^-(s)=\\frac{L_j[-h_j(t_j(s))]_+}{N_j}\\ (N_j>0);\\qquad f_j^-\\equiv0\\ (N_j=0)"
+  },
+  {
+    "key": "ns.c5.c5b.exact_operator_sign_exclusion",
+    "latex": "f_j^+ f_j^-=0",
+    "label_zh": "算子符號精確互斥",
+    "label_en": "exact operator-sign exclusion",
+    "definition_zh": "第6節由點態 [h_j]_+[-h_j]_+=0 推出兩正規化算子密度幾乎處處相乘為零，作為本輪最基本的精確時相約束。",
+    "definition_en": "Section 6 records the exact temporal phase constraint that the two operator-sign normalized densities multiply to zero a.e., inherited from the pointwise identity [h_j]_+[-h_j]_+=0.",
+    "notes": "C5-B.2 (§13) upgrades this to the closed-support statement Y_*^ϑ([0,1]×F_{+-})=0 on the Young limit."
+  },
+  {
+    "key": "ns.c5.c5b.rational_thresholds",
+    "latex": "\\vartheta=(a,b,c)\\in\\mathbb{Q}_{>0}^3",
+    "label_zh": "有理閾值三元組",
+    "label_en": "rational threshold triple",
+    "definition_zh": "第7節固定正有理閾值 ϑ=(a,b,c)，分別切割中間、正算子與反相算子正規化荷載的活躍集合。",
+    "definition_en": "Section 7 fixes a rational triple ϑ=(a,b,c) of positive thresholds that cut the three normalized loads into active versus inactive phases."
+  },
+  {
+    "key": "ns.c5.c5b.threshold_phase_indicators",
+    "latex": "\\chi_{j,M}^\\vartheta,\\ \\chi_{j,+}^\\vartheta,\\ \\chi_{j,-}^\\vartheta",
+    "label_zh": "閾值相位指示函數",
+    "label_en": "threshold phase indicators",
+    "definition_zh": "第7節分別以 {f_j^M≥a}、{f_j^+≥b}、{f_j^-≥c} 的特徵函數定義三個二值時相指示。",
+    "definition_en": "Section 7 defines the three binary phase indicators as the characteristic functions of the threshold-active sets {f_j^M≥a}, {f_j^+≥b} and {f_j^-≥c}."
+  },
+  {
+    "key": "ns.c5.c5b.phase_vector",
+    "latex": "X_j^\\vartheta(s)",
+    "label_zh": "相位向量",
+    "label_en": "phase vector",
+    "definition_zh": "第7節把三個閾值指示函數打包成取值於 {0,1}^3 的聯合相位向量，作為著色時間微狀態。",
+    "definition_en": "Section 7 packages the three threshold indicators into the joint phase vector X_j^ϑ taking values in {0,1}^3, which is the colored temporal microstate.",
+    "defining_relation": "X_j^\\vartheta(s)=(\\chi_{j,M}^\\vartheta(s),\\chi_{j,+}^\\vartheta(s),\\chi_{j,-}^\\vartheta(s))"
+  },
+  {
+    "key": "ns.c5.c5b.finite_phase_alphabet",
+    "latex": "\\mathcal{A}",
+    "label_zh": "有限相位字母表",
+    "label_en": "finite phase alphabet",
+    "definition_zh": "第8節由 χ_+χ_-=0 把允許相位狀態限制為六個離散字元 {000,100,010,001,110,101}，並禁止 011 與 111。",
+    "definition_en": "Section 8 restricts admissible phase states, via χ_+χ_-=0, to the six-element discrete alphabet {000,100,010,001,110,101}, forbidding 011 and 111.",
+    "defining_relation": "\\mathcal{A}=\\{000,100,010,001,110,101\\}"
+  },
+  {
+    "key": "ns.c5.c5b.colored_temporal_young_measure",
+    "latex": "Y_j^\\vartheta",
+    "label_zh": "著色時間 Young 測度",
+    "label_en": "colored temporal Young measure",
+    "definition_zh": "第9節把正規化時間 s 與相位向量 X_j^ϑ(s) 對 Lebesgue 測度 ds 的 push-forward 定義為取值於 P([0,1]×A) 且第一邊緣固定為 ds 的著色時間圖測度。",
+    "definition_en": "Section 9 defines the colored temporal graph measure as the push-forward of Lebesgue measure ds under s↦(s,X_j^ϑ(s)), landing in P([0,1]×A) with first marginal ds.",
+    "defining_relation": "Y_j^\\vartheta=(s,X_j^\\vartheta(s))_{\\#}(ds)\\in\\mathcal{P}([0,1]\\times\\mathcal{A}),\\qquad(\\pi_s)_{\\#}Y_j^\\vartheta=ds"
+  },
+  {
+    "key": "ns.c5.c5b.young_limit_disintegration",
+    "latex": "Y_\\ast^\\vartheta=ds\\,\\nu_s^\\vartheta",
+    "label_zh": "Young 極限與時間纖維",
+    "label_en": "Young limit and temporal disintegration",
+    "definition_zh": "第10節定理10.1（C5-B.1）抽出弱極限 Y_*^ϑ，其第一邊緣仍為 ds，並纖維化為幾乎處處取值於 P(A) 的未解析時相分佈 ν_s^ϑ。",
+    "definition_en": "Section 10 (Theorem 10.1 / C5-B.1) extracts a weak limit Y_*^ϑ with first marginal ds, disintegrating as ds ν_s^ϑ with ν_s^ϑ∈P(A) for a.e. s.",
+    "defining_relation": "Y_\\ast^\\vartheta(ds,d\\xi)=ds\\,\\nu_s^\\vartheta(d\\xi),\\qquad\\nu_s^\\vartheta\\in\\mathcal{P}(\\mathcal{A})"
+  },
+  {
+    "key": "ns.c5.c5b.temporal_phase_spectrum",
+    "latex": "\\mathfrak{Y}_\\ast",
+    "label_zh": "時間相位譜",
+    "label_en": "temporal phase spectrum",
+    "definition_zh": "第11節對可數集 Q_{>0}^3 對角抽取，得到同一子列上對所有有理 ϑ 同時成立的 Young 極限族，並稱之為時間相位譜。",
+    "definition_en": "Section 11 diagonalizes over the countable set Q_{>0}^3 to obtain a single subsequence along which Y_j^ϑ⇀Y_*^ϑ for every rational ϑ, called the temporal phase spectrum.",
+    "defining_relation": "\\mathfrak{Y}_\\ast=\\{Y_\\ast^\\vartheta\\}_{\\vartheta\\in\\mathbb{Q}_{>0}^3}"
+  },
+  {
+    "key": "ns.c5.c5b.coactive_phase_mass",
+    "latex": "C_{\\ast,M+}^\\vartheta",
+    "label_zh": "共活相位質量",
+    "label_en": "coactive phase mass",
+    "definition_zh": "第14節以 Young 測度在相位 110 上的質量定義中間／正算子共活佔空比，有限尺度值為 C_{j,M+}^ϑ、極限值為 C_{*,M+}^ϑ。",
+    "definition_en": "Section 14 defines the coactive duty as the Y-mass of the phase 110, with finite-scale value C_{j,M+}^ϑ and Young-limit value C_{*,M+}^ϑ.",
+    "defining_relation": "C_{j,M+}^\\vartheta=Y_j^\\vartheta([0,1]\\times\\{110\\}),\\qquad C_{\\ast,M+}^\\vartheta=Y_\\ast^\\vartheta([0,1]\\times\\{110\\})",
+    "notes": "Theorem 15.1 (C5-B.3) upgrades C_{*,M+}^ϑ>0 into genuine finite-scale same-time overlap for all sufficiently large j along the extracted subsequence."
+  },
+  {
+    "key": "ns.c5.c5b.barycentric_phase_fractions",
+    "latex": "\\bar\\chi_M^\\vartheta(s),\\ \\bar\\chi_+^\\vartheta(s),\\ \\bar\\chi_-^\\vartheta(s)",
+    "label_zh": "重心相位分數",
+    "label_en": "barycentric phase fractions",
+    "definition_zh": "第18節將纖維測度 ν_s^ϑ 對各相位座標積分，得到正規化時間 s 處的局部時相佔比重心投影。",
+    "definition_en": "Section 18 integrates the disintegrated Young fiber ν_s^ϑ against each phase coordinate to obtain the barycentric (mean) phase fractions at normalized time s."
+  },
+  {
+    "key": "ns.c5.c5b.microscopic_coactivation",
+    "latex": "c_{M+}^\\vartheta(s)",
+    "label_zh": "微觀共活密度",
+    "label_en": "microscopic coactivation density",
+    "definition_zh": "第18節以纖維測度對乘積 ξ_M ξ_+ 的積分定義微觀共活密度，量測同一微狀態上中間與正算子同時活躍的局部質量。",
+    "definition_en": "Section 18 defines the microscopic coactivation density as the fiber integral of the product ξ_M ξ_+, measuring local mass of simultaneous middle and positive-operator activity."
+  },
+  {
+    "key": "ns.c5.c5b.temporal_phase_covariance",
+    "latex": "\\operatorname{Cov}_{M+}^\\vartheta(s)",
+    "label_zh": "時間相位協方差",
+    "label_en": "temporal phase covariance",
+    "definition_zh": "第19節以微觀共活減去重心分數乘積定義 Cov_{M+}，在完全互斥且兩分數皆正時嚴格為負，用以量化反相關時相混合。",
+    "definition_en": "Section 19 defines the temporal phase covariance as microscopic coactivation minus the product of barycentric fractions, which is strictly negative under complete exclusion with both fractions positive.",
+    "notes": "The alternating-microcell example of §17 realizes Cov_{M+}=-1/4, repairing the C5-A separate-weak-measure no-go that homogenized to a fake coactive overlap."
+  },
+  {
+    "key": "ns.c5.c5b.operator_compact_with_cemetery",
+    "latex": "\\mathcal{K}_{\\mathrm{op}}^\\dagger=\\mathcal{K}_{\\mathrm{op}}\\cup\\{\\partial\\}",
+    "label_zh": "帶墓地點的算子緊化",
+    "label_en": "operator compact with cemetery point",
+    "definition_zh": "第20節在 C5-A 的算子緊集 K_op 上加入墓地點 ∂，使兩算子閾值皆不活躍的時刻可標記為 ∂ 而空間仍緊。",
+    "definition_en": "Section 20 adjoins a cemetery point ∂ to the C5-A operator compact K_op so that times inactive for both operator thresholds can be marked while remaining in a compact space.",
+    "notes": "K_op and the operator-angle map Φ_op(r_ν,ζ) carry over from C5-A; the cemetery point is new in C5-B."
+  },
+  {
+    "key": "ns.c5.c5b.operator_angle_marking",
+    "latex": "\\kappa_j^{op}(s)",
+    "label_zh": "算子角標記",
+    "label_en": "operator-angle marking",
+    "definition_zh": "第20節在 χ_{j,+}+χ_{j,-}>0 的正規化時刻把 κ_j^{op} 設為 Φ_op(r_ν,ζ)，否則設為墓地點 ∂。",
+    "definition_en": "Section 20 attaches κ_j^{op}(s)=Φ_op(r_ν,ζ) on normalized times where at least one operator threshold is active, and sets κ_j^{op}=∂ otherwise."
+  },
+  {
+    "key": "ns.c5.c5b.marked_temporal_young_measure",
+    "latex": "\\widetilde{Y}_j^\\vartheta",
+    "label_zh": "標記時間 Young 測度",
+    "label_en": "marked temporal Young measure",
+    "definition_zh": "第21節把 (s,X_j^ϑ(s),κ_j^{op}(s)) 對 ds 的 push-forward 放到緊空間 [0,1]×A×K_op^† 上，從而可抽取標記 Young 弱極限。",
+    "definition_en": "Section 21 push-forwards (s,X_j^ϑ(s),κ_j^{op}(s)) under ds onto the compact [0,1]×A×K_op^†, producing a marked Young measure with extractable weak limits.",
+    "defining_relation": "\\widetilde{Y}_j^\\vartheta=(s,X_j^\\vartheta(s),\\kappa_j^{op}(s))_{\\#}ds\\in\\mathcal{P}([0,1]\\times\\mathcal{A}\\times\\mathcal{K}_{\\mathrm{op}}^\\dagger)"
+  },
+  {
+    "key": "ns.c5.c5b.phase_angle_compatibility",
+    "latex": "\\gamma\\ge\\tfrac12\\ \\text{on}\\ \\mathrm{supp}(\\xi_+=1);\\quad\\gamma\\le\\tfrac12\\ \\text{on}\\ \\mathrm{supp}(\\xi_-=1)",
+    "label_zh": "相位–角度相容性",
+    "label_en": "phase–angle compatibility",
+    "definition_zh": "第23節定理 C5-B.4 要求標記 Young 極限在正算子相位支撐閉包上滿足 γ≥1/2、在反相相位上滿足 γ≤1/2，並保持 ξ_+ξ_-=0。",
+    "definition_en": "Section 23 (C5-B.4) forces the marked Young limit to satisfy γ≥1/2 on the support closure of ξ_+=1, γ≤1/2 on that of ξ_-=1, together with ξ_+ξ_-=0.",
+    "notes": "The compact operator coordinate γ=(2/π)arctan(ζ r_ν) and the gate g=ζ r_ν carry over from C5-A; C5-B only adds the joint support constraint with the temporal phase color."
+  },
+  {
+    "key": "ns.c5.c5b.asymptotic_concentration_mass",
+    "latex": "\\mathfrak{c}_f^\\infty",
+    "label_zh": "漸近集中質量",
+    "label_en": "asymptotic concentration mass",
+    "definition_zh": "第25節先取尾質量 limsup_j ∫_{f_j>K} f_j，再令 K→∞ 得到 [0,1] 中的漸近集中質量，用以捕捉 vanishing-duty 高振幅尖峰。",
+    "definition_en": "Section 25 defines the tail mass 𝔠_f(K) as the limsup of load above height K, then takes K→∞ to obtain the asymptotic concentration mass 𝔠_f^∞∈[0,1] that captures vanishing-duty high-amplitude spikes.",
+    "defining_relation": "\\mathfrak{c}_f^\\infty=\\lim_{K\\to\\infty}\\limsup_{j\\to\\infty}\\int_{\\{f_j>K\\}}f_j(s)\\,ds\\in[0,1]"
+  },
+  {
+    "key": "ns.c5.c5b.load_concentration_coordinates",
+    "latex": "\\mathfrak{c}_M,\\ \\mathfrak{c}_+,\\ \\mathfrak{c}_-",
+    "label_zh": "荷載加權集中座標",
+    "label_en": "load-weighted concentration coordinates",
+    "definition_zh": "第27節分別對 f^M、f^+ 與（在反相活躍反覆出現時）f^- 取漸近集中質量，作為荷載加權的時間集中缺陷座標。",
+    "definition_en": "Section 27 evaluates the asymptotic concentration mass on f^M, f^+ and (when opposing activity is recurrent) f^-, yielding the load-weighted temporal concentration coordinates.",
+    "notes": "Section 26 records the equivalence 𝔠_f^∞=0 ⇔ uniform integrability of the unit-mass family {f_j}."
+  },
+  {
+    "key": "ns.c5.c5b.vanishing_duty_full_concentration",
+    "latex": "\\mathfrak{c}_f^\\infty=1",
+    "label_zh": "消逝佔空比強制完全集中",
+    "label_en": "vanishing duty forces full concentration",
+    "definition_zh": "第30節定理30.1（C5-B.6）證明：若對每個 a>0 皆有 |{f_j≥a}|→0，則漸近集中質量必等於 1，即全部荷載質量轉成集中缺陷。",
+    "definition_en": "Section 30 (Theorem 30.1 / C5-B.6) proves that if |{f_j≥a}|→0 for every a>0, then 𝔠_f^∞=1, so the entire unit load mass becomes a concentration defect."
+  },
+  {
+    "key": "ns.c5.c5b.coactivation_oscillation_concentration_trichotomy",
+    "latex": "\\mathrm{B\\text{-}COACT}\\vee\\mathrm{B\\text{-}OSC}\\vee\\mathrm{B\\text{-}CONC}",
+    "label_zh": "共活／振盪／集中三分法",
+    "label_en": "coactivation–oscillation–concentration trichotomy",
+    "definition_zh": "第33節定理33.1（C5-B.7）斷言中間與正算子正規化荷載序列在抽出的 C5-B 子列上必落入真共活、主體 Young 相位分離／振盪、或時間荷載集中三者之一。",
+    "definition_en": "Section 33 (Theorem 33.1 / C5-B.7) asserts that along the extracted C5-B subsequence the middle and positive-operator normalized-load sequences fall into genuine coactivation, bulk Young-phase segregation/oscillation, or temporal load concentration.",
+    "notes": "Section 34 records the residual after excluding B-COACT as Young-phase oscillation ∨ DiPerna–Majda-type concentration; the objects remain record-window temporal motifs, not measure-valued Navier–Stokes solutions (§1.2, §35)."
+  },
+  {
+    "key": "ns.c5.c5b.load_colored_dominating_measure",
+    "latex": "\\Lambda_j",
+    "label_zh": "荷載著色支配測度",
+    "label_en": "load-colored dominating measure",
+    "definition_zh": "第36節取中間與正算子荷載測度的平均作為 [0,1] 上的共同機率測度 Λ_j，用以聯合支配兩種顏色。",
+    "definition_en": "Section 36 averages the middle and positive-operator load measures into a common probability Λ_j on [0,1] that jointly dominates both colors.",
+    "defining_relation": "\\Lambda_j=\\tfrac12(\\mu_j^M+\\mu_j^+)\\in\\mathcal{P}([0,1]),\\qquad\\mu_j^M=f_j^M\\,ds,\\ \\mu_j^+=f_j^+\\,ds"
+  },
+  {
+    "key": "ns.c5.c5b.radon_nikodym_color_fractions",
+    "latex": "z_{j,M},\\ z_{j,+}",
+    "label_zh": "荷載顏色分數",
+    "label_en": "load-color Radon–Nikodym fractions",
+    "definition_zh": "第36節以 Λ_j 為底取 μ_j^M、μ_j^+ 的 Radon–Nikodym 導數之半，得到 Λ_j-a.e. 和為一的顏色分數。",
+    "definition_en": "Section 36 takes half the Radon–Nikodym derivatives of μ_j^M and μ_j^+ with respect to Λ_j, yielding color fractions that sum to 1 Λ_j-a.e."
+  },
+  {
+    "key": "ns.c5.c5b.load_colored_young_graph",
+    "latex": "\\Upsilon_j",
+    "label_zh": "荷載著色 Young 圖",
+    "label_en": "load-colored Young graph",
+    "definition_zh": "第37節把 (s,z_{j,M},z_{j,+}) 對 Λ_j 的 push-forward 放到 [0,1]×Δ_2 上；第38節證明其弱極限 Υ_* 的重心投影恰好恢復一階分色荷載測度。",
+    "definition_en": "Section 37 push-forwards (s,z_{j,M},z_{j,+}) under Λ_j onto [0,1]×Δ_2; Section 38 shows that the weak limit Υ_* recovers the separate first-order load measures as barycentric projections.",
+    "defining_relation": "\\Upsilon_j=(s,z_{j,M},z_{j,+})_{\\#}\\Lambda_j\\in\\mathcal{P}([0,1]\\times\\Delta_2)",
+    "notes": "Section 39 records that exact finite-scale exclusion f_j^M f_j^+=0 forces supp Υ_* ⊂ [0,1]×{(1,0),(0,1)}, so the load-colored graph likewise retains pulse separation."
+  },
+  {
+    "key": "ns.c5.c5b.lag_correlation_spectrum",
+    "latex": "C_j^{a\\to b}(\\ell),\\ C_\\ast^{a\\to b}(\\ell)",
+    "label_zh": "固定延遲相關譜",
+    "label_en": "fixed-lag correlation spectrum",
+    "definition_zh": "第42節對二值閾值相位以固定延遲 ℓ 積分乘積，並對有理 ℓ 對角抽取極限 C_*^{a→b}(ℓ) 作為粗轉換譜。",
+    "definition_en": "Section 42 integrates products of binary threshold phases at a fixed lag ℓ and extracts limits C_*^{a→b}(ℓ) over rational lags as a coarse transition spectrum.",
+    "notes": "Section 43 records that any fixed-lag spectrum still misses moving microscopic periods ε_j→0, which is why C5-C must introduce a two-scale / transition defect."
+  },
+  {
+    "key": "ns.c5.c5b.operator_sign_cycle_bias",
+    "latex": "\\beta_j^{op}",
+    "label_zh": "算子符號循環偏置",
+    "label_en": "operator sign-cycle bias",
+    "definition_zh": "第44節以 (P_j-N_j)/(P_j+N_j)>0 記錄正增長對總變分的偏置；極限 β_*>0 表示正增長質量佔優，β_*=0 則為算子補償循環邊界態。",
+    "definition_en": "Section 44 records the strictly positive bias (P_j-N_j)/(P_j+N_j) of operator growth; β_*→positive means positive-growth mass dominance, while β_*=0 is an operator compensation-cycle boundary state.",
+    "notes": "The identity P_j-N_j=ΔE_{1,j}>0 is inherited from the C4-J record bias."
+  },
+  {
+    "key": "ns.c5.c5b.compatibility_state",
+    "latex": "\\Theta_\\ast^{C5B}",
+    "label_zh": "C5-B 相容極限態",
+    "label_en": "C5-B compatibility state",
+    "definition_zh": "第45節把 C5-A 極限、時間相位譜、標記 Young 譜、三個集中質量、荷載著色 Young 圖與固定延遲相關元資料打包為增強相容態 Θ_*^{C5B}。",
+    "definition_en": "Section 45 packages the C5-A limit together with the phase Young spectrum, marked Young spectrum, concentration masses, load-colored Young graph and lag-correlation metadata into the enhanced compatibility state Θ_*^{C5B}.",
+    "defining_relation": "\\Theta_\\ast^{C5B}=\\bigl\\langle\\Theta_\\ast^{C5A},\\mathfrak{Y}_\\ast,\\widetilde{\\mathfrak{Y}}_\\ast,\\mathfrak{c}_M,\\mathfrak{c}_+,\\mathfrak{c}_-,\\Upsilon_\\ast,\\mathfrak{C}_\\ast^{\\mathrm{lag}}\\bigr\\rangle",
+    "notes": "This strictly enlarges Θ_*^{C5A} from the previous round; the temporal-Young ETN block Θ_*^{TY} of §49 is the same package without the inherited C5-A motif coordinates."
+  },
+  {
+    "key": "ns.c5.c5b.temporal_defect_classes",
+    "latex": "\\mathrm{T1},\\mathrm{T2},\\mathrm{T3},\\mathrm{T4}",
+    "label_zh": "第一微結構層時間缺陷四類",
+    "label_en": "first-microstructure temporal defect classes",
+    "definition_zh": "第46節（C5-B.8）將紀錄窗正規化下的中間／算子補償分類為真共活（T1）、主體 Young 相位分離（T2）、荷載集中（T3）與未解析的次 Young 排序／相關缺陷（T4）。",
+    "definition_en": "Section 46 (C5-B.8) classifies middle/operator temporal compensation at the first microstructure level into genuine coactivation (T1), bulk Young-phase segregation (T2), load concentration (T3), and unresolved sub-Young ordering/correlation defect (T4).",
+    "notes": "T4 is the declared frontier of C5-C (temporal correlation defects, transition measures, and causal pulse ordering)."
+  }
+]

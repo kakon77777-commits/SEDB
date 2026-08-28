@@ -1,0 +1,201 @@
+[
+  {
+    "key": "ns.c3.c3l.m1_beta",
+    "latex": "M_1(\\beta)",
+    "label_zh": "一階絕對佔用矩",
+    "label_en": "First absolute occupancy moment",
+    "definition_zh": "第0、6節重述自 C3-K 的一階頻率佔用矩：對每個 dyadic shell 在振幅超閾值集合 $A_q(\\beta)$ 上的測度以 $\\lambda_q$ 加權求和，C3-K 已證其恆有限。C3-L 第14節將它與新導出的 $M_{5/2}(\\beta)=\\infty$ 並列，構成「低階有限＋高階發散」的 moment-escape signature。",
+    "definition_en": "The first-order occupancy moment recapped from C3-K (Secs. 0, 6): the λ_q-weighted measure of the amplitude threshold-occupancy sets A_q(β), summed over shells, proved finite in C3-K. C3-L pairs its finiteness with the newly derived divergence M_{5/2}(β)=∞ (Sec. 14) to form the round's signature escape dichotomy.",
+    "defining_relation": "M_1(\\beta) = \\sum_q \\lambda_q |A_q(\\beta)| < \\infty",
+    "notes": "Section 0 recaps a helicity-refined version M_1(\\beta)=\\sum_{q,\\sigma}\\lambda_q|A_{q,\\sigma}(\\beta)| with an extra chirality index σ; Secs. 6/14 onward drop σ. Origin is C3-K (NS_C3K_AbsoluteOccupancy_OneMomentGap); listed here because C3-L's central new result is its pairing against M_{5/2}(β)."
+  },
+  {
+    "key": "ns.c3.c3l.a_q",
+    "latex": "a_q(t)",
+    "label_zh": "正規化 shell 振幅",
+    "label_en": "Normalized shell amplitude",
+    "definition_zh": "第1節定義的正規化 shell 振幅：$L^\\infty$ shell 速度大小除以黏性與該 shell 頻率之積，是本輪所有矩（$J_q$、$\\mathfrak M_2^{amp}$、$M_1$、$M_{5/2}$）的共同建構元。Bernstein 界給出 $a_q(t)\\le C\\|u_0\\|_2\\lambda_q^{1/2}/\\nu$（第12節），為定理13.1提供關鍵上界。",
+    "definition_en": "The normalized shell amplitude defined in Sec. 1: the shell velocity's L^∞ norm divided by viscosity times the shell's dyadic frequency, the common building block of every moment in this round (J_q, 𝔐_2^amp, M_1, M_{5/2}). The Bernstein bound a_q(t)≤C‖u_0‖_2λ_q^{1/2}/ν (Sec. 12) drives Theorem 13.1.",
+    "defining_relation": "a_q(t) = \\dfrac{\\|u_q(t)\\|_\\infty}{\\nu\\lambda_q}",
+    "notes": "A helicity-refined variant a_q^\\sigma(t)=\\|u_q^\\sigma(t)\\|_\\infty/(\\nu\\lambda_q) is also given in Sec. 1 \"if needed,\" but is not used in this round's actual theorems (4.1, 9.1, 13.1)."
+  },
+  {
+    "key": "ns.c3.c3l.dissipation_wavenumber",
+    "latex": "\\Lambda(t),\\ Q(t)",
+    "label_zh": "耗散波數與頻率指標",
+    "label_en": "Dissipation wavenumber and frequency index",
+    "definition_zh": "第2節重述的耗散波數 $\\Lambda(t)=\\lambda_{Q(t)}$：$Q(t)$ 是高於此即落入黏性主導小量門檻的 shell 頻率指標。C2 已證 $\\Lambda\\in L^1$；本輪新增判準是 $\\Lambda$ 是否落在 $L^2$，藉此把發散 carrier 分成 Branch A（$\\Lambda\\notin L^2$）與 Branch B（$\\Lambda\\in L^2$）。",
+    "definition_en": "The dissipation wavenumber Λ(t)=λ_{Q(t)} recapped in Sec. 2, where Q(t) is the shell-frequency index above which nonlinear amplitude is viscosity-dominated. C2 proved Λ∈L^1; this round's new criterion is whether Λ additionally lies in L^2, splitting the divergence carrier into Branch A (Λ∉L^2) versus Branch B (Λ∈L^2).",
+    "defining_relation": "\\Lambda(t) = \\lambda_{Q(t)}",
+    "notes": "Under NS scaling Λ_λ(t)=λΛ(λ^2t), so ∫Λ^2dt is scale-invariant, making Λ∉L^2 a genuine critical frontier-spike mechanism, one scaling level above C2's Λ∈L^1 bookkeeping."
+  },
+  {
+    "key": "ns.c3.c3l.j_q",
+    "latex": "J_q",
+    "label_zh": "頻率局部化臨界通行費積分",
+    "label_en": "Frequency-localized critical toll integral",
+    "definition_zh": "第3節由 Cheskidov–Dai 判準逆否推出的量：在活躍窗口 $q\\le Q(t)$ 內對 $\\lambda_q\\|u_q(t)\\|_\\infty$ 於 $(T_*/2,T_*)$ 取時間積分。定理4.1證明 $\\limsup_qJ_q>c_*$（外部判準給出）蘊含 $\\sum_qJ_q=\\infty$，等價於 $\\nu\\mathfrak M_2^{amp}=\\infty$。",
+    "definition_en": "The frequency-localized critical toll integral (Sec. 3), obtained from the contrapositive of the Cheskidov–Dai criterion: the time integral of λ_q‖u_q(t)‖_∞ over the active window q≤Q(t) on (T_*/2,T_*). Theorem 4.1 shows limsup_q J_q>c_* (from the external criterion) forces ∑_q J_q=∞, equivalent to ν𝔐_2^amp=∞.",
+    "defining_relation": "J_q = \\int_{T_\\ast/2}^{T_\\ast} 1_{\\{q\\le Q(t)\\}}\\,\\lambda_q\\|u_q(t)\\|_\\infty\\,dt",
+    "notes": "c_* is the small universal/viscosity-normalized threshold constant of the external Cheskidov–Dai criterion (Sec. 3); not otherwise used."
+  },
+  {
+    "key": "ns.c3.c3l.omega_q",
+    "latex": "\\omega_q",
+    "label_zh": "shell 局部化渦度",
+    "label_en": "Shell-localized vorticity",
+    "definition_zh": "第5節：在頻率環 $|\\xi|\\sim\\lambda_q$ 上 curl 與 Biot–Savart 皆為光滑環狀乘子，給出 $\\|\\omega_q\\|_\\infty\\asymp\\lambda_q\\|u_q\\|_\\infty$。藉此定理4.1可改寫成本文所稱「Critical Vorticity-Moment Escape」：$\\int\\sum_{q\\le Q(t)}\\|\\omega_q(t)\\|_\\infty dt=\\infty$。",
+    "definition_en": "Shell-localized vorticity (Sec. 5): since curl and Biot–Savart are smooth annular multipliers on |ξ|∼λ_q, ‖ω_q‖_∞≍λ_q‖u_q‖_∞. This recasts Theorem 4.1 as the paper's named result \"Critical Vorticity-Moment Escape\": ∫∑_{q≤Q(t)}‖ω_q(t)‖_∞dt=∞.",
+    "defining_relation": "\\|\\omega_q\\|_\\infty \\asymp \\lambda_q\\|u_q\\|_\\infty",
+    "notes": "Equivalence holds up to universal annular constants; ω_q is distinct from the generic full vorticity field ω=∇×u."
+  },
+  {
+    "key": "ns.c3.c3l.m2_amp",
+    "latex": "\\mathfrak M_2^{amp}",
+    "label_zh": "振幅加權二階矩",
+    "label_en": "Amplitude-weighted second moment",
+    "definition_zh": "第6節命名的振幅加權二階矩，把定理4.1的發散量正式量化為 $\\mathfrak M_2^{amp}=\\int_{T_*/2}^{T_*}\\sum_{q\\le Q(t)}\\lambda_q^2a_q(t)dt$。Blow-up 蘊含此矩必為無限，是第7–9節 Branch A/B 拆分的出發量。",
+    "definition_en": "The amplitude-weighted second moment named in Sec. 6, formalizing Theorem 4.1's divergent quantity as 𝔐_2^amp=∫_{T_*/2}^{T_*}∑_{q≤Q(t)}λ_q^2a_q(t)dt. Blow-up forces 𝔐_2^amp=∞, the starting quantity for the Branch A/B split of Secs. 7–9.",
+    "defining_relation": "\\mathfrak M_2^{amp} = \\int_{T_\\ast/2}^{T_\\ast}\\sum_{q\\le Q(t)}\\lambda_q^2a_q(t)\\,dt",
+    "notes": "Equal to ν^{-1} times the vorticity-moment sum of Sec. 5, and to the J_q-sum via Theorem 4.1's equivalence; relabeled 𝔗_spec in Sec. 27."
+  },
+  {
+    "key": "ns.c3.c3l.a_q_beta",
+    "latex": "A_q(\\beta)",
+    "label_zh": "振幅超閾值時間集合",
+    "label_en": "Amplitude threshold-occupancy time set",
+    "definition_zh": "第6節定義的振幅超閾值時間集合 $A_q(\\beta)=\\{t:a_q(t)\\ge\\beta\\}$，是 $M_1(\\beta)$ 與新定義 $M_{5/2}(\\beta)$ 共用的測度基礎；第13節另用限制版本 $A_q(\\beta)\\cap(T_*/2,T_*)$。",
+    "definition_en": "The amplitude threshold-occupancy time set A_q(β)={t:a_q(t)≥β} (Sec. 6), the shared measure underlying both M_1(β) and the newly introduced M_{5/2}(β); Sec. 13 uses the restricted form A_q(β)∩(T_*/2,T_*).",
+    "defining_relation": "A_q(\\beta) = \\{t : a_q(t)\\ge\\beta\\}",
+    "notes": "Sec. 16 gives an abstract example |A_q|∼λ_q^{-2} showing M_1<∞ and M_{5/2}=∞ can coexist with finite total occupied time (a \"Zeno-pack\") — bookkeeping-consistent, not an NS construction."
+  },
+  {
+    "key": "ns.c3.c3l.m2_threshold_split",
+    "latex": "\\mathfrak M_{2,<\\beta},\\ \\mathfrak M_{2,\\ge\\beta}",
+    "label_zh": "次閾值／閾上二階矩分解",
+    "label_en": "Subthreshold / at-or-above-threshold second-moment split",
+    "definition_zh": "第7–9節：固定 $\\beta>0$ 把 $a_q$ 拆成 $a_q<\\beta$ 與 $a_q\\ge\\beta$ 兩部分，使 $\\mathfrak M_2^{amp}=\\mathfrak M_{2,<\\beta}+\\mathfrak M_{2,\\ge\\beta}$。第8節證次閾值部分被 $C\\beta\\int\\Lambda^2dt$ 控制，故定理9.1（C3-L.2）給出：若 $\\Lambda\\in L^2$ 則對每個 $\\beta>0$ 都有 $\\mathfrak M_{2,\\ge\\beta}=\\infty$。",
+    "definition_en": "For fixed β>0, Secs. 7–9 split a_q into a_q<β and a_q≥β so that 𝔐_2^amp=𝔐_{2,<β}+𝔐_{2,≥β}; Sec. 8 bounds the subthreshold part by Cβ∫Λ^2dt. Theorem 9.1 (C3-L.2) then concludes that if Λ∈L^2, the threshold-and-above part 𝔐_{2,≥β} must diverge for every fixed β>0.",
+    "defining_relation": "\\mathfrak M_2^{amp}=\\mathfrak M_{2,<\\beta}+\\mathfrak M_{2,\\ge\\beta},\\qquad \\mathfrak M_{2,<\\beta}\\le C\\beta\\int_{T_\\ast/2}^{T_\\ast}\\Lambda(t)^2\\,dt",
+    "notes": "This is Theorem 9.1, named \"Critical-Moment Carrier Dichotomy\" (C3-L.2)."
+  },
+  {
+    "key": "ns.c3.c3l.m_5_2_beta",
+    "latex": "M_{5/2}(\\beta)",
+    "label_zh": "5/2 階活躍佔用矩",
+    "label_en": "Active 5/2-occupancy moment",
+    "definition_zh": "第13–14節新定義的高階活躍佔用矩，由定理13.1（C3-L.3）導出：若 $\\Lambda\\in L^2$，對每個 $\\beta>0$ 都有 $M_{5/2}(\\beta)=\\infty$。與 $M_1(\\beta)<\\infty$（第14節）並列，是本輪標誌性 moment-escape signature。",
+    "definition_en": "The new higher occupancy moment of Secs. 13–14, derived in Theorem 13.1 (C3-L.3): if Λ∈L^2, then for every β>0, M_{5/2}(β)=∞. Paired with M_1(β)<∞ (Sec. 14), this is C3-L's signature \"finite low moment + divergent high moment\" result.",
+    "defining_relation": "M_{5/2}(\\beta) = \\sum_q \\lambda_q^{5/2}\\left|A_q(\\beta)\\cap(T_\\ast/2,T_\\ast)\\right| = \\infty \\quad (\\Lambda\\in L^2)",
+    "notes": "Derived via the Bernstein-based bound λ_q^2a_q≤C‖u_0‖_2λ_q^{5/2}/ν (Secs. 12–13). Recurs as the Branch B characterization in Secs. 15, 30, 36–37."
+  },
+  {
+    "key": "ns.c3.c3l.lambda2_plus",
+    "latex": "\\lambda_2^+",
+    "label_zh": "應變張量中間特徵值正部",
+    "label_en": "Positive part of the middle strain eigenvalue",
+    "definition_zh": "第23–24節：應變特徵值排序 $\\lambda_1\\le\\lambda_2\\le\\lambda_3$（因 $\\operatorname{tr}S=0$）中，取中間特徵值正部 $\\lambda_2^+=\\max\\{\\lambda_2,0\\}$。引用 Miller 定理（$\\lambda_2^+\\in L_t^rL_x^p,\\ 2/r+3/p=2$）於 $p=3,r=2$ 特化，得 C3-L.5：hypothetical blow-up 蘊含 $\\int_0^{T_*}\\|\\lambda_2^+(t)\\|_3^2dt=\\infty$。",
+    "definition_en": "The positive part of the middle strain eigenvalue, λ_2^+=max{λ_2,0}, from the ordering λ_1≤λ_2≤λ_3 (tr S=0) in Secs. 23–24. Specializing Miller's criterion (λ_2^+∈L_t^rL_x^p, 2/r+3/p=2, 3/2<p≤∞) to p=3, r=2 gives C3-L.5: hypothetical blow-up forces ∫_0^{T_*}‖λ_2^+(t)‖_3^2dt=∞.",
+    "defining_relation": "\\lambda_2^+ = \\max\\{\\lambda_2,0\\}; \\qquad \\int_0^{T_\\ast}\\|\\lambda_2^+(t)\\|_3^2\\,dt=\\infty",
+    "notes": "This is the paper's second (geometric) escape channel, parallel to but not proved implied by/implying the spectral moment escape (NG-L4, open). Reused as 𝔗_strain in Sec. 27; Sec. 32 explicitly disclaims that this is an alignment theorem (ω need not align with the middle eigenvector)."
+  },
+  {
+    "key": "ns.c3.c3l.lambda2_plus_besov_endpoint",
+    "latex": "\\lambda_2^+ \\in L_t^2\\dot B^{-1}_{\\infty,\\infty}",
+    "label_zh": "中間應變特徵值臨界端點 Besov 判準",
+    "label_en": "Endpoint Besov criterion for the middle strain eigenvalue",
+    "definition_zh": "第25節引入 Guo–O（2025）延伸判準：若 $\\lambda_2^+\\in L^2(0,T;\\dot B^{-1}_{\\infty,\\infty})$ 則局部強解可光滑延拓，是 Miller 判準的端點加強版。故 hypothetical singularity 必須另外滿足逆否 $\\lambda_2^+\\notin L_t^2\\dot B^{-1}_{\\infty,\\infty}$。",
+    "definition_en": "Sec. 25 imports the Guo–O (2025) extension criterion, an endpoint sharpening of Miller's: λ_2^+∈L^2(0,T;Ḃ^{-1}_{∞,∞}) implies smooth extension of the local strong solution. Hypothetical singularity must therefore also satisfy the contrapositive λ_2^+∉L_t^2Ḃ^{-1}_{∞,∞}.",
+    "defining_relation": "\\lambda_2^+\\in L^2\\!\\left(0,T;\\dot B^{-1}_{\\infty,\\infty}\\right) \\ \\Rightarrow\\ \\text{smooth extension}",
+    "notes": "First use of this reference (Z. Guo, C.-J. O, Applied Mathematics Letters 160 (2025)) in the series; combined with C3-L.5 into Theorem 26.1's two parallel necessary conditions."
+  },
+  {
+    "key": "ns.c3.c3l.vortex_stretching_integral",
+    "latex": "\\mathcal V_S",
+    "label_zh": "渦線伸展積分",
+    "label_en": "Vortex-stretching integral",
+    "definition_zh": "第18–20節由渦度方程與恆等式 $\\frac12\\frac d{dt}\\|\\omega\\|_2^2+\\nu\\|\\nabla\\omega\\|_2^2=\\int\\omega\\cdot S\\omega\\,dx$ 導出的渦線伸展積分。命題20.1（C3-L.4）證明任何想把 energy dissipation 免費升級成 enstrophy dissipation 的論證，都必須另外控制 $\\mathcal V_S=\\int\\omega\\cdot S\\omega$，此即「moment-raising geometry debt」。",
+    "definition_en": "The vortex-stretching integral (Secs. 18–20), arising from the vorticity equation's exact enstrophy identity (1/2)d/dt‖ω‖_2^2+ν‖∇ω‖_2^2=∫ω·Sω dx. Proposition 20.1 (C3-L.4) shows any argument upgrading energy dissipation to enstrophy dissipation must separately control 𝒱_S=∫ω·Sω — the \"vortex-stretching geometry debt\" of raising one moment.",
+    "defining_relation": "\\mathcal V_S = \\int \\omega\\cdot S\\omega",
+    "notes": "Scaling audit (Sec. 21) shows ∫‖∇ω_λ‖_2^2dt and the stretching integral both scale by exactly λ under u_λ=λu(λx,λ^2t), so the enstrophy identity carries no hidden scale advantage over the energy identity. Feeds directly into guard G_RAISE (Sec. 28)."
+  },
+  {
+    "key": "ns.c3.c3l.t_spec",
+    "latex": "\\mathfrak T_{\\rm spec}",
+    "label_zh": "ETN 頻譜張力通道",
+    "label_en": "ETN spectral tension channel",
+    "definition_zh": "第27節 True ETN 框架下把定理4.1的發散量標記為「頻譜張力通道」：$\\mathfrak T_{\\rm spec}=\\int\\sum_{q\\le Q(t)}\\lambda_q^2a_q(t)dt=\\infty$，數值上等同 $\\mathfrak M_2^{amp}$。",
+    "definition_en": "The \"spectral tension channel\" of the True ETN framework (Sec. 27), labeling Theorem 4.1's divergent quantity: 𝔗_spec=∫∑_{q≤Q(t)}λ_q^2a_q(t)dt=∞, numerically identical to 𝔐_2^amp.",
+    "defining_relation": "\\mathfrak T_{\\rm spec} = \\int \\sum_{q\\le Q(t)}\\lambda_q^2a_q(t)\\,dt = \\infty",
+    "notes": "Paired with 𝔗_strain; X-Integration requires the two channels' provenance never be collapsed into one scalar (Sec. 27)."
+  },
+  {
+    "key": "ns.c3.c3l.t_strain",
+    "latex": "\\mathfrak T_{\\rm strain}",
+    "label_zh": "ETN 應變張力通道",
+    "label_en": "ETN strain (geometric) tension channel",
+    "definition_zh": "第27節與 $\\mathfrak T_{\\rm spec}$ 並列的第二必發散通道：$\\mathfrak T_{\\rm strain}=\\int\\|\\lambda_2^+(t)\\|_3^2dt=\\infty$。X-Integration 規定兩者 provenance 不可壓成同一 scalar。",
+    "definition_en": "The second must-diverge channel paired with 𝔗_spec (Sec. 27): 𝔗_strain=∫‖λ_2^+(t)‖_3^2dt=∞, numerically identical to the C3-L.5 quantity.",
+    "defining_relation": "\\mathfrak T_{\\rm strain} = \\int \\|\\lambda_2^+(t)\\|_3^2\\,dt = \\infty",
+    "notes": "Whether 𝔗_spec=∞ implies or is implied by 𝔗_strain=∞ is explicitly left open (NG-L4); C3-M is defined to investigate exactly this coupling."
+  },
+  {
+    "key": "ns.c3.c3l.g_raise",
+    "latex": "G_{\\rm RAISE}",
+    "label_zh": "X-Guard：矩提升護則",
+    "label_en": "X-Guard: Moment-Raising guard",
+    "definition_zh": "第28節新增 X-Guard：任何從低階矩 $M_s$ 推出 $M_{s+1}$ 有限的證明，須指出提高導數的確切方程、新增 source term、其獨立界，以及是否只是把缺失矩藏進非線性幾何。對 enstrophy 路線，此護則輸出的 debt 即 $\\omega\\cdot S\\omega$。",
+    "definition_en": "A new X-Guard (Sec. 28): any proof deriving finite M_{s+1} from a lower moment M_s must name the exact derivative-raising equation, the new source term, its independent bound, and whether the missing moment is merely hidden in nonlinear geometry. For the enstrophy route, this guard's output debt is ω·Sω.",
+    "defining_relation": "G_{\\rm RAISE}\\text{輸出 debt} = \\omega\\cdot S\\omega",
+    "notes": "Operationalizes Proposition 20.1 / 𝒱_S as a reusable checklist; \"M_s\", \"M_{s+1}\" here are schematic generic-order moment labels, not literally M_1/M_{5/2}."
+  },
+  {
+    "key": "ns.c3.c3l.g_geom",
+    "latex": "G_{\\rm GEOM}",
+    "label_zh": "X-Guard：幾何不可塌縮護則",
+    "label_en": "X-Guard: Geometry Non-Collapse guard",
+    "definition_zh": "第29節新增 X-Guard：禁止直接從純量梯度範數 $\\|\\nabla u\\|$ 偏大推出 $\\lambda_2^+$ 偏大，因特徵值正負號、渦度方向、shell 間抵消、空間局部化等資訊皆會被純量範數抹除，中間特徵值資訊須獨立保存。",
+    "definition_en": "A new X-Guard (Sec. 29) forbidding the inference from a large scalar gradient norm ‖∇u‖ to a pointwise-large λ_2^+, since eigenvalue signs, vorticity orientation, inter-shell cancellation, and spatial localization are all erased by a scalar norm; middle-eigenvalue information must be kept independently.",
+    "defining_relation": "\\|\\nabla u\\|\\text{ large} \\ \\not\\Rightarrow\\ \\lambda_2^+\\text{ large}",
+    "notes": "Formalizes the prohibition underlying NG-L3 as a standing methodological guard for future rounds."
+  },
+  {
+    "key": "ns.c3.c3l.ng_l1",
+    "latex": "\\text{NG-L1}",
+    "label_zh": "路線 NG-L1",
+    "label_en": "Route NG-L1",
+    "definition_zh": "第33節裁定為 FALSE：一階矩有限（$M_1<\\infty$）不蘊含下一階矩有限；Branch B（$M_1(\\beta)<\\infty$ 但 $M_{5/2}(\\beta)=\\infty$）正是具體反例。",
+    "definition_en": "Ruled FALSE in Sec. 33: finiteness of the first moment (M_1<∞) does not imply the next moment is finite; Branch B (M_1(β)<∞ yet M_{5/2}(β)=∞) is the concrete witness.",
+    "defining_relation": "M_1<\\infty \\ \\Rightarrow\\ M_2<\\infty \\quad (\\text{FALSE})",
+    "notes": "\"M_2\" is used loosely/schematically here for \"the next critical moment\"; the round's precise counterexample instead uses M_{5/2}(β), not a literally-defined M_2(β)."
+  },
+  {
+    "key": "ns.c3.c3l.ng_l2",
+    "latex": "\\text{NG-L2}",
+    "label_zh": "路線 NG-L2",
+    "label_en": "Route NG-L2",
+    "definition_zh": "第33節裁定為「無 stretching 控制則 FALSE」：$\\int\\|u\\|_{\\dot H^1}^2dt<\\infty$ 不能免費升級成 $\\int\\|u\\|_{\\dot H^2}^2dt<\\infty$，是命題20.1的直接結論。",
+    "definition_en": "Ruled FALSE without stretching control (Sec. 33): ∫‖u‖_{Ḣ^1}^2dt<∞ cannot be upgraded for free to ∫‖u‖_{Ḣ^2}^2dt<∞ — the direct content of Proposition 20.1.",
+    "defining_relation": "\\int\\|u\\|_{\\dot H^1}^2dt<\\infty \\ \\Rightarrow\\ \\int\\|u\\|_{\\dot H^2}^2dt<\\infty \\quad (\\text{FALSE without stretching control})",
+    "notes": "Restates Proposition 20.1 (C3-L.4, Sec. 20) as a formal no-go catalog entry."
+  },
+  {
+    "key": "ns.c3.c3l.ng_l3",
+    "latex": "\\text{NG-L3}",
+    "label_zh": "路線 NG-L3",
+    "label_en": "Route NG-L3",
+    "definition_zh": "第33節裁定為 NOT ESTABLISHED：不得由渦度大直接斷言 $\\lambda_2^+$ 逐點大，對應 X-Guard $G_{\\rm GEOM}$（第29節）所防範的推論漏洞。",
+    "definition_en": "Ruled NOT ESTABLISHED in Sec. 33: large vorticity cannot be used to directly assert pointwise-large λ_2^+, the exact inferential gap that guard G_GEOM (Sec. 29) blocks.",
+    "notes": "No exact defining formula given in the source (qualitative non-implication); see G_GEOM (Sec. 29) for the guard this motivates."
+  },
+  {
+    "key": "ns.c3.c3l.ng_l4",
+    "latex": "\\text{NG-L4}",
+    "label_zh": "路線 NG-L4",
+    "label_en": "Route NG-L4",
+    "definition_zh": "第26、33節：目前只證明頻譜通道與應變通道皆為 blow-up 必要條件，尚未證明其一蘊含另一，是留給 C3-M（Critical Vorticity–Strain Coupling Rigidity）的核心開放問題。",
+    "definition_en": "Secs. 26 & 33: only that both the spectral and strain channels are separately necessary for blow-up has been shown; neither implication is proved — the open problem handed to C3-M (Critical Vorticity–Strain Coupling Rigidity).",
+    "defining_relation": "\\mathfrak T_{\\rm spec}=\\infty \\ \\Rightarrow\\ \\mathfrak T_{\\rm strain}=\\infty \\quad (\\text{OPEN, not proved either direction})",
+    "notes": "The paper's headline open problem; explicitly not to be \"偷寫成因果等價\" (silently treated as causal equivalence) per Sec. 26."
+  }
+]

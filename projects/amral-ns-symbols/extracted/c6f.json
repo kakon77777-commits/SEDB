@@ -1,0 +1,193 @@
+[
+  {
+    "key": "ns.c6.c6f.q_sv",
+    "latex": "\\mathcal Q_{SV}",
+    "label_zh": "Miller 應變-渦度運算子",
+    "label_en": "Miller Strain-Vorticity Operator",
+    "definition_zh": "Section 1.2 引入的 Miller 應變 H¹ 恆等式強制項，為 (u·∇)S+S²+¾ω⊗ω 的 Leray 投影 P_st(·)；本輪將其重新操作化為運算子側正密度 g_O 的核心成分，驅動整個 operator-toll 分支。",
+    "definition_en": "The forcing term in Miller's strain-H¹ energy identity (Section 1.2), the Leray projection P_st((u·∇)S+S²+¾ω⊗ω); this round re-grounds it from the primary source and makes it the core ingredient of the operator-side positive density g_O that drives the entire operator-toll branch.",
+    "defining_relation": "\\mathcal Q_{SV} = P_{st}\\left((u\\cdot\\nabla)S + S^2 + \\frac34\\omega\\otimes\\omega\\right)",
+    "notes": "運算子本身取自 Miller (arXiv:2407.02691) 原始構造；C6-F 的 Section 1.2「Fresh primary-source audit」重新確立其角色，並自 Section 3 起實際用於定義 g_O、O_*、F-OP 等本輪新物件。"
+  },
+  {
+    "key": "ns.c6.c6f.g_o",
+    "latex": "g_O",
+    "label_zh": "正運算子局部密度",
+    "label_en": "Positive Operator Local Density",
+    "definition_zh": "Section 3 定義的逐點密度 g_O=-Q_SV:(-ΔS)-ν|ΔS|²，其空間積分即應變能量泛函的時間導數 h(t)=E_1'(t)；正部 [g_O]_+ 是運算子側機率提升 f_O 與正質量 P_J 的來源。",
+    "definition_en": "The pointwise density g_O=-Q_SV:(-ΔS)-ν|ΔS|² defined in Section 3, whose spatial integral is h(t)=E_1'(t), the time-derivative of the strain energy functional; its positive part [g_O]_+ generates the operator-side probability lift f_O and positive mass P_J.",
+    "defining_relation": "g_O = -\\mathcal Q_{SV}:(-\\Delta S) - \\nu|\\Delta S|^2"
+  },
+  {
+    "key": "ns.c6.c6f.p_j",
+    "latex": "P_J",
+    "label_zh": "正運算子淨質量",
+    "label_en": "Positive Net Operator Mass",
+    "definition_zh": "Section 3 定義為 [h(t)]_+ 在時間窗 J 上的積分（假設 >0），是 C6-E 中段時間質量 M_J 在運算子側的新對應物，出現在本輪幾乎所有 operator-side 物理稅收下界中（C6-F.2、F.5、F.6 等）。",
+    "definition_en": "Defined in Section 3 as the J-integral of [h(t)]_+ (assumed positive); the operator-side counterpart to the middle temporal mass M_J from C6-E, appearing in nearly every operator-side physical-toll lower bound of this round (C6-F.2, F.5, F.6, etc.).",
+    "defining_relation": "P_J = \\int_J [h(t)]_+\\,dt"
+  },
+  {
+    "key": "ns.c6.c6f.omega_st",
+    "latex": "\\Omega_{ST}",
+    "label_zh": "共享時空源重疊質量",
+    "label_en": "Shared Spacetime-Source Overlap Mass",
+    "definition_zh": "Section 5 定義，中段機率密度 f_M 與運算子機率密度 f_O 逐點最小值的時空積分，衡量兩者真正共享而非僅時間重疊 Ω_T 的機率質量；假設 Ω_ST>0 是本輪一切定理的共同前提。",
+    "definition_en": "Defined in Section 5 as the spacetime integral of the pointwise minimum of the middle density f_M and operator density f_O, measuring genuinely shared probability mass rather than mere temporal overlap Ω_T; Ω_ST>0 is the standing hypothesis for every theorem in this round.",
+    "defining_relation": "\\Omega_{ST} = \\int \\min(f_M,f_O)\\,dx\\,dt"
+  },
+  {
+    "key": "ns.c6.c6f.w_cap",
+    "latex": "w_\\cap",
+    "label_zh": "正規化共享源密度",
+    "label_en": "Normalized Shared-Source Density",
+    "definition_zh": "Section 5 定義為 min(f_M,f_O)/Ω_ST，是共享測度 Π_J^∩ 的密度；滿足 f_M≥Ω_ST w_∩ 且 f_O≥Ω_ST w_∩（C6-F.1 逐點支配定理），是本輪核心抽取（D_J、t_*、E_*）所依據的權重。",
+    "definition_en": "Defined in Section 5 as min(f_M,f_O)/Ω_ST, the density of the shared measure Π_J^∩; satisfies f_M≥Ω_ST w_∩ and f_O≥Ω_ST w_∩ pointwise (the C6-F.1 domination theorem), and is the weight underlying every core-extraction step of this round (D_J, t_*, E_*).",
+    "defining_relation": "w_\\cap(t,x) = \\dfrac{\\min(f_M,f_O)}{\\Omega_{ST}}"
+  },
+  {
+    "key": "ns.c6.c6f.pi_cap",
+    "latex": "\\Pi_J^\\cap",
+    "label_zh": "共享源機率測度",
+    "label_en": "Shared-Source Probability Measure",
+    "definition_zh": "密度為 w_∩ 的機率測度（Section 5），是 C6-E 命名之「共享中段-運算子時空源測度」在本輪由 f_M、f_O、Ω_ST 顯式構造出的版本；其在核心圓柱 D_J 上的測度 Π_J^∩(D_J)≥q_0 貫穿本輪全部物理稅收定理。",
+    "definition_en": "The probability measure with density w_∩ (Section 5); the explicit f_M/f_O/Ω_ST construction of the shared middle-operator spacetime source measure named in C6-E. Its value Π_J^∩(D_J)≥q_0 on the core-cylinder D_J underlies every physical-toll theorem in this round.",
+    "notes": "名稱與概念源自 C6-E（Section 0 稱其為 C6-E 最重要的新 object），本輪 Section 3-5 首次給出經由 f_M、f_O、Ω_ST 的完整顯式構造。"
+  },
+  {
+    "key": "ns.c6.c6f.rho_m",
+    "latex": "\\rho_M",
+    "label_zh": "絕對中段負載儲備",
+    "label_en": "Absolute Middle-Load Reserve",
+    "definition_zh": "Section 8 定義為 min{1, M_J/M_J^ref}，防止機率正規化掩蓋絕對物理負載退化（即 M_J→0 而 Π^∩、Ω_ST 不變）的守門量；是交叉領域儲備向量 R^X 的第一分量。",
+    "definition_en": "Defined in Section 8 as min{1, M_J/M_J^ref}; a guard quantity preventing probability normalization from masking a collapse of absolute physical load (M_J→0 while Π^∩ and Ω_ST remain fixed). The first coordinate of the cross-domain reserve vector R^X.",
+    "defining_relation": "\\rho_M = \\min\\left\\{1, \\dfrac{M_J}{M_J^{ref}}\\right\\}"
+  },
+  {
+    "key": "ns.c6.c6f.rho_p",
+    "latex": "\\rho_P",
+    "label_zh": "絕對運算子負載儲備",
+    "label_en": "Absolute Operator-Load Reserve",
+    "definition_zh": "Section 8 定義為 min{1, P_J/P_J^ref}，為 ρ_M 在運算子側的對應物；ρ_M→0 或 ρ_P→0 構成 Section 9 的「絕對負載臨界飽和」，即邊界字母表 X-B1（Section 44）的觸發條件。",
+    "definition_en": "Defined in Section 8 as min{1, P_J/P_J^ref}, the operator-side counterpart to ρ_M; ρ_M→0 or ρ_P→0 constitutes the Absolute-Load Critical Saturation of Section 9, the trigger condition for boundary letter X-B1 (Section 44).",
+    "defining_relation": "\\rho_P = \\min\\left\\{1, \\dfrac{P_J}{P_J^{ref}}\\right\\}"
+  },
+  {
+    "key": "ns.c6.c6f.e_kde",
+    "latex": "E_{K,\\delta,\\varepsilon}",
+    "label_zh": "共享方向核心區域",
+    "label_en": "Shared Directional Core Region",
+    "definition_zh": "Section 10 定義，由中段間隙門檻 δ、單位無跡對稱錐心 K、錐寬 ε 界定的時空子集：{(t,x): θ(S)≥δ, |S/|S|-K|≤ε}；是後續核心圓柱 D_J 與同時刻核心 E_* 的共同幾何原型。",
+    "definition_en": "Defined in Section 10 as the spacetime set {(t,x): θ(S)≥δ, |S/|S|-K|≤ε}, cut out by the middle-gap threshold δ, a unit-norm trace-free symmetric cone center K, and cone width ε; the geometric prototype for the core-cylinder D_J and the same-time core E_*."
+  },
+  {
+    "key": "ns.c6.c6f.d_j",
+    "latex": "D_J",
+    "label_zh": "共享核心圓柱",
+    "label_en": "Shared Core-Cylinder",
+    "definition_zh": "Section 11 定義為時空圓柱 J×B_{Lr_J}(x_J) 與方向核心區域 E_{K,δ,ε} 的交集；本輪假設共享測度 Π_J^∩(D_J)≥q_0>0，作為 C6-E 核心局部化共享源前提在本輪的具體載體。",
+    "definition_en": "Defined in Section 11 as the intersection of the spacetime cylinder J×B_{Lr_J}(x_J) with the directional core region E_{K,δ,ε}; assumed to carry shared measure Π_J^∩(D_J)≥q_0>0, serving as this round's concrete vehicle for the C6-E core-localized shared-source antecedent."
+  },
+  {
+    "key": "ns.c6.c6f.q_0",
+    "latex": "q_0",
+    "label_zh": "核心局部化質量下界",
+    "label_en": "Core-Localization Mass Lower Bound",
+    "definition_zh": "Section 11 假設的正常數，滿足 Π_J^∩(D_J)≥q_0>0；出現於本輪幾乎每個主要不等式（C6-F.2 至 C6-F.7）及交叉領域儲備向量 R^X 中，量化共享源核心的最小機率權重。",
+    "definition_en": "The positive constant hypothesized in Section 11 satisfying Π_J^∩(D_J)≥q_0>0; appears in nearly every major inequality of this round (C6-F.2 through C6-F.7) and as a coordinate of the reserve vector R^X, quantifying the minimal probability weight of the shared-source core."
+  },
+  {
+    "key": "ns.c6.c6f.t_star",
+    "latex": "t_\\ast",
+    "label_zh": "同一抽取時刻",
+    "label_en": "Same-Time Extraction Instant",
+    "definition_zh": "Section 13-14 由 Fubini/平均原理證得存在的時刻，滿足 w_D(t_*)≥q_0/|J|；是本輪「同一時間同時取得中段與運算子物理核心」（C6-F.3）的關鍵存在性物件，解決了時間同步問題。",
+    "definition_en": "The instant whose existence follows from the Fubini/averaging argument in Sections 13-14, satisfying w_D(t_*)≥q_0/|J|; the key existential object behind this round's same-time middle-and-operator core extraction (C6-F.3), genuinely resolving the temporal-synchronization problem.",
+    "defining_relation": "w_D(t_\\ast) \\ge \\dfrac{q_0}{|J|}"
+  },
+  {
+    "key": "ns.c6.c6f.e_star",
+    "latex": "E_\\ast",
+    "label_zh": "同時刻共享核心區域",
+    "label_en": "Same-Time Shared Core Region",
+    "definition_zh": "Section 14 定義，在抽取時刻 t_* 上取的空間集合 B_{Lr_J}(x_J)∩{θ≥δ, |S/|S|-K|≤ε}；是 C6-F.3 至 C6-F.6 一系列「同一時間、同一區域」中段與運算子物理稅收下界的共同積分域。",
+    "definition_en": "Defined in Section 14 as the spatial set B_{Lr_J}(x_J)∩{θ≥δ, |S/|S|-K|≤ε} evaluated at the extracted instant t_*; the common domain of integration for the same-time, same-region middle and operator physical-toll lower bounds of C6-F.3 through C6-F.6."
+  },
+  {
+    "key": "ns.c6.c6f.o_star",
+    "latex": "\\mathfrak O_\\ast",
+    "label_zh": "黏性尺度化運算子範數",
+    "label_en": "Viscosity-Scaled Operator Norm",
+    "definition_zh": "Section 19 定義為 ν^{-1/2}||Q_SV||_{L²(E_*)}，即運算子強制在同時刻核心上的黏性尺度化 L² 範數；與 𝔇_* 之積下界為 P_J Ω_ST q_0/|J|，構成 C6-F.6 二分定理的 F-OP 分支核心量。",
+    "definition_en": "Defined in Section 19 as ν^{-1/2}||Q_SV||_{L²(E_*)}, the viscosity-rescaled L² norm of the operator forcing on the same-time core; its product with 𝔇_* is bounded below by P_J Ω_ST q_0/|J|, forming the core quantity of the F-OP branch of the C6-F.6 dichotomy.",
+    "defining_relation": "\\mathfrak O_\\ast = \\nu^{-1/2}\\|\\mathcal Q_{SV}\\|_{L^2(E_\\ast)}"
+  },
+  {
+    "key": "ns.c6.c6f.d_star",
+    "latex": "\\mathfrak D_\\ast",
+    "label_zh": "黏性尺度化導數範數",
+    "label_en": "Viscosity-Scaled Derivative Norm",
+    "definition_zh": "Section 19 定義為 ν^{1/2}||ΔS||_{L²(E_*)}，即同時刻核心上三階應變導數的黏性尺度化 L² 範數；為 C6-F.6 二分定理 F-DER 分支的核心量，且在 L² 意義下等價於速度場三階導數 D³u（Section 21）。",
+    "definition_en": "Defined in Section 19 as ν^{1/2}||ΔS||_{L²(E_*)}, the viscosity-rescaled L² norm of the third-order strain derivative on the same-time core; the core quantity of the F-DER branch of the C6-F.6 dichotomy, and L²-equivalent to the third velocity derivative D³u (Section 21).",
+    "defining_relation": "\\mathfrak D_\\ast = \\nu^{1/2}\\|\\Delta S\\|_{L^2(E_\\ast)}"
+  },
+  {
+    "key": "ns.c6.c6f.f_op",
+    "latex": "F\\text{-OP}",
+    "label_zh": "運算子強制分支",
+    "label_en": "Operator-Forcing Branch",
+    "definition_zh": "C6-F.6（Section 20）二分定理的第一分支：ν^{-1/2}||Q_SV||_{2,E_*} ≳ (P_J Ω_ST q_0/|J|)^{1/2}；此分支成立時，共享運算子核心自然導向非線性強制類 F（Section 31），須經 C6-C 再入儲備才能成為 HF_coherent 候選。",
+    "definition_en": "The first branch of the C6-F.6 dichotomy (Section 20): ν^{-1/2}||Q_SV||_{2,E_*} ≳ (P_J Ω_ST q_0/|J|)^{1/2}. When it holds, the shared operator core is naturally routed to the nonlinear-forcing class F (Section 31), requiring the C6-C re-entry reserves to become an HF_coherent candidate."
+  },
+  {
+    "key": "ns.c6.c6f.f_der",
+    "latex": "F\\text{-DER}",
+    "label_zh": "高階導數分支",
+    "label_en": "High-Derivative Branch",
+    "definition_zh": "C6-F.6（Section 20）二分定理的第二分支：ν^{1/2}||ΔS||_{2,E_*} ≳ (P_J Ω_ST q_0/|J|)^{1/2}；是通往 Grujić–Xu H 狀態的 pre-H 座標，須另加導數實現閘門 ρ_der 才可能真正進入 H（Section 22、33）。",
+    "definition_en": "The second branch of the C6-F.6 dichotomy (Section 20): ν^{1/2}||ΔS||_{2,E_*} ≳ (P_J Ω_ST q_0/|J|)^{1/2}; a pre-H coordinate toward the Grujić-Xu H state, which requires the additional derivative-realization gate ρ_der to genuinely reach H (Sections 22, 33)."
+  },
+  {
+    "key": "ns.c6.c6f.epsilon_q",
+    "latex": "\\epsilon_Q",
+    "label_zh": "Q 加權錐洩漏量",
+    "label_en": "Q-Weighted Cone Leakage",
+    "definition_zh": "Section 25 定義，強中段良好集 G_K 補集上 |Q| 加權質量佔總加權質量 A_χ*^Q 的比例；量化「共享源方向錐」與 C5-D 所需「Q/場加權強中段錐」間的落差，決定 TS→GP 能否經 C5-D 定理實現。",
+    "definition_en": "Defined in Section 25 as the fraction of Q-weighted mass A_χ*^Q lying outside the strong-middle good set G_K; quantifies the gap between the source-weighted directional cone and the Q/field-weighted strong-middle cone required by the C5-D theorem, governing whether TS→GP can be realized.",
+    "defining_relation": "\\epsilon_Q = \\dfrac{\\int_{G_K^c}\\chi_\\ast|Q|\\,dx}{A_{\\chi_\\ast}^{Q}}"
+  },
+  {
+    "key": "ns.c6.c6f.rho_qcap",
+    "latex": "\\rho_{Qcap}",
+    "label_zh": "源至場捕獲儲備",
+    "label_en": "Source-to-Field Capture Reserve",
+    "definition_zh": "Section 26 定義為 1-ε_Q；當 ρ_Qcap≈1（即洩漏低於 C5-D 定量閾值 γ_K/[2(1+γ_K)]）時，共享源方向相干性可提升為完整局部二次場的一致相干性（Section 27，C6-F.7 假設4）。",
+    "definition_en": "Defined in Section 26 as 1-ε_Q; when ρ_Qcap≈1 (leakage below the C5-D quantitative threshold γ_K/[2(1+γ_K)]), the shared-source directional coherence upgrades to nondegenerate coherence of the full local quadratic field (Section 27; hypothesis 4 of C6-F.7).",
+    "defining_relation": "\\rho_{Qcap} = 1-\\epsilon_Q"
+  },
+  {
+    "key": "ns.c6.c6f.rho_mean",
+    "latex": "\\rho_{\\rm mean}",
+    "label_zh": "平均旋轉儲備",
+    "label_en": "Mean-Rotation Reserve",
+    "definition_zh": "Section 28 定義為 [1-|M_χ*'|/((γ_K/2)A_χ*^Q)]_+；ρ_mean>0 表示平均旋轉不足以吸收相干二次強制，此時觸發 C5-D 定向壓力再入定理，是 C6-F.7 條件式 TS→GP 定理的假設5。",
+    "definition_en": "Defined in Section 28 as [1-|M_χ*'|/((γ_K/2)A_χ*^Q)]_+; positivity means mean rotation cannot absorb the coherent quadratic forcing, triggering the C5-D oriented-pressure re-entry theorem — hypothesis 5 of the conditional C6-F.7 TS-core→GP theorem."
+  },
+  {
+    "key": "ns.c6.c6f.rho_der",
+    "latex": "\\rho_{\\rm der}",
+    "label_zh": "導數實現旗標",
+    "label_en": "Derivative-Realization Flag",
+    "definition_zh": "Section 32 定義的二元旗標 ρ_der∈{0,1}，指示由 F-DER 活動生成的選定導數階數/時刻是否合法進入 Grujić–Xu 定理/逃逸時間框架；僅當 ρ_der=1 才觸發 Section 33 的 H∨REG 二分結果。",
+    "definition_en": "The binary flag ρ_der∈{0,1} defined in Section 32, indicating whether a selected derivative order/time generated from F-DER activity legally enters the Grujić-Xu theorem/escape-time framework; only ρ_der=1 triggers the H∨REG dichotomy of Section 33."
+  },
+  {
+    "key": "ns.c6.c6f.r_x",
+    "latex": "\\mathbf R^{X}",
+    "label_zh": "交叉領域儲備向量",
+    "label_en": "Cross-Domain Reserve Vector",
+    "definition_zh": "Section 42 定義的十三分量向量 (ρ_M,ρ_P,Ω_ST,q_0,ρ_gap,ρ_cone,ρ_thick,ρ_Qcap,ρ_mean,ρ_prov,ρ_der,ρ_her^TS,ρ_scale)，彙整本輪及先前各輪全部橋接儲備；C6-F.9 據此二分為 X-UNIFORM（全體一致 ≥r_0）或 X-BOUNDARY（某分量→0）。",
+    "definition_en": "The 13-component vector (ρ_M,ρ_P,Ω_ST,q_0,ρ_gap,ρ_cone,ρ_thick,ρ_Qcap,ρ_mean,ρ_prov,ρ_der,ρ_her^TS,ρ_scale) defined in Section 42, aggregating every bridge reserve from this and prior rounds; the C6-F.9 theorem dichotomizes on it into X-UNIFORM (all coordinates uniformly ≥r_0) or X-BOUNDARY (some coordinate →0).",
+    "defining_relation": "\\mathbf R^{X} = \\left(\\rho_M,\\rho_P,\\Omega_{ST},q_0,\\rho_{\\rm gap},\\rho_{\\rm cone},\\rho_{\\rm thick},\\rho_{Qcap},\\rho_{\\rm mean},\\rho_{\\rm prov},\\rho_{\\rm der},\\rho_{\\rm her}^{TS},\\rho_{\\rm scale}\\right)"
+  }
+]

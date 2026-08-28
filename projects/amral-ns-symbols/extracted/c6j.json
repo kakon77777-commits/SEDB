@@ -1,0 +1,263 @@
+[
+  {
+    "key": "ns.c6.c6j.tau",
+    "latex": "\\tau",
+    "label_zh": "剩餘時間",
+    "label_en": "remaining time",
+    "definition_zh": "τ = T*−t，即假設有限時間爆破時刻 T* 與當前物理時間 t 之間的剩餘時間差，是建立 backward Leray 重整化座標系統的第一步。它把物理時間趨近奇異時刻的極限 t↑T* 轉換為 τ→0+，為定義 backward log-scale 時間 s=-log τ 提供基礎變量。",
+    "definition_en": "τ = T*−t is the remaining physical time to a hypothetical finite-time blow-up instant T*, the first step in constructing the backward-Leray renormalized coordinate system. It converts the approach t↑T* into τ→0+ and underlies the subsequent definition of backward log-scale time s = -log τ.",
+    "defining_relation": "\\tau=T^\\ast-t",
+    "notes": "T* and t are pre-existing physical blow-up-analysis notation; τ is the auxiliary variable C6-J introduces to streamline the rescaling."
+  },
+  {
+    "key": "ns.c6.c6j.s_backward_log_time",
+    "latex": "s",
+    "label_zh": "反向對數尺度時間",
+    "label_en": "backward logarithmic scale-time",
+    "definition_zh": "s=-log τ=-log(T*-t)，本輪正式採用的 backward parabolic/Leray log-scale 時間變量，把假設有限時間爆破的終點 t↑T* 映成 s→+∞。C6-J 在此變量下證明重整化 N–S 方程（C6-J.1）為 autonomous，s 從而作為對應動力系統的演化時間貫穿全篇（fixed point、periodic orbit、各能量恒等式皆以 s 為自變量）。",
+    "definition_en": "s=-log τ=-log(T*-t) is the backward parabolic/Leray log-scale time formally adopted here, mapping the hypothetical blow-up endpoint t↑T* to s→+∞. Under this variable C6-J proves the renormalized N–S equation (C6-J.1) is autonomous, and s serves as the evolution time of the resulting dynamical system throughout (fixed points, periodic orbits, and the energy identities are all posed in s).",
+    "defining_relation": "s=-\\log\\tau",
+    "notes": "C6-I's scale-time was s_r=-log r; C6-J shows s=2s_r, so the two differ only by a factor of 2. The §0 preamble loosely writes the upgrade as 's=-log r' before the rigorous §1 definition via τ supersedes it."
+  },
+  {
+    "key": "ns.c6.c6j.r_of_s",
+    "latex": "r(s)",
+    "label_zh": "拋物尺度",
+    "label_en": "parabolic scale",
+    "definition_zh": "r(s)=√τ=e^{-s/2}，backward Leray 重整化所用的空間/速度伸縮因子，將物理座標 (x,u,p) 映為 renormalized 座標 (y,U,P)。它同時是聯繫 renormalized 與 physical 量的橋樑：e^{-s/2}=r 正是物理能量 telescoping 恆等式所帶的 subcritical weight（§24–25），並重現 C6-I 的 Zeno 求和條件。",
+    "definition_en": "r(s)=√τ=e^{-s/2} is the spatial/velocity rescaling factor of the backward Leray renormalization, mapping physical variables (x,u,p) to renormalized ones (y,U,P). It also bridges renormalized and physical quantities: e^{-s/2}=r is exactly the subcritical weight carried by the physical-energy telescoping identity (§24-25), reproducing C6-I's geometric Zeno summability.",
+    "defining_relation": "r(s)=\\sqrt{\\tau}=e^{-s/2}",
+    "notes": "Same letter r as C6-I's discrete geometric-ladder radius r_n=r_0 a^{-n}; r(s) is its continuous scale-time analogue."
+  },
+  {
+    "key": "ns.c6.c6j.y_self_similar_variable",
+    "latex": "y",
+    "label_zh": "自相似空間變量",
+    "label_en": "self-similar spatial variable",
+    "definition_zh": "y=(x-x*)/√(T*-t)=(x-x*)/r(s)，以假設奇異中心 x* 為原點、以 r(s) 為尺度無量綱化的空間座標。它是把物理速度場 u(x,t) 轉換成 renormalized 場 U(y,s) 的座標基礎，並在 backward Leray 方程（C6-J.1）的伸縮/對流項 (y·∇)U 中扮演核心角色。",
+    "definition_en": "y=(x-x*)/√(T*-t)=(x-x*)/r(s) is the spatial coordinate recentered at the hypothetical singular center x* and nondimensionalized by r(s). It underlies the passage from the physical velocity field u(x,t) to the renormalized field U(y,s), and appears centrally in the dilation/convection term (y·∇)U of the backward Leray equation (C6-J.1).",
+    "defining_relation": "y=\\frac{x-x^\\ast}{\\sqrt{T^\\ast-t}}=\\frac{x-x^\\ast}{r(s)}"
+  },
+  {
+    "key": "ns.c6.c6j.u_renormalized_velocity",
+    "latex": "U(y,s)",
+    "label_zh": "重整化速度場",
+    "label_en": "renormalized velocity field",
+    "definition_zh": "U(y,s)=√(T*-t)·u(x,t)=r(s)u(x,t)，本輪 backward Leray 重整化流的中心對象。在 s 時間下 U 滿足 autonomous 方程（C6-J.1）；U 的 fixed point 對應 backward self-similar blow-up profile，periodic orbit 對應 backward discretely self-similar（DSS）profile。其臨界範數 ‖U‖_{L^3}、‖U‖_{\\dot H^{1/2}} 在重整化下不變，且假設爆破要求兩者同時發散（C6-J.2）。",
+    "definition_en": "U(y,s)=√(T*-t)·u(x,t)=r(s)u(x,t) is the central object of this round's backward-Leray renormalized flow. Under s it solves the autonomous equation (C6-J.1); its fixed points correspond to backward self-similar blow-up profiles and its periodic orbits to backward discretely self-similar (DSS) profiles. Its critical norms ‖U‖_{L^3} and ‖U‖_{\\dot H^{1/2}} are invariant under the rescaling, and hypothetical blow-up forces both to diverge (C6-J.2).",
+    "defining_relation": "U(y,s)=\\sqrt{T^\\ast-t}\\,u(x,t)=r(s)u(x,t)"
+  },
+  {
+    "key": "ns.c6.c6j.p_renormalized_pressure",
+    "latex": "P(y,s)",
+    "label_zh": "重整化壓力場",
+    "label_en": "renormalized pressure field",
+    "definition_zh": "P(y,s)=(T*-t)p(x,t)=r(s)^2 p(x,t)，與 U 配對的重整化壓力，使 backward Leray 方程（C6-J.1）中壓力梯度項 ∇P 與其餘各項具有一致尺度。在 L² 能量恒等式（C6-J.3）的推導中，不可壓縮性給出 ∫U·∇P=0，確保壓力對能量平衡無貢獻。",
+    "definition_en": "P(y,s)=(T*-t)p(x,t)=r(s)^2 p(x,t) is the renormalized pressure paired with U, giving the pressure-gradient term ∇P in the backward Leray equation (C6-J.1) consistent scaling with the other terms. In deriving the renormalized L² balance (C6-J.3), incompressibility gives ∫U·∇P=0, so pressure contributes nothing to the energy balance.",
+    "defining_relation": "P(y,s)=(T^\\ast-t)p(x,t)=r(s)^2p(x,t)"
+  },
+  {
+    "key": "ns.c6.c6j.backward_leray_flow_equation",
+    "latex": "\\partial_sU+\\frac12U+\\frac12(y\\cdot\\nabla)U+(U\\cdot\\nabla)U+\\nabla P=\\nu\\Delta U,\\qquad \\nabla\\cdot U=0",
+    "label_zh": "反向 Leray 流方程（C6-J.1）",
+    "label_en": "Backward Leray flow equation (C6-J.1)",
+    "definition_zh": "本輪首個主定理：由標準變量代換直接導出，重整化速度場 U 在 scale-time s 下滿足自治（autonomous）方程 ∂_sU+½U+½(y·∇)U+(U·∇)U+∇P=νΔU，搭配不可壓縮條件 ∇·U=0。因方程不顯含 s，有限時間物理終點 t↑T* 被轉成無限 scale-time 動力系統問題 s→∞，使 fixed point/periodic orbit 等動力系統語言得以嚴格套用於 N–S 爆破分析。",
+    "definition_en": "The round's first main theorem, obtained by a direct change of variables: the renormalized velocity U obeys the autonomous equation ∂_sU+½U+½(y·∇)U+(U·∇)U+∇P=νΔU together with the incompressibility condition ∇·U=0, in scale-time s. Because the equation has no explicit s-dependence, the finite physical-time endpoint t↑T* becomes an infinite-time dynamical-systems problem s→∞, licensing fixed-point/periodic-orbit language for N–S blow-up analysis.",
+    "notes": "Status \"PROVED\" per the round's formal status table (§65); the autonomy is what makes \"fixed point = backward self-similar\" and \"periodic orbit = backward DSS\" precise later in the round."
+  },
+  {
+    "key": "ns.c6.c6j.u_star_fixed_point",
+    "latex": "U_\\ast(y)",
+    "label_zh": "反向自相似輪廓（固定點）",
+    "label_en": "backward self-similar profile (fixed point)",
+    "definition_zh": "當 U(y,s)=U_*(y) 與 s 無關時的解，滿足 stationary backward Leray 方程 ½U_*+½(y·∇)U_*+(U_*·∇)U_*+∇P_*=νΔU_*，物理上對應 backward self-similar blow-up profile。已知 Liouville 型定理（如 §43 的 Chae–Wolf 結果）在適當可積性假設下排除大類非平凡 U_*，但這些定理只適用於 field-level 輪廓，不自動適用於僅涉及 C6 defect metadata 的週期軌道（§6 guard）。",
+    "definition_en": "The s-independent solution U(y,s)=U_*(y), solving the stationary backward Leray equation ½U_*+½(y·∇)U_*+(U_*·∇)U_*+∇P_*=νΔU_*, corresponding physically to a backward self-similar blow-up profile. Known Liouville-type theorems (e.g. the Chae-Wolf result of §43) exclude broad classes of nontrivial U_* under suitable integrability, but only at the field level -- they do not automatically apply to a periodic orbit of only the C6 defect metadata (§6 guard).",
+    "defining_relation": "\\frac12U_\\ast+\\frac12(y\\cdot\\nabla)U_\\ast+(U_\\ast\\cdot\\nabla)U_\\ast+\\nabla P_\\ast=\\nu\\Delta U_\\ast"
+  },
+  {
+    "key": "ns.c6.c6j.period_l",
+    "latex": "L",
+    "label_zh": "重整化流週期",
+    "label_en": "period of the renormalized flow",
+    "definition_zh": "由 U(y,s+L)=U(y,s) 定義的 scale-time 週期，刻畫 backward Leray 流的 periodic orbit，物理上對應 backward discretely self-similar（DSS）情景，尺度比為 λ=e^{L/2}。L 亦設定週期 L² balance（§18）的積分區間，並在後續 skew-product 模型中控制 defect metadata θ 的近似週期性（θ(s+L)≈θ(s)，§39）。",
+    "definition_en": "The scale-time period defined by U(y,s+L)=U(y,s), characterizing a periodic orbit of the backward Leray flow, physically a backward discretely self-similar (DSS) scenario with dilation ratio λ=e^{L/2}. L also sets the integration window of the periodic L² balance (§18) and later governs the approximate periodicity of the defect metadata θ in the skew-product model (θ(s+L)≈θ(s), §39).",
+    "defining_relation": "U(y,s+L)=U(y,s)"
+  },
+  {
+    "key": "ns.c6.c6j.lambda_dss_ratio",
+    "latex": "\\lambda",
+    "label_zh": "反向 DSS 伸縮比",
+    "label_en": "backward DSS dilation ratio",
+    "definition_zh": "λ=e^{L/2}>1，由週期 L 導出，刻畫物理解在相隔 λ 倍尺度之間所滿足的 backward discrete self-similarity（DSS）關係。它把 scale-time 中的週期軌道語言翻譯回物理自相似伸縮語言，是「periodic orbit = backward DSS」（本輪主要結果之一）這一對應的具體係數。",
+    "definition_en": "λ=e^{L/2}>1, derived from the period L, quantifies the backward discrete self-similarity (DSS) relation the physical solution obeys between scales separated by a factor λ. It translates the scale-time periodic-orbit language back into physical self-similar dilation language, the concrete coefficient realizing \"periodic orbit = backward DSS\" (one of the round's main results).",
+    "defining_relation": "\\lambda=e^{L/2}>1"
+  },
+  {
+    "key": "ns.c6.c6j.e_renormalized_energy",
+    "latex": "E(s)",
+    "label_zh": "重整化 L² 能量",
+    "label_en": "renormalized L² energy",
+    "definition_zh": "E(s)=‖U(s)‖_2^2，重整化速度場的 L² 範數平方。C6-J.3（renormalized L² balance）證明其恰滿足 ½E'+ν‖∇U‖_2^2-¼E=0，即 E'=½E-2ν‖∇U‖_2^2——伸縮項貢獻 anti-dissipative 的 +½E，使 E 本身並非普遍單調量（本輪核心負面結果之一，亦見 NG-J2）。E 是後續加權族 V_α=e^{-αs}E 的基底。",
+    "definition_en": "E(s)=‖U(s)‖_2^2, the squared L² norm of the renormalized velocity. C6-J.3 (the renormalized L² balance) shows it obeys exactly ½E'+ν‖∇U‖_2^2-¼E=0, i.e. E'=½E-2ν‖∇U‖_2^2 -- the dilation term contributes an anti-dissipative +½E, so E itself is not a universal monotone quantity (one of the round's core negative results, cf. NG-J2). E is the base of the later weighted family V_α=e^{-αs}E.",
+    "defining_relation": "E(s)=\\|U(s)\\|_2^2",
+    "notes": "Not to be confused with the physical kinetic energy ‖u(t)‖_2^2; the two are related by E(s)=r(s)^{-1}‖u(t)‖_2^2 (§22). The physical energy is instead identified with V_{1/2}, not with E itself."
+  },
+  {
+    "key": "ns.c6.c6j.v_alpha_weighted_potential",
+    "latex": "V_\\alpha(s)",
+    "label_zh": "加權 L² 位能族",
+    "label_en": "weighted L² potential family",
+    "definition_zh": "對 α∈ℝ 定義 V_α(s)=e^{-αs}E(s)。C6-J.4 給出恆等式 V_α'=e^{-αs}[(½-α)‖U‖_2^2-2ν‖∇U‖_2^2]。核心結果 C6-J.5（Criticality–Monotonicity Tradeoff）證明此族中普遍單調性（V_α'≤0）恰於 α≥½ 開始成立，而每個這樣的位能都帶有明確衰減因子 e^{-αs}，故臨界尺度敏感性與普遍單調性在此自然指數族中無法共存。",
+    "definition_en": "For α∈ℝ, define V_α(s)=e^{-αs}E(s). C6-J.4 gives the identity V_α'=e^{-αs}[(½-α)‖U‖_2^2-2ν‖∇U‖_2^2]. The central result C6-J.5 (Criticality-Monotonicity Tradeoff) shows universal monotonicity (V_α'≤0) within this family begins exactly at α≥½, and every such potential carries an explicit decaying factor e^{-αs} -- so critical scale-sensitivity and universal monotonicity cannot coexist in this natural exponential family.",
+    "defining_relation": "V_\\alpha(s)=e^{-\\alpha s}E(s)"
+  },
+  {
+    "key": "ns.c6.c6j.v_half_physical_energy",
+    "latex": "V_{1/2}",
+    "label_zh": "物理能量（α=1/2 情形）",
+    "label_en": "physical energy (the α=1/2 case)",
+    "definition_zh": "V_α 家族在最弱單調權重 α=½ 處的特例；§22 的恆等式 e^{-s/2}‖U(s)‖_2^2=r‖U‖_2^2=‖u(t)‖_2^2 證明它恰為物理動能 ‖u(t)‖_2^2。這是本輪的重要正面結果：physical-energy telescoping 確實存在，其權重 e^{-s/2}=r 正好重現 C6-I 的 Zeno 求和條件（§24），但正因帶有次臨界權重，無法對尺度不變的 recurrent event 分配固定正代價（§25）。",
+    "definition_en": "The V_α family member at the weakest monotone weight α=½; the §22 identity e^{-s/2}‖U(s)‖_2^2=r‖U‖_2^2=‖u(t)‖_2^2 shows it equals exactly the physical kinetic energy ‖u(t)‖_2^2. This is an important positive result of the round: physical-energy telescoping does exist, with weight e^{-s/2}=r exactly reproducing C6-I's Zeno summability (§24) -- but precisely because the weight is subcritical, it cannot assign a fixed positive price to a scale-invariant recurrent event (§25).",
+    "defining_relation": "e^{-s/2}\\|U(s)\\|_2^2=\\|u(t)\\|_2^2"
+  },
+  {
+    "key": "ns.c6.c6j.d_crit_dissipation_density",
+    "latex": "D_{crit}(s)",
+    "label_zh": "重整化臨界耗散密度",
+    "label_en": "renormalized critical dissipation density",
+    "definition_zh": "D_crit(s)=ν‖∇U(s)‖_2^2，重整化黏性耗散率。它使物理能量 telescoping 恆等式可寫成 V_{1/2}(s_1)-V_{1/2}(s_2)=2∫_{s_1}^{s_2} e^{-s/2}D_crit(s)ds（§24），說明單調位能是以權重 e^{-s/2}=r 對臨界耗散積分而得，即 C6-I geometric Zeno lemma 的連續版本。§26 的 simple critical Lyapunov test 指出，任何 E'≤0 的證明都需要額外不等式 D_crit≥¼E，但目前無此類全空間普遍不等式。",
+    "definition_en": "D_crit(s)=ν‖∇U(s)‖_2^2, the renormalized viscous dissipation rate. It lets the physical-energy telescoping identity be written V_{1/2}(s_1)-V_{1/2}(s_2)=2∫_{s_1}^{s_2} e^{-s/2}D_crit(s)ds (§24): the monotone potential integrates critical dissipation with weight e^{-s/2}=r, the continuous-s analogue of C6-I's geometric Zeno lemma. The §26 \"simple critical Lyapunov test\" notes that any proof of E'≤0 would require the additional inequality D_crit≥¼E, for which no universal whole-space form is currently known.",
+    "defining_relation": "D_{crit}(s)=\\nu\\|\\nabla U(s)\\|_2^2",
+    "notes": "Distinct from the bare \"D\" used only informally in the §0 summary's compressed statement of C6-J.3 (\"½E'+νD-¼E=0\"), where D stands for ‖∇U‖_2^2 without the ν factor; D_crit is the formally boxed, ν-weighted quantity used throughout the technical sections."
+  },
+  {
+    "key": "ns.c6.c6j.criticality_monotonicity_tradeoff",
+    "latex": "\\textbf{Criticality–Monotonicity Tradeoff}",
+    "label_zh": "臨界性—單調性取捨（C6-J.5）",
+    "label_en": "Criticality-Monotonicity Tradeoff (C6-J.5)",
+    "definition_zh": "本輪第二個核心定理：在自然指數加權 L² 位能族 V_α=e^{-αs}E 中，普遍單調性（α≥½，§21）與不帶衰減因子的臨界尺度敏感性無法同時成立——唯一同時逼近兩者邊界的 α=½ 情形，其位能已帶有物理上有意義但次臨界的權重 e^{-s/2}。此定理說明為何單純「尋找單調位能」的策略無法直接排除 C6 defect cycle，並促使 §27 起轉向真正尺度不變的臨界場範數 ‖U‖_{L^3}、‖U‖_{\\dot H^{1/2}}。",
+    "definition_en": "The round's second central theorem: within the natural exponentially-weighted L² potential family V_α=e^{-αs}E, universal monotonicity (α≥½, §21) and (unweighted) critical scale-sensitivity cannot both hold -- the unique boundary case α=½ that achieves monotonicity already carries the physically meaningful but subcritical weight e^{-s/2}. This explains why simply \"finding a monotone potential\" cannot by itself rule out C6 defect cycles, and motivates the pivot from §27 onward to the genuinely scale-invariant critical field norms ‖U‖_{L^3}, ‖U‖_{\\dot H^{1/2}}.",
+    "defining_relation": "\\alpha\\ge\\frac12 \\Rightarrow V_\\alpha'(s)\\le0"
+  },
+  {
+    "key": "ns.c6.c6j.f_crit_field_capacity",
+    "latex": "\\mathfrak F_{crit}(s)",
+    "label_zh": "重整化臨界場容量",
+    "label_en": "renormalized critical field capacity",
+    "definition_zh": "𝔉_crit(s)=‖U(s)‖_{L^3}+‖U(s)‖_{\\dot H^{1/2}}，合併兩個在 backward Leray 重整化下嚴格不變（§8–9）的臨界拓撲範數。假設爆破要求 𝔉_crit(s)→∞（§10）。C6-J.2（§11）由此證明：任何假設爆破軌道的尾段 {U(s):s≥s_0} 都不能在 L^3 或 \\dot H^{1/2} 中 precompact。𝔉_crit 亦是後續 critical fiber radius 𝔯_fiber、fiber 座標 κ(s)、以及 ETN 狀態 Θ_U^{C6J} 的核心構件。",
+    "definition_en": "𝔉_crit(s)=‖U(s)‖_{L^3}+‖U(s)‖_{\\dot H^{1/2}} combines the two critical topological norms shown strictly invariant under the backward Leray rescaling (§8-9). Hypothetical blow-up forces 𝔉_crit(s)→∞ (§10). From this, C6-J.2 (§11) proves that no tail {U(s):s≥s_0} of a hypothetical blow-up orbit can be precompact in L^3 or \\dot H^{1/2}. 𝔉_crit is also the core building block of the later critical fiber radius 𝔯_fiber, the fiber coordinate κ(s), and the ETN state Θ_U^{C6J}.",
+    "defining_relation": "\\mathfrak F_{crit}(s)=\\|U(s)\\|_{L^3}+\\|U(s)\\|_{\\dot H^{1/2}}"
+  },
+  {
+    "key": "ns.c6.c6j.f_crit_hat_compactified",
+    "latex": "\\widehat{\\mathfrak F}_{crit}",
+    "label_zh": "緊化臨界場容量",
+    "label_en": "compactified critical field capacity",
+    "definition_zh": "𝔉_crit 經 x↦x/(1+x) 緊化後所得的 [0,1) 值量：𝔉̂_crit=𝔉_crit/(1+𝔉_crit)。它把假設爆破判準 𝔉_crit→∞ 重寫成有界形式 𝔉̂_crit(s)→1（§27）。§28 強調此極限是 genuine critical infinity 而非單純尺度化人工產物（不同於未臨界化的 A_k→∞），因為 ‖U‖_3、‖U‖_{\\dot H^{1/2}} 本身已是尺度不變量。",
+    "definition_en": "The [0,1)-valued compactification of 𝔉_crit via x↦x/(1+x): 𝔉̂_crit=𝔉_crit/(1+𝔉_crit). It rewrites the blow-up criterion 𝔉_crit→∞ into the bounded form 𝔉̂_crit(s)→1 (§27). §28 stresses this limit is a genuine critical infinity rather than a mere scaling artifact (unlike an uncriticalized A_k→∞), precisely because ‖U‖_3 and ‖U‖_{\\dot H^{1/2}} are themselves already scale-invariant.",
+    "defining_relation": "\\widehat{\\mathfrak F}_{crit}=\\frac{\\mathfrak F_{crit}}{1+\\mathfrak F_{crit}}\\in[0,1)"
+  },
+  {
+    "key": "ns.c6.c6j.x_crit_state_space",
+    "latex": "\\mathcal X_{crit}",
+    "label_zh": "重整化臨界場狀態空間",
+    "label_en": "renormalized critical field state space",
+    "definition_zh": "承載至少奇異時刻前的局部光滑性、臨界場範數、以及 C6 所需空間/來源資料的合適重整化場狀態空間（§29）。它是 defect projection π 的定義域，也是「full field U(s)」與「僅其 defect metadata 投影 π(U(s))」這一本輪核心區分（§30）的載體——C6-A 到 C6-I 主要只研究了 π(U(s))，而非完整位於 X_crit 中的 U(s)。",
+    "definition_en": "A suitable renormalized field state space carrying at least local smoothness prior to the singular time, critical field norms, and the spatial/provenance data C6 needs (§29). It is the domain of the defect projection π, and the carrier of this round's core distinction between the full field U(s) and its defect-metadata projection π(U(s)) (§30) -- C6-A through C6-I had studied only π(U(s)), not the full U(s) living in X_crit.",
+    "notes": "Defined by listed structural properties in the source rather than by a single formula."
+  },
+  {
+    "key": "ns.c6.c6j.k_def_defect_space",
+    "latex": "\\mathcal K_{def}",
+    "label_zh": "緊化缺陷狀態空間",
+    "label_en": "compactified defect state space",
+    "definition_zh": "由 TS、GP、HF、臨界邊界面、composition reserves 等組成的緊化 C6 defect metadata 狀態空間（§29），是 defect projection π 的值域。C6 defect recurrence（π(U(s_n))→θ* 或返回 K⊂K_def 附近）發生於此空間，但 K_def 中的緊致性並不蘊含 X_crit 中對應纖維的緊致性（§30），此落差正是 Critical Fiber Escape 現象的來源。",
+    "definition_en": "The compactified C6 defect-metadata state space (§29), built from TS, GP, HF, the critical boundary faces, and composition reserves -- the codomain of the defect projection π. C6 defect recurrence (π(U(s_n))→θ* or return near a compact K⊂K_def) takes place here, but compactness in K_def does not imply compactness of the corresponding fiber in X_crit (§30); this gap is exactly the source of the Critical Fiber Escape phenomenon.",
+    "notes": "The file is not fully consistent in spelling: the §0 summary writes π:X_crit→K_defect (point 21), while the formal definition from §29 onward uses K_def. The sequel C6-K continues with the spelled-out \\mathcal K_{\\rm defect}. Treat K_def and K_defect as the same object."
+  },
+  {
+    "key": "ns.c6.c6j.pi_defect_projection",
+    "latex": "\\pi",
+    "label_zh": "缺陷投影",
+    "label_en": "defect projection",
+    "definition_zh": "π:X_crit→K_def（§29），把完整重整化場狀態 U(s) 投影到其 C6 defect metadata θ=π(U(s))。本輪的關鍵觀察（§30）是：defect recurrence（π(U(s_n)) 收斂或返回緊集）不蘊含 U(s_n) 在 X_crit 中 precompact，因為纖維 π^{-1}(θ) 可能非緊。這把整個 C6 cycle 問題重新表述為 skew-product 問題：緊致 recurrent base（於 K_def 中）加上可能逃逸的 critical fiber（於 X_crit 中）。",
+    "definition_en": "π: X_crit → K_def (§29), projecting the full renormalized field state U(s) onto its C6 defect metadata θ=π(U(s)). The round's key observation (§30) is that defect recurrence (π(U(s_n)) converging or returning to a compact set) does not imply U(s_n) is precompact in X_crit, because the fiber π^{-1}(θ) may be noncompact. This reframes the entire C6 cycle problem as a skew-product problem: a compact recurrent base (in K_def) plus a possibly escaping critical fiber (in X_crit).",
+    "defining_relation": "\\pi:\\mathcal X_{crit}\\to\\mathcal K_{def}"
+  },
+  {
+    "key": "ns.c6.c6j.r_fiber_radius",
+    "latex": "\\mathfrak R_{fiber}(K)",
+    "label_zh": "臨界纖維半徑",
+    "label_en": "critical fiber radius",
+    "definition_zh": "對緊集 K⊂K_def，定義 𝔯_fiber(K)=sup{𝔉_crit(U):π(U)∈K}∈[0,∞]（§31）。若 𝔯_fiber(K)<∞，defect set K 一致控制其纖維上的臨界場容量。此量是 C6-J.6（Bounded-Fiber Recurrence No-Go，§32）與 C6-J.7（Critical Fiber Escape Theorem，§34）的中心測度：前者證明有限 𝔯_fiber 的緊 defect trap 不能支持假設爆破，後者證明任何被無窮多次訪問的緊 defect set 必有 𝔯_fiber(K)=∞。",
+    "definition_en": "For compact K⊂K_def, define 𝔯_fiber(K)=sup{𝔉_crit(U):π(U)∈K}∈[0,∞] (§31). If 𝔯_fiber(K)<∞, the defect set K uniformly controls the critical field capacity over its fiber. This quantity is the central measure of both C6-J.6 (Bounded-Fiber Recurrence No-Go, §32), showing a compact defect trap with finite 𝔯_fiber cannot support hypothetical blow-up, and C6-J.7 (Critical Fiber Escape Theorem, §34), showing any compact defect set visited infinitely often must have 𝔯_fiber(K)=∞.",
+    "defining_relation": "\\mathfrak R_{fiber}(K)=\\sup\\{\\mathfrak F_{crit}(U):\\pi(U)\\in K\\}\\in[0,\\infty]"
+  },
+  {
+    "key": "ns.c6.c6j.critical_fiber_escape",
+    "latex": "\\textbf{Critical Fiber Escape}",
+    "label_zh": "臨界纖維逃逸（C6-J.7）",
+    "label_en": "Critical Fiber Escape (C6-J.7)",
+    "definition_zh": "本輪標題定理與核心結論：任何被假設爆破重整化軌道無窮多次訪問的緊 defect set K，必滿足 𝔯_fiber(K)=∞，等價地說，每個倖存的緊 defect recurrence 都要求其臨界纖維非緊。這確立了 C6 cycle 問題的最終形式——緊致 recurrent defect base 加上必然逃逸的 noncompact critical fiber 之 skew-product 問題（§34；亦見結論 §66）。它並非矛盾，而是假設爆破下的必要狀態性質（§65 formal status：「PROVED AS NECESSARY STATE PROPERTY」；亦見 NG-J8）。C6-K 直接以此定理為起點，將 J-F1–J-F6（amplitude/multiplicity/secondary-scale/translation-tail/frequency escape/profile splitting，§54）候選逃逸機制提升為嚴謹的 profile-decomposition 論證。",
+    "definition_en": "The round's titular theorem and central conclusion: any compact defect set K visited infinitely often by a hypothetical blow-up renormalized orbit must satisfy 𝔯_fiber(K)=∞ -- equivalently, every surviving compact defect recurrence requires noncompactness in its critical fiber. This fixes the final shape of the C6 cycle problem as a skew-product problem: a compact recurrent defect base plus a critical fiber that must escape (§34; see also the conclusion, §66). It is not a contradiction but a necessary state property under hypothetical blow-up (§65 formal status: \"PROVED AS NECESSARY STATE PROPERTY\"; cf. NG-J8). The sequel C6-K takes this theorem as its starting point, upgrading the candidate escape mechanisms J-F1-F6 (amplitude/multiplicity/secondary-scale/translation-tail/frequency escape/profile splitting, §54) into rigorous profile-decomposition arguments.",
+    "defining_relation": "\\mathfrak R_{fiber}(K)=\\infty",
+    "notes": "Confirmed by direct inspection of the sequel file NS_C6K_CriticalFiber_ProfileSplitting_v0.1.md, which opens by restating this theorem and the same six escape-mechanism candidates before formalizing them."
+  },
+  {
+    "key": "ns.c6.c6j.theta_defect_base",
+    "latex": "\\theta(s)",
+    "label_zh": "缺陷元資料座標",
+    "label_en": "defect metadata coordinate (base)",
+    "definition_zh": "θ(s)=π(U(s))∈K_def，即重整化場沿投影 π 的像，代表「compact defect metadata」（§37–38）。在 §38 的 skew-product 模型 (θ(s),κ(s)) 中，θ 是緊致的 base 座標；C6-J.8（Projected-Cycle Reframing，§39）指出，一個與假設爆破相容的 C6 recurrent defect cycle 不是完整臨界場狀態空間中的閉軌道，而必須是 skew-product 軌道：θ(s+L)≈θ(s) 而 κ(s+L)>κ(s)（平均或沿子序列）。",
+    "definition_en": "θ(s)=π(U(s))∈K_def, the image of the renormalized field under the projection π, representing \"compact defect metadata\" (§37-38). In the §38 skew-product model (θ(s),κ(s)), θ is the compact base coordinate; C6-J.8 (Projected-Cycle Reframing, §39) states that a C6 recurrent defect cycle compatible with hypothetical blow-up is not a closed orbit in the full critical field state space, but must be a skew-product orbit: θ(s+L)≈θ(s) while κ(s+L)>κ(s) (on average or along a subsequence).",
+    "defining_relation": "\\theta(s)=\\pi(U(s))",
+    "notes": "Relabeled θ_def in the §64 ETN tuple Θ_skew^{C6J}=(θ_def,κ_fiber); same object."
+  },
+  {
+    "key": "ns.c6.c6j.kappa_fiber_coordinate",
+    "latex": "\\kappa(s)",
+    "label_zh": "臨界纖維座標",
+    "label_en": "critical fiber coordinate",
+    "definition_zh": "κ(s)=log(1+𝔉_crit(s))，skew-product 模型 (θ(s),κ(s)) 中代表無界臨界纖維方向的座標（§38）。假設爆破要求 κ(s)→∞，而 base θ(s) 可保持 recurrent。§57–58 進一步把 boundary graph 的轉移關係從單純 B_i→B_j 升級為帶 κ 座標的 (B_i,κ)→(B_j,κ')，並要求任何與爆破相容的 recurrent base cycle 滿足 κ_n→∞——這是 C6-G/H 所缺的方向性座標。",
+    "definition_en": "κ(s)=log(1+𝔉_crit(s)), the coordinate representing the unbounded critical-fiber direction in the skew-product model (θ(s),κ(s)) (§38). Hypothetical blow-up requires κ(s)→∞ while the base θ(s) may remain recurrent. §57-58 further upgrades the boundary-graph transition from a plain B_i→B_j to one carrying the κ coordinate, (B_i,κ)→(B_j,κ'), requiring any blow-up-compatible recurrent base cycle to satisfy κ_n→∞ -- the directional coordinate missing from C6-G/H.",
+    "defining_relation": "\\kappa(s)=\\log\\left(1+\\mathfrak F_{crit}(s)\\right)",
+    "notes": "Relabeled κ_fiber in the §64 ETN tuple with the equivalent formula log[1+‖U‖_3+‖U‖_{\\dot H^{1/2}}]. In the sequel C6-K, the symbol κ_n is reused for a related but distinct concentration-scale quantity in the profile-decomposition analysis -- do not conflate the two across rounds."
+  },
+  {
+    "key": "ns.c6.c6j.field_cap_infinity",
+    "latex": "CAP_{field}^{crit,\\infty}",
+    "label_zh": "場容量無窮大（FIELD-CAP∞）",
+    "label_en": "field capacity infinity (FIELD-CAP∞)",
+    "definition_zh": "C6-J 在 §36 對 C6-I 的 CAP^{crit,∞} 邊界重新細分出的兩型之一：field capacity infinity，即 ‖U‖_3+‖U‖_{\\dot H^{1/2}}→∞（等價於 𝔉_crit→∞）。§56 強調對真正的假設爆破而言，field capacity infinity（記作 CAP_field^{crit,∞}）並非可有可無的邊界選項之一，而是必要的 fiber 方向——與另一型 edge capacity infinity（EDGE-CAP∞）含義本質不同。",
+    "definition_en": "One of two refined subtypes C6-J splits out of C6-I's CAP^{crit,∞} boundary (§36): field capacity infinity, i.e. ‖U‖_3+‖U‖_{\\dot H^{1/2}}→∞ (equivalently 𝔉_crit→∞). §56 stresses that for genuine hypothetical blow-up, field capacity infinity (denoted CAP_field^{crit,∞}) is not merely one optional boundary among others but a required fiber direction -- with a meaning essentially different from the other subtype, edge capacity infinity (EDGE-CAP∞).",
+    "defining_relation": "\\mathfrak F_{crit}\\to\\infty",
+    "notes": "CAP^{crit,∞} itself (unqualified) is C6-I notation, treated there as a single critical boundary; C6-J's contribution here is this field/edge refinement."
+  },
+  {
+    "key": "ns.c6.c6j.edge_cap_infinity",
+    "latex": "\\Gamma^{-1}\\to\\infty",
+    "label_zh": "邊容量無窮大（EDGE-CAP∞）",
+    "label_en": "edge capacity infinity (EDGE-CAP∞)",
+    "definition_zh": "C6-J 在 §36／§56 細分出的另一型 capacity infinity：edge capacity infinity，以 Γ^{-1}→∞ 為例（Γ 為先前 C6 輪次的邊/來源容量記號，本檔並未重新定義）。與 field capacity infinity 不同，它描述的是 required source capacity inflation，而非 field-critical norm infinity；本輪強調兩者「都是 critical，但含義不同」。",
+    "definition_en": "The other subtype of capacity infinity C6-J distinguishes in §36/§56: edge capacity infinity, exemplified by Γ^{-1}→∞ (Γ is an edge/source-capacity notation from an earlier C6 round, not redefined in this file). Unlike field capacity infinity, it describes required source-capacity inflation rather than field-critical-norm infinity; the round stresses both are critical but \"have different meanings.\"",
+    "notes": "Γ itself is not defined within C6-J -- it is invoked only as an \"e.g.\" contrast example against FIELD-CAP∞/𝔉_crit. Consult the earlier C6 round that introduces Γ (edge/boundary-face capacity) for its precise definition."
+  },
+  {
+    "key": "ns.c6.c6j.etn_state_theta_u",
+    "latex": "\\Theta_U^{C6J}(s)",
+    "label_zh": "反向重整化場狀態（ETN 更新）",
+    "label_en": "backward renormalized field state (ETN update)",
+    "definition_zh": "§64「True ETN update」給出的本輪正式狀態元組：Θ_U^{C6J}(s)=⟨U(s),P(s),‖U‖_3,‖U‖_{\\dot H^{1/2}},E(s),D_crit(s),π(U(s))⟩，將本輪引入的主要場量（重整化速度/壓力、兩個臨界範數、重整化能量、臨界耗散密度、defect 投影）統一封裝成單一狀態記錄，供後續輪次接續。",
+    "definition_en": "The round's formal state tuple from the §64 \"True ETN update\": Θ_U^{C6J}(s)=⟨U(s),P(s),‖U‖_3,‖U‖_{\\dot H^{1/2}},E(s),D_crit(s),π(U(s))⟩, packaging this round's principal field quantities (renormalized velocity/pressure, the two critical norms, renormalized energy, critical dissipation density, and the defect projection) into a single state record for continuity into subsequent rounds.",
+    "defining_relation": "\\Theta_U^{C6J}(s)=\\left\\langle U(s),P(s),\\|U\\|_3,\\|U\\|_{\\dot H^{1/2}},E(s),D_{crit}(s),\\pi(U(s))\\right\\rangle"
+  },
+  {
+    "key": "ns.c6.c6j.etn_skew_state",
+    "latex": "\\Theta_{\\rm skew}^{C6J}",
+    "label_zh": "斜積狀態（ETN 更新）",
+    "label_en": "skew-product state (ETN update)",
+    "definition_zh": "§64 給出的第二個正式狀態，把本輪的 skew-product 重述壓縮成一對：Θ_skew^{C6J}=(θ_def,κ_fiber)，其中 κ_fiber=log[1+‖U‖_3+‖U‖_{\\dot H^{1/2}}]（即 §38 的 κ(s)）。假設爆破要求 κ_fiber→∞，這是本輪「compact defect base + noncompact critical fiber」核心圖像的正式狀態封裝，也是下一輪 C6-K 的起點。",
+    "definition_en": "The second formal state given in §64, compressing the round's skew-product reframing into a pair: Θ_skew^{C6J}=(θ_def,κ_fiber), where κ_fiber=log[1+‖U‖_3+‖U‖_{\\dot H^{1/2}}] (i.e. the κ(s) of §38). Hypothetical blow-up requires κ_fiber→∞; this is the formal state-packaging of the round's core \"compact defect base + noncompact critical fiber\" picture, and the starting point of the sequel C6-K.",
+    "defining_relation": "\\Theta_{\\rm skew}^{C6J}=(\\theta_{def},\\kappa_{fiber}),\\ \\kappa_{fiber}=\\log\\left[1+\\|U\\|_3+\\|U\\|_{\\dot H^{1/2}}\\right]"
+  }
+]

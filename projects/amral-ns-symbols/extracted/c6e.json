@@ -1,0 +1,334 @@
+[
+  {
+    "key": "ns.c6.c6e.lambda2_plus",
+    "latex": "\\lambda_2^+",
+    "label_zh": "中間特徵值（正部）",
+    "label_en": "Middle eigenvalue (positive part)",
+    "definition_zh": "應變張量 S(x,t) 的中間特徵值（正部），源自 Miller 的中間特徵值正則性判準，是尺度臨界的應變量。C6-E 第1.1節重新引入此量作為中間時間負荷 m(t) 被積函數的核心成分，用以說明 m(t) 的積分核本身是一個真正的正值空間應變密度，而非抽象純量。",
+    "definition_en": "The (positive part of the) middle eigenvalue of the strain tensor S(x,t), drawn from Miller's middle-eigenvalue regularity criterion as a scale-critical strain quantity. C6-E section 1.1 reintroduces it as the core ingredient of the integrand defining the middle temporal load m(t), establishing that m(t)'s integrand is a genuine positive spatial strain density rather than an abstract scalar.",
+    "notes": "Inherited from Miller's criterion (References #1) and used throughout C4/C5/C6; not re-derived in this file."
+  },
+  {
+    "key": "ns.c6.c6e.m_t",
+    "latex": "m(t)",
+    "label_zh": "中間時間負荷",
+    "label_en": "Middle temporal load",
+    "definition_zh": "定義為 $m(t)=\\int_{\\mathbb R^3}\\lambda_2^+(x,t)|S(x,t)|^2dx$，是 C4/C5 貫穿使用的中間時間負荷純量。C6-E 的核心論點在於指出此純量的被積函數 $a_M(t,x)$ 是一個正值空間源密度，因此 m(t) 其實是空間源測度的時間邊際（marginal），而非獨立完整的物理狀態。",
+    "definition_en": "Defined as $m(t)=\\int_{\\mathbb R^3}\\lambda_2^+(x,t)|S(x,t)|^2dx$, the scalar middle temporal load used throughout C4/C5. C6-E's central move is to show its integrand $a_M(t,x)$ is a genuine positive spatial source density, so m(t) is in fact the temporal marginal of a spacetime source measure rather than a self-contained physical state.",
+    "defining_relation": "m(t) = \\int_{\\mathbb R^3}\\lambda_2^+(x,t)|S(x,t)|^2dx"
+  },
+  {
+    "key": "ns.c6.c6e.q_sv",
+    "latex": "\\mathcal Q_{SV}",
+    "label_zh": "應變-渦度算子",
+    "label_en": "Strain-vorticity operator",
+    "definition_zh": "定義為 $\\mathcal Q_{SV}=P_{st}\\left((u\\cdot\\nabla)S+S^2+\\frac34\\omega\\otimes\\omega\\right)$，是投影後應變演化方程中的算子項，滿足 $H^1$ 應變成長恆等式 $\\frac12\\frac d{dt}\\|S\\|_{\\dot H^1}^2+\\nu\\|\\Delta S\\|_2^2=-\\langle\\mathcal Q_{SV},-\\Delta S\\rangle$，且與渦度外積正交：$\\langle-\\Delta S,\\omega\\otimes\\omega\\rangle=0$。C6-E 第1.2節用它說明算子時間成長負荷同樣來自一個可空間積分的帶號密度。",
+    "definition_en": "Defined as $\\mathcal Q_{SV}=P_{st}\\left((u\\cdot\\nabla)S+S^2+\\frac34\\omega\\otimes\\omega\\right)$, the operator term in the projected strain-evolution equation, entering the exact $H^1$ strain-growth identity $\\frac12\\frac d{dt}\\|S\\|_{\\dot H^1}^2+\\nu\\|\\Delta S\\|_2^2=-\\langle\\mathcal Q_{SV},-\\Delta S\\rangle$ and satisfying the orthogonality $\\langle-\\Delta S,\\omega\\otimes\\omega\\rangle=0$. C6-E section 1.2 uses it to show the operator temporal growth load likewise arises from a spatially integrable signed density.",
+    "defining_relation": "\\mathcal Q_{SV} = P_{st}\\left((u\\cdot\\nabla)S+S^2+\\frac34\\omega\\otimes\\omega\\right)",
+    "notes": "P_{st} denotes the projection operator from Miller's strain-vorticity formalism (References #2); not re-derived in this file."
+  },
+  {
+    "key": "ns.c6.c6e.a_m",
+    "latex": "a_M(t,x)",
+    "label_zh": "中間空間源密度",
+    "label_en": "Middle spatial source density",
+    "definition_zh": "定義為 $a_M(t,x)=\\lambda_2^+(S(t,x))|S(t,x)|^2\\ge0$，即 m(t) 的被積函數本身，是本輪第2節引入的正值空間密度，滿足 $m(t)=\\int_{\\mathbb R^3}a_M(t,x)dx$。它是後續建構標準中間時空提升 $\\Pi_J^M$（C6-E.1）的原始素材。",
+    "definition_en": "Defined as $a_M(t,x)=\\lambda_2^+(S(t,x))|S(t,x)|^2\\ge0$, the integrand of m(t) itself, introduced in section 2 as a nonnegative spatial density satisfying $m(t)=\\int_{\\mathbb R^3}a_M(t,x)dx$. It is the raw material used to build the canonical middle spacetime lift $\\Pi_J^M$ in Theorem C6-E.1.",
+    "defining_relation": "a_M(t,x) = \\lambda_2^+(S(t,x))|S(t,x)|^2 \\ge 0"
+  },
+  {
+    "key": "ns.c6.c6e.j_window",
+    "latex": "J=(t_-,t_+)",
+    "label_zh": "活躍記錄窗口",
+    "label_en": "Active record window",
+    "definition_zh": "固定的時間區間 $J=(t_-,t_+)$，是本輪幾乎所有量（$M_J$、$P_J$、$\\Pi_J^M$、$\\Pi_J^O$、$\\Omega_T(J)$、$\\Omega_{ST}(J)$ 等）共同的下標與定義域，代表被審核的一段活躍時間窗口。",
+    "definition_en": "The fixed time interval $J=(t_-,t_+)$ that serves as the common subscript/domain for nearly every quantity in this round ($M_J$, $P_J$, $\\Pi_J^M$, $\\Pi_J^O$, $\\Omega_T(J)$, $\\Omega_{ST}(J)$, etc.), denoting the active record window under audit.",
+    "defining_relation": "J = (t_-, t_+)"
+  },
+  {
+    "key": "ns.c6.c6e.m_j",
+    "latex": "M_J",
+    "label_zh": "窗口中間總質量",
+    "label_en": "Total middle mass over window",
+    "definition_zh": "定義為 $M_J=\\int_J m(t)dt>0$，即中間負荷 m(t) 在記錄窗口 J 上的總質量，作為把 $a_M$、m(t) 正規化為機率測度（$\\Pi_J^M$、$\\mu_J^M$）時所用的分母。",
+    "definition_en": "Defined as $M_J=\\int_J m(t)dt>0$, the total mass of the middle load m(t) accumulated over the record window J, serving as the normalizing denominator that turns $a_M$ and m(t) into the probability measures $\\Pi_J^M$ and $\\mu_J^M$.",
+    "defining_relation": "M_J = \\int_J m(t)dt > 0"
+  },
+  {
+    "key": "ns.c6.c6e.pi_j_m",
+    "latex": "\\Pi_J^M",
+    "label_zh": "標準中間時空提升（C6-E.1）",
+    "label_en": "Canonical Middle Spacetime Lift (C6-E.1)",
+    "definition_zh": "定義為 $d\\Pi_J^M(t,x)=\\frac{a_M(t,x)}{M_J}dx\\,dt\\in\\mathcal P(J\\times\\mathbb R^3)$，是定理 C6-E.1 的核心對象：中間時間負荷的正規化空間源密度被提升為一個時空機率測度，其時間邊際恰為 C5 使用的中間時間負荷機率 $\\mu_J^M=(\\pi_t)_\\#\\Pi_J^M$。本節結論是「中間時間狀態其實就是空間源測度的邊際」。",
+    "definition_en": "Defined as $d\\Pi_J^M(t,x)=\\frac{a_M(t,x)}{M_J}dx\\,dt\\in\\mathcal P(J\\times\\mathbb R^3)$, the central object of Theorem C6-E.1: the normalized middle spatial source density lifted into a spacetime probability measure, whose temporal marginal $\\mu_J^M=(\\pi_t)_\\#\\Pi_J^M$ recovers exactly the C5 middle-load probability. The section's conclusion is that \"the middle temporal state is literally a spatial source measure marginal.\"",
+    "defining_relation": "d\\Pi_J^M(t,x) = \\frac{a_M(t,x)}{M_J}dx\\,dt",
+    "notes": "π_t(t,x)=t denotes the time-projection map used in the pushforward (\\pi_t)_\\#."
+  },
+  {
+    "key": "ns.c6.c6e.mu_j_m",
+    "latex": "\\mu_J^M",
+    "label_zh": "中間時間邊際機率",
+    "label_en": "Middle temporal marginal probability",
+    "definition_zh": "定義為 $d\\mu_J^M(t)=\\frac{m(t)}{M_J}dt$，即 C5 所用的中間時間負荷機率，並在本輪被證明恰為 $\\Pi_J^M$ 沿時間軸的推前邊際：$\\mu_J^M=(\\pi_t)_\\#\\Pi_J^M$。",
+    "definition_en": "Defined as $d\\mu_J^M(t)=\\frac{m(t)}{M_J}dt$, the C5 middle-load temporal probability, shown here to be exactly the pushforward marginal of $\\Pi_J^M$ along the time axis: $\\mu_J^M=(\\pi_t)_\\#\\Pi_J^M$.",
+    "defining_relation": "d\\mu_J^M(t) = \\frac{m(t)}{M_J}dt"
+  },
+  {
+    "key": "ns.c6.c6e.e1_t",
+    "latex": "E_1(t)",
+    "label_zh": "H¹ 應變能量",
+    "label_en": "H^1 strain energy",
+    "definition_zh": "定義為 $E_1(t)=\\frac12\\|S(t)\\|_{\\dot H^1}^2$，是應變場的 $\\dot H^1$ 能量，其時間導數 $h(t)=E_1'(t)$ 即為本輪第4節起分析的算子時間成長負荷。",
+    "definition_en": "Defined as $E_1(t)=\\frac12\\|S(t)\\|_{\\dot H^1}^2$, the $\\dot H^1$ energy of the strain field, whose time derivative $h(t)=E_1'(t)$ is the operator temporal growth load analyzed from section 4 onward.",
+    "defining_relation": "E_1(t) = \\frac12\\|S(t)\\|_{\\dot H^1}^2"
+  },
+  {
+    "key": "ns.c6.c6e.h_t",
+    "latex": "h(t)",
+    "label_zh": "算子時間成長負荷",
+    "label_en": "Operator temporal growth load",
+    "definition_zh": "定義為 $h(t)=E_1'(t)$，利用精確算子恆等式可寫成 $h(t)=-\\langle\\mathcal Q_{SV},-\\Delta S\\rangle-\\nu\\|\\Delta S\\|_2^2$，並等於帶號局部密度 $g_O(t,x)$ 的空間積分。是 C6-E.2 標準正值算子時空提升的出發點。",
+    "definition_en": "Defined as $h(t)=E_1'(t)$, rewritten via the exact operator identity as $h(t)=-\\langle\\mathcal Q_{SV},-\\Delta S\\rangle-\\nu\\|\\Delta S\\|_2^2$, and equal to the spatial integral of the signed local density $g_O(t,x)$. It is the starting point for the Theorem C6-E.2 canonical positive-operator spacetime lift.",
+    "defining_relation": "h(t) = E_1'(t) = \\int_{\\mathbb R^3}g_O(t,x)dx",
+    "notes": "The intermediate identity h(t) = -\\langle\\mathcal Q_{SV},-\\Delta S\\rangle - \\nu\\|\\Delta S\\|_2^2 is stated in section 4 immediately before g_O is introduced."
+  },
+  {
+    "key": "ns.c6.c6e.g_o",
+    "latex": "g_O(t,x)",
+    "label_zh": "算子帶號局部密度",
+    "label_en": "Operator signed local density",
+    "definition_zh": "定義為 $g_O(t,x)=-\\mathcal Q_{SV}(t,x):(-\\Delta S(t,x))-\\nu|\\Delta S(t,x)|^2$，是 h(t) 的空間被積函數，滿足 $h(t)=\\int_{\\mathbb R^3}g_O(t,x)dx$。其正部 $[g_O]_+$ 用以定義正值局部算子容量 $c_O(t)$。",
+    "definition_en": "Defined as $g_O(t,x)=-\\mathcal Q_{SV}(t,x):(-\\Delta S(t,x))-\\nu|\\Delta S(t,x)|^2$, the spatial integrand of h(t), satisfying $h(t)=\\int_{\\mathbb R^3}g_O(t,x)dx$. Its positive part $[g_O]_+$ is used to define the positive local operator capacity $c_O(t)$.",
+    "defining_relation": "g_O(t,x) = -\\mathcal Q_{SV}(t,x):(-\\Delta S(t,x)) - \\nu|\\Delta S(t,x)|^2"
+  },
+  {
+    "key": "ns.c6.c6e.c_o_t",
+    "latex": "c_O(t)",
+    "label_zh": "正值局部算子容量",
+    "label_en": "Positive local operator capacity",
+    "definition_zh": "定義為 $c_O(t)=\\int_{\\mathbb R^3}[g_O(t,x)]_+dx$，滿足 $[h(t)]_+\\le c_O(t)$，是每個時刻 t 上局部正值 $H^1$ 成長容量的總量，用以構造條件空間分布 $p_O(x|t)$，並經由 $C_J^O$ 進入 $\\Gamma_J^O$ 的定義，作為「可用容量」的度量。",
+    "definition_en": "Defined as $c_O(t)=\\int_{\\mathbb R^3}[g_O(t,x)]_+dx$, satisfying $[h(t)]_+\\le c_O(t)$; it is the total local positive $H^1$-growth capacity at time t, used to build the conditional spatial distribution $p_O(x|t)$ and, via $C_J^O$, to measure \"available capacity\" in the definition of $\\Gamma_J^O$.",
+    "defining_relation": "c_O(t) = \\int_{\\mathbb R^3}[g_O(t,x)]_+dx"
+  },
+  {
+    "key": "ns.c6.c6e.p_o_cond",
+    "latex": "p_O(x|t)",
+    "label_zh": "條件正值空間分布",
+    "label_en": "Conditional positive spatial distribution",
+    "definition_zh": "對 $[h(t)]_+>0$ 的時刻定義為 $p_O(x|t)=\\frac{[g_O(t,x)]_+}{c_O(t)}$，是一個空間機率密度；當 $[h(t)]_+=0$ 時可任意選取一個固定的「墓地」機率分布，該時刻在後續加權中得零時間權重。此密度是建構 C6-E.2 標準正值算子時空提升 $\\Pi_J^O$ 的空間條件層。",
+    "definition_en": "For times with $[h(t)]_+>0$, defined as $p_O(x|t)=\\frac{[g_O(t,x)]_+}{c_O(t)}$, a spatial probability density; at times where $[h(t)]_+=0$ one may pick any fixed \"cemetery\" probability distribution, which receives zero temporal weight downstream. This is the spatial conditional layer used to build the Theorem C6-E.2 canonical positive-operator spacetime lift $\\Pi_J^O$.",
+    "defining_relation": "p_O(x|t) = \\frac{[g_O(t,x)]_+}{c_O(t)}"
+  },
+  {
+    "key": "ns.c6.c6e.p_j",
+    "latex": "P_J",
+    "label_zh": "窗口正值算子總質量",
+    "label_en": "Positive operator temporal mass over window",
+    "definition_zh": "定義為 $P_J=\\int_J[h(t)]_+dt>0$，是正值算子時間成長在窗口 J 上的總質量，作為正規化 $\\mu_J^O$ 及定義 $\\Gamma_J^O$ 的分母。",
+    "definition_en": "Defined as $P_J=\\int_J[h(t)]_+dt>0$, the total mass of positive operator temporal growth accumulated over window J, serving as the normalizing denominator for $\\mu_J^O$ and for defining $\\Gamma_J^O$.",
+    "defining_relation": "P_J = \\int_J [h(t)]_+dt > 0"
+  },
+  {
+    "key": "ns.c6.c6e.mu_j_o",
+    "latex": "\\mu_J^O",
+    "label_zh": "算子時間邊際機率",
+    "label_en": "Operator temporal marginal probability",
+    "definition_zh": "定義為 $d\\mu_J^O(t)=\\frac{[h(t)]_+}{P_J}dt$，是正值算子成長負荷在窗口 J 上正規化後的時間機率測度，為 $\\Pi_J^O$ 的時間邊際。",
+    "definition_en": "Defined as $d\\mu_J^O(t)=\\frac{[h(t)]_+}{P_J}dt$, the normalized temporal probability measure of the positive operator growth load over J, serving as the temporal marginal of $\\Pi_J^O$.",
+    "defining_relation": "d\\mu_J^O(t) = \\frac{[h(t)]_+}{P_J}dt"
+  },
+  {
+    "key": "ns.c6.c6e.pi_j_o",
+    "latex": "\\Pi_J^O",
+    "label_zh": "標準正值算子時空提升（C6-E.2）",
+    "label_en": "Canonical Positive-Operator Spacetime Lift (C6-E.2)",
+    "definition_zh": "定義為 $d\\Pi_J^O(t,x)=d\\mu_J^O(t)\\,p_O(x|t)dx\\in\\mathcal P(J\\times\\mathbb R^3)$，滿足 $(\\pi_t)_\\#\\Pi_J^O=\\mu_J^O$，是定理 C6-E.2 的核心對象：正值算子時間成長狀態利用局部正值 $H^1$ 成長容量所得的標準空間提升。",
+    "definition_en": "Defined as $d\\Pi_J^O(t,x)=d\\mu_J^O(t)\\,p_O(x|t)dx\\in\\mathcal P(J\\times\\mathbb R^3)$, satisfying $(\\pi_t)_\\#\\Pi_J^O=\\mu_J^O$; the central object of Theorem C6-E.2 — the positive temporal operator-growth state's canonical spatial lift, built from the local positive $H^1$ growth capacity.",
+    "defining_relation": "d\\Pi_J^O(t,x) = d\\mu_J^O(t)\\,p_O(x|t)dx"
+  },
+  {
+    "key": "ns.c6.c6e.c_j_o",
+    "latex": "C_J^O",
+    "label_zh": "限制正值時段之局部容量",
+    "label_en": "Restricted positive-time local capacity",
+    "definition_zh": "定義為 $C_J^O=\\int_{J\\cap\\{h>0\\}}c_O(t)dt$，滿足 $P_J\\le C_J^O$，是把局部正值容量 $c_O(t)$ 限制在全域算子成長為正的時刻上所得的總量，用於定義算子取消效率 $\\Gamma_J^O$，並在第40節的容量膨脹討論中以 $C_J^O/P_J\\to\\infty$ 再度出現。",
+    "definition_en": "Defined as $C_J^O=\\int_{J\\cap\\{h>0\\}}c_O(t)dt$, satisfying $P_J\\le C_J^O$; the total local positive capacity $c_O(t)$ restricted to times of globally positive operator growth, used to define the operator cancellation efficiency $\\Gamma_J^O$, and reappearing in section 40's capacity-inflation discussion as $C_J^O/P_J\\to\\infty$.",
+    "defining_relation": "C_J^O = \\int_{J\\cap\\{h>0\\}} c_O(t)dt"
+  },
+  {
+    "key": "ns.c6.c6e.gamma_j_o",
+    "latex": "\\Gamma_J^O",
+    "label_zh": "算子取消效率（C6-E.3）",
+    "label_en": "Operator cancellation efficiency (C6-E.3)",
+    "definition_zh": "定義為 $\\Gamma_J^O=\\frac{P_J}{C_J^O}\\in(0,1]$（當 $C_J^O>0$）。定理 C6-E.3（Operator Capacity-Inflation Identity）給出精確恆等式 $\\frac{C_J^O}{P_J}=\\frac1{\\Gamma_J^O}$：$\\Gamma_J^O\\approx1$ 表示正值局部成長容量幾乎未被抵消即成為全域正值成長；$\\Gamma_J^O\\ll1$ 表示大量局部正值容量被同時刻的負值空間貢獻抵消，稱為「Operator Spatial-Cancellation / Capacity-Inflation Defect」。在儲備向量 $\\mathbf R^{TS}$ 中以 $\\Gamma_O^O:=\\Gamma_J^O$ 記號重複使用。",
+    "definition_en": "Defined as $\\Gamma_J^O=\\frac{P_J}{C_J^O}\\in(0,1]$ (when $C_J^O>0$). Theorem C6-E.3 (Operator Capacity-Inflation Identity) gives the exact identity $\\frac{C_J^O}{P_J}=\\frac1{\\Gamma_J^O}$: $\\Gamma_J^O\\approx1$ means positive local growth capacity survives to global positive growth with little cancellation; $\\Gamma_J^O\\ll1$ means a large amount of local positive capacity is cancelled by simultaneous negative spatial contributions — the \"Operator Spatial-Cancellation / Capacity-Inflation Defect.\" It is reused in the reserve vector $\\mathbf R^{TS}$ under the notation $\\Gamma_O^O:=\\Gamma_J^O$.",
+    "defining_relation": "\\Gamma_J^O = \\frac{P_J}{C_J^O} \\in (0,1]",
+    "notes": "Also written Γ_O^O in section 35's reserve-vector notation and in the TS-B3 boundary condition (section 38); same quantity."
+  },
+  {
+    "key": "ns.c6.c6e.omega_t",
+    "latex": "\\Omega_T(J)",
+    "label_zh": "時間重疊係數",
+    "label_en": "Temporal overlap coefficient",
+    "definition_zh": "定義為 $\\Omega_T(J)=1-d_{TV}(\\mu_J^M,\\mu_J^O)$，對密度可寫成 $\\Omega_T(J)=\\int_J\\min\\left\\{\\frac{m(t)}{M_J},\\frac{[h(t)]_+}{P_J}\\right\\}dt\\in[0,1]$，衡量中間與算子兩個正規化時間邊際之間的機率重疊，量化「temporal coactivation」，並在 TS-B1 邊界（$\\Omega_T\\to0$，時間相位分離）中扮演角色。",
+    "definition_en": "Defined as $\\Omega_T(J)=1-d_{TV}(\\mu_J^M,\\mu_J^O)$, or in density form $\\Omega_T(J)=\\int_J\\min\\left\\{\\frac{m(t)}{M_J},\\frac{[h(t)]_+}{P_J}\\right\\}dt\\in[0,1]$; it measures the probability overlap between the normalized middle and operator temporal marginals, quantifying \"temporal coactivation,\" and appears as the TS-B1 boundary ($\\Omega_T\\to0$, temporal phase segregation).",
+    "defining_relation": "\\Omega_T(J) = 1 - d_{TV}(\\mu_J^M,\\mu_J^O) = \\int_J \\min\\left\\{\\frac{m(t)}{M_J},\\frac{[h(t)]_+}{P_J}\\right\\}dt"
+  },
+  {
+    "key": "ns.c6.c6e.omega_st",
+    "latex": "\\Omega_{ST}(J)",
+    "label_zh": "時空共享源重疊係數",
+    "label_en": "Spacetime shared-source overlap coefficient",
+    "definition_zh": "定義為 $\\Omega_{ST}(J)=1-d_{TV}(\\Pi_J^M,\\Pi_J^O)=\\int\\min\\{d\\Pi_J^M,d\\Pi_J^O\\}$，是兩個時空提升測度之間的機率重疊，衡量「真正共享空間源」的程度。定理 C6-E.4（Temporal Projection Contraction Theorem）證明總變差在可測推前映射下收縮，故恆有 $\\Omega_{ST}(J)\\le\\Omega_T(J)$：共享時空源是比時間共活躍更強的條件。",
+    "definition_en": "Defined as $\\Omega_{ST}(J)=1-d_{TV}(\\Pi_J^M,\\Pi_J^O)=\\int\\min\\{d\\Pi_J^M,d\\Pi_J^O\\}$, the probability overlap between the two spacetime lift measures, quantifying genuine shared spatial source. Theorem C6-E.4 (Temporal Projection Contraction Theorem) shows total variation contracts under measurable push-forward, giving $\\Omega_{ST}(J)\\le\\Omega_T(J)$: shared spacetime source is a strictly stronger condition than temporal coactivation.",
+    "defining_relation": "\\Omega_{ST}(J) = 1 - d_{TV}(\\Pi_J^M,\\Pi_J^O) = \\int \\min\\{d\\Pi_J^M, d\\Pi_J^O\\}"
+  },
+  {
+    "key": "ns.c6.c6e.sigma_space",
+    "latex": "\\Sigma_{\\rm space}(J)",
+    "label_zh": "空間源分離缺陷",
+    "label_en": "Spatial source-segregation defect",
+    "definition_zh": "定義為 $\\Sigma_{\\rm space}(J)=\\Omega_T(J)-\\Omega_{ST}(J)\\ge0$，是時間重疊超出時空共享重疊的部分，量化「同時活躍但空間上分離」的程度，是本輪提出的新型 typed coupling coordinate。",
+    "definition_en": "Defined as $\\Sigma_{\\rm space}(J)=\\Omega_T(J)-\\Omega_{ST}(J)\\ge0$, the amount by which temporal overlap exceeds spacetime shared overlap, quantifying \"coactive in time yet spatially segregated\" activity; introduced as a new typed coupling coordinate.",
+    "defining_relation": "\\Sigma_{\\rm space}(J) = \\Omega_T(J) - \\Omega_{ST}(J) \\ge 0"
+  },
+  {
+    "key": "ns.c6.c6e.rho_share",
+    "latex": "\\rho_{\\rm share}",
+    "label_zh": "共享比率",
+    "label_en": "Share ratio",
+    "definition_zh": "當 $\\Omega_T>0$ 時定義為 $\\rho_{\\rm share}=\\frac{\\Omega_{ST}}{\\Omega_T}\\in[0,1]$：$\\rho_{\\rm share}\\approx1$ 表示時間重疊大致存活於空間提升之後；$\\rho_{\\rm share}\\ll1$ 表示同時活動其實居於空間上分離的源。是儲備向量 $\\mathbf R^{TS}$ 的分量之一，亦是 TS-B2 邊界（$\\rho_{\\rm share}\\to0$）所監控的量。",
+    "definition_en": "Defined for $\\Omega_T>0$ as $\\rho_{\\rm share}=\\frac{\\Omega_{ST}}{\\Omega_T}\\in[0,1]$: $\\rho_{\\rm share}\\approx1$ means temporal overlap largely survives spatial lifting; $\\rho_{\\rm share}\\ll1$ means same-time activity lives on spatially segregated sources. It is a component of the reserve vector $\\mathbf R^{TS}$ and the quantity monitored by the TS-B2 boundary ($\\rho_{\\rm share}\\to0$).",
+    "defining_relation": "\\rho_{\\rm share} = \\frac{\\Omega_{ST}}{\\Omega_T} \\in [0,1]"
+  },
+  {
+    "key": "ns.c6.c6e.pi_j_cap",
+    "latex": "\\Pi_J^\\cap",
+    "label_zh": "共享中間-算子時空源測度",
+    "label_en": "Shared Middle–Operator Spacetime Source Measure",
+    "definition_zh": "在 $\\Omega_{ST}>0$ 的假設下，設 $f_M,f_O$ 為 $\\Pi_J^M,\\Pi_J^O$ 對共同支配測度 λ 的密度，定義 $d\\Pi_J^\\cap=\\frac{\\min(f_M,f_O)}{\\Omega_{ST}}d\\lambda\\in\\mathcal P(J\\times\\mathbb R^3)$。此測度是第18節起分析的核心對象：其支撐上幾乎每一點同時具有正的中間密度與正的局部算子成長容量，是比時間重疊更強的條件，也是後續中間間隙分析與方向錐提取（C6-E.6）的基礎。",
+    "definition_en": "Under the assumption $\\Omega_{ST}>0$, with $f_M,f_O$ the densities of $\\Pi_J^M,\\Pi_J^O$ against a common dominating measure λ, defined as $d\\Pi_J^\\cap=\\frac{\\min(f_M,f_O)}{\\Omega_{ST}}d\\lambda\\in\\mathcal P(J\\times\\mathbb R^3)$. This is the central object from section 18 onward: at almost every point in its support, both the middle density and the local positive operator-growth capacity are positive — strictly stronger than temporal overlap — and it underlies the later middle-gap analysis and the directional-cone extraction (C6-E.6).",
+    "defining_relation": "d\\Pi_J^\\cap = \\frac{\\min(f_M,f_O)}{\\Omega_{ST}}d\\lambda"
+  },
+  {
+    "key": "ns.c6.c6e.vartheta_s",
+    "latex": "\\vartheta(S)",
+    "label_zh": "共享中間間隙變量",
+    "label_en": "Shared middle-gap variable",
+    "definition_zh": "對 $S\\ne0$ 定義為 $\\vartheta(S)=\\frac{\\lambda_2^+(S)\\lambda_3(S)}{|S|^2}$。在 $\\Pi^\\cap$ 的支撐上恆有 $\\lambda_2^+>0$，故除了在中間間隙邊界的極限點外恆有 $\\vartheta>0$。此量用以追蹤共享源上強中間結構是否退化，是後續 $\\rho_{\\rm gap}$、方向錐提取（C6-E.6）與 TS-B4 中間間隙崩潰邊界的核心變量。",
+    "definition_en": "For $S\\ne0$, defined as $\\vartheta(S)=\\frac{\\lambda_2^+(S)\\lambda_3(S)}{|S|^2}$. On the support of $\\Pi^\\cap$, $\\lambda_2^+>0$ always holds, so $\\vartheta>0$ except at a limiting middle-gap boundary. It tracks whether the shared source retains a strong-middle structure, and underlies $\\rho_{\\rm gap}$, the directional-cone extraction (C6-E.6), and the TS-B4 middle-gap-collapse boundary.",
+    "defining_relation": "\\vartheta(S) = \\frac{\\lambda_2^+(S)\\lambda_3(S)}{|S|^2}",
+    "notes": "λ_3(S) denotes the strain tensor's third eigenvalue per the Miller/Grujić–Xu eigenvalue conventions used across the C-series; not independently redefined in this file."
+  },
+  {
+    "key": "ns.c6.c6e.rho_gap",
+    "latex": "\\rho_{\\rm gap}(\\delta)",
+    "label_zh": "共享間隙儲備",
+    "label_en": "Shared gap reserve",
+    "definition_zh": "對固定 $\\delta>0$ 定義為 $\\rho_{\\rm gap}(\\delta)=\\Pi_J^\\cap\\{\\vartheta(S)\\ge\\delta\\}$：$\\rho_{\\rm gap}\\ll1$ 表示共享源集中於中間間隙邊界附近；$\\rho_{\\rm gap}\\ge g_0>0$ 表示共享源有不退化比例具強中間形狀。若沿遞迴序列對每個固定 $\\delta$ 皆有 $\\rho_{{\\rm gap},n}(\\delta)\\to0$，則 $\\vartheta\\to0$（共享源機率意義下），恰為 C5-E 的 Middle-Gap Defect，路由至類別 G。",
+    "definition_en": "For fixed $\\delta>0$, defined as $\\rho_{\\rm gap}(\\delta)=\\Pi_J^\\cap\\{\\vartheta(S)\\ge\\delta\\}$: $\\rho_{\\rm gap}\\ll1$ means shared source concentrates near the middle-gap boundary; $\\rho_{\\rm gap}\\ge g_0>0$ means a nondegenerate fraction of shared source has strong-middle shape. If $\\rho_{{\\rm gap},n}(\\delta)\\to0$ for every fixed $\\delta$ along a recurrent sequence, then $\\vartheta\\to0$ in shared-source probability — exactly the C5-E Middle-Gap Defect, routing to class G.",
+    "defining_relation": "\\rho_{\\rm gap}(\\delta) = \\Pi_J^\\cap\\{\\vartheta(S)\\ge\\delta\\}",
+    "notes": "This is the TS-B4 boundary quantity (section 38): ρ_gap → 0 routes to class G. Section 35 glosses it as \"nondegenerate shared middle-gap mass\" when listed as an R^TS component."
+  },
+  {
+    "key": "ns.c6.c6e.v_tx",
+    "latex": "V(t,x)",
+    "label_zh": "正規化應變方向",
+    "label_en": "Normalized strain direction",
+    "definition_zh": "在 $\\Pi^\\cap$ 的支撐上定義為 $V(t,x)=\\frac{S(t,x)}{|S(t,x)|}\\in S^4\\subset\\operatorname{Sym}_0(3)$，即應變張量的單位方向，是第22-25節（C6-E.6 方向錐提取引理）緊緻性論證中的核心物件：固定 $\\delta$ 之下集合 $\\mathcal S_\\delta=\\{V\\in S^4:\\vartheta(V)\\ge\\delta\\}$ 為緊集，使有限覆蓋論證得以進行。",
+    "definition_en": "On the support of $\\Pi^\\cap$, defined as $V(t,x)=\\frac{S(t,x)}{|S(t,x)|}\\in S^4\\subset\\operatorname{Sym}_0(3)$, the unit direction of the strain tensor; the central object in the compactness argument of sections 22-25 (the C6-E.6 directional-cone extraction lemma), where $\\mathcal S_\\delta=\\{V\\in S^4:\\vartheta(V)\\ge\\delta\\}$ is compact, enabling a finite-cover argument.",
+    "defining_relation": "V(t,x) = \\frac{S(t,x)}{|S(t,x)|} \\in S^4 \\subset \\operatorname{Sym}_0(3)"
+  },
+  {
+    "key": "ns.c6.c6e.s_delta",
+    "latex": "\\mathcal S_\\delta",
+    "label_zh": "δ-強中間方向緊集",
+    "label_en": "δ-strong-middle directional compact set",
+    "definition_zh": "定義為 $\\mathcal S_\\delta=\\{V\\in S^4:\\vartheta(V)\\ge\\delta\\}\\subset S^4$，是正規化應變方向球面上「中間間隙係數不小於 δ」的子集，被證明為緊集，從而可用有限個 $\\varepsilon$-球 $B_\\varepsilon(K_j)$（$j=1,\\dots,N_{\\delta,\\varepsilon}<\\infty$）覆蓋，此有限方向覆蓋是 C6-E.6 Shared Directional-Cone Extraction Lemma 的關鍵步驟。",
+    "definition_en": "Defined as $\\mathcal S_\\delta=\\{V\\in S^4:\\vartheta(V)\\ge\\delta\\}\\subset S^4$, the subset of the normalized-strain-direction sphere where the middle-gap coefficient is at least δ; shown to be compact, hence coverable by finitely many $\\varepsilon$-balls $B_\\varepsilon(K_j)$ ($j=1,\\dots,N_{\\delta,\\varepsilon}<\\infty$) — the key finite-cover step in the C6-E.6 Shared Directional-Cone Extraction Lemma.",
+    "defining_relation": "\\mathcal S_\\delta = \\{V\\in S^4 : \\vartheta(V)\\ge\\delta\\}"
+  },
+  {
+    "key": "ns.c6.c6e.mathfrak_q_j",
+    "latex": "\\mathfrak Q_J(L)",
+    "label_zh": "共享核心集中度",
+    "label_en": "Shared-core concentration",
+    "definition_zh": "對給定合法參考尺度 $r_J>0$ 及 $L\\ge1$，定義為 $\\mathfrak Q_J(L)=\\sup_{x_0\\in\\mathbb R^3}\\Pi_J^\\cap\\left(\\{\\vartheta\\ge\\delta,|V-K|\\le\\varepsilon\\}\\cap[J\\times B_{Lr_J}(x_0)]\\right)$，衡量尺度 $Lr_J$ 的空間球能否承擔不退化比例的共享方向源質量。分兩種局部化狀態：E-CORE（$\\mathfrak Q_J(L)\\ge q_0$，某核心尺度球承擔不退化份額）與 E-DIFF（對每個固定 L 皆 $\\mathfrak Q_{J_n}(L)\\to0$，稱為 Shared-Source Spatial Diffusion / Multiplicity，即 TS-B5 邊界）。",
+    "definition_en": "For a given legal reference scale $r_J>0$ and $L\\ge1$, defined as $\\mathfrak Q_J(L)=\\sup_{x_0\\in\\mathbb R^3}\\Pi_J^\\cap\\left(\\{\\vartheta\\ge\\delta,|V-K|\\le\\varepsilon\\}\\cap[J\\times B_{Lr_J}(x_0)]\\right)$, measuring whether some ball of scale $Lr_J$ can carry a nondegenerate fraction of shared directional source mass. It splits into two localization regimes: E-CORE ($\\mathfrak Q_J(L)\\ge q_0$, a core-scale ball carries a nondegenerate share) and E-DIFF (for every fixed L, $\\mathfrak Q_{J_n}(L)\\to0$, termed Shared-Source Spatial Diffusion/Multiplicity — the TS-B5 boundary).",
+    "defining_relation": "\\mathfrak Q_J(L) = \\sup_{x_0\\in\\mathbb R^3} \\Pi_J^\\cap\\left(\\{\\vartheta\\ge\\delta,\\ |V-K|\\le\\varepsilon\\}\\cap[J\\times B_{Lr_J}(x_0)]\\right)",
+    "notes": "r_J is a legal reference spatial scale supplied externally (UV ancestry, a theorem window, a selected pressure core, or another certified scale); without it, localization statements have no blow-up-scale meaning and are routed to the legality class A (section 28)."
+  },
+  {
+    "key": "ns.c6.c6e.rho_her_ts",
+    "latex": "\\rho_{\\rm her}^{TS}",
+    "label_zh": "共享源遺傳儲備",
+    "label_en": "Shared-source heredity reserve",
+    "definition_zh": "在為相鄰事件 $J_n,J_{n+1}$ 選定合法正規化/重新定心後，令 $d_{\\rm src}(\\Pi_n^\\cap,\\Pi_{n+1}^\\cap)$ 為緊化共享源狀態空間上弱收斂的某固定度量化，定義 $\\rho_{\\rm her}^{TS}=\\left[1-\\frac{d_{\\rm src}}{d_0}\\right]_+$。此為型別化的遞迴元資料，非新的普適 PDE 估計，用以監控共享核心能否跨世代相容遞迴（TS-B6 邊界：$\\rho_{\\rm her}^{TS}\\to0$ 表示遺傳崩潰）。",
+    "definition_en": "After choosing a legal normalization/recentering for adjacent events $J_n,J_{n+1}$, with $d_{\\rm src}(\\Pi_n^\\cap,\\Pi_{n+1}^\\cap)$ any fixed metrization of weak convergence on the compactified shared-source state space, defined as $\\rho_{\\rm her}^{TS}=\\left[1-\\frac{d_{\\rm src}}{d_0}\\right]_+$. This is typed recurrence metadata rather than a new universal PDE estimate, monitoring whether the shared core recurs compatibly across generations (TS-B6 boundary: $\\rho_{\\rm her}^{TS}\\to0$ signals heredity collapse).",
+    "defining_relation": "\\rho_{\\rm her}^{TS} = \\left[1 - \\frac{d_{\\rm src}}{d_0}\\right]_+"
+  },
+  {
+    "key": "ns.c6.c6e.t_state",
+    "latex": "T",
+    "label_zh": "孤立時間陷阱狀態 T",
+    "label_en": "Isolated temporal trap state T",
+    "definition_zh": "C6-A 提出的三個粗粒候選陷阱之一（另二為 $G\\leftrightarrow P$、$H\\leftrightarrow F$），原以純時間相位/負荷資料（$\\mu^M,\\mu^O$ 及 Young/concentration 元資料）表徵自環 $T\\looparrowright T$。定理 C6-E.7（Pure-Temporal State Completeness No-Go）證明：兩組時空源對 $(\\Pi_1^M,\\Pi_1^O)$ 與 $(\\Pi_2^M,\\Pi_2^O)$ 可有相同時間邊際 $\\mu^M,\\mu^O$ 卻有完全不同的空間重疊、間隙幾何、方向集中、核心局部化與遺傳性質，故 T 不足以決定物理源耦合狀態。本輪最終判定：T 作為完整物理自環狀態被拒絕（REJECTED），應由聯合節點 TS 取代。",
+    "definition_en": "One of the three coarse candidate traps proposed in C6-A (alongside $G\\leftrightarrow P$ and $H\\leftrightarrow F$), originally represented purely by temporal phase/load data ($\\mu^M,\\mu^O$ plus Young/concentration metadata) as a self-loop $T\\looparrowright T$. Theorem C6-E.7 (Pure-Temporal State Completeness No-Go) shows two spacetime source pairs $(\\Pi_1^M,\\Pi_1^O)$ and $(\\Pi_2^M,\\Pi_2^O)$ can share identical temporal marginals $\\mu^M,\\mu^O$ while differing completely in spatial overlap, middle-gap geometry, directional concentration, core localization, and heredity — so T cannot determine the physical source-coupling state. This round's final verdict: T is REJECTED as a complete physical self-cycle state and must be replaced by the joint node TS.",
+    "notes": "T itself originates in C6-A (NS_C6A_CertifiedDefectGraph...); C6-E is the round that rejects it as complete, and is where the no-go theorem C6-E.7 has T as its central object."
+  },
+  {
+    "key": "ns.c6.c6e.ts_state",
+    "latex": "TS",
+    "label_zh": "聯合時空狀態 TS",
+    "label_en": "Joint temporal-spatial state TS",
+    "definition_zh": "定義為 $TS=(\\text{temporal phase},\\text{spacetime source coupling})$，是取代孤立 T 節點的正確候選物件。真正的遞迴陷阱需要 $TS_n$ 憑藉時空源遺傳遞迴至 $TS_{n+1}$；舊有的 $T\\looparrowright T$ 僅是此遞迴問題在時間軸上的投影。第46節將圖中舊候選 T 替換為聯合節點 TS，區分靜態投影 $TS\\to T$ 與有條件的動態遞迴；第47節進一步精煉為 $TS_{\\rm hereditary}$，作為 C6-A 三個粗粒陷阱之一（其餘為 $HF_{\\rm coherent}$、$GP_{\\rm hereditary}$）的更新候選，狀態仍為 open、未被證實。",
+    "definition_en": "Defined as $TS=(\\text{temporal phase},\\text{spacetime source coupling})$, the correct candidate replacing the isolated T node. A genuine recurrent trap needs $TS_n$ to recur to $TS_{n+1}$ via spatiotemporal source heredity; the old $T\\looparrowright T$ is only this recurrence problem's projection onto the time axis. Section 46 replaces the old candidate T with the joint node TS in the defect graph, distinguishing the static projection $TS\\to T$ from the conditional dynamic recurrence; section 47 further refines it to $TS_{\\rm hereditary}$, the updated form of one of C6-A's three coarse traps (alongside $HF_{\\rm coherent}$ and $GP_{\\rm hereditary}$) — status open, not certified.",
+    "defining_relation": "TS = (\\text{temporal phase},\\ \\text{spacetime source coupling})"
+  },
+  {
+    "key": "ns.c6.c6e.r_ts_vector",
+    "latex": "\\mathbf R^{TS}",
+    "label_zh": "共享源耦合儲備向量",
+    "label_en": "Shared-source coupling reserve vector",
+    "definition_zh": "對一個時間/共享源事件定義為 $\\mathbf R^{TS}=(\\Omega_T,\\rho_{\\rm share},\\Gamma_O^O,\\rho_{\\rm gap},\\rho_{\\rm core},\\rho_{\\rm her}^{TS},\\rho_{\\rm scale})$，七個分量分別對應本輪各個儲備量。若沿子序列所有分量皆 $\\ge r_0>0$，稱為「Uniformly Shared-Source Coherent」（第36節）；否則由有限維緊緻性，必有至少一個固定分量趨於零，對應第38節的七類邊界 TS-B1至TS-B7，此為定理 C6-E.8（Finite Temporal–Spatial Coupling Bottleneck Theorem）二分法的基礎。",
+    "definition_en": "For a temporal/shared-source event, defined as $\\mathbf R^{TS}=(\\Omega_T,\\rho_{\\rm share},\\Gamma_O^O,\\rho_{\\rm gap},\\rho_{\\rm core},\\rho_{\\rm her}^{TS},\\rho_{\\rm scale})$, seven components corresponding to this round's reserve quantities. If all components stay $\\ge r_0>0$ along a subsequence, the sequence is \"Uniformly Shared-Source Coherent\" (section 36); otherwise finite-dimensional compactness forces at least one fixed component to tend to zero, corresponding to the seven boundary types TS-B1–TS-B7 of section 38 — the basis of the dichotomy in Theorem C6-E.8 (Finite Temporal–Spatial Coupling Bottleneck Theorem).",
+    "defining_relation": "\\mathbf R^{TS} = \\left(\\Omega_T,\\ \\rho_{\\rm share},\\ \\Gamma_O^O,\\ \\rho_{\\rm gap},\\ \\rho_{\\rm core},\\ \\rho_{\\rm her}^{TS},\\ \\rho_{\\rm scale}\\right)"
+  },
+  {
+    "key": "ns.c6.c6e.rho_core",
+    "latex": "\\rho_{\\rm core}",
+    "label_zh": "參考尺度核心局部化儲備",
+    "label_en": "Reference-scale core-localization reserve",
+    "definition_zh": "儲備向量 $\\mathbf R^{TS}$ 的分量之一，代表「reference-scale shared-core localization」，即共享方向源質量能否被某個固定倍率 L 的參考尺度球（透過 $\\mathfrak Q_J(L)$ 的 E-CORE 狀態）承擔的程度。文中未給出獨立公式，其退化情形即 TS-B5 邊界（$\\rho_{\\rm core}\\to0$，對應 E-DIFF/Shared-Source Spatial Diffusion）。",
+    "definition_en": "A component of the reserve vector $\\mathbf R^{TS}$, glossed as \"reference-scale shared-core localization\" — the extent to which shared directional source mass can be carried by a reference-scale ball of some fixed multiple L (via the E-CORE regime of $\\mathfrak Q_J(L)$). No independent formula is given in the text; its degeneration is the TS-B5 boundary ($\\rho_{\\rm core}\\to0$, corresponding to the E-DIFF/Shared-Source Spatial Diffusion regime).",
+    "notes": "Defined only by gloss/list entry (section 35), not by an explicit standalone formula; its meaning is carried by the E-CORE/E-DIFF dichotomy of \\mathfrak Q_J(L) (sections 26-27)."
+  },
+  {
+    "key": "ns.c6.c6e.rho_scale",
+    "latex": "\\rho_{\\rm scale}",
+    "label_zh": "合法參考尺度/設定儲備",
+    "label_en": "Legal reference-scale/setup reserve",
+    "definition_zh": "儲備向量 $\\mathbf R^{TS}$ 的分量之一，代表「legal reference-scale/setup reserve」：若缺乏合法比較尺度 $r_J$，「機率測度落在某有限球內」這類敘述便無爆破尺度意義，因此被路由至合法性/設定類別 A（第28節）。其退化即 TS-B7 邊界（$\\rho_{\\rm scale}\\to0$，路由至 A）。",
+    "definition_en": "A component of the reserve vector $\\mathbf R^{TS}$, glossed as the \"legal reference-scale/setup reserve\": without a legal comparison scale $r_J$, a statement like \"the probability measure lies in some finite ball\" carries no blow-up-scale meaning, so the absence of one is routed to the legality/setup class A (section 28). Its degeneration is the TS-B7 boundary ($\\rho_{\\rm scale}\\to0$, routing to A).",
+    "notes": "Defined only by gloss/list entry (section 35), not by an explicit standalone formula."
+  },
+  {
+    "key": "ns.c6.c6e.theta_ts_c6e",
+    "latex": "\\Theta_{TS}^{C6E}",
+    "label_zh": "C6-E 聯合源狀態（ETN更新）",
+    "label_en": "C6-E joint source state (ETN update)",
+    "definition_zh": "定義為 $\\Theta_{TS}^{C6E}=\\left\\langle\\mu^M,\\mu^O,\\Pi^M,\\Pi^O,\\Omega_T,\\Omega_{ST},\\Gamma_O^O,\\Pi^\\cap,\\vartheta,V,\\mathfrak Q,\\rho_{\\rm her}^{TS}\\right\\rangle$，第54節「True ETN update」中彙整本輪所有核心對象而成的單一狀態元組，作為 C6-E 對 Extended Typed Notation（ETN）系統的更新。",
+    "definition_en": "Defined as $\\Theta_{TS}^{C6E}=\\left\\langle\\mu^M,\\mu^O,\\Pi^M,\\Pi^O,\\Omega_T,\\Omega_{ST},\\Gamma_O^O,\\Pi^\\cap,\\vartheta,V,\\mathfrak Q,\\rho_{\\rm her}^{TS}\\right\\rangle$, section 54's \"True ETN update\" — a single state tuple aggregating all of this round's core objects, C6-E's update to the Extended Typed Notation (ETN) system.",
+    "defining_relation": "\\Theta_{TS}^{C6E} = \\left\\langle \\mu^M,\\mu^O,\\Pi^M,\\Pi^O,\\Omega_T,\\Omega_{ST},\\Gamma_O^O,\\Pi^\\cap,\\vartheta,V,\\mathfrak Q,\\rho_{\\rm her}^{TS} \\right\\rangle",
+    "notes": "\"ETN\" is not spelled out beyond the section heading in this file; treated here as this round's running formal-state ledger, consistent with its use across the C6 sub-series."
+  },
+  {
+    "key": "ns.c6.c6e.partial_k_ts",
+    "latex": "\\partial\\mathcal K_{TS}",
+    "label_zh": "耦合邊界字母表",
+    "label_en": "Coupling-boundary alphabet",
+    "definition_zh": "定義為 $\\partial\\mathcal K_{TS}=\\{\\text{TEMP},\\text{SPSEG},\\text{OPCAP},\\text{GAP},\\text{DIFF},\\text{HER},\\text{SETUP}\\}$，是第38節七類 TS-B1至TS-B7 邊界（依序對應 $\\Omega_T\\to0$、$\\rho_{\\rm share}\\to0$、$\\Gamma_O^O\\to0$、$\\rho_{\\rm gap}\\to0$、$\\rho_{\\rm core}\\to0$、$\\rho_{\\rm her}^{TS}\\to0$、$\\rho_{\\rm scale}\\to0$）的符號化字母表，與定理 C6-E.8 的 TS-BOUNDARY 分支對應。",
+    "definition_en": "Defined as $\\partial\\mathcal K_{TS}=\\{\\text{TEMP},\\text{SPSEG},\\text{OPCAP},\\text{GAP},\\text{DIFF},\\text{HER},\\text{SETUP}\\}$, the symbolic alphabet for the seven TS-B1–TS-B7 boundary cases of section 38 (corresponding respectively to $\\Omega_T\\to0$, $\\rho_{\\rm share}\\to0$, $\\Gamma_O^O\\to0$, $\\rho_{\\rm gap}\\to0$, $\\rho_{\\rm core}\\to0$, $\\rho_{\\rm her}^{TS}\\to0$, $\\rho_{\\rm scale}\\to0$), matching the TS-BOUNDARY branch of Theorem C6-E.8 (Finite Temporal–Spatial Coupling Bottleneck Theorem).",
+    "defining_relation": "\\partial\\mathcal K_{TS} = \\{\\text{TEMP}, \\text{SPSEG}, \\text{OPCAP}, \\text{GAP}, \\text{DIFF}, \\text{HER}, \\text{SETUP}\\}"
+  }
+]

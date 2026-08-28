@@ -1,0 +1,274 @@
+[
+  {
+    "key": "ns.c4.c4b.asynchronous_survivor_bundle",
+    "latex": "\\textbf{Asynchronous Survivor Bundle}",
+    "label_zh": "非同步倖存者叢",
+    "label_en": "Asynchronous Survivor Bundle",
+    "definition_zh": "C4-A 建立、C4-B 第0節重述的物件：mandatory channels 逐窗 inactive fractions 之和小於 1 時共同活動集合非空，否則其和必須不小於 1。",
+    "definition_en": "The object recalled in C4-B Section 0 from C4-A: mandatory channels whose per-window inactive fractions sum below 1 have a nonempty common-active set, and otherwise the sum must be at least 1.",
+    "notes": "直接繼承自 NS_C4A_UnifiedSurvivorState_SynchronizationClosure_v0.1.md；C4-B 全篇檢驗這個叢集能否被 generic turnover cost 逼出 temporal synchronization。"
+  },
+  {
+    "key": "ns.c4.c4b.inactive_fraction",
+    "latex": "\\varepsilon_{a,n}",
+    "label_zh": "通道不活躍比例",
+    "label_en": "channel inactive fraction",
+    "definition_zh": "第0節定義為 $|I_n\\setminus E_{a,n}|/|I_n|$，用以量化 mandatory channel $a$ 在 viscous window $I_n$ 中未活動的比例。",
+    "definition_en": "Defined in Section 0 as $|I_n\\setminus E_{a,n}|/|I_n|$, measuring the fraction of viscous window $I_n$ during which mandatory channel $a$ is inactive."
+  },
+  {
+    "key": "ns.c4.c4b.recurrent_desynchronizer",
+    "latex": "\\textbf{recurrent desynchronizer}",
+    "label_zh": "週期性去同步者",
+    "label_en": "recurrent desynchronizer",
+    "definition_zh": "C4-A 保證有限 channel family 中至少存在一個的物件，第0節將其重新定義為本輪核心待決問題：它能否在不超出 C3 turnover budgets 下無限次關閉／重啟。",
+    "definition_en": "An object guaranteed to exist among a finite channel family by C4-A; Section 0 reframes it as this round's central open question — whether it can switch off and on infinitely often without exceeding the C3 turnover budgets.",
+    "notes": "本輪結論：generic turnover budgets 無法排除它的存在，見第23、38節。"
+  },
+  {
+    "key": "ns.c4.c4b.qsv_strain_vorticity",
+    "latex": "\\mathcal Q_{SV}",
+    "label_zh": "Miller應變渦度交互量",
+    "label_en": "Miller strain-vorticity interaction quantity",
+    "definition_zh": "第1.2節引入，指 Miller operator-level regularity 模型中的應變–渦度交互量，其在所有 late viscous windows 持續偏大並非該模型的必然結論。",
+    "definition_en": "Introduced in Section 1.2 as the strain-vorticity interaction quantity from Miller's operator-level regularity model, whose persistent largeness across all late viscous windows is not entailed by that model.",
+    "notes": "於第40節 C3 proof obligation 中重新出現，作為 C4-C 待證的 lower-bound 目標。"
+  },
+  {
+    "key": "ns.c4.c4b.channel_density",
+    "latex": "F(t)",
+    "label_zh": "通道密度",
+    "label_en": "channel density",
+    "definition_zh": "第2節引入的非負可測函數，代表某個 channel 在區間 $I$ 上隨時間變化的活動強度。",
+    "definition_en": "A nonnegative measurable function introduced in Section 2 representing a channel's time-varying activity intensity over an interval $I$."
+  },
+  {
+    "key": "ns.c4.c4b.threshold_and_peak_capacity",
+    "latex": "0\\le\\theta<M,\\quad M=\\operatorname*{ess\\,sup}_{t\\in I}F(t)",
+    "label_zh": "活動門檻與峰值容量",
+    "label_en": "activity threshold and peak capacity",
+    "definition_zh": "第2節定義：$\\theta$ 為判定活動的門檻（$0\\le\\theta<M$），$M$ 為 $F$ 在 $I$ 上的本質上界，即峰值容量。",
+    "definition_en": "Defined in Section 2: $\\theta$ is the activity-determining threshold ($0\\le\\theta<M$) and $M$ is the essential supremum of $F$ on $I$, i.e. its peak capacity."
+  },
+  {
+    "key": "ns.c4.c4b.active_set_theta",
+    "latex": "E_\\theta",
+    "label_zh": "門檻活動集",
+    "label_en": "threshold active set",
+    "definition_zh": "第2節定義為 $\\{t\\in I: F(t)\\ge\\theta\\}$，即通道密度達到門檻 $\\theta$ 以上的時刻集合。",
+    "definition_en": "Defined in Section 2 as $\\{t\\in I: F(t)\\ge\\theta\\}$, the set of times at which the channel density reaches or exceeds the threshold $\\theta$.",
+    "defining_relation": "E_\\theta=\\{t\\in I: F(t)\\ge\\theta\\}"
+  },
+  {
+    "key": "ns.c4.c4b.integrated_toll",
+    "latex": "T",
+    "label_zh": "積分代價",
+    "label_en": "integrated toll",
+    "definition_zh": "第2節定義為 $T=\\int_IF(t)\\,dt$，即通道密度在整個窗口上的總積分。",
+    "definition_en": "Defined in Section 2 as $T=\\int_IF(t)\\,dt$, the total integral of the channel density over the whole window."
+  },
+  {
+    "key": "ns.c4.c4b.pulse_to_persistence_lemma",
+    "latex": "\\textbf{Pulse-to-Persistence Lemma}",
+    "label_zh": "脈衝–持續性引理",
+    "label_en": "Pulse-to-Persistence Lemma",
+    "definition_zh": "第3節定理3.1：當 $T>\\theta|I|$ 時，門檻活動集滿足 $|E_\\theta|\\ge(T-\\theta|I|)/(M-\\theta)$，是本輪最核心的新證定理。",
+    "definition_en": "Theorem 3.1 in Section 3: whenever $T>\\theta|I|$, the threshold active set satisfies $|E_\\theta|\\ge(T-\\theta|I|)/(M-\\theta)$ — this round's single most central proved result.",
+    "defining_relation": "|E_\\theta|\\ \\ge\\ \\frac{T-\\theta|I|}{M-\\theta}\\qquad(T>\\theta|I|)",
+    "notes": "第6節以此引理解釋 C4-A 中 $\\int f=\\infty$、$\\int g=\\infty$ 但 $fg=0$ 構造的機制：peak amplitude 隨 generation 增大讓 divergent integral 由 vanishing duty cycle 支付。"
+  },
+  {
+    "key": "ns.c4.c4b.duty_cycle_average_load",
+    "latex": "d_\\theta,\\ \\bar F",
+    "label_zh": "占空比與平均負載",
+    "label_en": "duty cycle and average load",
+    "definition_zh": "第4節將 Pulse-to-Persistence Lemma 改寫為占空比形式：$d_\\theta=|E_\\theta|/|I|$、平均負載 $\\bar F=T/|I|$，得下界 $d_\\theta\\ge(\\bar F-\\theta)/(M-\\theta)$。",
+    "definition_en": "Section 4 recasts the Pulse-to-Persistence Lemma in duty-cycle form via $d_\\theta=|E_\\theta|/|I|$ and average load $\\bar F=T/|I|$, giving the bound $d_\\theta\\ge(\\bar F-\\theta)/(M-\\theta)$.",
+    "defining_relation": "d_\\theta=\\frac{|E_\\theta|}{|I|},\\quad \\bar F=\\frac{T}{|I|}\\quad\\Longrightarrow\\quad d_\\theta\\ge\\frac{\\bar F-\\theta}{M-\\theta}"
+  },
+  {
+    "key": "ns.c4.c4b.pulse_capacity_escape",
+    "latex": "\\textbf{Pulse-Capacity Escape}",
+    "label_zh": "脈衝容量逃逸",
+    "label_en": "Pulse-Capacity Escape",
+    "definition_zh": "第5節命名的機制：當峰值容量 $M_n\\to\\infty$ 而平均負載 $\\bar F_n$ 增長較慢時，占空比下界趨於零，使 channel 得以振幅更高、占空比更低來逃避 persistence。",
+    "definition_en": "A mechanism named in Section 5: when peak capacity $M_n\\to\\infty$ while average load $\\bar F_n$ grows more slowly, the duty-cycle lower bound tends to zero, letting a channel escape persistence via higher amplitude and lower duty cycle.",
+    "notes": "本輪四大 structural escape 之一（見第0、38、42節總結）。"
+  },
+  {
+    "key": "ns.c4.c4b.synchronization_duty_threshold",
+    "latex": "\\sum_{a=1}^{m}d_a>m-1",
+    "label_zh": "同步占空比門檻",
+    "label_en": "synchronization duty threshold",
+    "definition_zh": "第7節導出：$m$ 個 mandatory channels 的共同活動集合非空，等價於其占空比之和跨過 $m-1$，而目前理論未證此門檻可達。",
+    "definition_en": "Derived in Section 7: a nonempty common-active set for $m$ mandatory channels is equivalent to their duty cycles summing past $m-1$, a threshold currently unproved.",
+    "defining_relation": "\\bigcap_aE_a\\ne\\varnothing \\iff \\sum_{a=1}^{m}d_a>m-1"
+  },
+  {
+    "key": "ns.c4.c4b.hysteresis_thresholds",
+    "latex": "\\alpha<\\beta",
+    "label_zh": "遲滯門檻對",
+    "label_en": "hysteresis thresholds",
+    "definition_zh": "第8節引入的一對門檻，供連續 scalar observable $z(t)$ 定義完整 upcrossing $z\\le\\alpha\\to z\\ge\\beta$，每次至少耗費變差 $\\beta-\\alpha$。",
+    "definition_en": "A pair of thresholds introduced in Section 8 defining a complete upcrossing $z\\le\\alpha\\to z\\ge\\beta$ for a continuous scalar observable $z(t)$, each costing at least variation $\\beta-\\alpha$."
+  },
+  {
+    "key": "ns.c4.c4b.finite_variation_switching_lemma",
+    "latex": "\\textbf{Finite-Variation Switching Lemma}",
+    "label_zh": "有限變差切換引理",
+    "label_en": "Finite-Variation Switching Lemma",
+    "definition_zh": "第9節定理9.1：若 $N$ 個 disjoint windows 中 observable $z$ 各完成一次 $\\alpha\\to\\beta$ upcrossing，則總變差滿足 $\\operatorname{Var}(z)\\ge N(\\beta-\\alpha)$，故有限變差只允許有限次固定間距切換。",
+    "definition_en": "Theorem 9.1 in Section 9: if $z$ completes one $\\alpha\\to\\beta$ upcrossing in each of $N$ disjoint windows, its total variation satisfies $\\operatorname{Var}(z)\\ge N(\\beta-\\alpha)$, so finite variation permits only finitely many fixed-gap switches.",
+    "defining_relation": "\\operatorname{Var}_{\\cup I_n}(z)\\ \\ge\\ N(\\beta-\\alpha)",
+    "notes": "第10-12節指出此引理雖能限制單一固定 carrier 的切換次數，卻被第12節的 Carrier Relay 構造繞過。"
+  },
+  {
+    "key": "ns.c4.c4b.channel_type_vs_carrier_identity",
+    "latex": "\\text{channel type}\\ \\ne\\ \\text{carrier identity}",
+    "label_zh": "通道類型與載體身分",
+    "label_en": "channel type vs. carrier identity",
+    "definition_zh": "第11節提出的關鍵區分：「通道類型」（如 UV 或 pressure）僅標示種類，「載體身分」（如 $(q,\\sigma,x,\\text{packet})$ 或特定 pressure core）才標示具體實體，同一通道類型反覆出現不代表同一載體反覆切換。",
+    "definition_en": "A key distinction from Section 11: \"channel type\" (e.g. UV or pressure) names only a category, while \"carrier identity\" (e.g. $(q,\\sigma,x,\\text{packet})$ or a specific pressure core) names the concrete entity — a recurring channel type does not imply the same carrier is repeatedly switching.",
+    "notes": "是 Carrier Relay 構造（第12節）與 $G_{\\rm RELAY}$ hard guard（第27節）的概念基礎。"
+  },
+  {
+    "key": "ns.c4.c4b.carrier_relay",
+    "latex": "\\textbf{Carrier Relay}",
+    "label_zh": "載體接力",
+    "label_en": "Carrier Relay",
+    "definition_zh": "第12節（C4-B.3）構造：每個 disjoint window 建立一個只用一次的新載體 $z_n(t)$ 完成單次固定間距脈衝，使 channel type 每代都活動，卻使任何 per-carrier 有限變差論證失效。",
+    "definition_en": "The Section 12 (C4-B.3) construction: each disjoint window gets a fresh, single-use carrier $z_n(t)$ completing one fixed-gap pulse, so the channel type is active every generation while defeating any per-carrier finite-variation argument.",
+    "notes": "本輪四大 structural escape 之一；第13-14節以 UV shell 為例，證明它在既有 C3-K weighted hysteretic count 中確實存活。"
+  },
+  {
+    "key": "ns.c4.c4b.weighted_hysteretic_count",
+    "latex": "N_{q,\\sigma}^{up}",
+    "label_zh": "加權遲滯上穿次數",
+    "label_en": "weighted hysteretic up-crossing count",
+    "definition_zh": "第14節回顧 C3-K 已證的 $\\sum_{q,\\sigma}(\\lambda_q/L_q)N_{q,\\sigma}^{up}<\\infty$，因高頻權重 $\\lambda_q/L_q\\sim\\lambda_q^{-2}$ 遞減，容許每個新 shell 只需 $N_q^{up}=1$，使 carrier relay 得以存活於此既有界限之中。",
+    "definition_en": "Section 14 recalls C3-K's proved bound $\\sum_{q,\\sigma}(\\lambda_q/L_q)N_{q,\\sigma}^{up}<\\infty$; since the high-frequency weight $\\lambda_q/L_q\\sim\\lambda_q^{-2}$ decays, allowing $N_q^{up}=1$ per fresh shell, carrier relay survives inside this existing global count.",
+    "defining_relation": "\\sum_{q,\\sigma}\\frac{\\lambda_q}{L_q}N_{q,\\sigma}^{up}<\\infty",
+    "notes": "第13節以 $q_1<q_2<q_3<\\cdots$、每 shell 只啟動一次的構造具體展示 UV carrier relay，並引用 C3-J 的 fixed-shell hysteresis rigidity 作對照。"
+  },
+  {
+    "key": "ns.c4.c4b.active_generations_inter_gen_routing",
+    "latex": "\\mathcal N_a",
+    "label_zh": "活動世代集／世代間路由",
+    "label_en": "active generations / Inter-Generation Routing",
+    "definition_zh": "第15節定義 $\\mathcal N_a\\subset\\mathbb N$ 為通道 $a$ 活動的世代集合，並舉例顯示兩通道皆無限常返但交集為空，即世代間路由。",
+    "definition_en": "Section 15 defines $\\mathcal N_a\\subset\\mathbb N$ as channel $a$'s set of active generations, exhibiting an example where both channels recur infinitely often yet their intersection is empty — Inter-Generation Routing.",
+    "defining_relation": "\\mathcal N_A=\\{2,4,6,\\ldots\\},\\ \\ \\mathcal N_B=\\{1,3,5,\\ldots\\}\\ \\ \\Rightarrow\\ \\ |\\mathcal N_A|=|\\mathcal N_B|=\\infty\\ \\text{but}\\ \\mathcal N_A\\cap\\mathcal N_B=\\varnothing",
+    "notes": "第16節稱此為 Generation Desynchronization No-Go：逐通道無限常返不推出共同世代無限多，比 C4-A 的 intra-window asynchrony 更強。"
+  },
+  {
+    "key": "ns.c4.c4b.generation_block_persistence",
+    "latex": "B_N,\\ \\delta_a",
+    "label_zh": "世代區塊持續性",
+    "label_en": "generation block persistence",
+    "definition_zh": "第17節取區塊 $B_N=\\{N,\\ldots,N+L-1\\}$、缺席比例 $\\delta_a$ 滿足 $\\#(B_N\\setminus\\mathcal N_a)\\le\\delta_aL$ 時得共同世代下界，第18節稱要跨過此界須有 cofinite／高區塊密度常返，即 Generation Persistence Debt。",
+    "definition_en": "Section 17 takes block $B_N=\\{N,\\ldots,N+L-1\\}$ with miss fraction $\\delta_a$ satisfying $\\#(B_N\\setminus\\mathcal N_a)\\le\\delta_aL$ to bound common generations, and Section 18 names the resulting requirement — cofinite or high block-density recurrence — the Generation Persistence Debt.",
+    "defining_relation": "B_N=\\{N,\\ldots,N+L-1\\},\\quad \\#(B_N\\setminus\\mathcal N_a)\\le\\delta_aL\\ \\Longrightarrow\\ \\#\\left(B_N\\cap\\bigcap_a\\mathcal N_a\\right)\\ge L\\left(1-\\sum_a\\delta_a\\right)"
+  },
+  {
+    "key": "ns.c4.c4b.geometric_ancestry_radius",
+    "latex": "R_n",
+    "label_zh": "幾何祖源半徑",
+    "label_en": "geometric ancestry radius",
+    "definition_zh": "第21節指出在幾何祖源 $R_n=R_0\\rho^n$（$0<\\rho<1$）下，任意 $\\alpha>0$ 均有 $\\sum_nR_n^\\alpha<\\infty$，解釋了為何一般有限預算只控制 $R_n^\\alpha\\times$事件代價卻仍允許每代 $O(1)$ 切換。",
+    "definition_en": "Section 21 shows that under geometric ancestry $R_n=R_0\\rho^n$ ($0<\\rho<1$), $\\sum_nR_n^\\alpha<\\infty$ holds for every $\\alpha>0$, explaining why generic finite budgets that only control $R_n^\\alpha\\times$event-cost still permit an $O(1)$ switch per generation.",
+    "defining_relation": "R_n=R_0\\rho^n\\ (0<\\rho<1)\\ \\Longrightarrow\\ \\sum_nR_n^\\alpha<\\infty\\ \\ (\\forall\\alpha>0)",
+    "notes": "承自 C3 rounds 的核心遞減幾何量，是第19-25節 Summable-Weight Barrier 的具體實現，並貫穿第41-42節總結。"
+  },
+  {
+    "key": "ns.c4.c4b.summable_weight_budget",
+    "latex": "w_n,\\ C_n,\\ B",
+    "label_zh": "可加總權重預算",
+    "label_en": "summable-weight budget",
+    "definition_zh": "第19節引入一般化有限預算形式：正權重 $w_n>0$ 與非負代價 $C_n\\ge0$ 滿足 $\\sum_nw_nC_n\\le B$，涵蓋 C3 已證各種 turnover budgets 的共同骨架。",
+    "definition_en": "Section 19 introduces the general finite-budget form: positive weights $w_n>0$ and nonnegative costs $C_n\\ge0$ with $\\sum_nw_nC_n\\le B$, the common skeleton underlying the various turnover budgets already proved in C3.",
+    "defining_relation": "\\sum_nw_nC_n\\le B,\\quad w_n>0,\\ C_n\\ge0"
+  },
+  {
+    "key": "ns.c4.c4b.summable_weight_nogo",
+    "latex": "\\textbf{Summable-Weight No-Go}",
+    "label_zh": "可加總權重不可行定理",
+    "label_en": "Summable-Weight No-Go",
+    "definition_zh": "第20節定理20.1：若 $\\sum_nw_n<\\infty$，則有限預算 $\\sum_nw_nC_n<\\infty$ 無法排除 $C_n\\ge c_0>0$ 對所有 $n$ 成立，證明只需取 $C_n$ 為常數 $c_0$。",
+    "definition_en": "Theorem 20.1 in Section 20: if $\\sum_nw_n<\\infty$, a finite budget $\\sum_nw_nC_n<\\infty$ cannot rule out $C_n\\ge c_0>0$ for all $n$, proved simply by taking $C_n$ constant at $c_0$.",
+    "defining_relation": "\\sum_nw_n<\\infty,\\quad C_n\\equiv c_0>0\\ \\Longrightarrow\\ \\sum_nw_nC_n=c_0\\sum_nw_n<\\infty",
+    "notes": "第21節證明幾何祖源 $R_n=R_0\\rho^n$ 正是此不可行定理最典型的 friendly 案例。"
+  },
+  {
+    "key": "ns.c4.c4b.synchronization_subcritical_budgets",
+    "latex": "\\textbf{Synchronization-Subcritical Budgets}",
+    "label_zh": "同步次臨界預算",
+    "label_en": "Synchronization-Subcritical Budgets",
+    "definition_zh": "第23節（C4-B.5）之裁決：目前所有已證、可跨世代加總的 C3 finite turnover/occupancy budgets，其世代權重在幾何祖源下皆可加總，故都不能單獨排除每代一個 $O(1)$ 切換/旋轉/激活事件。",
+    "definition_en": "The verdict of Section 23 (C4-B.5): every proved, cross-generation-summable C3 finite turnover/occupancy budget has a generation weight that is summable under geometric ancestry, so none alone can rule out one $O(1)$ switching/rotation/activation event per generation.",
+    "notes": "整合了第22節逐一審查的五類 C3 budgets：absolute active-shell worldvolume、quadratic mean-strain turnover、pressure mean rotation、fixed-shell hysteresis、cone-degeneration pressure debt。"
+  },
+  {
+    "key": "ns.c4.c4b.finite_critical_budget_dichotomy",
+    "latex": "\\text{Type F},\\ \\text{Type C}",
+    "label_zh": "有限／臨界預算二分法",
+    "label_en": "Finite-Budget/Critical-Budget Dichotomy",
+    "definition_zh": "第25節（C4-B.6）將 C3 scalar budgets 分為 Type F（scale-weighted 有限，不足以禁止 $C_n=O(1)$）與 Type C（unweighted critical 發散，是 blow-up 必然性但同樣無法給矛盾），指出目前不存在 finite unweighted positive switching budget。",
+    "definition_en": "Section 25 (C4-B.6) splits C3 scalar budgets into Type F (finite but scale-weighted, insufficient to forbid $C_n=O(1)$) and Type C (unweighted critical divergence, a blow-up necessity that likewise yields no contradiction), noting no finite unweighted positive switching budget currently exists.",
+    "defining_relation": "\\text{Type F: }\\sum_nR_n^\\alpha C_n<\\infty\\ (\\alpha>0)\\qquad \\text{Type C: }\\sum_nC_n=\\infty"
+  },
+  {
+    "key": "ns.c4.c4b.sufficient_routes_b1_b4",
+    "latex": "\\text{Route B1--B4}",
+    "label_zh": "充分路線 B1–B4",
+    "label_en": "Sufficient Routes B1-B4",
+    "definition_zh": "第26節列出四條若成立即可純靠 switching cost 逼出 synchronization 的路線：B1 unweighted finite variation、B2 nonsummable generation weights、B3 carrier recurrence、B4 shared-event coupling，本輪判定 B4 最值得攻。",
+    "definition_en": "Section 26 lists four routes that would suffice to force synchronization from switching cost alone: B1 unweighted finite variation, B2 nonsummable generation weights, B3 carrier recurrence, B4 shared-event coupling — this round judges B4 most worth pursuing.",
+    "notes": "B4 直接導向第35節 Shared-Event Synchronization 與下一輪 C4-C 的主題。"
+  },
+  {
+    "key": "ns.c4.c4b.hard_guards",
+    "latex": "G_{\\rm RELAY},\\ G_{\\rm PULSE},\\ G_{\\rm GEN},\\ G_{\\rm WEIGHT}",
+    "label_zh": "C4 強制防護條款",
+    "label_en": "C4 hard guards",
+    "definition_zh": "第27–30節新增四條防護：$G_{\\rm RELAY}$ 要求先證載體無法遷移才能用固定載體變差論證、$G_{\\rm PULSE}$ 要求提供振幅上界才能由積分發散推占空比大、$G_{\\rm GEN}$ 禁止由逐通道無限常返直接推共同常返世代、$G_{\\rm WEIGHT}$ 禁止由可加總權重預算聲稱代價趨零。",
+    "definition_en": "Sections 27-30 add four guards: $G_{\\rm RELAY}$ requires first proving carrier identity cannot migrate before invoking fixed-carrier variation, $G_{\\rm PULSE}$ requires an amplitude upper bound before inferring large duty cycle from divergent integrals, $G_{\\rm GEN}$ forbids inferring common recurrent generations directly from per-channel infinite recurrence, and $G_{\\rm WEIGHT}$ forbids claiming vanishing cost from a summable-weight budget.",
+    "notes": "這四條防護分別對應本輪四大 structural escape（pulse、carrier relay、generation routing、summable weights），供未來 C4 rounds 遵守。"
+  },
+  {
+    "key": "ns.c4.c4b.synchronization_failure_classification",
+    "latex": "\\text{B-SF1--B-SF5}",
+    "label_zh": "同步失敗分類",
+    "label_en": "Synchronization Failure Classification",
+    "definition_zh": "第32節將 temporal synchronization 失敗歸為五類：B-SF1 pulse desynchronization、B-SF2 carrier relay、B-SF3 generation routing、B-SF4 spatial relay、B-SF5 gate routing。",
+    "definition_en": "Section 32 classifies temporal-synchronization failure into five modes: B-SF1 pulse desynchronization, B-SF2 carrier relay, B-SF3 generation routing, B-SF4 spatial relay, and B-SF5 gate routing."
+  },
+  {
+    "key": "ns.c4.c4b.shared_event_coupling",
+    "latex": "\\textbf{Shared-Event Coupling}",
+    "label_zh": "共享事件耦合",
+    "label_en": "Shared-Event Coupling",
+    "definition_zh": "第0節命名為下一步主攻方向，第35節形式化為 Shared-Event Synchronization：若同一事件 $\\mathcal E_n$ 在同窗口／尺度／空間核同時強迫 $L_n^A\\ge a_0$ 與 $L_n^B\\ge b_0$，則 A、B 的 temporal synchronization 不再需要 persistence 論證。",
+    "definition_en": "Named in Section 0 as the next attack direction and formalized in Section 35 as Shared-Event Synchronization: if one event $\\mathcal E_n$ forces both $L_n^A\\ge a_0$ and $L_n^B\\ge b_0$ in the same time window, scale, and spatial core, then A/B temporal synchronization no longer requires a persistence argument.",
+    "defining_relation": "\\mathcal E_n\\Rightarrow L_n^A\\ge a_0\\quad\\text{and}\\quad \\mathcal E_n\\Rightarrow L_n^B\\ge b_0\\ \\ (\\text{same window/scale/core})",
+    "notes": "是本輪整體策略結論，並構成下一輪 C4-C 的標題主題（Carrier Relay and Shared-Event Coupling Rigidity）。"
+  },
+  {
+    "key": "ns.c4.c4b.common_source_certificate",
+    "latex": "\\mathcal N_n,\\ \\mathcal F_A,\\ \\mathcal F_B",
+    "label_zh": "共同源證書",
+    "label_en": "common source certificate",
+    "definition_zh": "第36節之強化版本：若事件 $\\mathcal E_n$ 本身由共同 source term $\\mathcal N_n$ 產生且 $L_n^A=\\mathcal F_A(\\mathcal N_n)$、$L_n^B=\\mathcal F_B(\\mathcal N_n)$，則可望建立 $L_n^A+L_n^B\\ge c\\,\\mathcal C(\\mathcal N_n)$ 甚至乘積型下界。",
+    "definition_en": "The strengthened version from Section 36: if event $\\mathcal E_n$ arises from a common source term $\\mathcal N_n$ with $L_n^A=\\mathcal F_A(\\mathcal N_n)$ and $L_n^B=\\mathcal F_B(\\mathcal N_n)$, one may hope to establish $L_n^A+L_n^B\\ge c\\,\\mathcal C(\\mathcal N_n)$ or even a product-type lower bound.",
+    "defining_relation": "L_n^A=\\mathcal F_A(\\mathcal N_n),\\ \\ L_n^B=\\mathcal F_B(\\mathcal N_n)\\ \\Longrightarrow\\ L_n^A+L_n^B\\ge c\\,\\mathcal C(\\mathcal N_n)\\ \\ (\\text{or } L_n^AL_n^B\\ge c\\,\\mathcal C(\\mathcal N_n)^2)",
+    "notes": "$\\mathcal N_n$ 於第40節 C1 進一步具體化為 high-frequency Duhamel 型積分 $\\int e^{\\nu(t_n-s)\\Delta}P_{>J_n}\\mathbb P\\nabla\\cdot(u\\otimes u)\\,ds$，留給 C4-C 估計。"
+  },
+  {
+    "key": "ns.c4.c4b.temporal_sync_1",
+    "latex": "\\text{Temporal Sync-1}",
+    "label_zh": "時間同步命題一",
+    "label_en": "Temporal Sync-1",
+    "definition_zh": "第38節（定理/結論38.1）之目標命題名稱：現有 C3 finite turnover/occupancy budgets 加上目前 external necessary criteria，均不足以單獨推出此命題對整個 mandatory survivor family 成立。",
+    "definition_en": "The name given in Section 38 (Theorem/Conclusion 38.1) to the target statement that current C3 finite turnover/occupancy budgets, together with present external necessary criteria, are insufficient alone to derive for the full mandatory survivor family.",
+    "notes": "是本輪 main no-go 的正式標的，其失敗歸因於四個 structural escape：pulse、carrier relay、generation routing、summable weights。"
+  }
+]

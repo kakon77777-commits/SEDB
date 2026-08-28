@@ -1,0 +1,302 @@
+[
+  {
+    "key": "ns.c2.u_q_dyadic",
+    "latex": "u_q",
+    "label_zh": "第 q 層 dyadic 分量",
+    "label_en": "dyadic (Littlewood–Paley) shell of u",
+    "definition_zh": "第 1 節引入的 Littlewood–Paley dyadic 分解分量，$u_q=\\Delta_q u$ 表示 $u$ 在頻率尺度 $\\lambda_q$ 附近的部分，是全篇 dyadic shell 分析的基礎記號。",
+    "definition_en": "The Littlewood–Paley dyadic block of u introduced in §1; u_q=Δ_q u isolates the component of u near frequency scale λ_q, underlying all dyadic-shell analysis in this round.",
+    "defining_relation": "u_q=\\Delta_qu",
+    "notes": "與 $\\lambda_q=2^q$ 配對使用，可能延續自前一輪 C1 的 dyadic 框架。"
+  },
+  {
+    "key": "ns.c2.lambda_q",
+    "latex": "\\lambda_q",
+    "label_zh": "dyadic 頻率尺度",
+    "label_en": "dyadic frequency scale",
+    "definition_zh": "第 1 節定義的標準 dyadic 頻率尺度，貫穿全文用於索引 shell、定義 $\\Lambda(t)$、$K_q$ 等量。",
+    "definition_en": "The standard dyadic frequency scale defined in §1, used throughout to index shells and define Λ(t), K_q, and related quantities.",
+    "defining_relation": "\\lambda_q=2^q",
+    "notes": "抽象 ledger 模型（§14 起）重用同一公式但改記為 $\\lambda_n=2^n$，代表 toy model 而非真實解。"
+  },
+  {
+    "key": "ns.c2.dissipation_wavenumber",
+    "latex": "\\Lambda(t)",
+    "label_zh": "耗散波數",
+    "label_en": "dissipation wavenumber",
+    "definition_zh": "第 2 節引入（Cheskidov–Shvydkoy）的 time-dependent dissipation wavenumber：使所有 $p>q$ 的 shell amplitude 已被黏性吸收的最小 $\\lambda_q$。本輪核心外部輸入，定理 3.1 證明假想 blow-up 下 $\\Lambda\\in L^1(0,T_\\ast)\\setminus L^{5/2}(0,T_\\ast)$。",
+    "definition_en": "Time-dependent dissipation wavenumber (Cheskidov–Shvydkoy, §2): the smallest λ_q beyond which shell amplitudes are already absorbed by viscosity. Central external input; Theorem 3.1 shows hypothetical blow-up forces Λ∈L¹(0,T*)\\L^{5/2}(0,T*).",
+    "defining_relation": "\\Lambda(t)=\\min\\left\\{\\lambda_q:\\lambda_p^{-1}\\|u_p(t)\\|_\\infty<c_0\\nu,\\quad\\forall p>q\\right\\}",
+    "notes": "$c_0$ 為定義中固定的 viscosity-normalized 小常數，僅在此處出現。"
+  },
+  {
+    "key": "ns.c2.q_t",
+    "latex": "Q(t)",
+    "label_zh": "耗散波數指標",
+    "label_en": "dissipation wavenumber index",
+    "definition_zh": "第 2 節由 $\\Lambda(t)=\\lambda_{Q(t)}$ 定義的整數指標；$q\\le Q(t)$ 表示該 shell 仍可能有 nonlinear/inertial 動力，也用於 §7 $K_q$ 定義中的指示函數 $1_{\\{q\\le Q(t)\\}}$。",
+    "definition_en": "Integer index defined by Λ(t)=λ_{Q(t)} in §2; q≤Q(t) marks shells still potentially inertial/nonlinear, and appears in the indicator 1_{q≤Q(t)} inside K_q's definition (§7).",
+    "defining_relation": "\\Lambda(t)=\\lambda_{Q(t)}"
+  },
+  {
+    "key": "ns.c2.e_q",
+    "latex": "E_q",
+    "label_zh": "耗散波數第 q 層佔用集",
+    "label_en": "dyadic occupancy set of Λ",
+    "definition_zh": "第 5 節定義：使 $\\Lambda(t)$ 落在第 $q$ 層 $[2^q,2^{q+1})$ 的時間集合，用以把定理 3.1 的積分條件轉譯為 dyadic spike-packing law（定理 5.1）。",
+    "definition_en": "The set of times (§5) where Λ(t) lies in the q-th dyadic band [2^q,2^{q+1}); used to translate Theorem 3.1's integral conditions into the dyadic spike-packing law (Theorem 5.1).",
+    "defining_relation": "E_q=\\left\\{t\\in(0,T_\\ast):2^q\\le\\Lambda(t)<2^{q+1}\\right\\}"
+  },
+  {
+    "key": "ns.c2.m_q",
+    "latex": "m_q",
+    "label_zh": "第 q 層佔用測度",
+    "label_en": "occupancy measure",
+    "definition_zh": "$E_q$ 的 Lebesgue 測度，第 5 節核心量；定理 5.1 證明 $(m_q)\\in\\ell^1(2^q)\\setminus\\ell^1(2^{5q/2})$，即 blow-up 必須滿足的 dyadic spike-packing law。",
+    "definition_en": "Lebesgue measure of E_q (§5); Theorem 5.1's central quantity, showing (m_q)∈ℓ¹(2^q)\\ℓ¹(2^{5q/2}) is the packing law any hypothetical blow-up occupancy must obey.",
+    "defining_relation": "m_q=|E_q|",
+    "notes": "$\\ell^1(2^{aq})$ 指帶權重 $2^{aq}$ 的加權 $\\ell^1$ 空間，即 $\\sum_q2^{aq}m_q<\\infty$。"
+  },
+  {
+    "key": "ns.c2.alpha_exponent",
+    "latex": "\\alpha",
+    "label_zh": "占用測度冪次指數",
+    "label_en": "occupancy power-law exponent",
+    "definition_zh": "第 6 節作為 asymptotic diagnostic 引入，假設 $m_q\\sim2^{-\\alpha q}$；推出 hypothetical blow-up 的純冪次占用指數須落於 $1<\\alpha\\le5/2$，自然 parabolic window（$\\alpha=2$）恰落在允許域內。",
+    "definition_en": "Diagnostic power-law exponent (§6) via m_q∼2^{-αq}; forces any pure power-law blow-up occupancy into 1<α≤5/2, with the natural parabolic window (α=2) landing inside this allowed band.",
+    "defining_relation": "m_q\\sim2^{-\\alpha q}"
+  },
+  {
+    "key": "ns.c2.parabolic_window_tau",
+    "latex": "\\tau_q",
+    "label_zh": "自然拋物窗口時間尺度",
+    "label_en": "natural parabolic time window",
+    "definition_zh": "第 6 節提到的自然 parabolic 時間尺度 $\\tau_q\\sim\\lambda_q^{-2}$（對應 $\\alpha=2$），第 14 節在抽象 ledger 模型中被具體化為 $\\tau_n=\\lambda_n^{-2}=2^{-2n}$。",
+    "definition_en": "The natural parabolic timescale τ_q∼λ_q^{-2} noted in §6 (corresponding to α=2); concretely instantiated in the abstract cascade ledger (§14) as τ_n=λ_n^{-2}=2^{-2n}.",
+    "defining_relation": "\\tau_n=\\lambda_n^{-2}=2^{-2n}",
+    "notes": "§6 用指標 q 作一般性討論；§14 起改用指標 n 作為抽象 toy-model ledger 的精確定義，該模型明言「不是 N–S solution」。"
+  },
+  {
+    "key": "ns.c2.k_q",
+    "latex": "K_q",
+    "label_zh": "高頻殼層臨界通行費",
+    "label_en": "high-shell critical toll",
+    "definition_zh": "第 7 節依 Cheskidov–Dai frequency-localized regularity criterion 定義的 dimensionless 量；定理 7.1（外部逆否）證明若 $T_\\ast$ 為 singular time，則沿無限多高頻殼層 $K_q\\gtrsim1$，是「每個高尺度須支付臨界通行費」的嚴格版本。",
+    "definition_en": "Dimensionless high-shell quantity (§7) from the Cheskidov–Dai frequency-localized criterion; Theorem 7.1 (external contrapositive) shows a singular T* forces K_q≳1 along infinitely many high shells — the rigorous form of 'every high scale must pay a critical toll.'",
+    "defining_relation": "K_q=\\int_{T/2}^{T}1_{\\{q\\le Q(t)\\}}\\lambda_q\\|u_q(t)\\|_\\infty\\,dt",
+    "notes": "與抽象 ledger 中的類比量 $K_n$（§18）不同：$K_q$ 是對真實解成立的下界結果，$K_n$ 只是玩具模型中展示相容性的構造量。"
+  },
+  {
+    "key": "ns.c2.c_star",
+    "latex": "c_\\ast",
+    "label_zh": "臨界正則性門檻常數",
+    "label_en": "critical regularity threshold constant",
+    "definition_zh": "定理 7.1 中 Cheskidov–Dai 判準所允許的正則性門檻常數，$c_\\ast>0$；singular time 蘊含 $\\limsup_{q\\to\\infty}K_q>c_\\ast$。",
+    "definition_en": "The regularity threshold constant c*>0 permitted by the Cheskidov–Dai criterion in Theorem 7.1; a singular time forces limsup_{q→∞} K_q > c*.",
+    "defining_relation": "\\limsup_{q\\to\\infty}K_q>c_\\ast"
+  },
+  {
+    "key": "ns.c2.u_lambda_scaling",
+    "latex": "u_\\lambda",
+    "label_zh": "N–S 標準縮放",
+    "label_en": "Navier–Stokes scaling transformation",
+    "definition_zh": "第 9 節的標準 N–S scaling：若 $u$ 解方程，則 $u_\\lambda$ 仍解同一 viscosity-normalized 方程；驅動第 10–13 節 quadratic Sobolev cost 的 scale-blindness no-go。",
+    "definition_en": "Standard N–S scaling (§9): if u solves the equation, so does u_λ under the same viscosity-normalized form; drives the scale-blindness no-go for quadratic Sobolev costs in §10–13.",
+    "defining_relation": "u_\\lambda(x,t)=\\lambda u(\\lambda x,\\lambda^2t)"
+  },
+  {
+    "key": "ns.c2.d_s_functional",
+    "latex": "\\mathcal D_s",
+    "label_zh": "二次 Sobolev 代價泛函",
+    "label_en": "quadratic Sobolev cost functional",
+    "definition_zh": "第 10 節定義的候選 cost 泛函；在 N–S scaling 下滿足 $\\mathcal D_s[u_\\lambda;I_\\lambda]=\\lambda^{2s-3}\\mathcal D_s[u;I]$，是定理 11.1（$s<3/2$ no-go）與 §13 臨界 $s=3/2$ 討論的核心對象。",
+    "definition_en": "Candidate cost functional (§10); under N–S scaling it obeys D_s[u_λ;I_λ]=λ^{2s-3}D_s[u;I], the central object behind Theorem 11.1's no-go (s<3/2) and the critical s=3/2 discussion in §13.",
+    "defining_relation": "\\mathcal D_s[u;I]=\\int_I\\|u(t)\\|_{\\dot H^s}^2\\,dt",
+    "notes": "$s=1$ 特例即 $\\mathcal D_{\\mathrm{energy}}$（§12），$s=3/2$ 特例即臨界 $\\mathcal D_{3/2}$（§13）。"
+  },
+  {
+    "key": "ns.c2.i_lambda",
+    "latex": "I_\\lambda",
+    "label_zh": "縮放後時間區間",
+    "label_en": "rescaled time interval",
+    "definition_zh": "第 10 節配合 N–S scaling 對時間區間 $I$ 的縮放定義，使 $\\mathcal D_s[u_\\lambda;I_\\lambda]$ 的 scaling law 得以成立。",
+    "definition_en": "The rescaling of a time interval I accompanying N–S scaling (§10), needed for the scaling law of D_s[u_λ;I_λ] to hold.",
+    "defining_relation": "I_\\lambda=\\lambda^{-2}I"
+  },
+  {
+    "key": "ns.c2.event_class",
+    "latex": "\\mathcal E",
+    "label_zh": "尺度不變事件類",
+    "label_en": "scale-invariant event class",
+    "definition_zh": "第 11 節定理 11.1 所考慮的抽象事件類，對 N–S scaling 不變；定理證明當 $s<3/2$ 時，不存在僅由 $\\mathcal E$ 本身推出的 scale-independent 正下界常數 $c$ 使 $\\mathcal D_s\\ge c$。",
+    "definition_en": "The abstract N–S-scaling-invariant event class considered in Theorem 11.1 (§11); the theorem shows no scale-independent positive lower bound c with D_s≥c can be derived from E alone when s<3/2."
+  },
+  {
+    "key": "ns.c2.d_energy",
+    "latex": "\\mathcal D_{\\mathrm{energy}}",
+    "label_zh": "標準能量耗散代價",
+    "label_en": "standard energy dissipation cost",
+    "definition_zh": "第 12 節即 $\\mathcal D_s$ 在 $s=1$ 之特例，滿足 $\\mathcal D_{\\mathrm{energy}}[u_\\lambda;I_\\lambda]=\\lambda^{-1}\\mathcal D_{\\mathrm{energy}}[u;I]\\to0$（$\\lambda\\to\\infty$），正式淘汰「固定正 energy-dissipation cost」的通行費策略。",
+    "definition_en": "The s=1 special case of D_s (§12); D_energy[u_λ;I_λ]=λ^{-1}D_energy[u;I]→0 as λ→∞, formally ruling out any fixed-positive energy-dissipation toll strategy.",
+    "defining_relation": "\\mathcal D_{\\mathrm{energy}}=\\nu\\int_I\\|\\nabla u(t)\\|_2^2dt"
+  },
+  {
+    "key": "ns.c2.cost_n",
+    "latex": "\\operatorname{Cost}_n",
+    "label_zh": "逐事件加法代價（前輪策略）",
+    "label_en": "per-event additive cost (prior-round strategy)",
+    "definition_zh": "第 12 節回顧上一輪最自然的策略：$\\sum_n\\operatorname{Cost}_n\\le\\frac12\\|u_0\\|_2^2$ 且 $\\operatorname{Cost}_n\\ge c>0$；本輪證明高頻下 $\\operatorname{Cost}_n$ 可如 $2^{-J_n}$ 般縮小，策略不成立。",
+    "definition_en": "The additive per-event cost from the prior round's most natural strategy (§12): Σ Cost_n ≤ ½‖u_0‖²₂ with Cost_n≥c>0; this round shows Cost_n can shrink like 2^{-J_n} at high frequency, defeating the strategy.",
+    "defining_relation": "\\sum_n\\operatorname{Cost}_n\\le\\frac12\\|u_0\\|_2^2",
+    "notes": "$J_n$ 記號延續自 C1 輪。"
+  },
+  {
+    "key": "ns.c2.d_3_2",
+    "latex": "\\mathcal D_{3/2}",
+    "label_zh": "臨界二次 Sobolev 代價",
+    "label_en": "critical quadratic Sobolev cost",
+    "definition_zh": "第 13 節即 $\\mathcal D_s$ 在 $s=3/2$ 之特例，是唯一 scale-independent 的二次代價，但 standard energy inequality 並不控制它，形成 criticality wall。",
+    "definition_en": "The s=3/2 special case of D_s (§13), the unique scale-independent quadratic cost; the standard energy inequality does not control it, producing a criticality wall.",
+    "defining_relation": "\\mathcal D_{3/2}[u_\\lambda;I_\\lambda]=\\mathcal D_{3/2}[u;I]"
+  },
+  {
+    "key": "ns.c2.ledger_lambda_n",
+    "latex": "\\lambda_n",
+    "label_zh": "抽象 ledger 尺度",
+    "label_en": "abstract ledger scale",
+    "definition_zh": "第 14 節抽象 geometric cascade ledger（純 scalar toy model，明言「不是 N–S solution」）所用的 dyadic 尺度記號，與 §1 的 $\\lambda_q$ 公式相同但索引改為 $n$，代表獨立於真實解的構造。",
+    "definition_en": "The dyadic scale used in the abstract geometric cascade ledger (§14) — a pure scalar toy model explicitly flagged as 'not an N–S solution' — formally identical to λ_q (§1) but reindexed by n.",
+    "defining_relation": "\\lambda_n=2^n"
+  },
+  {
+    "key": "ns.c2.ledger_u_n",
+    "latex": "U_n",
+    "label_zh": "ledger 特徵速度振幅",
+    "label_en": "ledger characteristic velocity amplitude",
+    "definition_zh": "第 14 節 ledger 模型賦予每個尺度的特徵速度振幅，符合 N–S critical scaling，用於構造 §18 的 $K_n$。",
+    "definition_en": "Characteristic velocity amplitude assigned to each scale in the ledger model (§14), consistent with N–S critical scaling; used to build K_n (§18).",
+    "defining_relation": "U_n\\sim\\lambda_n"
+  },
+  {
+    "key": "ns.c2.ledger_k_n",
+    "latex": "K_n",
+    "label_zh": "ledger 臨界通行費類比量",
+    "label_en": "ledger critical-toll analog",
+    "definition_zh": "第 18 節（Ledger D）在 toy model 中構造的 $K_q$ 類比量，代入 $U_n\\sim\\lambda_n,\\tau_n=\\lambda_n^{-2}$ 得 $K_n\\asymp1$，顯示每個尺度都可支付 order-one 通行費而不與其餘 ledger 條件矛盾。",
+    "definition_en": "The K_q-analog constructed in the toy model (§18, Ledger D); substituting U_n∼λ_n, τ_n=λ_n^{-2} gives K_n≍1, showing every scale can pay an order-one toll without contradicting the other ledger constraints.",
+    "defining_relation": "K_n\\sim\\lambda_n^2\\lambda_n^{-2}=1"
+  },
+  {
+    "key": "ns.c2.ledger_d_n",
+    "latex": "D_n",
+    "label_zh": "ledger 能量耗散類比量",
+    "label_en": "ledger energy-dissipation analog",
+    "definition_zh": "第 19 節（Ledger E）依 scaling theorem 賦予每個尺度的 ordinary energy-dissipation cost，使 $\\sum_nD_n<\\infty$ 與 $K_n\\asymp1$、$\\Lambda\\notin L^{5/2}$ 等條件同時相容，構成 C2e no-go 的核心構造。",
+    "definition_en": "The ordinary energy-dissipation cost per scale in the ledger (§19, Ledger E), assigned via the scaling theorem so Σ D_n<∞ holds simultaneously with K_n≍1 and Λ∉L^{5/2} — the core construction behind the C2e no-go.",
+    "defining_relation": "D_n\\sim\\lambda_n^{-1}",
+    "notes": "不要與 §10 的 $\\mathcal D_s$（花體 D）或 §23 ETN 中的 $D_q$ 混淆，三者記號相近但脈絡不同。"
+  },
+  {
+    "key": "ns.c2.tao_averaged_b",
+    "latex": "\\widetilde B(u,u)",
+    "label_zh": "Tao 平均化雙線性算子",
+    "label_en": "Tao's averaged bilinear operator",
+    "definition_zh": "第 21 節引用 Tao 構造之 averaged bilinear operator，滿足 $\\langle\\widetilde B(u,u),u\\rangle=0$（保留能量消去），但對應的 averaged 3D N–S 方程可產生 finite-time blow-up，說明「energy identity + 泛型調和分析結構」不足以證明真正 N–S regularity，與本輪 C2 no-go 同向。",
+    "definition_en": "Tao's averaged bilinear operator (§21), satisfying ⟨B̃(u,u),u⟩=0 (preserving energy cancellation) yet admitting finite-time blow-up in the corresponding averaged 3D N–S equation — evidence that energy identity plus generic harmonic-analysis structure cannot suffice, echoing this round's C2 no-go.",
+    "defining_relation": "\\langle\\widetilde B(u,u),u\\rangle=0"
+  },
+  {
+    "key": "ns.c2.g_n_gate",
+    "latex": "\\mathsf G_n",
+    "label_zh": "跨尺度資格審核關係",
+    "label_en": "cross-scale qualification (gating) relation",
+    "definition_zh": "第 22 節重新定位 X 積分角色所提出的關係：檢驗事件 $n$ 是否有資格把來源結構傳給事件 $n+1$，取代原先「逐事件付費、預算耗盡」的加法圖像，開啟 C3 cross-scale coupling rigidity 的研究方向。",
+    "definition_en": "The relation proposed in §22 repositioning the role of the X-integral: it checks whether event n qualifies to pass source structure to event n+1, replacing the earlier additive 'pay-per-event, exhaust the budget' picture and opening the C3 direction.",
+    "defining_relation": "\\mathsf G_n\\left(X_n,\\rho_{n\\to n+1},X_{n+1}\\right)",
+    "notes": "$X_n$ 為 X 積分狀態（定義見 X_Integral 系列文件，本輪僅重新使用/定位），$\\rho_{n\\to n+1}$ 為本輪新提出的尺度間傳遞關係。"
+  },
+  {
+    "key": "ns.c2.rho_transfer",
+    "latex": "\\rho_{n\\to n+1}",
+    "label_zh": "尺度間傳遞係數",
+    "label_en": "inter-scale transfer coefficient",
+    "definition_zh": "第 22 節作為 $\\mathsf G_n$ 的一個變元引入，代表事件 $n$ 到事件 $n+1$ 之間的傳遞/耦合關係，須整合 parent provenance、frequency support、triad geometry 等結構性條件而非單純 scalar amplitude。",
+    "definition_en": "Introduced in §22 as an argument of G_n, representing the transfer/coupling relation from event n to event n+1; meant to encode structural conditions (parent provenance, frequency support, triad geometry, etc.) rather than a bare scalar amplitude."
+  },
+  {
+    "key": "ns.c2.theta_q_typed",
+    "latex": "\\Theta_q",
+    "label_zh": "升級版 typed 張力狀態",
+    "label_en": "upgraded typed tension state",
+    "definition_zh": "第 23 節將 True ETN 每殼層狀態從純 scalar pair $(T_q,D_q)$ 升級為六元組 typed tension relation，明言真正的 tension 不再是 scalar 而是 typed multiscale relation。",
+    "definition_en": "Section 23 upgrades True ETN's per-shell state from the coarse scalar pair (T_q,D_q) into a six-component typed tension relation, asserting that genuine tension is no longer a scalar but a typed multiscale relation.",
+    "defining_relation": "\\Theta_q=\\left\\langle A_q,D_q,R_q,\\mathcal P_q,\\mathcal G_q,\\mathcal S_q\\right\\rangle",
+    "notes": "舊版 $\\Theta_q=(T_q,D_q)$ 來自先前 ETN 文件，被本節判定「仍太粗」而升級。"
+  },
+  {
+    "key": "ns.c2.a_q",
+    "latex": "A_q",
+    "label_zh": "振幅狀態",
+    "label_en": "amplitude state",
+    "definition_zh": "第 23 節 $\\Theta_q$ 六元組的第一分量，代表殼層 $q$ 的振幅狀態。",
+    "definition_en": "First component of the Θ_q sextuple (§23), the amplitude state of shell q."
+  },
+  {
+    "key": "ns.c2.d_q_etn",
+    "latex": "D_q",
+    "label_zh": "黏性耗散（ETN 分量）",
+    "label_en": "viscous dissipation (ETN component)",
+    "definition_zh": "第 23 節 $\\Theta_q$ 六元組分量，代表殼層 $q$ 的黏性耗散；亦是舊版 $\\Theta_q=(T_q,D_q)$ 中留存的分量。",
+    "definition_en": "A component of the Θ_q sextuple (§23), the viscous dissipation of shell q; also the surviving component from the old pair Θ_q=(T_q,D_q).",
+    "notes": "與 §10 的 $\\mathcal D_s$、§19 的 $D_n$ 記號相近但脈絡不同，勿混淆。"
+  },
+  {
+    "key": "ns.c2.r_q",
+    "latex": "R_q",
+    "label_zh": "非線性補充",
+    "label_en": "nonlinear replenishment",
+    "definition_zh": "第 23 節 $\\Theta_q$ 六元組分量，代表殼層 $q$ 的 nonlinear replenishment，概念上呼應 C1 輪的 UV replenishment。",
+    "definition_en": "A component of the Θ_q sextuple (§23), the nonlinear replenishment at shell q — conceptually echoing the UV replenishment of round C1."
+  },
+  {
+    "key": "ns.c2.p_q",
+    "latex": "\\mathcal P_q",
+    "label_zh": "來源結構分量",
+    "label_en": "provenance / parent-structure component",
+    "definition_zh": "第 23 節 $\\Theta_q$ 六元組分量，記錄殼層 $q$ 的 provenance / parent structure，對應 §22 $\\mathsf G_n$ 所要審核的 parent provenance 條件。",
+    "definition_en": "A component of the Θ_q sextuple (§23) recording provenance / parent structure of shell q, corresponding to the parent-provenance check envisioned for G_n in §22."
+  },
+  {
+    "key": "ns.c2.g_q_triad",
+    "latex": "\\mathcal G_q",
+    "label_zh": "triad 幾何分量",
+    "label_en": "triad geometry component",
+    "definition_zh": "第 23 節 $\\Theta_q$ 六元組分量，記錄殼層 $q$ 的 triad geometry；字體與 §22 的關係函數 $\\mathsf G_n$ 不同，不應混淆。",
+    "definition_en": "A component of the Θ_q sextuple (§23) recording triad geometry of shell q; a different typeface from the gating relation G_n of §22 — not to be confused with it."
+  },
+  {
+    "key": "ns.c2.s_q",
+    "latex": "\\mathcal S_q",
+    "label_zh": "空間集中度分量",
+    "label_en": "spatial concentration / support-state component",
+    "definition_zh": "第 23 節 $\\Theta_q$ 六元組分量，記錄殼層 $q$ 的空間集中度／support state。",
+    "definition_en": "A component of the Θ_q sextuple (§23), recording the spatial concentration / support state of shell q."
+  },
+  {
+    "key": "ns.c2.leray_nonlinear",
+    "latex": "\\mathbb P\\nabla\\cdot(u\\otimes u)",
+    "label_zh": "真實 N–S（Leray 投影）非線性項",
+    "label_en": "true Leray-projected N–S nonlinear operator",
+    "definition_zh": "第 24 節 C3-C 分支所指的「true N–S symbol」，即 Leray 投影 $\\mathbb P$ 作用下的 $\\nabla\\cdot(u\\otimes u)$；用以與 Tao 的 averaged bilinear operator（§21）對比，追問其 incompressibility 結構是否禁止 averaged-model 式的完美 cascade wiring。",
+    "definition_en": "The 'true N–S symbol' referenced in the C3-C branch (§24): the Leray-projected nonlinear term P∇·(u⊗u), contrasted with Tao's averaged bilinear operator (§21) to ask whether its incompressibility structure forbids averaged-model-style perfect cascade wiring."
+  },
+  {
+    "key": "ns.c2.c3_label",
+    "latex": "\\mathrm{C3}",
+    "label_zh": "C3：跨尺度耦合剛性",
+    "label_en": "C3: Cross-Scale Coupling Rigidity",
+    "definition_zh": "第 24 節正式命名的下一輪研究主題：目標不再是證明 $\\sum_n\\text{cost}_n=\\infty$，而是證明任意 hypothetical blow-up chain 必須滿足某些不相容的 cross-scale constraints；本輪 C2 的 scalar additive 路線正式降級為此。",
+    "definition_en": "The next research round formally named in §24: instead of proving Σcost_n=∞, C3 aims to show any hypothetical blow-up chain must satisfy mutually incompatible cross-scale constraints. This round's (C2) scalar-additive route is formally downgraded in favor of C3.",
+    "defining_relation": "\\mathrm{C3}=\\textbf{Cross-Scale Coupling Rigidity}"
+  }
+]

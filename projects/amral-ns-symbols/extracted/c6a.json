@@ -1,0 +1,306 @@
+[
+  {
+    "key": "ns.c6.c6a.mathfrak_d_c5",
+    "latex": "\\mathfrak D_{C5}",
+    "label_zh": "C5 殘餘狀態空間（六類）",
+    "label_en": "C5 six-class residual state space",
+    "definition_zh": "C5-M 將整個 C5 residual state space 壓縮後得到的六個殘餘缺陷類別集合 $\\{\\mathsf A,\\mathsf T,\\mathsf G,\\mathsf P,\\mathsf H,\\mathsf F\\}$，是 C6 全系列 cycle 分析的起點；C6-A 第2節隨即將 $\\mathsf A$ 移出 physical SCC 討論範圍，得到五類的 $V_6$。",
+    "definition_en": "The six residual defect classes $\\{\\mathsf A,\\mathsf T,\\mathsf G,\\mathsf P,\\mathsf H,\\mathsf F\\}$ obtained by compressing the entire C5 residual state space in C5-M; this is the starting point for all C6 cycle analysis. C6-A section 2 immediately removes $\\mathsf A$ from physical-SCC consideration, yielding the five-class $V_6$.",
+    "defining_relation": "\\mathfrak D_{C5} = \\{\\mathsf A, \\mathsf T, \\mathsf G, \\mathsf P, \\mathsf H, \\mathsf F\\}",
+    "notes": "Uses sans-serif \\mathsf letters; compare with $V_6$, which restates the five physical classes in plain italic type (T,G,P,H,F) after excluding A."
+  },
+  {
+    "key": "ns.c6.c6a.class_a",
+    "latex": "\\mathsf A",
+    "label_zh": "A 類（ancestry／合法性）",
+    "label_en": "Class A (ancestry / legality)",
+    "definition_zh": "六個殘餘缺陷類別之一，代表 ancestry / legality / theorem setup 相關的缺陷；C6-A 第2節指出 $A$ 可能表示 proof/theorem-entry failure 而非實際物理奇異機制，因此暫不納入 physical SCC extraction，直到 theorem-entry legality 被證明為止（對應 X-Integration guard G-AOUT）。",
+    "definition_en": "One of the six residual defect classes, representing ancestry / legality / theorem-setup defects. C6-A section 2 notes that $A$ may signal a proof/theorem-entry failure rather than an actual physical singularity mechanism, so it is kept out of physical SCC extraction until theorem-entry legality is proved (corresponding to guard G-AOUT).",
+    "notes": "Kept outside $V_6$, the five-class physical state space used for the round's SCC/cycle analysis."
+  },
+  {
+    "key": "ns.c6.c6a.class_t",
+    "latex": "\\mathsf T",
+    "label_zh": "T 類（時間相位振盪）",
+    "label_en": "Class T (temporal phase oscillation)",
+    "definition_zh": "六個殘餘缺陷類別之一，代表 temporal phase oscillation / concentration 缺陷；第14節指出 $T$ 未被 C5-C 的 scalar-ledger no-go 排除，但僅止於 $T\\overset{N}{\\looparrowright}T$（non-exclusion），並非已證的 PDE self-cycle，故稱為 candidate trap。",
+    "definition_en": "One of the six residual defect classes, representing temporal phase oscillation / concentration defects. Section 14 notes that $T$ is not eliminated by C5-C's scalar-ledger no-go, but this only amounts to $T\\overset{N}{\\looparrowright}T$ (non-exclusion), not a proved PDE self-cycle — hence $T$ is called a candidate trap rather than a certified cycle."
+  },
+  {
+    "key": "ns.c6.c6a.class_g",
+    "latex": "\\mathsf G",
+    "label_zh": "G 類（應變—渦度幾何）",
+    "label_en": "Class G (strain-vorticity geometry)",
+    "definition_zh": "六個殘餘缺陷類別之一，代表 strain-vorticity field geometry 缺陷；是 Miller middle-eigenvalue/strain-vorticity 工作的主要 anchor 之一，也是候選 $G\\leftrightarrow P$ cycle（C6-A.3，第16節）的一端。",
+    "definition_en": "One of the six residual defect classes, representing strain-vorticity field geometry defects. It is one of the main anchors of Miller's middle-eigenvalue / strain-vorticity work, and forms one endpoint of the candidate $G\\leftrightarrow P$ cycle (C6-A.3, section 16)."
+  },
+  {
+    "key": "ns.c6.c6a.class_p",
+    "latex": "\\mathsf P",
+    "label_zh": "P 類（壓力補償／溯源）",
+    "label_en": "Class P (pressure compensation / provenance)",
+    "definition_zh": "六個殘餘缺陷類別之一，代表 pressure compensation / provenance 缺陷；第1.4節指出因 Bradshaw–Tsai 的 local pressure expansion 提供 rigorous provenance，$P$ 並非純粹現象學式的 graph node，也是候選 $G\\leftrightarrow P$ cycle 的另一端。",
+    "definition_en": "One of the six residual defect classes, representing pressure compensation / provenance defects. Section 1.4 notes that because Bradshaw–Tsai's local pressure expansion supplies rigorous provenance, $P$ is not a purely phenomenological graph node; it is also the other endpoint of the candidate $G\\leftrightarrow P$ cycle."
+  },
+  {
+    "key": "ns.c6.c6a.class_h",
+    "latex": "\\mathsf H",
+    "label_zh": "H 類（高階諧波／定理窗口缺陷）",
+    "label_en": "Class H (high-order harmonic / theorem-window defect)",
+    "definition_zh": "六個殘餘缺陷類別之一，代表 high-order harmonic / theorem-window defect；Grujić–Xu 2024 framework 提供其主要 external kill gate $\\mathsf H\\to\\mathrm{REG}$，也是候選 $H\\leftrightarrow F$ cycle（C6-A.4，第20節，本輪優先級最高的攻擊目標）的一端。",
+    "definition_en": "One of the six residual defect classes, representing high-order harmonic / theorem-window defects. The Grujić–Xu 2024 framework supplies its main external kill gate $\\mathsf H\\to\\mathrm{REG}$; $H$ is also one endpoint of the candidate $H\\leftrightarrow F$ cycle (C6-A.4, section 20), the round's top-priority target."
+  },
+  {
+    "key": "ns.c6.c6a.class_f",
+    "latex": "\\mathsf F",
+    "label_zh": "F 類（強迫／階數變化債務）",
+    "label_en": "Class F (forcing / order variation debt)",
+    "definition_zh": "六個殘餘缺陷類別之一，代表 forcing / order variation debt；$H\\to F$ 方向已有 C5-J/L 的 turnover/roughness routing 支持並匯入 $\\text{VISC}\\vee\\text{PROJECTED-NL}$，但反向 $F\\to H$ 是否成立正是 C6-A 判定為尚未 certified 且列為 C6-B 首要任務的關鍵缺口。",
+    "definition_en": "One of the six residual defect classes, representing forcing / order variation debt. The forward direction $H\\to F$ is already supported by C5-J/L's turnover/roughness routing into $\\text{VISC}\\vee\\text{PROJECTED-NL}$, but whether the reverse $F\\to H$ holds is exactly the gap C6-A judges not yet certified and assigns as C6-B's top priority."
+  },
+  {
+    "key": "ns.c6.c6a.v6",
+    "latex": "V_6",
+    "label_zh": "五類物理殘餘狀態空間",
+    "label_en": "Five-class physical residual state space",
+    "definition_zh": "排除 $A$ 之後，代表已進入 physical/legal regime 的五個 physical residual classes $\\{T,G,P,H,F\\}$；是本輪 projected may-graph（第3節）、SCC 分解（第4節）與投影 $\\pi:\\mathcal K\\to V_6$（C6-A.1）操作的底層頂點集合。",
+    "definition_en": "The five physical residual classes $\\{T,G,P,H,F\\}$ obtained after excluding $A$, representing states that have already entered the physical/legal regime. This is the underlying vertex set for the round's projected may-graph (section 3), its SCC decomposition (section 4), and the projection $\\pi:\\mathcal K\\to V_6$ used in C6-A.1.",
+    "defining_relation": "V_6 = \\{T,G,P,H,F\\}",
+    "notes": "Here the five labels are typeset in plain italic (T,G,P,H,F), not the sans-serif \\mathsf used for the same classes in $\\mathfrak D_{C5}$; both notations refer to the same five physical classes."
+  },
+  {
+    "key": "ns.c6.c6a.reg",
+    "latex": "\\mathrm{REG}",
+    "label_zh": "外部正則性終止態",
+    "label_en": "External regularity sink state",
+    "definition_zh": "代表已證明之正則性定理成立時所導向的外部 sink 狀態，不是 C5 六個殘餘類別之一；是 E 型 edge（external kill edge）$X\\overset{E}{\\longrightarrow}\\mathrm{REG}$ 的目標，也是 Grujić–Xu 2024 framework 作為 $\\mathsf H\\to\\mathrm{REG}$ 主要 kill gate 之落點。",
+    "definition_en": "The external sink state reached when a published regularity theorem applies; it is not one of the six C5 residual classes. It is the target of type-E (external kill) edges $X\\overset{E}{\\longrightarrow}\\mathrm{REG}$, and is the landing point of the Grujić–Xu 2024 framework's main kill gate $\\mathsf H\\to\\mathrm{REG}$.",
+    "notes": "A certified-composable cycle must avoid automatically triggering REG (C6-A.2 condition 4, section 12); the same requirement reappears as MSC-3 in the minimal survivor cycle certificate (section 23)."
+  },
+  {
+    "key": "ns.c6.c6a.state_space_k",
+    "latex": "\\pi:\\mathcal K\\to V_6",
+    "label_zh": "完整缺陷狀態空間與投影",
+    "label_en": "Full defect state space and projection",
+    "definition_zh": "$\\mathcal K$ 是承載完整（未粗化）缺陷狀態 $\\theta\\in\\mathcal K$ 的空間，$\\pi$ 是把 $\\theta$ 投影到粗略殘餘標籤 $V_6$ 的映射；對每個類別 $X$，$\\mathcal K_X$（如 $\\mathcal K_T,\\mathcal K_G,\\mathcal K_P,\\mathcal K_H,\\mathcal K_F$，第8節列出各自的 compact/compactified metadata，例如 $\\mathcal K_G$ 含 middle-gap coordinate、strain-direction measure 等）是 $\\pi$ 在 $X$ 上的纖維，用作 typed transition relation $R_e\\subset\\mathcal K_X\\times\\mathcal K_Y$ 的定義域/值域。C6-A.1 正是利用 $\\pi$ 的粗化性質證明 label-level SCC 不足以推出 PDE recurrent cycle。",
+    "definition_en": "$\\mathcal K$ is the space of full (uncoarsened) defect states $\\theta\\in\\mathcal K$, and $\\pi$ is the map projecting $\\theta$ down to the coarse residual labels $V_6$. For each class $X$, $\\mathcal K_X$ (e.g. $\\mathcal K_T,\\mathcal K_G,\\mathcal K_P,\\mathcal K_H,\\mathcal K_F$, whose per-class compact/compactified metadata are listed in section 8 — e.g. $\\mathcal K_G$ includes middle-gap coordinate, strain-direction measure, etc.) is the fiber of $\\pi$ over $X$, and serves as the domain/codomain of typed transition relations $R_e\\subset\\mathcal K_X\\times\\mathcal K_Y$. C6-A.1 uses exactly this coarsening to prove that label-level SCCs cannot by themselves certify a PDE recurrent cycle.",
+    "notes": "$\\mathcal K_X$ is introduced separately in section 8 as \"full defect state spaces,\" but is definitionally the fiber $\\pi^{-1}(X)\\subset\\mathcal K$ used throughout sections 9-24."
+  },
+  {
+    "key": "ns.c6.c6a.edge_status_i",
+    "latex": "X \\overset{I}{\\longrightarrow} Y",
+    "label_zh": "I 型：蘊含邊",
+    "label_en": "Type I: implication edge",
+    "definition_zh": "C6-A 定義的四種 typed edge status 之一，代表一條已證明的 routing theorem，具有明確的 source antecedent 與 target conclusion，不需額外條件即成立；是「certified composable」判準（C6-A.2）中允許的兩種合法邊類型之一。",
+    "definition_en": "One of the four typed edge statuses C6-A defines. It means a proved routing theorem with an explicit source antecedent and target conclusion, holding unconditionally. It is one of the two edge statuses (with C) permitted in the \"certified composable\" criterion (C6-A.2).",
+    "notes": "Single-letter status code local to the C6 typed-edge formalism; not to be confused with an identity map or index variable."
+  },
+  {
+    "key": "ns.c6.c6a.edge_status_c",
+    "latex": "X \\overset{C}{\\longrightarrow} Y",
+    "label_zh": "C 型：條件蘊含邊",
+    "label_en": "Type C: conditional implication edge",
+    "definition_zh": "四種 typed edge status 之一，代表該 implication 僅在額外 gate 成立時才被證明，例如 strong-middle cone、common far pressure、ancestry legality、theorem setup、bounded turnover 等；C6-A.2 要求同一 cycle 中所有 conditional antecedents 必須彼此相容才能構成 certified composable cycle。",
+    "definition_en": "One of the four typed edge statuses. It means the implication is proved only under an extra gate — e.g. strong-middle cone, common far pressure, ancestry legality, theorem setup, bounded turnover. C6-A.2 requires that all conditional antecedents around one cycle be mutually compatible for the cycle to be certified composable.",
+    "notes": "Not to be confused with a generic constant $C$; here it is one of the four edge-status codes $\\{I,C,N,E\\}$."
+  },
+  {
+    "key": "ns.c6.c6a.edge_status_n",
+    "latex": "X \\overset{N}{\\looparrowright} X",
+    "label_zh": "N 型：不可排除自環",
+    "label_en": "Type N: non-exclusion self-loop",
+    "definition_zh": "四種 typed edge status 之一，表示目前估計並未排除在 $X$ 中持續 recurrence 的可能性，但這不是一條 transition theorem——它既不保證存在對應的 Navier–Stokes orbit，也不保證一個 $X$ event 動態產生另一個；第7節明確指出 N-edges 是 survivor obligations，不是 certified dynamics，因此不能單獨用來定義 SCC。",
+    "definition_en": "One of the four typed edge statuses. It states that current estimates have not ruled out recurrence within $X$, but this is not a transition theorem — it guarantees neither the existence of a Navier–Stokes orbit realizing recurrent $X$, nor that one $X$ event dynamically generates another. Section 7 states explicitly that N-edges are survivor obligations, not certified dynamics, and so cannot by themselves define an SCC.",
+    "defining_relation": "X \\overset{N}{\\looparrowright} X",
+    "notes": "Uses the loop arrow \\looparrowright specifically for self-recurrence; candidate class $T$'s status is exactly $T\\overset{N}{\\looparrowright}T$ (section 14)."
+  },
+  {
+    "key": "ns.c6.c6a.edge_status_e",
+    "latex": "X \\overset{E}{\\longrightarrow} \\mathrm{REG}",
+    "label_zh": "E 型：外部終止邊",
+    "label_en": "Type E: external kill edge",
+    "definition_zh": "四種 typed edge status 之一，表示一條已發表的 regularity theorem 在其 antecedents 成立時關閉該路線，導向外部 sink $\\mathrm{REG}$；certified composable cycle（C6-A.2 條件4）要求 cycle 上沒有任何狀態會自動觸發此類 external REG kill gate。",
+    "definition_en": "One of the four typed edge statuses. It means a published regularity theorem closes the route when its antecedents hold, directing flow to the external sink $\\mathrm{REG}$. The certified-composable criterion (C6-A.2, condition 4) requires that no state on the cycle automatically triggers such an external REG kill gate.",
+    "notes": "Not to be confused with expectation notation $E[\\cdot]$ or Euler's number; its target is always $\\mathrm{REG}$."
+  },
+  {
+    "key": "ns.c6.c6a.typed_transition_relation",
+    "latex": "R_e \\subset \\mathcal K_X \\times \\mathcal K_Y",
+    "label_zh": "型別化轉移關係",
+    "label_en": "Typed transition relation",
+    "definition_zh": "C6-A 對「一條 edge」的精細化定義：不再只是粗略標籤箭頭 $X\\to Y$，而是完整狀態空間之間的關係 $R_e\\subset\\mathcal K_X\\times\\mathcal K_Y$，並附帶 source antecedent $\\mathcal A_e$、target constraint $\\mathcal B_e$、proof status、debt vector $d_e$ 與 provenance/scale/time metadata；是 cycle compatibility fiber product $\\mathfrak C(e_1,\\ldots,e_m)$（第11節）的基本 building block。",
+    "definition_en": "C6-A's refinement of what \"an edge\" means: not merely a coarse label arrow $X\\to Y$, but a relation $R_e\\subset\\mathcal K_X\\times\\mathcal K_Y$ between full state spaces, carrying a source antecedent $\\mathcal A_e$, a target constraint $\\mathcal B_e$, a proof status, a debt vector $d_e$, and provenance/scale/time metadata. It is the basic building block of the cycle-compatibility fiber product $\\mathfrak C(e_1,\\ldots,e_m)$ (section 11).",
+    "defining_relation": "R_e \\subset \\mathcal K_X \\times \\mathcal K_Y",
+    "notes": "Proposition C6-A.1 (section 5) first argues this point using the per-pair notation $R_{XY}\\subset\\mathcal K_X\\times\\mathcal K_Y$ and $R_{YX}\\subset\\mathcal K_Y\\times\\mathcal K_X$, before section 9 formalizes the general per-edge notation $R_e$. Also, section 9's own listing of proof status gives only $I,C,E$ (omitting $N$), while section 43's edge ledger confirms the complete status alphabet is $\\sigma_e\\in\\{I,C,N,E\\}$."
+  },
+  {
+    "key": "ns.c6.c6a.source_antecedent",
+    "latex": "\\mathcal A_e \\subset \\mathcal K_X",
+    "label_zh": "邊的來源前提",
+    "label_en": "Edge source antecedent",
+    "definition_zh": "型別化轉移關係 $R_e$ 的組成之一，指該 edge 生效所需的來源狀態子集；C6-A.1 的 No-Go 論證核心即在於由 $R_{XY}$ 產生的 target metadata 未必落在 $R_{YX}$ 的來源前提 $\\mathcal A_e$ 之內，因此 $X\\leftrightarrow Y$ 不蘊含 composable two-cycle。也是第43節 edge proof-status ledger 中每條邊的固定欄位之一。",
+    "definition_en": "One of the components of a typed transition relation $R_e$: the subset of source states required for the edge to fire. The core of the C6-A.1 No-Go argument is that target metadata produced by $R_{XY}$ need not lie inside the source antecedent $\\mathcal A_e$ required by $R_{YX}$, so $X\\leftrightarrow Y$ does not imply a composable two-cycle. It is also one of the fixed fields recorded for every edge in the section 43 proof-status ledger.",
+    "defining_relation": "\\mathcal A_e \\subset \\mathcal K_X"
+  },
+  {
+    "key": "ns.c6.c6a.edge_debt_vector",
+    "latex": "d_e \\in [0,\\infty]^m",
+    "label_zh": "邊債務向量",
+    "label_en": "Edge debt vector",
+    "definition_zh": "第9節將每條 typed edge 附帶一個非負債務向量 $d_e\\in[0,\\infty]^m$；第24節將其具體展開為 $d(e)=(d_T,d_G,d_P,d_H,d_F,d_{clock},d_{time},\\ldots)$，座標可以是 integral toll、defect mass、pressure critical mass、derivative load、root variation、clock variation、time span 等；是計算循環總債務 $D(C)=\\sum_j d(e_j)$ 與後續 critical saturation、debt coercivity 判準的基本單位。",
+    "definition_en": "Section 9 attaches a nonnegative debt vector $d_e\\in[0,\\infty]^m$ to every typed edge; section 24 expands it explicitly as $d(e)=(d_T,d_G,d_P,d_H,d_F,d_{clock},d_{time},\\ldots)$, with coordinates that may be integral toll, defect mass, pressure critical mass, derivative load, root variation, clock variation, or time span. It is the basic unit used to compute the total cycle debt $D(C)=\\sum_j d(e_j)$ and the later critical-saturation and debt-coercivity criteria.",
+    "defining_relation": "d(e) = (d_T, d_G, d_P, d_H, d_F, d_{clock}, d_{time}, \\ldots)",
+    "notes": "First introduced in compact form as $d_e\\in[0,\\infty]^m$ (section 9); section 24 gives the expanded coordinate form $d(e)$. Distinct from $D(C)$, the sum of these vectors over a whole cycle."
+  },
+  {
+    "key": "ns.c6.c6a.disjunctive_hyperedge",
+    "latex": "X \\longrightarrow \\{Y_1,\\ldots,Y_m\\}",
+    "label_zh": "析取超邊",
+    "label_en": "Disjunctive hyperedge",
+    "definition_zh": "用來編碼 $X\\Rightarrow Y_1\\vee Y_2\\vee Y_3$ 型態 C5 陳述的記號：一條指向目標集合的析取超邊，而非三條同時成立的 mandatory ordinary edges；例如 root turnover 的 $\\text{TURNOVER}\\Rightarrow\\text{VISC}\\vee\\text{PROJECTED-NL}$。C6-A.7（第37節）證明將此類超邊逐一投影成 ordinary edges 只能得到 necessary candidate regions，不是充分的 recurrent 證書。",
+    "definition_en": "The notation used to encode C5 statements of the form $X\\Rightarrow Y_1\\vee Y_2\\vee Y_3$: a single disjunctive hyperedge pointing at a target set, rather than three simultaneously mandatory ordinary edges — e.g. root turnover's $\\text{TURNOVER}\\Rightarrow\\text{VISC}\\vee\\text{PROJECTED-NL}$. C6-A.7 (section 37) proves that projecting such hyperedges into ordinary edges one at a time yields only necessary candidate regions, not sufficient recurrent certificates.",
+    "defining_relation": "X \\longrightarrow \\{Y_1,\\ldots,Y_m\\}",
+    "notes": "Feeds directly into the candidate-trap viability condition (section 36): a trap $S$ must intersect every mandatory disjunctive target set, $S\\cap\\{Y_1,\\ldots,Y_m\\}\\ne\\varnothing$."
+  },
+  {
+    "key": "ns.c6.c6a.coarse_bidirectional_edge",
+    "latex": "X \\leftrightarrow Y",
+    "label_zh": "粗化圖雙向邊",
+    "label_en": "Coarse-graph bidirectional edge",
+    "definition_zh": "表示投影後粗圖中 $X$、$Y$ 兩類之間同時存在正反向 typed transition relations（$R_{XY}$ 與 $R_{YX}$ 皆非空）；C6-A.1（Projected-SCC No-Go，第5節）的核心結論是：此記號成立並不蘊含存在一對相容狀態 $\\theta_X,\\theta_Y$ 使得 $(\\theta_X,\\theta_Y)\\in R_{XY}$ 且 $(\\theta_Y,\\theta_X)\\in R_{YX}$，即不蘊含 composable two-cycle。",
+    "definition_en": "Denotes that, in the projected coarse graph, both forward and reverse typed transition relations exist between classes $X$ and $Y$ (both $R_{XY}$ and $R_{YX}$ nonempty). The central conclusion of C6-A.1 (Projected-SCC No-Go, section 5) is that this notation holds without implying the existence of a compatible pair $\\theta_X,\\theta_Y$ with $(\\theta_X,\\theta_Y)\\in R_{XY}$ and $(\\theta_Y,\\theta_X)\\in R_{YX}$ — i.e. it does not imply a composable two-cycle.",
+    "notes": "Applied concretely to the round's two main candidates $G\\leftrightarrow P$ (C6-A.3) and $H\\leftrightarrow F$ (C6-A.4), both judged not yet certified."
+  },
+  {
+    "key": "ns.c6.c6a.cycle_compatibility_set",
+    "latex": "\\mathfrak C(e_1,\\ldots,e_m)",
+    "label_zh": "循環相容性纖維積",
+    "label_en": "Cycle compatibility fiber product",
+    "definition_zh": "對一組首尾相接的 typed edges $e_1:X_1\\to X_2,\\ldots,e_m:X_m\\to X_1$，定義 $\\mathfrak C(e_1,\\ldots,e_m)=R_{e_1}\\times_{\\mathcal K_{X_2}}R_{e_2}\\times_{\\mathcal K_{X_3}}\\cdots\\times_{\\mathcal K_{X_1}}R_{e_m}$，要求每條邊的 target metadata 都滿足下一條邊的 source antecedent；此集合非空是 C6-A.2「certified composable」判準的條件3，也是判定 $G\\leftrightarrow P$、$H\\leftrightarrow F$ 尚未 certified 的關鍵物件。",
+    "definition_en": "For a chain of typed edges closing into a cycle, $e_1:X_1\\to X_2,\\ldots,e_m:X_m\\to X_1$, defines $\\mathfrak C(e_1,\\ldots,e_m)=R_{e_1}\\times_{\\mathcal K_{X_2}}R_{e_2}\\times_{\\mathcal K_{X_3}}\\cdots\\times_{\\mathcal K_{X_1}}R_{e_m}$, requiring that every edge's target metadata satisfy the next edge's source antecedent. Its nonemptiness is condition 3 of the C6-A.2 \"certified composable\" criterion, and it is the key object used to judge $G\\leftrightarrow P$ and $H\\leftrightarrow F$ as not yet certified.",
+    "defining_relation": "\\mathfrak C(e_1,\\ldots,e_m) = R_{e_1} \\times_{\\mathcal K_{X_2}} R_{e_2} \\times_{\\mathcal K_{X_3}} \\cdots \\times_{\\mathcal K_{X_1}} R_{e_m}",
+    "notes": "Distinct from the later cycle-state tuple $\\mathfrak C^{C6}$ (section 46), which packages this fiber product together with a recurrence map, $D(C)$, and budget coercivity into one record — same fraktur C, different object."
+  },
+  {
+    "key": "ns.c6.c6a.certified_composable",
+    "latex": "\\textbf{certified composable}",
+    "label_zh": "「已認證可組合」判準",
+    "label_en": "\"Certified composable\" criterion",
+    "definition_zh": "C6-A.2（第12節）為投影標籤循環 $X_1\\to\\cdots\\to X_m\\to X_1$ 定義的性質：唯有同時滿足（1）每條邊具 implication/conditional 證明狀態、（2）所有 conditional antecedents 互相相容、（3）$\\mathfrak C(e_1,\\ldots,e_m)\\ne\\varnothing$、（4）沒有目標狀態自動觸發 external REG kill gate、（5）遞迴迭代保持 legality/scale/time metadata，才能稱為 certified composable；其推論是 label SCC 只是 certified cycle structure 的 over-approximation。",
+    "definition_en": "The property C6-A.2 (section 12) defines for a projected label cycle $X_1\\to\\cdots\\to X_m\\to X_1$: it is certified composable only if (1) every edge has implication/conditional proof status, (2) all conditional antecedents are mutually compatible, (3) $\\mathfrak C(e_1,\\ldots,e_m)\\ne\\varnothing$, (4) no target state automatically triggers an external REG kill gate, and (5) recurrent iteration preserves legality/scale/time metadata. Its consequence is that a label SCC is only an over-approximation of certified cycle structure."
+  },
+  {
+    "key": "ns.c6.c6a.recurrent_subset",
+    "latex": "\\mathcal R_C \\subset \\mathfrak C(e_1,\\ldots,e_m)",
+    "label_zh": "循環的遞迴不變子集",
+    "label_en": "Recurrent invariant subset of a cycle",
+    "definition_zh": "第13節指出，即使 $\\mathfrak C(e_1,\\ldots,e_m)\\ne\\varnothing$ 也只證明存在一次相容的迴圈；要得到無窮 recurrent cycling，需要一個不變或遞迴子集 $\\mathcal R_C\\subset\\mathfrak C(e_1,\\ldots,e_m)$，其一次循環後的像會與自身相交。此物件把「projected cycle／composable cycle／recurrent cycle」三個層級中最強的一級形式化，C6 明確要求不可混淆這三層。",
+    "definition_en": "Section 13 notes that even $\\mathfrak C(e_1,\\ldots,e_m)\\ne\\varnothing$ only certifies one compatible loop; obtaining infinite recurrent cycling requires an invariant or recurrent subset $\\mathcal R_C\\subset\\mathfrak C(e_1,\\ldots,e_m)$ whose image after one cycle intersects itself. This formalizes the strongest of the paper's three levels — projected cycle / composable cycle / recurrent cycle — which C6 explicitly warns must not be conflated.",
+    "defining_relation": "\\mathcal R_C \\subset \\mathfrak C(e_1,\\ldots,e_m)"
+  },
+  {
+    "key": "ns.c6.c6a.g_may",
+    "latex": "\\mathcal G^{may}",
+    "label_zh": "可能性圖（may-graph）",
+    "label_en": "May-graph",
+    "definition_zh": "使用所有 non-excluded/conditional 的 projected edges 構成的圖（第22節）；其 SCC 分解為 $\\mathrm{SCC}(\\mathcal G^{may})=\\{\\{T\\},\\{G,P,H,F\\}\\}$，與第4節的 projected may-SCC 結果一致，代表僅由粗化標籤層級可得的 over-approximation，而非 certified 的循環結構。",
+    "definition_en": "The graph built from all non-excluded/conditional projected edges (section 22); its SCC decomposition is $\\mathrm{SCC}(\\mathcal G^{may})=\\{\\{T\\},\\{G,P,H,F\\}\\}$, matching the projected may-SCC result of section 4. It represents the coarse-label-level over-approximation, not a certified cycle structure.",
+    "defining_relation": "\\mathrm{SCC}(\\mathcal G^{may}) = \\{\\{T\\},\\{G,P,H,F\\}\\}",
+    "notes": "Section 47's formal status table abbreviates this same SCC value as $\\mathrm{SCC}_{may}$."
+  },
+  {
+    "key": "ns.c6.c6a.g_cert",
+    "latex": "\\mathcal G^{cert}",
+    "label_zh": "已認證圖（cert-graph）",
+    "label_en": "Certified graph",
+    "definition_zh": "僅使用「fully composable implication transitions with verified endpoint compatibility」構成的圖（第22節），與 $\\mathcal G^{may}$ 相對；本輪 audit 的結論是目前 $\\mathcal G^{cert}$ 尚沒有任何非平凡 recurrent SCC 被 certified，這不代表 cycle 不可能，而是 cycle existence 本身變成一個 proof obligation。",
+    "definition_en": "The graph built using only fully composable implication transitions with verified endpoint compatibility (section 22), contrasted with $\\mathcal G^{may}$. The round's audit concludes that $\\mathcal G^{cert}$ currently contains no certified nontrivial recurrent SCC — not because cycles are impossible, but because cycle existence itself has become a proof obligation.",
+    "notes": "A recurrent SCC of $\\mathcal G^{cert}$ is effectively what section 35 calls a \"certified recurrent SCC,\" as opposed to a mere candidate trap."
+  },
+  {
+    "key": "ns.c6.c6a.candidate_trap",
+    "latex": "S \\subset V_6",
+    "label_zh": "候選陷阱集合",
+    "label_en": "Candidate (survivor) trap",
+    "definition_zh": "第35–36節定義的較弱概念：一個子集 $S\\subset V_6$ 即使不是 certified implications 的 SCC，仍可能「未被排除為 survivor trap」，只代表目前理論不強迫其離開；對於強制性析取路由 $\\theta\\Rightarrow Y_1\\vee\\cdots\\vee Y_m$ 的狀態，candidate trap 必須滿足 $S\\cap\\{Y_1,\\ldots,Y_m\\}\\ne\\varnothing$。C6-A 強調 candidate trap 與 certified recurrent SCC 不可混為一談，$T$、$G/P$、$H/F$ 目前都只是 candidate traps/cycles。",
+    "definition_en": "The weaker notion defined in sections 35-36: a subset $S\\subset V_6$ can be \"not excluded as a survivor trap\" even when it is not an SCC of certified implications — it only means current theory does not force an exit. For a state with mandatory disjunctive routing $\\theta\\Rightarrow Y_1\\vee\\cdots\\vee Y_m$, a candidate trap must satisfy $S\\cap\\{Y_1,\\ldots,Y_m\\}\\ne\\varnothing$. C6-A stresses that a candidate trap must not be conflated with a certified recurrent SCC; $T$, $G/P$, and $H/F$ are all currently only candidate traps/cycles.",
+    "defining_relation": "S\\cap\\{Y_1,\\ldots,Y_m\\}\\ne\\varnothing"
+  },
+  {
+    "key": "ns.c6.c6a.t_star",
+    "latex": "T^\\ast",
+    "label_zh": "假設性最大存在時間",
+    "label_en": "Hypothetical maximal existence time",
+    "definition_zh": "MSC-5（第23節，minimal survivor cycle certificate 的 time viability 條件）中出現的記號，指假設性的（有限時間 blow-up 情境下的）時間上界；一個 minimal survivor cycle 必須使無窮次迭代仍能容納於 $T^\\ast$ 之下才算滿足 time viability。",
+    "definition_en": "The symbol appearing in MSC-5 (section 23, the time-viability condition of the minimal survivor cycle certificate), denoting the hypothetical time bound (under a finite-time blow-up scenario). A minimal survivor cycle must fit infinite iteration below $T^\\ast$ to satisfy time viability.",
+    "notes": "Only lightly specified in this round — introduced as a hypothetical bound without further formula."
+  },
+  {
+    "key": "ns.c6.c6a.total_cycle_debt",
+    "latex": "D(C)",
+    "label_zh": "循環總債務",
+    "label_en": "Total cycle debt",
+    "definition_zh": "對有限循環 $C=(e_1,\\ldots,e_m)$，定義 $D(C)=\\sum_{j=1}^{m}d(e_j)$，即該循環上所有邊債務向量之和（第24節）；是 Cycle Critical Saturation（第26節，當 $D(C_n)\\to\\partial\\mathcal D$）與 debt coercivity（第28節）判準所依賴的核心量，也是 cycle-state tuple $\\mathfrak C^{C6}$ 的組成之一。",
+    "definition_en": "For a finite cycle $C=(e_1,\\ldots,e_m)$, defines $D(C)=\\sum_{j=1}^{m}d(e_j)$, the sum of the edge debt vectors around the cycle (section 24). It is the core quantity used by Cycle Critical Saturation (section 26, when $D(C_n)\\to\\partial\\mathcal D$) and the debt-coercivity criterion (section 28), and is also a component of the cycle-state tuple $\\mathfrak C^{C6}$.",
+    "defining_relation": "D(C) = \\sum_{j=1}^{m} d(e_j)"
+  },
+  {
+    "key": "ns.c6.c6a.finite_budget_lemma_quantities",
+    "latex": "b_n,\\ B_0,\\ b_0",
+    "label_zh": "有限預算循環排除引理之量",
+    "label_en": "Finite-budget cycle exclusion lemma quantities",
+    "definition_zh": "C6-A.5（第25節，Finite-Budget Cycle Exclusion Lemma）所用的量：$b_n\\ge0$ 為第 $n$ 代 recurrent cycle 所付的純量債務，$B_0$ 為其總和上界（$\\sum_{n=1}^{\\infty}b_n\\le B_0<\\infty$），$b_0$ 為其一致下界（$\\inf_nb_n\\ge b_0>0$）；引理證明若兩條件同時成立，則只有有限多代循環可能發生，證明利用 $Nb_0\\le\\sum_{n=1}^{N}b_n\\le B_0$ 得出 $N\\le B_0/b_0$。",
+    "definition_en": "The quantities used in C6-A.5 (section 25, the Finite-Budget Cycle Exclusion Lemma): $b_n\\ge0$ is the scalar debt paid by the $n$-th recurrent-cycle generation, $B_0$ is an upper bound on their total ($\\sum_{n=1}^{\\infty}b_n\\le B_0<\\infty$), and $b_0$ is a uniform lower bound ($\\inf_nb_n\\ge b_0>0$). The lemma proves that if both hold, only finitely many cycle generations can occur, via $Nb_0\\le\\sum_{n=1}^{N}b_n\\le B_0$, giving $N\\le B_0/b_0$.",
+    "defining_relation": "\\sum_{n=1}^{\\infty}b_n \\le B_0<\\infty, \\quad \\inf_n b_n \\ge b_0>0 \\ \\Rightarrow\\ N\\le B_0/b_0",
+    "notes": "Section 26 identifies the obstruction to this lemma as exactly $b_n\\downarrow0$, motivating the \"Cycle Critical Saturation\" definition."
+  },
+  {
+    "key": "ns.c6.c6a.cycle_critical_saturation",
+    "latex": "\\textbf{Cycle Critical Saturation}",
+    "label_zh": "循環臨界飽和",
+    "label_en": "Cycle critical saturation",
+    "definition_zh": "第26節定義的名詞，描述 C6-A.5 有限預算排除引理失效的障礙情形：當每代循環債務 $D(C_n)\\to\\partial\\mathcal D$（趨向債務空間邊界 $\\partial\\mathcal D$），亦即在所有 globally finite-budget 座標中都趨於零時，循環可以在總預算有限的情況下仍然存活；是 temporal load concentration、harmonic critical saturation、chain-clock critical saturation 等現象在 cycle 層級的類比。",
+    "definition_en": "The term section 26 defines to describe the obstruction case where the C6-A.5 finite-budget exclusion lemma fails: when each generation's cycle debt $D(C_n)\\to\\partial\\mathcal D$ (tends to the boundary $\\partial\\mathcal D$ of the debt space), i.e. tends to zero in every globally finite-budget coordinate, a recurrent cycle can survive under a finite total budget. It is the cycle-level analogue of temporal load concentration, harmonic critical saturation, chain-clock critical saturation, and UV scale-weighted Zeno costs.",
+    "defining_relation": "D(C_n) \\to \\partial\\mathcal D",
+    "notes": "$\\partial\\mathcal D$ (boundary of the debt space) is introduced only within this definition and not elaborated further in this round."
+  },
+  {
+    "key": "ns.c6.c6a.debt_coercivity",
+    "latex": "d_B(C) \\ge \\epsilon_B > 0",
+    "label_zh": "循環強制性（債務強制性判準）",
+    "label_en": "Cycle-coercive debt functional",
+    "definition_zh": "第28節定義：對循環族 $\\mathcal C$，全域預算泛函 $B$ 若對每個循環實例 $C\\in\\mathcal C$ 都滿足 $d_B(C)\\ge\\epsilon_B>0$，稱為 cycle-coercive；此時若 $B_{total}<\\infty$，則 $\\mathcal C$ 中不存在無窮 recurrent cycle。這是本輪提出的、通往 cycle elimination 最直接的一般化路線，與 C6-A.5 的具體引理互補。",
+    "definition_en": "Defined in section 28: for a cycle family $\\mathcal C$, a global budget functional $B$ is cycle-coercive if $d_B(C)\\ge\\epsilon_B>0$ for every cycle instance $C\\in\\mathcal C$. If $B_{total}<\\infty$, then no infinite recurrent cycle in $\\mathcal C$ exists. This is presented as the strongest simple route to cycle elimination, generalizing the concrete C6-A.5 lemma.",
+    "defining_relation": "d_B(C) \\ge \\epsilon_B > 0"
+  },
+  {
+    "key": "ns.c6.c6a.edge_ledger_tuple",
+    "latex": "e = (X, Y, \\mathcal A_e, R_e, d_e, \\sigma_e)",
+    "label_zh": "邊證明狀態紀錄",
+    "label_en": "Edge proof-status ledger record",
+    "definition_zh": "第43節定義 C6 儲存每條邊所用的六元組：$X,Y$ 為所屬類別，$\\mathcal A_e$ 為前提，$R_e$ 為轉移關係，$d_e$ 為債務，$\\sigma_e\\in\\{I,C,N,E\\}$ 為證明狀態；此設計是為了防止未來把一條僅是可能性的邊誤晉升為定理級的邊。",
+    "definition_en": "Section 43 defines the six-tuple C6 uses to store every edge: $X,Y$ are the classes, $\\mathcal A_e$ the antecedent, $R_e$ the transition relation, $d_e$ the debt, and $\\sigma_e\\in\\{I,C,N,E\\}$ the proof status. This bookkeeping is designed to prevent a possibility edge from later being accidentally promoted into a theorem edge.",
+    "defining_relation": "e = (X, Y, \\mathcal A_e, R_e, d_e, \\sigma_e)",
+    "notes": "Compare with $\\mathfrak E^{C6}$ (section 46), a parallel six-component \"True ETN\" edge-state record (source state, antecedent, target relation, proof status, debt, kill gates) serving a similar bookkeeping role within the broader True ETN framework."
+  },
+  {
+    "key": "ns.c6.c6a.true_etn_edge_state",
+    "latex": "\\mathfrak E^{C6}",
+    "label_zh": "True ETN 邊狀態（C6 版本）",
+    "label_en": "True ETN C6 edge state",
+    "definition_zh": "第46節將 True ETN（無限維張力場）框架更新為 C6 版本的邊狀態記法：$\\mathfrak E^{C6}=(\\text{source state},\\text{antecedent},\\text{target relation},\\text{proof status},\\text{debt},\\text{kill gates})$，是本輪 typed edge 概念（$X,Y,\\mathcal A_e,R_e,d_e,\\sigma_e$ 等）與更早期跨輪 True ETN 基礎設施的整合介面。",
+    "definition_en": "Section 46 updates the True ETN (infinite-dimensional tension field) framework's edge-state notation for C6: $\\mathfrak E^{C6}=(\\text{source state},\\text{antecedent},\\text{target relation},\\text{proof status},\\text{debt},\\text{kill gates})$. It is the integration point between this round's typed-edge concepts ($X,Y,\\mathcal A_e,R_e,d_e,\\sigma_e$, etc.) and the earlier cross-round True ETN infrastructure.",
+    "defining_relation": "\\mathfrak E^{C6} = (\\text{source state}, \\text{antecedent}, \\text{target relation}, \\text{proof status}, \\text{debt}, \\text{kill gates})",
+    "notes": "Parallels but is not identical to the section 43 edge ledger tuple $e=(X,Y,\\mathcal A_e,R_e,d_e,\\sigma_e)$; this is the True-ETN-facing formalization."
+  },
+  {
+    "key": "ns.c6.c6a.true_etn_cycle_state",
+    "latex": "\\mathfrak C^{C6}",
+    "label_zh": "True ETN 循環狀態（C6 版本）",
+    "label_en": "True ETN C6 cycle state",
+    "definition_zh": "第46節定義的循環狀態記法：$\\mathfrak C^{C6}=(e_1,\\ldots,e_m,\\text{fiber compatibility},\\text{recurrence map},D(C),\\text{budget coercivity})$，將一條循環的所有邊、fiber compatibility、recurrence map、總債務 $D(C)$ 與 budget coercivity 打包成單一 True ETN 記錄。",
+    "definition_en": "The cycle-state notation section 46 defines: $\\mathfrak C^{C6}=(e_1,\\ldots,e_m,\\text{fiber compatibility},\\text{recurrence map},D(C),\\text{budget coercivity})$, packaging a cycle's edges together with its fiber compatibility, recurrence map, total debt $D(C)$, and budget coercivity into a single True ETN record.",
+    "defining_relation": "\\mathfrak C^{C6} = (e_1,\\ldots,e_m, \\text{fiber compatibility}, \\text{recurrence map}, D(C), \\text{budget coercivity})",
+    "notes": "Distinct from $\\mathfrak C(e_1,\\ldots,e_m)$ (section 11), which is specifically the fiber-product SET itself; $\\mathfrak C^{C6}$ is the broader True-ETN record that includes that fiber compatibility as one component alongside $D(C)$ and budget coercivity. Same fraktur C letter — high risk of confusion between the two."
+  }
+]

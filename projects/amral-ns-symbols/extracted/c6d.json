@@ -1,0 +1,196 @@
+[
+  {
+    "key": "ns.c6.c6d.tau_e",
+    "latex": "\\tau_e \\in \\{S, D, E\\}",
+    "label_zh": "邊時間語義標籤",
+    "label_en": "edge time-semantics tag",
+    "definition_zh": "C6-D 為每條圖邊新增的第二個獨立標籤,區分靜態同事件關係(S)、動態時間演化(D)、與終止於正則性定理的外部終止邊(E)。",
+    "definition_en": "A second independent tag C6-D assigns to every graph edge, distinguishing a static same-event relation (S), a dynamic transition to a later generation (D), and an external kill ending in a regularity-theorem sink (E)."
+  },
+  {
+    "key": "ns.c6.c6d.c_gp",
+    "latex": "\\mathcal C_{GP} \\subset \\mathcal K_G \\times \\mathcal K_P",
+    "label_zh": "同事件幾何-壓力相容關係",
+    "label_en": "same-event geometry-pressure compatibility relation",
+    "definition_zh": "定義於緊化幾何狀態空間 K_G 與壓力狀態空間 K_P 乘積上的子集,收集在同一事件 (t,x,R) 成立的幾何-壓力組合,精煉為 G→P 與 P→G 兩靜態關係的交集。",
+    "definition_en": "A subset of the product of the compactified geometry state space K_G and pressure state space K_P, collecting geometry-pressure pairs compatible at one shared event (t,x,R); refined as the intersection of the static relations R_{G→P} and R_{P→G}.",
+    "defining_relation": "\\mathcal C_{GP} = R_{G\\to P}\\cap R_{P\\to G} \\subset \\mathcal K_G\\times\\mathcal K_P",
+    "notes": "第 31 節在完整聯合狀態 Θ_GP 層級進一步定義精煉版 K_GP^comp。"
+  },
+  {
+    "key": "ns.c6.c6d.phi_gp",
+    "latex": "\\Phi_{GP}: \\mathcal C_{GP,n} \\dashrightarrow \\mathcal C_{GP,n+1}",
+    "label_zh": "聯合狀態動態回歸映射",
+    "label_en": "joint-state dynamic return map",
+    "definition_zh": "真正週期性動力循環所需的額外映射,把第 n 代的同事件相容纖維送往第 n+1 代;C5-D/F 從未證明其存在,是本輪拒絕粗略 G↔P 循環的核心理由。",
+    "definition_en": "The additional map a genuine recurrent dynamical cycle requires, sending generation n's compatibility fiber to generation n+1's; C5-D/F never established its existence, the core reason C6-D rejects the coarse G↔P cycle.",
+    "notes": "第 32 節在聯合狀態層級將其重新表述為 Θ_{GP,n} 到 Θ_{GP,n+1} 的映射。"
+  },
+  {
+    "key": "ns.c6.c6d.q_tensor",
+    "latex": "Q = S^2 + \\frac14\\omega\\otimes\\omega - \\frac14|\\omega|^2I",
+    "label_zh": "局部二次張量",
+    "label_en": "local quadratic tensor",
+    "definition_zh": "由應變平方與渦度二次項組成的對稱張量,是應變演化方程中驅動幾何的二次強迫項,也是 A_χ^Q、B_χ^Q 的基礎。",
+    "definition_en": "A symmetric tensor built from the strain-square and vorticity-quadratic terms; it is the quadratic forcing term driving geometry in the strain-evolution equation, and the basis for A_χ^Q and B_χ^Q."
+  },
+  {
+    "key": "ns.c6.c6d.a_chi_q",
+    "latex": "A_\\chi^Q = \\int \\chi|Q|\\,dx",
+    "label_zh": "二次絕對強度",
+    "label_en": "quadratic absolute intensity",
+    "definition_zh": "核心截止函數 χ 下對 |Q| 的加權積分,量化局部二次強迫的總體大小,是本輪各不等式的標準右側尺度。",
+    "definition_en": "The cutoff-weighted integral of |Q| over the selected core, quantifying the overall size of the local quadratic forcing; it is the standard right-hand-side scale in the round's inequalities."
+  },
+  {
+    "key": "ns.c6.c6d.b_chi_q",
+    "latex": "B_\\chi^Q = \\int \\chi Q\\,dx",
+    "label_zh": "二次平均",
+    "label_en": "quadratic mean",
+    "definition_zh": "核心內 Q 的加權平均(未取絕對值),用於定義伴隨平均應變演化 M_χ'。",
+    "definition_en": "The cutoff-weighted mean of Q over the core (without absolute value), used to define the adjoint mean-strain evolution M_χ'."
+  },
+  {
+    "key": "ns.c6.c6d.m_chi_prime",
+    "latex": "M_\\chi' = -B_\\chi^Q - P_\\chi",
+    "label_zh": "伴隨平均應變演化",
+    "label_en": "adjoint mean-strain evolution",
+    "definition_zh": "核心平均應變狀態的演化率,等於負二次平均與負壓力 Hessian 平均之和;第 7 節平均穩定性閘門假設其大小被 ε A_χ^Q 控制。",
+    "definition_en": "The evolution rate of the core-averaged strain state, equal to minus the quadratic mean minus the pressure-Hessian mean; the Section 7 mean-stability gate assumes its size is controlled by ε A_χ^Q.",
+    "defining_relation": "|M_\\chi'| \\le \\epsilon A_\\chi^Q, \\quad 0\\le\\epsilon<\\gamma_K"
+  },
+  {
+    "key": "ns.c6.c6d.p_chi",
+    "latex": "P_\\chi = \\int \\chi\\nabla^2p\\,dx",
+    "label_zh": "總局部化壓力 Hessian 平均",
+    "label_en": "total localized pressure-Hessian mean",
+    "definition_zh": "核心內壓力 Hessian 的加權積分,是強中間幾何直接產生的壓力量;第 8 節強調它僅是「總壓力」,不預設遠場主導、共同調和矩陣或特定符號等更強性質。",
+    "definition_en": "The cutoff-weighted integral of the pressure Hessian over the core — the pressure quantity strong-middle geometry directly produces; Section 8 stresses it is only the \"total\" pressure, not implying far-field dominance, a common harmonic matrix, or a specific signature.",
+    "notes": "在第 8、47、58 節及 no-go 清單中亦記作 P_{\\rm total}。"
+  },
+  {
+    "key": "ns.c6.c6d.r_p",
+    "latex": "R_P = -\\widehat H_K:P_\\chi",
+    "label_zh": "總定向壓力響應",
+    "label_en": "total oriented pressure response",
+    "definition_zh": "壓力 Hessian 平均沿標準化強中間軸 Ĥ_K 方向的負向投影,量化壓力對抗二次平均強迫的程度。",
+    "definition_en": "The negative projection of the pressure-Hessian mean onto the normalized strong-middle direction Ĥ_K, quantifying how strongly pressure opposes the quadratic mean forcing.",
+    "defining_relation": "R_P \\ge r_P A_\\chi^Q, \\quad r_P:=\\gamma_K-\\epsilon>0"
+  },
+  {
+    "key": "ns.c6.c6d.pressure_provenance_split",
+    "latex": "P_\\chi = P_\\chi^{loc} + P_\\chi^{far}",
+    "label_zh": "壓力來源分裂引理(C6-D.2)",
+    "label_en": "Pressure-Provenance Split Lemma (C6-D.2)",
+    "definition_zh": "依 Bradshaw–Tsai 局部壓力展開,將總定向響應拆成局部項 a_loc 與遠場項 a_far,證明兩者之和等於 R_P,故循環必須選擇一個壓力來源分支(局部或遠場)。",
+    "definition_en": "Using the Bradshaw–Tsai local pressure expansion, the total oriented response splits into a local part a_loc and a far part a_far summing to R_P, forcing any candidate cycle to choose a pressure-provenance branch (local or far).",
+    "defining_relation": "a_{\\rm loc}+a_{\\rm far}=R_P\\ge r_PA_\\chi^Q \\ \\Rightarrow\\ a_{\\rm loc}\\ge\\tfrac12r_PA_\\chi^Q \\text{ or } a_{\\rm far}\\ge\\tfrac12r_PA_\\chi^Q",
+    "notes": "a_loc := -Ĥ_K:P_χ^loc,a_far := -Ĥ_K:P_χ^far。"
+  },
+  {
+    "key": "ns.c6.c6d.f_chi",
+    "latex": "F_\\chi = \\frac{1}{m_\\chi}P_\\chi^{far}",
+    "label_zh": "加權遠場壓力矩陣",
+    "label_en": "weighted far-pressure matrix",
+    "definition_zh": "遠場壓力 Hessian 平均除以核心測度 m_χ=∫χdx 所得的矩陣;因 p_far 在核心內調和,F_χ 屬無跡對稱矩陣空間 Sym_0(3),是後續符號分類與軸向鎖定分析的核心對象。",
+    "definition_en": "The far-pressure Hessian mean divided by the core measure m_χ = ∫χdx; because p_far is harmonic inside the core, F_χ lies in the trace-free symmetric space Sym_0(3), and is the central object for the signature and axis-locking analysis that follow.",
+    "defining_relation": "-e_1^TF_\\chi e_1 \\ge \\frac{|H_K|}{2m_\\chi}r_PA_\\chi^Q"
+  },
+  {
+    "key": "ns.c6.c6d.f_hat",
+    "latex": "\\widehat F = F_\\chi/|F_\\chi|_F \\in S^4\\cap\\operatorname{Sym}_0(3)",
+    "label_zh": "標準化遠場壓力矩陣",
+    "label_en": "normalized far-pressure matrix",
+    "definition_zh": "F_χ 除以其 Frobenius 範數所得的單位無跡對稱矩陣,用來定義軸向響應邊界 μ_axis,並作為第 27 節遠場矩陣繼承性比較的基準。",
+    "definition_en": "F_χ divided by its Frobenius norm, a unit trace-free symmetric matrix; it defines the axis response margin μ_axis and serves as the reference for the far-matrix heredity comparison in Section 27."
+  },
+  {
+    "key": "ns.c6.c6d.mu_axis",
+    "latex": "\\mu_{\\rm axis} = -e_1^T\\widehat F e_1 \\in[-1,1]",
+    "label_zh": "軸向響應邊界",
+    "label_en": "axis response margin",
+    "definition_zh": "標準化遠場矩陣沿當前壓縮軸 e_1 的負向二次型值,衡量遠場壓力鎖定該軸的強度;遠場分支成立時 μ_axis>0,其趨近 0 是循環逃逸單負號軸鎖定不相容的邊界之一(GP-B6)。",
+    "definition_en": "The negative quadratic form of the normalized far matrix along the current compressive axis e_1, measuring how strongly far pressure locks that axis; the far branch gives μ_axis > 0, and its approach to 0 is one way (boundary GP-B6) a recurrence candidate escapes the one-negative axis-lock incompatibility."
+  },
+  {
+    "key": "ns.c6.c6d.signature_classification",
+    "latex": "(-,+,+) \\text{ [one-negative]}, \\qquad (-,-,+) \\text{ [two-negative]}",
+    "label_zh": "遠場壓力矩陣符號分類",
+    "label_en": "far-pressure matrix signature classification",
+    "definition_zh": "非零無跡對稱矩陣 F 的非退化符號分兩類:單負號 (-,+,+) 可鎖定單一投影錐;雙負號 (-,-,+) 只給出負向平面/帶狀幾何,不鎖定單軸;det F=0 是兩者間的符號邊界。",
+    "definition_en": "The nondegenerate signatures of a nonzero trace-free symmetric F split into two classes: one-negative (-,+,+) can lock a single projective cap, while two-negative (-,-,+) gives only a negative belt/plane geometry without locking one axis; det F=0 is the boundary between them.",
+    "defining_relation": "\\det F<0 \\Leftrightarrow (-,+,+); \\qquad \\det F>0 \\Leftrightarrow (-,-,+); \\qquad \\det F=0 \\text{ boundary}",
+    "notes": "亦記作 sig F;det F=0 對應 C5-G 的 Pressure Signature-Gap Defect。"
+  },
+  {
+    "key": "ns.c6.c6d.theta_gp",
+    "latex": "\\Theta_{GP} = \\left\\langle K,\\vartheta,[e_1],A_\\chi^Q,\\epsilon_{\\rm mean},P_\\chi^{loc},P_\\chi^{far},\\phi_{\\rm far},\\Gamma_P^{prov},\\widehat F,\\operatorname{sig}F,\\mu_{\\rm axis}\\right\\rangle",
+    "label_zh": "幾何-壓力聯合狀態",
+    "label_en": "joint geometry-pressure state",
+    "definition_zh": "取代舊有兩節點靜態循環的正確 C6 狀態,將強中間幾何、二次強迫強度、平均旋轉、局部/遠場壓力、來源分數、來源相干度、標準化遠場矩陣、符號與軸向邊界等座標打包成單一聯合事件描述。",
+    "definition_en": "The correct C6 state replacing the old two-node static loop; it packages the strong-middle geometry, quadratic-forcing intensity, mean rotation, local/far pressure, far capture fraction, provenance coherence, normalized far matrix, signature, and axis margin into one joint-event description.",
+    "notes": "第 56 節以 Θ_GP^{C6D} 給出同一物件的文字化版本。"
+  },
+  {
+    "key": "ns.c6.c6d.gamma_p_prov",
+    "latex": "\\Gamma_P^{prov} = \\frac{R_P}{C_P} \\in(0,1]",
+    "label_zh": "壓力來源相干度",
+    "label_en": "pressure provenance coherence",
+    "definition_zh": "總定向響應 R_P 與絕對定向壓力容量 C_P 之比,揭露局部與遠場貢獻是否大幅互相抵消;比值趨近 0 代表來源抵消邊界(GP-B4)。",
+    "definition_en": "The ratio of the total oriented response R_P to the absolute oriented pressure capacity C_P, exposing whether local and far contributions substantially cancel each other; the ratio approaching 0 marks the provenance-cancellation boundary (GP-B4).",
+    "defining_relation": "C_P = |\\widehat H:P_\\chi^{loc}| + |\\widehat H:P_\\chi^{far}|"
+  },
+  {
+    "key": "ns.c6.c6d.phi_far",
+    "latex": "\\phi_{\\rm far} = \\frac{a_{\\rm far}^{+}}{a_{\\rm loc}^{+}+a_{\\rm far}^{+}} \\in[0,1]",
+    "label_zh": "遠場捕獲分數",
+    "label_en": "far capture fraction",
+    "definition_zh": "遠場正定向壓力貢獻佔局部與遠場正貢獻總和的比例;φ_far≈1 代表遠場主導,φ_far≈0 代表局部壓力接管(GP-B3),遠場回歸測試要求此值非退化。",
+    "definition_en": "The share of positive far-pressure oriented contribution within the sum of positive local and far contributions; φ_far ≈ 1 means far-dominated compensation, φ_far ≈ 0 means local-pressure takeover (GP-B3), and a far-pressure return test requires this to stay nondegenerate.",
+    "defining_relation": "a_{\\rm loc}^{+}=[-\\widehat H:P_\\chi^{loc}]_+, \\quad a_{\\rm far}^{+}=[-\\widehat H:P_\\chi^{far}]_+"
+  },
+  {
+    "key": "ns.c6.c6d.rho_g_her",
+    "latex": "\\rho_G^{her} = \\left[1-\\frac{d_e(n,n+1)}{d_0}\\right]_+ \\cdot \\frac{\\min(\\vartheta_n,\\vartheta_{n+1})}{\\delta_0+\\min(\\vartheta_n,\\vartheta_{n+1})}",
+    "label_zh": "幾何繼承性儲備",
+    "label_en": "normalized geometry persistence reserve",
+    "definition_zh": "結合投影軸距離 d_e(n,n+1) 與相鄰兩代最小中間間隙,量化壓縮軸方向與強中間幾何在世代間保持的程度;僅為 metadata,並非已證定理量。",
+    "definition_en": "Combines the projective axis distance d_e(n,n+1) with the minimum middle gap of two adjacent generations to quantify how well the compressive axis and strong-middle geometry persist across generations; it is metadata, not a proven theorem quantity.",
+    "defining_relation": "d_e(n,n+1) = \\|e_n\\otimes e_n - e_{n+1}\\otimes e_{n+1}\\|_F"
+  },
+  {
+    "key": "ns.c6.c6d.rho_f_her",
+    "latex": "\\rho_F^{her} = \\left[1-\\frac{d_F(n,n+1)}{d_{F,0}}\\right]_+",
+    "label_zh": "遠場壓力繼承性儲備",
+    "label_en": "far-pressure heredity reserve",
+    "definition_zh": "由標準化遠場矩陣的世代間距離 d_F(n,n+1) 定義的正規化儲備量,量化遠場壓力矩陣結構跨世代保持的程度。",
+    "definition_en": "Defined from the generation-to-generation distance d_F(n,n+1) between normalized far matrices, quantifying how well the far-pressure matrix structure persists across generations.",
+    "defining_relation": "d_F(n,n+1) = \\|\\widehat F_n - \\widehat F_{n+1}\\|_F"
+  },
+  {
+    "key": "ns.c6.c6d.r_gp_vector",
+    "latex": "\\mathbf R^{GP} = \\left(\\rho_{\\rm geom},\\rho_{\\rm mean},\\rho_{\\rm far},\\rho_{\\rm prov},\\rho_{\\rm sig},\\rho_{\\rm axis},\\rho_{F}^{her},\\rho_G^{her}\\right)",
+    "label_zh": "幾何-壓力回歸儲備向量",
+    "label_en": "geometry-pressure recurrence reserve vector",
+    "definition_zh": "彙集八個儲備座標(幾何、平均旋轉耗盡、遠場捕獲、來源相干、符號邊界距離、軸向邊界、遠場矩陣繼承、幾何繼承)的向量;C6-D.7 有限儲備瓶頸定理證明沿任何候選回歸序列的子序列,此向量若非全體一致有下界,就必有至少一分量趨近 0。",
+    "definition_en": "A vector collecting eight reserve coordinates (geometry, mean-rotation depletion, far capture, provenance coherence, distance from the signature boundary, axis margin, far-matrix heredity, geometry heredity); the C6-D.7 Finite Recurrence Bottleneck Theorem proves a subsequence either keeps it uniformly bounded below or has at least one coordinate tend to 0.",
+    "notes": "對應第 56 節的循環邊界字母表 ∂K_GP = {GAP, MEAN, LOCAL, PROV, SIG, AXIS, F-HER, G-HER, REG}。"
+  },
+  {
+    "key": "ns.c6.c6d.gp_1neg_strong",
+    "latex": "GP_{1-}^{strong}",
+    "label_zh": "強單負號聯合分支",
+    "label_en": "strong one-negative joint branch",
+    "definition_zh": "遠場定向補償、符號為 (-,+,+)、軸向邊界與中間間隙皆非退化、且逐點強中間幾何成立的聯合子型;同事件中壓縮軸被鎖定且 Q 零重心被排除,是剛性聯合狀態,但僅為候選回歸狀態而非已證循環。",
+    "definition_en": "The joint subtype with far-oriented compensation, signature (-,+,+), nondegenerate axis margin and middle gap, and pointwise strong-middle geometry; at the same event the compressive axis is locked and Q zero-barycenter is excluded, a rigid joint state but only a candidate recurrent state, not a certified cycle.",
+    "notes": "對比分支 GP_{2-}(符號 (-,-,+))避開單軸鎖定不相容,但同樣未證回歸定理。"
+  },
+  {
+    "key": "ns.c6.c6d.gp_2neg",
+    "latex": "GP_{2-}",
+    "label_zh": "雙負號聯合分支",
+    "label_en": "two-negative joint branch",
+    "definition_zh": "遠場符號為 (-,-,+) 的聯合分支,允許更寬的壓縮軸支撐,因而避開單軸鎖定不相容;但避開不相容不等於產生回歸幾何,GP_{2-,n}→GP_{2-,n+1} 仍未被證明。",
+    "definition_en": "The joint branch with far signature (-,-,+), permitting wider compressive-axis support and thus avoiding the one-negative axis-lock obstruction; but avoiding an incompatibility is not the same as generating the return geometry, and GP_{2-,n} → GP_{2-,n+1} remains unproved."
+  }
+]

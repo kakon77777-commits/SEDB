@@ -1,0 +1,290 @@
+[
+  {
+    "key": "ns.c5.c5l.a_k",
+    "latex": "A_k(t)",
+    "label_zh": "高階振幅",
+    "label_en": "derivative amplitude",
+    "definition_zh": "速度場第 k 階空間導數在時刻 t 的 L^∞ 振幅，於 §2 引入。",
+    "definition_en": "The L^∞ amplitude of the k-th spatial derivative of the velocity at time t, introduced in §2.",
+    "defining_relation": "A_k(t)=\\|D^ku(t)\\|_\\infty",
+    "notes": "Carries over from C5-I/K and Grujić–Xu; logarithmic turnover of this quantity is the PDE object compressed in C5-L.4."
+  },
+  {
+    "key": "ns.c5.c5l.tau_k",
+    "latex": "\\tau_k(t)",
+    "label_zh": "鏈時鐘",
+    "label_en": "chain clock",
+    "definition_zh": "附著於定理對 (k,t) 的鏈時鐘時間尺度，於 §2 定義為 \\widetilde{\\mathcal C}_k A_k(t)^{2/(k+1)} 之倒數。",
+    "definition_en": "The chain-clock time scale attached to the theorem pair (k,t), defined in §2 as the reciprocal of \\widetilde{\\mathcal C}_k A_k(t)^{2/(k+1)}.",
+    "defining_relation": "\\tau_k(t)=\\frac{1}{\\widetilde{\\mathcal C}_k A_k(t)^{2/(k+1)}}",
+    "notes": "Published Grujić–Xu Theorem 3.14 clock, already audited as order-dependent in C5-K; C5-L compresses mismatches of these clocks into order-space total variation."
+  },
+  {
+    "key": "ns.c5.c5l.i_k",
+    "latex": "I_k(t)",
+    "label_zh": "定理視窗",
+    "label_en": "theorem window",
+    "definition_zh": "定理對 (k,t) 的 Grujić–Xu 可容許時間區間 [t+\\tau_k/4,t+\\tau_k]，於 §2 定義。",
+    "definition_en": "The Grujić–Xu admissible time interval [t+\\tau_k/4, t+\\tau_k] for the pair (k,t), defined in §2.",
+    "defining_relation": "I_k(t)=[t+\\tau_k/4,\\,t+\\tau_k]",
+    "notes": "Existential quantifier of Theorem 3.14; C5-L treats failure as persistent over the whole window rather than as a timing mismatch."
+  },
+  {
+    "key": "ns.c5.c5l.w_k",
+    "latex": "\\mathsf W_k(t)",
+    "label_zh": "視窗失敗指示",
+    "label_en": "window-failure indicator",
+    "definition_zh": "視窗成敗指示量，\\mathsf W_k(t)=0 表示 I_k(t) 內無一刻滿足定理所需的一維符號稀疏性，於 §2 引入。",
+    "definition_en": "The window-success indicator, with \\mathsf W_k(t)=0 meaning no instant in I_k(t) meets the theorem-required 1D sign sparseness, introduced in §2.",
+    "notes": "The C5-K Window-Persistent Sign Defect, rewritten in this round as a carrier-free descent/load debt (L-WINDOW, as opposed to L-SETUP)."
+  },
+  {
+    "key": "ns.c5.c5l.bad_carrier_set",
+    "latex": "\\mathcal B_k(s)",
+    "label_zh": "壞載體集",
+    "label_en": "bad-carrier set",
+    "definition_zh": "時刻 s 上所選分量/符號對所有可許容直線與尺度測試皆失敗的空間點集，於 §3 定義。",
+    "definition_en": "The set of points at time s where the selected component/sign fails every admissible line/scale test, defined in §3.",
+    "notes": "No continuous selection s\\mapsto x_k(s) is assumed; C5-L.1 quotients the carrier identity out of the amplitude-chain descent strip."
+  },
+  {
+    "key": "ns.c5.c5l.r_k",
+    "latex": "r_k(s)",
+    "label_zh": "鏈尺度",
+    "label_en": "chain scale",
+    "definition_zh": "由當下振幅決定的瞬時鏈空間尺度，於 §4 定義。",
+    "definition_en": "The instantaneous chain spatial scale determined by the current amplitude, defined in §4.",
+    "defining_relation": "r_k(s)=\\frac{1}{2\\widetilde{\\mathcal C}_k A_k(s)^{1/(k+1)}}"
+  },
+  {
+    "key": "ns.c5.c5l.kappa_lambda_delta",
+    "latex": "\\kappa_{\\lambda,\\delta}",
+    "label_zh": "下降係數",
+    "label_en": "descent coefficient",
+    "definition_zh": "調和閾值 \\delta 處均勻嚴格正的振幅下降係數，於 §4 定義並於 §10 證明臨界飽和時仍不消失。",
+    "definition_en": "The uniformly strictly positive amplitude-descent coefficient at the harmonic threshold \\delta, defined in §4 and shown in §10 to remain nonvanishing under critical saturation.",
+    "defining_relation": "\\kappa_{\\lambda,\\delta}=(1+\\lambda)\\delta-1>0",
+    "notes": "Inherited from the C5-I sign-descent lemmas; C5-L.3 uses positivity of this constant to rule out harmonic-temporal critical saturation as a zero-cost boundary."
+  },
+  {
+    "key": "ns.c5.c5l.l_k",
+    "latex": "L_k(s)",
+    "label_zh": "導數L2負荷",
+    "label_en": "L2 derivative load",
+    "definition_zh": "第 k 階導數的全域 L^2 範數，於 §6 由壞核局部 L^2 下界推出並於 §7 積成載體無關的視窗負荷帶。",
+    "definition_en": "The global L^2 norm of the k-th derivative, introduced in §6 from the bad-core local L^2 lower bound and integrated in §7 into a carrier-independent window-load strip.",
+    "defining_relation": "L_k(s)^2=\\|D^ku(s)\\|_2^2\\ge c_{\\lambda,\\delta}A_k(s)^2 r_k(s)^3"
+  },
+  {
+    "key": "ns.c5.c5l.mu_k_r",
+    "latex": "\\mu_k^{R}",
+    "label_zh": "根負荷測度",
+    "label_en": "root-load measure",
+    "definition_zh": "定理視窗 I_k(t) 上以歸一根量為密度的正測度 \\mathcal R(k,c,s)\\,ds，於 §8 定義。",
+    "definition_en": "The positive measure \\mathcal R(k,c,s)\\,ds on the theorem window I_k(t), defined in §8.",
+    "defining_relation": "d\\mu_k^{R}(s)=\\mathcal R(k,c,s)\\,ds",
+    "notes": "Window-persistent failure upgrades C5-I pointwise descent to the measure domination \\mu_{k-1}^{R}\\ge d_k(c)\\mu_k^{R}, which survives carrier relay and weak time limits (G-WROOTMEAS)."
+  },
+  {
+    "key": "ns.c5.c5l.cal_r_k",
+    "latex": "\\mathcal R_k(s)",
+    "label_zh": "歸一根量",
+    "label_en": "normalized root",
+    "definition_zh": "第 k 階導數振幅經截面常數 c 與階乘正規化後的根量，於 §8 引入並於 §12 寫成對數形式。",
+    "definition_en": "The section-and-factorial normalized root of the k-th derivative amplitude, introduced in §8 and rewritten in logarithmic form in §12.",
+    "defining_relation": "\\log\\mathcal R_k(s)=\\frac{1}{k+1}\\log A_k(s)+\\mathrm{const}",
+    "notes": "C5 chain root; because c and k! are time-independent, within-window log-root variation is exactly a multiple of log-amplitude variation."
+  },
+  {
+    "key": "ns.c5.c5l.d_k",
+    "latex": "d_k(c)",
+    "label_zh": "根下降因子",
+    "label_en": "root-descent factor",
+    "definition_zh": "迫使失敗視窗內相鄰階根量逐點（因而作為測度）下降的正因子，於 §8 引入。",
+    "definition_en": "The positive factor forcing adjacent-order roots to descend pointwise, hence as measures, throughout a failing window, introduced in §8.",
+    "defining_relation": "\\mu_{k-1}^{R}\\ge d_k(c)\\,\\mu_k^{R}"
+  },
+  {
+    "key": "ns.c5.c5l.beta_k_win",
+    "latex": "\\beta_k^{win}(t)",
+    "label_zh": "視窗調和佔有",
+    "label_en": "window harmonic occupancy",
+    "definition_zh": "調和佔有量 \\beta_k 在定理視窗 I_k(t) 上的下確界，於 §9 定義。",
+    "definition_en": "The infimum of the harmonic occupancy \\beta_k over the theorem window I_k(t), defined in §9.",
+    "defining_relation": "\\beta_k^{win}(t)=\\inf_{s\\in I_k(t)}\\beta_k(s)",
+    "notes": "C5-J harmonic occupancy restricted to the theorem window; the regime \\beta_k^{win}\\downarrow\\delta is Harmonic-Temporal Critical Saturation, shown in C5-L.3 not to kill the descent coefficient."
+  },
+  {
+    "key": "ns.c5.c5l.turnover_factor",
+    "latex": "\\mathfrak T_k^{win}",
+    "label_zh": "根翻轉因子",
+    "label_en": "root-turnover factor",
+    "definition_zh": "定理視窗內歸一根量的上確界對下確界之比，於 §13 定義，其對數由 \\operatorname{Var}_{I_k}\\log\\mathcal R_k 控制。",
+    "definition_en": "The ratio of sup to inf of the normalized root over the theorem window, defined in §13, with logarithm controlled by \\operatorname{Var}_{I_k}\\log\\mathcal R_k.",
+    "defining_relation": "\\mathfrak T_k^{win}=\\frac{\\sup_{s\\in I_k(t)}\\mathcal R_k(s)}{\\inf_{s\\in I_k(t)}\\mathcal R_k(s)}\\ge 1",
+    "notes": "Generic within-window root turnover is removed as an independent survivor motif once C5-L.4 routes it into viscous or projected-nonlinear tolls."
+  },
+  {
+    "key": "ns.c5.c5l.n_k_proj",
+    "latex": "\\mathcal N_k^{proj}(s)",
+    "label_zh": "投影非線性源",
+    "label_en": "projected nonlinear source",
+    "definition_zh": "Leray 投影非線性項第 k 階空間導數的真實 L^∞ 範數，於 §15 定義，不作 Calderón–Zygmund 替換。",
+    "definition_en": "The genuine L^∞ norm of the k-th spatial derivative of the Leray-projected nonlinearity, defined in §15 and not replaced by a Calderón–Zygmund bound.",
+    "defining_relation": "\\mathcal N_k^{proj}(s)=\\bigl\\|D^k\\mathbb P\\bigl((u\\cdot\\nabla)u\\bigr)(s)\\bigr\\|_\\infty",
+    "notes": "Guard G-PROJNL: keep the actual projected source; C5-L does not claim Grujić–Xu Theorem 3.8 automatically bounds this instantaneous quantity."
+  },
+  {
+    "key": "ns.c5.c5l.v_k_visc",
+    "latex": "\\mathfrak V_k^{visc}(I)",
+    "label_zh": "黏性翻轉通行費",
+    "label_en": "viscous turnover toll",
+    "definition_zh": "在區間 I 上積分 A_{k+2}/A_k 所得的黏性兩階翻轉通行費，於 §17 定義。",
+    "definition_en": "The viscous two-order turnover toll obtained by integrating A_{k+2}/A_k over an interval I, defined in §17.",
+    "defining_relation": "\\mathfrak V_k^{visc}(I)=\\frac{C_\\Delta\\nu}{k+1}\\int_I\\frac{A_{k+2}(s)}{A_k(s)}\\,ds",
+    "notes": "Unboundedness of this toll is the L-VISC alternative D^{k+2}u viscous-order congestion in C5-L.4/L.5."
+  },
+  {
+    "key": "ns.c5.c5l.v_k_nl",
+    "latex": "\\mathfrak V_k^{NL}(I)",
+    "label_zh": "非線性翻轉通行費",
+    "label_en": "nonlinear turnover toll",
+    "definition_zh": "在區間 I 上積分 \\mathcal N_k^{proj}/A_k 所得的投影非線性翻轉通行費，於 §17 定義。",
+    "definition_en": "The projected-nonlinear turnover toll obtained by integrating \\mathcal N_k^{proj}/A_k over an interval I, defined in §17.",
+    "defining_relation": "\\mathfrak V_k^{NL}(I)=\\frac{1}{k+1}\\int_I\\frac{\\mathcal N_k^{proj}(s)}{A_k(s)}\\,ds",
+    "notes": "The L-NL alternative of C5-L.4/L.5; together with \\mathfrak V_k^{visc} it exhausts within-window root turnover."
+  },
+  {
+    "key": "ns.c5.c5l.root_turnover_pde_compression",
+    "latex": "\\operatorname{Var}_I\\log\\mathcal R_k\\le\\mathfrak V_k^{visc}(I)+\\mathfrak V_k^{NL}(I)",
+    "label_zh": "根翻轉PDE壓縮",
+    "label_en": "Root-Turnover PDE Compression",
+    "definition_zh": "C5-L.4 根翻轉 PDE 壓縮定理：任意活躍預奇異區間上對數根的全變差由黏性與投影非線性通行費之和控制，於 §18 陳述。",
+    "definition_en": "C5-L.4 Root-Turnover PDE Compression Theorem: on any active pre-singular interval the total variation of the log-root is bounded by the sum of the viscous and projected-nonlinear tolls, stated in §18.",
+    "defining_relation": "\\operatorname{Var}_I\\log\\mathcal R_k\\le\\mathfrak V_k^{visc}(I)+\\mathfrak V_k^{NL}(I)"
+  },
+  {
+    "key": "ns.c5.c5l.y_root",
+    "latex": "y_n(\\theta)",
+    "label_zh": "中心化根路徑",
+    "label_en": "centered root path",
+    "definition_zh": "將定理區間正規化到 [0,1] 後、以視窗起點為原點的對數根路徑，於 §20 定義，在有界通行費下 BV 緊緻。",
+    "definition_en": "The log-root path on a theorem interval time-normalized to [0,1] and centered at the window start, defined in §20 and BV-compact under bounded turnover tolls.",
+    "notes": "C5-L.5 alternative L-RCOMP: bounded tolls yield BV-compact normalized root paths in L^1([0,1]); otherwise L-RFORCE forcing congestion."
+  },
+  {
+    "key": "ns.c5.c5l.c_k_clock",
+    "latex": "c_k^{clock}(t)",
+    "label_zh": "對數鏈時鐘",
+    "label_en": "logarithmic chain clock",
+    "definition_zh": "固定基底時刻 t 處鏈時鐘的對數，於 §23 定義，並於 §26 精確分解為定理正規化減兩倍對數根。",
+    "definition_en": "The logarithm of the chain clock at a fixed base time t, defined in §23 and decomposed in §26 as theorem normalization minus twice the log-root.",
+    "defining_relation": "c_k^{clock}=g_k^{th}-2\\log\\mathcal R_k",
+    "notes": "Exact clock/root decomposition of §26–§28: chain-clock separation is order-root variation plus theorem/factorial normalization drift, not an independent temporal coordinate."
+  },
+  {
+    "key": "ns.c5.c5l.v_clock",
+    "latex": "\\mathfrak V_{J,K}^{clock}(t)",
+    "label_zh": "時鐘全變差",
+    "label_en": "clock total variation",
+    "definition_zh": "導數區塊 [J,K] 上相鄰對數鏈時鐘增量絕對值之和，於 §23 定義為階空間變差預算。",
+    "definition_en": "The sum of absolute adjacent increments of the logarithmic chain clocks over the derivative block [J,K], defined in §23 as an order-space variation budget.",
+    "defining_relation": "\\mathfrak V_{J,K}^{clock}(t)=\\sum_{k=J}^{K-1}|\\log\\tau_{k+1}(t)-\\log\\tau_k(t)|",
+    "notes": "C5-K chain-clock separation compressed into a finite order-space variation; the threshold \\log 4 is the factor-4 common-time criterion of C5-K."
+  },
+  {
+    "key": "ns.c5.c5l.g_k_th",
+    "latex": "g_k^{th}",
+    "label_zh": "定理時鐘正規化",
+    "label_en": "theorem-clock normalization",
+    "definition_zh": "由定理常數 \\widetilde{\\mathcal C}_k、截面 c 與階乘 k! 組成的決定性時鐘漂移項，於 §26 定義。",
+    "definition_en": "The deterministic clock-drift term assembled from the theorem constants \\widetilde{\\mathcal C}_k, the section c, and the factorial k!, defined in §26.",
+    "defining_relation": "g_k^{th}=-\\log\\widetilde{\\mathcal C}_k-\\frac{2k}{k+1}\\log c-\\frac{2}{k+1}\\log(k!)",
+    "notes": "Guard G-CLOCKTH: theorem/factorial drift \\mathfrak V_{J,K}^{th}=\\sum|\\Delta g_k^{th}| must be separated from genuine root-order variation \\mathfrak V_{J,K}^{root}."
+  },
+  {
+    "key": "ns.c5.c5l.mu_clock",
+    "latex": "\\mu_{J,K}^{clock}",
+    "label_zh": "時鐘缺陷測度",
+    "label_en": "clock defect measure",
+    "definition_zh": "將時鐘全變差正規化為正規化階坐標 [0,1] 上的機率測度，於 §29 定義。",
+    "definition_en": "The probability measure on the normalized order coordinate [0,1] obtained by normalizing the clock total variation, defined in §29.",
+    "defining_relation": "\\mu_{J,K}^{clock}=\\frac{1}{\\mathfrak V_{J,K}^{clock}}\\sum_{k=J}^{K-1}|\\Delta c_k^{clock}|\\,\\delta_{\\theta_k}",
+    "notes": "C5-L.7: recurrent blocks yield subsequential compactness of (a^{clock},\\mu^{clock}) in [0,1]\\times\\mathcal P([0,1]), so clock separation is an order-space defect measure."
+  },
+  {
+    "key": "ns.c5.c5l.a_clock",
+    "latex": "a_{J,K}^{clock}",
+    "label_zh": "時鐘振幅緊化",
+    "label_en": "compactified clock amplitude",
+    "definition_zh": "將時鐘全變差映入 [0,1] 的緊化振幅，於 §29 定義，零變差時改用固定墓地測度。",
+    "definition_en": "The compactification of clock total variation into [0,1], defined in §29, with a fixed cemetery measure used when the variation vanishes.",
+    "defining_relation": "a_{J,K}^{clock}=\\frac{\\mathfrak V_{J,K}^{clock}}{1+\\mathfrak V_{J,K}^{clock}}\\in[0,1]"
+  },
+  {
+    "key": "ns.c5.c5l.n_sync",
+    "latex": "N_{sync}",
+    "label_zh": "同步簇數",
+    "label_en": "synchronized-cluster count",
+    "definition_zh": "將導數區塊貪婪切成時鐘極差不超過 \\log 4 的相鄰同步簇後所得的簇數，於 §31–§32 引入。",
+    "definition_en": "The number of greedy contiguous order clusters whose clock range stays at most \\log 4, introduced in §31–§32.",
+    "defining_relation": "N_{sync}\\le 1+\\frac{\\mathfrak V_{J,K}^{clock}}{\\log 4}",
+    "notes": "C5-L.8 Clock-Cluster Packing Lemma: each extra completed cluster consumes more than \\log 4 of clock variation, so bounded clock TV yields only finitely many same-time C5-I/J clusters."
+  },
+  {
+    "key": "ns.c5.c5l.theta_k_l",
+    "latex": "\\Theta_k^{L}(t)",
+    "label_zh": "統一視窗缺陷態",
+    "label_en": "unified window defect state",
+    "definition_zh": "彙集視窗調和佔有、根負荷測度、黏性/非線性通行費、根路徑與視窗指示量的 C5-L 合法定理對缺陷態，於 §45 定義。",
+    "definition_en": "The C5-L defect state of a legal theorem pair, assembling window harmonic occupancy, root-load measures, viscous/nonlinear tolls, the root path, and the window indicator, defined in §45.",
+    "defining_relation": "\\Theta_k^{L}(t)=\\bigl\\langle\\beta_k^{win},\\mu_{k-1}^{R},\\mu_k^{R},\\mathfrak V_k^{visc},\\mathfrak V_k^{NL},y_k^{root},\\mathsf W_k\\bigr\\rangle",
+    "notes": "For an order block one adjoins (a^{clock},\\mu^{clock},N_{sync}); this finite family of compact defect objects is the intended input to C5-M."
+  },
+  {
+    "key": "ns.c5.c5l.carrier_relay_quotient",
+    "latex": "A_{k-1}(s)\\ge\\frac{\\kappa_{\\lambda,\\delta}}{2\\widetilde{\\mathcal C}_k}A_k(s)^{k/(k+1)}",
+    "label_zh": "載體中繼商定理",
+    "label_en": "Carrier-Relay Quotient Theorem",
+    "definition_zh": "C5-L.1 載體中繼商定理：視窗內任意壞載體選取仍給出不含載體座標的同一振幅下降帶，於 §4 陳述。",
+    "definition_en": "C5-L.1 Carrier-Relay Quotient Theorem: an arbitrary choice of bad carrier throughout the window still yields the same carrier-free amplitude descent strip, stated in §4.",
+    "defining_relation": "A_{k-1}(s)\\ge\\frac{\\kappa_{\\lambda,\\delta}}{2\\widetilde{\\mathcal C}_k}A_k(s)^{k/(k+1)}\\qquad\\forall s\\in I_k(t)",
+    "notes": "Removes Carrier Relay as an independent high-order motif at the amplitude/load level (G-CARRIERQ); carrier motion remains relevant only for local pressure/ancestry geometry."
+  },
+  {
+    "key": "ns.c5.c5l.clock_variation_sync",
+    "latex": "\\mathfrak V_{J,K}^{clock}(t)\\le\\log 4\\ \\Rightarrow\\ \\bigcap_{k=J}^{K}I_k(t)\\ne\\varnothing",
+    "label_zh": "時鐘變差同步準則",
+    "label_en": "Clock-Variation Synchronization Criterion",
+    "definition_zh": "C5-L.6 時鐘變差同步準則：區塊時鐘全變差不超過 \\log 4 則必有共同定理時刻，於 §25 陳述。",
+    "definition_en": "C5-L.6 Clock-Variation Synchronization Criterion: clock total variation at most \\log 4 forces a nonempty common theorem time, stated in §25.",
+    "defining_relation": "\\bigcap_{k=J}^{K}I_k(t)=\\varnothing\\ \\Rightarrow\\ \\mathfrak V_{J,K}^{clock}(t)>\\log 4",
+    "notes": "Contrapositive of the factor-4 common-time lemma of C5-K: absence of a common theorem time is a strictly positive order-clock variation debt, not an unstructured timing defect."
+  },
+  {
+    "key": "ns.c5.c5l.persistent_window_compression",
+    "latex": "\\mathsf W_k(t)=0\\ \\Rightarrow\\ \\text{descent/load strip}+(\\text{BV root}\\vee\\text{viscous}\\vee\\text{projected-NL})",
+    "label_zh": "持續視窗壓縮",
+    "label_en": "Persistent Window Compression",
+    "definition_zh": "C5-L.9 持續視窗壓縮定理：合法定理對若在整個 I_k(t) 上空間閘門失敗，則必攜帶非消失下降帶與導數 L^2 負荷帶，並在 BV 緊根路徑、黏性 k+2 擁塞、投影非線性擁塞三者中擇一，於 §47 陳述。",
+    "definition_en": "C5-L.9 Persistent Window Compression: legal window-wide spatial-gate failure necessarily carries a nonvanishing descent strip and an L^2 load strip, plus one of BV-compact root path, viscous k+2 congestion, or projected-nonlinear congestion, stated in §47.",
+    "notes": "Headline compression of this round; remaining independent high-order interfaces are L-R1–L-R5 of §51, to be audited in C5-M."
+  },
+  {
+    "key": "ns.c5.c5l.clock_descent_block_alternative",
+    "latex": "\\text{L-BSYNC}\\vee\\text{L-BCONG}",
+    "label_zh": "時鐘下降區塊擇一",
+    "label_en": "Clock/Descent Block Alternative",
+    "definition_zh": "C5-L.10 時鐘/下降區塊擇一定理：全程視窗持續失敗的合法同基底導數區塊 [J,K] 要麼可分成至多 1+\\mathfrak V^{clock}/\\log 4 個同步簇（簇內 C5-I/J 同時約束全部適用），要麼時鐘全變差本身很大並由時鐘缺陷測度記錄，於 §48 陳述。",
+    "definition_en": "C5-L.10 Clock/Descent Block Alternative: a legal same-base block [J,K] with window-persistent sign defect at every level either partitions into at most 1+\\mathfrak V^{clock}/\\log 4 synchronized clusters (inside which all C5-I/J same-time constraints apply) or else records large clock variation by a clock defect measure, stated in §48."
+  },
+  {
+    "key": "ns.c5.c5l.theorem_setup_defect",
+    "latex": "\\textbf{Theorem-Setup Defect}",
+    "label_zh": "定理設置缺陷",
+    "label_en": "Theorem-Setup Defect",
+    "definition_zh": "定理對 (k,t) 並未合法落入 Grujić–Xu Theorem 3.14 前提（升鏈、參數關係、剩餘時間、常數等）的殘差，於 §40–§41 與 L-SETUP 重新劃定，且不得與空間符號失敗 L-WINDOW 合併。",
+    "definition_en": "The residual that the pair (k,t) is not legally inside the antecedents of Grujić–Xu Theorem 3.14 (ascending-chain, parameter relation, remaining time, constants), restated in §40–§41 as L-SETUP and forbidden from being merged with spatial-sign failure L-WINDOW.",
+    "notes": "Retained from C5-K; C5-L explicitly does not prove that every C5 record event satisfies every Theorem 3.14 antecedent, so setup remains an external gate (G-SETUP2) among the five true remaining interfaces of §51."
+  }
+]

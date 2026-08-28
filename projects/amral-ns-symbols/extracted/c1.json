@@ -1,0 +1,211 @@
+[
+  {
+    "key": "ns.c1.c1a",
+    "latex": "\\mathrm{C1a}",
+    "label_zh": "高頻尾端逃逸（C1a）",
+    "label_en": "High-Frequency Tail Escape (C1a)",
+    "definition_zh": "本輪三分解的第一層（第4節定理4.1）：對任意固定頻率截斷 $J$，若 $T_\\ast$ 為有限 blow-up time，則高通尾端 $\\|P_{>J}u(t)\\|_3$ 在 $t\\uparrow T_\\ast$ 時 limsup 必發散至無窮；本輪已閉合（CLOSED）。",
+    "definition_en": "The first layer of this round's three-part decomposition (Section 4, Theorem 4.1): for every fixed frequency cutoff $J$, if $T_\\ast$ is a finite blow-up time then $\\limsup_{t\\uparrow T_\\ast}\\|P_{>J}u(t)\\|_3=\\infty$; closed in this round.",
+    "defining_relation": "\\mathrm{Blowup}\\Rightarrow\\forall J,\\ \\limsup_{t\\uparrow T_\\ast}\\|P_{>J}u(t)\\|_3=\\infty"
+  },
+  {
+    "key": "ns.c1.c1b",
+    "latex": "\\mathrm{C1b}",
+    "label_zh": "非線性UV補給鏈（C1b）",
+    "label_en": "Nonlinear UV Replenishment Chain (C1b)",
+    "definition_zh": "三分解的第二層（第11節定理11.1）：存在遞迴選取的 $J_n\\to\\infty,\\ t_n\\to T_\\ast$，使區間 $[t_{n-1},t_n]$ 上的非線性來源項 $\\mathcal N_n$ 滿足 $\\|\\mathcal N_n\\|_3\\ge A_n-\\varepsilon_n\\to\\infty$；本輪已閉合（CLOSED）。",
+    "definition_en": "The second layer (Section 11, Theorem 11.1): there exist recursively chosen $J_n\\to\\infty$, $t_n\\to T_\\ast$ such that the nonlinear source term $\\mathcal N_n$ on $[t_{n-1},t_n]$ satisfies $\\|\\mathcal N_n\\|_3\\ge A_n-\\varepsilon_n\\to\\infty$; closed in this round.",
+    "defining_relation": "\\mathrm{Blowup}\\Rightarrow\\exists(J_n,t_n,\\mathcal N_n):J_n\\to\\infty,\\ t_n\\to T_\\ast,\\ \\|\\mathcal N_n\\|_3\\to\\infty"
+  },
+  {
+    "key": "ns.c1.c1c",
+    "latex": "\\mathrm{C1c}",
+    "label_zh": "持續三元譜系（C1c，未解）",
+    "label_en": "Persistent Triadic Genealogy (C1c, open)",
+    "definition_zh": "三分解的第三層（第15節）：是否存在單一持續、來源保持的三元交互譜系 $(j_1,t_1)\\prec(j_2,t_2)\\prec\\cdots$ 一路延伸到 $j\\to\\infty$；本輪明確保持 OPEN。",
+    "definition_en": "The third layer (Section 15): whether a single, source-preserving triadic interaction genealogy $(j_1,t_1)\\prec(j_2,t_2)\\prec\\cdots$ extends all the way to $j\\to\\infty$; explicitly left OPEN in this round.",
+    "defining_relation": "\\mathrm{Blowup}\\Rightarrow\\text{one persistent source-preserving triadic genealogy to }j=\\infty"
+  },
+  {
+    "key": "ns.c1.blowup_pred",
+    "latex": "\\mathrm{Blowup}(T_\\ast)",
+    "label_zh": "Blowup 述詞",
+    "label_en": "Blowup predicate",
+    "definition_zh": "表示「$T_\\ast$ 為有限時間 blow-up time」此一假設的簡寫述詞，貫穿全篇作為 C1a/C1b/C1c 各條件式的前件（第0、16、19節）。",
+    "definition_en": "Shorthand predicate asserting that $T_\\ast$ is a finite-time blow-up time; used throughout as the antecedent of the C1a/C1b/C1c implications (Sections 0, 16, 19)."
+  },
+  {
+    "key": "ns.c1.xlegaluvchain",
+    "latex": "\\mathrm{XLegalUVChain}",
+    "label_zh": "X-合法UV鏈（前版目標）",
+    "label_en": "XLegalUVChain (prior-round target)",
+    "definition_zh": "前一版整合框架的結論物件（$\\mathrm{Blowup}(T_\\ast)\\Rightarrow\\mathrm{XLegalUVChain}$）；本輪第0節將它拆解為 C1a+C1b+C1c 三個更精確的子命題。",
+    "definition_en": "The conclusion object from the previous version's framework ($\\mathrm{Blowup}(T_\\ast)\\Rightarrow\\mathrm{XLegalUVChain}$); Section 0 of this round decomposes it into the sharper sub-statements C1a+C1b+C1c.",
+    "notes": "Legacy notation carried over from a prior round rather than newly defined here; included because this round's structure is framed entirely as its decomposition."
+  },
+  {
+    "key": "ns.c1.p_le_j",
+    "latex": "P_{\\le J}",
+    "label_zh": "低通投影算子",
+    "label_en": "Low-pass projector",
+    "definition_zh": "第3節定義的平滑 Littlewood–Paley low-pass projector，頻率支撐在 $|\\xi|\\lesssim2^J$，滿足 Bernstein 不等式 $\\|P_{\\le J}f\\|_3\\le C_{\\mathrm{LP}}2^{J/2}\\|f\\|_2$。",
+    "definition_en": "The smooth Littlewood–Paley low-pass projector defined in Section 3, frequency-supported on $|\\xi|\\lesssim2^J$, satisfying the Bernstein inequality $\\|P_{\\le J}f\\|_3\\le C_{\\mathrm{LP}}2^{J/2}\\|f\\|_2$."
+  },
+  {
+    "key": "ns.c1.p_gt_j",
+    "latex": "P_{>J}",
+    "label_zh": "高通（UV尾端）投影算子",
+    "label_en": "High-pass (UV tail) projector",
+    "definition_zh": "第3節定義為 $P_{>J}=I-P_{\\le J}$，即高於截斷 $2^J$ 的頻率尾端投影；$\\|P_{>J}u(t)\\|_3$ 是定理4.1（C1a）與整個補給鏈論證的核心量。",
+    "definition_en": "Defined in Section 3 as $P_{>J}=I-P_{\\le J}$, the projector onto frequencies above the cutoff $2^J$; $\\|P_{>J}u(t)\\|_3$ is the central quantity in Theorem 4.1 (C1a) and the replenishment-chain argument.",
+    "defining_relation": "P_{>J}=I-P_{\\le J}"
+  },
+  {
+    "key": "ns.c1.c_lp",
+    "latex": "C_{\\mathrm{LP}}",
+    "label_zh": "Bernstein不等式常數",
+    "label_en": "Bernstein inequality constant",
+    "definition_zh": "第3節 Bernstein 不等式中的 universal 常數，用以推出 $\\|P_{\\le J}u(t)\\|_3\\le C_{\\mathrm{LP}}2^{J/2}\\|u_0\\|_2$，即對固定 $J$ 一致有限的界，是定理4.1證明的關鍵。",
+    "definition_en": "The universal constant in the Section 3 Bernstein inequality, used to derive the uniform-in-time finite bound $\\|P_{\\le J}u(t)\\|_3\\le C_{\\mathrm{LP}}2^{J/2}\\|u_0\\|_2$ for fixed $J$, key to the proof of Theorem 4.1."
+  },
+  {
+    "key": "ns.c1.x_jt",
+    "latex": "X(J,t)",
+    "label_zh": "X-積分觀測證書",
+    "label_en": "X-Integral observation certificate",
+    "definition_zh": "第6節定義的觀測型證書元組 $X(J,t)=\\langle u(t),P_{\\le J}u(t),P_{>J}u(t),\\|P_{>J}u(t)\\|_3\\rangle$，把定理4.1的逃逸結論包裝成可重播但尚非因果譜系的 multiscale escape certificate。",
+    "definition_en": "The observational certificate tuple defined in Section 6, $X(J,t)=\\langle u(t),P_{\\le J}u(t),P_{>J}u(t),\\|P_{>J}u(t)\\|_3\\rangle$, packaging Theorem 4.1's escape conclusion into a replayable but not-yet-causal multiscale escape certificate.",
+    "defining_relation": "X(J,t)=\\left\\langle u(t),P_{\\le J}u(t),P_{>J}u(t),\\|P_{>J}u(t)\\|_3\\right\\rangle"
+  },
+  {
+    "key": "ns.c1.prov_x",
+    "latex": "\\operatorname{Prov}X(J,t)",
+    "label_zh": "X 的來源記錄",
+    "label_en": "Provenance record of X",
+    "definition_zh": "第6節定義 $\\operatorname{Prov}X(J,t)=\\langle u_0,\\text{同一N–S解},t,J,P_{>J}\\rangle$，記錄證書 $X(J,t)$ 所依附的初值、軌跡與投影，使其可追溯而非憑空聲稱。",
+    "definition_en": "Defined in Section 6 as $\\operatorname{Prov}X(J,t)=\\langle u_0,\\text{same N–S solution},t,J,P_{>J}\\rangle$, recording the initial data, trajectory and projector underlying the certificate $X(J,t)$ so it remains traceable.",
+    "defining_relation": "\\operatorname{Prov}X(J,t)=\\left\\langle u_0,\\text{same N--S solution},t,J,P_{>J}\\right\\rangle"
+  },
+  {
+    "key": "ns.c1.a_n",
+    "latex": "A_n",
+    "label_zh": "目標發散序列",
+    "label_en": "Target divergence sequence",
+    "definition_zh": "第8節引入的任意遞增序列 $A_n\\uparrow\\infty$，作為第 $n$ 步高頻尾端 $\\|P_{>J_n}u(t_n)\\|_3$ 須達到的下界目標，也是定理11.1（C1b）與 $\\operatorname{XUVRepCert}_n$ 的參數。",
+    "definition_en": "An arbitrary sequence $A_n\\uparrow\\infty$ introduced in Section 8, the lower-bound target that the high-frequency tail $\\|P_{>J_n}u(t_n)\\|_3$ must reach at step $n$; also a parameter of Theorem 11.1 (C1b) and of $\\operatorname{XUVRepCert}_n$."
+  },
+  {
+    "key": "ns.c1.eps_n",
+    "latex": "\\varepsilon_n",
+    "label_zh": "目標趨零序列",
+    "label_en": "Target smallness sequence",
+    "definition_zh": "第8節引入的任意遞減序列 $\\varepsilon_n\\downarrow0$，作為第 $n$ 步高頻尾端 $\\|P_{>J_n}u(t_{n-1})\\|_3$ 的上界，用以在遞迴選取中製造供 $\\mathcal N_n$ 補上的「先小後大」落差。",
+    "definition_en": "An arbitrary sequence $\\varepsilon_n\\downarrow0$ introduced in Section 8, the upper bound on $\\|P_{>J_n}u(t_{n-1})\\|_3$ at step $n$, creating the small-then-large gap across $[t_{n-1},t_n]$ that $\\mathcal N_n$ must supply."
+  },
+  {
+    "key": "ns.c1.t_n",
+    "latex": "t_n",
+    "label_zh": "遞迴選取時間序列",
+    "label_en": "Recursively selected time sequence",
+    "definition_zh": "第8節交替使用「固定時刻高頻趨零」與定理4.1遞迴選出的時間序列 $t_0<t_1<t_2<\\cdots\\uparrow T_\\ast$，供第9節 Duhamel 分解與第13節 $\\operatorname{XUVRepCert}_n$ 的區間端點使用。",
+    "definition_en": "The time sequence $t_0<t_1<t_2<\\cdots\\uparrow T_\\ast$ recursively selected in Section 8 by alternating the fixed-time tail-vanishing fact with Theorem 4.1; supplies the interval endpoints used in the Section 9 Duhamel decomposition and the Section 13 $\\operatorname{XUVRepCert}_n$.",
+    "notes": ""
+  },
+  {
+    "key": "ns.c1.j_n",
+    "latex": "J_n",
+    "label_zh": "遞迴選取頻率尺度序列",
+    "label_en": "Recursively selected frequency-scale sequence",
+    "definition_zh": "第8節與 $t_n$ 同步遞迴選出的截斷尺度序列 $J_1<J_2<\\cdots\\uparrow\\infty$，滿足 $\\|P_{>J_n}u(t_{n-1})\\|_3\\le\\varepsilon_n$ 且 $\\|P_{>J_n}u(t_n)\\|_3\\ge A_n$，是定理11.1與 $\\mathcal N_n$ 定義所用的頻率截斷。",
+    "definition_en": "The cutoff-scale sequence $J_1<J_2<\\cdots\\uparrow\\infty$ selected in Section 8 in lockstep with $t_n$, satisfying $\\|P_{>J_n}u(t_{n-1})\\|_3\\le\\varepsilon_n$ and $\\|P_{>J_n}u(t_n)\\|_3\\ge A_n$; the frequency cutoff used in Theorem 11.1 and in defining $\\mathcal N_n$."
+  },
+  {
+    "key": "ns.c1.n_script_n",
+    "latex": "\\mathcal N_n",
+    "label_zh": "非線性UV來源項",
+    "label_en": "Nonlinear UV source term",
+    "definition_zh": "第9節由 Duhamel 恆等式投影到 $>J_n$ 後定義：$\\mathcal N_n=\\int_{t_{n-1}}^{t_n}e^{\\nu(t_n-s)\\Delta}P_{>J_n}\\mathbb P\\nabla\\cdot(u\\otimes u)(s)\\,ds$，代表區間 $[t_{n-1},t_n]$ 內純由非線性項注入高頻尾端的部分；第10–11節證明其範數 $\\ge A_n-\\varepsilon_n$，是C1b核心。",
+    "definition_en": "Defined in Section 9 by projecting the Duhamel identity onto $>J_n$: $\\mathcal N_n=\\int_{t_{n-1}}^{t_n}e^{\\nu(t_n-s)\\Delta}P_{>J_n}\\mathbb P\\nabla\\cdot(u\\otimes u)(s)\\,ds$, the high-frequency content injected purely by the nonlinear term over $[t_{n-1},t_n]$; Sections 10–11 show $\\|\\mathcal N_n\\|_3\\ge A_n-\\varepsilon_n$, the core of C1b.",
+    "defining_relation": "\\mathcal N_n=\\int_{t_{n-1}}^{t_n}e^{\\nu(t_n-s)\\Delta}P_{>J_n}\\mathbb P\\nabla\\cdot(u\\otimes u)(s)\\,ds"
+  },
+  {
+    "key": "ns.c1.xuvrepcert",
+    "latex": "\\operatorname{XUVRepCert}_n",
+    "label_zh": "X-積分補給證書",
+    "label_en": "X-Integration replenishment certificate",
+    "definition_zh": "第13節定義的第 $n$ 步證書元組 $\\langle t_{n-1},t_n,J_n,\\varepsilon_n,A_n,S_n,N_n,G_n\\rangle$，搭配7條守衛條件，記錄補給鏈每一步的來源、尺度與時間可重播性。",
+    "definition_en": "The step-$n$ certificate tuple defined in Section 13, $\\langle t_{n-1},t_n,J_n,\\varepsilon_n,A_n,S_n,N_n,G_n\\rangle$, paired with 7 guard conditions, recording the provenance, scale and time-replayability of each step of the chain.",
+    "defining_relation": "\\operatorname{XUVRepCert}_n=\\left\\langle t_{n-1},t_n,J_n,\\varepsilon_n,A_n,S_n,N_n,G_n\\right\\rangle"
+  },
+  {
+    "key": "ns.c1.s_n",
+    "latex": "S_n",
+    "label_zh": "前段尾端範數",
+    "label_en": "Pre-interval tail norm",
+    "definition_zh": "第13節定義 $S_n=\\|P_{>J_n}u(t_{n-1})\\|_3$，即區間起點 $t_{n-1}$ 時、尺度 $J_n$ 以上尾端的 $L^3$ 範數，依構造滿足 $S_n\\le\\varepsilon_n$。",
+    "definition_en": "Defined in Section 13 as $S_n=\\|P_{>J_n}u(t_{n-1})\\|_3$, the $L^3$ norm of the $>J_n$ tail at the interval's starting time $t_{n-1}$; by construction $S_n\\le\\varepsilon_n$.",
+    "defining_relation": "S_n=\\|P_{>J_n}u(t_{n-1})\\|_3"
+  },
+  {
+    "key": "ns.c1.n_n",
+    "latex": "N_n",
+    "label_zh": "補給量範數",
+    "label_en": "Replenishment magnitude",
+    "definition_zh": "第13節定義 $N_n=\\|\\mathcal N_n\\|_3$，即非線性UV來源項的 $L^3$ 範數；注意 $N_n$（純量範數）與 $\\mathcal N_n$（積分/算子物件本身）是不同符號。",
+    "definition_en": "Defined in Section 13 as $N_n=\\|\\mathcal N_n\\|_3$, the $L^3$ norm of the nonlinear source term; note $N_n$ (scalar norm) is distinct from $\\mathcal N_n$ (the integral/operator object itself).",
+    "defining_relation": "N_n=\\|\\mathcal N_n\\|_3"
+  },
+  {
+    "key": "ns.c1.g_n",
+    "latex": "G_n",
+    "label_zh": "守衛記錄",
+    "label_en": "Guard record",
+    "definition_zh": "第13節 $\\operatorname{XUVRepCert}_n$ 元組的第八分量；正文未逐字說明其內容，但緊接列出的7條守衛條件（如 $t_{n-1}<t_n<T_\\ast$、$S_n\\le\\varepsilon_n$、heat evolution 不放大 $L^3$ 尾端）應即為 $G_n$ 所記錄者。",
+    "definition_en": "The eighth component of the $\\operatorname{XUVRepCert}_n$ tuple in Section 13; the prose does not gloss it verbatim, but the 7 guard conditions listed immediately after (e.g. $t_{n-1}<t_n<T_\\ast$, $S_n\\le\\varepsilon_n$, heat evolution not amplifying the $L^3$ tail) are presumably what it records.",
+    "notes": "Confidence caveat: G_n's precise content is inferred from adjacent context, not explicitly glossed in the source text."
+  },
+  {
+    "key": "ns.c1.delta_j",
+    "latex": "\\Delta_j",
+    "label_zh": "二進殼層",
+    "label_en": "Dyadic shell",
+    "definition_zh": "第14節為證明 Fourier parent-scale lemma 引入的 dyadic Littlewood–Paley shell；與第3節累積型的 $P_{\\le J}/P_{>J}$ 不同，$\\Delta_j$ 恰好落在尺度 $j$，用於分析三元交互 $\\Delta_j\\mathbb P\\nabla\\cdot(\\Delta_{j_1}u\\otimes\\Delta_{j_2}u)$ 的 Fourier 支撐。",
+    "definition_en": "The dyadic Littlewood–Paley shell introduced in Section 14 for the Fourier parent-scale lemma; unlike the cumulative $P_{\\le J}/P_{>J}$ of Section 3, $\\Delta_j$ isolates exactly scale $j$, used to analyze the Fourier support of triadic interactions $\\Delta_j\\mathbb P\\nabla\\cdot(\\Delta_{j_1}u\\otimes\\Delta_{j_2}u)$."
+  },
+  {
+    "key": "ns.c1.c_0",
+    "latex": "C_0",
+    "label_zh": "parent-scale 通用常數",
+    "label_en": "Parent-scale universal constant",
+    "definition_zh": "第14節 Fourier parent-scale lemma 中的 universal integer：若輸入殼層 $j_1,j_2<j-C_0$，輸出殼層 $j$ 的三元非線性項恆為零，故任何生成殼層 $j$ 的交互至少一 parent 滿足 $\\max\\{j_1,j_2\\}\\ge j-C_0$；第18節強調此僅為 support 事實，非 parent 振幅下界。",
+    "definition_en": "The universal integer in the Section 14 Fourier parent-scale lemma: if both input shells satisfy $j_1,j_2<j-C_0$, the triadic term at output shell $j$ vanishes identically, so any interaction producing shell $j$ must have a parent with $\\max\\{j_1,j_2\\}\\ge j-C_0$; Section 18 stresses this is a pure support fact, not a parent-amplitude lower bound.",
+    "defining_relation": "j_1,j_2<j-C_0\\ \\Rightarrow\\ \\Delta_j\\mathbb P\\nabla\\cdot(\\Delta_{j_1}u\\otimes\\Delta_{j_2}u)=0"
+  },
+  {
+    "key": "ns.c1.prec_genealogy",
+    "latex": "(j_1,t_1)\\prec(j_2,t_2)\\prec\\cdots",
+    "label_zh": "譜系先後序關係",
+    "label_en": "Genealogy precedence ordering",
+    "definition_zh": "第15節為描述仍未證的 C1c 引入的（尺度,時間）配對先後序記號，設想一條沿此序關係、使 $j_n\\to\\infty$ 的 nested causal branch；本輪只列出所需性質，未構造它，故 C1c 保持 OPEN。",
+    "definition_en": "An ordering notation on (scale, time) pairs introduced in Section 15 to describe the still-open C1c: a hypothetical nested causal branch following this order with $j_n\\to\\infty$; this round only lists the required properties without constructing it, leaving C1c OPEN.",
+    "notes": "Notation for an as-yet-unconstructed object, introduced to state what C1c would require rather than to define something that exists in this round."
+  },
+  {
+    "key": "ns.c1.n_triad",
+    "latex": "\\mathcal N_{j;j_1,j_2}^{(n)}",
+    "label_zh": "三元殼層分量",
+    "label_en": "Triadic shell component",
+    "definition_zh": "第17節分解 $\\mathcal N_n=\\sum_{j>J_n}\\sum_{j_1,j_2}\\mathcal N_{j;j_1,j_2}^{(n)}$ 中的分量，代表補給項 $\\mathcal N_n$ 中由輸入殼層 $j_1,j_2$ 生成輸出殼層 $j$ 的部分；Route A（C1c genealogy extraction）即嘗試從中抽出持續 parent branch。",
+    "definition_en": "The component in the Section 17 decomposition $\\mathcal N_n=\\sum_{j>J_n}\\sum_{j_1,j_2}\\mathcal N_{j;j_1,j_2}^{(n)}$, representing the part of $\\mathcal N_n$ generated by input shells $j_1,j_2$ into output shell $j$; Route A (C1c genealogy extraction) attempts to extract a persistent parent branch from these.",
+    "defining_relation": "\\mathcal N_n=\\sum_{j>J_n}\\sum_{j_1,j_2}\\mathcal N_{j;j_1,j_2}^{(n)}"
+  },
+  {
+    "key": "ns.c1.cost",
+    "latex": "\\operatorname{Cost}(\\mathcal N_n)",
+    "label_zh": "強制性補給成本（提案）",
+    "label_en": "Coercive replenishment cost (proposed)",
+    "definition_zh": "第17節 Route B 提出但未定義的量：設想每次 UV 補給 $\\mathcal N_n$ 須付出某正的、可加總的 coercive cost；若 $\\sum_n\\operatorname{Cost}(\\mathcal N_n)=\\infty$ 卻與有限全域 budget 矛盾，將直接導向 C2（Finite Obstruction）。",
+    "definition_en": "A quantity proposed but not defined in this round (Section 17, Route B): each UV replenishment $\\mathcal N_n$ is hypothesized to pay a positive, summable coercive cost; if $\\sum_n\\operatorname{Cost}(\\mathcal N_n)=\\infty$ could be shown to contradict a finite global budget, it would lead directly to C2 (Finite Obstruction).",
+    "notes": "Placeholder/forward-looking notation; given a precise definition (if at all) only in a future C2 round, per the source text."
+  }
+]

@@ -1,0 +1,281 @@
+[
+  {
+    "key": "ns.c4.c4f.motif_m4_higher_frequency_relay",
+    "latex": "M_4",
+    "label_zh": "高頻中繼",
+    "label_en": "Higher-Frequency Relay",
+    "definition_zh": "M4 是承襲自 C4-E、於 §0 重申的三個殘存 UV 逃逸機制之一，指高頻殼層透過 far high-high 交互作用向固定接收殼層 q 中繼能量的機制，並於 §2 起展開。",
+    "definition_en": "M4 is one of the three residual unsynchronized UV-escape motifs carried over from C4-E and restated in §0, denoting the mechanism by which far high-high shell interactions relay energy into a fixed receiving shell q, developed from §2.",
+    "notes": "Carried over from NS_C4E_RecurrentEscapeBranch_UVMotifCompression_v0.1.md; C4-F proves M4 forces Critical Far-UV Tail Stock + Effective Parent Multiplicity (§36)."
+  },
+  {
+    "key": "ns.c4.c4f.motif_m5_critical_work_variation",
+    "latex": "M_5",
+    "label_zh": "臨界作功變異",
+    "label_en": "Critical Work Variation",
+    "definition_zh": "M5 是三個殘存 UV 逃逸機制之一，於 §0 重申、§15 起展開，指殼層 q 上 transport-free 作功項的號誌變異在臨界尺度上不消失的機制。",
+    "definition_en": "M5 is one of the three residual UV-escape motifs, restated in §0 and developed from §15, denoting the mechanism by which signed transport-free work on shell q fails to vanish at the critical scale.",
+    "notes": "Carried over from C4-E; C4-F proves M5 forces a Fixed Strain/Deformation-Forcing Impulse routed through the Miller/vorticity/transport trichotomy (§36)."
+  },
+  {
+    "key": "ns.c4.c4f.motif_m6_spectral_geometry_degeneration",
+    "latex": "M_6",
+    "label_zh": "譜幾何退化",
+    "label_en": "Spectral-Geometry Degeneration",
+    "definition_zh": "M6 是三個殘存 UV 逃逸機制之一，於 §0 重申、§25 起展開，指 triad 幾何在正規化徑向座標下退化到 measure-zero 邊界集合的機制。",
+    "definition_en": "M6 is one of the three residual UV-escape motifs, restated in §0 and developed from §25, denoting the mechanism by which triad geometry degenerates toward measure-zero boundary sets in normalized radial coordinates.",
+    "notes": "Carried over from C4-E; C4-F proves M6 forces Radial Triad-Work Concentration (§36)."
+  },
+  {
+    "key": "ns.c4.c4f.far_high_high_relay_source",
+    "latex": "R_{q,L}^{far}",
+    "label_zh": "遠場 high-high 中繼源",
+    "label_en": "Far high-high relay source",
+    "definition_zh": "於 §2 定義為固定接收殼層 q 上、由頻率間隔至少 L 的 high-high 乘積 $u_p\\otimes u_r$ 經 $T_q^\\sigma=\\Delta_qP^\\sigma\\mathbb P$ 投影取散度後所得的遠場來源項。",
+    "definition_en": "Defined in §2 as the far-field source term on fixed receiving shell q obtained by applying $T_q^\\sigma=\\Delta_qP^\\sigma\\mathbb P$ and divergence to high-high products $u_p\\otimes u_r$ separated by at least dyadic distance L.",
+    "defining_relation": "R_{q,L}^{far} = T_q^\\sigma \\nabla\\cdot \\sum_{\\substack{p\\ge q+L\\\\|r-p|\\le C_0}} u_p\\otimes u_r, \\qquad T_q^\\sigma=\\Delta_qP^\\sigma\\mathbb P",
+    "notes": "Directly continues the M4/Higher-Frequency Relay construction inherited from C4-E."
+  },
+  {
+    "key": "ns.c4.c4f.far_kinetic_energy_tail",
+    "latex": "E_{>q+L-C_0}(t)",
+    "label_zh": "遠場動能尾",
+    "label_en": "Far kinetic-energy tail",
+    "definition_zh": "於 §3 定義為頻率指標 $p\\ge q+L-C_0$ 之上所有殼層動能 $\\|u_p(t)\\|_2^2$ 的總和，是 Theorem 4.1 low-output 上界的來源量。",
+    "definition_en": "Defined in §3 as the sum of shell kinetic energies $\\|u_p(t)\\|_2^2$ over all $p\\ge q+L-C_0$, the source quantity bounding the low-output estimate of Theorem 4.1.",
+    "defining_relation": "E_{>q+L-C_0}(t) = \\sum_{p\\ge q+L-C_0} \\|u_p(t)\\|_2^2"
+  },
+  {
+    "key": "ns.c4.c4f.thm_low_output_high_high_bound",
+    "latex": "\\text{C4-F.1 (Thm 4.1)}",
+    "label_zh": "低輸出 high-high 能量尾界定理",
+    "label_en": "Low-Output High-High Energy-Tail Bound",
+    "definition_zh": "§4 定理 4.1（C4-F.1）利用 $\\Delta_q\\nabla$ 核的 $L^1\\to L^\\infty$ 界 $\\|K_q\\|_\\infty\\lesssim\\lambda_q^4$ 與 Cauchy–Schwarz，證明遠場中繼源可由遠場動能尾以因子 $\\lambda_q^4$ 控制。",
+    "definition_en": "Theorem 4.1 (C4-F.1) in §4 uses the $L^1\\to L^\\infty$ kernel bound $\\|K_q\\|_\\infty\\lesssim\\lambda_q^4$ together with Cauchy–Schwarz to control the far relay source by the far kinetic-energy tail with factor $\\lambda_q^4$.",
+    "defining_relation": "\\|R_{q,L}^{far}(t)\\|_\\infty \\le C\\lambda_q^4 E_{>q+L-C_0}(t)"
+  },
+  {
+    "key": "ns.c4.c4f.normalized_relay_impulse",
+    "latex": "\\mathfrak S_{q,L}^{relay}",
+    "label_zh": "正規化中繼衝量",
+    "label_en": "Normalized relay impulse",
+    "definition_zh": "於 §5 以黏性時間 $d\\tau=\\nu\\lambda_q^2dt$ 正規化定義，量測遠場中繼源在窗口 I 上累積的無量綱衝量，recurrent relay event 假設其支付下界 $s_R>0$。",
+    "definition_en": "Defined in §5 via the viscous time rescaling $d\\tau=\\nu\\lambda_q^2dt$ as the dimensionless accumulated impulse of the far relay source over window I, assumed under a recurrent relay event to pay a fixed toll $s_R>0$.",
+    "defining_relation": "\\mathfrak S_{q,L}^{relay} = \\int_I \\frac{\\|R_{q,L}^{far}\\|_\\infty}{\\nu^2\\lambda_q^3}\\,d\\tau = \\frac{1}{\\nu\\lambda_q}\\int_I \\|R_{q,L}^{far}(t)\\|_\\infty\\,dt \\ge s_R>0"
+  },
+  {
+    "key": "ns.c4.c4f.thm_relay_to_critical_tail_stock",
+    "latex": "\\text{C4-F.2}",
+    "label_zh": "中繼-臨界尾儲量定理",
+    "label_en": "Relay-to-Critical-Tail-Stock Theorem",
+    "definition_zh": "§7 之 C4-F.2 結合定理 4.1 與均值論證，證明存在 $t_\\ast\\in I$ 使遠場臨界 Sobolev 儲量被中繼衝量下界 $s_R$ 乘上 $2^L$ 因子強迫為非退化。",
+    "definition_en": "C4-F.2 in §7 combines Theorem 4.1 with a mean-value argument to show there exists $t_\\ast\\in I$ at which the far critical Sobolev stock is forced nondegenerate, scaled by a factor $2^L$ against the relay toll $s_R$.",
+    "defining_relation": "\\mathfrak H_{>q+L-C_0}(t_\\ast) \\ge c\\,2^L\\frac{s_R}{\\theta}",
+    "notes": "§8 warns the admissible threshold $\\beta_\\ast(L)$ may shrink as L grows, so the $2^L$ factor is only used at fixed L, not to claim an arbitrarily large lower bound."
+  },
+  {
+    "key": "ns.c4.c4f.far_critical_sobolev_stock",
+    "latex": "\\mathfrak H_{>q+L-C_0}(t)",
+    "label_zh": "遠場臨界 Sobolev 儲量",
+    "label_en": "Far critical Sobolev ($\\dot H^{1/2}$) stock",
+    "definition_zh": "於 §7 定義為尾端殼層上 $\\lambda_p\\|u_p(t)\\|_2^2/\\nu^2$ 的總和，即 far-UV 部分的絕對臨界（$\\dot H^{1/2}$型）儲量。",
+    "definition_en": "Defined in §7 as the sum of $\\lambda_p\\|u_p(t)\\|_2^2/\\nu^2$ over tail shells, the far-UV portion of the absolute critical ($\\dot H^{1/2}$-type) stock.",
+    "defining_relation": "\\mathfrak H_{>q+L-C_0}(t) = \\frac{1}{\\nu^2}\\sum_{p\\ge q+L-C_0} \\lambda_p\\|u_p(t)\\|_2^2",
+    "notes": "§41 identifies this with the far-UV portion of the absolute helical critical stock via $u_p=u_p^++u_p^-$, so Relay already establishes UV to far helical critical stock."
+  },
+  {
+    "key": "ns.c4.c4f.frontier_subcriticality_ratio",
+    "latex": "a_p(t)=\\dfrac{\\|u_p(t)\\|_\\infty}{\\nu\\lambda_p}",
+    "label_zh": "前緣次臨界比",
+    "label_en": "Frontier subcriticality ratio",
+    "definition_zh": "於 §9 定義為殼層 p 的 $L^\\infty$ 振幅與黏性尺度 $\\nu\\lambda_p$ 之比，first-frontier safe state 假設所有 $p\\ge q+L-C_0$ 皆滿足 $a_p(t)\\le\\beta_1$。",
+    "definition_en": "Defined in §9 as the ratio of shell-p $L^\\infty$ amplitude to the viscous scale $\\nu\\lambda_p$, with the first-frontier safe state hypothesis requiring $a_p(t)\\le\\beta_1$ for all $p\\ge q+L-C_0$.",
+    "notes": "$\\beta_1$ recurs as the fixed threshold through §12 (fixed-ratio crossing, with $\\beta_0=\\vartheta\\beta_1$) and the final status table in §51."
+  },
+  {
+    "key": "ns.c4.c4f.effective_shell_cell_multiplicity",
+    "latex": "m_p^{eff}",
+    "label_zh": "有效殼層多重度",
+    "label_en": "Effective shell-cell multiplicity",
+    "definition_zh": "於 §10 定義為 $\\lambda_p^3\\|u_p\\|_2^2/\\|u_p\\|_\\infty^2$，是一個無量綱有效體積診斷量，衡量殼層 p 能量分佈的離域程度而非字面封包數。",
+    "definition_en": "Defined in §10 as $\\lambda_p^3\\|u_p\\|_2^2/\\|u_p\\|_\\infty^2$, a dimensionless effective-volume diagnostic measuring the delocalization of shell-p energy rather than a literal packet count.",
+    "defining_relation": "m_p^{eff} = \\lambda_p^3\\,\\frac{\\|u_p\\|_2^2}{\\|u_p\\|_\\infty^2} \\quad (m_p^{eff}:=0 \\text{ if } u_p=0)",
+    "notes": "Guard G-EFFCELL (§44) reiterates that $m_p^{eff}$ is an effective-volume/cell diagnostic, not a literal packet count."
+  },
+  {
+    "key": "ns.c4.c4f.thm_subcritical_parent_multiplicity",
+    "latex": "\\text{C4-F.3}",
+    "label_zh": "次臨界母代多重度界定理",
+    "label_en": "Subcritical Parent Multiplicity Bound",
+    "definition_zh": "§11 之 C4-F.3 透過殼層臨界儲量 $h_p=\\lambda_p\\|u_p\\|_2^2/\\nu^2$ 與前緣次臨界假設 $\\|u_p\\|_\\infty\\le\\nu\\beta_1\\lambda_p$，證明尾端有效多重度總和被 $\\mathfrak H_{>q+L-C_0}/\\beta_1^2$ 由下方界定。",
+    "definition_en": "C4-F.3 in §11 uses the shell critical stock $h_p=\\lambda_p\\|u_p\\|_2^2/\\nu^2$ together with the first-frontier bound $\\|u_p\\|_\\infty\\le\\nu\\beta_1\\lambda_p$ to show the tail sum of effective multiplicities is bounded below by $\\mathfrak H_{>q+L-C_0}/\\beta_1^2$.",
+    "defining_relation": "\\sum_{p\\ge q+L-C_0} m_p^{eff}(t_\\ast) \\ge \\frac{\\mathfrak H_{>q+L-C_0}(t_\\ast)}{\\beta_1^2} \\ge c\\,\\frac{2^Ls_R}{\\theta\\beta_1^2}"
+  },
+  {
+    "key": "ns.c4.c4f.tail_stock_to_active_parent_gap",
+    "latex": "\\text{Tail-Stock-to-Active-Parent / Packetization Gap}",
+    "label_zh": "尾儲量—活躍母代（封包化）缺口",
+    "label_en": "Tail-Stock-to-Active-Parent / Packetization Gap",
+    "definition_zh": "於 §13 將 C4-E 遺留的「higher-frequency participation ⇒ active parent」缺失引理重新命名，因 C4-F 只證得 Relay ⇒ Critical Tail Stock + Effective Parent Multiplicity，尚未證得單一活躍母代。",
+    "definition_en": "Introduced in §13 as the renamed form of the missing C4-E lemma \"higher-frequency participation implies active parent,\" since C4-F only establishes Relay implies Critical Tail Stock + Effective Parent Multiplicity, not a single active parent.",
+    "notes": "Reappears as proof obligation G1 in the C4-G roadmap (§49)."
+  },
+  {
+    "key": "ns.c4.c4f.transport_free_remainder",
+    "latex": "R_q^\\sigma",
+    "label_zh": "傳輸自由餘項",
+    "label_en": "Transport-free remainder",
+    "definition_zh": "沿用 C4-E 於 §15 定義為非線性項 $N_q^\\sigma$ 減去低頻傳輸項 $u_{\\le q-L_0}\\cdot\\nabla u_q^\\sigma$ 後的餘項，其 Fourier 支撐固定於殼層 q 附近（§17）。",
+    "definition_en": "Carried from C4-E and defined in §15 as the nonlinear term $N_q^\\sigma$ minus the low-frequency transport term $u_{\\le q-L_0}\\cdot\\nabla u_q^\\sigma$, with Fourier support fixed near shell q (§17).",
+    "notes": "§17 shows its Fourier support obeys $c\\lambda_q\\le|\\xi|\\le C\\lambda_q$, giving the Bernstein-type bound $\\|\\nabla R_q^\\sigma\\|_2\\ge c\\lambda_q\\|R_q^\\sigma\\|_2$ used to derive C4-F.5 in §19."
+  },
+  {
+    "key": "ns.c4.c4f.absolute_transport_free_work",
+    "latex": "A_q(t)",
+    "label_zh": "絕對傳輸自由作功",
+    "label_en": "Absolute transport-free work",
+    "definition_zh": "於 §15 定義為 $|f_q^\\sigma\\cdot R_q^\\sigma|$（其中 $f_q^\\sigma=u_q^\\sigma$）對空間積分，是作功變異 motif $\\mathfrak V_q^{work}$ 的被積量。",
+    "definition_en": "Defined in §15 as the spatial integral of $|f_q^\\sigma\\cdot R_q^\\sigma|$ with $f_q^\\sigma=u_q^\\sigma$, the integrand feeding the work-variation motif $\\mathfrak V_q^{work}$."
+  },
+  {
+    "key": "ns.c4.c4f.work_variation_motif",
+    "latex": "\\mathfrak V_q^{work}",
+    "label_zh": "作功變異量",
+    "label_en": "Work-variation quantity",
+    "definition_zh": "於 §15 定義為 $\\lambda_q/\\nu^2$ 乘上 $A_q(t)$ 在窗口 I 上的時間積分，是 motif M5 的核心量，假設保持下界 $v_0>0$。",
+    "definition_en": "Defined in §15 as $\\lambda_q/\\nu^2$ times the time integral of $A_q(t)$ over window I, the central quantity of motif M5, assumed to satisfy a fixed lower bound $v_0>0$.",
+    "defining_relation": "\\mathfrak V_q^{work} = \\frac{\\lambda_q}{\\nu^2}\\int_I A_q(t)\\,dt \\ge v_0>0"
+  },
+  {
+    "key": "ns.c4.c4f.thm_work_variation_source_impulse",
+    "latex": "\\text{C4-F.4}",
+    "label_zh": "作功變異迫使非線性源衝量定理",
+    "label_en": "Work Variation Forces a Nonlinear Source Impulse",
+    "definition_zh": "§16 之 C4-F.4 利用 Cauchy–Schwarz 與能量不等式 $\\|f_q^\\sigma\\|_2\\le\\|u_0\\|_2$，把 $\\mathfrak V_q^{work}\\ge v_0$ 轉成餘項 $R_q^\\sigma$ 在 $L_t^1L_x^2$ 下的固定衝量下界。",
+    "definition_en": "C4-F.4 in §16 uses Cauchy–Schwarz and the energy bound $\\|f_q^\\sigma\\|_2\\le\\|u_0\\|_2$ to convert $\\mathfrak V_q^{work}\\ge v_0$ into a fixed $L_t^1L_x^2$ impulse lower bound on the remainder $R_q^\\sigma$."
+  },
+  {
+    "key": "ns.c4.c4f.symmetric_gradient_operator",
+    "latex": "\\mathscr S R = \\tfrac12(\\nabla R+\\nabla R^T)",
+    "label_zh": "對稱梯度（應變）算子",
+    "label_en": "Symmetric gradient (strain) operator",
+    "definition_zh": "於 §18 定義為向量場 R 的對稱梯度，並以 Korn 型恆等式 $\\|\\mathscr SR\\|_2^2=\\frac12\\|\\nabla R\\|_2^2+\\frac12\\|\\nabla\\cdot R\\|_2^2$ 把作功衝量升級為應變衝量。",
+    "definition_en": "Defined in §18 as the symmetric gradient of a vector field R, related to the full gradient by the Korn-type identity $\\|\\mathscr SR\\|_2^2=\\frac12\\|\\nabla R\\|_2^2+\\frac12\\|\\nabla\\cdot R\\|_2^2$, which upgrades the work impulse into a strain impulse."
+  },
+  {
+    "key": "ns.c4.c4f.thm_fixed_deformation_forcing_impulse",
+    "latex": "\\text{C4-F.5}",
+    "label_zh": "固定形變迫力衝量定理",
+    "label_en": "Fixed Deformation-Forcing Impulse",
+    "definition_zh": "§19 之 C4-F.5 結合 §16–18，證明 $\\mathscr SR_q^\\sigma$ 在窗口 I 上的 $L^2$ 時間積分被固定下界 $cv_0\\nu^2/\\|u_0\\|_2$ 支配，且右側不含 $\\lambda_q^{-1}$ 或 Zeno 權重。",
+    "definition_en": "C4-F.5 in §19 combines §16–18 to show the time integral of $\\|\\mathscr SR_q^\\sigma\\|_2$ over window I is bounded below by a fixed $cv_0\\nu^2/\\|u_0\\|_2$, with no $\\lambda_q^{-1}$ or Zeno weight on the right side.",
+    "defining_relation": "\\int_I \\|\\mathscr S R_q^\\sigma(t)\\|_2\\,dt \\ge c\\,\\frac{v_0\\nu^2}{\\|u_0\\|_2}",
+    "notes": "§19 stresses this is not yet a contradiction: no known global a-priori budget $\\int_0^{T_\\ast}\\|\\mathscr SR_q\\|_2dt<\\infty$ exists to clash with it."
+  },
+  {
+    "key": "ns.c4.c4f.projected_nonlinear_strain_forcing",
+    "latex": "\\mathcal N_{\\rm proj}",
+    "label_zh": "投影非線性應變迫力",
+    "label_en": "Projected nonlinear strain-forcing operator",
+    "definition_zh": "於 §20 定義為滿秩非線性項 $\\mathcal N_u=\\mathbb P(u\\cdot\\nabla u)$ 經對稱梯度 $\\mathscr S$ 作用後之結果，依 C3-Q 等於 $P_{st}((u\\cdot\\nabla)S+S^2+\\frac14\\omega\\otimes\\omega)$。",
+    "definition_en": "Defined in §20 as $\\mathscr S\\mathcal N_u$ applied to the full nonlinear term $\\mathcal N_u=\\mathbb P(u\\cdot\\nabla u)$, equal by C3-Q to $P_{st}((u\\cdot\\nabla)S+S^2+\\frac14\\omega\\otimes\\omega)$.",
+    "defining_relation": "\\mathscr S\\mathcal N_u = \\mathcal N_{\\rm proj} = P_{st}\\!\\left((u\\cdot\\nabla)S+S^2+\\tfrac14\\omega\\otimes\\omega\\right)",
+    "notes": "§20 gives the exact identity $\\mathcal N_{\\rm proj}=\\mathcal Q_{SV}-\\tfrac12P_{st}(\\omega\\otimes\\omega)$ linking it to the Miller operator, sourced from C3-Q (NS_C3Q_PressureProjection_OperatorLocalization_v0.1.md)."
+  },
+  {
+    "key": "ns.c4.c4f.miller_strain_vorticity_operator",
+    "latex": "\\mathcal Q_{SV}",
+    "label_zh": "Miller 應變—渦度算子",
+    "label_en": "Miller strain-vorticity operator",
+    "definition_zh": "於 §1 primary-source audit 引入、§20 給出公式，是 Miller 論文中 strain–vorticity 算子分解所得的算子，源自 C3-P，作為 UV-to-operator interface 的中心物件。",
+    "definition_en": "Introduced in the §1 primary-source audit and formulated in §20, this is Miller's strain-vorticity decomposition operator from C3-P, the central object of the operator-level UV regularity interface.",
+    "defining_relation": "\\mathcal Q_{SV} = P_{st}\\!\\left((u\\cdot\\nabla)S+S^2+\\tfrac34\\omega\\otimes\\omega\\right)",
+    "notes": "Sourced from E. Miller, arXiv:2407.02691, via C3-P (NS_C3P_OperatorEscape_FarPressureMatrix_v0.1.md); differs from $\\mathcal N_{\\rm proj}$ only in the coefficient of $\\omega\\otimes\\omega$ ($3/4$ vs $1/4$)."
+  },
+  {
+    "key": "ns.c4.c4f.projected_vorticity_quadratic_operator",
+    "latex": "P_{st}(\\omega\\otimes\\omega)",
+    "label_zh": "投影渦度二次算子",
+    "label_en": "Projected vorticity-quadratic operator",
+    "definition_zh": "於 §1 與 §20 引用，是渦度自身外積 $\\omega\\otimes\\omega$ 經 $P_{st}$ 投影後的算子，是 C4-F.6 trichotomy 中 F-VORT 分支的核心來源項。",
+    "definition_en": "Referenced in §1 and §20, this is the $P_{st}$-projection of the vorticity outer product $\\omega\\otimes\\omega$, the core source term of the F-VORT branch in the C4-F.6 trichotomy.",
+    "notes": "An external Miller/C3-P primitive rather than an object defined from scratch in this round; enters the exact identity $\\mathcal N_{\\rm proj}=\\mathcal Q_{SV}-\\tfrac12P_{st}(\\omega\\otimes\\omega)$ of §20."
+  },
+  {
+    "key": "ns.c4.c4f.shell_helicity_strain_multiplier",
+    "latex": "\\mathscr T_{q,\\sigma}",
+    "label_zh": "殼層/螺旋度應變乘子算子",
+    "label_en": "Shell/helicity strain multiplier operator",
+    "definition_zh": "於 §21 定義為使 $\\mathscr SN_q^\\sigma=\\mathscr T_{q,\\sigma}\\mathcal N_{\\rm proj}$ 成立的有界算子，源於 $\\mathscr S$ 與 dyadic/Fourier 乘子在 order-zero 誤差內可交換。",
+    "definition_en": "Defined in §21 as the bounded operator satisfying $\\mathscr SN_q^\\sigma=\\mathscr T_{q,\\sigma}\\mathcal N_{\\rm proj}$, arising because $\\mathscr S$ commutes with dyadic/Fourier multipliers up to an order-zero strain-space multiplier.",
+    "notes": "Used to phrase both the F-OP branch ($\\mathscr T_{q,\\sigma}\\mathcal Q_{SV}$) and the F-VORT branch ($\\mathscr T_{q,\\sigma}P_{st}(\\omega\\otimes\\omega)$) of the C4-F.6 trichotomy in §22."
+  },
+  {
+    "key": "ns.c4.c4f.thm_work_variation_trichotomy",
+    "latex": "\\text{C4-F.6 (F-OP} \\vee \\text{F-VORT} \\vee \\text{F-TR)}",
+    "label_zh": "作功變異算子源三分定理",
+    "label_en": "Work-Variation Operator-Source Trichotomy",
+    "definition_zh": "§22 之 C4-F.6 以 $D_0=cv_0\\nu^2/\\|u_0\\|_2$ 為單位，證明 C4-F.5 的形變衝量必分配到 F-OP（Miller 算子分支）、F-VORT（渦度二次分支）或 F-TR（低頻傳輸形變分支）三者之一。",
+    "definition_en": "C4-F.6 in §22 takes $D_0=cv_0\\nu^2/\\|u_0\\|_2$ as the unit and shows the deformation impulse of C4-F.5 must be routed into at least one of F-OP (Miller-operator branch), F-VORT (vorticity-quadratic branch), or F-TR (low-transport deformation branch).",
+    "notes": "This is the round's UV-to-Operator Bridge (§42); whether F-OP/F-VORT/F-TR connect respectively to Miller global escape ratio, vortex-stretching geometry, or low-mode strain toll is left open for C4 (§23)."
+  },
+  {
+    "key": "ns.c4.c4f.normalized_radial_work_measure",
+    "latex": "\\widehat\\mu_q \\text{ on } \\mathcal D=\\{(x,y):0<x\\le y\\le1,\\ x+y\\ge1\\}",
+    "label_zh": "正規化徑向交互作功測度",
+    "label_en": "Normalized radial interaction-work measure",
+    "definition_zh": "於 §25–26 定義：正規化徑向座標 $x=k/q,y=p/q$ 落在單純形 $\\mathcal D$ 上，將正的臨界 triad 作功 $[q\\dot e_q]_+dt$ 推前得有限測度 $\\mu_q$，再除以 $\\mu_q(\\mathcal D)$ 正規化成機率測度 $\\widehat\\mu_q$。",
+    "definition_en": "Defined in §25–26: normalized radial coordinates $x=k/q,y=p/q$ live on the simplex $\\mathcal D$, and pushing forward the positive critical triad work $[q\\dot e_q]_+dt$ gives a finite measure $\\mu_q$, normalized by $\\mu_q(\\mathcal D)$ into the probability measure $\\widehat\\mu_q$.",
+    "defining_relation": "\\mathcal D=\\{(x,y):0<x\\le y\\le1,\\ x+y\\ge1\\}, \\qquad \\widehat\\mu_q = \\frac{\\mu_q}{\\mu_q(\\mathcal D)}",
+    "notes": "§43 stresses $\\widehat\\mu_q$ is a triad-work measure on radial interaction geometry, distinct from physical-space strain intermittency, Fourier energy density, or pressure concentration, and must not be automatically merged with them."
+  },
+  {
+    "key": "ns.c4.c4f.class_ii_upper_gap_set",
+    "latex": "D_{II}(\\delta)=\\{(x,y)\\in\\mathcal D: 1-y\\le\\delta\\}",
+    "label_zh": "第二類上端隙退化集",
+    "label_en": "Class-II upper-gap degeneration set",
+    "definition_zh": "於 §28 定義為 $\\mathcal D$ 中 $1-y\\le\\delta$ 的子集，其 Lebesgue 面積滿足 $|D_{II}(\\delta)|\\le C\\delta$，即 $m=1$ 型退化。",
+    "definition_en": "Defined in §28 as the subset of $\\mathcal D$ with $1-y\\le\\delta$, whose Lebesgue area satisfies $|D_{II}(\\delta)|\\le C\\delta$, an $m=1$-type degeneration.",
+    "notes": "Parallels the nonlocal set $D_{NL}(\\chi)=\\{x\\le\\chi\\}$ (§27, $|D_{NL}|\\le C\\chi$) and the homochiral gap set $D_H(\\delta)$ (§30, $|D_H(\\delta)\\cap\\{x\\ge c_L\\}|\\le C_{c_L}\\delta$); the name echoes the Class-II nonlocality of C3-C (NS_C3C_ClassII_Nonlocality_Tax_Radial_Congestion_v0.1.md), and §34 shows a summability guard $\\sum\\chi_n=\\infty$ is separately needed for the Class-II route to sustain an infinite genealogy."
+  },
+  {
+    "key": "ns.c4.c4f.class_iii_near_equilateral_set",
+    "latex": "D_{III}(\\delta)=\\{(x,y)\\in\\mathcal D: 1-x\\le\\delta\\}",
+    "label_zh": "第三類近等邊集",
+    "label_en": "Class-III near-equilateral set",
+    "definition_zh": "於 §29 定義為 $\\mathcal D$ 中 $1-x\\le\\delta$ 的子集，因 $x\\le y\\le1$ 其面積對小 $\\delta$ 精確等於 $\\frac12\\delta^2$，即 codimension 更強的 $m=2$ 型退化。",
+    "definition_en": "Defined in §29 as the subset of $\\mathcal D$ with $1-x\\le\\delta$; since $x\\le y\\le1$, its area equals exactly $\\frac12\\delta^2$ for small $\\delta$, a codimension-stronger $m=2$-type degeneration.",
+    "defining_relation": "|D_{III}(\\delta)| = \\tfrac12\\delta^2 \\quad \\text{(small } \\delta\\text{)}",
+    "notes": "§31 unifies all degeneration sets as $|D_\\varepsilon|\\lesssim\\varepsilon^m$ with $m=1$ for nonlocal/Class-II/local-homochiral-gap sets and $m=2$ only for Class III, the sharper exponent driving the concentration lemma of C4-F.7."
+  },
+  {
+    "key": "ns.c4.c4f.thm_radial_work_concentration",
+    "latex": "\\text{C4-F.7}",
+    "label_zh": "徑向作功集中引理",
+    "label_en": "Radial Work-Concentration Lemma",
+    "definition_zh": "§32 之 C4-F.7 證明：若一列退化事件的測度份額 $\\widehat\\mu_n(D_{\\varepsilon_n})\\ge\\rho_0>0$ 而集合面積 $|D_{\\varepsilon_n}|\\le C\\varepsilon_n^m$ 隨 $\\varepsilon_n\\to0$ 縮小，則 $\\{\\widehat\\mu_n\\}$ 不可能對 Lebesgue 測度保持一致絕對連續，其密度（若存在）滿足 $\\|g_n\\|_\\infty\\gtrsim\\varepsilon_n^{-m}$。",
+    "definition_en": "C4-F.7 in §32 shows that if a sequence of degeneration events carries measure share $\\widehat\\mu_n(D_{\\varepsilon_n})\\ge\\rho_0>0$ while $|D_{\\varepsilon_n}|\\le C\\varepsilon_n^m$ shrinks as $\\varepsilon_n\\to0$, then $\\{\\widehat\\mu_n\\}$ cannot maintain uniform absolute continuity with respect to Lebesgue measure, and its density (if it exists) obeys $\\|g_n\\|_\\infty\\gtrsim\\varepsilon_n^{-m}$.",
+    "defining_relation": "\\widehat\\mu_n(D_{\\varepsilon_n})\\ge\\rho_0,\\ |D_{\\varepsilon_n}|\\le C\\varepsilon_n^m \\ \\Longrightarrow\\ \\|g_n\\|_\\infty \\ge c\\rho_0\\varepsilon_n^{-m},\\quad \\|g_n\\|_2\\ge c\\rho_0\\varepsilon_n^{-m/2}",
+    "notes": "Guard G-ABSCont (§44) records this as a uniform-absolute-continuity failure, not to be directly called a singularity contradiction."
+  },
+  {
+    "key": "ns.c4.c4f.thm_uv_congestion_trilemma",
+    "latex": "\\text{C4-F.8 (Thm 37.1)}",
+    "label_zh": "UV 壅塞三難定理",
+    "label_en": "UV Congestion Trilemma",
+    "definition_zh": "§37 定理 37.1（C4-F.8）是本輪主結果：在 C4-E 的 frontier/hysteresis/small-threshold 假設下，若無限次臨界 UV crossing 永久避開三個已同步機制，則必有無限子序列落入 C-F1（Tail/Packet Congestion）、C-F2（Deformation/Operator Congestion）或 C-F3（Radial Interaction Congestion）三種壅塞類別之一。",
+    "definition_en": "Theorem 37.1 (C4-F.8) in §37 is this round's headline result: under C4-E's frontier/hysteresis/small-threshold hypotheses, if infinitely many critical UV crossings permanently avoid the three synchronized mechanisms, an infinite subsequence must fall into one of three congestion classes — C-F1 (Tail/Packet Congestion), C-F2 (Deformation/Operator Congestion), or C-F3 (Radial Interaction Congestion).",
+    "defining_relation": "UV \\text{ escape} \\ \\Longrightarrow\\ \\text{C-F1}\\ \\vee\\ \\text{C-F2}\\ \\vee\\ \\text{C-F3}",
+    "notes": "§39 stresses Congestion is NOT yet Contradiction (no known finite global measure closes any of the three classes); §48 names the follow-up round C4-G — Cross-Congestion Synchronization and Phase-Space Closure."
+  },
+  {
+    "key": "ns.c4.c4f.congestion_state_etn_tuple",
+    "latex": "\\Theta_n^{cong}",
+    "label_zh": "壅塞狀態 ETN 元組",
+    "label_en": "Congestion-state ETN tuple",
+    "definition_zh": "於 §45 定義為 True ETN 架構下本輪的狀態元組，收納尾儲量 $\\mathfrak H_{tail,n}$、有效多重度總和 $\\mathfrak M_{eff,n}$、算子形變積分 $\\mathfrak D_{op,n}$、徑向測度 $\\widehat\\mu_n$、退化尺度 $\\varepsilon_n$ 與 carrier provenance。",
+    "definition_en": "Defined in §45 as this round's state tuple within the True ETN framework, packaging the tail stock $\\mathfrak H_{tail,n}$, summed effective multiplicity $\\mathfrak M_{eff,n}$, operator deformation integral $\\mathfrak D_{op,n}$, radial measure $\\widehat\\mu_n$, degeneration scale $\\varepsilon_n$, and carrier provenance.",
+    "defining_relation": "\\Theta_n^{cong} = \\left\\langle \\mathfrak H_{tail,n}, \\mathfrak M_{eff,n}, \\mathfrak D_{op,n}, \\widehat\\mu_n, \\varepsilon_n, \\operatorname{CarrierProv} \\right\\rangle, \\quad \\mathfrak M_{eff,n}=\\!\\!\\sum_{p\\in tail}\\!\\! m_p^{eff},\\ \\ \\mathfrak D_{op,n}=\\int_{I_n}\\|\\mathscr SR_{q_n}^{\\sigma_n}\\|_2dt",
+    "notes": "Ties this round's findings back into the shared True ETN / 無限維張力場 formalism referenced in the Internal Dependencies list."
+  }
+]

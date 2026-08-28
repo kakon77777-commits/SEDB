@@ -1,0 +1,290 @@
+[
+  {
+    "key": "ns.c6.c6g.sigma_e",
+    "latex": "\\sigma_e",
+    "label_zh": "邊的證明狀態標籤",
+    "label_en": "Edge proof-status tag",
+    "definition_zh": "邊的證明狀態標籤，取值 $\\{I,C,N,E\\}$（蘊含、條件蘊含、非互斥、外部終止），與 $\\tau_e$ 共同判定邊能否用於動態SCC。",
+    "definition_en": "The proof-status tag on each edge, valued in $\\{I,C,N,E\\}$ (implication, conditional implication, non-exclusion, external kill); with $\\tau_e$ it determines which edges can compose a dynamic SCC.",
+    "defining_relation": "\\sigma_e\\in\\{I,C,N,E\\}"
+  },
+  {
+    "key": "ns.c6.c6g.tau_e",
+    "latex": "\\tau_e",
+    "label_zh": "邊的時間語意標籤",
+    "label_en": "Edge time-semantics tag",
+    "definition_zh": "邊的時間語意標籤，取值 $\\{S,D,E\\}$（同事件/靜態、真實世代轉移、外部終止）；唯有 $D$ 邊能構成動態遞迴SCC，靜態邊須先quotient壓縮。",
+    "definition_en": "The time-semantics tag on each edge, valued in $\\{S,D,E\\}$ (same-event/static, genuine generation transition, external kill); only $D$-edges can build a dynamic recurrent SCC, so static edges are quotient-collapsed first.",
+    "defining_relation": "\\tau_e\\in\\{S,D,E\\}"
+  },
+  {
+    "key": "ns.c6.c6g.gp_node",
+    "latex": "GP",
+    "label_zh": "幾何-壓力聯合節點",
+    "label_en": "Geometry-pressure joint node",
+    "definition_zh": "由 $G\\overset S\\leftrightarrow P$ 之靜態相容關係（$(G,P)\\in\\mathcal C_{GP}$，即 $G\\sim_SP$）quotient而成的聯合節點，取代舊圖中 $G,P$ 分離節點的處理；其非退化版 $GP^\\circ$ 之自遞迴仍為未證候選。",
+    "definition_en": "The joint node obtained by quotienting the static compatibility relation $G\\overset S\\leftrightarrow P$ (i.e. $(G,P)\\in\\mathcal C_{GP}$, so $G\\sim_SP$), replacing separate dynamic $G,P$ nodes; its nondegenerate form $GP^\\circ$'s self-recurrence remains an uncertified candidate.",
+    "defining_relation": "G\\sim_S P \\Rightarrow GP"
+  },
+  {
+    "key": "ns.c6.c6g.hf_node",
+    "latex": "HF",
+    "label_zh": "H/F 非線性相干再入節點",
+    "label_en": "H/F nonlinear coherent re-entry node",
+    "definition_zh": "因 $H\\not\\Longleftrightarrow F$ 非普遍類別循環，僅相干非線性再入子型別可能遞迴，故定義 $HF:=HF_{\\rm nonlinear\\ coherent}$；其非退化版 $HF^\\circ$ 自遞迴同為未證候選。",
+    "definition_en": "Since $H\\not\\Longleftrightarrow F$ is not a universal class cycle, only the coherent nonlinear re-entry subtype can recur, giving $HF:=HF_{\\rm nonlinear\\ coherent}$; its nondegenerate form $HF^\\circ$'s self-recurrence is likewise an uncertified candidate.",
+    "defining_relation": "HF := HF_{\\rm nonlinear\\ coherent}"
+  },
+  {
+    "key": "ns.c6.c6g.ts_node",
+    "latex": "TS",
+    "label_zh": "時空共源聯合節點",
+    "label_en": "Temporal-spatial shared-source joint node",
+    "definition_zh": "$T$ 被證明只是時空源測度 $(\\Pi^M,\\Pi^O)$ 的時間邊際，故提升為完整狀態 $TS$，是跨領域交界狀態；C6-G.3證明 $TS$ 不能作為孤立最小內部倖存者候選。",
+    "definition_en": "$T$ is shown to be only the temporal marginal of the spacetime source measures $(\\Pi^M,\\Pi^O)$, so the full state is lifted to $TS$, a cross-domain junction state; C6-G.3 proves $TS$ cannot be an isolated minimal interior survivor candidate.",
+    "defining_relation": "T = \\text{temporal marginal of }(\\Pi^M,\\Pi^O) \\Rightarrow TS"
+  },
+  {
+    "key": "ns.c6.c6g.pi_m_pi_o",
+    "latex": "(\\Pi^M,\\Pi^O)",
+    "label_zh": "時空源測度對",
+    "label_en": "Spacetime source measure pair",
+    "definition_zh": "$T$ 是此測度對的時間邊際投影；此對測度是 $TS$ 作為時空共源狀態的底層物件，上標未於文中明文展開。",
+    "definition_en": "$T$ is the temporal-marginal projection of this measure pair, the underlying object behind treating $TS$ as a genuine spacetime shared-source state; the superscripts are not spelled out in the text.",
+    "defining_relation": "T \\to (\\Pi^M,\\Pi^O)"
+  },
+  {
+    "key": "ns.c6.c6g.v_int",
+    "latex": "V_{\\rm int}",
+    "label_zh": "精細內部節點集",
+    "label_en": "Refined interior node set",
+    "definition_zh": "$V_{\\rm int}=\\{TS^\\circ,GP^\\circ,HF^\\circ\\}$，取代C5-M的 $\\{A,T,G,P,H,F\\}$，是C6-G.1「內部SCC解體定理」的討論對象。",
+    "definition_en": "$V_{\\rm int}=\\{TS^\\circ,GP^\\circ,HF^\\circ\\}$, replacing the six coarse C5-M nodes; this is the set analyzed by the C6-G.1 Interior SCC Dissolution Theorem.",
+    "defining_relation": "V_{\\rm int}=\\{TS^\\circ,GP^\\circ,HF^\\circ\\}"
+  },
+  {
+    "key": "ns.c6.c6g.circ_superscript",
+    "latex": "\\circ",
+    "label_zh": "內部（非退化）上標記號",
+    "label_en": "Interior (nondegenerate) superscript marker",
+    "definition_zh": "附於節點右上方，表示定義該節點內部區域的所有儲備座標皆嚴格為正/非退化，是全篇區分一般節點與內部節點的核心約定。",
+    "definition_en": "A superscript on a node symbol meaning every reserve coordinate defining its interior regime is strictly positive/nondegenerate; the core convention distinguishing a bare node from its interior version throughout.",
+    "defining_relation": "X^\\circ \\iff \\text{all interior-regime reserves of } X \\text{ strictly positive}"
+  },
+  {
+    "key": "ns.c6.c6g.r_ts",
+    "latex": "\\mathbf R_{TS}",
+    "label_zh": "TS 內部儲備向量",
+    "label_en": "TS interior reserve vector",
+    "definition_zh": "代表性TS內部狀態的九項儲備座標向量，刻劃 $TS^\\circ$ 內部區域的具體座標。",
+    "definition_en": "The nine-coordinate reserve vector of a representative TS interior state, specifying the coordinates of the $TS^\\circ$ interior regime.",
+    "defining_relation": "\\mathbf R_{TS}=\\left(\\rho_M,\\rho_P,\\Omega_{ST},q_0,\\rho_{\\rm gap},\\rho_{\\rm cone},\\rho_{\\rm thick},\\rho_{\\rm her}^{TS},\\rho_{\\rm scale}\\right)"
+  },
+  {
+    "key": "ns.c6.c6g.ts_circ_x",
+    "latex": "TS^\\circ_X",
+    "label_zh": "完整跨領域（X-）內部 TS 狀態",
+    "label_en": "Full cross-domain (X-)interior TS state",
+    "definition_zh": "$\\mathbf R_{TS}$ 外加四項跨領域路由儲備後之完整內部狀態，表示所有C6-F橋接所需儲備皆一致為正；是第10節已證跨領域邊與C6-G.3 M1/M2的前提物件。",
+    "definition_en": "The full interior state adding four cross-domain routing reserves to $\\mathbf R_{TS}$, meaning every reserve required by the C6-F bridges is uniformly positive; the hypothesis behind §10's certified cross-domain edges and C6-G.3's M1/M2 branches.",
+    "defining_relation": "TS^\\circ_X \\iff \\mathbf R_{TS}\\text{ and }(\\rho_{Qcap},\\rho_{\\rm mean},\\rho_{\\rm prov},\\rho_{\\rm der})\\text{ uniformly positive}"
+  },
+  {
+    "key": "ns.c6.c6g.r_gp",
+    "latex": "\\mathbf R_{GP}",
+    "label_zh": "GP 內部儲備向量",
+    "label_en": "GP interior reserve vector",
+    "definition_zh": "代表性GP狀態的八項儲備向量；$GP^\\circ$ 表示遠離中段間隙、平均旋轉接管、局部/遠場壓力接管、簽名與軸邊際崩潰等邊界。",
+    "definition_en": "The eight-coordinate reserve vector for a representative GP state; $GP^\\circ$ means staying away from middle-gap, mean-rotation-takeover, pressure-takeover, signature- and axis-margin-collapse boundaries.",
+    "defining_relation": "\\mathbf R_{GP}=\\left(\\rho_{\\rm geom},\\rho_{\\rm mean},\\rho_{\\rm far},\\rho_{\\rm prov},\\rho_{\\rm sig},\\rho_{\\rm axis},\\rho_F^{her},\\rho_G^{her}\\right)"
+  },
+  {
+    "key": "ns.c6.c6g.r_hf",
+    "latex": "\\mathbf R_{HF}",
+    "label_zh": "HF 內部儲備向量",
+    "label_en": "HF interior reserve vector",
+    "definition_zh": "代表性HF狀態的六項儲備向量；$HF^\\circ$ 表示此相干非線性再入狀態遠離所有C6-C再入邊界。",
+    "definition_en": "The six-coordinate reserve vector for a representative HF state; $HF^\\circ$ means this coherent nonlinear re-entry state stays away from all C6-C re-entry boundaries.",
+    "defining_relation": "\\mathbf R_{HF}=\\left(\\Gamma^{Duh},\\rho_{\\rm dom},\\rho_{\\rm sel},\\rho_{\\rm sign},\\rho_{\\rm time},\\rho_{\\rm setup}\\right)"
+  },
+  {
+    "key": "ns.c6.c6g.f_op_der",
+    "latex": "F_{\\rm OP},\\ F_{\\rm DER}",
+    "label_zh": "算子/導數高階介面狀態",
+    "label_en": "Operator/derivative high-order interface states",
+    "definition_zh": "TS算子與高階導數代價分岔出的兩中介型別；合法導數實現則 $F_{\\rm DER}\\to H\\vee\\mathrm{REG}$，滿足再入相干性則 $F_{\\rm OP}\\to HF^\\circ$。",
+    "definition_en": "Two intermediate types the TS operator/high-derivative toll splits into; legal derivative realization gives $F_{\\rm DER}\\to H\\vee\\mathrm{REG}$, and re-entry coherence gives $F_{\\rm OP}\\to HF^\\circ$.",
+    "defining_relation": "TS^\\circ_X \\to F_{\\rm OP}\\vee F_{\\rm DER};\\ F_{\\rm DER}\\to H\\vee\\mathrm{REG};\\ F_{\\rm OP}\\to HF^\\circ"
+  },
+  {
+    "key": "ns.c6.c6g.delta_cert",
+    "latex": "\\delta_{\\rm cert}(C)",
+    "label_zh": "循環的證明缺口數",
+    "label_en": "Certification deficit of a cycle",
+    "definition_zh": "候選循環 $C$ 中缺乏已證動態轉移之邊數；已證循環須 $\\delta_{\\rm cert}=0$，C6-G.2證明現行每條候選循環皆 $\\ge1$。",
+    "definition_en": "The count of edges in candidate cycle $C$ lacking a certified dynamic transition; a certified cycle needs $\\delta_{\\rm cert}=0$, and C6-G.2 proves every current candidate cycle has $\\delta_{\\rm cert}(C)\\ge1$.",
+    "defining_relation": "\\delta_{\\rm cert}(C)=\\#\\{e_j: e_j \\text{ lacks a certified composable dynamic transition}\\}"
+  },
+  {
+    "key": "ns.c6.c6g.partial_k_c6",
+    "latex": "\\partial\\mathcal K_{C6}",
+    "label_zh": "C6 全域臨界邊界聯集",
+    "label_en": "C6 global critical boundary union",
+    "definition_zh": "三內部節點各自臨界邊界之聯集，隨後被quotient成十類全域邊界字母表 $\\mathfrak B$。",
+    "definition_en": "The union of the three interior nodes' own critical boundaries, subsequently quotiented into the ten-member global boundary alphabet $\\mathfrak B$.",
+    "defining_relation": "\\partial\\mathcal K_{C6}=\\partial\\mathcal K_{TS}\\cup\\partial\\mathcal K_{GP}\\cup\\partial\\mathcal K_{HF}"
+  },
+  {
+    "key": "ns.c6.c6g.b_load",
+    "latex": "\\mathsf B_{LOAD}",
+    "label_zh": "邊界超類：物理負荷臨界飽和",
+    "label_en": "Boundary superclass: physical-load critical saturation",
+    "definition_zh": "涵蓋TS絕對負荷崩潰、HF響應優勢崩潰等正規化振幅趨零情形；正規化形狀可能仍相干，但絕對PDE代價已消失。",
+    "definition_en": "Covers TS absolute load collapse, HF response-dominance collapse, and other normalized amplitudes tending to zero; the normalized shape may stay coherent even as absolute PDE toll vanishes.",
+    "defining_relation": "\\mathsf B_{LOAD}=\\text{physical-load critical saturation}"
+  },
+  {
+    "key": "ns.c6.c6g.b_coh",
+    "latex": "\\mathsf B_{COH}",
+    "label_zh": "邊界超類：相干性崩潰",
+    "label_en": "Boundary superclass: coherence collapse",
+    "definition_zh": "涵蓋HF Duhamel相干性崩潰、時間符號抵消、TS算子容量抵消、GP壓力抵消；響應非退化時依§30.1有 $B_{COH}\\to B_{CAP^\\infty}$。",
+    "definition_en": "Covers HF Duhamel coherence collapse, temporal sign cancellation, TS operator-capacity cancellation, and GP pressure cancellation; per §30.1, nondegenerate response gives $B_{COH}\\to B_{CAP^\\infty}$.",
+    "defining_relation": "B_{COH}\\to B_{CAP^\\infty}\\ \\text{(if response stays nondegenerate)}"
+  },
+  {
+    "key": "ns.c6.c6g.b_seg",
+    "latex": "\\mathsf B_{SEG}",
+    "label_zh": "邊界超類：分離/隔離",
+    "label_en": "Boundary superclass: segregation",
+    "definition_zh": "涵蓋TS時間/空間源分離、HF目標擴散、核心尺度多重性；質量持續存在但無法停留於單一可組合載體。",
+    "definition_en": "Covers TS temporal/spatial source segregation, HF target diffusion, and core-scale multiplicity; mass persists but cannot stay on one composable carrier.",
+    "defining_relation": "B_{SEG} = \\text{family where mass persists but disperses off a single composable carrier}"
+  },
+  {
+    "key": "ns.c6.c6g.b_geom",
+    "latex": "\\mathsf B_{GEOM}",
+    "label_zh": "邊界超類：幾何臨界性",
+    "label_en": "Boundary superclass: geometric criticality",
+    "definition_zh": "涵蓋中段間隙崩潰、方向錐退化、HF諧波符號飽和、GP軸/簽名邊際崩潰；多屬非零代價邊界而非自由出口（§30.3, §30.5）。",
+    "definition_en": "Covers middle-gap collapse, directional cone degeneration, HF harmonic sign-threshold saturation, and GP axis/signature-margin collapse; mostly nonzero-debt boundaries, not free exits (§30.3, §30.5).",
+    "defining_relation": "B_{GEOM}^{gap}\\to G\\text{-geometry defect (known route, §30.3)}"
+  },
+  {
+    "key": "ns.c6.c6g.b_field",
+    "latex": "\\mathsf B_{FIELD}",
+    "label_zh": "邊界超類：源-場去耦合",
+    "label_en": "Boundary superclass: source-field decoupling",
+    "definition_zh": "涵蓋TS源至場捕獲失敗、導數實現失敗、分量選擇退化；度量未能將源/響應物件轉為下一介面所需完整PDE場物件的失敗。",
+    "definition_en": "Covers TS source-to-field capture failure, derivative-realization failure, and component-selection degeneration; measures failure to realize a source/response object as the required full PDE field object.",
+    "defining_relation": "B_{FIELD} = \\text{failure to realize a source/response object as the required PDE field object}"
+  },
+  {
+    "key": "ns.c6.c6g.b_mean",
+    "latex": "\\mathsf B_{MEAN}",
+    "label_zh": "邊界超類：平均旋轉接管",
+    "label_en": "Boundary superclass: mean-rotation takeover",
+    "definition_zh": "GP路由中相干二次強迫可能被吸收進 $M_\\chi'$ 而非壓力項，構成與壓力路徑競爭的補償通道。",
+    "definition_en": "In GP routing, coherent quadratic forcing may be absorbed into $M_\\chi'$ rather than pressure, a genuine compensation channel competing with the pressure route.",
+    "defining_relation": "\\text{quadratic forcing}\\to M_\\chi'\\ \\text{(instead of pressure)}"
+  },
+  {
+    "key": "ns.c6.c6g.b_prov",
+    "latex": "\\mathsf B_{PROV}",
+    "label_zh": "邊界超類：來源正當性崩潰",
+    "label_en": "Boundary superclass: provenance collapse",
+    "definition_zh": "涵蓋局部/遠場壓力接管、壓力簽名邊界 $\\det F\\to0$、源正當性碎裂、壓力遺傳流失；記錄壓力/源物件是否具正確來源脈絡。",
+    "definition_en": "Covers local/far pressure takeover, the pressure signature boundary $\\det F\\to0$, source fragmentation, and heredity loss; records whether the pressure/source object has correct provenance.",
+    "defining_relation": "\\det F\\to0\\ \\text{(pressure signature boundary instance)}"
+  },
+  {
+    "key": "ns.c6.c6g.b_her",
+    "latex": "\\mathsf B_{HER}",
+    "label_zh": "邊界超類：遺傳性崩潰",
+    "label_en": "Boundary superclass: heredity collapse",
+    "definition_zh": "涵蓋HF窗口持續性崩潰、GP幾何/遠場壓力遺傳崩潰、TS共享源遺傳崩潰；是主要的循環組成邊界——狀態個體強但無法產出下一代。",
+    "definition_en": "Covers HF window-persistence collapse and GP/TS heredity collapse; the principal cycle-composition boundary — a state may be individually strong yet fail to produce the next generation.",
+    "defining_relation": "B_{HER}^{HF}\\to F/\\text{temporal forcing (known route, §30.2)}"
+  },
+  {
+    "key": "ns.c6.c6g.b_setup",
+    "latex": "\\mathsf B_{SETUP}",
+    "label_zh": "邊界超類：定理設置失敗",
+    "label_en": "Boundary superclass: setup failure",
+    "definition_zh": "涵蓋Grujić–Xu定理設置失敗、參考尺度/來源合法性失敗；路由至合法性出口節點 $A$ 而非物理遞迴節點。",
+    "definition_en": "Covers Grujić–Xu theorem setup failure and reference-scale/provenance legality failure; routes to the legality-exit node $A$ rather than a physical recurrent node.",
+    "defining_relation": "B_{SETUP}\\to A"
+  },
+  {
+    "key": "ns.c6.c6g.b_cap_infty",
+    "latex": "\\mathsf B_{CAP^\\infty}",
+    "label_zh": "無窮遠邊界（容量發散）",
+    "label_en": "Boundary-at-infinity (divergent capacity)",
+    "definition_zh": "由發散容量/響應比 $\\Gamma^{-1}\\to\\infty$ 定義，經緊化 $\\widehat C=C/(1+C)\\in[0,1]$ 轉為有限條件 $\\widehat C\\to1$；是無窮遠處邊界而非趨零儲備面。",
+    "definition_en": "Defined from a divergent capacity/response ratio $\\Gamma^{-1}\\to\\infty$; via compactification $\\widehat C=C/(1+C)\\in[0,1]$ this becomes the finite condition $\\widehat C\\to1$ — a boundary at infinity, not a vanishing-reserve face.",
+    "defining_relation": "\\Gamma^{-1}\\to\\infty;\\ \\widehat C=\\frac{C}{1+C}\\in[0,1];\\ \\mathsf B_{CAP^\\infty} := (\\widehat C\\to1)"
+  },
+  {
+    "key": "ns.c6.c6g.boundary_alphabet",
+    "latex": "\\mathfrak B",
+    "label_zh": "全域邊界字母表",
+    "label_en": "Global boundary alphabet",
+    "definition_zh": "C6-C/D/E/F儲備退化面壓縮成的十類全域邊界超類集合；$\\mathrm{REG}$刻意排除在外，是C6-G.3 M3分支的核心物件。",
+    "definition_en": "The ten-member global boundary superclass set compressing all C6-C/D/E/F reserve-degeneration faces; $\\mathrm{REG}$ is deliberately excluded, and this set is central to C6-G.3's M3 branch.",
+    "defining_relation": "\\mathfrak B=\\{B_{LOAD},B_{COH},B_{SEG},B_{GEOM},B_{FIELD},B_{MEAN},B_{PROV},B_{HER},B_{SETUP},B_{CAP^\\infty}\\}"
+  },
+  {
+    "key": "ns.c6.c6g.boundary_saturated_survivor",
+    "latex": "\\textbf{Boundary-Saturated Survivor}",
+    "label_zh": "邊界飽和倖存者",
+    "label_en": "Boundary-saturated survivor",
+    "definition_zh": "無窮倖存者序列沿子序列逼近某固定 $B_*\\in\\mathfrak B$；是C6-G.3的M3分支，也是本輪標題核心概念，十個超類代表不同失效機制、不可視為單一終態。",
+    "definition_en": "An infinite survivor sequence approaching, along a subsequence, some fixed $B_*\\in\\mathfrak B$; branch M3 of C6-G.3 and the concept named in this round's title — the ten superclasses are distinct failure mechanisms, not one anonymous terminal state.",
+    "defining_relation": "d(\\Theta_{n_j},B_*)\\to0\\ \\text{for some fixed } B_*\\in\\mathfrak B"
+  },
+  {
+    "key": "ns.c6.c6g.d_b",
+    "latex": "D_B",
+    "label_zh": "邊界事件債務向量",
+    "label_en": "Boundary event debt vector",
+    "definition_zh": "對邊界事件 $B$ 定義的八項示意債務向量，不同面啟動不同分量，是判定哪些面攜帶強制性有限債務的前置物件。",
+    "definition_en": "The eight-coordinate schematic debt vector for a boundary event $B$; different faces activate different coordinates, and it underlies determining which faces carry a coercive, finite debt.",
+    "defining_relation": "D_B=\\left(D_{\\rm energy},D_{\\rm diss},D_{\\rm pressure},D_{\\rm middle},D_{\\rm derivative},D_{\\rm forcing},D_{\\rm capacity},D_{\\rm time}\\right)"
+  },
+  {
+    "key": "ns.c6.c6g.globally_coercive",
+    "latex": "\\text{globally coercive}",
+    "label_zh": "（邊界面）全域強制性",
+    "label_en": "Globally coercive (boundary face property)",
+    "definition_zh": "邊界面 $B$ 若每一靠近邊界之世代支付 $d_B(n)\\ge\\epsilon_B>0$ 且 $\\sum_n d_B(n)<\\infty$，則稱其全域強制，不能無窮遞迴——是C6-A有限預算引理的邊界類比。",
+    "definition_en": "A boundary face $B$ where every near-boundary generation pays $d_B(n)\\ge\\epsilon_B>0$ with $\\sum_n d_B(n)<\\infty$ is globally coercive and cannot recur infinitely — the boundary-level analogue of the C6-A finite-budget lemma.",
+    "defining_relation": "d_B(n)\\ge\\epsilon_B>0\\ \\text{with}\\ \\sum_n d_B(n)<\\infty \\Rightarrow B\\text{ cannot recur infinitely often}"
+  },
+  {
+    "key": "ns.c6.c6g.minimal_survivor_reduction",
+    "latex": "GP_{\\rm uniform\\ hereditary}\\vee HF_{\\rm uniform\\ coherent}\\vee\\text{Boundary-Saturated Survivor}\\vee A",
+    "label_zh": "最小倖存者化約（四分支析取）",
+    "label_en": "Minimal survivor reduction (four-way disjunction)",
+    "definition_zh": "C6-G.3定理結論：避開$\\mathrm{REG}$之無窮倖存者取子序列後必為M1一致遺傳GP、M2一致相干HF、M3邊界飽和、或M4合法性出口$A$之一；關鍵推論是$TS$被排除於候選名單外。",
+    "definition_en": "The C6-G.3 conclusion: any infinite survivor avoiding $\\mathrm{REG}$ must, after a subsequence, be one of M1 uniform hereditary GP, M2 uniform coherent HF, M3 boundary-saturated, or M4 legality exit into $A$; crucially, $TS$ is thereby removed from the candidate list.",
+    "defining_relation": "GP^\\circ_n\\ (M1) \\vee HF^\\circ_n\\ (M2) \\vee [d(\\Theta_{n_j},B_*)\\to0]\\ (M3) \\vee [\\text{enters } A]\\ (M4)"
+  },
+  {
+    "key": "ns.c6.c6g.g_c6_typed",
+    "latex": "\\mathcal G_{C6}^{typed}",
+    "label_zh": "C6 現行已型別化動態圖",
+    "label_en": "C6 current typed dynamic graph",
+    "definition_zh": "C6-G.4「零已證循環稽核」之對象：靜態quotient與儲備型別化後之現行圖，不存在完全由已證邊組成的非平凡遞迴循環；此為現行研究圖定理，非N-S流本身之證明。",
+    "definition_en": "The object of the C6-G.4 Zero-Certified-Cycle Audit: the current typed graph, after static quotient and reserve typing, contains no nontrivial recurrent cycle of certified edges — a current research-graph theorem, not a proof about the N-S flow itself.",
+    "defining_relation": "\\mathcal G_{C6}^{typed}: \\delta_{\\rm cert}(C)\\ge1\\ \\forall C"
+  },
+  {
+    "key": "ns.c6.c6g.k_bar_c6",
+    "latex": "\\overline{\\mathcal K}_{C6}",
+    "label_zh": "C6 全域緊化狀態空間",
+    "label_en": "C6 global compactified state space",
+    "definition_zh": "內部狀態空間 $\\mathcal K_{\\rm int}=\\mathcal K_{TS}\\sqcup\\mathcal K_{GP}\\sqcup\\mathcal K_{HF}$ 與邊界聯集及出口節點 $\\{A,\\mathrm{REG}\\}$ 之聯集，是本輪對整個typed狀態系統的正式總結。",
+    "definition_en": "The union of the interior state space $\\mathcal K_{\\rm int}=\\mathcal K_{TS}\\sqcup\\mathcal K_{GP}\\sqcup\\mathcal K_{HF}$, the boundary union, and exit nodes $\\{A,\\mathrm{REG}\\}$ — this round's formal summary of the entire typed state system.",
+    "defining_relation": "\\overline{\\mathcal K}_{C6}=\\mathcal K_{\\rm int}\\cup\\partial\\mathcal K_{C6}\\cup\\{A,\\mathrm{REG}\\}"
+  }
+]

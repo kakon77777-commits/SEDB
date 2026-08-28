@@ -1,0 +1,248 @@
+[
+  {
+    "key": "ns.c5.c5j.A_k",
+    "latex": "A_k",
+    "label_zh": "連鎖尺度導數上限",
+    "label_en": "Chain-Scale Derivative Bound",
+    "definition_zh": "第0節回顧 C5-I 引入的選定高階導數在空間失效點附近的連鎖尺度上限。",
+    "definition_en": "Bounding supremum of the selected high-order derivative at the chain scale introduced in C5-I, reviewed in Section 0.",
+    "notes": "Carries over from C5-I."
+  },
+  {
+    "key": "ns.c5.c5j.kappa_lambda_delta",
+    "latex": "\\kappa_{\\lambda,\\delta}",
+    "label_zh": "降階積分懲罰乘子",
+    "label_en": "Descent Toll Multiplier",
+    "definition_zh": "第8節定義的降階積分懲罰乘子，僅依賴於符號一致高值集的總長度。",
+    "definition_en": "The lower-order descent toll multiplier defined in Section 8, depending only on the total length of the same-sign high set.",
+    "defining_relation": "\\kappa_{\\lambda,\\delta} = (1+\\lambda)\\delta-1 > 0"
+  },
+  {
+    "key": "ns.c5.c5j.grujic_xu_root",
+    "latex": "\\mathcal{R}_k",
+    "label_zh": "正規化導數根",
+    "label_en": "Normalized Derivative Root",
+    "definition_zh": "第18節引用的 Grujić–Xu 正規化導數根，用於建立跨階空間相容性條件。",
+    "definition_en": "The Grujić–Xu normalized derivative root referenced in Section 18 to establish cross-order spatial compatibility conditions.",
+    "defining_relation": "\\mathcal R_k = \\frac{A_k(s)^{1/(k+1)}}{c^{k/(k+1)}(k!)^{1/(k+1)}}"
+  },
+  {
+    "key": "ns.c5.c5j.active_occupancy",
+    "latex": "\\beta",
+    "label_zh": "活躍佔有率",
+    "label_en": "Active Occupancy",
+    "definition_zh": "第3節定義的選定符號高值集在正規化弦上的長度佔有率。",
+    "definition_en": "The occupancy of the selected sign-high set on the normalized chord, defined in Section 3.",
+    "defining_relation": "\\beta = \\frac{1}{2}|E_{\\rm act}|"
+  },
+  {
+    "key": "ns.c5.c5j.solynin_harmonic_bound",
+    "latex": "h(\\beta)",
+    "label_zh": "Solynin 調和下界",
+    "label_en": "Solynin Harmonic Bound",
+    "definition_zh": "第3節由 Solynin 極值定理導出的、僅依賴於佔有率的通用調和測度下界。",
+    "definition_en": "The universal harmonic measure lower bound derived from Solynin's extremal theorem, depending only on occupancy, defined in Section 3.",
+    "defining_relation": "h(\\beta) := \\frac{2}{\\pi} \\arcsin \\frac{1-\\beta^2}{1+\\beta^2}"
+  },
+  {
+    "key": "ns.c5.c5j.selected_scalar_derivative",
+    "latex": "f_k",
+    "label_zh": "選定純量導數",
+    "label_en": "Selected Scalar Derivative",
+    "definition_zh": "第7節定義的選定純量導數函數，其取向由最大符號表示決定。",
+    "definition_en": "The selected scalar derivative function defined in Section 7, oriented by the positive representation sign.",
+    "defining_relation": "f_k = \\sigma D^\\zeta u_a"
+  },
+  {
+    "key": "ns.c5.c5j.chain_scale_radius",
+    "latex": "r_k",
+    "label_zh": "連鎖半徑",
+    "label_en": "Chain Radius",
+    "definition_zh": "第24節引用的 Grujić–Xu 連鎖半徑，在跨階推導的三明治不等式中會被完全對消。",
+    "definition_en": "The Grujić–Xu chain radius referenced in Section 24, which cancels out completely in the cross-order sandwich inequality.",
+    "defining_relation": "r_k = \\frac{1}{2\\widetilde{\\mathcal C}_k A_k^{1/(k+1)}}"
+  },
+  {
+    "key": "ns.c5.c5j.hysteresis_thresholds",
+    "latex": "\\lambda_0, \\lambda_1",
+    "label_zh": "遲滯雙閾值",
+    "label_en": "Hysteresis Thresholds",
+    "definition_zh": "第11節固定的雙閾值遲滯參數，用於穩健計算線截面的碎裂次數。",
+    "definition_en": "The two-threshold hysteresis parameters fixed in Section 11, used to robustly count fragmentation on line sections."
+  },
+  {
+    "key": "ns.c5.c5j.hysteretic_fragment_count",
+    "latex": "N_k",
+    "label_zh": "遲滯碎裂數",
+    "label_en": "Hysteretic Fragment Count",
+    "definition_zh": "第12節與第15節定義的遲滯碎裂數，代表由真實低谷分隔的穩健高值島嶼數量。",
+    "definition_en": "The hysteretic fragmentation count defined in Sections 12 and 15, representing the number of robust high islands separated by genuine low excursions.",
+    "defining_relation": "N_k = N_{\\lambda_0,\\lambda_1}(f_k;[-r_k,r_k])"
+  },
+  {
+    "key": "ns.c5.c5j.derivative_conversion_constant",
+    "latex": "C_D",
+    "label_zh": "導數轉換常數",
+    "label_en": "Derivative Conversion Constant",
+    "definition_zh": "第14節引入的導數範數轉換常數，用於計算上限導數的總變差。",
+    "definition_en": "The derivative norm conversion constant introduced in Section 14 to compute the total variation of the upper derivative."
+  },
+  {
+    "key": "ns.c5.c5j.order_sandwich_ratio",
+    "latex": "\\mathfrak{C}_k^{ord}",
+    "label_zh": "三階三明治比值",
+    "label_en": "Three-Order Sandwich Ratio",
+    "definition_zh": "第17節定義的三階三明治比值，用於量化跨階導數的相對增長。",
+    "definition_en": "The three-order sandwich ratio defined in Section 17, used to quantify the relative growth across adjacent derivative orders.",
+    "defining_relation": "\\mathfrak{C}_k^{ord} = \\frac{A_{k-1}A_{k+1}}{A_k^2}"
+  },
+  {
+    "key": "ns.c5.c5j.sandwich_constant",
+    "latex": "c_{\\lambda_0,\\lambda_1,\\delta}",
+    "label_zh": "三明治曲率常數",
+    "label_en": "Sandwich Curvature Constant",
+    "definition_zh": "第17節給出的三階曲率不等式的常數因子，結合了降階懲罰與遲滯間距。",
+    "definition_en": "The constant factor for the three-order curvature inequality given in Section 17, combining the descent toll and hysteresis gap.",
+    "defining_relation": "c_{\\lambda_0,\\lambda_1,\\delta} = \\frac{((1+\\lambda_1)\\delta-1)(\\lambda_1-\\lambda_0)}{C_D}"
+  },
+  {
+    "key": "ns.c5.c5j.log_chain_root",
+    "latex": "Y_k",
+    "label_zh": "對數連鎖根",
+    "label_en": "Log-Chain Root",
+    "definition_zh": "第20節定義的對數連鎖根，用以分析跨階導數輪廓的凸性。",
+    "definition_en": "The log-chain root defined in Section 20, used to analyze the convexity of the cross-order derivative profile.",
+    "defining_relation": "Y_k = (k+1)\\log\\mathcal{R}_k"
+  },
+  {
+    "key": "ns.c5.c5j.log_chain_curvature",
+    "latex": "\\Delta^2Y_k",
+    "label_zh": "對數連鎖曲率算子",
+    "label_en": "Log-Chain Curvature Operator",
+    "definition_zh": "第20節定義的對數連鎖曲率算子，大量碎裂會迫使其呈現嚴格的局部凸性。",
+    "definition_en": "The log-chain curvature operator defined in Section 20, which is forced into strict local convexity by high fragmentation.",
+    "defining_relation": "\\Delta^2Y_k = Y_{k-1} + Y_{k+1} - 2Y_k"
+  },
+  {
+    "key": "ns.c5.c5j.chain_scale_line_roughness",
+    "latex": "\\mathfrak{U}_k",
+    "label_zh": "線粗糙度",
+    "label_en": "Line Roughness",
+    "definition_zh": "第23節定義的無因次連鎖尺度線粗糙度，為遲滯碎裂數提供上界。",
+    "definition_en": "The dimensionless chain-scale line roughness defined in Section 23, bounding the hysteretic fragmentation count from above.",
+    "defining_relation": "\\mathfrak{U}_k = r_k \\frac{A_{k+1}}{A_k}"
+  },
+  {
+    "key": "ns.c5.c5j.normalized_line_profile",
+    "latex": "\\psi_k(s)",
+    "label_zh": "正規化線輪廓",
+    "label_en": "Normalized Line Profile",
+    "definition_zh": "第26節定義的正規化線輪廓函數，將選定的壞核心沿弦映射至單位區間。",
+    "definition_en": "The normalized line profile function defined in Section 26, mapping the selected bad core along a chord to the unit interval.",
+    "defining_relation": "\\psi_k(s) = \\frac{\\sigma D^\\zeta u_a(x_k+r_kse_q)}{A_k}"
+  },
+  {
+    "key": "ns.c5.c5j.continuous_recurrent_profile",
+    "latex": "\\psi_\\ast",
+    "label_zh": "遞歸線輪廓極限",
+    "label_en": "Recurrent Line-Profile Limit",
+    "definition_zh": "第27節中，若粗糙度有界，透過 Arzelà–Ascoli 定理取得的連續遞歸線輪廓極限。",
+    "definition_en": "The continuous recurrent line-profile limit obtained via the Arzelà–Ascoli theorem under bounded roughness, as shown in Section 27."
+  },
+  {
+    "key": "ns.c5.c5j.full_angular_line_process",
+    "latex": "\\Psi_k(\\nu,s)",
+    "label_zh": "全角度線過程",
+    "label_en": "Full Angular Line Process",
+    "definition_zh": "第30節定義的全角度線過程，描述指定純量導數在各方向上的正規化分佈。",
+    "definition_en": "The full angular line process defined in Section 30, describing the normalized distribution of the specified scalar derivative across all directions.",
+    "defining_relation": "\\Psi_k(\\nu,s) = \\frac{f_k(x_k+r_ks\\nu)}{A_k}"
+  },
+  {
+    "key": "ns.c5.c5j.harmonic_critical_saturation",
+    "latex": "\\beta_k",
+    "label_zh": "調和臨界佔有率",
+    "label_en": "Harmonic Critical Saturation",
+    "definition_zh": "第35節回顧的調和臨界飽和佔有率，探討其向下逼近臨界值 $\\delta$ 的動態。",
+    "definition_en": "The harmonic critical saturation occupancy reviewed in Section 35, examining its dynamics as it approaches the critical threshold $\\delta$ from above.",
+    "defining_relation": "\\beta_k = \\inf_\\nu \\frac{1}{2} |\\{s: \\Psi_k(\\nu,s) > \\lambda_1\\}|"
+  },
+  {
+    "key": "ns.c5.c5j.root_order_curvature",
+    "latex": "\\mathfrak{K}_k^{root}",
+    "label_zh": "根階數曲率",
+    "label_en": "Root Order Curvature",
+    "definition_zh": "第44節定義的正規化根的局部三階曲率狀態，其直接給出碎裂次數的上界。",
+    "definition_en": "The local three-order normalized-root curvature state defined in Section 44, which directly bounds the fragmentation number.",
+    "defining_relation": "\\mathfrak{K}_k^{root} = \\frac{k+1}{k} \\frac{\\mathcal{R}_{k-1}^{k} \\mathcal{R}_{k+1}^{k+2}}{\\mathcal{R}_k^{2k+2}}"
+  },
+  {
+    "key": "ns.c5.c5j.compactified_order_curvature",
+    "latex": "\\widehat{\\mathfrak{K}}_k",
+    "label_zh": "緊緻化階數曲率",
+    "label_en": "Compactified Order Curvature",
+    "definition_zh": "第45節定義的緊緻化階數曲率，當其趨近於 1 時即代表階數曲率擁塞。",
+    "definition_en": "The compactified order curvature defined in Section 45, which indicates order-curvature congestion as it approaches 1.",
+    "defining_relation": "\\widehat{\\mathfrak{K}}_k = \\frac{\\mathfrak{K}_k^{root}}{1+\\mathfrak{K}_k^{root}}"
+  },
+  {
+    "key": "ns.c5.c5j.chain_time_state",
+    "latex": "\\Theta_k^{time-line}",
+    "label_zh": "連鎖時間狀態",
+    "label_en": "Chain-Time State",
+    "definition_zh": "第52節提出的連鎖時間狀態元組，將空間微幾何與時間動態屬性結合儲存。",
+    "definition_en": "The chain-time state tuple proposed in Section 52, storing combined spatial microgeometry and temporal dynamic properties.",
+    "defining_relation": "\\Theta_k^{time-line} = \\langle t_k, s_k, \\tau_k, \\beta_k, \\mathfrak{U}_k, \\mathfrak{K}_k^{root}, \\dots \\rangle"
+  },
+  {
+    "key": "ns.c5.c5j.normalized_theorem_time",
+    "latex": "\\tau_k",
+    "label_zh": "正規化定理時間",
+    "label_en": "Normalized Theorem Time",
+    "definition_zh": "第52節定義的正規化定理時間差，用於評估不同階層間時間的對齊情況。",
+    "definition_en": "The normalized theorem time difference defined in Section 52, used to evaluate the temporal alignment across different derivative orders.",
+    "defining_relation": "\\tau_k = \\widetilde{\\mathcal{C}}_k A_k(t_k)^{2/(k+1)} (s_k-t_k)"
+  },
+  {
+    "key": "ns.c5.c5j.root_transfer_factor",
+    "latex": "\\mathfrak{T}_{k \\to k+1}",
+    "label_zh": "根轉移因子",
+    "label_en": "Root Transfer Factor",
+    "definition_zh": "第53節定義的根轉移因子，用以量化同一階導數在不同評估時間間的乘性變化。",
+    "definition_en": "The root transfer factor defined in Section 53, quantifying the multiplicative change of the same derivative root between different evaluation times.",
+    "defining_relation": "\\mathfrak{T}_{k \\to k+1} = \\max\\left\\{ \\frac{\\mathcal{R}_k(s_{k+1})}{\\mathcal{R}_k(s_k)}, \\frac{\\mathcal{R}_k(s_k)}{\\mathcal{R}_k(s_{k+1})} \\right\\}",
+    "notes": "Sets up the temporal turnover defect problem for the next round, C5-K."
+  },
+  {
+    "key": "ns.c5.c5j.j_comp",
+    "latex": "\\text{J-COMP}",
+    "label_zh": "緊緻遲滯核心條件",
+    "label_en": "Compact Hysteretic Core Condition",
+    "definition_zh": "第34節界定的壞核心線過程分支之一，表示存在粗糙度有界的緊緻遲滯符號核心。",
+    "definition_en": "One branch of the bad-core line-process dichotomy defined in Section 34, representing a compact hysteretic sign-core with bounded roughness."
+  },
+  {
+    "key": "ns.c5.c5j.j_up",
+    "latex": "\\text{J-UP}",
+    "label_zh": "高階導數粗糙化條件",
+    "label_en": "Upper-Order Roughness Condition",
+    "definition_zh": "第34節界定的另一個分支，表示上限階導數粗糙度趨於無限大。",
+    "definition_en": "The alternative branch defined in Section 34, indicating that the upper-order derivative roughness blows up."
+  },
+  {
+    "key": "ns.c5.c5j.j_hc",
+    "latex": "\\text{J-HC}",
+    "label_zh": "緊緻臨界核心",
+    "label_en": "Compact Critical Core",
+    "definition_zh": "第36節界定的調和臨界飽和模式之一，對應線過程緊緻化為一連續的遲滯臨界輪廓。",
+    "definition_en": "One mode of harmonic critical saturation defined in Section 36, corresponding to a line process compactifying into a continuous hysteretic critical profile."
+  },
+  {
+    "key": "ns.c5.c5j.j_hr",
+    "latex": "\\text{J-HR}",
+    "label_zh": "粗糙臨界核心",
+    "label_en": "Rough Critical Core",
+    "definition_zh": "第36節界定的另一調和臨界飽和模式，對應臨界佔有率伴隨高階導數的粗糙化。",
+    "definition_en": "The alternative harmonic critical saturation mode defined in Section 36, where critical occupancy is accompanied by upper-order derivative roughness."
+  }
+]

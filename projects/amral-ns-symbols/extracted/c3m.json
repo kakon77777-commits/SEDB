@@ -1,0 +1,282 @@
+[
+  {
+    "key": "ns.c3.c3m.stretching_density",
+    "latex": "\\mathcal S_\\omega(x,t)",
+    "label_zh": "伸展密度",
+    "label_en": "stretching density",
+    "definition_zh": "第1節定義的逐點量 S_ω = ω·Sω，即渦量與應變耦合產生的局部伸展率密度，是 enstrophy identity 的來源項。",
+    "definition_en": "The pointwise quantity defined in Sec. 1 as S_ω = ω·Sω, the local vortex-stretching rate density forming the source term of the enstrophy identity.",
+    "defining_relation": "\\mathcal S_\\omega(x,t)=\\omega\\cdot S\\omega"
+  },
+  {
+    "key": "ns.c3.c3m.vorticity_direction",
+    "latex": "\\xi",
+    "label_zh": "渦量方向",
+    "label_en": "vorticity direction",
+    "definition_zh": "第2節在 ω≠0 處定義的單位渦量向量 ξ=ω/|ω|，用以將伸展密度分解為 |ω|²α。",
+    "definition_en": "The unit vorticity vector ξ=ω/|ω| defined in Sec. 2 where ω≠0, used to factor the stretching density as |ω|²α."
+  },
+  {
+    "key": "ns.c3.c3m.alpha_stretching_rate",
+    "latex": "\\alpha",
+    "label_zh": "瞬時伸展率",
+    "label_en": "instantaneous stretching rate",
+    "definition_zh": "第2節定義的沿渦量方向瞬時伸展率 α=ξ·Sξ，是全篇 eigenframe 分解的核心純量。",
+    "definition_en": "The instantaneous stretching rate along the vorticity direction, α=ξ·Sξ, defined in Sec. 2 as the central scalar of the whole eigenframe decomposition.",
+    "defining_relation": "\\alpha=\\xi\\cdot S\\xi"
+  },
+  {
+    "key": "ns.c3.c3m.strain_eigenvalues",
+    "latex": "\\lambda_1\\le\\lambda_2\\le\\lambda_3",
+    "label_zh": "排序應變特徵值",
+    "label_en": "ordered strain eigenvalues",
+    "definition_zh": "第3節定義應變張量 S 依大小排序的三個特徵值 λ1≤λ2≤λ3，由不可壓縮性給出無跡條件 λ1+λ2+λ3=0。",
+    "definition_en": "The three eigenvalues of the strain tensor S, ordered as λ1≤λ2≤λ3 and defined in Sec. 3, obeying the trace-free condition λ1+λ2+λ3=0 from incompressibility."
+  },
+  {
+    "key": "ns.c3.c3m.eigenvectors",
+    "latex": "e_1,e_2,e_3",
+    "label_zh": "正交特徵向量",
+    "label_en": "orthonormal eigenframe vectors",
+    "definition_zh": "第3節定義對應 λ1,λ2,λ3 的正交單位特徵向量 e1,e2,e3，構成本輪全部分解所依賴的應變 eigenframe。",
+    "definition_en": "The orthonormal unit eigenvectors e1,e2,e3 corresponding to λ1,λ2,λ3, defined in Sec. 3, forming the strain eigenframe underlying every decomposition in this round."
+  },
+  {
+    "key": "ns.c3.c3m.orientation_weights",
+    "latex": "c_i",
+    "label_zh": "方向權重",
+    "label_en": "orientation weights",
+    "definition_zh": "第3節定義的 c_i=|ξ·e_i|²，即渦量方向在第 i 個應變特徵向量上的投影平方，滿足 c1+c2+c3=1。",
+    "definition_en": "Defined in Sec. 3 as c_i=|ξ·e_i|², the squared projection of the vorticity direction onto the i-th strain eigenvector, satisfying c1+c2+c3=1."
+  },
+  {
+    "key": "ns.c3.c3m.stretching_orientation_identity",
+    "latex": "\\alpha=\\lambda_2+(\\lambda_3-\\lambda_2)c_3-(\\lambda_2-\\lambda_1)c_1",
+    "label_zh": "精確伸展-方向恆等式",
+    "label_en": "exact stretching-orientation identity",
+    "definition_zh": "定理4.1（第4節）給出的核心恆等式，將 α 精確分解為 middle baseline、principal stretching surplus 與 compressive alignment depletion 三個 typed 分量之和。",
+    "definition_en": "The central identity of Theorem 4.1 (Sec. 4), decomposing α exactly into a middle baseline plus a principal-stretching surplus minus a compressive-alignment depletion term.",
+    "defining_relation": "\\alpha=\\lambda_2+(\\lambda_3-\\lambda_2)c_3-(\\lambda_2-\\lambda_1)c_1"
+  },
+  {
+    "key": "ns.c3.c3m.alpha_plus",
+    "latex": "\\alpha_+",
+    "label_zh": "正部伸展率",
+    "label_en": "positive stretching part",
+    "definition_zh": "第6節用 [x]_+=max{x,0} 定義的 α 正部 α_+，滿足上界 α_+≤λ2^++√2|S|c3。",
+    "definition_en": "The positive part of α, α_+, via [x]_+=max{x,0}, defined in Sec. 6 and bounded by α_+≤λ2^++√2|S|c3.",
+    "defining_relation": "\\alpha_+\\le\\lambda_2^++\\sqrt2|S|c_3"
+  },
+  {
+    "key": "ns.c3.c3m.lambda2_plus_carrier",
+    "latex": "\\lambda_2^+",
+    "label_zh": "中間特徵值正部（承載角色）",
+    "label_en": "positive middle eigenvalue (carrier role)",
+    "definition_zh": "承接自 C3-L 的 strain channel 量 λ2^+=[λ2]_+，本輪（第6–8節）將其確立為 pointwise stretching 的 Carrier M 候選承擔者。",
+    "definition_en": "The strain-channel quantity λ2^+=[λ2]_+ inherited from C3-L; this round (Sec. 6–8) establishes it as the Carrier M candidate bearer of pointwise stretching.",
+    "notes": "與 C3-L 的 λ2^+∉L_t^2L_x^3 channel 為同一符號，本輪賦予其 pointwise carrier 角色。"
+  },
+  {
+    "key": "ns.c3.c3m.carrier_m",
+    "latex": "\\lambda_2^+\\gtrsim\\alpha_+",
+    "label_zh": "中間應變承載者",
+    "label_en": "Carrier M (middle-strain carrier)",
+    "definition_zh": "第8節定義的第一種 pointwise carrier 選項，指正伸展主要由中間特徵值正部 λ2^+ 承擔。",
+    "definition_en": "Defined in Sec. 8 as the first pointwise carrier option, where positive stretching is borne mainly by the positive middle eigenvalue λ2^+.",
+    "defining_relation": "\\lambda_2^+\\gtrsim\\alpha_+"
+  },
+  {
+    "key": "ns.c3.c3m.carrier_p",
+    "latex": "c_3\\gtrsim\\frac{\\alpha_+}{|S|}",
+    "label_zh": "主軸對齊承載者",
+    "label_en": "Carrier P (principal-alignment carrier)",
+    "definition_zh": "第8節定義的第二種 pointwise carrier 選項，指正伸展需由渦量對最伸長特徵向量 e3 的對齊程度 c3 承擔。",
+    "definition_en": "Defined in Sec. 8 as the second pointwise carrier option, where positive stretching must instead be borne by the alignment weight c3 toward the most-stretching eigenvector e3.",
+    "defining_relation": "c_3\\gtrsim\\frac{\\alpha_+}{|S|}"
+  },
+  {
+    "key": "ns.c3.c3m.carrier_dichotomy",
+    "latex": "\\textbf{Middle-Strain / Principal-Alignment Carrier Dichotomy}",
+    "label_zh": "承載者二分法",
+    "label_en": "Middle-Strain / Principal-Alignment Carrier Dichotomy",
+    "definition_zh": "定理C3-M.3（第10節）：hypothetical blow-up 必使 λ2^+|ω|² 與 |S||ξ·e3|²|ω|² 兩個時空積分至少一個發散，是 Carrier M/P 的積分版本。",
+    "definition_en": "Theorem C3-M.3 (Sec. 10): any hypothetical blow-up forces at least one of the spacetime integrals of λ2^+|ω|² or |S||ξ·e3|²|ω|² to diverge — the integral-level version of the Carrier M/P dichotomy.",
+    "defining_relation": "\\int_0^{T_*}\\int\\lambda_2^+|\\omega|^2\\,dxdt=\\infty\\quad\\text{or}\\quad\\int_0^{T_*}\\int|S||\\xi\\cdot e_3|^2|\\omega|^2\\,dxdt=\\infty"
+  },
+  {
+    "key": "ns.c3.c3m.betchov_identity",
+    "latex": "\\int_{\\mathbb R^3}\\omega\\cdot S\\omega\\,dx=-4\\int_{\\mathbb R^3}\\det S\\,dx",
+    "label_zh": "Betchov恆等式",
+    "label_en": "Betchov identity",
+    "definition_zh": "第12節引入的全域恆等式，將全空間 enstrophy 生成積分 ∫ω·Sω 與應變行列式積分 -4∫detS 等同，是本輪 orientation collapse 論證的關鍵外部輸入。",
+    "definition_en": "The global identity introduced in Sec. 12 equating the whole-space enstrophy-production integral ∫ω·Sω to -4∫detS, the key external input driving this round's orientation-collapse argument.",
+    "defining_relation": "\\int_{\\mathbb R^3}\\omega\\cdot S\\omega\\,dx=-4\\int_{\\mathbb R^3}\\det S\\,dx"
+  },
+  {
+    "key": "ns.c3.c3m.enstrophy_strain_norm_identity",
+    "latex": "\\int|\\omega|^2dx=2\\int|S|^2dx",
+    "label_zh": "渦量-應變範數恆等式",
+    "label_en": "enstrophy-strain norm identity",
+    "definition_zh": "第12節伴隨 Betchov 恆等式一併給出的全域恆等式 ∫|ω|²dx=2∫|S|²dx，將渦量與應變張量的 L² 範數聯繫起來。",
+    "definition_en": "A companion global identity stated alongside the Betchov identity in Sec. 12, ∫|ω|²dx=2∫|S|²dx, linking the L² norms of vorticity and the strain tensor."
+  },
+  {
+    "key": "ns.c3.c3m.global_orientation_collapse",
+    "latex": "\\text{local orientation}\\overset{\\int dx}{\\longrightarrow}\\text{global strain determinant}",
+    "label_zh": "全域方向坍縮",
+    "label_en": "Global Orientation Collapse",
+    "definition_zh": "第13節的 No-Go 13.1：全域 enstrophy-production 恆等式無法單獨還原局部 vorticity–strain 特徵向量對齊資訊，方向資訊在積分中真正坍縮為應變行列式。",
+    "definition_en": "No-Go 13.1 (Sec. 13): the global enstrophy-production identity cannot by itself recover local vorticity–strain eigenvector alignment information — orientation data genuinely collapses into the strain determinant under integration."
+  },
+  {
+    "key": "ns.c3.c3m.g_betchov",
+    "latex": "G_{\\rm BETCHOV}",
+    "label_zh": "Betchov稽核旗標",
+    "label_en": "Betchov non-collapse audit guard",
+    "definition_zh": "第14節引入的 X-Integration 稽核符號：任何試圖由全域 stretching 積分反推局部方向資訊的論證，必須先通過此 Betchov non-collapse audit。",
+    "definition_en": "The X-Integration audit symbol introduced in Sec. 14: any argument inferring local orientation from a global stretching integral must first pass this Betchov non-collapse audit."
+  },
+  {
+    "key": "ns.c3.c3m.det_s_bound",
+    "latex": "-\\det S\\le\\frac12\\lambda_2^+|S|^2",
+    "label_zh": "應變行列式上界",
+    "label_en": "strain-determinant upper bound",
+    "definition_zh": "第16節證明的代數引理：當 λ2>0 時 -detS≤(1/2)λ2^+|S|²，是連結 Betchov 恆等式與中間特徵值承載角色的直接代數橋樑。",
+    "definition_en": "The algebraic lemma proved in Sec. 16: for λ2>0, -detS≤(1/2)λ2^+|S|², the direct algebraic bridge linking the Betchov identity to the middle-eigenvalue carrier role.",
+    "defining_relation": "-\\det S\\le\\frac12\\lambda_2^+|S|^2"
+  },
+  {
+    "key": "ns.c3.c3m.two_positive_eigenvalue_geometry",
+    "latex": "\\lambda_2>0",
+    "label_zh": "雙正特徵值幾何",
+    "label_en": "two-positive-eigenvalue geometry",
+    "definition_zh": "定理C3-M.5（第17節）：全域正 enstrophy 生成只能由 λ2>0（兩個正應變特徵值、一個負特徵值）的幾何區域承擔，並非任意 analytic artefact。",
+    "definition_en": "Theorem C3-M.5 (Sec. 17): positive global enstrophy production can only be carried by regions with λ2>0 (two positive strain eigenvalues, one negative), not an arbitrary analytic artefact."
+  },
+  {
+    "key": "ns.c3.c3m.local_eigenframe_alignment",
+    "latex": "\\xi(x,t)\\cdot e_i(x,t)",
+    "label_zh": "局部特徵框對齊",
+    "label_en": "local eigenframe alignment",
+    "definition_zh": "第20節定義的第一類幾何：同一點上渦量方向相對應變特徵向量的對齊程度 ξ·e_i，由 G-ORI guard 保存。",
+    "definition_en": "The first geometric type defined in Sec. 20: the alignment ξ·e_i of the vorticity direction with the strain eigenvectors at the same point, preserved by the G-ORI guard."
+  },
+  {
+    "key": "ns.c3.c3m.spatial_direction_coherence",
+    "latex": "\\xi(x,t)-\\xi(y,t)",
+    "label_zh": "空間方向相干性",
+    "label_en": "spatial direction coherence",
+    "definition_zh": "第20節定義的第二類幾何：不同空間點間渦量方向的差異 ξ(x)-ξ(y)，是 Constantin–Fefferman 型 geometric depletion 實際作用的對象，由 G-DIR guard 保存並與 G-ORI 區分。",
+    "definition_en": "The second geometric type defined in Sec. 20: the variation ξ(x)-ξ(y) of vorticity direction between distinct spatial points, the actual target of Constantin–Fefferman-type geometric depletion, preserved by the G-DIR guard and kept distinct from G-ORI."
+  },
+  {
+    "key": "ns.c3.c3m.bmo_log_weighted",
+    "latex": "\\mathrm{bmo}_{1/|\\log r|}",
+    "label_zh": "對數加權bmo空間",
+    "label_en": "logarithmically weighted bmo space",
+    "definition_zh": "第22節引入、來自 Grujić 2026 preprint 的方向正則性空間，在 L^{3/2,∞} critical point-concentration 情境下，渦量方向落入此空間即可產生 logarithmic depletion。",
+    "definition_en": "The direction-regularity space introduced in Sec. 22 from Grujić's 2026 preprint; under L^{3/2,∞} critical point-concentration, the vorticity direction lying in this space suffices to produce logarithmic depletion."
+  },
+  {
+    "key": "ns.c3.c3m.directional_roughness_debt",
+    "latex": "\\xi\\notin\\mathrm{bmo}_{1/|\\log r|}",
+    "label_zh": "方向粗糙度債",
+    "label_en": "Directional Roughness Debt",
+    "definition_zh": "C3-M.6（第23節，條件式結果）：在 Grujić 2026 的 critical point-concentration 情境下，hypothetical blow-up 必須支付渦量方向不落入 bmo_{1/|log r|} 的債務才能存活。",
+    "definition_en": "C3-M.6 (Sec. 23, conditional): under Grujić's 2026 critical point-concentration scenario, any hypothetical blow-up must pay the debt of the vorticity direction failing to lie in bmo_{1/|log r|} to survive.",
+    "defining_relation": "\\xi\\notin\\mathrm{bmo}_{1/|\\log r|}"
+  },
+  {
+    "key": "ns.c3.c3m.miller_orthogonality",
+    "latex": "\\left\\langle-\\Delta S,\\omega\\otimes\\omega\\right\\rangle=0",
+    "label_zh": "Miller逆耦合正交性",
+    "label_en": "Miller reverse-coupling orthogonality",
+    "definition_zh": "第25節引用 Evan Miller 2026 結果：對 divergence-free 場，⟨-ΔS,ω⊗ω⟩=0 恆成立，是 C3-M.7 no-go 的外部定理基礎。",
+    "definition_en": "The Evan Miller 2026 result cited in Sec. 25: for divergence-free fields, ⟨-ΔS,ω⊗ω⟩=0 identically, the external theorem underlying the C3-M.7 no-go.",
+    "defining_relation": "\\left\\langle-\\Delta S,\\omega\\otimes\\omega\\right\\rangle=0"
+  },
+  {
+    "key": "ns.c3.c3m.p_st_projection",
+    "latex": "P_{st}(\\omega\\otimes\\omega)",
+    "label_zh": "渦量至應變投影耦合項",
+    "label_en": "vorticity-to-strain coupling projection",
+    "definition_zh": "第26節指出應變方程中含有的 P_st(ω⊗ω) 型耦合項，是 Miller orthogonality 所針對、被排除為單獨 blow-up driver 的對象。",
+    "definition_en": "The coupling term P_st(ω⊗ω) noted in Sec. 26 as appearing in the strain equation — the object targeted by the Miller orthogonality result and ruled out as a sole blow-up driver."
+  },
+  {
+    "key": "ns.c3.c3m.frak_t_necessary_conditions",
+    "latex": "\\mathfrak T_{\\rm spec},\\ \\mathfrak T_{\\lambda_2}",
+    "label_zh": "必要條件量（頻譜／中間應變）",
+    "label_en": "spectral / middle-strain necessary-condition quantities",
+    "definition_zh": "第28節並列的兩個 Fraktur 記號，分別代表承接自 C3-L 的頻譜矩逃逸量與中間應變逃逸量，均在 blow-up 下必須發散至無窮。",
+    "definition_en": "The two Fraktur symbols paired in Sec. 28, denoting the spectral-moment-escape and middle-strain-escape necessary quantities inherited from C3-L, each required to diverge to infinity under blow-up."
+  },
+  {
+    "key": "ns.c3.c3m.chi_n_core",
+    "latex": "\\chi_n(x),\\ \\chi_{x_0,R}",
+    "label_zh": "祖源核心截斷函數",
+    "label_en": "ancestry-core cutoff function",
+    "definition_zh": "第29節與第38節（N1）引入的光滑截斷函數：χn 用於 ancestry core，χ_{x0,R} 為以 x0 為中心、半徑 R 的一般版本，用來 localize Betchov 恆等式。",
+    "definition_en": "The smooth cutoff functions introduced in Sec. 29 and Sec. 38 (N1): χn for the ancestry core, and the general centered version χ_{x0,R}, used to localize the Betchov identity."
+  },
+  {
+    "key": "ns.c3.c3m.frak_b_chi",
+    "latex": "\\mathfrak B_\\chi",
+    "label_zh": "局部化Betchov缺項",
+    "label_en": "localized Betchov defect (integral)",
+    "definition_zh": "第29節定義的局部化 Betchov 積分（以 χn 截斷 ω·Sω+4detS 所得），記錄被全域 Betchov 積分抹去、在截斷區域內殘留的局部 orientation/cancellation 資訊。",
+    "definition_en": "The localized Betchov integral defined in Sec. 29 (χn cutting off ω·Sω+4detS), recording the local orientation/cancellation information that survives inside the cutoff region despite vanishing under global Betchov integration.",
+    "defining_relation": "\\mathfrak B_{\\chi_n}=\\int\\chi_n\\left(\\omega\\cdot S\\omega+4\\det S\\right)dx"
+  },
+  {
+    "key": "ns.c3.c3m.b_betchov_density",
+    "latex": "b(x,t)",
+    "label_zh": "局部Betchov缺項密度",
+    "label_en": "localized Betchov defect density",
+    "definition_zh": "第30節定義的逐點密度 b(x,t)=ω·Sω+4detS，全空間積分為零但局部一般非零，是第33節 Θ_stretch tuple 中對應分量的來源。",
+    "definition_en": "The pointwise density defined in Sec. 30 as b(x,t)=ω·Sω+4detS, globally integrating to zero yet generically nonzero locally; the source of the corresponding component in the Sec. 33 Θ_stretch tuple.",
+    "defining_relation": "b(x,t)=\\omega\\cdot S\\omega+4\\det S"
+  },
+  {
+    "key": "ns.c3.c3m.spatial_compensation_identity",
+    "latex": "\\int\\chi b=-\\int(1-\\chi)b",
+    "label_zh": "空間補償恆等式",
+    "label_en": "spatial compensation identity",
+    "definition_zh": "第30–31節導出的精確恆等式：任何 core 內的正 Betchov 缺項，必須由 core 外的等量負貢獻精確補償。",
+    "definition_en": "The exact identity derived in Sec. 30–31: any positive Betchov defect inside a core region must be exactly compensated by an equal negative contribution outside it.",
+    "defining_relation": "\\int\\chi b=-\\int(1-\\chi)b"
+  },
+  {
+    "key": "ns.c3.c3m.spatial_betchov_compensation_debt",
+    "latex": "\\textbf{Spatial Betchov Compensation Debt}",
+    "label_zh": "空間Betchov補償債",
+    "label_en": "Spatial Betchov Compensation Debt",
+    "definition_zh": "C3-M.8（第31節）：ancestry core 內若出現顯著的 local orientation surplus，不能作為孤立純量源存在，必伴隨此補償債務，其能否轉為 boundary flux 或 nonlocal transport 尚未知。",
+    "definition_en": "C3-M.8 (Sec. 31): a significant local orientation surplus inside the ancestry core cannot exist as an isolated scalar source — it necessarily carries this compensation debt, whose convertibility into boundary flux or nonlocal transport remains unknown."
+  },
+  {
+    "key": "ns.c3.c3m.theta_stretch_etn",
+    "latex": "\\Theta_{\\rm stretch}=\\left\\langle|\\omega|,\\lambda_2,\\lambda_3-\\lambda_2,c_1,c_3,\\xi\\text{-coherence},b_{\\rm Betchov}\\right\\rangle",
+    "label_zh": "伸展張力（True ETN更新）",
+    "label_en": "stretching tension (updated True ETN)",
+    "definition_zh": "第33節將原本單純寫成 ω·Sω 的伸展張力 Θ_stretch 重新定義為七分量 typed geometry state tuple，取代單一純量表示。",
+    "definition_en": "Sec. 33 redefines the stretching tension Θ_stretch — previously written simply as ω·Sω — as a seven-component typed geometry-state tuple, replacing the single-scalar representation.",
+    "defining_relation": "\\Theta_{\\rm stretch}=\\left\\langle|\\omega|,\\lambda_2,\\lambda_3-\\lambda_2,c_1,c_3,\\xi\\text{-coherence},b_{\\rm Betchov}\\right\\rangle"
+  },
+  {
+    "key": "ns.c3.c3m.x_integration_guards",
+    "latex": "\\text{G-EIG, G-ORI, G-DIR, G-REV, G-COMP}",
+    "label_zh": "X-Integration更新守衛組",
+    "label_en": "updated X-Integration guard suite",
+    "definition_zh": "第32節新增的守衛：G-EIG 保存 (λ1,λ2,λ3)、G-ORI 保存 (c1,c2,c3)、G-DIR 保存空間方向相干性且不得與 G-ORI 混同、G-REV 保存 Miller 逆耦合正交性、G-COMP 要求局部 Betchov surplus 必須保存其全域補償來源，與 G-BETCHOV 共同構成本輪稽核集合。",
+    "definition_en": "The guards added in Sec. 32: G-EIG preserves (λ1,λ2,λ3), G-ORI preserves (c1,c2,c3), G-DIR preserves spatial direction coherence distinct from G-ORI, G-REV preserves the Miller reverse-coupling orthogonality, and G-COMP requires any local Betchov surplus to retain its global compensation source, together with G-BETCHOV forming this round's audit set."
+  },
+  {
+    "key": "ns.c3.c3m.c3n_frontier",
+    "latex": "\\textbf{C3-N — Localized Betchov Compensation and Strain Self-Amplification Rigidity}",
+    "label_zh": "下一輪前沿：C3-N",
+    "label_en": "next-round frontier: C3-N",
+    "definition_zh": "第37–38節命名的下一輪主題「C3-N — Localized Betchov Compensation and Strain Self-Amplification Rigidity」，由本輪的 orientation collapse 結論直接引出，並列出 N1–N7 共七項待證目標。",
+    "definition_en": "The next round, named in Sec. 37–38 as \"C3-N — Localized Betchov Compensation and Strain Self-Amplification Rigidity,\" follows directly from this round's orientation-collapse conclusion and lists seven proof obligations N1–N7."
+  }
+]

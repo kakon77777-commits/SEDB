@@ -1,0 +1,284 @@
+[
+  {
+    "key": "ns.c4.c4g.c_tp",
+    "latex": "C_{TP}",
+    "label_zh": "尾端/封包壅塞",
+    "label_en": "Tail/Packet Congestion",
+    "definition_zh": "承襲自 C4-F 的三種壅塞類別之一，代表 frequency/spatial-stock 邊際的壅塞，§0 與 §36 重申其定義。",
+    "definition_en": "One of the three congestion classes inherited from C4-F, representing the frequency/spatial-stock marginal congestion, restated in §0 and §36.",
+    "notes": "C4-G shows this is no longer an independent exit from C_DO but an extra phase-space coordinate riding on operator/deformation forcing events (§16, §36)."
+  },
+  {
+    "key": "ns.c4.c4g.c_do",
+    "latex": "C_{DO}",
+    "label_zh": "形變/算子壅塞",
+    "label_en": "Deformation/Operator Congestion",
+    "definition_zh": "三種壅塞類別之一，代表 PDE-source 邊際的壅塞，本輪核心結論為它是所有未解 motifs 匯聚的普遍迫力漏斗（§0, §15）。",
+    "definition_en": "One of the three congestion classes, representing the PDE-source marginal congestion, shown in this round to be the universal forcing funnel that every unresolved motif collapses into (§0, §15).",
+    "notes": "§15 informally names this collapse the 'Cross-Congestion Funnel'; §16 corrects C4-F's trilemma so that C_DO is the universal channel while C_TP and C_RI become extra congestion coordinates riding on it."
+  },
+  {
+    "key": "ns.c4.c4g.c_ri",
+    "latex": "C_{RI}",
+    "label_zh": "徑向交互作用壅塞",
+    "label_en": "Radial Interaction Congestion",
+    "definition_zh": "三種壅塞類別之一，代表 Fourier-triad 幾何邊際的壅塞，§14 證明它伴隨 M6 但同樣匯入 C_DO。",
+    "definition_en": "One of the three congestion classes, representing the Fourier-triad geometry marginal congestion, shown in §14 to accompany M6 while still funneling into C_DO."
+  },
+  {
+    "key": "ns.c4.c4g.strain_tensor",
+    "latex": "S",
+    "label_zh": "應變張量",
+    "label_en": "Strain tensor",
+    "definition_zh": "§1 引用 Miller 應變演化方程中的主要場，滿足 \\partial_tS-\\Delta S+\\mathcal Q_{SV}=0。",
+    "definition_en": "The principal field in Miller's strain-evolution equation cited in §1, satisfying \\partial_tS-\\Delta S+\\mathcal Q_{SV}=0."
+  },
+  {
+    "key": "ns.c4.c4g.q_sv",
+    "latex": "\\mathcal Q_{SV}",
+    "label_zh": "Miller 全 N–S 缺陷算子",
+    "label_en": "Miller's full N–S defect operator",
+    "definition_zh": "§1 引用 Miller 定義相對 globally regular 應變–渦度交互模型的 full Navier–Stokes defect。",
+    "definition_en": "Miller's full Navier–Stokes defect relative to the globally-regular strain–vorticity interaction model, cited in §1.",
+    "defining_relation": "\\mathcal Q_{SV}=P_{st}\\left((u\\cdot\\nabla)S+S^2+\\frac34\\omega\\otimes\\omega\\right)",
+    "notes": "§25 splits it as \\mathcal N_{\\rm proj}=\\mathcal Q_{SV}-\\frac12P_{st}(\\omega\\otimes\\omega); throughout §27-31 it is the target of the G-O1 Miller-operator impulse branch."
+  },
+  {
+    "key": "ns.c4.c4g.miller_ratio",
+    "latex": "\\frac{\\|\\mathcal Q_{SV}(t)\\|_2}{\\|-\\Delta S(t)\\|_2}",
+    "label_zh": "Miller 比值判準",
+    "label_en": "Miller ratio criterion",
+    "definition_zh": "§1 引用 Miller 的 finite-time blow-up 必要條件，§30 與 H1（§47）將其作為 UV forcing events 接入的比值座標。",
+    "definition_en": "Miller's necessary condition for finite-time blow-up cited in §1, used in §30 and obligation H1 (§47) as the ratio coordinate that UV forcing events feed into.",
+    "defining_relation": "\\limsup_{t\\uparrow T_\\ast}\\frac{\\|\\mathcal Q_{SV}(t)\\|_2}{\\|-\\Delta S(t)\\|_2}\\ge1",
+    "notes": "NG-G2 (§42) blocks the converse reading that a large deformation impulse alone forces this ratio to exceed 1; §30 stresses C4-G does not reprove Miller's theorem."
+  },
+  {
+    "key": "ns.c4.c4g.m4",
+    "latex": "M_4",
+    "label_zh": "高頻中繼",
+    "label_en": "Higher-Frequency Relay",
+    "definition_zh": "承襲自 C4-E/F 的三個未解 motif 之一，§2 標記為仍未解決，§3 起追蹤其兩種來源。",
+    "definition_en": "One of the three unresolved motifs carried over from C4-E/F, flagged still-open in §2, with its two origin provenances traced from §3 onward.",
+    "notes": "§15 places it in M_4\\subset C_{TP}\\cap C_{DO}; §12 (Thm 12.1) proves M_4\\Rightarrow C_{DO} via both Relay-S and Relay-W; §18-19 further shows it carries near-antipodal Fourier geometry."
+  },
+  {
+    "key": "ns.c4.c4g.m5",
+    "latex": "M_5",
+    "label_zh": "臨界工作變化",
+    "label_en": "Critical Work Variation",
+    "definition_zh": "三個未解 motif 之一，§2 重申其未解狀態，§15 指出其本身即屬於 C_DO。",
+    "definition_en": "One of the three unresolved motifs, restated as open in §2, shown directly in §15 to already lie inside C_DO.",
+    "notes": "Unlike M4 and M6, this round gives it no dedicated provenance section — §15 asserts M_5\\subset C_{DO} directly from its C4-F definition as a work-variation phenomenon."
+  },
+  {
+    "key": "ns.c4.c4g.m6",
+    "latex": "M_6",
+    "label_zh": "頻譜幾何退化",
+    "label_en": "Spectral-Geometry Degeneration",
+    "definition_zh": "三個未解 motif 之一，§13–14 證明其為 positive-work branch 的子情形，因此自動帶有 C_DO。",
+    "definition_en": "One of the three unresolved motifs, proved in §13-14 to be a subcase of the positive-work branch and hence automatically carry C_DO.",
+    "notes": "§15 places it in M_6\\subset C_{RI}\\cap C_{DO}; §21 lists its congestion coordinates as radial work-measure concentration plus positive/absolute shell work."
+  },
+  {
+    "key": "ns.c4.c4g.relay_s",
+    "latex": "\\text{Relay-S}",
+    "label_zh": "來源型中繼",
+    "label_en": "Source Relay",
+    "definition_zh": "§3 定義的 M4 兩個來源之一，源自 source-overcapacity 經 high-high 到 far high-high 的 Strict Higher-Frequency Source Relay。",
+    "definition_en": "One of M4's two origins defined in §3, arising from source-overcapacity via a high-high to far high-high Strict Higher-Frequency Source Relay.",
+    "notes": "§10 (Thm C4-G.2) proves Relay-S automatically forces C_DO while retaining its C_TP side certificate."
+  },
+  {
+    "key": "ns.c4.c4g.relay_w",
+    "latex": "\\text{Relay-W}",
+    "label_zh": "工作型中繼",
+    "label_en": "Work Relay",
+    "definition_zh": "§3 定義的 M4 另一來源，源自 positive shell-work branch 中由 p>q+L 的 triads 承擔 current shell 正工作的 Rank Defect。",
+    "definition_en": "M4's other origin defined in §3, arising from a Rank Defect in the positive shell-work branch where triads with p>q+L carry the current shell's positive work.",
+    "notes": "§12 (Thm C4-G.3) proves Relay-W\\Rightarrow C_{DO}, inheriting its forcing certificate from the C4-D positive shell-work branch via C4-F."
+  },
+  {
+    "key": "ns.c4.c4g.r_q_sigma",
+    "latex": "R_q^\\sigma",
+    "label_zh": "無傳輸剩餘項",
+    "label_en": "Transport-free remainder",
+    "definition_zh": "§4 沿用的 transport-free remainder，定義為 shell 非線性項減去低模平流項。",
+    "definition_en": "The transport-free remainder carried over and used starting §4, equal to the shell nonlinear term minus the low-mode advection term.",
+    "defining_relation": "R_q^\\sigma=N_q^\\sigma-u_{\\le q-L_0}\\cdot\\nabla u_q^\\sigma",
+    "notes": "Its symmetric-gradient time integral defines \\mathfrak D_q(I) (§22), the paper's central deformation-forcing observable; §26 further decomposes it via \\mathscr T_{q,\\sigma}."
+  },
+  {
+    "key": "ns.c4.c4g.lambda_q",
+    "latex": "\\lambda_q",
+    "label_zh": "二進頻率尺度",
+    "label_en": "Dyadic frequency scale",
+    "definition_zh": "貫穿全文的標準 Littlewood–Paley 二進頻率尺度，自 §4 起用於各 shell-indexed 量，並在 §5 annular Bernstein 估計中扮演核心角色。",
+    "definition_en": "The standard Littlewood-Paley dyadic frequency scale used from §4 onward for every shell-indexed quantity, playing the central role in the §5 annular Bernstein estimates.",
+    "notes": "Governs the \\lambda_q^{1/2} growth rate in the C4-G.1 deformation-impulse lower bound (§7-8) and the p\\ge q+L frequency separation in the triad geometry of §17-19."
+  },
+  {
+    "key": "ns.c4.c4g.s_q_r",
+    "latex": "\\mathfrak S_q^R",
+    "label_zh": "來源超容量憑證",
+    "label_en": "Source-overcapacity certificate",
+    "definition_zh": "§4 定義的 Source-Overcapacity branch 憑證，衡量 R_q^\\sigma 正規化後的 L_t^1L_x^\\infty 質量是否超過門檻 s_0。",
+    "definition_en": "The Source-Overcapacity branch certificate defined in §4, measuring whether the normalized L_t^1L_x^\\infty mass of R_q^\\sigma exceeds the threshold s_0.",
+    "defining_relation": "\\mathfrak S_q^R=\\frac{1}{\\nu\\lambda_q}\\int_I\\|R_q^\\sigma(t)\\|_\\infty dt\\ge s_0>0",
+    "notes": "The hypothesis of Theorem C4-G.1 (§7); s_0 is the fixed positive threshold constant carried through §8-10."
+  },
+  {
+    "key": "ns.c4.c4g.nabla_sym",
+    "latex": "\\nabla_{\\rm sym}",
+    "label_zh": "對稱梯度算子",
+    "label_en": "Symmetric-gradient operator",
+    "definition_zh": "§6 給出其與一般梯度及散度的恆等關係，作為連結剩餘項與形變迫力的核心算子。",
+    "definition_en": "The symmetric-gradient operator, whose identity relating it to the ordinary gradient and divergence is given in §6, the core operator linking the remainder to deformation forcing.",
+    "defining_relation": "\\|\\nabla_{\\rm sym}F\\|_2^2=\\frac12\\|\\nabla F\\|_2^2+\\frac12\\|\\nabla\\cdot F\\|_2^2"
+  },
+  {
+    "key": "ns.c4.c4g.thm_g1",
+    "latex": "\\text{C4-G.1}",
+    "label_zh": "定理 C4-G.1：來源脈衝到形變脈衝增長定理",
+    "label_en": "Theorem C4-G.1: Source-Impulse to Growing Deformation-Impulse",
+    "definition_zh": "§7 證明的定理，指出 \\mathfrak S_q^R\\ge s_0 蘊含對稱梯度剩餘項的時間積分下界隨 \\lambda_q^{1/2} 增長。",
+    "definition_en": "The theorem proved in §7, showing \\mathfrak S_q^R\\ge s_0 forces the symmetric-gradient remainder's time-integral lower bound to grow like \\lambda_q^{1/2}.",
+    "defining_relation": "\\int_I\\|\\nabla_{\\rm sym}R_q^\\sigma(t)\\|_2dt\\ge c\\,\\nu\\,s_0\\,\\lambda_q^{1/2}",
+    "notes": "§9 stresses this is a strong congestion certificate, not a regularity contradiction, since Leray energy theory gives no finite unweighted global budget for its left-hand side."
+  },
+  {
+    "key": "ns.c4.c4g.v_q_work",
+    "latex": "\\mathfrak V_q^{work}",
+    "label_zh": "總絕對工作憑證",
+    "label_en": "Total absolute work certificate",
+    "definition_zh": "§11 由 C4-D 的 positive shell-work 下界導出的總絕對工作量，作為 Relay-W 與 M6 共享的來源憑證。",
+    "definition_en": "The total absolute work quantity derived in §11 from the C4-D positive shell-work lower bound, the shared source certificate for both Relay-W and M6.",
+    "defining_relation": "\\mathfrak V_q^{work}\\ge w_0",
+    "notes": "Traces to \\frac{\\lambda_q}{\\nu^2}\\int_I[W_q^\\sigma]_+dt\\ge w_0 from the C4-D positive shell-work branch; §13 uses it to show M6 automatically carries C_DO."
+  },
+  {
+    "key": "ns.c4.c4g.triad_geometry",
+    "latex": "\\xi,\\ \\eta,\\ \\zeta=\\xi+\\eta,\\ \\theta=\\angle(\\xi,\\eta)",
+    "label_zh": "高高頻對之 Fourier 幾何（近反平行定理）",
+    "label_en": "High-high pair Fourier geometry (near-antipodal theorem)",
+    "definition_zh": "§17–18 引入的三元組：\\xi,\\eta 為高頻母頻率、\\zeta 為輸出頻率、\\theta 為母頻率夾角，用以陳述定理 C4-G.5（18.1）的近反平行幾何。",
+    "definition_en": "The tuple introduced in §17-18 — parent high frequencies \\xi,\\eta, output frequency \\zeta, and parent angle \\theta — used to state Theorem C4-G.5 (18.1)'s near-antipodal geometry.",
+    "defining_relation": "1+\\cos\\theta\\le C\\left(\\frac{\\lambda_q}{\\lambda_p}\\right)^2,\\qquad |\\pi-\\theta|\\le C\\lambda_q/\\lambda_p",
+    "notes": "Preserved forward as the G-RELAYGEOM guard (§43), which requires tracking ||\\xi|-|\\eta|| and \\pi-\\angle(\\xi,\\eta) in any far-relay event."
+  },
+  {
+    "key": "ns.c4.c4g.d_q",
+    "latex": "\\mathfrak D_q(I)",
+    "label_zh": "共同形變迫力可觀測量",
+    "label_en": "Common deformation-forcing observable",
+    "definition_zh": "§22 定義的核心可觀測量，為對稱梯度剩餘項在時窗 I 上的時間積分，本輪所有未解 motifs 皆共享其正下界 d_0。",
+    "definition_en": "The central observable defined in §22, the time integral over window I of the symmetric-gradient remainder, whose shared positive lower bound d_0 every unresolved motif in this round satisfies.",
+    "defining_relation": "\\mathfrak D_q(I)=\\int_I\\|\\nabla_{\\rm sym}R_q^\\sigma(t)\\|_2dt\\ge d_0>0",
+    "notes": "The hinge quantity for both the C4-G.6 Universal Deformation-Funnel Theorem (§23) and the C4-G.8 Cross-Congestion Synchronization Theorem (§38)."
+  },
+  {
+    "key": "ns.c4.c4g.thm_g6",
+    "latex": "\\text{C4-G.6}",
+    "label_zh": "定理 C4-G.6：普遍形變漏斗定理",
+    "label_en": "Theorem C4-G.6: Universal Deformation-Funnel Theorem",
+    "definition_zh": "§23 陳述的定理，指出在 C4-E 假設下每次 critical UV crossing 至少落入 G-U1–G-U4 四通道之一，第四支保證 \\mathfrak D_q(I)\\ge d_0。",
+    "definition_en": "The theorem stated in §23, asserting that under the C4-E hypotheses every critical UV crossing falls into at least one of the four G-U1-G-U4 channels, with the fourth guaranteeing \\mathfrak D_q(I)\\ge d_0.",
+    "notes": "Compresses the program's progression 8 branches -> 6 motifs -> 3 congestion classes -> 4 synchronization channels (§23)."
+  },
+  {
+    "key": "ns.c4.c4g.g_u_closure",
+    "latex": "\\text{G-U1}\\vee\\text{G-U2}\\vee\\text{G-U3}\\vee\\text{G-U4}",
+    "label_zh": "G-U1–G-U4：UV 相空間封閉四通道",
+    "label_en": "G-U1-G-U4: UV phase-space closure channels",
+    "definition_zh": "§23 命名的四個通道（UV Persistence、Low Strain/Vorticity Critical Toll、Positive Helical Production、Deformation/Operator Forcing），於 §39 正式寫成 UV Phase-Space Closure。",
+    "definition_en": "The four channels named in §23 (UV Persistence, Low Strain/Vorticity Critical Toll, Positive Helical Production, Deformation/Operator Forcing), formally boxed as the UV Phase-Space Closure in §39.",
+    "defining_relation": "\\text{UV Crossing}\\Rightarrow\\text{Persistence}\\vee\\text{Low Strain/Vorticity}\\vee\\text{Positive Helical Production}\\vee\\text{Deformation/Operator Forcing}",
+    "notes": "§24 uses the finiteness of this four-channel family to force a recurrent channel along any infinite critical-crossing subsequence."
+  },
+  {
+    "key": "ns.c4.c4g.operator_decomposition",
+    "latex": "\\mathcal N_{\\rm proj},\\ \\mathscr T_{q,\\sigma}",
+    "label_zh": "算子分解：投影算子與殼/螺旋度應變算子",
+    "label_en": "Operator decomposition: projected operator and shell/helicity strain operator",
+    "definition_zh": "§25–26 定義的一對算子：\\mathcal N_{\\rm proj} 為省略 \\frac12\\omega\\otimes\\omega 項後與 \\mathcal Q_{SV} 相關的投影算子，\\mathscr T_{q,\\sigma} 為將其映到 \\nabla_{\\rm sym}N_q^\\sigma 的 bounded order-zero 殼/螺旋度應變算子。",
+    "definition_en": "The pair of operators defined in §25-26: \\mathcal N_{\\rm proj}, the projected operator related to \\mathcal Q_{SV} by dropping the \\frac12\\omega\\otimes\\omega term, and \\mathscr T_{q,\\sigma}, the bounded order-zero shell/helicity strain operator mapping it to \\nabla_{\\rm sym}N_q^\\sigma.",
+    "defining_relation": "\\nabla_{\\rm sym}R_q^\\sigma=\\mathscr T_{q,\\sigma}\\mathcal Q_{SV}-\\frac12\\mathscr T_{q,\\sigma}P_{st}(\\omega\\otimes\\omega)-\\nabla_{\\rm sym}(v_q\\cdot\\nabla f_q^\\sigma)",
+    "notes": "This decomposition (§26) generates the G-O1/G-O2/G-O3 trichotomy in §27; v_q and f_q^\\sigma denote the low-mode velocity u_{\\le q-L_0} and shell field u_q^\\sigma from §4's original R_q^\\sigma=N_q^\\sigma-u_{\\le q-L_0}\\cdot\\nabla u_q^\\sigma."
+  },
+  {
+    "key": "ns.c4.c4g.g_o_trichotomy",
+    "latex": "\\text{G-O1}\\vee\\text{G-O2}\\vee\\text{G-O3}",
+    "label_zh": "G-O1–G-O3：統一迫力三分支",
+    "label_en": "G-O1-G-O3: unified forcing trichotomy",
+    "definition_zh": "§27 由三角不等式導出的三分支——Miller 算子脈衝、渦度二次脈衝、平流形變脈衝——當 \\mathfrak D_q(I)\\ge d_0 時至少一支成立。",
+    "definition_en": "The three branches derived via the triangle inequality in §27 — Miller operator impulse, vorticity-quadratic impulse, advective/sweeping deformation impulse — at least one holding whenever \\mathfrak D_q(I)\\ge d_0.",
+    "defining_relation": "\\int_I\\|\\mathscr T_{q,\\sigma}\\mathcal Q_{SV}\\|_2dt\\ge cd_0\\ \\vee\\ \\int_I\\|\\mathscr T_{q,\\sigma}P_{st}(\\omega\\otimes\\omega)\\|_2dt\\ge cd_0\\ \\vee\\ \\int_I\\|\\nabla_{\\rm sym}(v_q\\cdot\\nabla f_q^\\sigma)\\|_2dt\\ge cd_0",
+    "notes": "G-O2 further reduces via Gagliardo-Nirenberg (§33) to an enstrophy-versus-higher-vorticity-derivative dichotomy; G-O3 is guarded by the C3-O Balance-Fixed-Point-\\neq-Dynamics-Fixed-Point caveat (§34) and the sweeping/gauge caveat (§35)."
+  },
+  {
+    "key": "ns.c4.c4g.thm_g7",
+    "latex": "\\text{C4-G.7}",
+    "label_zh": "定理 C4-G.7：算子比值或高階導數脈衝二分性",
+    "label_en": "Theorem C4-G.7: Operator-Ratio or Higher-Derivative Impulse dichotomy",
+    "definition_zh": "§28–29 定義 D(t)=\\|\\mathscr T_{q,\\sigma}\\mathcal Q_{SV}(t)\\|_2、H(t)=\\|-\\Delta S(t)\\|_2 與比值優勢集 E_\\rho，證明 \\int_ID\\ge d_1 時 G-RATIO 或 G-HDER 至少一支成立。",
+    "definition_en": "§28-29 define D(t)=\\|\\mathscr T_{q,\\sigma}\\mathcal Q_{SV}(t)\\|_2, H(t)=\\|-\\Delta S(t)\\|_2, and the ratio-dominant set E_\\rho, proving \\int_ID\\ge d_1 forces at least one of G-RATIO or G-HDER.",
+    "defining_relation": "E_\\rho=\\{t\\in I:D(t)\\ge\\rho H(t)\\};\\quad \\int_{E_\\rho}D(t)dt\\ge\\frac{d_1}{2}\\ \\vee\\ \\int_I\\|-\\Delta S(t)\\|_2dt\\ge\\frac{d_1}{2\\rho}",
+    "notes": "§31 notes the G-HDER branch feeds \\Delta S\\sim D^3u higher-derivative/derivative-chain geometry, connecting to C3-W/X/Y; §30 clarifies this does not reprove Miller's theorem."
+  },
+  {
+    "key": "ns.c4.c4g.thm_g8",
+    "latex": "\\text{C4-G.8}",
+    "label_zh": "定理 C4-G.8：跨壅塞同步定理",
+    "label_en": "Theorem C4-G.8: Cross-Congestion Synchronization Theorem",
+    "definition_zh": "§38 陳述的定理，指出若 critical UV crossing 避開前三通道，則存在共同 crossing window 使 \\mathfrak D_{q_n}(I_n)\\ge d_0，並依事件類型附帶額外的 tail 或 radial 憑證。",
+    "definition_en": "The theorem stated in §38, asserting that if a critical UV crossing avoids the first three channels, a common crossing window exists with \\mathfrak D_{q_n}(I_n)\\ge d_0, carrying additional tail or radial certificates depending on event type.",
+    "notes": "For Higher-Frequency Relay events it adds \\mathfrak H_{tail,n}\\gtrsim1 plus near-antipodal geometry; for Spectral Degeneration events it adds radial work-measure concentration."
+  },
+  {
+    "key": "ns.c4.c4g.xi_n",
+    "latex": "\\Xi_n",
+    "label_zh": "相空間載子狀態",
+    "label_en": "Phase-space carrier state",
+    "definition_zh": "§37 定義的 source-preserving unified event record 元組，收錄 shell 指標、時窗、剩餘項與 tail/multiplicity/radial 憑證，明言並非 compactness theorem。",
+    "definition_en": "The source-preserving unified event-record tuple defined in §37, collecting the shell index, time window, remainder, and tail/multiplicity/radial certificates — explicitly not a compactness theorem.",
+    "defining_relation": "\\Xi_n=\\left\\langle q_n,I_n,R_{q_n}^{\\sigma_n},\\mathfrak H_{tail,n},\\mathfrak M_{eff,n},\\widehat\\mu_n^{rad},\\mathfrak D_n,\\operatorname{OperatorBranch}_n\\right\\rangle",
+    "notes": "\\mathfrak H_{tail,n} is the effective-multiplicity/tail-stock certificate and \\widehat\\mu_n^{rad} the radial work-measure concentration, both drawn from M4/M6's congestion-coordinate lists in §20-21."
+  },
+  {
+    "key": "ns.c4.c4g.theta_n_force",
+    "latex": "\\Theta_n^{force}",
+    "label_zh": "統一迫力狀態（True ETN 更新）",
+    "label_en": "Unified forcing state (True ETN update)",
+    "definition_zh": "§44 定義的 C4-G unified forcing state，作為 True ETN 的更新版本，彙整本輪建立的核心迫力可觀測量。",
+    "definition_en": "The C4-G unified forcing state defined in §44, an update to the True ETN that aggregates every core forcing observable established in this round.",
+    "defining_relation": "\\Theta_n^{force}=\\left\\langle\\mathfrak D_n,\\mathfrak H_{tail,n},\\mathfrak M_{eff,n},\\widehat\\mu_n^{rad},\\mathcal Q_{SV,n},\\omega\\otimes\\omega,\\mathcal A_{adv,n},\\Delta S_n\\right\\rangle",
+    "notes": "\\mathcal A_{adv,n} denotes the advective/sweeping deformation component from the G-O3 branch."
+  },
+  {
+    "key": "ns.c4.c4g.no_go_guards",
+    "latex": "\\text{NG-G1}\\text{–}\\text{NG-G5}",
+    "label_zh": "反向蘊含禁區 NG-G1–NG-G5",
+    "label_en": "No-go guards NG-G1-NG-G5",
+    "definition_zh": "§42 列出的五個反向蘊含，各自明確標記為 FALSE 或 OPEN，防止本輪的正向結果被誤讀成更強的等價或可逆結論。",
+    "definition_en": "The five reverse implications listed in §42, each explicitly flagged FALSE or OPEN, blocking any misreading of this round's forward results as stronger equivalences or reversible conclusions.",
+    "notes": "E.g. NG-G2 blocks \"deformation impulse => Miller ratio >=1\"; NG-G3 blocks \"vorticity quadratic large => positive vortex stretching\"."
+  },
+  {
+    "key": "ns.c4.c4g.x_integration_guards",
+    "latex": "\\text{G-CROSSFUNNEL, G-RELAYGEOM, G-OPRATIO, G-HDER, G-V4, G-SWEEP}",
+    "label_zh": "X-Integration 更新守則",
+    "label_en": "X-Integration guards update",
+    "definition_zh": "§43 為 X_Integral_Unified_Program 新增的六條守則，要求未來各輪保存本輪建立的共同前提、幾何憑證與分支界線，不得任意升格。",
+    "definition_en": "The six guard clauses added to the X_Integral_Unified_Program in §43, requiring future rounds to preserve this round's shared antecedents, geometric certificates, and branch boundaries without unwarranted upgrades.",
+    "notes": "Includes G-CROSSFUNNEL (preserve the common deformation-forcing antecedent for M4/M5/M6) and G-SWEEP (preserve the sweeping/gauge distinction for advective deformation)."
+  },
+  {
+    "key": "ns.c4.c4g.c4h_frontier",
+    "latex": "\\text{C4-H}",
+    "label_zh": "下一輪前沿：C4-H 算子到閘門封閉",
+    "label_en": "Next frontier: C4-H Operator-to-Gate Closure",
+    "definition_zh": "§41 提出、§46 正式命名的下一輪主題，處理 Miller Ratio、Middle-Strain 幾何、壓力與導數鏈之間的算子到 regularity-gate 封閉問題，§47 列出 H1–H8 八項證明義務。",
+    "definition_en": "The next round's theme first raised in §41 and formally named in §46, addressing the operator-to-regularity-gate closure among the Miller ratio, middle-strain geometry, pressure, and derivative chains, with eight proof obligations H1-H8 listed in §47.",
+    "notes": "§48's status table marks both \"operator-to-regularity-gate closure\" and \"global regularity\" OPEN, framing this as the program's unresolved successor problem."
+  }
+]

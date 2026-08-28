@@ -1,0 +1,221 @@
+[
+  {
+    "key": "ns.c3.c3n.velocity_gradient_a",
+    "latex": "A",
+    "label_zh": "速度梯度張量",
+    "label_en": "Velocity gradient tensor",
+    "definition_zh": "第1節定義速度梯度 $A_{ij}=\\partial_j u_i$，分解為對稱應變 $S$ 與反對稱部分 $\\Omega$，是本輪 $\\operatorname{tr}(A^3)$ 與 $F_B$ 全部代數的基礎物件。",
+    "definition_en": "Defined in Section 1 as the velocity gradient $A_{ij}=\\partial_j u_i$, split into symmetric strain $S$ and antisymmetric part $\\Omega$; the base object for all of this round's $\\operatorname{tr}(A^3)$ and $F_B$ algebra.",
+    "defining_relation": "A_{ij}=\\partial_j u_i,\\quad A=S+\\Omega"
+  },
+  {
+    "key": "ns.c3.c3n.rotation_tensor_omega",
+    "latex": "\\Omega",
+    "label_zh": "反對稱旋轉張量",
+    "label_en": "Antisymmetric rotation tensor",
+    "definition_zh": "第1節中 $A=S+\\Omega$ 分解的反對稱部分，第2節用 $\\Omega^2=\\frac14(\\omega\\otimes\\omega-|\\omega|^2I)$ 推出 Betchov density 公式。",
+    "definition_en": "The antisymmetric part in the decomposition $A=S+\\Omega$ from Section 1; Section 2 uses $\\Omega^2=\\frac14(\\omega\\otimes\\omega-|\\omega|^2I)$ to derive the Betchov density formula.",
+    "defining_relation": "\\Omega=\\frac12(A-A^\\top),\\quad \\Omega^2=\\frac14\\left(\\omega\\otimes\\omega-|\\omega|^2I\\right)",
+    "notes": "From Section 5 onward the same letter is reused for a smooth bounded domain $\\Omega\\subset\\mathbb R^3$, unrelated to this antisymmetric tensor; disambiguate by context."
+  },
+  {
+    "key": "ns.c3.c3n.betchov_density_bb",
+    "latex": "b_B",
+    "label_zh": "局部 Betchov 密度",
+    "label_en": "Localized Betchov density",
+    "definition_zh": "第2節定義的渦拉伸與應變自放大逐點差量 $b_B=\\omega\\cdot S\\omega+4\\det S=\\frac43\\operatorname{tr}(A^3)$，是全篇 localized Betchov boundary theorem 的核心密度。",
+    "definition_en": "The pointwise vortex-stretching/strain-self-amplification mismatch $b_B=\\omega\\cdot S\\omega+4\\det S=\\frac43\\operatorname{tr}(A^3)$ defined in Section 2, the core density of the round's localized Betchov boundary theorem.",
+    "defining_relation": "b_B=\\omega\\cdot S\\omega+4\\det S=\\frac43\\operatorname{tr}(A^3)"
+  },
+  {
+    "key": "ns.c3.c3n.betchov_current_fb",
+    "latex": "F_B",
+    "label_zh": "Betchov 空間散度流",
+    "label_en": "Betchov spatial divergence current",
+    "definition_zh": "第3節定義使 $\\operatorname{tr}(A^3)=\\nabla\\cdot F_B$ 成立的向量場，定理4.1與9.1把 $b_B$ 的局部積分精確化為 $F_B$ 的邊界通量。",
+    "definition_en": "The vector field defined in Section 3 satisfying $\\operatorname{tr}(A^3)=\\nabla\\cdot F_B$; Theorems 4.1 and 9.1 turn the localized integral of $b_B$ exactly into a boundary flux of $F_B$.",
+    "defining_relation": "F_B=\\left(A^2-\\frac12\\operatorname{tr}(A^2)I\\right)u"
+  },
+  {
+    "key": "ns.c3.c3n.transition_annulus_ar",
+    "latex": "\\mathcal A_R",
+    "label_zh": "過渡環域",
+    "label_en": "Transition annulus",
+    "definition_zh": "第8節定義的環形區域 $\\mathcal A_R=B_{2R}(x_0)\\setminus B_R(x_0)$，是 $\\nabla\\chi_R$ 的支撐處，後續所有 ball-scale 估計都以此環域上的量表示。",
+    "definition_en": "The annular region $\\mathcal A_R=B_{2R}(x_0)\\setminus B_R(x_0)$ defined in Section 8, where $\\nabla\\chi_R$ is supported; all subsequent ball-scale estimates are expressed over this annulus."
+  },
+  {
+    "key": "ns.c3.c3n.scaled_cutoff_chir",
+    "latex": "\\chi_R",
+    "label_zh": "尺度化 cutoff 函數",
+    "label_en": "Scaled cutoff family",
+    "definition_zh": "第8節定義 $\\chi_R(x)=\\chi_0((x-x_0)/R)$，由基底 bump function $\\chi_0$（於 $B_1$ 為1，支撐於 $B_2$）依尺度 $R$ 縮放而得，用於全部 ball-scale 與 dimensionless compensation 估計。",
+    "definition_en": "Defined in Section 8 as $\\chi_R(x)=\\chi_0((x-x_0)/R)$, rescaling a base bump function $\\chi_0$ (equal to 1 on $B_1$, supported in $B_2$) by radius $R$; used throughout the ball-scale and dimensionless compensation estimates."
+  },
+  {
+    "key": "ns.c3.c3n.annular_velocity_amplitude",
+    "latex": "a_R",
+    "label_zh": "環域臨界速度振幅",
+    "label_en": "Annular critical velocity amplitude",
+    "definition_zh": "第9節定義的無量綱量，以黏性 $\\nu$ 正規化環域 $\\mathcal A_R$ 上速度的 $L^\\infty$ 振幅，是定理9.1中控制 Betchov defect 的兩因子之一。",
+    "definition_en": "The dimensionless quantity from Section 9 normalizing the $L^\\infty$ velocity amplitude on $\\mathcal A_R$ by viscosity $\\nu$; one of the two factors bounding the Betchov defect in Theorem 9.1.",
+    "defining_relation": "a_R=\\frac{R\\|u\\|_{L^\\infty(\\mathcal A_R)}}{\\nu}"
+  },
+  {
+    "key": "ns.c3.c3n.annular_gradient_stock",
+    "latex": "d_R",
+    "label_zh": "正規化環域梯度庫存",
+    "label_en": "Normalized annular gradient stock",
+    "definition_zh": "第9節定義的無量綱量，正規化環域 $\\mathcal A_R$ 上速度梯度平方的積分，是定理9.1 $\\widehat{\\mathfrak B}_R\\le Ca_Rd_R$ 中的另一因子。",
+    "definition_en": "The dimensionless normalized integral of squared velocity gradient over $\\mathcal A_R$, defined in Section 9; the other factor in Theorem 9.1's bound $\\widehat{\\mathfrak B}_R\\le Ca_Rd_R$.",
+    "defining_relation": "d_R=\\frac{R}{\\nu^2}\\int_{\\mathcal A_R}|\\nabla u|^2dx"
+  },
+  {
+    "key": "ns.c3.c3n.normalized_betchov_defect",
+    "latex": "\\widehat{\\mathfrak B}_R",
+    "label_zh": "正規化局部 Betchov 缺量",
+    "label_en": "Normalized localized Betchov defect",
+    "definition_zh": "第9節定義的無量綱局部 Betchov 缺量，定理9.1證明其被 $Ca_Rd_R$ 上界控制，是 dimensionless boundary compensation 的核心度量。",
+    "definition_en": "The dimensionless localized Betchov defect defined in Section 9; Theorem 9.1 bounds it by $Ca_Rd_R$, making it the central measure of dimensionless boundary compensation.",
+    "defining_relation": "\\widehat{\\mathfrak B}_R=\\frac{R^3}{\\nu^3}\\left|\\int\\chi_Rb_Bdx\\right|\\le Ca_Rd_R"
+  },
+  {
+    "key": "ns.c3.c3n.magnitude_current_au",
+    "latex": "Au",
+    "label_zh": "應變/渦量強度流",
+    "label_en": "Strain/enstrophy magnitude current",
+    "definition_zh": "第10節指出 $\\operatorname{tr}(A^2)=\\nabla\\cdot(Au)$（其中 $(Au)_i=u_j\\partial_ju_i$），第42節 G-B2 guard 稱其為 $\\operatorname{tr}(A^2)$ 的 magnitude current。",
+    "definition_en": "Section 10 shows $\\operatorname{tr}(A^2)=\\nabla\\cdot(Au)$ (with $(Au)_i=u_j\\partial_ju_i$); Section 42's G-B2 guard names it the magnitude current for $\\operatorname{tr}(A^2)$.",
+    "defining_relation": "\\operatorname{tr}(A^2)=\\nabla\\cdot(Au),\\quad (Au)_i=u_j\\partial_ju_i"
+  },
+  {
+    "key": "ns.c3.c3n.pressure_current_fp",
+    "latex": "F_p",
+    "label_zh": "壓力 Hessian 散度流",
+    "label_en": "Pressure-Hessian divergence current",
+    "definition_zh": "第15節定義的向量場，引理15.1證明 $\\nabla\\cdot F_p=S:\\nabla^2p$，使壓力項也化為邊界散度流；第24節強調此為 provenance-preserving 變換而非 locality 定理。",
+    "definition_en": "The vector field defined in Section 15; Lemma 15.1 shows $\\nabla\\cdot F_p=S:\\nabla^2p$, converting the pressure term into a boundary divergence current too, though Section 24 stresses this is a provenance-preserving transform, not a locality theorem.",
+    "defining_relation": "F_p=\\left(\\nabla^2p-\\Delta p\\,I\\right)u,\\quad \\nabla\\cdot F_p=S:\\nabla^2p"
+  },
+  {
+    "key": "ns.c3.c3n.local_strain_energy",
+    "latex": "E_S^\\chi",
+    "label_zh": "局部應變能量",
+    "label_en": "Local strain energy",
+    "definition_zh": "第16節定義的 cutoff 加權應變能量，是定理17.1 exact local strain self-amplification balance 的主變數。",
+    "definition_en": "The cutoff-weighted strain energy defined in Section 16; the primary variable of Theorem 17.1's exact local strain self-amplification balance.",
+    "defining_relation": "E_S^\\chi(t)=\\frac12\\int\\chi(t,x)|S(x,t)|^2dx"
+  },
+  {
+    "key": "ns.c3.c3n.boundary_gauge_package",
+    "latex": "\\mathcal C_\\chi",
+    "label_zh": "邊界/規範修正包",
+    "label_en": "Boundary/gauge correction package",
+    "definition_zh": "定理17.1中把 cutoff motion、advection、viscous localization、Betchov mismatch 與 pressure Hessian 五種貢獻打包成的修正項，是本輪最核心的新物件，將 local strain growth分解為 bulk self-amplification加此項。",
+    "definition_en": "The correction term bundling cutoff motion, advection, viscous localization, Betchov mismatch, and pressure-Hessian contributions in Theorem 17.1; this round's most central new object, splitting local strain growth into bulk self-amplification plus this package.",
+    "defining_relation": "\\mathcal C_\\chi=\\frac12\\int|S|^2\\left(\\partial_t\\chi+u\\cdot\\nabla\\chi+\\nu\\Delta\\chi\\right)dx+\\frac13\\int\\nabla\\chi\\cdot F_B\\,dx+\\int\\nabla\\chi\\cdot F_p\\,dx"
+  },
+  {
+    "key": "ns.c3.c3n.miller_projection_pst",
+    "latex": "P_{st}",
+    "label_zh": "Miller 無散無跡投影算子",
+    "label_en": "Miller's solenoidal-traceless projection operator",
+    "definition_zh": "第20節引用 Miller strain decomposition 的投影算子，用於把 full N–S strain equation 寫成 $\\partial_tS-\\nu\\Delta S+\\frac23P_{st}(S^2)+P_{st}(\\cdots)=0$，本輪僅援引以比較 self-amplification model，未重新定義。",
+    "definition_en": "The projection operator from Miller's strain decomposition, quoted in Section 20 to write the full N-S strain equation as $\\partial_tS-\\nu\\Delta S+\\frac23P_{st}(S^2)+P_{st}(\\cdots)=0$; invoked only to compare against the self-amplification model, not redefined here.",
+    "notes": "External notation from E. Miller's papers (refs 3, 6), first invoked in this round's Section 20 rather than defined in it; its precise operator definition is not restated in this document."
+  },
+  {
+    "key": "ns.c3.c3n.bulk_ssa_achi",
+    "latex": "\\mathcal A_\\chi",
+    "label_zh": "局部整體應變自放大量",
+    "label_en": "Local bulk strain self-amplification",
+    "definition_zh": "第21節定義為定理17.1中唯一保留在 bulk 體積內的三次生成項，滿足 $\\frac d{dt}E_S^\\chi+\\nu\\int\\chi|\\nabla S|^2=\\mathcal A_\\chi+\\mathcal C_\\chi$，是第21節 dichotomy 與第41節 rigidity ratio $\\mathfrak D_n$ 的分母。",
+    "definition_en": "Defined in Section 21 as the sole cubic production term retained in the bulk volume in Theorem 17.1, satisfying $\\frac d{dt}E_S^\\chi+\\nu\\int\\chi|\\nabla S|^2=\\mathcal A_\\chi+\\mathcal C_\\chi$; anchors the Section 21 dichotomy and is the denominator of the rigidity ratio $\\mathfrak D_n$ in Section 41.",
+    "defining_relation": "\\mathcal A_\\chi=-2\\int\\chi\\det S\\,dx",
+    "notes": "Section 34 redefines the same symbol as $\\mathcal A_\\chi=-4\\int\\chi\\det S$ (coefficient 4, not 2) when pairing with $\\mathcal V_\\chi$ for the Betchov VS/SSA sign convention; the two boxed definitions are numerically inconsistent in the source. This entry follows the Section 21/Theorem 17.1 usage, which is the one carried through Sections 26 and 39-41."
+  },
+  {
+    "key": "ns.c3.c3n.term_c_gauge",
+    "latex": "\\frac12\\int|S|^2\\partial_t\\chi",
+    "label_zh": "C-GAUGE：移動核心再分類項",
+    "label_en": "C-GAUGE: moving-core reclassification term",
+    "definition_zh": "第22節將 $\\mathcal C_\\chi$ 拆解出的第一型分量，對應 cutoff 隨時間移動造成的 core reclassification。",
+    "definition_en": "The first labeled component of $\\mathcal C_\\chi$'s decomposition in Section 22, corresponding to core reclassification caused by a time-moving cutoff."
+  },
+  {
+    "key": "ns.c3.c3n.term_c_adv",
+    "latex": "\\frac12\\int|S|^2u\\cdot\\nabla\\chi",
+    "label_zh": "C-ADV：邊界物理平流項",
+    "label_en": "C-ADV: physical advection-through-boundary term",
+    "definition_zh": "第22節 $\\mathcal C_\\chi$ 分解中對應速度場把應變能量平流穿過 cutoff 邊界的分量。",
+    "definition_en": "The component of $\\mathcal C_\\chi$'s Section 22 decomposition corresponding to the velocity field advecting strain energy through the cutoff boundary."
+  },
+  {
+    "key": "ns.c3.c3n.term_c_diff",
+    "latex": "\\frac\\nu2\\int|S|^2\\Delta\\chi",
+    "label_zh": "C-DIFF：黏性邊界修正項",
+    "label_en": "C-DIFF: viscous boundary correction term",
+    "definition_zh": "第22節 $\\mathcal C_\\chi$ 分解中由黏性擴散作用於 cutoff 邊界產生的修正分量。",
+    "definition_en": "The viscous-diffusion correction component of $\\mathcal C_\\chi$'s Section 22 decomposition, arising at the cutoff boundary."
+  },
+  {
+    "key": "ns.c3.c3n.term_c_betchov",
+    "latex": "\\frac13\\int\\nabla\\chi\\cdot F_B",
+    "label_zh": "C-BETCHOV：渦拉伸/應變自放大失配流",
+    "label_en": "C-BETCHOV: vortex-stretching/SSA mismatch current",
+    "definition_zh": "第22節 $\\mathcal C_\\chi$ 分解中直接來自 $F_B$ 的分量，承載 vortex-stretching 與 strain-self-amplification 的局部失配。",
+    "definition_en": "The component of $\\mathcal C_\\chi$'s Section 22 decomposition coming directly from $F_B$, carrying the local mismatch between vortex stretching and strain self-amplification."
+  },
+  {
+    "key": "ns.c3.c3n.term_c_press",
+    "latex": "\\int\\nabla\\chi\\cdot F_p",
+    "label_zh": "C-PRESS：壓力 Hessian 邊界流",
+    "label_en": "C-PRESS: pressure-Hessian boundary current",
+    "definition_zh": "第22節 $\\mathcal C_\\chi$ 分解中由壓力 Hessian 流 $F_p$ 貢獻的邊界分量。",
+    "definition_en": "The boundary component of $\\mathcal C_\\chi$'s Section 22 decomposition contributed by the pressure-Hessian current $F_p$."
+  },
+  {
+    "key": "ns.c3.c3n.generation_betchov_current",
+    "latex": "\\mathfrak J_{B,n}",
+    "label_zh": "第n代 Betchov 邊界流",
+    "label_en": "Generation-n Betchov boundary current",
+    "definition_zh": "第33節對 ancestry core半徑 $R_n$ 定義，恰等於該球內 $\\int(\\omega\\cdot S\\omega+4\\det S)dx$，是 $\\operatorname{XBetchov}_n$ 證書元組的第一分量。",
+    "definition_en": "Defined in Section 33 over the ancestry core radius $R_n$, exactly equal to $\\int_{B_{R_n}}(\\omega\\cdot S\\omega+4\\det S)dx$; the first component of the $\\operatorname{XBetchov}_n$ certificate tuple.",
+    "defining_relation": "\\mathfrak J_{B,n}=\\frac43\\int_{\\partial B_{R_n}(x_n)}F_B\\cdot n\\,dS=\\int_{B_{R_n}(x_n)}\\left(\\omega\\cdot S\\omega+4\\det S\\right)dx"
+  },
+  {
+    "key": "ns.c3.c3n.xbetchov_certificate",
+    "latex": "\\operatorname{XBetchov}_n",
+    "label_zh": "XBetchov 證書元組",
+    "label_en": "XBetchov certificate tuple",
+    "definition_zh": "第33節定義的 X-Integration 型元組 $\\langle\\mathfrak J_{B,n},\\mathcal V_n,\\mathcal A_n,\\operatorname{ProvBoundary}_n\\rangle$，收錄第n代 core 的 Betchov 邊界流、渦拉伸、應變自放大表示 $\\mathcal A_n=-4\\int\\det S$ 與邊界來源標記。",
+    "definition_en": "The X-Integration-style tuple $\\langle\\mathfrak J_{B,n},\\mathcal V_n,\\mathcal A_n,\\operatorname{ProvBoundary}_n\\rangle$ defined in Section 33, recording generation-n's Betchov boundary current, vortex stretching, strain-self-amplification representation $\\mathcal A_n=-4\\int\\det S$, and boundary-provenance tag."
+  },
+  {
+    "key": "ns.c3.c3n.local_vortex_stretching",
+    "latex": "\\mathcal V_\\chi",
+    "label_zh": "局部渦拉伸量",
+    "label_en": "Local vortex-stretching functional",
+    "definition_zh": "第34節定義 $\\mathcal V_\\chi=\\int\\chi\\,\\omega\\cdot S\\omega$，與同節的 $\\mathcal A_\\chi=-4\\int\\chi\\det S$ 配對給出 $\\mathcal V_\\chi-\\mathcal A_\\chi=-\\frac43\\int\\nabla\\chi\\cdot F_B$，是定理35.1 local VS/SSA imbalance 的主角。",
+    "definition_en": "Defined in Section 34 as $\\mathcal V_\\chi=\\int\\chi\\,\\omega\\cdot S\\omega$, paired there with $\\mathcal A_\\chi=-4\\int\\chi\\det S$ to give $\\mathcal V_\\chi-\\mathcal A_\\chi=-\\frac43\\int\\nabla\\chi\\cdot F_B$; the central quantity of Theorem 35.1's local VS/SSA imbalance result.",
+    "notes": "Pairs specifically with the Section 34 variant of $\\mathcal A_\\chi$ (coefficient $-4$), not the Section 21/Theorem 17.1 variant (coefficient $-2$) used elsewhere in this table."
+  },
+  {
+    "key": "ns.c3.c3n.bulk_boundary_ratio",
+    "latex": "\\mathfrak D_n",
+    "label_zh": "bulk/boundary 漸近比率",
+    "label_en": "Bulk/boundary asymptotic ratio",
+    "definition_zh": "第41節定義的新 rigidity target，其極限行為（$\\to0$、$\\to-1$、或振盪/無界）分類出下一輪 C3-O 要研究的三種可能分支。",
+    "definition_en": "The new rigidity target defined in Section 41 closing this round; its limiting behavior ($\\to0$, $\\to-1$, or oscillatory/unbounded) classifies the three branches to be studied in the next round, C3-O.",
+    "defining_relation": "\\mathfrak D_n=\\frac{\\mathcal C_{\\chi_n}}{-2\\int\\chi_n\\det S}"
+  },
+  {
+    "key": "ns.c3.c3n.true_etn_strain_state",
+    "latex": "\\Theta_n^{strain}",
+    "label_zh": "True ETN 應變張力態",
+    "label_en": "True ETN strain-tension state",
+    "definition_zh": "第43節將 True ETN 框架具體化為應變版本的八分量元組，滿足 exact balance $\\dot E_{S,n}+D_{S,n}=A_{SSA,n}+\\sum J_n$，把本輪所有邊界/bulk修正正式收進一個 typed local balance。",
+    "definition_en": "Section 43 instantiates the True ETN framework as an eight-component strain-specific tuple satisfying the exact balance $\\dot E_{S,n}+D_{S,n}=A_{SSA,n}+\\sum J_n$, formally folding all of this round's boundary/bulk corrections into one typed local balance.",
+    "defining_relation": "\\Theta_n^{strain}=\\left\\langle E_{S,n},D_{S,n},A_{SSA,n},J_{B,n},J_{adv,n},J_{press,n},J_{diff,n},J_{gauge,n}\\right\\rangle,\\quad \\dot E_{S,n}+D_{S,n}=A_{SSA,n}+\\sum J_{n}"
+  }
+]

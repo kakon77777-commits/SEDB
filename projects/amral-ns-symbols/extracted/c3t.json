@@ -1,0 +1,268 @@
+[
+  {
+    "key": "ns.c3.c3t.sym0",
+    "latex": "\\mathbb{S}_0 = \\operatorname{Sym}_0(3)",
+    "label_zh": "無跡對稱矩陣空間",
+    "label_en": "Trace-free symmetric matrix space",
+    "definition_zh": "第1節定義 $\\mathbb S_0=\\operatorname{Sym}_0(3)$ 為三維無跡對稱矩陣所成的空間，作為本輪 strain 矩陣幾何的環境空間。",
+    "definition_en": "Section 1 defines $\\mathbb S_0=\\operatorname{Sym}_0(3)$ as the space of trace-free symmetric 3×3 matrices, the ambient space for this round's strain-matrix geometry."
+  },
+  {
+    "key": "ns.c3.c3t.k_kappa_eigenvalues",
+    "latex": "K\\in\\mathbb S_0,\\ |K|=1,\\ \\kappa_1\\le\\kappa_2\\le\\kappa_3,\\ \\kappa_1<0<\\kappa_3",
+    "label_zh": "測試矩陣 K 與其特徵值",
+    "label_en": "Test matrix K and its eigenvalues",
+    "definition_zh": "第1節取任意單位無跡對稱矩陣 $K$，令其特徵值排序為 $\\kappa_1\\le\\kappa_2\\le\\kappa_3$，並由無跡性證得 $\\kappa_1<0<\\kappa_3$。",
+    "definition_en": "Section 1 fixes a unit trace-free symmetric matrix $K$ with ordered eigenvalues $\\kappa_1\\le\\kappa_2\\le\\kappa_3$, and trace-freeness forces $\\kappa_1<0<\\kappa_3$."
+  },
+  {
+    "key": "ns.c3.c3t.lambda2",
+    "latex": "\\lambda_2(M):=\\kappa_2(M)",
+    "label_zh": "中間特徵值函數 λ2",
+    "label_en": "Middle-eigenvalue function λ2",
+    "definition_zh": "自第2節起，$\\lambda_2(M)$ 表示無跡對稱矩陣 $M$ 由小到大排序後的第二個（中間）特徵值，是 Miller regularity criterion 的核心量。",
+    "definition_en": "From Section 2 onward, $\\lambda_2(M)$ denotes the second (middle) eigenvalue of a trace-free symmetric matrix $M$ in ascending order, the core quantity of Miller's regularity criterion.",
+    "defining_relation": "\\lambda_2(M):=\\kappa_2(M),\\quad \\kappa_1(M)\\le\\kappa_2(M)\\le\\kappa_3(M)",
+    "notes": "此量承接自 Miller 的 middle-eigenvalue regularity criterion（References 1–2），本輪不重新定義，只檢驗它與 mean strain cone 的關係。"
+  },
+  {
+    "key": "ns.c3.c3t.v_plus",
+    "latex": "V^+=\\tfrac1{\\sqrt6}\\operatorname{diag}(-2,1,1)",
+    "label_zh": "雙向伸展測試矩陣 V+",
+    "label_en": "Two-stretching test matrix V+",
+    "definition_zh": "第2節在 $K$ 的特徵基底中構造單位矩陣 $V^+=\\frac1{\\sqrt6}\\operatorname{diag}(-2,1,1)$，滿足 $K:V^+>0$ 且 $\\lambda_2(V^+)>0$。",
+    "definition_en": "Section 2 constructs the unit matrix $V^+=\\frac1{\\sqrt6}\\operatorname{diag}(-2,1,1)$ in the eigenbasis of $K$, satisfying $K:V^+>0$ and $\\lambda_2(V^+)>0$.",
+    "defining_relation": "V^+=\\tfrac1{\\sqrt6}\\operatorname{diag}(-2,1,1),\\quad \\lambda_2(V^+)=\\tfrac1{\\sqrt6}>0"
+  },
+  {
+    "key": "ns.c3.c3t.v_minus",
+    "latex": "V^-=\\tfrac1{\\sqrt6}\\operatorname{diag}(-1,-1,2)",
+    "label_zh": "單向伸展測試矩陣 V-",
+    "label_en": "One-stretching test matrix V-",
+    "definition_zh": "第3節構造單位矩陣 $V^-=\\frac1{\\sqrt6}\\operatorname{diag}(-1,-1,2)$，同樣滿足 $K:V^->0$，但 $\\lambda_2(V^-)<0$，與 $V^+$ 形成對照。",
+    "definition_en": "Section 3 constructs the unit matrix $V^-=\\frac1{\\sqrt6}\\operatorname{diag}(-1,-1,2)$, which also satisfies $K:V^->0$ but has $\\lambda_2(V^-)<0$, contrasting with $V^+$.",
+    "defining_relation": "V^-=\\tfrac1{\\sqrt6}\\operatorname{diag}(-1,-1,2),\\quad \\lambda_2(V^-)=-\\tfrac1{\\sqrt6}<0"
+  },
+  {
+    "key": "ns.c3.c3t.half_space",
+    "latex": "\\mathcal H_K^+=\\{M:K:M>0\\}",
+    "label_zh": "K 的開半空間",
+    "label_en": "Open half-space of K",
+    "definition_zh": "第4節定義 $\\mathcal H_K^+=\\{M:K:M>0\\}$，並以 $V^+,V^-$ 證明此半空間同時包含正、負中間特徵值的矩陣。",
+    "definition_en": "Section 4 defines $\\mathcal H_K^+=\\{M:K:M>0\\}$ and uses $V^+,V^-$ to show this half-space contains matrices with both positive and negative middle eigenvalue."
+  },
+  {
+    "key": "ns.c3.c3t.thm_halfspace_nonrigidity",
+    "latex": "\\text{C3-T.1 (Thm 4.1)}:\\ \\text{fixed 5D strain half-space}\\not\\Rightarrow\\lambda_2\\text{ sign}",
+    "label_zh": "半空間符號非剛性定理（C3-T.1）",
+    "label_en": "Half-Space Signature Non-Rigidity theorem (C3-T.1)",
+    "definition_zh": "第4節定理4.1（C3-T.1）證明固定的5維 strain 半空間並不能決定中間特徵值 $\\lambda_2$ 的正負號。",
+    "definition_en": "Theorem 4.1 (C3-T.1) in Section 4 proves that a fixed 5-dimensional strain half-space does not determine the sign of the middle eigenvalue $\\lambda_2$."
+  },
+  {
+    "key": "ns.c3.c3t.gamma_coherence",
+    "latex": "\\gamma,\\quad K:V\\ge\\gamma\\ \\Rightarrow\\ |V-K|_F\\le\\sqrt{2(1-\\gamma)}",
+    "label_zh": "窄錐相合參數 γ",
+    "label_en": "Narrow-cone coherence parameter γ",
+    "definition_zh": "第5節設單位矩陣 $K,V\\in\\mathbb S_0$ 滿足 $K:V\\ge\\gamma$，用以量化兩者方向的相合程度，並推出 Frobenius 距離上界。",
+    "definition_en": "Section 5 assumes unit matrices $K,V\\in\\mathbb S_0$ with $K:V\\ge\\gamma$, quantifying directional coherence and yielding a Frobenius-distance bound."
+  },
+  {
+    "key": "ns.c3.c3t.thm_eigenvalue_inheritance",
+    "latex": "\\text{Thm 5.1};\\ \\text{T-A1/T-A2}",
+    "label_zh": "窄錐特徵值繼承定理與 T-A1/T-A2 分支",
+    "label_en": "Narrow-cone eigenvalue inheritance theorem and T-A1/T-A2 branch split",
+    "definition_zh": "第5–6節由 Weyl 不等式證明定理5.1，並據此把 uniform cone 分裂為窄錐 T-A1（$\\lambda_2$ 符號被鎖定）與寬／退化錐 T-A2 兩分支。",
+    "definition_en": "Sections 5–6 use Weyl's inequality to prove Theorem 5.1, splitting the uniform-cone branch into narrow-cone T-A1 (where the sign of $\\lambda_2$ is locked) and wide/degenerate-cone T-A2.",
+    "defining_relation": "|\\lambda_2(V)-\\lambda_2(K)|\\le\\sqrt{2(1-\\gamma)}",
+    "notes": "此分支記號沿用第25節 survivor map 的體系，並在 C3-U 的 U6 obligation 中被重新引用。"
+  },
+  {
+    "key": "ns.c3.c3t.local_mean_strain",
+    "latex": "M_i=\\int\\chi_i S\\,dx",
+    "label_zh": "局部平均應變 M_i",
+    "label_en": "Local mean strain M_i",
+    "definition_zh": "第7節定義 $M_i=\\int\\chi_i S\\,dx$ 為第 $i$ 個核區域上應變張量的未歸一化局部矩，是 uniform cone 分析所依賴的一階量。",
+    "definition_en": "Section 7 defines $M_i=\\int\\chi_i S\\,dx$ as the unnormalized local first moment of the strain tensor over core $i$, the first-order quantity the uniform-cone analysis relies on.",
+    "defining_relation": "M_i=\\int\\chi_i S\\,dx"
+  },
+  {
+    "key": "ns.c3.c3t.normalized_mean_strain",
+    "latex": "\\overline S_i=M_i/m_i",
+    "label_zh": "歸一化平均應變 S̄_i",
+    "label_en": "Normalized mean strain S̄_i",
+    "definition_zh": "第7節在 $m_i=\\int\\chi_i\\,dx>0$ 時定義 $\\overline S_i=M_i/m_i$，其方向與特徵值符號與 $M_i$ 相同，但仍只是空間平均而非逐點量。",
+    "definition_en": "Section 7 defines $\\overline S_i=M_i/m_i$ for $m_i=\\int\\chi_i\\,dx>0$; it shares $M_i$'s normalized direction and eigenvalue sign but remains a spatial average, not a pointwise quantity.",
+    "defining_relation": "\\overline S_i=\\dfrac{M_i}{m_i},\\qquad m_i=\\int\\chi_i\\,dx"
+  },
+  {
+    "key": "ns.c3.c3t.miller_pointwise_lambda2",
+    "latex": "\\lambda_2^+(S(x,t))",
+    "label_zh": "Miller 逐點中間特徵值判準",
+    "label_en": "Miller's pointwise middle-eigenvalue criterion",
+    "definition_zh": "第7節指出 Miller 的 regularity criterion 使用逐點／空間範數量 $\\lambda_2^+(S(x,t))$，而非核平均量 $\\lambda_2(\\overline S_i)$，兩者的落差是本輪核心問題。",
+    "definition_en": "Section 7 notes that Miller's regularity criterion uses the pointwise/spatial-norm quantity $\\lambda_2^+(S(x,t))$, not the core-averaged $\\lambda_2(\\overline S_i)$, and the gap between the two is this round's central problem.",
+    "notes": "引自 Miller 2020/2026（References 1–2）的 regularity criterion，本輪不重新推導，只檢驗 mean strain 能否控制它。"
+  },
+  {
+    "key": "ns.c3.c3t.thm_mean_to_pointwise_nogo",
+    "latex": "\\text{C3-T.2}",
+    "label_zh": "均值—逐點中間特徵值不可行定理",
+    "label_en": "Mean-to-Pointwise Middle-Eigenvalue No-Go (C3-T.2)",
+    "definition_zh": "第8節以 $A=\\operatorname{diag}(2,-1,-1)$、$B=\\operatorname{diag}(-1,2,-1)$ 為反例證明 C3-T.2：均值 $(A+B)/2$ 的 $\\lambda_2$ 可與 $A,B$ 各自的 $\\lambda_2$ 異號，故均值中間特徵值不能推出逐點中間特徵值。",
+    "definition_en": "Section 8 uses the counterexample $A=\\operatorname{diag}(2,-1,-1)$, $B=\\operatorname{diag}(-1,2,-1)$ to prove C3-T.2: the $\\lambda_2$ of the average $(A+B)/2$ can have opposite sign to $\\lambda_2(A)=\\lambda_2(B)$, so mean middle-eigenvalue sign does not imply pointwise sign.",
+    "defining_relation": "\\lambda_2(A)=\\lambda_2(B)=-1<0,\\quad \\lambda_2\\!\\left(\\tfrac{A+B}2\\right)=\\tfrac12>0"
+  },
+  {
+    "key": "ns.c3.c3t.fluctuation_ratio",
+    "latex": "\\mathfrak F_i",
+    "label_zh": "平均波動比 𝔉_i",
+    "label_en": "Mean fluctuation ratio 𝔉_i",
+    "definition_zh": "第24節正式定義（第9節先行使用）$\\mathfrak F_i=\\|S-\\overline S_i\\|_{L^\\infty(C_i),op}/|\\overline S_i|$，用以量化核內逐點應變偏離其平均值的程度。",
+    "definition_en": "Section 24 formally defines (anticipated in Section 9) $\\mathfrak F_i=\\|S-\\overline S_i\\|_{L^\\infty(C_i),op}/|\\overline S_i|$, quantifying how far the pointwise strain on a core deviates from its mean.",
+    "defining_relation": "\\mathfrak F_i=\\dfrac{\\|S-\\overline S_i\\|_{L^\\infty(C_i),op}}{|\\overline S_i|}",
+    "notes": "第9、24節證明：若 $\\lambda_2(\\overline S_i/|\\overline S_i|)\\ge\\delta>0$ 且 $\\mathfrak F_i<\\delta$，則核上逐點 $\\lambda_2(S(x))>0$；但目前沒有 uniform theorem 保證 $\\mathfrak F_i<\\delta$，此缺口成為 C3-U 的 U5 obligation。"
+  },
+  {
+    "key": "ns.c3.c3t.gamma_n_witnesses",
+    "latex": "\\gamma_n\\to0,\\quad v_{n,i}",
+    "label_zh": "錐退化參數與六核見證方向",
+    "label_en": "Cone-degeneration parameter and six-core witness directions",
+    "definition_zh": "第0、10節承接 C3-S：退化間隙 $\\gamma_n=\\operatorname{dist}(0,\\operatorname{conv}V_n)\\to0$ 對應每尺度至多六個歸一化見證方向 $v_{n,i_1},\\ldots,v_{n,i_r}$（$r\\le6$）。",
+    "definition_en": "Sections 0 and 10 carry over from C3-S: the degeneration gap $\\gamma_n=\\operatorname{dist}(0,\\operatorname{conv}V_n)\\to0$ is matched at each scale by at most six normalized witness directions $v_{n,i_1},\\ldots,v_{n,i_r}$ ($r\\le6$).",
+    "defining_relation": "\\gamma_n=\\operatorname{dist}(0,\\operatorname{conv}V_n)\\to0,\\qquad \\Big|\\sum_{j=1}^r\\alpha_jv_{n,i_j}\\Big|=\\gamma_n,\\ r\\le6",
+    "notes": "$\\gamma_n$ 與 $v_{n,i}$ 皆定義於前一輪 C3-S（NS_C3S_StrainConeMargin_MergerRigidity_v0.1.md），本輪直接沿用作為 cone degeneration branch 的輸入資料。"
+  },
+  {
+    "key": "ns.c3.c3t.pressure_poor_efficiency",
+    "latex": "\\eta_H,\\ \\eta_0,\\quad \\eta_H\\le\\eta_0\\ (\\text{pressure-poor})",
+    "label_zh": "共同壓力效率與 pressure-poor 定義",
+    "label_en": "Common-pressure efficiency and pressure-poor definition",
+    "definition_zh": "第11、14節定義共同遠場壓力方向對核的效率 $\\eta_H=K_H:v_{n,i}$，並稱核為 pressure-poor，若其效率不超過固定 threshold $\\eta_0>0$，即 $\\eta_H\\le\\eta_0$。",
+    "definition_en": "Sections 11 and 14 define the efficiency $\\eta_H=K_H:v_{n,i}$ of a common far-pressure direction on a core, calling the core pressure-poor when its efficiency stays below a fixed threshold, $\\eta_H\\le\\eta_0$.",
+    "defining_relation": "\\exists\\,i_\\ast:\\ K_H:v_{n,i_\\ast}\\le\\gamma_n;\\qquad \\eta_H\\le\\eta_0\\ \\Rightarrow\\ \\text{core is pressure-poor}"
+  },
+  {
+    "key": "ns.c3.c3t.enstrophy_branch_split",
+    "latex": "\\mathfrak E_{R_n};\\quad \\text{T-B1/T-B2}",
+    "label_zh": "enstrophy 補償界與 T-B1/T-B2 分支",
+    "label_en": "Enstrophy compensation bound and T-B1/T-B2 branch split",
+    "definition_zh": "第12節證明若見證核要求固定共同遠場壓力功 $b_0>0$，則 enstrophy 須滿足下界，並據此把 cone degeneration 分裂為 T-B1（enstrophy 補償）與 T-B2（pressure-support diversification）。",
+    "definition_en": "Section 12 proves that if witness cores demand a fixed common far-pressure work $b_0>0$, the enstrophy must satisfy a lower bound, splitting cone degeneration into T-B1 (enstrophy compensation) and T-B2 (pressure-support diversification).",
+    "defining_relation": "\\mathfrak E_{R_n}\\gtrsim b_0^{2/3}\\kappa_n^2\\gamma_n^{-2/3}",
+    "notes": "$\\mathfrak E_{R_n}$（rescaled enstrophy）本身承自 C3-S；本輪新增的是此下界如何驅動 T-B1/T-B2 的二選一。"
+  },
+  {
+    "key": "ns.c3.c3t.g_req_decomposition",
+    "latex": "G_i^{req}=P_i^{common}+A_i^{alt}",
+    "label_zh": "所需成長量分解",
+    "label_en": "Required growth-demand decomposition",
+    "definition_zh": "第13節把某見證核的歸一化所需成長量 $G_i^{req}$ 分解為共同遠場壓力貢獻 $P_i^{common}$ 與其餘替代通道貢獻 $A_i^{alt}$（bulk SSA、near pressure、Betchov 等）。",
+    "definition_en": "Section 13 decomposes a witness core's normalized required growth demand $G_i^{req}$ into the common far-pressure contribution $P_i^{common}$ and the remaining alternative-channel contribution $A_i^{alt}$ (bulk SSA, near pressure, Betchov, etc.).",
+    "defining_relation": "G_i^{req}=P_i^{common}+A_i^{alt},\\qquad P_i^{common}\\le C\\gamma\\kappa^{-3}\\mathfrak E_R^{3/2}"
+  },
+  {
+    "key": "ns.c3.c3t.thm_diversification_bound",
+    "latex": "\\text{Thm 13.1}",
+    "label_zh": "壓力支持多樣化下界定理",
+    "label_en": "Pressure-Support Diversification Lower Bound (Thm 13.1)",
+    "definition_zh": "第13節定理13.1證明：若 $G_i^{req}\\ge g_0>0$ 且共同壓力上界不超過 $g_0/2$，則替代通道必須滿足 $A_i^{alt}\\ge g_0/2$。",
+    "definition_en": "Theorem 13.1 in Section 13 proves that if $G_i^{req}\\ge g_0>0$ and the common-pressure bound is at most $g_0/2$, then the alternative channel must satisfy $A_i^{alt}\\ge g_0/2$.",
+    "defining_relation": "A_i^{alt}\\ge g_0-C\\gamma\\kappa^{-3}\\mathfrak E_R^{3/2}\\ \\Rightarrow\\ A_i^{alt}\\ge\\tfrac12g_0"
+  },
+  {
+    "key": "ns.c3.c3t.nogo_witness_not_ray",
+    "latex": "\\text{No-Go 15.1}",
+    "label_zh": "逐層見證非因果射線否定結果",
+    "label_en": "Per-Level Witness ≠ Causal Ray No-Go",
+    "definition_zh": "第15節以無窮二元樹上只標記深度 $n$ 節點 $0^{n-1}1$ 為反例，證明每尺度都有 pressure-poor 見證核並不蘊含存在一條無窮 pressure-poor 因果祖先射線。",
+    "definition_en": "Section 15 uses the infinite binary tree marking only the depth-$n$ node $0^{n-1}1$ as a counterexample, proving that a pressure-poor witness core at every scale does not imply an infinite pressure-poor causal ancestry ray exists."
+  },
+  {
+    "key": "ns.c3.c3t.thm_heredity_criterion",
+    "latex": "\\text{C3-T.3};\\ \\mathcal T,\\ \\mathcal P",
+    "label_zh": "遺傳性 pressure-poor 射線判準",
+    "label_en": "Hereditary Pressure-Poor Ray Criterion (C3-T.3)",
+    "definition_zh": "第16節定理 C3-T.3 證明：若局部有限因果祖先樹 $\\mathcal T$ 中的 pressure-poor 節點集 $\\mathcal P$ 內每個節點都有一個 pressure-poor 子節點，則存在無窮 pressure-poor 因果射線。",
+    "definition_en": "Theorem C3-T.3 in Section 16 proves that if every node in the pressure-poor node set $\\mathcal P$ of a locally finite causal ancestry tree $\\mathcal T$ has a pressure-poor child, then an infinite pressure-poor causal ray exists.",
+    "notes": "此結果為純組合式（PROVED COMBINATORIAL，見第31節），但條件是否適用於實際 N–S 因果樹仍是 OPEN，見 Pressure-Poor Heredity Lemma 條目。"
+  },
+  {
+    "key": "ns.c3.c3t.heredity_lemma_open",
+    "latex": "\\text{Pressure-Poor Heredity Lemma}",
+    "label_zh": "壓力貧乏遺傳引理（未決）",
+    "label_en": "Pressure-Poor Heredity Lemma (open)",
+    "definition_zh": "第17節提出候選引理：$\\eta_H(parent)\\ll1$ 加上 local source dominance 應蘊含存在子節點使 $\\eta_H(child)\\lesssim\\eta_H(parent)+\\varepsilon$，第31節將其狀態列為 OPEN。",
+    "definition_en": "Section 17 proposes the candidate lemma that $\\eta_H(parent)\\ll1$ plus local source dominance should imply a child with $\\eta_H(child)\\lesssim\\eta_H(parent)+\\varepsilon$, and Section 31 lists its status as OPEN.",
+    "defining_relation": "\\eta_H(parent)\\ll1+\\text{local source dominance}\\ \\Rightarrow\\ \\exists\\,child:\\eta_H(child)\\lesssim\\eta_H(parent)+\\varepsilon",
+    "notes": "此為第30節 C3-U 的 U1 proof obligation 之候選陳述，是本輪標定的「真正缺的 lemma」。"
+  },
+  {
+    "key": "ns.c3.c3t.miller_operator",
+    "latex": "\\mathcal Q_{SV}",
+    "label_zh": "Miller 算子 Q_SV",
+    "label_en": "Miller operator Q_SV",
+    "definition_zh": "第19節指出 Miller operator $\\mathcal Q_{SV}$ 依賴空間導數、二次波動、渦度、平流與非局部投影，是 mean-strain cone 無法直接控制的對象。",
+    "definition_en": "Section 19 notes that the Miller operator $\\mathcal Q_{SV}$ depends on spatial derivatives, quadratic fluctuations, vorticity, advection, and nonlocal projection — an object the mean-strain cone cannot directly control.",
+    "notes": "此算子命名承自更早輪次（NS_C3P_OperatorEscape_FarPressureMatrix、NS_C3Q_PressureProjection_OperatorLocalization），本輪只引用不重新定義。"
+  },
+  {
+    "key": "ns.c3.c3t.thm_meanmotif_operator_nogo",
+    "latex": "\\text{C3-T.4}:\\ \\text{fixed mean-strain motif}\\not\\Rightarrow\\text{small Miller operator defect}",
+    "label_zh": "均值 motif／算子波動分離不可行定理",
+    "label_en": "Mean-Motif / Operator-Fluctuation Separation No-Go (C3-T.4)",
+    "definition_zh": "第20節定理 C3-T.4 證明均值映射 $M_\\chi(S)=\\int\\chi S\\,dx$ 只有五個純量輸出且核為無窮維，故保持 mean-strain cone 不變仍可任意改變 $\\mathcal Q_{SV}$。",
+    "definition_en": "Theorem C3-T.4 in Section 20 proves that the mean map $M_\\chi(S)=\\int\\chi S\\,dx$ has only five scalar outputs with an infinite-dimensional kernel, so fixing the mean-strain cone motif still allows $\\mathcal Q_{SV}$ to vary arbitrarily."
+  },
+  {
+    "key": "ns.c3.c3t.operator_escape_distance",
+    "latex": "d_{SV}(t_n)",
+    "label_zh": "算子逃逸距離 d_SV",
+    "label_en": "Operator-escape distance d_SV",
+    "definition_zh": "第21節指出固定 cone coherence $\\gamma_n\\ge\\gamma_0$ 與算子逃逸 $d_{SV}(t_n)\\gtrsim1$ 目前完全相容，逃逸可藏在均值 motif 周圍的零均值高頻波動中。",
+    "definition_en": "Section 21 notes that fixed cone coherence $\\gamma_n\\ge\\gamma_0$ and operator escape $d_{SV}(t_n)\\gtrsim1$ are currently fully compatible, with the escape hidden in zero-mean high-frequency fluctuations around the coherent mean motif.",
+    "notes": "$d_{SV}$ 承接自更早的 operator-escape 系列輪次，本輪只用它具體化 C3-T.4 no-go 在動力學層面的後果。"
+  },
+  {
+    "key": "ns.c3.c3t.two_motifs_angle",
+    "latex": "K_\\ast^{cone},\\ K_\\ast^{pressure},\\ \\vartheta_\\ast=\\arccos(K_\\ast^{pressure}:K_\\ast^{cone})",
+    "label_zh": "錐與壓力兩固定 motif 及其夾角",
+    "label_en": "Cone and pressure fixed motifs and their angle",
+    "definition_zh": "第22節由 $S^4$ 緊緻性取極限方向 $K_H^\\ast$，指出 cone motif $K_\\ast^{cone}$ 與 pressure motif $K_\\ast^{pressure}$ 一般不相同，其夾角 $\\vartheta_\\ast$ 目前無定理固定。",
+    "definition_en": "Section 22 extracts a limiting direction $K_H^\\ast$ via compactness of $S^4$, noting that the cone motif $K_\\ast^{cone}$ and pressure motif $K_\\ast^{pressure}$ need not coincide, and no current theorem fixes their angle $\\vartheta_\\ast$."
+  },
+  {
+    "key": "ns.c3.c3t.etn_tuples",
+    "latex": "\\Theta_n^{motif},\\ \\Theta_n^{div}",
+    "label_zh": "True ETN 狀態元組更新",
+    "label_en": "True ETN state-tuple update",
+    "definition_zh": "第28節把 uniform branch 的狀態記為 $\\Theta_n^{motif}=\\langle K_\\ast,\\gamma_0,\\lambda_2(K_\\ast),\\{\\mathfrak F_i\\},d_{SV},K_H^\\ast,\\operatorname{Prov}\\rangle$，degenerate branch 記為 $\\Theta_n^{div}$，作為 True ETN／無限維張力場的本輪更新。",
+    "definition_en": "Section 28 records the uniform branch's state as $\\Theta_n^{motif}=\\langle K_\\ast,\\gamma_0,\\lambda_2(K_\\ast),\\{\\mathfrak F_i\\},d_{SV},K_H^\\ast,\\operatorname{Prov}\\rangle$ and the degenerate branch's as $\\Theta_n^{div}$, this round's update to the True ETN / infinite-dimensional tension field.",
+    "notes": "True ETN（無限維張力場）是跨輪次的公共狀態物件，列於 Internal dependencies；本輪只新增這兩個元組欄位，不重新定義整體框架。"
+  },
+  {
+    "key": "ns.c3.c3t.branch_survivor_map",
+    "latex": "\\text{T-U}:\\gamma_n\\ge\\gamma_0;\\quad \\text{T-D}:\\gamma_n\\to0",
+    "label_zh": "存活分支圖：T-U 與 T-D",
+    "label_en": "Survivor-map branches T-U and T-D",
+    "definition_zh": "第25節把全篇結論整理成兩條存活分支：T-U（uniform cone，剩餘 debt 為 mean-to-pointwise 與算子波動）與 T-D（cone degeneration，剩餘 debt 為 enstrophy 補償或 pressure-support diversification，外加 heredity 缺口）。",
+    "definition_en": "Section 25 organizes the round's conclusions into two surviving branches: T-U (uniform cone, remaining debt = mean-to-pointwise plus operator fluctuation) and T-D (cone degeneration, remaining debt = enstrophy compensation or pressure-support diversification, plus the heredity gap)."
+  },
+  {
+    "key": "ns.c3.c3t.x_integration_guards",
+    "latex": "\\text{G-MEAN/PT, G-EIGGAP, G-FLUCT, G-PPOOR, G-HERED, G-MEANOP}",
+    "label_zh": "X-Integration 六項防護準則",
+    "label_en": "X-Integration guard conditions",
+    "definition_zh": "第27節列出六條 X-Integration guards，分別要求不得混淆均值與逐點應變、窄錐須檢查特徵值間隙、須保存波動比 $\\mathfrak F_i$、pressure-poor 見證不可自動視為遺傳、因果射線需要遺傳性、以及均值 motif 不得用來控制算子波動。",
+    "definition_en": "Section 27 lists six X-Integration guards requiring, respectively: not conflating mean and pointwise strain; checking the eigenvalue gap for narrow cones; tracking the fluctuation ratio $\\mathfrak F_i$; never auto-promoting a pressure-poor witness to hereditary status; requiring heredity/bounded-gap inheritance for a causal ray; and forbidding the mean motif from controlling operator fluctuation."
+  },
+  {
+    "key": "ns.c3.c3t.c3u_frontier",
+    "latex": "\\text{C3-U}",
+    "label_zh": "C3-U：下一輪前沿",
+    "label_en": "C3-U next-round frontier",
+    "definition_zh": "第29–30節把本輪未閉合缺口正式命名為 C3-U——Hereditary Pressure-Poor Ancestry and Mean-to-Pointwise Strain Rigidity，並展開為 U1 至 U8 共八項 proof obligations。",
+    "definition_en": "Sections 29–30 formally name this round's open gaps C3-U — Hereditary Pressure-Poor Ancestry and Mean-to-Pointwise Strain Rigidity — and expand it into eight proof obligations, U1 through U8.",
+    "notes": "八項 obligations（U1 pressure-poor heredity、U2 bounded-generation heredity、U3 far-pressure matrix transport、U4 mean-strain transport、U5 mean fluctuation control、U6 narrow-cone pointwise branch、U7 operator fluctuation branch、U8 pressure-poor ray closure）逐一對應本輪各 no-go 缺口，是本輪對後續輪次的直接交付。"
+  }
+]

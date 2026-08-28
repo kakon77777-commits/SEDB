@@ -1,0 +1,286 @@
+[
+  {
+    "key": "ns.c3.c3i.critical_shell_amplitude",
+    "latex": "a_q^\\sigma(t)",
+    "label_zh": "臨界殼層振幅",
+    "label_en": "critical shell amplitude",
+    "definition_zh": "沿用 C3-G 的第 $q$ 殼、helicity $\\sigma$ 正規化振幅（第1節），定義為 $a_q^\\sigma(t)=\\|u_q^\\sigma(t)\\|_\\infty/(\\nu\\lambda_q)$，是本輪 frontier crossing 判準的基本量。",
+    "definition_en": "The normalized shell-$q$, helicity-$\\sigma$ amplitude carried over from C3-G (Section 1), $a_q^\\sigma(t)=\\|u_q^\\sigma(t)\\|_\\infty/(\\nu\\lambda_q)$, underlying this round's frontier-crossing criterion.",
+    "defining_relation": "a_q^\\sigma(t)=\\frac{\\|u_q^\\sigma(t)\\|_\\infty}{\\nu\\lambda_q}"
+  },
+  {
+    "key": "ns.c3.c3i.beta_star",
+    "latex": "\\beta_\\ast",
+    "label_zh": "固定臨界門檻",
+    "label_en": "fixed critical threshold",
+    "definition_zh": "第1節選定的固定門檻常數，滿足 $0<\\beta_\\ast<c_\\dagger$，用以定義 first frontier crossing 與 UV shellwise cap。",
+    "definition_en": "The fixed threshold constant chosen in Section 1, satisfying $0<\\beta_\\ast<c_\\dagger$, defining the first frontier crossing and the UV shellwise cap.",
+    "defining_relation": "0<\\beta_\\ast<c_\\dagger"
+  },
+  {
+    "key": "ns.c3.c3i.c_dagger",
+    "latex": "c_\\dagger",
+    "label_zh": "耗散尺度上界常數",
+    "label_en": "dissipation-scale bound constant",
+    "definition_zh": "第1節中由 dissipation-wavenumber unboundedness 保證，在 hypothetical blow-up 下會被任意高殼層超過的固定常數，界定 $\\beta_\\ast$ 的可選範圍上界。",
+    "definition_en": "The fixed constant in Section 1, guaranteed by dissipation-wavenumber unboundedness to be exceeded by arbitrarily high shells under hypothetical blow-up, bounding $\\beta_\\ast$ from above."
+  },
+  {
+    "key": "ns.c3.c3i.frontier_level_q",
+    "latex": "Q",
+    "label_zh": "frontier 層級",
+    "label_en": "frontier level",
+    "definition_zh": "第2節引入的整數參數，標記 frequency frontier 位置，是本輪 first frontier crossing 分析與 rescaling 的中心索引。",
+    "definition_en": "The integer parameter introduced in Section 2 marking the frequency-frontier position; the central index for this round's first-crossing analysis and rescaling."
+  },
+  {
+    "key": "ns.c3.c3i.first_crossing_time_tq",
+    "latex": "T_Q",
+    "label_zh": "第一次 frontier 跨越時刻",
+    "label_en": "first frontier crossing time",
+    "definition_zh": "第2節定義為某殼 $q\\ge Q$ 首次達到 $a_q^\\sigma\\ge\\beta_\\ast$ 的最早時刻；定理3.1證明 $T_Q\\uparrow T_\\ast$。",
+    "definition_en": "Defined in Section 2 as the earliest time some shell $q\\ge Q$ first reaches $a_q^\\sigma\\ge\\beta_\\ast$; Theorem 3.1 proves $T_Q\\uparrow T_\\ast$.",
+    "defining_relation": "T_Q=\\inf\\left\\{t\\in(0,T_\\ast):\\exists q\\ge Q,\\ \\sigma\\in\\{+,-\\},\\quad a_q^\\sigma(t)\\ge\\beta_\\ast\\right\\}"
+  },
+  {
+    "key": "ns.c3.c3i.crossing_shell_qq_sigmaq",
+    "latex": "(q_Q,\\sigma_Q)",
+    "label_zh": "跨越殼層指標與符號",
+    "label_en": "crossing shell index and sign",
+    "definition_zh": "第4節由連續性論證取得，在 $T_Q$ 恰好達到門檻的殼層指標與 helicity 符號。",
+    "definition_en": "The shell index and helicity sign obtained in Section 4 via continuity, at which the threshold is exactly attained at $T_Q$.",
+    "defining_relation": "a_{q_Q}^{\\sigma_Q}(T_Q)=\\beta_\\ast"
+  },
+  {
+    "key": "ns.c3.c3i.locality_constant_cl",
+    "latex": "C_L",
+    "label_zh": "局部性常數",
+    "label_en": "locality constant",
+    "definition_zh": "第5節起沿用的固定常數，界定 crossing shell 與其 causal parent 間的殼層距離上界，如 $Q\\le q_Q\\le Q+C_L$。",
+    "definition_en": "A fixed constant used from Section 5 onward, bounding the shell distance between a crossing shell and its causal parent, e.g. $Q\\le q_Q\\le Q+C_L$."
+  },
+  {
+    "key": "ns.c3.c3i.parent_shell_pq_sigmap",
+    "latex": "(p_Q,\\sigma_P)",
+    "label_zh": "因果 parent 殼層與符號",
+    "label_en": "causal parent shell and sign",
+    "definition_zh": "第5節取得的 earlier parent 殼層指標與符號，滿足 $Q-C_L\\le p_Q<Q$ 且早於 $T_Q$ 已跨越門檻。",
+    "definition_en": "The earlier parent shell index and sign obtained in Section 5, satisfying $Q-C_L\\le p_Q<Q$ and crossing the threshold before $T_Q$."
+  },
+  {
+    "key": "ns.c3.c3i.parent_crossing_time_tau",
+    "latex": "\\tau_{p_Q,\\sigma_P}",
+    "label_zh": "parent 殼層跨越時刻",
+    "label_en": "parent shell crossing time",
+    "definition_zh": "第5節中 parent 殼本身跨越門檻的時刻，滿足 $\\tau_{p_Q,\\sigma_P}<T_Q$，建立 first frontier crossing 的因果來源。",
+    "definition_en": "The time at which the parent shell itself crosses the threshold, satisfying $\\tau_{p_Q,\\sigma_P}<T_Q$, establishing the causal source of the first frontier crossing."
+  },
+  {
+    "key": "ns.c3.c3i.rescaling_center_xq",
+    "latex": "x_Q",
+    "label_zh": "rescaling 空間中心",
+    "label_en": "rescaling spatial center",
+    "definition_zh": "第6節選取、位於 child shell near-max 區域的空間中心點，作為 frontier-centered parabolic rescaling 的基準點。",
+    "definition_en": "The spatial center chosen in Section 6, located in the child shell's near-max region, serving as the base point for the frontier-centered parabolic rescaling."
+  },
+  {
+    "key": "ns.c3.c3i.rescaled_field_vq",
+    "latex": "V_Q(y,s)",
+    "label_zh": "frontier 中心化重新縮放場",
+    "label_en": "frontier-centered rescaled field",
+    "definition_zh": "第6節以 $x_Q,T_Q,\\lambda_Q$ 對 $u$ 作 parabolic rescaling 所得的場，從第7節起大量使用其 $s=0$ snapshot。",
+    "definition_en": "The field obtained in Section 6 by parabolically rescaling $u$ using $x_Q,T_Q,\\lambda_Q$; its $s=0$ snapshot is used extensively from Section 7 onward.",
+    "defining_relation": "V_Q(y,s)=\\frac1{\\nu\\lambda_Q}u\\left(x_Q+\\frac y{\\lambda_Q},T_Q+\\frac{s}{\\nu\\lambda_Q^2}\\right)",
+    "notes": "全文中 \"$V_Q(0)$\" 指時刻切片 $V_Q(\\cdot,0)$，非空間點 $y=0$ 之取值。"
+  },
+  {
+    "key": "ns.c3.c3i.relative_crossing_index_jq",
+    "latex": "j_Q",
+    "label_zh": "相對 frontier 之跨越指標",
+    "label_en": "frontier-relative crossing index",
+    "definition_zh": "第8節定義 $j_Q=q_Q-Q$，即 crossing shell 相對 frontier $Q$ 的位移，滿足 $0\\le j_Q\\le C_L$。",
+    "definition_en": "Defined in Section 8 as $j_Q=q_Q-Q$, the crossing shell's offset relative to the frontier $Q$, satisfying $0\\le j_Q\\le C_L$."
+  },
+  {
+    "key": "ns.c3.c3i.one_sided_besov_cap",
+    "latex": "\\dot B^{-1}_{\\infty,\\infty}",
+    "label_zh": "單側臨界 Besov 型 cap",
+    "label_en": "one-sided critical Besov-type cap",
+    "definition_zh": "第9節指出定理8.1給出僅對 $j\\ge0$ 成立的 $\\dot B^{-1}_{\\infty,\\infty}$ 型上界，不可等同於含 $j<0$ 的完整 Besov norm 控制。",
+    "definition_en": "Section 9 identifies Theorem 8.1's bound as a $\\dot B^{-1}_{\\infty,\\infty}$-type cap holding only for $j\\ge0$, not upgradable to control of the full norm including $j<0$.",
+    "defining_relation": "\\sup_{j\\ge0,\\ \\sigma}2^{-j}\\|\\Delta_jP^\\sigma V_Q(0)\\|_\\infty\\le\\beta_\\ast"
+  },
+  {
+    "key": "ns.c3.c3i.freq_cutoff_level_m",
+    "latex": "M",
+    "label_zh": "高頻截止層級",
+    "label_en": "high-frequency cutoff level",
+    "definition_zh": "第12節固定的自然數，界定 mid/high-side finite frequency band $P_{[0,M]}$ 的上端。",
+    "definition_en": "The fixed natural number in Section 12 bounding the upper end of the finite frequency band $P_{[0,M]}$."
+  },
+  {
+    "key": "ns.c3.c3i.spatial_cutoff_radius_r",
+    "latex": "R",
+    "label_zh": "空間截止半徑",
+    "label_en": "spatial cutoff radius",
+    "definition_zh": "第12節固定的正數，決定 spatial cutoff $\\chi_R$ 的支撐尺度。",
+    "definition_en": "The fixed positive number in Section 12 determining the support scale of the spatial cutoff $\\chi_R$."
+  },
+  {
+    "key": "ns.c3.c3i.freq_band_projector_p0m",
+    "latex": "P_{[0,M]}",
+    "label_zh": "有限頻帶投影",
+    "label_en": "finite frequency-band projector",
+    "definition_zh": "第12節定義 $P_{[0,M]}=\\sum_{j=0}^M\\Delta_j$；第14節與 $P_{<0},P_{>M}$ 構成頻率三分解 $I=P_{<0}+P_{[0,M]}+P_{>M}$。",
+    "definition_en": "Defined in Section 12 as $P_{[0,M]}=\\sum_{j=0}^M\\Delta_j$; with $P_{<0},P_{>M}$ it forms the Section 14 frequency trichotomy $I=P_{<0}+P_{[0,M]}+P_{>M}$.",
+    "defining_relation": "P_{[0,M]}=\\sum_{j=0}^{M}\\Delta_j"
+  },
+  {
+    "key": "ns.c3.c3i.spatial_cutoff_chir",
+    "latex": "\\chi_R",
+    "label_zh": "空間光滑截斷",
+    "label_en": "smooth spatial cutoff",
+    "definition_zh": "第12節定義、在 $B_{2R}$ 內支撐且在 $B_R$ 上為1的光滑函數，用以分離 spatial core 與 far-space。",
+    "definition_en": "The smooth cutoff function from Section 12, supported in $B_{2R}$ and equal to $1$ on $B_R$, separating the spatial core from far-space."
+  },
+  {
+    "key": "ns.c3.c3i.finite_core_cqrm",
+    "latex": "C_{Q;R,M}",
+    "label_zh": "高側有限相空間核",
+    "label_en": "finite high-side phase-space core",
+    "definition_zh": "第12節定義的 $\\chi_RP_{[0,M]}V_Q$；定理13.1證明其 $L^3$ norm 對所有 $Q$ 一致地被 $C(R,M)\\beta_\\ast$ 界住。",
+    "definition_en": "Defined in Section 12 as $\\chi_RP_{[0,M]}V_Q$; Theorem 13.1 shows its $L^3$ norm is uniformly bounded by $C(R,M)\\beta_\\ast$ over all $Q$.",
+    "defining_relation": "C_{Q;R,M}=\\chi_RP_{[0,M]}V_Q"
+  },
+  {
+    "key": "ns.c3.c3i.complementary_projectors_ir_uv",
+    "latex": "P_{<0},\\ P_{>M}",
+    "label_zh": "IR／UV 互補頻率投影",
+    "label_en": "complementary IR/UV frequency projectors",
+    "definition_zh": "第14節頻率三分解中，$P_{<0}$ 對應 $q<Q$ 的相對低頻投影，$P_{>M}$ 對應 $j>M$ 的高頻投影。",
+    "definition_en": "In Section 14's frequency trichotomy, $P_{<0}$ projects onto the relative-IR range $q<Q$ and $P_{>M}$ onto the UV range $j>M$."
+  },
+  {
+    "key": "ns.c3.c3i.vq_ir_component",
+    "latex": "V_Q^{IR}",
+    "label_zh": "IR 分量（D-IR）",
+    "label_en": "IR component (D-IR)",
+    "definition_zh": "第14、16節定義 $V_Q^{IR}=P_{<0}V_Q$，即 relative infrared reservoir，是 first frontier child 因果祖先所在側。",
+    "definition_en": "Defined in Sections 14 and 16 as $V_Q^{IR}=P_{<0}V_Q$, the relative infrared reservoir carrying the first frontier child's causal ancestry.",
+    "defining_relation": "V_Q^{IR}=P_{<0}V_Q"
+  },
+  {
+    "key": "ns.c3.c3i.vq_uv_component",
+    "latex": "V_Q^{UV}",
+    "label_zh": "UV 分量（D-UV）",
+    "label_en": "UV component (D-UV)",
+    "definition_zh": "第14、16節定義 $V_Q^{UV}=P_{>M}V_Q$，其發散只能源於 shell 或 spatial multiplicity，而非單殼振幅爆炸。",
+    "definition_en": "Defined in Sections 14 and 16 as $V_Q^{UV}=P_{>M}V_Q$; its divergence can only arise from shell or spatial multiplicity, not single-shell amplitude blow-up.",
+    "defining_relation": "V_Q^{UV}=P_{>M}V_Q"
+  },
+  {
+    "key": "ns.c3.c3i.vq_sp_component",
+    "latex": "V_Q^{SP}",
+    "label_zh": "空間逃逸分量（D-SP）",
+    "label_en": "spatial escape component (D-SP)",
+    "definition_zh": "第14、16節定義 $V_Q^{SP}=(1-\\chi_R)P_{[0,M]}V_Q$，即有限頻窗內遠離 ancestry center 的 spatial multiplicity/escape defect。",
+    "definition_en": "Defined in Sections 14 and 16 as $V_Q^{SP}=(1-\\chi_R)P_{[0,M]}V_Q$, the spatial multiplicity/escape defect within the finite frequency window, away from the ancestry center.",
+    "defining_relation": "V_Q^{SP}=(1-\\chi_R)P_{[0,M]}V_Q"
+  },
+  {
+    "key": "ns.c3.c3i.d_core_defect",
+    "latex": "\\text{D-CORE}_{[0,M],R}",
+    "label_zh": "核心壅塞缺陷",
+    "label_en": "core-congestion defect",
+    "definition_zh": "第17節命名、對應有限相空間核 $C_{Q;R,M}$ 的 defect 類型，已被定理13.1真正排除為 global $L^3$ divergence 來源。",
+    "definition_en": "The defect type named in Section 17, corresponding to the finite phase-space core $C_{Q;R,M}$, ruled out by Theorem 13.1 as a source of global $L^3$ divergence."
+  },
+  {
+    "key": "ns.c3.c3i.nonlocal_remainder_remq",
+    "latex": "\\operatorname{Rem}_Q",
+    "label_zh": "非局部餘項",
+    "label_en": "nonlocal remainder",
+    "definition_zh": "第19節在 eventual local-source dominance 假設下，child window 的 nonlocal remainder，滿足 $\\operatorname{Rem}_Q\\le\\varepsilon\\beta_\\ast$。",
+    "definition_en": "Under the eventual local-source dominance hypothesis in Section 19, the nonlocal remainder of the child window, satisfying $\\operatorname{Rem}_Q\\le\\varepsilon\\beta_\\ast$.",
+    "defining_relation": "\\operatorname{Rem}_Q\\le\\varepsilon\\beta_\\ast"
+  },
+  {
+    "key": "ns.c3.c3i.relative_parent_index_jparent",
+    "latex": "j_{\\rm parent}",
+    "label_zh": "相對 parent 頻率指標",
+    "label_en": "relative parent frequency index",
+    "definition_zh": "第19節將 child first crossing 的 immediate causal source 限制在 $-C_L\\le j_{\\rm parent}\\le C_L$，經 frontier minimality 進一步壓到 $-C_L\\le j_{\\rm parent}<0$。",
+    "definition_en": "Section 19 confines the immediate causal source of the child's first crossing to $-C_L\\le j_{\\rm parent}\\le C_L$, tightened by frontier minimality to $-C_L\\le j_{\\rm parent}<0$.",
+    "defining_relation": "-C_L\\le j_{\\rm parent}<0"
+  },
+  {
+    "key": "ns.c3.c3i.phase_efficiency_etaq",
+    "latex": "\\eta_q",
+    "label_zh": "相位/局部性效率",
+    "label_en": "phase/locality efficiency",
+    "definition_zh": "第20節引入的 local production phase efficiency 下界量，假設 $\\eta_q\\ge\\eta_0>0$，支持 D-SP 不主導 immediate source 的論證。",
+    "definition_en": "The local-production phase-efficiency quantity from Section 20, assumed to satisfy $\\eta_q\\ge\\eta_0>0$, supporting the argument that D-SP cannot dominate the immediate source."
+  },
+  {
+    "key": "ns.c3.c3i.coherent_source_radius_rstar",
+    "latex": "R_\\ast",
+    "label_zh": "一致相干來源半徑",
+    "label_en": "coherent-source radius",
+    "definition_zh": "第20、21節選定的固定半徑，使固定比例的 nonlinear source 來自 $O(\\lambda_q^{-1})$ 鄰域內，即 $|y-y_Q|\\le R_\\ast$。",
+    "definition_en": "The fixed radius from Sections 20-21 ensuring a fixed fraction of the nonlinear source lies within an $O(\\lambda_q^{-1})$ neighborhood, i.e. $|y-y_Q|\\le R_\\ast$."
+  },
+  {
+    "key": "ns.c3.c3i.parent_original_coords",
+    "latex": "q_{\\rm parent},\\ x_{\\rm parent}",
+    "label_zh": "原座標下的 parent 位置",
+    "label_en": "parent location in original coordinates",
+    "definition_zh": "定理21.1將 rescaled parent 換回原 coordinates 所得的頻率指標與空間位置，量化 one-generation decoupling 的尺度。",
+    "definition_en": "The parent's frequency index and spatial location in original coordinates from Theorem 21.1, quantifying the scale of the one-generation decoupling.",
+    "defining_relation": "q_{\\rm parent}\\in[Q-C_L,Q-1],\\quad|x_{\\rm parent}-x_Q|\\lesssim\\lambda_Q^{-1}"
+  },
+  {
+    "key": "ns.c3.c3i.generation_core_cn",
+    "latex": "\\mathcal C_n",
+    "label_zh": "第 n 代 frontier 核",
+    "label_en": "generation-$n$ frontier core",
+    "definition_zh": "第33節定義的每代 moving phase-space core，由 $|j|\\le C_L$、$|y-y_n|\\le R_\\ast$ 與 $I_n$ 界定，是 Defect Re-entry Ledger 的分析單元。",
+    "definition_en": "The per-generation moving phase-space core defined in Section 33, delimited by $|j|\\le C_L$, $|y-y_n|\\le R_\\ast$ and $I_n$; the analytical unit of the Defect Re-entry Ledger.",
+    "defining_relation": "\\mathcal C_n=\\left\\{|j|\\le C_L,\\quad|y-y_n|\\le R_\\ast,\\quad I_n\\right\\}",
+    "notes": "$I_n$ 在源文中未獨立展開定義，僅作為 $\\mathcal C_n$ 定義式的第三個限制條件出現。"
+  },
+  {
+    "key": "ns.c3.c3i.entry_functional_entryn",
+    "latex": "\\operatorname{Entry}_n(D)",
+    "label_zh": "第 n 代缺陷進入量",
+    "label_en": "generation-$n$ defect entry contribution",
+    "definition_zh": "第33節定義 defect 分量 $D_n$ 對 $\\mathcal C_n$ 的 ancestry-relevant nonlinear source contribution；級數 $\\sum_n\\operatorname{Entry}_n(D)$ 收斂與否是下一輪 C3-J 的核心問題。",
+    "definition_en": "Defined in Section 33 as a defect component $D_n$'s ancestry-relevant nonlinear source contribution to $\\mathcal C_n$; whether $\\sum_n\\operatorname{Entry}_n(D)$ converges is the central question posed for the next round, C3-J."
+  },
+  {
+    "key": "ns.c3.c3i.spatial_multiplicity_fn",
+    "latex": "f_N(x)",
+    "label_zh": "空間多重性玩具構造",
+    "label_en": "spatial-multiplicity toy construction",
+    "definition_zh": "第26節由 $N$ 個遠距平移波包疊加而成，$f_N=\\sum_{m=1}^N\\phi(x-x_m)$，證明 bounded shell $L^\\infty$ 不蘊含 bounded global shell $L^3$（$\\|f_N\\|_3\\sim N^{1/3}\\|\\phi\\|_3$）。",
+    "definition_en": "The Section 26 sum of $N$ widely-separated translated wave packets, $f_N=\\sum_{m=1}^N\\phi(x-x_m)$, showing bounded shell $L^\\infty$ does not imply bounded global shell $L^3$ (since $\\|f_N\\|_3\\sim N^{1/3}\\|\\phi\\|_3$).",
+    "defining_relation": "f_N(x)=\\sum_{m=1}^{N}\\phi(x-x_m)"
+  },
+  {
+    "key": "ns.c3.c3i.uv_packet_family_phij",
+    "latex": "\\phi_j(x)",
+    "label_zh": "UV 多尺度臨界波包族",
+    "label_en": "UV multiscale critical packet family",
+    "definition_zh": "第28節定義的 divergence-free critical packet family $\\phi_j(x)=2^j\\phi(2^j(x-x_j))$，用於構造 UV multiscale scalar no-go model。",
+    "definition_en": "The divergence-free critical packet family defined in Section 28 as $\\phi_j(x)=2^j\\phi(2^j(x-x_j))$, used to build the UV multiscale scalar no-go model.",
+    "defining_relation": "\\phi_j(x)=2^j\\phi(2^j(x-x_j))"
+  },
+  {
+    "key": "ns.c3.c3i.uv_multiscale_sum_fm",
+    "latex": "F_M",
+    "label_zh": "多尺度反例疊加場",
+    "label_en": "multiscale counter-example sum",
+    "definition_zh": "第28節定義 $F_M=\\beta\\sum_{j=0}^M\\phi_j$，在 disjoint-packet bookkeeping 下顯示 $\\|F_M\\|_3\\sim\\beta M^{1/3}$ 發散，即 finite energy 加 uniform shell cap 仍不足控制 global $L^3$。",
+    "definition_en": "Defined in Section 28 as $F_M=\\beta\\sum_{j=0}^M\\phi_j$; under ideal disjoint-packet bookkeeping $\\|F_M\\|_3\\sim\\beta M^{1/3}$ diverges, showing finite energy plus a uniform shell cap still cannot control global $L^3$.",
+    "defining_relation": "F_M=\\beta\\sum_{j=0}^{M}\\phi_j"
+  }
+]

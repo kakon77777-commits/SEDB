@@ -1,0 +1,269 @@
+[
+  {
+    "key": "ns.c4.c4j.middle_eigenvalue_lambda2",
+    "latex": "\\lambda_2^+",
+    "label_zh": "中間應變特徵值正部",
+    "label_en": "Middle strain eigenvalue (positive part)",
+    "definition_zh": "應變張量三個特徵值中之中間特徵值的正部，第1.1節重申其scale-critical可積性失效是finite-time blow-up的必要正則性閘門（Miller判準）。",
+    "definition_en": "The positive part of the middle eigenvalue of the strain tensor; Section 1.1 reaffirms that its failure of scale-critical integrability is a necessary regularity gate for finite-time blow-up (Miller's criterion).",
+    "notes": "external anchor inherited from Miller (arXiv:1710.05569) and used throughout the C4 record-ladder framework since C4-H."
+  },
+  {
+    "key": "ns.c4.c4j.miller_qsv_operator",
+    "latex": "\\mathcal Q_{SV}",
+    "label_zh": "Miller應變–渦度算子",
+    "label_en": "Miller strain-vorticity operator",
+    "definition_zh": "第1.2節引用的算子 $\\mathcal Q_{SV}=P_{st}\\left((u\\cdot\\nabla)S+S^2+\\frac34\\omega\\otimes\\omega\\right)$，連同恆等式 $\\langle-\\Delta S,\\omega\\otimes\\omega\\rangle=0$ 共同刻畫blow-up必逃離之perturbative operator regime。",
+    "definition_en": "The operator $\\mathcal Q_{SV}=P_{st}\\left((u\\cdot\\nabla)S+S^2+\\frac34\\omega\\otimes\\omega\\right)$ cited in Section 1.2, which together with the identity $\\langle-\\Delta S,\\omega\\otimes\\omega\\rangle=0$ characterizes the perturbative operator regime any blow-up must escape.",
+    "notes": "external anchor from Miller's arXiv:2407.02691v2 strain-vorticity framework, not original to C4-J."
+  },
+  {
+    "key": "ns.c4.c4j.record_window",
+    "latex": "J_j=(\\tau_j,\\tau_{j+1})",
+    "label_zh": "記錄窗口",
+    "label_en": "Record window",
+    "definition_zh": "第2節沿C4-H/I記錄梯次定義的收縮時間區間，滿足 $|J_j|\\to0$，是本輪所有compensation ledger的基本時間單元。",
+    "definition_en": "The shrinking time interval along the C4-H/I record ladder introduced in Section 2, satisfying $|J_j|\\to0$, serving as the basic temporal unit for every compensation ledger in this round."
+  },
+  {
+    "key": "ns.c4.c4j.middle_strain_toll_density",
+    "latex": "m_j(t)=\\int\\lambda_2^+|S|^2dx",
+    "label_zh": "中間應變徵費密度",
+    "label_en": "Middle-strain toll density",
+    "definition_zh": "第2節定義為 $\\int\\lambda_2^+|S|^2dx$，其在窗口 $J_j$ 上的積分下界為 $A_j>0$。",
+    "definition_en": "Defined in Section 2 as $\\int\\lambda_2^+|S|^2dx$, whose integral over $J_j$ is bounded below by $A_j>0$."
+  },
+  {
+    "key": "ns.c4.c4j.operator_growth_toll_density",
+    "latex": "o_j(t)=\\nu[\\zeta r_\\nu-1]_+\\|\\Delta S\\|_2^2",
+    "label_zh": "算子成長徵費密度",
+    "label_en": "Operator-growth toll density",
+    "definition_zh": "第2節定義為 $\\nu[\\zeta r_\\nu-1]_+\\|\\Delta S\\|_2^2$，其在窗口 $J_j$ 上的積分下界為 $B_j>0$。",
+    "definition_en": "Defined in Section 2 as $\\nu[\\zeta r_\\nu-1]_+\\|\\Delta S\\|_2^2$, whose integral over $J_j$ is bounded below by $B_j>0$."
+  },
+  {
+    "key": "ns.c4.c4j.record_window_integral_peak_quantities",
+    "latex": "A_j,\\ B_j,\\ M_j,\\ O_j",
+    "label_zh": "窗口積分與峰值量",
+    "label_en": "Record-window integral and peak quantities",
+    "definition_zh": "第2-3節定義的輔助量：$m_j,o_j$ 的積分下界 $A_j,B_j$ 與 $L^\\infty(J_j)$ 峰值 $M_j,O_j$，共同組成capacity ratios的分子分母。",
+    "definition_en": "The auxiliary quantities from Sections 2-3: the integral lower bounds $A_j,B_j$ of $m_j,o_j$ and their $L^\\infty(J_j)$ peak values $M_j,O_j$, together forming the numerators and denominators of the capacity ratios."
+  },
+  {
+    "key": "ns.c4.c4j.capacity_ratios",
+    "latex": "K_{m,j},\\ K_{o,j}",
+    "label_zh": "峰均容量比",
+    "label_en": "Peak-to-average capacity ratios",
+    "definition_zh": "第3節定義的比值，恆滿足 $K_{m,j},K_{o,j}\\ge1$，是本輪判定middle-strain與operator-growth兩pulse是否重疊的核心量。",
+    "definition_en": "The ratios defined in Section 3, always satisfying $K_{m,j},K_{o,j}\\ge1$, the central quantities governing whether the middle-strain and operator-growth pulses overlap in this round.",
+    "defining_relation": "K_{m,j}=\\frac{M_j|J_j|}{A_j},\\qquad K_{o,j}=\\frac{O_j|J_j|}{B_j}"
+  },
+  {
+    "key": "ns.c4.c4j.overlap_sufficient_condition",
+    "latex": "\\frac{1}{K_{m,j}}+\\frac{1}{K_{o,j}}>1",
+    "label_zh": "重疊充分條件",
+    "label_en": "Overlap sufficient condition",
+    "definition_zh": "第4節回顧的C4-I條件，保證zero threshold下 $\\{m_j>0\\}\\cap\\{o_j>0\\}$ 測度非零，即middle strain與operator growth同時發生。",
+    "definition_en": "The C4-I condition recalled in Section 4, guaranteeing nonzero measure for $\\{m_j>0\\}\\cap\\{o_j>0\\}$ at the zero threshold, i.e. simultaneous middle-strain and operator-growth occurrence.",
+    "defining_relation": "|\\{m_j>0\\}\\cap\\{o_j>0\\}|\\ge\\left[\\frac{A_j}{M_j}+\\frac{B_j}{O_j}-|J_j|\\right]_+\\ \\Longleftarrow\\ \\frac{1}{K_{m,j}}+\\frac{1}{K_{o,j}}>1",
+    "notes": "inherited from C4-I; C4-J.1 shows it is sharp in the symmetric case $K_m=K_o=2$."
+  },
+  {
+    "key": "ns.c4.c4j.thm_bounded_peakiness_nogo",
+    "latex": "K_{m,j}=K_{o,j}=2",
+    "label_zh": "有界尖峰脈衝分離不可行定理（C4-J.1）",
+    "label_en": "Bounded-Peakiness Pulse-Separation No-Go Theorem (C4-J.1)",
+    "definition_zh": "第5節定理5.1，以equal-halves顯式構造證明即使 $K_{m,j}=K_{o,j}=2$ 對所有 $j$ 成立，$m_j,o_j$ 仍可在 $J_j$ 上幾乎處處互斥。",
+    "definition_en": "Theorem 5.1 of Section 5, using an explicit equal-halves construction to show that even with $K_{m,j}=K_{o,j}=2$ for every $j$, $m_j$ and $o_j$ can remain a.e. mutually exclusive on $J_j$.",
+    "defining_relation": "K_{m,j}=K_{o,j}=2\\ \\text{for every }j,\\qquad m_j(t)o_j(t)=0\\ \\text{a.e. on }J_j",
+    "notes": "shows the overlap sufficient condition is sharp at the purely measure-theoretic level; not an N-S solution construction."
+  },
+  {
+    "key": "ns.c4.c4j.growth_variation_rate",
+    "latex": "h(t)=\\nu(\\zeta r_\\nu-1)\\|\\Delta S\\|_2^2",
+    "label_zh": "成長對齊算子變化率",
+    "label_en": "Growth-aligned operator variation rate",
+    "definition_zh": "第7節定義為 $\\nu(\\zeta r_\\nu-1)\\|\\Delta S\\|_2^2$，恰為應變 $\\dot H^1$ 能量 $E_1$ 的時間導數。",
+    "definition_en": "Defined in Section 7 as $\\nu(\\zeta r_\\nu-1)\\|\\Delta S\\|_2^2$, exactly the time derivative of the strain $\\dot H^1$ energy $E_1$.",
+    "defining_relation": "h(t)=\\nu(\\zeta r_\\nu-1)\\|\\Delta S\\|_2^2,\\qquad E_1'(t)=h(t)"
+  },
+  {
+    "key": "ns.c4.c4j.strain_h1_energy",
+    "latex": "E_1=\\frac12\\|S\\|_{\\dot H^1}^2",
+    "label_zh": "應變 $\\dot H^1$ 能量",
+    "label_en": "Strain $\\dot H^1$ energy",
+    "definition_zh": "第7節定義為 $\\frac12\\|S\\|_{\\dot H^1}^2$，其在窗口間的增量 $\\Delta E_{1,j}$ 是C4-J.2成長補償恆等式的核心。",
+    "definition_en": "Defined in Section 7 as $\\frac12\\|S\\|_{\\dot H^1}^2$; its inter-window increment $\\Delta E_{1,j}$ is central to the C4-J.2 growth-compensation identity."
+  },
+  {
+    "key": "ns.c4.c4j.growth_compensation_parts",
+    "latex": "P_j=\\int_{J_j}[h]_+dt,\\ N_j=\\int_{J_j}[-h]_+dt",
+    "label_zh": "正/負成長分量",
+    "label_en": "Positive/negative growth parts",
+    "definition_zh": "第7節定義的窗口內成長對齊算子正向支付量 $P_j$ 與反向（over-dissipation）支付量 $N_j$。",
+    "definition_en": "The within-window positive payment $P_j$ and opposing/over-dissipative payment $N_j$ of the growth-aligned operator, defined in Section 7."
+  },
+  {
+    "key": "ns.c4.c4j.thm_growth_compensation_identity",
+    "latex": "P_j=\\Delta E_{1,j}+N_j",
+    "label_zh": "正負成長補償恆等式（C4-J.2）",
+    "label_en": "Exact Growth Compensation Identity (C4-J.2)",
+    "definition_zh": "第8節定理8.1證明 $P_j-N_j=\\Delta E_{1,j}=E_1(\\tau_{j+1})-E_1(\\tau_j)>0$，說明任何growth-opposing pulse都不是免費的，必增加須支付的正成長變化量。",
+    "definition_en": "Theorem 8.1 of Section 8 proves $P_j-N_j=\\Delta E_{1,j}=E_1(\\tau_{j+1})-E_1(\\tau_j)>0$, showing that any growth-opposing pulse is never free and forces additional positive growth-aligned variation.",
+    "defining_relation": "P_j-N_j=\\Delta E_{1,j}>0,\\qquad P_j=\\Delta E_{1,j}+N_j",
+    "notes": "Section 10 notes no standard theorem yet gives $\\sum_j(P_j+N_j)<\\infty$, so this exact ledger does not (yet) produce a contradiction."
+  },
+  {
+    "key": "ns.c4.c4j.growth_aligned_scalar",
+    "latex": "g(t)=\\zeta r_\\nu",
+    "label_zh": "成長對齊投影純量",
+    "label_en": "Growth-aligned projection scalar",
+    "definition_zh": "第9、11節沿用之純量：強反向支路 $g<-1$ 使 $[-h(t)]_+>2\\nu\\|\\Delta S(t)\\|_2^2$（第9節），並為算子分解 $\\widehat Q=-ge_D+Q_\\perp$ 的對齊分量（第11節）。",
+    "definition_en": "The scalar used in Sections 9 and 11: the strong-opposing branch $g<-1$ forces $[-h(t)]_+>2\\nu\\|\\Delta S(t)\\|_2^2$ (Section 9), and $g$ is the aligned component of the decomposition $\\widehat Q=-ge_D+Q_\\perp$ (Section 11).",
+    "notes": "inherited scalar from the C4-I adjoint-core / operator-angle decomposition."
+  },
+  {
+    "key": "ns.c4.c4j.orthogonal_operator_component",
+    "latex": "Q_\\perp,\\quad \\|Q_\\perp\\|_2^2=r_\\nu^2-g^2",
+    "label_zh": "正交算子分量",
+    "label_en": "Orthogonal operator component",
+    "definition_zh": "第11節沿用C4-I分解 $\\widehat Q=-ge_D+Q_\\perp$ 中的正交分量，當 $r_\\nu\\gg1$ 且 $|g|\\le1$ 時 $\\|Q_\\perp\\|_2\\sim r_\\nu$。",
+    "definition_en": "The orthogonal component in the C4-I decomposition $\\widehat Q=-ge_D+Q_\\perp$ recalled in Section 11; when $r_\\nu\\gg1$ and $|g|\\le1$, $\\|Q_\\perp\\|_2\\sim r_\\nu$.",
+    "notes": "decomposition attributed to C4-I; used here to classify the Operator Orthogonal Congestion motif."
+  },
+  {
+    "key": "ns.c4.c4j.motif_operator_orthogonal_congestion",
+    "latex": "\\textbf{Operator Orthogonal Congestion}",
+    "label_zh": "算子正交壅塞動機",
+    "label_en": "Operator Orthogonal Congestion motif",
+    "definition_zh": "第11節命名的補償動機：大算子範數由 $Q_\\perp$（渦度平方或正交平流/應變平方項）承擔而不直接對 $E_1'$ 收費，目前無finite norm budget禁止其反覆出現。",
+    "definition_en": "The compensation motif named in Section 11: large operator norm is carried by $Q_\\perp$ (vorticity-quadratic or orthogonal advection/strain-square terms) without directly charging $E_1'$, and no finite norm budget currently forbids its recurrence."
+  },
+  {
+    "key": "ns.c4.c4j.adjoint_core_forcing_identity",
+    "latex": "M_\\chi'=-B_\\chi-P_\\chi",
+    "label_zh": "伴隨核心迫力恆等式",
+    "label_en": "Adjoint-core forcing identity",
+    "definition_zh": "第13節給出的恆等式，$B_\\chi$ 為局部二次平均迫力、$P_\\chi$ 為局部壓力Hessian平均迫力，兩者共同決定伴隨核心均值 $M_\\chi$ 的變化率。",
+    "definition_en": "The identity from Section 13, where $B_\\chi$ is the local quadratic mean forcing and $P_\\chi$ the local pressure-Hessian mean forcing, jointly determining the rate of change of the adjoint-core mean $M_\\chi$."
+  },
+  {
+    "key": "ns.c4.c4j.normalized_integrated_ledger",
+    "latex": "\\mathfrak B_I,\\ \\mathfrak V_M(I),\\ \\mathfrak P_I",
+    "label_zh": "標準化積分記帳量",
+    "label_en": "Normalized integrated ledger quantities",
+    "definition_zh": "第14節在時間區間 $I$ 與核心尺度 $R$ 上定義的三個標準化量，滿足逐點不等式 $|B_\\chi|\\le|M_\\chi'|+|P_\\chi|$ 導出的 $\\mathfrak B_I\\le\\mathfrak V_M(I)+\\mathfrak P_I$。",
+    "definition_en": "The three normalized quantities defined in Section 14 over interval $I$ and core scale $R$, satisfying $\\mathfrak B_I\\le\\mathfrak V_M(I)+\\mathfrak P_I$ derived from the pointwise bound $|B_\\chi|\\le|M_\\chi'|+|P_\\chi|$.",
+    "defining_relation": "\\mathfrak B_I=\\frac{1}{\\nu R}\\int_I|B_\\chi|dt,\\quad \\mathfrak V_M(I)=\\frac{1}{\\nu R}\\int_I|M_\\chi'|dt,\\quad \\mathfrak P_I=\\frac{1}{\\nu R}\\int_I|P_\\chi|dt"
+  },
+  {
+    "key": "ns.c4.c4j.thm_integrated_mean_variation_pressure",
+    "latex": "\\mathfrak V_M(I)\\ge(1-\\varepsilon)b_0",
+    "label_zh": "積分平均變化/壓力補償定理（C4-J.3）",
+    "label_en": "Integrated Mean-Variation/Pressure Compensation Theorem (C4-J.3)",
+    "definition_zh": "第15節定理：若 $\\mathfrak B_I\\ge b_0>0$ 且壓力衝量受壓 $\\mathfrak P_I\\le\\varepsilon b_0$，則 $\\mathfrak V_M(I)\\ge(1-\\varepsilon)b_0$，即壓力若不re-entry，平均應變變化必支付固定debt。",
+    "definition_en": "The theorem of Section 15: if $\\mathfrak B_I\\ge b_0>0$ and the pressure impulse is suppressed to $\\mathfrak P_I\\le\\varepsilon b_0$, then $\\mathfrak V_M(I)\\ge(1-\\varepsilon)b_0$ — if pressure does not re-enter, mean-strain variation must pay a fixed debt.",
+    "defining_relation": "\\mathfrak B_I\\ge b_0>0,\\ \\mathfrak P_I\\le\\varepsilon b_0\\ (0\\le\\varepsilon<1)\\ \\Longrightarrow\\ \\mathfrak V_M(I)\\ge(1-\\varepsilon)b_0",
+    "notes": "Section 16 shows this is not yet a contradiction: C3-V's scale-weighted packing control still allows geometric Zeno-packing of $O(1)$ normalized variation per generation."
+  },
+  {
+    "key": "ns.c4.c4j.local_quadratic_field",
+    "latex": "Q(x,t)=S^2+\\frac14\\omega\\otimes\\omega-\\frac14|\\omega|^2I",
+    "label_zh": "局部二次絕對場",
+    "label_en": "Local quadratic absolute field",
+    "definition_zh": "第17節定義的張量場，是後續barycenter coherence與seven-point cancellation分析的基本對象。",
+    "definition_en": "The tensor field defined in Section 17, the basic object underlying the subsequent barycenter-coherence and seven-point cancellation analysis."
+  },
+  {
+    "key": "ns.c4.c4j.quadratic_barycenter_integrals",
+    "latex": "A=\\int\\chi|Q|dx,\\ B=\\int\\chi Qdx",
+    "label_zh": "二次重心積分",
+    "label_en": "Quadratic barycenter integrals",
+    "definition_zh": "第17節在固定 $(t,\\chi)$ 下定義的純量 $A$ 與矩陣值積分 $B$，用以構成coherence $\\kappa=|B|/A$。",
+    "definition_en": "The scalar $A$ and matrix-valued integral $B$ defined in Section 17 at fixed $(t,\\chi)$, used to form the coherence $\\kappa=|B|/A$.",
+    "notes": "reuses the letters A, B in a role unrelated to the record-window thresholds $A_j,B_j$ of Section 2."
+  },
+  {
+    "key": "ns.c4.c4j.coherence_kappa",
+    "latex": "\\kappa=\\frac{|B|}{A}",
+    "label_zh": "相干度",
+    "label_en": "Coherence",
+    "definition_zh": "第17-18節定義的量，等於局部二次方向 $U(x)$ 在機率測度 $\\mu$ 下之重心範數，是本輪判定quadratic cancellation的中心尺度。",
+    "definition_en": "The quantity defined in Sections 17-18, equal to the barycenter norm of the local quadratic direction $U(x)$ under the probability measure $\\mu$, the central scalar governing quadratic cancellation in this round.",
+    "defining_relation": "\\kappa=\\frac{|B|}{A}=\\left|\\int U\\,d\\mu\\right|,\\qquad d\\mu(x)=\\frac{\\chi(x)|Q(x)|}{A}dx"
+  },
+  {
+    "key": "ns.c4.c4j.orientation_direction_matrix",
+    "latex": "U(x)=\\frac{Q(x)}{|Q(x)|}\\in\\operatorname{Sym}(3)",
+    "label_zh": "二次方向矩陣",
+    "label_en": "Quadratic orientation direction matrix",
+    "definition_zh": "第18節在 $Q(x)\\ne0$ 之區域定義的正規化對稱矩陣，取值於 $\\operatorname{Sym}(3)\\simeq\\mathbb R^6$，是seven-point witness定理中被表示的對象。",
+    "definition_en": "The normalized symmetric matrix defined in Section 18 on the region where $Q(x)\\ne0$, valued in $\\operatorname{Sym}(3)\\simeq\\mathbb R^6$, the object represented by the seven-point witness theorem."
+  },
+  {
+    "key": "ns.c4.c4j.thm_seven_point_witness",
+    "latex": "\\sum_{i=1}^{m}\\alpha_iU_i=\\frac{B}{A},\\ m\\le7",
+    "label_zh": "七點二次消去見證定理（C4-J.5）",
+    "label_en": "Seven-Point Quadratic Cancellation Witness Theorem (C4-J.5)",
+    "definition_zh": "第20節定理20.1，藉 $\\operatorname{Sym}(3)\\simeq\\mathbb R^6$ 上的Carathéodory定理證明若 $A>0$，則至多7個正規化局部二次矩陣之凸組合即可表示重心 $B/A$，其範數等於 $\\kappa$。",
+    "definition_en": "Theorem 20.1 of Section 20, using Carathéodory's theorem on $\\operatorname{Sym}(3)\\simeq\\mathbb R^6$ to show that if $A>0$, a convex combination of at most 7 normalized local quadratic matrices already represents the barycenter $B/A$, with norm equal to $\\kappa$.",
+    "defining_relation": "\\sum_{i=1}^{m}\\alpha_iU_i=\\frac{B}{A},\\quad m\\le7,\\quad \\alpha_i\\ge0,\\ \\sum_i\\alpha_i=1\\quad\\Longrightarrow\\quad \\left|\\sum_{i=1}^{m}\\alpha_iU_i\\right|=\\kappa",
+    "notes": "the bound 7 = dim(Sym(3))+1 = 6+1; Sections 21-22 extend this to a compactness limit $\\sum_{i=1}^7\\alpha_i^\\ast U_i^\\ast=0$ as $\\kappa_n\\to0$ (the Seven-Point Quadratic Orientation Cancellation Motif) — metadata compactness only, consistent with the C3-H field-compactness no-go (Section 23), not full PDE field compactness."
+  },
+  {
+    "key": "ns.c4.c4j.thm_pressure_avoidance_reduction",
+    "latex": "\\mathfrak V_M(I_n)\\ge v_0>0\\ \\vee\\ \\kappa_n^{quad}\\le\\kappa_0<1",
+    "label_zh": "壓力迴避補償化約定理（C4-J.6）",
+    "label_en": "Pressure-Avoidance Compensation Reduction Theorem (C4-J.6)",
+    "definition_zh": "第25節定理25.1，證明對收縮伴隨核心事件列，若局部二次迫力非退化且壓力振盪不進入固定下界支路，則沿無窮子列必recurrent出現Mean-Variation Motif（J-P1）或Quadratic Orientation-Cancellation Motif（J-P2）。",
+    "definition_en": "Theorem 25.1 of Section 25: for a sequence of shrinking adjoint-core events with nondegenerate local quadratic forcing and pressure oscillation avoiding a fixed lower-bound branch, an infinite subsequence must recurrently exhibit either the Mean-Variation Motif (J-P1) or the Quadratic Orientation-Cancellation Motif (J-P2).",
+    "defining_relation": "\\text{J-P1: }\\mathfrak V_M(I_n)\\ge v_0>0\\qquad\\text{or}\\qquad\\text{J-P2: }\\kappa_n^{quad}\\le\\kappa_0<1",
+    "notes": "status: PROVED CONDITIONAL ON NONDEGENERATE LOCAL QUADRATIC FORCING; if further $\\kappa_n\\to0$, a Seven-Point zero-barycenter limit witness can be extracted."
+  },
+  {
+    "key": "ns.c4.c4j.local_pressure_concentration",
+    "latex": "\\Pi_{R}^{(2)}",
+    "label_zh": "局部壓力集中量",
+    "label_en": "Local pressure concentration quantity",
+    "definition_zh": "第27節引入的量：當mean variation與quadratic cancellation兩種補償皆失敗時，$\\Pi_{R_n}^{(2)}\\ge\\pi_0>0$ 迫使壓力進入critical concentration branch。",
+    "definition_en": "The quantity introduced in Section 27: when both mean-variation and quadratic-cancellation compensation fail, $\\Pi_{R_n}^{(2)}\\ge\\pi_0>0$ forces pressure into the critical concentration branch.",
+    "defining_relation": "\\Pi_{R_n}^{(2)}\\ge\\pi_0>0\\ \\Longrightarrow\\ \\int_{B_{CR_n}}|p|^{3/2}dx\\ge c\\pi_0^{3/2}\\nu^3"
+  },
+  {
+    "key": "ns.c4.c4j.compensation_motif_taxonomy",
+    "latex": "\\mathcal C=\\{T,O,M,Q,P,D\\}",
+    "label_zh": "補償動機分類",
+    "label_en": "Compensation motif taxonomy",
+    "definition_zh": "第28節命名、第40節形式化為集合 $\\mathcal C$ 的六種殘餘動機——T時序脈衝、O算子夾角、M平均變化、Q二次方向消去、P壓力集中、D導數閘門缺陷——是C4封階論斷的核心分類。",
+    "definition_en": "The six residual motifs named in Section 28 and formalized as the set $\\mathcal C$ in Section 40 — T (temporal pulse), O (operator-angle), M (mean-variation), Q (quadratic orientation-cancellation), P (pressure concentration), D (derivative-gate defect) — the central classification underlying the C4 closure claim.",
+    "defining_relation": "\\mathcal C=\\{T,O,M,Q,P,D\\}"
+  },
+  {
+    "key": "ns.c4.c4j.thm_phase_closure",
+    "latex": "\\text{C4 branch/synchronization phase is structurally closed}",
+    "label_zh": "C4階段封閉定理（C4-J.7）",
+    "label_en": "C4 Phase Closure Theorem (C4-J.7)",
+    "definition_zh": "第40節研究方案層級的定理，斷言所有recurrent UV singular events都可路由到synchronized結構或有限補償動機族 $\\mathcal C$，故C4封階，但此僅為research-program phase closure，非Navier–Stokes正則性定理。",
+    "definition_en": "The research-program-level theorem of Section 40, asserting every recurrent UV singular event routes to synchronized structures or the finite motif family $\\mathcal C$, so the C4 phase closes — but only as a research-program phase closure, not a Navier-Stokes regularity theorem.",
+    "defining_relation": "\\text{every recurrent UV singular event}\\ \\Rightarrow\\ \\text{synchronized structure}\\ \\vee\\ \\mathcal C",
+    "notes": "headline result of the document; Section 50 explicitly records Navier-Stokes global regularity as still OPEN."
+  },
+  {
+    "key": "ns.c4.c4j.c5_motif_state_vector",
+    "latex": "\\Theta_j^{C5}=\\left\\langle\\mu_j^{mid},\\mu_j^{op,+},\\mu_j^{op,-},\\mu_j^{press},\\mu_j^{work},\\mathcal U_j^{(7)},\\mathsf D_j\\right\\rangle",
+    "label_zh": "C5記錄窗口動機狀態向量",
+    "label_en": "C5-A record-window motif state vector",
+    "definition_zh": "第44節為下一階段C5-A提出的狀態向量，將每個record window的中間應變、算子正/負成長、壓力、work-variation測度與seven-point witness、導數閘門缺陷打包為單一metadata物件。",
+    "definition_en": "The state vector proposed in Section 44 for the forthcoming C5-A paper, packaging each record window's middle-strain, operator growth/opposing, pressure, and work-variation measures together with the seven-point witness and derivative-gate defect into one metadata object.",
+    "notes": "forward-looking setup for C5-A (Record-Window Renormalization and Compensation-Motif State Space), the paper proposed to open the next phase, C5."
+  },
+  {
+    "key": "ns.c4.c4j.six_channel_audit_table",
+    "latex": "\\{UV,\\ Strain,\\ \\lambda_2^+,\\ Operator,\\ Helicity,\\ Pressure,\\ Derivative\\}",
+    "label_zh": "六通道審計表",
+    "label_en": "Six-channel audit table",
+    "definition_zh": "第30-37節逐一評定UV、Strain、Middle $\\lambda_2^+$、Operator、Helicity、Pressure、Derivative geometry之最終同步狀態，並在第37節彙整成表，是本輪三大任務之一。",
+    "definition_en": "Sections 30-37 assess the final synchronization status of UV, Strain, Middle $\\lambda_2^+$, Operator, Helicity, Pressure, and Derivative geometry individually, summarized in the Section 37 table — one of the round's three main tasks.",
+    "notes": "the document's own header calls this the \"six-channel\" table though the Section 37 table lists seven rows (Middle $\\lambda_2^+$ counted separately from Operator/Strain)."
+  }
+]

@@ -1,0 +1,251 @@
+[
+  {
+    "key": "ns.c3.c3p.p_st",
+    "latex": "P_{st}",
+    "label_zh": "對稱無跡投影算子",
+    "label_en": "symmetric trace-free projection",
+    "definition_zh": "貫穿全篇、承接自先前各輪、將張量投影到對稱無跡子空間、用以建構 $\\mathcal N_{SSA}$、$\\mathcal N_{SV}$、$\\mathcal P_{SSA}$、$\\mathcal Q_{SV}$、$\\mathcal G$ 等本輪所有 operator-level 量的投影算子（§2–§6）。",
+    "definition_en": "The projection onto symmetric trace-free tensors, inherited from earlier rounds and used throughout Sec. 2-6 to build every operator-level quantity of this round ($\\mathcal N_{SSA}$, $\\mathcal N_{SV}$, $\\mathcal P_{SSA}$, $\\mathcal Q_{SV}$, $\\mathcal G$).",
+    "notes": "本輪未重新給出其正式定義式，僅延續使用。"
+  },
+  {
+    "key": "ns.c3.c3p.n_ssa",
+    "latex": "\\mathcal N_{SSA}",
+    "label_zh": "應變自增強非線性項",
+    "label_en": "strain self-amplification nonlinearity",
+    "definition_zh": "§3 定義為 $\\mathcal N_{SSA}=\\frac23P_{st}(S^2)$，構成 SSA model 方程 $\\partial_tS-\\Delta S+\\mathcal N_{SSA}=0$ 的非線性核心。",
+    "definition_en": "Defined in Sec. 3 as $\\mathcal N_{SSA}=\\frac23P_{st}(S^2)$, the nonlinear core of the SSA model equation $\\partial_tS-\\Delta S+\\mathcal N_{SSA}=0$.",
+    "defining_relation": "\\mathcal N_{SSA}=\\frac23P_{st}(S^2)"
+  },
+  {
+    "key": "ns.c3.c3p.p_ssa",
+    "latex": "\\mathcal P_{SSA}",
+    "label_zh": "SSA 模型殘餘算子",
+    "label_en": "SSA-model residual operator",
+    "definition_zh": "§3 定義為 $\\mathcal P_{SSA}=P_{st}\\left((u\\cdot\\nabla)S+\\frac13S^2+\\frac14\\omega\\otimes\\omega\\right)$、衡量 full N–S 相對 SSA model 的偏差、其 smallness 於 §11 被證明不能作 regularity 判準。",
+    "definition_en": "Defined in Sec. 3 as $\\mathcal P_{SSA}=P_{st}\\left((u\\cdot\\nabla)S+\\frac13S^2+\\frac14\\omega\\otimes\\omega\\right)$, measuring full N-S's deviation from the SSA model, whose smallness Sec. 11 proves cannot serve as a regularity criterion."
+  },
+  {
+    "key": "ns.c3.c3p.n_sv",
+    "latex": "\\mathcal N_{SV}",
+    "label_zh": "應變–渦度交互非線性項",
+    "label_en": "strain-vorticity interaction nonlinearity",
+    "definition_zh": "§4 引 Miller 2026 定義為 $\\mathcal N_{SV}=-\\frac12P_{st}(\\omega\\otimes\\omega)$，構成對 $S^0\\in L^2_{st}$ 有整體光滑解之 SV interaction model 的非線性核心。",
+    "definition_en": "Defined in Sec. 4 via Miller (2026) as $\\mathcal N_{SV}=-\\frac12P_{st}(\\omega\\otimes\\omega)$, the nonlinear core of the SV interaction model, which has global smooth solutions for $S^0\\in L^2_{st}$.",
+    "defining_relation": "\\mathcal N_{SV}=-\\frac12P_{st}(\\omega\\otimes\\omega)"
+  },
+  {
+    "key": "ns.c3.c3p.q_sv",
+    "latex": "\\mathcal Q_{SV}",
+    "label_zh": "SV 模型殘餘算子",
+    "label_en": "SV-model residual operator",
+    "definition_zh": "§4 定義為 $\\mathcal Q_{SV}=P_{st}\\left((u\\cdot\\nabla)S+S^2+\\frac34\\omega\\otimes\\omega\\right)$，是本輪最核心的 operator-level 量，貫穿 Miller 定理、$d_{SV}$、$\\mathfrak Q_{SV}$ 及兩張 X-certificate。",
+    "definition_en": "Defined in Sec. 4 as $\\mathcal Q_{SV}=P_{st}\\left((u\\cdot\\nabla)S+S^2+\\frac34\\omega\\otimes\\omega\\right)$, this round's single most central operator-level quantity, running through Miller's theorems, $d_{SV}$, $\\mathfrak Q_{SV}$, and both X-certificates.",
+    "defining_relation": "\\mathcal Q_{SV}=P_{st}\\left((u\\cdot\\nabla)S+S^2+\\frac34\\omega\\otimes\\omega\\right)"
+  },
+  {
+    "key": "ns.c3.c3p.model_gap_g",
+    "latex": "\\mathcal G",
+    "label_zh": "兩模型差距算子",
+    "label_en": "two-model gap operator",
+    "definition_zh": "定理5.1／§6 定義為 $\\mathcal G=\\mathcal Q_{SV}-\\mathcal P_{SSA}=P_{st}\\left(\\frac23S^2+\\frac12\\omega\\otimes\\omega\\right)$，由推論6.1給出 $\\|\\mathcal Q_{SV}\\|+\\|\\mathcal P_{SSA}\\|\\ge\\|\\mathcal G\\|$，除非其本身很小否則 full dynamics 不能同時接近兩個 model。",
+    "definition_en": "Defined via Thm 5.1/Sec. 6 as $\\mathcal G=\\mathcal Q_{SV}-\\mathcal P_{SSA}=P_{st}\\left(\\frac23S^2+\\frac12\\omega\\otimes\\omega\\right)$, satisfying $\\|\\mathcal Q_{SV}\\|+\\|\\mathcal P_{SSA}\\|\\ge\\|\\mathcal G\\|$ (Cor. 6.1), so unless it is itself small, full dynamics cannot stay close to both models simultaneously.",
+    "defining_relation": "\\mathcal G=\\mathcal Q_{SV}-\\mathcal P_{SSA}=P_{st}\\left(\\frac23S^2+\\frac12\\omega\\otimes\\omega\\right)"
+  },
+  {
+    "key": "ns.c3.c3p.d_sv",
+    "latex": "d_{SV}(t)",
+    "label_zh": "到正則 SV 模型的算子距離",
+    "label_en": "operator distance to the regular SV model",
+    "definition_zh": "§12 定義為 $d_{SV}(t)=\\|\\mathcal Q_{SV}(t)\\|_2/\\|-\\Delta S(t)\\|_2$，由 Miller Theorem 1.9 導出 blow-up 必要條件 $\\limsup d_{SV}\\ge1$（§9, 推論9.1），是 C3-P.2 operator escape 的核心量。",
+    "definition_en": "Defined in Sec. 12 as $d_{SV}(t)=\\|\\mathcal Q_{SV}(t)\\|_2/\\|-\\Delta S(t)\\|_2$, forced by Miller's Theorem 1.9 to satisfy $\\limsup d_{SV}\\ge1$ at blow-up (Sec. 9, Cor. 9.1), the central quantity of the C3-P.2 operator-escape result.",
+    "defining_relation": "d_{SV}(t)=\\frac{\\|\\mathcal Q_{SV}(t)\\|_2}{\\|-\\Delta S(t)\\|_2}"
+  },
+  {
+    "key": "ns.c3.c3p.d_ssa",
+    "latex": "d_{SSA}",
+    "label_zh": "到 SSA 模型的算子距離",
+    "label_en": "operator distance to the SSA model",
+    "definition_zh": "§12 引入、與 $d_{SV}$ 對照、以 $\\mathcal P_{SSA}$ 為核心但未給出顯式公式、其 smallness 不是 regularity 保證甚至可與 blow-up 相容的距離概念。",
+    "definition_en": "Introduced in Sec. 12 as the counterpart to $d_{SV}$, centered on $\\mathcal P_{SSA}$ but never given an explicit formula in this round, whose smallness is not a regularity guarantee and may even be blow-up-compatible.",
+    "notes": "僅於 §12 標題與 §36 的 $\\operatorname{XOp}_n$ tuple 中以 $d_{SSA,n}$ 出現，本文未給出正式定義式，需與 $d_{SV}$ 的顯式公式區分。"
+  },
+  {
+    "key": "ns.c3.c3p.rho_ba",
+    "latex": "\\rho=B/A",
+    "label_zh": "局部應變平衡比（承自 C3-O）",
+    "label_en": "local strain-balance ratio (from C3-O)",
+    "definition_zh": "承自 C3-O 的 $\\rho=B/A$（即 $B_\\chi/A_\\chi$），§13 新賦予其與 $d_{SV}$ 對照角色，證明 $\\rho\\to0$ 可與 $d_{SV}\\gtrsim1$ 同時成立（\"Balance-SSA / Operator-large\" regime），並於 §34 作 Interface P2 門檻 $\\rho>-1$。",
+    "definition_en": "Inherited from C3-O as $\\rho=B/A$ (i.e. $B_\\chi/A_\\chi$), newly given in Sec. 13 a contrastive role against $d_{SV}$ — showing $\\rho\\to0$ can coexist with $d_{SV}\\gtrsim1$ (the \"Balance-SSA / Operator-large\" regime) — and used as the Interface P2 threshold $\\rho>-1$ in Sec. 34.",
+    "notes": "此處 $A,B$ 為 C3-O 的 $A_\\chi,B_\\chi$ 簡寫，與 §14 起另行引入、代表速度梯度矩陣的 $A=\\nabla u$ 是同符號複用但無關的兩個記號。"
+  },
+  {
+    "key": "ns.c3.c3p.velocity_grad_a",
+    "latex": "A=\\nabla u",
+    "label_zh": "速度梯度矩陣",
+    "label_en": "velocity gradient matrix",
+    "definition_zh": "§14 為 pressure Poisson 分析引入 $A=\\nabla u$，用以寫出 $-\\Delta p=\\operatorname{tr}(A^2)$。",
+    "definition_en": "The notation $A=\\nabla u$ introduced in Sec. 14 for the pressure-Poisson analysis, used to write $-\\Delta p=\\operatorname{tr}(A^2)$."
+  },
+  {
+    "key": "ns.c3.c3p.pressure_source_f",
+    "latex": "f",
+    "label_zh": "壓力 Poisson 方程源項",
+    "label_en": "pressure Poisson source term",
+    "definition_zh": "§14 定義為 $f=\\operatorname{tr}(A^2)=\\partial_iu_j\\partial_ju_i$，滿足 $-\\Delta p=f$ 及 §15 的 $\\|f(t)\\|_1\\le\\|\\nabla u(t)\\|_2^2$，是後續 near/far 分解的源頭。",
+    "definition_en": "Defined in Sec. 14 as $f=\\operatorname{tr}(A^2)=\\partial_iu_j\\partial_ju_i$, satisfying $-\\Delta p=f$ and the Sec. 15 bound $\\|f(t)\\|_1\\le\\|\\nabla u(t)\\|_2^2$, the source for the subsequent near/far decomposition.",
+    "defining_relation": "f=\\operatorname{tr}(A^2)=-\\Delta p"
+  },
+  {
+    "key": "ns.c3.c3p.kappa",
+    "latex": "\\kappa\\ge4",
+    "label_zh": "核心/遠場尺度比參數",
+    "label_en": "core-to-far scale ratio parameter",
+    "definition_zh": "§16 引入、滿足 $\\kappa\\ge4$、控制 cutoff 半徑 $\\kappa R$ 相對核心半徑 $R$ 比例、貫穿全篇 far-pressure 衰減估計與 decoupling 條件的自由參數。",
+    "definition_en": "The free parameter of Sec. 16, satisfying $\\kappa\\ge4$, controlling the cutoff radius $\\kappa R$ relative to the core radius $R$, driving every far-pressure decay estimate and decoupling condition in the round."
+  },
+  {
+    "key": "ns.c3.c3p.cutoff_eta",
+    "latex": "\\eta_{\\kappa R}",
+    "label_zh": "光滑截斷函數",
+    "label_en": "smooth cutoff function",
+    "definition_zh": "§16 定義、滿足 $\\eta_{\\kappa R}=1$ on $B_{\\kappa R}(x_0)$ 且支撐於 $B_{2\\kappa R}(x_0)$、用以將源項 $f$ 分割為 $f_{\\rm near},f_{\\rm far}$ 的 smooth cutoff。",
+    "definition_en": "The smooth cutoff of Sec. 16, equal to 1 on $B_{\\kappa R}(x_0)$ and supported in $B_{2\\kappa R}(x_0)$, used to split the source $f$ into $f_{\\rm near}, f_{\\rm far}$."
+  },
+  {
+    "key": "ns.c3.c3p.near_far_source",
+    "latex": "f_{\\rm near},\\ f_{\\rm far}",
+    "label_zh": "近場／遠場壓力源分解",
+    "label_en": "near/far pressure-source split",
+    "definition_zh": "§16 依 cutoff 將壓力源 $f$ 分解為 $f_{\\rm near}=\\eta_{\\kappa R}f$ 與 $f_{\\rm far}=(1-\\eta_{\\kappa R})f$，其中 $f_{\\rm far}=0$ on $B_{\\kappa R}(x_0)$，是 §17 far pressure harmonic 性質的起點。",
+    "definition_en": "Sec. 16 splits the pressure source $f$ via the cutoff into $f_{\\rm near}=\\eta_{\\kappa R}f$ and $f_{\\rm far}=(1-\\eta_{\\kappa R})f$, with $f_{\\rm far}=0$ on $B_{\\kappa R}(x_0)$, the starting point for far pressure being harmonic in Sec. 17."
+  },
+  {
+    "key": "ns.c3.c3p.near_far_pressure",
+    "latex": "p_{\\rm near},\\ p_{\\rm far}",
+    "label_zh": "近場／遠場壓力分解",
+    "label_en": "near/far pressure split",
+    "definition_zh": "§16 由對應近/遠場源反解出 $p_{\\rm near}=(-\\Delta)^{-1}f_{\\rm near}$ 與 $p_{\\rm far}=(-\\Delta)^{-1}f_{\\rm far}$，其中 $p_{\\rm far}$ 在核心 $B_{\\kappa R}(x_0)$ 內滿足 §17 的 $\\Delta p_{\\rm far}=0$。",
+    "definition_en": "Sec. 16 solves $p_{\\rm near}=(-\\Delta)^{-1}f_{\\rm near}$ and $p_{\\rm far}=(-\\Delta)^{-1}f_{\\rm far}$ from the respective sources, with $p_{\\rm far}$ satisfying $\\Delta p_{\\rm far}=0$ inside the core $B_{\\kappa R}(x_0)$ per Sec. 17."
+  },
+  {
+    "key": "ns.c3.c3p.h_far",
+    "latex": "H_{\\rm far}",
+    "label_zh": "遠場壓力 Hessian",
+    "label_en": "far-pressure Hessian",
+    "definition_zh": "§17 定義為 $H_{\\rm far}=\\nabla^2p_{\\rm far}$，在 ancestry core 中是 trace-free harmonic 對稱張量場，其導數衰減由定理18.1給出 $\\|\\nabla^mH_{\\rm far}\\|_{L^\\infty(B_R)}\\le C_m(\\kappa R)^{-3-m}\\|f\\|_1$。",
+    "definition_en": "Defined in Sec. 17 as $H_{\\rm far}=\\nabla^2p_{\\rm far}$, a trace-free harmonic symmetric tensor field in the ancestry core, whose derivative decay Theorem 18.1 bounds as $\\|\\nabla^mH_{\\rm far}\\|_{L^\\infty(B_R)}\\le C_m(\\kappa R)^{-3-m}\\|f\\|_1$.",
+    "defining_relation": "H_{\\rm far}=\\nabla^2p_{\\rm far},\\qquad \\operatorname{tr}H_{\\rm far}=0"
+  },
+  {
+    "key": "ns.c3.c3p.riesz_kernel_k",
+    "latex": "K_{ab}",
+    "label_zh": "Riesz 對偶核",
+    "label_en": "Riesz-pair kernel",
+    "definition_zh": "§18 中滿足 $|\\nabla^mK_{ab}(z)|\\le C_m|z|^{-3-m}$、用以推導定理18.1遠場 Hessian 衰減估計的 Calderón–Zygmund 型核。",
+    "definition_en": "The Calderon-Zygmund-type kernel of Sec. 18 satisfying $|\\nabla^mK_{ab}(z)|\\le C_m|z|^{-3-m}$, used to derive Theorem 18.1's far-Hessian decay estimate."
+  },
+  {
+    "key": "ns.c3.c3p.h0",
+    "latex": "H_0(t)",
+    "label_zh": "核心點遠場壓力 Hessian（五維矩陣）",
+    "label_en": "core-point far-pressure Hessian (5D matrix)",
+    "definition_zh": "C3-P.3／§19 定義為 $H_0(t)=H_{\\rm far}(x_0,t)$，屬 5 維對稱無跡常數矩陣，滿足 $|H_0|\\le C\\kappa^{-3}R^{-3}\\|\\nabla u\\|_2^2$，依 §28 不能被壓力 gauge 吸收，代表真正的 far-field dynamical channel。",
+    "definition_en": "Defined by C3-P.3/Sec. 19 as $H_0(t)=H_{\\rm far}(x_0,t)$, a constant matrix in the 5-dimensional space of symmetric trace-free $3\\times3$ matrices obeying $|H_0|\\le C\\kappa^{-3}R^{-3}\\|\\nabla u\\|_2^2$, which Sec. 28 shows cannot be absorbed by the pressure gauge and so is a genuine dynamical far-field channel.",
+    "defining_relation": "H_0(t)=H_{\\rm far}(x_0,t)"
+  },
+  {
+    "key": "ns.c3.c3p.e_far",
+    "latex": "E_{\\rm far}(x)",
+    "label_zh": "遠場壓力 Hessian 餘項",
+    "label_en": "far-pressure Hessian remainder",
+    "definition_zh": "C3-P.3／§19 由 $H_{\\rm far}(x)=H_0+E_{\\rm far}(x)$ 定義的空間變化餘項，滿足 $\\|E_{\\rm far}\\|_{L^\\infty(B_R)}\\le C\\kappa^{-4}R^{-3}\\|\\nabla u\\|_2^2$，比 $H_0$ 多一階 $\\kappa^{-1}$ 衰減。",
+    "definition_en": "The spatially varying remainder defined by C3-P.3/Sec. 19 via $H_{\\rm far}(x)=H_0+E_{\\rm far}(x)$, obeying $\\|E_{\\rm far}\\|_{L^\\infty(B_R)}\\le C\\kappa^{-4}R^{-3}\\|\\nabla u\\|_2^2$, one extra order of $\\kappa^{-1}$ decay beyond $H_0$.",
+    "defining_relation": "H_{\\rm far}(x)=H_0+E_{\\rm far}(x)"
+  },
+  {
+    "key": "ns.c3.c3p.enstrophy_r",
+    "latex": "\\mathfrak E_R(t)",
+    "label_zh": "尺度不變重整化 enstrophy 數",
+    "label_en": "scale-invariant rescaled enstrophy number",
+    "definition_zh": "§21 定義為 $\\mathfrak E_R(t)=R\\|\\nabla u(t)\\|_2^2/\\nu^2$，在 N–S rescaling 下不變，由 C3-P.4（§23）與 §38 顯示 far-pressure decoupling 真正門檻為 $\\kappa^{-3}\\mathfrak E_R\\to0$ 而非單純 $\\kappa\\to\\infty$。",
+    "definition_en": "Defined in Sec. 21 as $\\mathfrak E_R(t)=R\\|\\nabla u(t)\\|_2^2/\\nu^2$, invariant under N-S rescaling; C3-P.4 (Sec. 23) and Sec. 38 show the true far-pressure decoupling threshold is $\\kappa^{-3}\\mathfrak E_R\\to0$, not merely $\\kappa\\to\\infty$.",
+    "defining_relation": "\\mathfrak E_R(t)=\\frac{R\\|\\nabla u(t)\\|_2^2}{\\nu^2}"
+  },
+  {
+    "key": "ns.c3.c3p.h_far_hat",
+    "latex": "\\widehat H_{\\rm far}",
+    "label_zh": "重整化遠場壓力 Hessian",
+    "label_en": "normalized far-pressure Hessian",
+    "definition_zh": "§22 定義為 $\\widehat H_{\\rm far}=(R^4/\\nu^2)H_{\\rm far}$，將其上界改寫成 $\\mathfrak E_R$ 的函數 $\\sup_{B_R}|\\widehat H_{\\rm far}-\\widehat H_0|\\le C\\kappa^{-4}\\mathfrak E_R$。",
+    "definition_en": "Defined in Sec. 22 as $\\widehat H_{\\rm far}=(R^4/\\nu^2)H_{\\rm far}$, recasting the earlier bound as $\\sup_{B_R}|\\widehat H_{\\rm far}-\\widehat H_0|\\le C\\kappa^{-4}\\mathfrak E_R$ in terms of $\\mathfrak E_R$."
+  },
+  {
+    "key": "ns.c3.c3p.h0_hat",
+    "latex": "\\widehat H_0",
+    "label_zh": "重整化核心遠場矩陣",
+    "label_en": "normalized core far-pressure matrix",
+    "definition_zh": "§22 中 $H_0$ 的 rescaled 版本，滿足 $|\\widehat H_0|\\le C\\kappa^{-3}\\mathfrak E_R$，是 C3-P.4 decoupling 定理（§23）與 §38 threshold 分析的核心量。",
+    "definition_en": "The rescaled version of $H_0$ in Sec. 22, obeying $|\\widehat H_0|\\le C\\kappa^{-3}\\mathfrak E_R$, the central quantity in the C3-P.4 decoupling theorem (Sec. 23) and the Sec. 38 threshold analysis."
+  },
+  {
+    "key": "ns.c3.c3p.f_p_far",
+    "latex": "F_{p,{\\rm far}}",
+    "label_zh": "遠場壓力流",
+    "label_en": "far-pressure current",
+    "definition_zh": "§26 將 C3-N 的 pressure current $F_p=(\\nabla^2p-\\Delta pI)u$ 在核心 harmonic 條件下化簡為 $F_{p,{\\rm far}}=H_{\\rm far}u=H_0u+E_{\\rm far}u$，連接壓力 Hessian 與 boundary current。",
+    "definition_en": "Sec. 26 simplifies C3-N's pressure current $F_p=(\\nabla^2p-\\Delta pI)u$ under the core-harmonic condition to $F_{p,{\\rm far}}=H_{\\rm far}u=H_0u+E_{\\rm far}u$, bridging the pressure Hessian and the boundary current.",
+    "defining_relation": "F_{p,{\\rm far}}=H_{\\rm far}u=H_0u+E_{\\rm far}u"
+  },
+  {
+    "key": "ns.c3.c3p.bp_h0_rem",
+    "latex": "B_p^{H_0},\\ B_p^{rem}",
+    "label_zh": "主導矩陣流／餘項邊界流",
+    "label_en": "leading-matrix / remainder boundary currents",
+    "definition_zh": "§27, §29 將遠場邊界流 $B_p^{far}=\\int\\nabla\\chi\\cdot H_{\\rm far}u$ 拆為常數矩陣主導項 $B_p^{H_0}=\\int\\nabla\\chi\\cdot H_0u$（可分部積分寫成 $-\\int\\chi H_0:S\\,dx$）與多帶一個 $\\kappa^{-1}$ 衰減的空間變化餘項 $B_p^{rem}=\\int\\nabla\\chi\\cdot E_{\\rm far}u$。",
+    "definition_en": "Sec. 27 and 29 split the far boundary current $B_p^{far}=\\int\\nabla\\chi\\cdot H_{\\rm far}u$ into the constant-matrix leading term $B_p^{H_0}=\\int\\nabla\\chi\\cdot H_0u$ (rewritable by parts as $-\\int\\chi H_0:S\\,dx$) and the remainder $B_p^{rem}=\\int\\nabla\\chi\\cdot E_{\\rm far}u$, which carries one extra order of $\\kappa^{-1}$ decay."
+  },
+  {
+    "key": "ns.c3.c3p.bchi_split",
+    "latex": "B_\\chi^B,\\ B_\\chi^p",
+    "label_zh": "Betchov／壓力邊界流分解",
+    "label_en": "Betchov/pressure boundary-current split",
+    "definition_zh": "§32 將 adjoint balance 的 $B_\\chi$ 分解為 local algebraic 的 Betchov current $B_\\chi^B=\\frac13\\int\\nabla\\chi\\cdot F_B$ 與 nonlocal 的 pressure current $B_\\chi^p=\\int\\nabla\\chi\\cdot F_p$，強調二者 provenance 不同不可混同。",
+    "definition_en": "Sec. 32 splits the adjoint balance's $B_\\chi$ into the local-algebraic Betchov current $B_\\chi^B=\\frac13\\int\\nabla\\chi\\cdot F_B$ and the nonlocal pressure current $B_\\chi^p=\\int\\nabla\\chi\\cdot F_p$, stressing that their provenance must not be conflated.",
+    "defining_relation": "B_\\chi=B_\\chi^B+B_\\chi^p",
+    "notes": "$F_B=u(\\nabla u)^2$ 為承自 Betchov identity（C3-N）的 local algebraic current，與含 $\\nabla^2p$ 的 nonlocal $F_p$ 形成本節對比。"
+  },
+  {
+    "key": "ns.c3.c3p.xop_n",
+    "latex": "\\operatorname{XOp}_n",
+    "label_zh": "雙算子 X-certificate",
+    "label_en": "two-operator X-certificate",
+    "definition_zh": "§36 定義為 $\\operatorname{XOp}_n=\\langle\\mathcal P_{SSA,n},\\mathcal Q_{SV,n},\\mathcal G_n,d_{SSA,n},d_{SV,n},\\operatorname{Prov}_n\\rangle$，由五條守衛（G-MODEL, G-REGMODEL, G-BLOWMODEL, G-GAP, G-ORTH）防止兩模型距離被混為單一量的六元組驗證憑證。",
+    "definition_en": "Defined in Sec. 36 as $\\operatorname{XOp}_n=\\langle\\mathcal P_{SSA,n},\\mathcal Q_{SV,n},\\mathcal G_n,d_{SSA,n},d_{SV,n},\\operatorname{Prov}_n\\rangle$, a six-tuple verification certificate guarded by five rules (G-MODEL, G-REGMODEL, G-BLOWMODEL, G-GAP, G-ORTH) that prevent the two model-distances from being conflated into one quantity."
+  },
+  {
+    "key": "ns.c3.c3p.xpressure_n",
+    "latex": "\\operatorname{XPressure}_n",
+    "label_zh": "壓力 X-certificate",
+    "label_en": "pressure X-certificate",
+    "definition_zh": "§37 定義為 $\\operatorname{XPressure}_n=\\langle p_{\\rm near},H_{0,n},E_{{\\rm far},n},\\kappa,\\mathfrak E_{R_n},\\operatorname{ProvFar}\\rangle$，由五條守衛（G-PNEAR, G-PFAR, G-H0, G-PREM, G-PENST）防止單憑 $\\kappa^{-3}$ 衰減就宣布 far pressure 可忽略的六元組驗證憑證。",
+    "definition_en": "Defined in Sec. 37 as $\\operatorname{XPressure}_n=\\langle p_{\\rm near},H_{0,n},E_{{\\rm far},n},\\kappa,\\mathfrak E_{R_n},\\operatorname{ProvFar}\\rangle$, a six-tuple verification certificate guarded by five rules (G-PNEAR, G-PFAR, G-H0, G-PREM, G-PENST) that block declaring far pressure negligible on $\\kappa^{-3}$ decay alone."
+  },
+  {
+    "key": "ns.c3.c3p.q_sv_frak",
+    "latex": "\\mathfrak Q_{SV}",
+    "label_zh": "Miller 支持的整合算子債",
+    "label_en": "Miller-backed integrated operator debt",
+    "definition_zh": "§35 提出、用以取代 C3-O 的 $\\mathfrak P$、直接對應 Miller theorem-backed 積分恆等式、要求 hypothetical blow-up 滿足 $\\mathfrak Q_{SV}=\\infty$ 的新診斷量。",
+    "definition_en": "The new diagnostic proposed in Sec. 35 to supersede C3-O's $\\mathfrak P$, tied directly to Miller's theorem-backed integral identity, forcing hypothetical blow-up to satisfy $\\mathfrak Q_{SV}=\\infty$.",
+    "defining_relation": "\\mathfrak Q_{SV}=\\int\\frac{\\|\\mathcal Q_{SV}\\|_2^2}{\\|S\\|_{\\dot H^1}^2}dt"
+  },
+  {
+    "key": "ns.c3.c3p.h_n_frak",
+    "latex": "\\mathsf H_n",
+    "label_zh": "C3-Q 用重整化調和矩陣序列",
+    "label_en": "rescaled harmonic-matrix sequence for C3-Q",
+    "definition_zh": "§41（Q1）為下一輪 C3-Q 定義的 ancestry sequence 版本 $\\mathsf H_n=(R_n^4/\\nu^2)H_{0,n}$，準備分析其抽子序列後趨於 0、趨於非零常數 $\\mathsf H_\\ast$、或發散三種情形。",
+    "definition_en": "The ancestry-sequence version $\\mathsf H_n=(R_n^4/\\nu^2)H_{0,n}$ defined in Sec. 41 (Q1) to set up the next round C3-Q, distinguishing the subsequential outcomes $\\mathsf H_n\\to0$, $\\mathsf H_n\\to\\mathsf H_\\ast\\ne0$, or $|\\mathsf H_n|\\to\\infty$."
+  }
+]

@@ -1,0 +1,266 @@
+[
+  {
+    "key": "ns.c3.c3s.trace_free_symmetric_space",
+    "latex": "\\mathbb{S}_0=\\operatorname{Sym}_0(3)",
+    "label_zh": "五維無跡對稱矩陣空間",
+    "label_en": "trace-free symmetric matrix space",
+    "definition_zh": "第1節將所有跡為零的 3×3 對稱矩陣空間記為 $\\mathbb S_0=\\operatorname{Sym}_0(3)=\\{M=M^\\top,\\operatorname{tr}M=0\\}\\simeq\\mathbb R^5$，作為本輪 strain-cone 幾何的載體空間。",
+    "definition_en": "Section 1 defines $\\mathbb S_0=\\operatorname{Sym}_0(3)\\simeq\\mathbb R^5$, the five-dimensional space of trace-free symmetric $3\\times3$ matrices that hosts the round's strain-cone geometry."
+  },
+  {
+    "key": "ns.c3.c3s.frobenius_inner_product",
+    "latex": "M:N=\\operatorname{tr}(MN)",
+    "label_zh": "Frobenius 內積",
+    "label_en": "Frobenius inner product",
+    "definition_zh": "第1節在 $\\mathbb S_0$ 上配置 Frobenius 內積 $M:N=\\operatorname{tr}(MN)$，是全文所有 cone 與 pressure-work 記號「:」的定義來源。",
+    "definition_en": "Section 1 equips $\\mathbb S_0$ with the Frobenius inner product $M:N=\\operatorname{tr}(MN)$, which underlies every colon-pairing used throughout the round for cone and pressure-work quantities."
+  },
+  {
+    "key": "ns.c3.c3s.unit_sphere_s4",
+    "latex": "S(\\mathbb{S}_0)=\\{K\\in\\mathbb{S}_0:|K|=1\\}\\simeq S^4",
+    "label_zh": "單位球面 S⁴",
+    "label_en": "unit sphere S^4",
+    "definition_zh": "第1節將 $\\mathbb S_0$ 中的單位球面記為 $S(\\mathbb S_0)\\simeq S^4$，是所有 normalized strain direction 與 separator 的活動空間。",
+    "definition_en": "Section 1 identifies the unit sphere of $\\mathbb S_0$ with $S^4$, the ambient sphere on which every normalized strain direction and separator lives."
+  },
+  {
+    "key": "ns.c3.c3s.m_i_local_mean_strain",
+    "latex": "M_i",
+    "label_zh": "核心局部平均應變",
+    "label_en": "core local mean strain",
+    "definition_zh": "第2節對每個 core $i$ 定義局部平均應變 $M_i=\\int\\chi_iS\\,dx\\in\\mathbb S_0$，只保留 $M_i\\ne0$ 的 pressure-visible cores。",
+    "definition_en": "Section 2 defines each core's local mean strain $M_i=\\int\\chi_iS\\,dx\\in\\mathbb S_0$, retaining only the pressure-visible cores with $M_i\\ne0$.",
+    "defining_relation": "M_i=\\int\\chi_iS\\,dx\\in\\mathbb{S}_0"
+  },
+  {
+    "key": "ns.c3.c3s.v_i_normalized_strain_direction",
+    "latex": "v_i",
+    "label_zh": "正規化應變方向",
+    "label_en": "normalized strain direction",
+    "definition_zh": "第2節將每個 core 的平均應變正規化為方向 $v_i=M_i/|M_i|\\in S^4$。",
+    "definition_en": "Section 2 normalizes each core's mean strain to a direction $v_i=M_i/|M_i|\\in S^4$.",
+    "defining_relation": "v_i=\\dfrac{M_i}{|M_i|}\\in S^4"
+  },
+  {
+    "key": "ns.c3.c3s.v_direction_set",
+    "latex": "V=\\{v_1,\\ldots,v_m\\}",
+    "label_zh": "正規化方向集合",
+    "label_en": "normalized direction set",
+    "definition_zh": "第2節把所有 core 的正規化應變方向收集為集合 $V=\\{v_1,\\ldots,v_m\\}\\subset S^4$，是全篇 margin 與 convex-hull 論證的基本物件。",
+    "definition_en": "Section 2 collects the cores' normalized strain directions into $V=\\{v_1,\\ldots,v_m\\}\\subset S^4$, the basic object underlying every margin and convex-hull argument in the round."
+  },
+  {
+    "key": "ns.c3.c3s.h_far_pressure_hessian",
+    "latex": "H\\in\\mathbb{S}_0",
+    "label_zh": "共同遠場壓力 Hessian",
+    "label_en": "common far-pressure Hessian",
+    "definition_zh": "第3節引入共同遠場調和壓力 Hessian $H\\in\\mathbb S_0$（第0節先以 $H_*$ 預告），用以對所有 cores 施加同一支撐方向。",
+    "definition_en": "Section 3 introduces the common far harmonic-pressure Hessian $H\\in\\mathbb S_0$ (previewed as $H_*$ in Section 0), which acts on all cores through a single shared direction.",
+    "notes": "Section 0 previews this object with a star as H_*; the unstarred H is the working notation from Section 3 onward, and a starred cross-scale limit resurfaces as proof obligation T8 for the next round C3-T."
+  },
+  {
+    "key": "ns.c3.c3s.b_i_h_pressure_work",
+    "latex": "B_i^H",
+    "label_zh": "核心 i 的壓力作功",
+    "label_en": "pressure work on core i",
+    "definition_zh": "第3節定義 $H$ 對 core $i$ 的主導壓力作功 $B_i^H=-H:M_i=|H||M_i|(K_H:v_i)$。",
+    "definition_en": "Section 3 defines the leading pressure work of $H$ on core $i$ as $B_i^H=-H:M_i=|H||M_i|(K_H:v_i)$.",
+    "defining_relation": "B_i^H=-H:M_i=|H||M_i|(K_H:v_i)",
+    "notes": "Section 15 shows this quantity is additive under merger, B_merge^H = -H:M_merge = sum_i B_i^H."
+  },
+  {
+    "key": "ns.c3.c3s.k_h_pressure_support_direction",
+    "latex": "K_H",
+    "label_zh": "壓力支撐方向",
+    "label_en": "pressure support direction",
+    "definition_zh": "第3節將共同遠場壓力方向正規化為 $K_H=-H/|H|$，使 $B_i^H>0\\ \\forall i$ 等價於 $K_H:v_i>0\\ \\forall i$。",
+    "definition_en": "Section 3 normalizes the common far-pressure direction as $K_H=-H/|H|$, so that $B_i^H>0$ for all $i$ is equivalent to $K_H:v_i>0$ for all $i$.",
+    "defining_relation": "K_H=-\\dfrac{H}{|H|}"
+  },
+  {
+    "key": "ns.c3.c3s.gamma_v_strain_cone_margin",
+    "latex": "\\gamma(V)",
+    "label_zh": "最佳應變錐邊際",
+    "label_en": "optimal strain-cone margin",
+    "definition_zh": "第4節定義最佳 common strain-cone margin $\\gamma(V)=[\\max_{|K|=1}\\min_iK:v_i]_+\\in[0,1]$，是本輪把 yes/no obstruction 升級成定量指標的核心量。",
+    "definition_en": "Section 4 defines the optimal common strain-cone margin $\\gamma(V)=[\\max_{|K|=1}\\min_iK:v_i]_+\\in[0,1]$, the central quantity by which the round upgrades the yes/no obstruction into a quantitative one.",
+    "defining_relation": "\\gamma(V)=\\left[\\max_{|K|=1}\\min_{1\\le i\\le m}K:v_i\\right]_+,\\qquad [x]_+=\\max\\{x,0\\}"
+  },
+  {
+    "key": "ns.c3.c3s.thm_c3s1_margin_equals_hull_distance",
+    "latex": "\\gamma(V)=\\operatorname{dist}(0,\\operatorname{conv}V)",
+    "label_zh": "C3-S.1：邊際等於凸包距離定理",
+    "label_en": "C3-S.1: Cone Margin = Convex-Hull Distance",
+    "definition_zh": "定理5.1（C3-S.1，第5節）證明 $\\gamma(V)=\\operatorname{dist}(0,\\operatorname{conv}V)$，即最佳 strain-cone margin 恰為原點到 $V$ 凸包的歐氏距離。",
+    "definition_en": "Theorem 5.1 (C3-S.1, Section 5) proves $\\gamma(V)=\\operatorname{dist}(0,\\operatorname{conv}V)$, that the optimal strain-cone margin equals the Euclidean distance from the origin to the convex hull of $V$.",
+    "defining_relation": "\\gamma(V)=\\operatorname{dist}(0,\\operatorname{conv}V)"
+  },
+  {
+    "key": "ns.c3.c3s.eta_h_actual_pressure_efficiency",
+    "latex": "\\eta_H(V)=\\min_iK_H:v_i",
+    "label_zh": "實際壓力支撐效率",
+    "label_en": "actual pressure-support efficiency",
+    "definition_zh": "第7節定義實際共同遠場矩陣 $H$ 的支撐效率 $\\eta_H(V)=\\min_i\\frac{-H:M_i}{|H||M_i|}=\\min_iK_H:v_i$，並證明 $\\eta_H(V)\\le\\gamma(V)$ 恆成立。",
+    "definition_en": "Section 7 defines the actual support efficiency $\\eta_H(V)=\\min_iK_H:v_i$ of a real far matrix $H$, and shows $\\eta_H(V)\\le\\gamma(V)$ always holds.",
+    "notes": "Guard G-PEFF (Section 35) explicitly forbids substituting the optimal margin gamma for the actual efficiency eta_H."
+  },
+  {
+    "key": "ns.c3.c3s.gamma_n_cross_scale_branches",
+    "latex": "\\gamma_n=\\gamma(V_n)",
+    "label_zh": "跨尺度邊際與 S-A/S-B 分支",
+    "label_en": "cross-scale margin and branches S-A/S-B",
+    "definition_zh": "第8節對每個 ancestry scale $n$ 定義 $V_n\\subset S^4$ 與 $\\gamma_n=\\gamma(V_n)$，並分出 uniform coherence 分支 S-A（$\\liminf_n\\gamma_n>0$）與 cone degeneration 分支 S-B（$\\gamma_n\\to0$）。",
+    "definition_en": "Section 8 defines, at each ancestry scale $n$, the set $V_n\\subset S^4$ and margin $\\gamma_n=\\gamma(V_n)$, splitting into branch S-A (uniform coherence, $\\liminf_n\\gamma_n>0$) versus branch S-B (cone degeneration, $\\gamma_n\\to0$)."
+  },
+  {
+    "key": "ns.c3.c3s.thm_c3s2_cross_scale_separator_compactness",
+    "latex": "K_\\ast\\in S^4,\\qquad K_\\ast:v_{n_k,i}\\ge\\gamma_0/2",
+    "label_zh": "C3-S.2：跨尺度分離子緊緻性定理",
+    "label_en": "C3-S.2: Cross-Scale Separator Compactness",
+    "definition_zh": "定理9.1（C3-S.2，第9節）證明若 $\\gamma_n\\ge\\gamma_0>0$，則由 $S^4$ 緊緻性可抽出子序列與固定分離子 $K_*$，使 $K_*:v_{n_k,i}\\ge\\gamma_0/2$，第10節稱其產生的固定椎狀域為「Cross-Scale Strain-Cone Fixed Motif」（半頂角至多 $\\arccos(\\gamma_0/2)$）。",
+    "definition_en": "Theorem 9.1 (C3-S.2, Section 9) shows that $\\gamma_n\\ge\\gamma_0>0$ yields, via compactness of $S^4$, a subsequence and a fixed separator $K_*$ with $K_*:v_{n_k,i}\\ge\\gamma_0/2$, which Section 10 names the \"Cross-Scale Strain-Cone Fixed Motif\" (cone half-angle at most $\\arccos(\\gamma_0/2)$).",
+    "notes": "Section 11 reruns the same compactness argument on actual far-pressure directions K_n^H = -H_n/|H_n| -> K_*^H under uniform efficiency eta_{H_n} >= eta_0 > 0, producing what Section 11 calls the renormalized 5D matrix motif."
+  },
+  {
+    "key": "ns.c3.c3s.m_merge_merged_mean_strain",
+    "latex": "M_{\\rm merge}=\\sum_{i=1}^{m}M_i",
+    "label_zh": "併合平均應變",
+    "label_en": "merged mean strain",
+    "definition_zh": "第12節在固定共同 separator $K$（滿足 $K:M_i\\ge\\gamma|M_i|\\ \\forall i$）之下，定義併合後的平均應變 $M_{\\rm merge}=\\sum_iM_i$。",
+    "definition_en": "Section 12 defines the merged mean strain $M_{\\rm merge}=\\sum_iM_i$, under a fixed common separator $K$ satisfying $K:M_i\\ge\\gamma|M_i|$ for all $i$.",
+    "defining_relation": "M_{\\rm merge}=\\sum_{i=1}^{m}M_i"
+  },
+  {
+    "key": "ns.c3.c3s.thm_c3s3_cone_inheritance_merger",
+    "latex": "|M_{\\rm merge}|\\ge\\gamma\\sum_i|M_i|",
+    "label_zh": "C3-S.3：併合下的錐繼承定理",
+    "label_en": "C3-S.3: Cone Inheritance under Merger",
+    "definition_zh": "定理13.1（C3-S.3，第13節）證明 $|M_{\\rm merge}|\\ge\\gamma\\sum_i|M_i|$ 且 $K:M_{\\rm merge}/|M_{\\rm merge}|\\ge\\gamma$，即 dense cluster 併合不會因向量抵消而摧毀 coherent mean strain，第14節稱此結果為「Merger Rigidity」。",
+    "definition_en": "Theorem 13.1 (C3-S.3, Section 13) proves $|M_{\\rm merge}|\\ge\\gamma\\sum_i|M_i|$ and $K:M_{\\rm merge}/|M_{\\rm merge}|\\ge\\gamma$, showing dense-cluster merger cannot cancel coherent mean strain by vector cancellation; Section 14 names this result \"Merger Rigidity\".",
+    "defining_relation": "|M_{\\rm merge}|\\ge\\gamma\\sum_i|M_i|,\\qquad K:\\dfrac{M_{\\rm merge}}{|M_{\\rm merge}|}\\ge\\gamma"
+  },
+  {
+    "key": "ns.c3.c3s.mu_i_normalized_mean_magnitude",
+    "latex": "\\mu_i=\\dfrac{|M_i|}{\\nu R}",
+    "label_zh": "正規化核心平均應變大小",
+    "label_en": "normalized core mean-strain magnitude",
+    "definition_zh": "第16節定義尺度不變量 $\\mu_i=|M_i|/(\\nu R)$，第17節對 pressure-relevant cores 要求 $\\mu_i\\ge\\mu_0>0$。",
+    "definition_en": "Section 16 defines the scale-invariant quantity $\\mu_i=|M_i|/(\\nu R)$, required to satisfy $\\mu_i\\ge\\mu_0>0$ for pressure-relevant cores in Section 17.",
+    "defining_relation": "\\mu_i=\\dfrac{|M_i|}{\\nu R}"
+  },
+  {
+    "key": "ns.c3.c3s.thm_c3s4_merger_strain_stock_lower_bound",
+    "latex": "\\dfrac{R}{\\nu^2}\\int_U|S|^2dx\\ge c\\,\\gamma^2\\mu_0^2m",
+    "label_zh": "C3-S.4：併合應變存量下界定理",
+    "label_en": "C3-S.4: Merger Strain-Stock Lower Bound",
+    "definition_zh": "定理17.1（C3-S.4，第17節）在有界重疊、體積上界 $|U|\\le CmR^3$、cone margin 與 $\\mu_i\\ge\\mu_0$ 假設下，證明 $\\frac{R}{\\nu^2}\\int_U|S|^2dx\\ge c\\gamma^2\\mu_0^2m$。",
+    "definition_en": "Theorem 17.1 (C3-S.4, Section 17) proves, under bounded overlap, the volume bound $|U|\\le CmR^3$, cone margin, and $\\mu_i\\ge\\mu_0$, that $\\frac{R}{\\nu^2}\\int_U|S|^2dx\\ge c\\gamma^2\\mu_0^2m$.",
+    "defining_relation": "\\dfrac{R}{\\nu^2}\\int_U|S|^2dx\\ge c\\,\\gamma^2\\mu_0^2m"
+  },
+  {
+    "key": "ns.c3.c3s.mathfrak_s_l_cluster_strain_stock",
+    "latex": "\\mathfrak{S}_L=\\dfrac{L}{\\nu^2}\\int_U|S|^2",
+    "label_zh": "叢集尺度正規化應變存量",
+    "label_en": "cluster-scale normalized strain stock",
+    "definition_zh": "第18節在 $L\\sim m^{1/3}R$ 下定義叢集尺度存量 $\\mathfrak S_L=\\frac{L}{\\nu^2}\\int_U|S|^2$，並由定理17.1導出 $\\mathfrak S_L\\gtrsim\\gamma^2\\mu_0^2m^{4/3}$。",
+    "definition_en": "Section 18 defines the cluster-scale stock $\\mathfrak S_L=\\frac{L}{\\nu^2}\\int_U|S|^2$ at $L\\sim m^{1/3}R$, deriving $\\mathfrak S_L\\gtrsim\\gamma^2\\mu_0^2m^{4/3}$ from Theorem 17.1."
+  },
+  {
+    "key": "ns.c3.c3s.thm_c3s5_six_core_near_balance_witness",
+    "latex": "\\left|\\sum_{j=1}^r\\alpha_jv_{i_j}\\right|=\\gamma(V),\\qquad r\\le6",
+    "label_zh": "C3-S.5：六核近平衡見證定理",
+    "label_en": "C3-S.5: Six-Core Near-Balance Witness",
+    "definition_zh": "定理20.1（C3-S.5，第20節）用 Carathéodory theorem 證明存在至多 $r\\le6$ 個 core 方向與凸權重 $\\alpha_j$，使 $|\\sum_j\\alpha_jv_{i_j}|=\\gamma(V)$。",
+    "definition_en": "Theorem 20.1 (C3-S.5, Section 20) uses the Carathéodory theorem to show there exist at most $r\\le6$ core directions and convex weights $\\alpha_j$ with $|\\sum_j\\alpha_jv_{i_j}|=\\gamma(V)$.",
+    "defining_relation": "\\left|\\sum_{j=1}^r\\alpha_jv_{i_j}\\right|=\\gamma(V),\\quad r\\le6,\\ \\alpha_j\\ge0,\\ \\sum_j\\alpha_j=1",
+    "notes": "When gamma(V)=0 this collapses to the exact obstruction of Section 21, which the text identifies explicitly as recovering C3-R's original six-core pressure obstruction."
+  },
+  {
+    "key": "ns.c3.c3s.thm_c3s6_robust_six_core_obstruction",
+    "latex": "\\exists j:\\ K:v_{i_j}\\le\\gamma(V)",
+    "label_zh": "C3-S.6：穩健六核邊際障礙定理",
+    "label_en": "C3-S.6: Robust Six-Core Margin Obstruction",
+    "definition_zh": "定理22.1（C3-S.6，第22節）證明對任意單位方向 $K\\in S^4$，定理20.1見證中至少有一個核心滿足 $K:v_{i_j}\\le\\gamma(V)$。",
+    "definition_en": "Theorem 22.1 (C3-S.6, Section 22) proves that for any unit direction $K\\in S^4$, at least one core in the Theorem 20.1 witness satisfies $K:v_{i_j}\\le\\gamma(V)$.",
+    "defining_relation": "\\forall K\\in S^4\\ \\exists j\\in\\{1,\\ldots,r\\}:\\ K:v_{i_j}\\le\\gamma(V)"
+  },
+  {
+    "key": "ns.c3.c3s.normalized_far_pressure_work",
+    "latex": "\\widehat H,\\ \\widehat M_i,\\ \\widehat B_i^H",
+    "label_zh": "正規化遠場壓力作功",
+    "label_en": "normalized far-pressure work",
+    "definition_zh": "第24節沿用 C3-Q 定義正規化量 $\\widehat H=(R^4/\\nu^2)H$、$\\widehat M_i=M_i/(\\nu R)$ 與正規化壓力作功 $\\widehat B_i^H=-\\widehat H:\\widehat M_i=|\\widehat H||\\widehat M_i|\\eta_i$。",
+    "definition_en": "Section 24 defines, following C3-Q, the normalized quantities $\\widehat H=(R^4/\\nu^2)H$, $\\widehat M_i=M_i/(\\nu R)$, and normalized pressure work $\\widehat B_i^H=-\\widehat H:\\widehat M_i=|\\widehat H||\\widehat M_i|\\eta_i$.",
+    "defining_relation": "\\widehat H=\\dfrac{R^4}{\\nu^2}H,\\quad \\widehat M_i=\\dfrac{M_i}{\\nu R},\\quad \\widehat B_i^H=|\\widehat H||\\widehat M_i|\\eta_i,\\quad \\eta_i=-\\dfrac{\\widehat H:\\widehat M_i}{|\\widehat H||\\widehat M_i|}",
+    "notes": "Notation explicitly inherited from C3-Q (Section 24 opens with \"沿用 C3-Q\")."
+  },
+  {
+    "key": "ns.c3.c3s.b0_fixed_pressure_work_threshold",
+    "latex": "b_0>0",
+    "label_zh": "固定正規化遠場壓力作功門檻",
+    "label_en": "fixed normalized far-pressure work threshold",
+    "definition_zh": "第0節第7點與第27節將六核見證中每個核心被要求維持的固定正規化遠場壓力作功記為門檻 $b_0>0$，即 $\\widehat B_i^H\\ge b_0$。",
+    "definition_en": "Section 0 (point 7) and Section 27 denote by $b_0>0$ the fixed normalized far-pressure work every witness core is required to sustain, i.e. $\\widehat B_i^H\\ge b_0$."
+  },
+  {
+    "key": "ns.c3.c3s.kappa_pressure_source_scale",
+    "latex": "\\kappa R",
+    "label_zh": "壓力源截止尺度比",
+    "label_en": "pressure-source cutoff scale ratio",
+    "definition_zh": "第25節設共同遠場矩陣 $H$ 來自 $\\kappa R$ 之外，沿用 C3-Q 得到 $|\\widehat H|\\le C\\kappa^{-3}\\mathfrak E_R$。",
+    "definition_en": "Section 25 takes the common far matrix $H$ to be sourced outside radius $\\kappa R$, following C3-Q to obtain $|\\widehat H|\\le C\\kappa^{-3}\\mathfrak E_R$."
+  },
+  {
+    "key": "ns.c3.c3s.mathfrak_e_r_enstrophy_quantity",
+    "latex": "\\mathfrak{E}_R=\\dfrac{R\\|\\nabla u\\|_2^2}{\\nu^2}",
+    "label_zh": "R 尺度正規化 enstrophy 量",
+    "label_en": "R-scale normalized enstrophy quantity",
+    "definition_zh": "第25節給出 $\\mathfrak E_R=R\\|\\nabla u\\|_2^2/\\nu^2$ 的公式，此量沿用自 C3-Q、C3-R 等早期回合，是本輪所有 pressure-support debt 不等式右側的核心量。",
+    "definition_en": "Section 25 gives the formula $\\mathfrak E_R=R\\|\\nabla u\\|_2^2/\\nu^2$; carried over from earlier rounds (C3-Q, C3-R), it is the central quantity on the right-hand side of every pressure-support debt inequality in this round.",
+    "defining_relation": "\\mathfrak{E}_R=\\dfrac{R\\|\\nabla u\\|_2^2}{\\nu^2}",
+    "notes": "Already invoked in Section 0 (point 1, quoting C3-R's E_R >~ m_R beta_*^2) before its formula is restated here in Section 25."
+  },
+  {
+    "key": "ns.c3.c3s.thm_c3s7_cone_degeneration_pressure_debt",
+    "latex": "\\mathfrak{E}_R\\ge c\\,b_0^{2/3}\\kappa^2\\gamma^{-2/3}",
+    "label_zh": "C3-S.7：錐退化壓力債定理",
+    "label_en": "C3-S.7: Cone-Degeneration Pressure Debt",
+    "definition_zh": "定理27.1（C3-S.7，第27節）結合穩健六核障礙與正規化壓力、應變大小上界，證明固定核心壓力作功 $b_0$ 迫使 $\\mathfrak E_R\\ge c\\,b_0^{2/3}\\kappa^2\\gamma^{-2/3}$，即 cone margin 趨零時 enstrophy debt 發散。",
+    "definition_en": "Theorem 27.1 (C3-S.7, Section 27) combines the robust six-core obstruction with bounds on normalized pressure and strain magnitude to prove that fixed per-core pressure work $b_0$ forces $\\mathfrak E_R\\ge c\\,b_0^{2/3}\\kappa^2\\gamma^{-2/3}$, so enstrophy debt diverges as the cone margin vanishes.",
+    "defining_relation": "\\mathfrak{E}_R\\ge c\\,b_0^{2/3}\\kappa^2\\gamma^{-2/3}",
+    "notes": "Strictly stronger than C3-Q's bound E_R >~ b_0^{2/3} kappa^2 (Section 28), which lacked the gamma^{-2/3} cone-degeneration factor; the round names this the Cone-Degeneration Pressure Debt."
+  },
+  {
+    "key": "ns.c3.c3s.pressure_support_diversification",
+    "latex": "\\textbf{Pressure-Support Diversification}",
+    "label_zh": "壓力支撐多樣化",
+    "label_en": "Pressure-Support Diversification",
+    "definition_zh": "第29節將定理27.1的 contrapositive 讀法命名為「Pressure-Support Diversification」：若 $\\mathfrak E_R$ 不足以支付 $\\gamma^{-2/3}$ 債務，六核見證中至少一核必須依賴 near pressure、bulk SSA、Betchov current 等其他來源。",
+    "definition_en": "Section 29 names the contrapositive reading of Theorem 27.1 \"Pressure-Support Diversification\": if $\\mathfrak E_R$ cannot pay the $\\gamma^{-2/3}$ debt, at least one witness core must draw support from near pressure, bulk SSA, Betchov current, or another source instead of the common far matrix."
+  },
+  {
+    "key": "ns.c3.c3s.lambda2_plus_middle_eigenvalue",
+    "latex": "\\lambda_2^+(M)>0",
+    "label_zh": "中間特徵值正部",
+    "label_en": "positive part of the middle eigenvalue",
+    "definition_zh": "第32至33節指出 cone coherence 條件 $K_*:M>0$（僅為 $\\mathbb R^5$ 中的 Frobenius 夾角條件）不能推出共同 eigenframe、也不能取代中間特徵值正部條件 $\\lambda_2^+(M)>0$。",
+    "definition_en": "Sections 32-33 note that the cone-coherence condition $K_*:M>0$ (a mere Frobenius-angle condition in $\\mathbb R^5$) implies neither a shared eigenframe nor the middle-eigenvalue condition $\\lambda_2^+(M)>0$.",
+    "notes": "Explicitly flagged as belonging to the separate C3-L/M middle-eigenvalue channel, which this round states must still be independently maintained (see also no-go NG-S3)."
+  },
+  {
+    "key": "ns.c3.c3s.theta_n_cone_true_etn_update",
+    "latex": "\\Theta_n^{cone}=\\left\\langle V_n,\\gamma_n,K_n,K_\\ast,\\text{six-core witness},\\mathfrak{E}_{R_n},\\kappa_n,\\operatorname{Prov}\\right\\rangle",
+    "label_zh": "True ETN 之 cone 分量更新",
+    "label_en": "True ETN cone-component update",
+    "definition_zh": "第36節把本輪 multi-core strain geometry 打包為 True ETN 的新分量 $\\Theta_n^{cone}=\\langle V_n,\\gamma_n,K_n,K_*,\\text{six-core witness},\\mathfrak E_{R_n},\\kappa_n,\\operatorname{Prov}\\rangle$，取代原本二元的 $0\\in\\operatorname{conv}V$ 判準。",
+    "definition_en": "Section 36 packages this round's multi-core strain geometry into a new True-ETN component $\\Theta_n^{cone}=\\langle V_n,\\gamma_n,K_n,K_*,\\text{six-core witness},\\mathfrak E_{R_n},\\kappa_n,\\operatorname{Prov}\\rangle$, replacing the earlier binary criterion $0\\in\\operatorname{conv}V$."
+  },
+  {
+    "key": "ns.c3.c3s.x_integration_guards",
+    "latex": "\\text{G-CMARGIN, G-SEPARATOR, G-MERGE-CONE, G-6NEAR, G-PEFF, G-CDEBT, G-EIGTYPE}",
+    "label_zh": "X-Integration 守則更新",
+    "label_en": "X-Integration guard updates",
+    "definition_zh": "第35節為 X-Integration 框架新增七條具名守則，分別鎖定 margin 公式、跨尺度分離子、併合下不可刪除的 no-cancellation 下界、六核見證、實際效率不可被最佳值取代、cone-degeneration debt，以及禁止把 matrix-cone coherence 升格為 eigenframe coherence。",
+    "definition_en": "Section 35 adds seven named guards to the X-Integration framework, respectively locking in the margin formula, the cross-scale separator, the no-cancellation bound under merger, the six-core witness, the rule that actual efficiency may not be replaced by the optimum, the cone-degeneration debt, and the prohibition on upgrading matrix-cone coherence to eigenframe coherence."
+  }
+]

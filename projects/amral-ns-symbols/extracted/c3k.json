@@ -1,0 +1,259 @@
+[
+  {
+    "key": "ns.c3.c3k.fixed_threshold",
+    "latex": "\\beta",
+    "label_zh": "固定臨界閾值",
+    "label_en": "Fixed critical threshold",
+    "definition_zh": "本輪捨棄 C3-J 的 moving-frontier 判準，改用固定常數 β>0（§1）作為每個 absolute shell 的臨界啟動閾值，用以定義 absolute active set A_{q,σ}(β)。",
+    "definition_en": "A fixed constant β>0 (§1) replacing C3-J's moving-frontier criterion as the critical activation threshold for each absolute shell; used to define the absolute active set A_{q,σ}(β).",
+    "notes": "與 C3-J 的 moving frontier Q(t) 對照，是本輪 gauge-invariance 的關鍵設計。"
+  },
+  {
+    "key": "ns.c3.c3k.absolute_shell_amplitude",
+    "latex": "a_q^\\sigma(t)",
+    "label_zh": "絕對臨界殼層振幅",
+    "label_en": "Absolute critical shell amplitude",
+    "definition_zh": "第 q 個 dyadic shell、helicity σ 分量的臨界振幅，以 L^∞ 範數對 νλ_q 正規化（§1）；是 gauge-invariant 的 absolute 版本，取代 C3-J 中依賴 moving frontier 的振幅。",
+    "definition_en": "The critical amplitude of the σ-helicity component at dyadic shell q, normalized by νλ_q (§1); the gauge-invariant 'absolute' version replacing the moving-frontier-dependent amplitude used in C3-J.",
+    "defining_relation": "a_q^\\sigma(t)=\\frac{\\|u_q^\\sigma(t)\\|_\\infty}{\\nu\\lambda_q}",
+    "notes": "λ_q=2^q 為標準 dyadic 尺度；σ∈{+,-} 為 helicity sign，兩者皆屬本系列既有記號。"
+  },
+  {
+    "key": "ns.c3.c3k.helical_shell_velocity",
+    "latex": "u_q^\\sigma",
+    "label_zh": "螺旋殼層速度分量",
+    "label_en": "Helical shell-projected velocity",
+    "definition_zh": "速度場先做 helicity 投影 P^σ、再做 Littlewood–Paley 第 q 殼層投影 Δ_q 後的分量，定義為 u_q^σ=Δ_qP^σu（§1），是 a_q^σ 的構成要素。",
+    "definition_en": "The velocity field after helicity projection P^σ followed by Littlewood–Paley shell projection Δ_q, defined as u_q^σ=Δ_qP^σu (§1); the building block of a_q^σ.",
+    "notes": "區別於 §16 A_q^{loc} 所用未做 helicity 分解的一般 shell 分量 u_m。"
+  },
+  {
+    "key": "ns.c3.c3k.absolute_active_set",
+    "latex": "A_{q,\\sigma}(\\beta)",
+    "label_zh": "絕對活躍集合",
+    "label_en": "Absolute active set",
+    "definition_zh": "殼層 (q,σ) 上振幅 a_q^σ(t) 超過固定閾值 β 的時間集合（§1）；此定義完全不依賴 C3-J 的 moving frontier Q(t)，因此是 gauge-invariant 的核心對象。",
+    "definition_en": "The set of times at which the shell (q,σ) amplitude a_q^σ(t) exceeds the fixed threshold β (§1); independent of C3-J's moving frontier Q(t), making it the round's core gauge-invariant object.",
+    "defining_relation": "A_{q,\\sigma}(\\beta)=\\left\\{t\\in(0,T_\\ast):a_q^\\sigma(t)\\ge\\beta\\right\\}",
+    "notes": "是本輪 occupancy measure μ_β（§5）與 occupation moments M_1(β)、M_2(β)（§27）的基礎；hypothetical blow-up 要求存在 β_*>0 使任意高頻殼層滿足 A_{q,σ}(β_*)≠∅（§8）。"
+  },
+  {
+    "key": "ns.c3.c3k.occupancy_measure",
+    "latex": "\\mu_\\beta",
+    "label_zh": "占用測度",
+    "label_en": "Occupancy measure",
+    "definition_zh": "在 shell-time 空間上定義的 weighted measure，以 λ_q 加權絕對活躍集合（§5）；定理證明其總質量 μ_β(ℤ×{+,-}×(0,T_*)) 有限，可視為 absolute shell activation tension measure（§9）。",
+    "definition_en": "A weighted measure on shell-time space, weighting the absolute active set by λ_q (§5); its total mass μ_β(ℤ×{+,-}×(0,T_*)) is proven finite, and can be read as an absolute shell activation tension measure (§9).",
+    "defining_relation": "d\\mu_\\beta(q,\\sigma,t)=\\lambda_q1_{A_{q,\\sigma}(\\beta)}(t)\\,dt",
+    "notes": "blow-up 要求 supp μ_β 在 frequency 方向不有界但 ‖μ_β‖<∞（§9），即 'finite mass escaping to infinite frequency'。§35 中 μ_q 為其 q-marginal，供 M_s(μ) 使用。"
+  },
+  {
+    "key": "ns.c3.c3k.high_freq_active_count",
+    "latex": "N_{\\ge Q}(t;\\beta)",
+    "label_zh": "高頻活躍殼層計數",
+    "label_en": "High-frequency active-shell count",
+    "definition_zh": "時刻 t 時，頻率不低於 Q 且處於活躍狀態的 (q,σ) 殼層個數（§6）；推論 6.1 證明 ∫₀^{T*}N_{≥Q}(t;β)dt ≤ CE_0/(ν³β²λ_Q)，即以 O(λ_Q^{-1}) 衰減。",
+    "definition_en": "The number of shells (q,σ) with frequency at least Q that are active at time t (§6); Corollary 6.1 shows ∫₀^{T*}N_{≥Q}(t;β)dt ≤ CE_0/(ν³β²λ_Q), i.e. O(λ_Q^{-1}) decay.",
+    "defining_relation": "N_{\\ge Q}(t;\\beta)=\\#\\left\\{(q,\\sigma):q\\ge Q,\\ a_q^\\sigma(t)\\ge\\beta\\right\\}",
+    "notes": "此處 Q 僅為 dyadic 頻率索引閾值，與 §0 中 C3-J moving-frontier 記號 Q(t) 無關，需注意區分。"
+  },
+  {
+    "key": "ns.c3.c3k.hysteresis_thresholds",
+    "latex": "\\beta_0,\\ \\beta_1,\\ \\beta_m",
+    "label_zh": "雙閾值遲滯門檻",
+    "label_en": "Two-threshold hysteresis levels",
+    "definition_zh": "承襲 C3-J 的下閾值 β_0、上閾值 β_1（0<β_0<β_1）與中點 β_m=(β_0+β_1)/2（§10），用以定義 separated complete upcrossing 事件，為 C3-K.2 加權遲滯計數定理之輸入。",
+    "definition_en": "The lower threshold β_0, upper threshold β_1 (0<β_0<β_1), and midpoint β_m=(β_0+β_1)/2 carried over from C3-J (§10), used to define separated complete upcrossing events; inputs to the C3-K.2 weighted hysteretic count theorem.",
+    "notes": "源自 C3-J 的 two-threshold hysteresis 架構；本輪新意在於將其與 absolute shell (q,σ) 及 λ_q 權重結合。"
+  },
+  {
+    "key": "ns.c3.c3k.upcrossing_count",
+    "latex": "N_{q,\\sigma}^{up}",
+    "label_zh": "分離完整上穿次數",
+    "label_en": "Separated complete upcrossing count",
+    "definition_zh": "殼層 (q,σ) 上振幅 a_q^σ 從 β_0 完整上穿至 β_1 的分離事件次數（§10）；C3-J 僅有逐殼層有限性 N_q^{up}<∞，本輪細分至 helicity σ 並代入全域加權求和（C3-K.2）。",
+    "definition_en": "The number of separated events in which a_q^σ completely up-crosses from β_0 to β_1 on shell (q,σ) (§10); C3-J only established per-shell finiteness N_q^{up}<∞, while this round refines it by helicity σ and feeds it into a globally weighted sum (C3-K.2).",
+    "notes": "下界（§11）：|A_{q,σ}(β_m)| ≥ N_{q,σ}^{up}·(β_1-β_0)/(2L_q)，因每次上穿至少需要 Δt≥(β_1-β_0)/(2L_q) 的活躍時間。"
+  },
+  {
+    "key": "ns.c3.c3k.lipschitz_const",
+    "latex": "L_q",
+    "label_zh": "殼層 Lipschitz 常數",
+    "label_en": "Fixed-shell Lipschitz constant",
+    "definition_zh": "滿足 |a_q^σ(t)-a_q^σ(s)|≤L_q|t-s| 的殼層 Lipschitz 常數，源自 C3-J（§10）；本輪關鍵新用法是比值 λ_q/L_q 作為遲滯計數的權重（§12-13），高頻漸近有 λ_q/L_q≳cλ_q^{-2}。",
+    "definition_en": "The Lipschitz constant satisfying |a_q^σ(t)-a_q^σ(s)|≤L_q|t-s|, originating in C3-J (§10); this round's key new use is the ratio λ_q/L_q as a weight for hysteretic counts (§12-13), with high-frequency asymptotic λ_q/L_q≳cλ_q^{-2}.",
+    "notes": "§13 明確警告：精確定理應保留 λ_q/L_q，λ_q^{-2} 只是 high-frequency asymptotic interpretation，非嚴格等式。"
+  },
+  {
+    "key": "ns.c3.c3k.weighted_hysteretic_count",
+    "latex": "\\sum_{q,\\sigma}\\frac{\\lambda_q}{L_q}N_{q,\\sigma}^{up}",
+    "label_zh": "加權遲滯活化計數（定理 C3-K.2）",
+    "label_en": "Weighted hysteretic activation count (Thm C3-K.2)",
+    "definition_zh": "定理 C3-K.2（§12）：將所有 absolute shells 的 upcrossing 次數以 λ_q/L_q 加權後全域求和，其和被初始能量 E_0 控制；比 C3-J 逐殼層有限性更強，因為是單一 global 界，但即使如此仍不排除 one-new-shell-per-scale 的無限 genealogy（§14 no-go）。",
+    "definition_en": "Theorem C3-K.2 (§12): the λ_q/L_q-weighted sum of upcrossing counts over all absolute shells is globally bounded by the initial energy E_0; strictly stronger than C3-J's per-shell finiteness since it is one global bound, yet still does not rule out an infinite one-new-shell-per-scale genealogy (§14 no-go).",
+    "defining_relation": "\\sum_{q,\\sigma}\\frac{\\lambda_q}{L_q}N_{q,\\sigma}^{up}\\le\\frac{CE_0}{\\nu^3\\beta_m^2(\\beta_1-\\beta_0)}",
+    "notes": "稱作 gauge-invariant 版本的 Zeno no-go：即使每個 q 只取 N_{q,σ}^{up}=1，∑λ_q^{-2}<∞ 仍容許無限多尺度各發生一次上穿。"
+  },
+  {
+    "key": "ns.c3.c3k.local_energy_transfer",
+    "latex": "T_q^{loc}",
+    "label_zh": "局域非線性能量轉移",
+    "label_en": "Local nonlinear energy transfer",
+    "definition_zh": "限制在頻率鄰域 |p-q|,|r-q|≤C_L 內三重交互作用的 bounded-ratio 局域能量轉移（§15），可再依 helicity 細分；滿足上界 |T_q^{loc}(t)|≤CνA_q^{loc}(t)λ_q^2E_q^*(t)（§16）。",
+    "definition_en": "The bounded-ratio local nonlinear energy transfer restricted to triadic interactions within frequency neighborhood |p-q|,|r-q|≤C_L (§15), further splittable by helicity class; obeys the bound |T_q^{loc}(t)|≤CνA_q^{loc}(t)λ_q^2E_q^*(t) (§16).",
+    "defining_relation": "T_q^{loc}=-\\sum_{\\substack{|p-q|\\le C_L\\\\|r-q|\\le C_L}}\\left\\langle\\Delta_q\\mathbb P(u_p\\cdot\\nabla u_r),u_q\\right\\rangle",
+    "notes": "C_L 為固定 locality 半徑常數，與 §16 的 C_* 各自獨立。定理 17.1 給出 subthreshold 積分界 ∑_q∫_{S_q(β)}|T_q^{loc}|dt≤CβE_0。"
+  },
+  {
+    "key": "ns.c3.c3k.local_energy_packet",
+    "latex": "\\mathcal E_q^\\ast",
+    "label_zh": "局域能量包",
+    "label_en": "Local energy packet",
+    "definition_zh": "殼層 q 鄰域（半徑 C_*）內所有 shell 的 L^2 能量總和（§15），用於界定 T_q^{loc} 的上界；透過 ∑_qλ_q^2E_q^*≤C‖∇u‖_2^2（有限重疊）於定理 17.1 證明中被控制。",
+    "definition_en": "The total L^2 energy summed over shells within radius C_* of shell q (§15), used to bound T_q^{loc}; controlled via ∑_qλ_q^2E_q^*≤C‖∇u‖_2^2 (finite overlap) in the proof of Theorem 17.1.",
+    "defining_relation": "\\mathcal E_q^\\ast=\\sum_{|m-q|\\le C_\\ast}\\|u_m\\|_2^2",
+    "notes": "半徑常數 C_* 與 T_q^{loc} 的 C_L 是不同的固定局域化參數。"
+  },
+  {
+    "key": "ns.c3.c3k.local_active_amplitude",
+    "latex": "A_q^{loc}(t)",
+    "label_zh": "局域活躍振幅",
+    "label_en": "Local active amplitude",
+    "definition_zh": "殼層 q 鄰域內（半徑 C_*）各 shell 振幅的最大值（§16），不做 helicity 分解，用於定義 subthreshold region S_q(β)。",
+    "definition_en": "The maximum shell amplitude over shells within radius C_* of q (§16), without helicity decomposition; used to define the subthreshold region S_q(β).",
+    "defining_relation": "A_q^{loc}(t)=\\max_{|m-q|\\le C_\\ast}\\frac{\\|u_m(t)\\|_\\infty}{\\nu\\lambda_m}",
+    "notes": "與 a_q^σ 不同：a_q^σ 是單一殼層、單一 helicity 的絕對振幅；A_q^{loc} 是鄰域內、未做 helicity 區分的局域最大振幅。"
+  },
+  {
+    "key": "ns.c3.c3k.subthreshold_region",
+    "latex": "S_q(\\beta)",
+    "label_zh": "次閾值區域",
+    "label_en": "Subthreshold region",
+    "definition_zh": "局域活躍振幅低於 β 的時間集合（§17，定理 C3-K.3）；定理 17.1 證明此區域上局域能量轉移的時間積分被 CβE_0 一致控制，即 finite subthreshold local turnover。",
+    "definition_en": "The set of times where the local active amplitude stays below β (§17, Thm C3-K.3); Theorem 17.1 shows the time-integrated local energy transfer on this region is uniformly bounded by CβE_0 — finite subthreshold local turnover.",
+    "defining_relation": "S_q(\\beta)=\\left\\{t:A_q^{loc}(t)<\\beta\\right\\}",
+    "notes": "與 A_{q,σ}(β)（振幅≥β 的絕對活躍集合）互補：S_q(β) 用 <β 且基於 local-max 版本 A_q^{loc} 而非單一 helicity 的 a_q^σ。"
+  },
+  {
+    "key": "ns.c3.c3k.local_variation",
+    "latex": "\\mathcal V_{\\rm loc}",
+    "label_zh": "局域變異總量",
+    "label_en": "Local (turnover) variation",
+    "definition_zh": "所有殼層局域能量轉移絕對值的時空總積分（§19）；若其發散，由 §4 worldvolume 界與 §17 subthreshold 界聯合可知，發散必須集中在 finite weighted active worldvolume 上。",
+    "definition_en": "The total spacetime integral of the absolute local energy transfer summed over all shells (§19); if divergent, the §4 worldvolume bound and §17 subthreshold bound jointly force the divergence to concentrate on a finite weighted active worldvolume.",
+    "defining_relation": "\\mathcal V_{\\rm loc}=\\sum_q\\int|T_q^{loc}|\\,dt",
+    "notes": "§18 以文字先描述此 'absolute variation'，§19 正式賦予符號 V_loc。"
+  },
+  {
+    "key": "ns.c3.c3k.congestion_variation_principle",
+    "latex": "\\textbf{Congestion--Variation Principle}",
+    "label_zh": "擁塞—變異原理",
+    "label_en": "Congestion–Variation Principle",
+    "definition_zh": "§19 命名的 gauge-invariant 原理：若 V_loc 發散，其發散必然集中於（定理 4.1 給出的）有限加權 active worldvolume 上，而非分散於整個 spacetime。",
+    "definition_en": "The gauge-invariant principle named in §19: if V_loc diverges, the divergence must concentrate on the finite weighted active worldvolume established by Theorem 4.1, rather than spreading across all spacetime.",
+    "notes": "是本輪 occupancy（M_1(β)<∞，§4/27）與 subthreshold turnover（定理 17.1，§17）兩結果的聯合推論。"
+  },
+  {
+    "key": "ns.c3.c3k.heterochiral_triad",
+    "latex": "\\tau=(k,p,q),\\quad e_{\\rm uniq}",
+    "label_zh": "異手性三元組與唯一符能量",
+    "label_en": "Heterochiral triad and unique-sign modal energy",
+    "definition_zh": "三元組 τ=(k,p,q) 標記一組 heterochiral 交互作用（§21，沿用 C3-A/B/D 的三元組架構）；e_uniq 為該三元組中唯一符 helicity mode 攜帶的能量，滿足 R_τ=r_τ·ė_uniq。",
+    "definition_en": "The triad τ=(k,p,q) labels a heterochiral interaction (§21, reusing the triad framework from C3-A/B/D); e_uniq is the energy carried by the triad's unique-sign helicity mode, satisfying R_τ=r_τ·ė_uniq.",
+    "notes": "§22/39 交替以 ė_τ 或 ΔE_τ 表示同一 per-triad modal energy（速率 vs 增量形式），源文本身有此記號漂移，指涉同一物理量。"
+  },
+  {
+    "key": "ns.c3.c3k.critical_pair_production_rate",
+    "latex": "\\mathcal R_\\tau",
+    "label_zh": "臨界螺旋對產生率",
+    "label_en": "Critical helical pair-production rate",
+    "definition_zh": "三元組 τ 的臨界對產生率，精確等於唯一符 mode 波數 r_τ 乘其能量變化率（§21）；對 local triad（k~p~q~λ_τ）漸近等價於比 ordinary energy transfer |ė| 多一個頻率因子的 λ_τ|ė_uniq|，是 One-Frequency-Moment Gap 的定量核心。",
+    "definition_en": "The critical pair-production rate for triad τ, exactly equal to the unique-sign mode's wavenumber r_τ times its energy rate (§21); for local triads (k~p~q~λ_τ) it is asymptotically λ_τ|ė_uniq| — one frequency factor above ordinary energy transfer |ė| — the quantitative core of the One-Frequency-Moment Gap.",
+    "defining_relation": "\\mathcal R_\\tau=r_\\tau\\dot e_{\\rm uniq}\\qquad\\text{(local triad: }|\\mathcal R_\\tau|\\asymp\\lambda_\\tau|\\dot e_{\\rm uniq}|\\text{)}",
+    "notes": "聚合版本 R（無 τ 下標，§20）由 C3-A/B 證明 hypothetical blow-up 要求 ∫[R]_+dt=∞，非本輪首次定義；本輪新增的是逐三元組 λ-權重關係。"
+  },
+  {
+    "key": "ns.c3.c3k.one_frequency_moment_gap",
+    "latex": "\\textbf{One-Frequency-Moment Gap}",
+    "label_zh": "單一頻率矩缺口",
+    "label_en": "One-Frequency-Moment Gap",
+    "definition_zh": "本輪標題性結果（定理 C3-K.4，§22）：ordinary energy transfer 變異的有限性（∑_τ∫|ė_τ|dt<∞）並不能控制多一個 λ 權重的 critical pair-production 變異（∑_τ∫λ_τ|ė_τ|dt），兩者在 scaling 上完全相容。",
+    "definition_en": "The round's headline result (Thm C3-K.4, §22): finiteness of the ordinary energy-transfer variation (∑_τ∫|ė_τ|dt<∞) does not control the one-λ-weighted critical pair-production variation (∑_τ∫λ_τ|ė_τ|dt), the two being fully scaling-compatible.",
+    "defining_relation": "\\sum_\\tau\\int|\\dot e_\\tau|\\,dt<\\infty\\ \\not\\Longrightarrow\\ \\sum_\\tau\\int\\lambda_\\tau|\\dot e_\\tau|\\,dt<\\infty",
+    "notes": "由 §23 的抽象 X_n/Y_n 例子具體示範；§39 結論以 ∑|ΔE_τ|<∞ 與 ∑λ_τ|ΔE_τ|=∞ 的形式重述同一缺口。下一輪 C3-L 的核心問題即由此展開。"
+  },
+  {
+    "key": "ns.c3.c3k.toy_geometric_ledger",
+    "latex": "X_n,\\ Y_n",
+    "label_zh": "抽象幾何轉移帳本（玩具例）",
+    "label_en": "Abstract geometric transfer ledger (toy example)",
+    "definition_zh": "§23 具體示範 One-Frequency-Moment Gap 的抽象數列：X_n=λ_n^{-1} 模擬每代 ordinary energy transfer（∑X_n<∞），Y_n=λ_nX_n=1 模擬 critical weighted transfer（∑Y_n=∞）；作者明言此非 N–S 解的實際建構，僅為 scaling 相容性示範。",
+    "definition_en": "The abstract sequence pair from §23 concretely illustrating the One-Frequency-Moment Gap: X_n=λ_n^{-1} models per-generation ordinary energy transfer (∑X_n<∞), while Y_n=λ_nX_n=1 models the critical weighted transfer (∑Y_n=∞); explicitly not a Navier–Stokes solution construction, only a scaling-compatibility demonstration.",
+    "notes": "λ_n=2^n，與 λ_q 同型但索引 n 為抽象世代，非實際 shell。"
+  },
+  {
+    "key": "ns.c3.c3k.critical_l2_stock",
+    "latex": "C_q",
+    "label_zh": "臨界 L^2 儲量",
+    "label_en": "Critical L^2 stock",
+    "definition_zh": "殼層 q 的正規化臨界能量儲量，定義為 C_q=λ_q‖u_q‖_2^2/ν^2（§25）；若 a_q≥β，由 Bernstein 下界得 C_q≥cβ^2，即每個臨界活躍殼層攜帶 O(1) 正規化儲量，儘管其 ordinary 能量代價沿幾何殼層可求和。",
+    "definition_en": "The normalized critical energy stock at shell q, defined as C_q=λ_q‖u_q‖_2^2/ν^2 (§25); if a_q≥β, the Bernstein lower bound gives C_q≥cβ^2, so every critical-active shell carries O(1) normalized stock even though its ordinary energy cost is summable along geometric shells.",
+    "notes": "展示 '無限多個 O(1) critical tokens 仍可具有 finite ordinary energy' 的另一版本 moment gap，與 §26 的 E_q 互為對照。"
+  },
+  {
+    "key": "ns.c3.c3k.counter_ledger_energy",
+    "latex": "E_q",
+    "label_zh": "抽象計數帳本能量",
+    "label_en": "Abstract counter-ledger energy",
+    "definition_zh": "§26 抽象取用的逐殼層能量下界值 E_q=cν^2β^2λ_q^{-1}，滿足 ∑_qE_q<∞，但正規化臨界儲量 λ_qE_q/ν^2=cβ^2 對每個尺度都保持固定正值；明言為 scaling counter-ledger，非 N–S field construction。",
+    "definition_en": "The per-shell energy lower-bound value abstractly taken in §26, E_q=cν^2β^2λ_q^{-1}, satisfying ∑_qE_q<∞ while the normalized critical stock λ_qE_q/ν^2=cβ^2 stays fixed and positive at every scale; explicitly flagged as a scaling counter-ledger, not an N–S field construction.",
+    "notes": "與 C_q（§25）呈現同一 scaling 現象的第二個示範版本。"
+  },
+  {
+    "key": "ns.c3.c3k.occupation_moment_one",
+    "latex": "M_1(\\beta)",
+    "label_zh": "第一占用矩",
+    "label_en": "First occupation moment",
+    "definition_zh": "即定理 4.1/C3-K.1 所證的 absolute active-worldvolume budget，於 §27 正式命名為 M_1(β)；由 energy inequality 自動控制，M_1(β)≤CE_0/(ν^3β^2)。",
+    "definition_en": "The absolute active-worldvolume budget proved in Thm 4.1/C3-K.1, formally named M_1(β) in §27; automatically controlled by the energy inequality, M_1(β)≤CE_0/(ν^3β^2).",
+    "defining_relation": "M_1(\\beta)=\\sum_{q,\\sigma}\\lambda_q\\left|A_{q,\\sigma}(\\beta)\\right|<\\infty",
+    "notes": "對應論文標題 'Absolute Occupancy Worldvolume'；§29 稱其為 C2 dissipation wavenumber Λ∈L^1\\setminus L^{5/2} 的 shell-resolved 精細化版本。"
+  },
+  {
+    "key": "ns.c3.c3k.occupation_moment_two",
+    "latex": "M_2(\\beta)",
+    "label_zh": "第二占用矩",
+    "label_en": "Second occupation moment",
+    "definition_zh": "§27/定理 C3-K.5 引入的高階占用矩，對應 local critical viscous window 的自然速率 νλ_q^2；不像 M_1(β) 被 energy inequality 自動控制，其是否必然發散（'parabolic Zeno cascade' 特徵）是下一輪 C3-L 的 L1 開放問題。",
+    "definition_en": "The higher occupation moment introduced in §27/Thm C3-K.5, matching the natural rate νλ_q^2 of the local critical viscous window; unlike M_1(β) it is not automatically controlled by the energy inequality — whether it must diverge (the 'parabolic Zeno cascade' signature) is left as open problem L1 for the next round, C3-L.",
+    "defining_relation": "M_2(\\beta)=\\sum_{q,\\sigma}\\lambda_q^2\\left|A_{q,\\sigma}(\\beta)\\right|",
+    "notes": "例示：若 |A_q|~λ_q^{-2}，則 M_1~∑λ_q^{-1}<∞ 但 M_2~∑1=∞，此即 §28 的 One-Moment Occupancy Barrier。"
+  },
+  {
+    "key": "ns.c3.c3k.general_occupation_moment",
+    "latex": "M_s(\\mu)",
+    "label_zh": "一般化 s 階占用矩",
+    "label_en": "General s-th occupation moment",
+    "definition_zh": "§35 True ETN 更新中將 M_1、M_2 推廣為占用測度 μ（即 μ_β，μ_q 為其 shell-q marginal）的一般 s 階頻率矩 M_s(μ)=∑_qλ_q^sμ_q；本輪顯示 M_0<∞（適當正規化）並不控制 M_1，凸顯 True ETN non-collapse 需處理 finite mass escaping to infinity while higher moments diverge。",
+    "definition_en": "In the §35 True ETN update, M_1 and M_2 are generalized to an arbitrary s-th frequency moment M_s(μ)=∑_qλ_q^sμ_q of the occupancy measure μ (i.e. μ_β, with μ_q its shell-q marginal); this round shows M_0<∞ (under suitable normalization) does not control M_1, highlighting that True ETN non-collapse must handle finite mass escaping to infinity while higher moments diverge.",
+    "notes": "s=1,2 時分別與 M_1(β)、M_2(β) 一致（取 μ=μ_β）。"
+  },
+  {
+    "key": "ns.c3.c3k.x_integration_variation_certificates",
+    "latex": "\\operatorname{EnergyVariation},\\ \\operatorname{CriticalWeightedVariation}",
+    "label_zh": "X-Integration 能量變異／臨界加權變異證書",
+    "label_en": "X-Integration EnergyVariation / CriticalWeightedVariation certificates",
+    "definition_zh": "§34 為 X-Integration Unified Program 新增的強制規範：每份 transfer certificate 必須分開記錄 ordinary EnergyVariation（如 ∑E）與 CriticalWeightedVariation（如 ∑λE），不得因前者有限就推論後者有限。",
+    "definition_en": "A new hard requirement in §34 for the X-Integration Unified Program: every transfer certificate must separately record ordinary EnergyVariation (e.g. ∑E) and CriticalWeightedVariation (e.g. ∑λE), and must not infer finiteness of the latter from finiteness of the former.",
+    "notes": "直接對應 One-Frequency-Moment Gap 的 bookkeeping 落實；與新增守衛 G_MOMENT 搭配使用。"
+  },
+  {
+    "key": "ns.c3.c3k.moment_guard",
+    "latex": "G_{\\rm MOMENT}",
+    "label_zh": "頻率矩守衛",
+    "label_en": "Moment guard",
+    "definition_zh": "§34 新增的 X-Integration 檢查項，用以偵測證明是否『偷偷』把一個 λ^1 的量提升為 λ^2（或更高）的量而未經合法論證，直接防範 One-Frequency-Moment Gap 相關的推理錯誤。",
+    "definition_en": "A new X-Integration check introduced in §34 to detect whether a proof silently raises a λ^1 quantity to λ^2 (or higher) without legitimate justification — a direct safeguard against reasoning errors around the One-Frequency-Moment Gap.",
+    "notes": "與 EnergyVariation/CriticalWeightedVariation 證書配合使用。"
+  }
+]

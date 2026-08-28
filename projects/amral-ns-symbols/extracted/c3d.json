@@ -1,0 +1,287 @@
+[
+  {
+    "key": "ns.c3.c3d.cutoff_k",
+    "latex": "K",
+    "label_zh": "銳截止波數",
+    "label_en": "sharp cutoff wavenumber",
+    "definition_zh": "第3節引入的正實數閾值 K>0，用以將單一 triad 的三個模 k,p,q 分成高於／低於截止的兩側，是本輪所有 cutoff-flux 分析的自變量。",
+    "definition_en": "A positive threshold K>0 introduced in Sec.3 that splits a triad's three modes k,p,q into sides above/below the spectral cutoff; the independent variable of all cutoff-flux results in this round.",
+    "notes": "與波數 k,p,q 本身不同，K 是外加的觀測截止，可自由掃過整個譜。"
+  },
+  {
+    "key": "ns.c3.c3d.e_highside",
+    "latex": "E_{>K}^{(\\tau)}",
+    "label_zh": "Triad高側能量",
+    "label_en": "triad high-side energy",
+    "definition_zh": "第3節定義，單一 triad τ 中模長大於 K 的所有模能量之和，用來定義 cutoff flux。",
+    "definition_en": "Defined in Sec.3 as the sum of modal energies of a single triad τ whose wavenumber exceeds K; the quantity whose time-derivative defines the cutoff flux.",
+    "defining_relation": "E_{>K}^{(\\tau)}=\\sum_{r\\in\\{k,p,q\\},\\,r>K}e_r"
+  },
+  {
+    "key": "ns.c3.c3d.phi_tau",
+    "latex": "\\Phi_\\tau(K)",
+    "label_zh": "Triad截止能量流",
+    "label_en": "triad cutoff flux",
+    "definition_zh": "第3節核心定義：單一 triad 高側能量 $E_{>K}^{(\\tau)}$ 的非線性時間導數，符號約定 $\\Phi_\\tau(K)>0$ 表示能量經此 triad 向截止以上的高波數流動。",
+    "definition_en": "The central Sec.3 definition: the nonlinear time-derivative of the triad's high-side energy; sign convention $\\Phi_\\tau(K)>0$ means energy flows through this triad toward wavenumbers above K.",
+    "defining_relation": "\\Phi_\\tau(K)=\\left(\\frac{d}{dt}E_{>K}^{(\\tau)}\\right)_{\\mathrm{nonlinear}}"
+  },
+  {
+    "key": "ns.c3.c3d.phi_ii",
+    "latex": "\\Phi_{II}(K)",
+    "label_zh": "Class II分段截止流",
+    "label_en": "Class-II piecewise cutoff flux",
+    "definition_zh": "定理4.1（C3-D.1）給出的分段公式，顯示 positive Class-II triad 在 $k<K<p$ 為負（reverse），在 $p<K<q$ 為正（forward），是本輪 sign-reversal 結果的核心對象。",
+    "definition_en": "The piecewise formula from Theorem 4.1 (C3-D.1): a positive Class-II triad's flux is negative on $k<K<p$ (reverse) and positive on $p<K<q$ (forward) — the central object behind this round's sign-reversal result.",
+    "defining_relation": "\\Phi_{II}(K)=\\begin{cases}0,&0<K<k\\\\-(q-p)\\Theta_\\tau,&k<K<p\\\\(p+k)\\Theta_\\tau,&p<K<q\\\\0,&K>q\\end{cases}",
+    "notes": "第7節另證明 forward window 必落在截止的 O(k) boundary layer 內：K-k<p<K<q<K+k。"
+  },
+  {
+    "key": "ns.c3.c3d.phi_iii_iv",
+    "latex": "\\Phi_{III}(K),\\ \\Phi_{IV}(K)",
+    "label_zh": "Class III/IV均勻正向流",
+    "label_en": "Class III/IV uniform forward flux",
+    "definition_zh": "定理8.1（C3-D.2）證明：positive Class III 或 IV triad 的 $\\Phi_\\tau(K)$ 對所有中間截止 $K\\in(k,q)$ 恆正，與 Class II 的 reversal 形成對比。",
+    "definition_en": "Theorem 8.1 (C3-D.2): for a positive Class III or IV triad, $\\Phi_\\tau(K)>0$ holds for every intermediate cutoff $K\\in(k,q)$, contrasting with Class II's sign reversal.",
+    "defining_relation": "\\Phi_\\tau(K)>0\\quad\\forall K\\in(k,q)"
+  },
+  {
+    "key": "ns.c3.c3d.frakf_tau",
+    "latex": "\\mathfrak F_\\tau",
+    "label_zh": "對數截止積分流",
+    "label_en": "log-cutoff integrated flux",
+    "definition_zh": "第10節定義，將 $\\Phi_\\tau(K)$ 以對數尺度測度 $dK/K$ 對所有截止積分，得到單一 triad 對「跨尺度總淨方向」的量度。",
+    "definition_en": "Defined in Sec.10 as the integral of $\\Phi_\\tau(K)$ against the logarithmic scale measure $dK/K$ over all cutoffs, giving a single triad's net cross-scale flux direction.",
+    "defining_relation": "\\mathfrak F_\\tau=\\int_0^\\infty\\Phi_\\tau(K)\\,\\frac{dK}{K}"
+  },
+  {
+    "key": "ns.c3.c3d.frakf_ii",
+    "latex": "\\mathfrak F_{II}",
+    "label_zh": "Class II對數積分流",
+    "label_en": "Class-II log-integrated flux",
+    "definition_zh": "第10–12節導出的 Class II 顯式 $\\mathfrak F_{II}$ 公式；定理12.1（C3-D.3）證明當 $k/p<\\chi_\\ast\\approx0.27846$ 時 $\\mathfrak F_{II}<0$，即 reverse 貢獻主導。",
+    "definition_en": "The explicit Class-II formula derived in Sec.10–12; Theorem 12.1 (C3-D.3) proves $\\mathfrak F_{II}<0$ whenever $k/p<\\chi_\\ast\\approx0.27846$, i.e. the reverse contribution dominates.",
+    "defining_relation": "\\mathfrak F_{II}=-(q-p)\\Theta_\\tau\\log\\frac{p}{k}+(p+k)\\Theta_\\tau\\log\\frac{q}{p}"
+  },
+  {
+    "key": "ns.c3.c3d.frakf_iii_iv",
+    "latex": "\\mathfrak F_{III},\\ \\mathfrak F_{IV}",
+    "label_zh": "Class III/IV對數積分流",
+    "label_en": "Class III/IV log-integrated flux",
+    "definition_zh": "第14節由定理8.1直接推得：positive Class III、IV 的 $\\mathfrak F_\\tau$ 恆正，即在對數尺度上均勻正向，與 Class II 相對。",
+    "definition_en": "Sec.14 derives directly from Theorem 8.1 that positive Class III and IV always have $\\mathfrak F_\\tau>0$ — uniformly forward on the logarithmic scale, opposite to Class II.",
+    "defining_relation": "\\mathfrak F_{III}>0,\\qquad\\mathfrak F_{IV}>0"
+  },
+  {
+    "key": "ns.c3.c3d.chi",
+    "latex": "\\chi",
+    "label_zh": "非局部性比值",
+    "label_en": "nonlocality ratio",
+    "definition_zh": "$\\chi=k/p$，衡量 triad 非局部程度的比值；本輪（第11節起）系統性用其界定 forward-window 厚度、log-flux 反轉閾值 $\\chi_\\ast$ 與 kernel/amplitude 指數分類。",
+    "definition_en": "$\\chi=k/p$, the ratio measuring a triad's nonlocality; this round (from Sec.11 on) systematically uses it to bound the forward-window thickness, the log-flux reversal threshold $\\chi_\\ast$, and the kernel/amplitude exponent classification.",
+    "defining_relation": "\\chi=\\frac{k}{p}",
+    "notes": "符號承接自 C3-C（本輪 Sec.0 已引用），但 C3-D 賦予其新的定量角色。Carried over from C3-C but given new quantitative roles here."
+  },
+  {
+    "key": "ns.c3.c3d.delta",
+    "latex": "\\delta",
+    "label_zh": "高頻對相對展寬",
+    "label_en": "high-pair relative spread",
+    "definition_zh": "第11節定義 $\\delta=(q-p)/p$，度量 $p,q$ 間的相對間距；triangle geometry 給出 $0<\\delta\\le\\chi\\le1$，是改寫 $\\mathfrak F_{II}$ 公式的關鍵變量。",
+    "definition_en": "Defined in Sec.11 as $\\delta=(q-p)/p$, measuring the relative spacing between $p$ and $q$; triangle geometry gives $0<\\delta\\le\\chi\\le1$, the key variable used to rewrite the $\\mathfrak F_{II}$ formula.",
+    "defining_relation": "\\delta=\\frac{q-p}{p}"
+  },
+  {
+    "key": "ns.c3.c3d.chi_star",
+    "latex": "\\chi_\\ast",
+    "label_zh": "對數反轉臨界值",
+    "label_en": "log-cutoff reversal threshold",
+    "definition_zh": "第12節（C3-D.3）定義為 $\\log(1/\\chi_\\ast)=1+\\chi_\\ast$ 的唯一正根，等於 Lambert $W$ 函數值 $W(e^{-1})\\approx0.278464542761$；當 $\\chi<\\chi_\\ast$ 時 positive Class II 必有 $\\mathfrak F_{II}<0$。",
+    "definition_en": "Defined in Sec.12 (Theorem C3-D.3) as the unique positive root of $\\log(1/\\chi_\\ast)=1+\\chi_\\ast$, equal to the Lambert-$W$ value $W(e^{-1})\\approx0.278464542761$; whenever $\\chi<\\chi_\\ast$, a positive Class-II triad must have $\\mathfrak F_{II}<0$.",
+    "defining_relation": "\\log\\frac{1}{\\chi_\\ast}=1+\\chi_\\ast \\Longleftrightarrow \\chi_\\ast=W(e^{-1})\\approx0.278464542761"
+  },
+  {
+    "key": "ns.c3.c3d.g_helical",
+    "latex": "|g_{s_ks_ps_q}(k,p,q)|",
+    "label_zh": "Waleffe耦合係數",
+    "label_en": "Waleffe coupling coefficient",
+    "definition_zh": "第16節引入的標準 Waleffe helical 三波耦合係數量值，以三角形面積相關量 $Q$ 表示，是第17–20節所有 nonlocality bound 的幾何來源。",
+    "definition_en": "The standard Waleffe helical triad-coupling coefficient magnitude introduced in Sec.16, expressed via the triangle-area quantity $Q$; the geometric source of every nonlocality bound in Sec.17–20.",
+    "defining_relation": "|g_{s_ks_ps_q}(k,p,q)|=\\frac{Q}{4kpq}\\left|s_kk+s_pp+s_qq\\right|"
+  },
+  {
+    "key": "ns.c3.c3d.q_factor",
+    "latex": "Q",
+    "label_zh": "三角形面積因子",
+    "label_en": "triangle-area factor",
+    "definition_zh": "第16節定義 $Q^2=2(k^2p^2+p^2q^2+q^2k^2)-k^4-p^4-q^4$，等於波數三角形面積的固定倍數，滿足 $Q\\le2kp$，用於構成 helical 耦合係數。",
+    "definition_en": "Defined in Sec.16 by $Q^2=2(k^2p^2+p^2q^2+q^2k^2)-k^4-p^4-q^4$, equal to a fixed multiple of the wavenumber-triangle area, satisfying $Q\\le2kp$; the building block of the helical coupling coefficient.",
+    "defining_relation": "Q^2=2(k^2p^2+p^2q^2+q^2k^2)-k^4-p^4-q^4"
+  },
+  {
+    "key": "ns.c3.c3d.g_ii",
+    "latex": "|g_{II}|",
+    "label_zh": "Class II係數上界",
+    "label_en": "Class-II coefficient bound",
+    "definition_zh": "第17節證明 Class II 的 $|k-p-q|\\le2q$，故 $|g_{II}|\\le C$ 為 universal 常數，即非局部極限下 $g_{II}=O(1)$、無自動衰減（第18節）。",
+    "definition_en": "Sec.17 shows Class II's $|k-p-q|\\le2q$ gives $|g_{II}|\\le C$ for a universal constant, i.e. $g_{II}=O(1)$ in the strong-nonlocal limit with no automatic suppression (Sec.18).",
+    "defining_relation": "|g_{II}|\\le C"
+  },
+  {
+    "key": "ns.c3.c3d.g_iii_iv",
+    "latex": "|g_{III}|,\\ |g_{IV}|",
+    "label_zh": "Class III/IV係數上界",
+    "label_en": "Class III/IV coefficient bound",
+    "definition_zh": "第17節分別證明 $|g_{III}|,|g_{IV}|\\le Ck/q\\le Ck/p$，即在非局部極限下 $g_{III},g_{IV}=O(\\chi)$，比 Class II 多一階線性抑制（第18節）。",
+    "definition_en": "Sec.17 proves $|g_{III}|,|g_{IV}|\\le Ck/q\\le Ck/p$, so in the strong-nonlocal limit $g_{III},g_{IV}=O(\\chi)$ — one extra order of linear suppression relative to Class II (Sec.18).",
+    "defining_relation": "|g_{III}|\\le C\\frac{k}{q}\\le C\\frac{k}{p},\\qquad|g_{IV}|\\le C\\frac{k}{q}\\le C\\frac{k}{p}"
+  },
+  {
+    "key": "ns.c3.c3d.amplitudes_akpq",
+    "latex": "a_k,\\ a_p,\\ a_q",
+    "label_zh": "helical模振幅",
+    "label_en": "helical mode amplitudes",
+    "definition_zh": "第19節定義 $a_k=|u^{s_k}(\\mathbf k)|$ 等，為三個 helical Fourier 模的振幅量值，透過 $|\\Theta_\\tau|\\le C|g_\\tau|a_ka_pa_q$ 將 transfer 與 kernel、振幅連結。",
+    "definition_en": "Defined in Sec.19 as $a_k=|u^{s_k}(\\mathbf k)|$ etc., the amplitude magnitudes of the three helical Fourier modes; linked to the transfer scalar via $|\\Theta_\\tau|\\le C|g_\\tau|a_ka_pa_q$.",
+    "defining_relation": "a_k=|u^{s_k}(\\mathbf k)|,\\quad a_p=|u^{s_p}(\\mathbf p)|,\\quad a_q=|u^{s_q}(\\mathbf q)|",
+    "notes": "第21節 Amplitude Compensation Debt：Class II 需 $a_{k_n}a_{p_n}a_{q_n}\\gtrsim\\chi_n^{-2}$，Class III/IV 需 $\\gtrsim\\chi_n^{-1}$，才能在 $\\chi_n\\to0$ 下維持不消失的 pair production。"
+  },
+  {
+    "key": "ns.c3.c3d.theta_tau",
+    "latex": "\\Theta_\\tau",
+    "label_zh": "純量transfer參數",
+    "label_en": "scalar transfer parameter",
+    "definition_zh": "第2節「回顧」引入的純量參數，決定三模能量變化率的共同比例因子（承接自更早的 C3 分輪）；本輪據此推出每一 class 的 $\\Phi_\\tau(K)$ 分段公式與 $\\mathfrak F_\\tau$。",
+    "definition_en": "The scalar parameter recapped in Sec.2 that sets the common proportionality of the three modal energy rates (carried over from an earlier C3 sub-round); this round uses it to derive each class's piecewise $\\Phi_\\tau(K)$ and $\\mathfrak F_\\tau$.",
+    "defining_relation": "(\\dot e_k,\\dot e_p,\\dot e_q)=\\Theta_\\tau(s_pp-s_qq, s_qq-s_kk, s_kk-s_pp)",
+    "notes": "標記為本輪「回顧」對象，非 C3-D 首次定義，但本輪為其賦予截止流/log-flux 的具體新結果。"
+  },
+  {
+    "key": "ns.c3.c3d.psi_tau",
+    "latex": "\\Psi_\\tau",
+    "label_zh": "Class IV正向transfer參數",
+    "label_en": "Class-IV positive transfer parameter",
+    "definition_zh": "第2節針對 Class IV 定義 $\\Psi_\\tau=-\\Theta_\\tau>0$，使 positive pair production 情形下的 transfer 參數符號一致為正，供第8、19節推導使用。",
+    "definition_en": "Defined in Sec.2 for Class IV as $\\Psi_\\tau=-\\Theta_\\tau>0$, so the transfer parameter has a uniformly positive sign under positive pair production; used throughout Sec.8, 19.",
+    "defining_relation": "\\Psi_\\tau=-\\Theta_\\tau>0"
+  },
+  {
+    "key": "ns.c3.c3d.r_ii",
+    "latex": "\\mathcal R_{II}",
+    "label_zh": "Class II臨界對產生",
+    "label_en": "Class-II critical pair production",
+    "definition_zh": "第2節定義 $\\mathcal R_{II}=k(q-p)\\Theta_\\tau$；第19–20節導出量值界 $|\\mathcal R_{II}|\\le Ck^2a_ka_pa_q$，相對 $p^2a_ka_pa_q$ 呈二次非局部指數 $\\chi^2$。",
+    "definition_en": "Defined in Sec.2 as $\\mathcal R_{II}=k(q-p)\\Theta_\\tau$; Sec.19–20 derive the bound $|\\mathcal R_{II}|\\le Ck^2a_ka_pa_q$, giving a quadratic nonlocality exponent $\\chi^2$ relative to $p^2a_ka_pa_q$.",
+    "defining_relation": "\\mathcal R_{II}=k(q-p)\\Theta_\\tau,\\qquad|\\mathcal R_{II}|\\le Ck^2a_ka_pa_q"
+  },
+  {
+    "key": "ns.c3.c3d.r_iii",
+    "latex": "\\mathcal R_{III}",
+    "label_zh": "Class III臨界對產生",
+    "label_en": "Class-III critical pair production",
+    "definition_zh": "第2節定義 $\\mathcal R_{III}=p(q-k)\\Theta_\\tau$；第19–20節導出 $|\\mathcal R_{III}|\\le Ckpa_ka_pa_q$，呈線性非局部指數 $\\chi$。",
+    "definition_en": "Defined in Sec.2 as $\\mathcal R_{III}=p(q-k)\\Theta_\\tau$; Sec.19–20 give $|\\mathcal R_{III}|\\le Ckpa_ka_pa_q$, a linear nonlocality exponent $\\chi$.",
+    "defining_relation": "\\mathcal R_{III}=p(q-k)\\Theta_\\tau,\\qquad|\\mathcal R_{III}|\\le Ckpa_ka_pa_q"
+  },
+  {
+    "key": "ns.c3.c3d.r_iv",
+    "latex": "\\mathcal R_{IV}",
+    "label_zh": "Class IV臨界對產生",
+    "label_en": "Class-IV critical pair production",
+    "definition_zh": "第2節定義 $\\mathcal R_{IV}=q(k-p)\\Theta_\\tau$；第19–20節導出 $|\\mathcal R_{IV}|\\le Ckpa_ka_pa_q$，同樣呈線性非局部指數 $\\chi$。",
+    "definition_en": "Defined in Sec.2 as $\\mathcal R_{IV}=q(k-p)\\Theta_\\tau$; Sec.19–20 give $|\\mathcal R_{IV}|\\le Ckpa_ka_pa_q$, also a linear nonlocality exponent $\\chi$.",
+    "defining_relation": "\\mathcal R_{IV}=q(k-p)\\Theta_\\tau,\\qquad|\\mathcal R_{IV}|\\le Ckpa_ka_pa_q"
+  },
+  {
+    "key": "ns.c3.c3d.aluie_eyink_sigma",
+    "latex": "\\sigma_p,\\ \\sigma_3,\\ P",
+    "label_zh": "Aluie–Eyink尺度指數",
+    "label_en": "Aluie–Eyink scaling exponent",
+    "definition_zh": "第22節引用 Aluie–Eyink sharp spectral filter 定理的符號：正的慣性域 scaling 指數 $0<\\sigma_p<1$，以及非局部 band 對比波數 $P\\gg K$，衰減因子例如 $(K/P)^{2\\sigma_3}$；屬外部文獻符號，非本文原創定義。",
+    "definition_en": "Symbols cited in Sec.22 from the Aluie–Eyink sharp-spectral-filter theorem: a positive inertial-range scaling exponent $0<\\sigma_p<1$, and an outer comparison wavenumber $P\\gg K$ with decay factor e.g. $(K/P)^{2\\sigma_3}$; imported from external literature, not defined by this paper.",
+    "notes": "用於第23節「不能偷用 locality theorem 解 Clay 問題」的討論，屬引用符號而非本輪原創定義。"
+  },
+  {
+    "key": "ns.c3.c3d.guard_fsig",
+    "latex": "G-FSIG",
+    "label_zh": "截止流簽章guard",
+    "label_en": "cutoff-flux signature guard",
+    "definition_zh": "第24節新增的 X-Integration guard，規定必須完整保存映射 $K\\mapsto\\Phi_\\tau(K)$，不能只記錄單一 transfer 振幅。",
+    "definition_en": "An X-Integration guard added in Sec.24 requiring the full map $K\\mapsto\\Phi_\\tau(K)$ to be stored, not merely a single transfer amplitude.",
+    "defining_relation": "K\\mapsto\\Phi_\\tau(K)"
+  },
+  {
+    "key": "ns.c3.c3d.guard_fwin",
+    "latex": "G-FWIN",
+    "label_zh": "正向窗寬guard",
+    "label_en": "forward-window width guard",
+    "definition_zh": "第24節定義 Class II 的對數正向窗寬 $\\operatorname{width}_{\\log}(p,q)=\\log(q/p)\\le\\chi$，作為 X-Integration 必存的幾何量。",
+    "definition_en": "Defined in Sec.24 as Class II's logarithmic forward-window width $\\operatorname{width}_{\\log}(p,q)=\\log(q/p)\\le\\chi$, a geometric quantity X-Integration must retain.",
+    "defining_relation": "\\operatorname{width}_{\\log}(p,q)=\\log(q/p)\\le\\chi"
+  },
+  {
+    "key": "ns.c3.c3d.guard_log",
+    "latex": "G-LOG",
+    "label_zh": "對數截止符號guard",
+    "label_en": "log-cutoff sign guard",
+    "definition_zh": "第24節規定：若 $\\chi<\\chi_\\ast$，positive Class II 事件必須標記 $\\mathfrak F_{II}<0$，將定理12.1直接嵌入 X-Integration 記帳規則。",
+    "definition_en": "Sec.24 requires that whenever $\\chi<\\chi_\\ast$, a positive Class-II event must be flagged $\\mathfrak F_{II}<0$, embedding Theorem 12.1 directly into the X-Integration bookkeeping rule.",
+    "defining_relation": "\\chi<\\chi_\\ast\\Rightarrow\\mathfrak F_{II}<0"
+  },
+  {
+    "key": "ns.c3.c3d.guard_kernel",
+    "latex": "G-KERNEL",
+    "label_zh": "幾何抑制guard",
+    "label_en": "geometry suppression guard",
+    "definition_zh": "第24節規定必須保存 $g_{II}=O(1)$ 與 $g_{III/IV}=O(\\chi)$ 的幾何抑制分類，作為 X-Integration 的必存記錄。",
+    "definition_en": "Sec.24 requires storing the geometric-suppression classification $g_{II}=O(1)$ versus $g_{III/IV}=O(\\chi)$ as mandatory X-Integration bookkeeping.",
+    "defining_relation": "g_{II}=O(1),\\qquad g_{III/IV}=O(\\chi)"
+  },
+  {
+    "key": "ns.c3.c3d.guard_amp",
+    "latex": "G-AMP",
+    "label_zh": "振幅補償guard",
+    "label_en": "amplitude compensation guard",
+    "definition_zh": "第24節規定：若 $\\chi\\to0$ 但 pair production 不消失，必須顯式記錄振幅增長的來源，對應第21節的 Amplitude Compensation Debt。",
+    "definition_en": "Sec.24 requires that if $\\chi\\to0$ while pair production does not vanish, the source of amplitude growth must be explicitly recorded, corresponding to the Amplitude Compensation Debt of Sec.21."
+  },
+  {
+    "key": "ns.c3.c3d.c3e_local_ratio_c",
+    "latex": "c",
+    "label_zh": "局部比值下界(C3-E預告)",
+    "label_en": "local ratio lower bound (C3-E preview)",
+    "definition_zh": "第28節為下一輪 C3-E 預告的固定常數 $c>0$，限制 $c\\le k/p\\le1$ 以界定「局部」heterochiral triad 的範圍。",
+    "definition_en": "A fixed constant $c>0$ previewed in Sec.28 for the next round C3-E, constraining $c\\le k/p\\le1$ to delimit \"local\" heterochiral triads.",
+    "defining_relation": "c\\le\\frac{k}{p}\\le1",
+    "notes": "屬本文末段為 C3-E 鋪陳的符號，非 C3-D 本輪定理內容。"
+  },
+  {
+    "key": "ns.c3.c3d.c3e_r_loc",
+    "latex": "\\mathcal R_q^{\\rm loc}",
+    "label_zh": "局部殼層對產生(C3-E預告)",
+    "label_en": "local shell pair production (C3-E preview)",
+    "definition_zh": "第28節 E1 預告的 dyadic shell 局部 pair-production 量，用於研究 $\\sum_q\\int[\\mathcal R_q^{\\rm loc}]_+dt=\\infty$ 是否為 blow-up 必要條件。",
+    "definition_en": "The dyadic-shell local pair-production quantity previewed in Sec.28 (E1), used to ask whether $\\sum_q\\int[\\mathcal R_q^{\\rm loc}]_+dt=\\infty$ is necessary for blow-up.",
+    "notes": "C3-E 前瞻符號，本文未給出其顯式公式。"
+  },
+  {
+    "key": "ns.c3.c3d.c3e_lambda",
+    "latex": "\\lambda",
+    "label_zh": "局部共同尺度(C3-E預告)",
+    "label_en": "common local scale (C3-E preview)",
+    "definition_zh": "第28節 E3 預告，表示局部 triad 的共同尺度 $k\\sim p\\sim q\\sim\\lambda$，用於定義黏性時間 $\\tau_\\nu$。",
+    "definition_en": "Previewed in Sec.28 (E3) as the common scale of a local triad, $k\\sim p\\sim q\\sim\\lambda$, used to define the viscous time $\\tau_\\nu$.",
+    "defining_relation": "k\\sim p\\sim q\\sim\\lambda",
+    "notes": "C3-E 前瞻符號。"
+  },
+  {
+    "key": "ns.c3.c3d.c3e_tau_nu",
+    "latex": "\\tau_\\nu",
+    "label_zh": "黏性時間尺度(C3-E預告)",
+    "label_en": "viscous time scale (C3-E preview)",
+    "definition_zh": "第28節 E3 預告，定義 $\\tau_\\nu\\sim(\\nu\\lambda^2)^{-1}$，用於研究 positive pair-production 相位相干是否須在 $O(\\lambda^{-2})$ 窗內完成。",
+    "definition_en": "Previewed in Sec.28 (E3) as $\\tau_\\nu\\sim(\\nu\\lambda^2)^{-1}$, used to ask whether positive pair-production coherence must complete within an $O(\\lambda^{-2})$ window.",
+    "defining_relation": "\\tau_\\nu\\sim(\\nu\\lambda^2)^{-1}",
+    "notes": "C3-E 前瞻符號。"
+  }
+]

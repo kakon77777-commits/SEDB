@@ -1,0 +1,262 @@
+[
+  {
+    "key": "ns.c3.c3u.pressure_source_f",
+    "latex": "f = \\operatorname{tr}((\\nabla u)^2)",
+    "label_zh": "壓力源項",
+    "label_en": "Pressure source term",
+    "definition_zh": "第1節將壓力源定義為 f = tr((∇u)²)，滿足 -Δp = f。",
+    "definition_en": "Section 1 defines the pressure source as f = tr((∇u)²), satisfying -Δp = f.",
+    "defining_relation": "-\\Delta p = f = \\operatorname{tr}((\\nabla u)^2)"
+  },
+  {
+    "key": "ns.c3.c3u.pressure_hessian_kernel",
+    "latex": "H_p(x,t)=\\nabla^2p(x,t)=\\int_{\\mathbb R^3}K(x-y)f(y,t)\\,dy,\\quad |\\nabla^mK(z)|\\le C_m|z|^{-3-m}",
+    "label_zh": "壓力 Hessian 核",
+    "label_en": "Pressure Hessian kernel",
+    "definition_zh": "第1節將壓力 Hessian 場 H_p(x,t)=∇²p(x,t) 寫成核 K 對壓力源 f 的卷積，並給出核滿足 |z|^(-3-m) 的衰減估計。",
+    "definition_en": "Section 1 expresses the pressure Hessian field H_p(x,t)=∇²p(x,t) as the convolution of kernel K against the pressure source f, with a |z|^(-3-m) decay bound on the kernel.",
+    "notes": "同一符號 H_p 在第3節被重新賦義為 parent 的遠場截斷矩陣，與此處「壓力 Hessian 場」原意不同，下文各定理實際採用第3節之義。"
+  },
+  {
+    "key": "ns.c3.c3u.parent_child_ancestry",
+    "latex": "P=(x_p,t_p,R_p),\\quad C=(x_c,t_c,R_c),\\quad t_p<t_c,\\quad c_LR_p\\le R_c\\le C_LR_p",
+    "label_zh": "Parent-Child 祖裔對",
+    "label_en": "Parent-child ancestry pair",
+    "definition_zh": "第2節將一步 ancestry 表示成 parent 時空球 P=(x_p,t_p,R_p) 與 child C=(x_c,t_c,R_c)，並要求半徑之間為 bounded scale jump。",
+    "definition_en": "Section 2 represents one ancestry step as a parent spacetime ball P=(x_p,t_p,R_p) and a child C=(x_c,t_c,R_c), with a bounded scale jump between radii."
+  },
+  {
+    "key": "ns.c3.c3u.displacement_dpc",
+    "latex": "d_{pc}=|x_c-x_p|",
+    "label_zh": "Parent-Child 位移",
+    "label_en": "Parent-child spatial displacement",
+    "definition_zh": "第2節定義 d_pc = |x_c - x_p| 作為 ancestry route 中心之間的空間位移量。",
+    "definition_en": "Section 2 defines d_pc = |x_c - x_p| as the spatial displacement between ancestry-route centers."
+  },
+  {
+    "key": "ns.c3.c3u.far_cutoff_kappa_psi",
+    "latex": "\\kappa\\gg1,\\quad \\psi_p=0\\text{ on }B_{\\kappa R_p}(x_p),\\ \\psi_p=1\\text{ outside }B_{2\\kappa R_p}(x_p)",
+    "label_zh": "遠場截斷尺度與截斷函數",
+    "label_en": "Far cutoff scale and cutoff functions",
+    "definition_zh": "第3節固定大參數 κ 並取光滑截斷 ψ_p、ψ_c，在半徑 κR_p 內為零、2κR_p 外為一，藉此界定「遠場」。",
+    "definition_en": "Section 3 fixes a large parameter κ and takes smooth cutoffs ψ_p, ψ_c vanishing inside radius κR_p and equal to one outside 2κR_p, delineating the far region."
+  },
+  {
+    "key": "ns.c3.c3u.far_pressure_operator_and_matrices",
+    "latex": "T_x(g)=\\int K(x-y)g(y)\\,dy,\\quad H_p=T_{x_p}(\\psi_pf_p),\\quad H_c=T_{x_c}(\\psi_cf_c)",
+    "label_zh": "遠場壓力算子與遠場矩陣",
+    "label_en": "Far-pressure operator and far matrices",
+    "definition_zh": "第3節用算子 T_x(g)=∫K(x-y)g(y)dy 把 H_p、H_c 重新定義成 parent／child 各自的遠場截斷壓力矩陣，是之後所有 heredity 估計的操作對象。",
+    "definition_en": "Section 3 uses the operator T_x(g)=∫K(x-y)g(y)dy to redefine H_p, H_c as the far-cutoff pressure matrices at the parent and child, the operative objects for every later heredity estimate."
+  },
+  {
+    "key": "ns.c3.c3u.c3u1_pressure_heredity_decomposition",
+    "latex": "H_c-H_p=\\Delta H_{\\rm recl}+\\Delta H_{\\rm time}+\\Delta H_{\\rm space}",
+    "label_zh": "C3-U.1：精確壓力遺傳分解",
+    "label_en": "C3-U.1: Exact Pressure-Heredity Decomposition",
+    "definition_zh": "第4節的核心定理，藉插入兩個中介項將遠場壓力矩陣變化 H_c - H_p 精確拆成 reclassification、temporal turnover、spatial shift 三項的代數恆等式。",
+    "definition_en": "Section 4's central theorem, which inserts two intermediate terms to split the far-pressure matrix change H_c - H_p exactly into reclassification, temporal-turnover, and spatial-shift pieces.",
+    "defining_relation": "H_c-H_p=\\Delta H_{\\rm recl}+\\Delta H_{\\rm time}+\\Delta H_{\\rm space}"
+  },
+  {
+    "key": "ns.c3.c3u.delta_H_recl",
+    "latex": "\\Delta H_{\\rm recl}=T_{x_c}[(\\psi_c-\\psi_p)f_c]",
+    "label_zh": "重新分類項",
+    "label_en": "Reclassification term",
+    "definition_zh": "第4節定義 ΔH_recl 為 parent／child 遠近分類不同所貢獻的壓力矩陣差，第7節由環域擾流量界定其大小。",
+    "definition_en": "Section 4 defines ΔH_recl as the pressure-matrix contribution from the parent/child near-far reclassification, bounded in Section 7 by the annular enstrophy."
+  },
+  {
+    "key": "ns.c3.c3u.delta_H_time",
+    "latex": "\\Delta H_{\\rm time}=T_{x_c}[\\psi_p(f_c-f_p)]",
+    "label_zh": "時間源轉換項",
+    "label_en": "Temporal source turnover term",
+    "definition_zh": "第4節定義 ΔH_time 為固定 parent 遠近分類下壓力源隨時間變化所貢獻的矩陣差，第8-9節指出 energy inequality 本身不控制它。",
+    "definition_en": "Section 4 defines ΔH_time as the matrix contribution from the pressure source's change in time under the fixed parent classification; Sections 8-9 show the energy inequality alone does not control it."
+  },
+  {
+    "key": "ns.c3.c3u.delta_H_space",
+    "latex": "\\Delta H_{\\rm space}=T_{x_c}(\\psi_pf_p)-T_{x_p}(\\psi_pf_p)",
+    "label_zh": "空間中心位移項",
+    "label_en": "Spatial center-shift term",
+    "definition_zh": "第4節定義 ΔH_space 為僅移動求值中心所致的矩陣差，第5節定理5.1證明它比遠場 Hessian 振幅本身多壓一個 κ^(-1) 因子。",
+    "definition_en": "Section 4 defines ΔH_space as the matrix difference from moving the evaluation center alone; Theorem 5.1 in Section 5 shows it carries an extra κ^(-1) suppression beyond the far-Hessian amplitude itself.",
+    "defining_relation": "|\\Delta H_{\\rm space}|\\le Cd_{pc}(\\kappa R_p)^{-4}\\|f_p\\|_1"
+  },
+  {
+    "key": "ns.c3.c3u.normalized_debt_Ep_Hhat",
+    "latex": "\\mathfrak E_p=\\frac{R_p\\|\\nabla u(t_p)\\|_2^2}{\\nu^2},\\quad \\widehat H=\\frac{R_p^4}{\\nu^2}H",
+    "label_zh": "正規化擾流債與正規化遠場矩陣",
+    "label_en": "Normalized enstrophy debt and normalized far matrix",
+    "definition_zh": "第6節定義無量綱擾流量 E_p 與依 parent 尺度正規化的矩陣 Ĥ，使空間位移項僅付出 O(κ^(-4) E_p)。",
+    "definition_en": "Section 6 defines the dimensionless enstrophy quantity E_p and the parent-scale normalized matrix Ĥ, showing the spatial-shift term costs only O(κ^(-4) E_p)."
+  },
+  {
+    "key": "ns.c3.c3u.reclassification_annulus_Eann",
+    "latex": "\\mathcal A_{pc}=\\operatorname{supp}(\\psi_c-\\psi_p),\\quad \\mathfrak E_{pc}^{ann}=\\frac{R_p}{\\nu^2}\\int_{\\mathcal A_{pc}}|\\nabla u(y,t_c)|^2dy",
+    "label_zh": "重分類環域與環域擾流債（U-H1）",
+    "label_en": "Reclassification annulus and annular enstrophy debt (U-H1)",
+    "definition_zh": "第7節將 ψ_c - ψ_p 的支撐集記為環域 A_pc，並用其上重整化擾流量 E_pc^ann（定理7.1）界定 ΔH_recl。",
+    "definition_en": "Section 7 denotes the support of ψ_c - ψ_p as the annulus A_pc and uses the rescaled enstrophy E_pc^ann over it (Theorem 7.1) to bound ΔH_recl.",
+    "defining_relation": "|\\Delta\\widehat H_{\\rm recl}|\\le C\\kappa^{-3}\\mathfrak E_{pc}^{ann}",
+    "notes": "第20節將此量標記為 heredity 三債之首 U-H1。"
+  },
+  {
+    "key": "ns.c3.c3u.temporal_turnover_debt_Tfar",
+    "latex": "\\mathfrak T_{pc}^{far}=\\frac{R_p}{\\nu^2}\\|\\psi_p(f_c-f_p)\\|_1",
+    "label_zh": "遠場壓力源時間轉換債（U-H2）",
+    "label_en": "Far pressure-source temporal turnover debt (U-H2)",
+    "definition_zh": "第8節定義無量綱時間轉換量 T_pc^far 以界定 ΔH_time（定理8.1），第9節指出它可寫成 ∂_t f 的時間積分且非 energy-level 有限量。",
+    "definition_en": "Section 8 defines the dimensionless temporal-turnover quantity T_pc^far bounding ΔH_time (Theorem 8.1); Section 9 shows it is a time integral of ∂_t f and is not controlled at the energy level.",
+    "defining_relation": "|\\Delta\\widehat H_{\\rm time}|\\le C\\kappa^{-3}\\mathfrak T_{pc}^{far}",
+    "notes": "第20節標記為 heredity 三債之二 U-H2。"
+  },
+  {
+    "key": "ns.c3.c3u.pressure_heredity_debt_theorem",
+    "latex": "|\\Delta\\widehat H_{pc}|\\le C\\left[\\frac{d_{pc}}{R_p}\\kappa^{-4}\\mathfrak E_p+\\kappa^{-3}\\mathfrak E_{pc}^{ann}+\\kappa^{-3}\\mathfrak T_{pc}^{far}\\right]",
+    "label_zh": "壓力遺傳債定理（定理10.1）",
+    "label_en": "Pressure-Heredity Debt Theorem (Theorem 10.1)",
+    "definition_zh": "第10節綜合三個 carrier 給出遠場壓力矩陣正規化變化量的總估計，確立 spatial shift、reclassification、temporal source turnover 是 parent→child 變化的真正來源。",
+    "definition_en": "Section 10 combines the three carriers into one total estimate for the normalized far-pressure matrix variation, identifying spatial shift, reclassification, and temporal source turnover as the true carriers of parent-to-child change.",
+    "defining_relation": "|\\Delta\\widehat H_{pc}|\\le C\\left[\\frac{d_{pc}}{R_p}\\kappa^{-4}\\mathfrak E_p+\\kappa^{-3}\\mathfrak E_{pc}^{ann}+\\kappa^{-3}\\mathfrak T_{pc}^{far}\\right]"
+  },
+  {
+    "key": "ns.c3.c3u.pressure_support_direction_KH",
+    "latex": "K_p^H=-\\frac{H_p}{|H_p|},\\quad K_c^H=-\\frac{H_c}{|H_c|}",
+    "label_zh": "壓力支撐方向",
+    "label_en": "Pressure support direction",
+    "definition_zh": "第12節在 H_p、H_c 非零下定義正規化方向 K_p^H、K_c^H，並證明遠場矩陣相對變化小則其方向亦穩定。",
+    "definition_en": "Section 12 defines the normalized directions K_p^H, K_c^H for nonzero far matrices, showing that a small relative change in the far matrix implies a stable direction."
+  },
+  {
+    "key": "ns.c3.c3u.adjoint_cutoff_and_mean_strain_numerator",
+    "latex": "\\partial_t\\chi+u\\cdot\\nabla\\chi+\\nu\\Delta\\chi=0,\\quad M_\\chi(t)=\\int\\chi(x,t)S(x,t)\\,dx",
+    "label_zh": "伴隨截斷與平均應變分子",
+    "label_en": "Adjoint cutoff and mean-strain numerator",
+    "definition_zh": "第13節取滿足伴隨（反向）輸運方程的截斷函數 χ，並以其加權定義局部平均應變的分子 M_χ(t) = ∫χS dx。",
+    "definition_en": "Section 13 takes an adjoint cutoff χ solving a backward transport equation and uses it to weight the numerator M_χ(t) = ∫χS dx of the local mean strain."
+  },
+  {
+    "key": "ns.c3.c3u.c3u2_adjoint_mean_strain_transport",
+    "latex": "\\frac{d}{dt}M_\\chi(t)=-\\int\\chi\\left[S^2+\\frac14\\omega\\otimes\\omega-\\frac14|\\omega|^2I+\\nabla^2p\\right]dx",
+    "label_zh": "C3-U.2：精確伴隨平均應變輸運恆等式",
+    "label_en": "C3-U.2: Exact Adjoint Mean-Strain Transport Identity",
+    "definition_zh": "第14節定理14.1利用伴隨截斷方程與應變方程消去 diffusion 及 advection 項，得到 M_χ 的精確時間導數恆等式。",
+    "definition_en": "Theorem 14.1 in Section 14 uses the adjoint cutoff equation and the strain equation to cancel the diffusion and advection terms, yielding an exact identity for the time derivative of M_χ.",
+    "defining_relation": "\\frac{d}{dt}M_\\chi(t)=-\\int\\chi\\left[S^2+\\frac14\\omega\\otimes\\omega-\\frac14|\\omega|^2I+\\nabla^2p\\right]dx"
+  },
+  {
+    "key": "ns.c3.c3u.mean_strain_residual_RS",
+    "latex": "\\mathcal R_S=S^2+\\frac14\\omega\\otimes\\omega-\\frac14|\\omega|^2I+\\nabla^2p",
+    "label_zh": "平均應變轉換餘量",
+    "label_en": "Mean-strain turnover residual",
+    "definition_zh": "第15節將定理14.1中被積式命名為 R_S，其時間積分給出 M_χ(t_c) - M_χ(t_p) 的精確表達與界。",
+    "definition_en": "Section 15 names the integrand of Theorem 14.1 as R_S, whose time integral gives an exact expression and bound for M_χ(t_c) - M_χ(t_p).",
+    "defining_relation": "M_\\chi(t_c)-M_\\chi(t_p)=-\\int_{t_p}^{t_c}\\int\\chi\\mathcal R_S\\,dxdt",
+    "notes": "第20節之 U-H3（heredity 三債之三，mean-strain rotation debt）即由 R_S 的正規化積分 (1/|M_p|)∫∫χ|R_S| 構成。"
+  },
+  {
+    "key": "ns.c3.c3u.mean_strain_direction_v",
+    "latex": "v_p=\\frac{M_p}{|M_p|},\\quad v_c=\\frac{M_c}{|M_c|}",
+    "label_zh": "平均應變方向",
+    "label_en": "Mean-strain direction",
+    "definition_zh": "第16節在 M_p 非零下定義正規化方向 v_p、v_c，證明伴隨矩陣轉換相對 |M_p| 小則方向穩定。",
+    "definition_en": "Section 16 defines normalized directions v_p, v_c for nonzero M_p, showing small adjoint matrix turnover relative to |M_p| implies a stable direction."
+  },
+  {
+    "key": "ns.c3.c3u.pressure_support_efficiency_eta",
+    "latex": "\\eta_p=K_p^H:v_p,\\quad \\eta_c=K_c^H:v_c",
+    "label_zh": "壓力支撐效率",
+    "label_en": "Pressure support efficiency",
+    "definition_zh": "第17節將壓力支撐方向與平均應變方向的內積定義為效率 η，η 小即代表 pressure-poor。",
+    "definition_en": "Section 17 defines the efficiency η as the inner product of the pressure support direction and the mean-strain direction; small η signals a pressure-poor state.",
+    "defining_relation": "\\eta=K^H:v"
+  },
+  {
+    "key": "ns.c3.c3u.c3u3_conditional_pressure_poor_heredity",
+    "latex": "\\eta_c\\le\\eta_0+\\delta_H+\\delta_M",
+    "label_zh": "C3-U.3：條件壓力貧乏遺傳定理",
+    "label_en": "C3-U.3: Conditional Pressure-Poor Heredity Theorem",
+    "definition_zh": "第18節定理18.1證明若 parent 效率 η_p ≤ η_0 且方向轉換 |K_c^H - K_p^H| ≤ δ_H、|v_c - v_p| ≤ δ_M，則 child 效率同型上界成立；第22節將此條件沿有界代數的 ancestry chain延伸為 bounded-generation heredity criterion。",
+    "definition_en": "Theorem 18.1 in Section 18 shows that if the parent efficiency satisfies η_p ≤ η_0 and the direction turnovers satisfy |K_c^H - K_p^H| ≤ δ_H, |v_c - v_p| ≤ δ_M, then the child efficiency obeys the same-form bound; Section 22 extends this along bounded-generation ancestry chains as the bounded-generation heredity criterion.",
+    "defining_relation": "\\eta_c-\\eta_p=(K_c^H-K_p^H):v_c+K_p^H:(v_c-v_p)\\ \\Rightarrow\\ \\eta_c\\le\\eta_0+\\delta_H+\\delta_M"
+  },
+  {
+    "key": "ns.c3.c3u.c3u4_mean_to_pointwise_theorem",
+    "latex": "\\bar S_R=\\fint_{B_R}S(x)\\,dx,\\quad \\lambda_2(\\bar S_R)>C_pR^{1-3/p}\\|\\nabla S\\|_{L^p(B_R)}\\ \\Rightarrow\\ \\lambda_2(S(x))>0\\text{ on }B_{R/2}",
+    "label_zh": "C3-U.4：平均到逐點中間特徵值定理",
+    "label_en": "C3-U.4: Mean-to-Pointwise Middle-Eigenvalue Theorem",
+    "definition_zh": "第23節定義球平均應變 S̄_R 並引入 p>3 之 Morrey–Poincaré 波動界，第24節定理24.1用 Weyl 不等式證明只要平均中間特徵值超過此波動界，逐點 λ_2 在內核 B_{R/2} 上即為正。",
+    "definition_en": "Section 23 defines the ball-average strain S̄_R and introduces the p>3 Morrey-Poincaré fluctuation bound; Theorem 24.1 in Section 24 uses Weyl's inequality to show that once the averaged middle eigenvalue exceeds this fluctuation bound, the pointwise λ_2 is positive throughout the inner core B_{R/2}.",
+    "defining_relation": "\\lambda_2(S(x))\\ge\\lambda_2(\\bar S_R)-\\|S(x)-\\bar S_R\\|_{\\rm op}\\ge\\lambda_2(\\bar S_R)-C_pR^{1-3/p}\\|\\nabla S\\|_{L^p(B_R)}"
+  },
+  {
+    "key": "ns.c3.c3u.oscillation_ratio_and_middle_gap",
+    "latex": "\\mathfrak O_{p,R}=\\frac{C_pR^{1-3/p}\\|\\nabla S\\|_{L^p(B_R)}}{|\\bar S_R|},\\quad \\delta_{2,R}=\\frac{\\lambda_2(\\bar S_R)}{|\\bar S_R|}",
+    "label_zh": "尺度不變波動比與正規化中間間隙",
+    "label_en": "Scale-invariant oscillation ratio and normalized middle gap",
+    "definition_zh": "第26節把定理24.1的門檻無量綱化為波動比 O_{p,R} 與中間間隙比 δ_{2,R}，O_{p,R} < δ_{2,R} 保證逐點 λ_2 > 0 且在 N–S scaling 下尺度不變。",
+    "definition_en": "Section 26 nondimensionalizes Theorem 24.1's threshold into the oscillation ratio O_{p,R} and the middle-gap ratio δ_{2,R}; the condition O_{p,R} < δ_{2,R} guarantees pointwise λ_2 > 0 and is scale-invariant under N-S scaling.",
+    "defining_relation": "\\mathfrak O_{p,R}<\\delta_{2,R}\\ \\Rightarrow\\ \\lambda_2(S(x))>0"
+  },
+  {
+    "key": "ns.c3.c3u.endpoint_barrier_p3",
+    "latex": "p=3:\\ W^{1,3}\\not\\hookrightarrow L^\\infty",
+    "label_zh": "端點障礙 p=3",
+    "label_en": "Endpoint barrier at p=3",
+    "definition_zh": "第27節指出 Morrey 逐點升級機制在 p=3 因 W^{1,3} 不嵌入 L^∞ 而失效，是 mean→pointwise 路線一個真正的端點障礙。",
+    "definition_en": "Section 27 shows the Morrey pointwise-upgrade mechanism fails precisely at p=3 because W^{1,3} does not embed in L^∞, a genuine endpoint barrier for the mean-to-pointwise route.",
+    "notes": "對應第40節 X-Integration guard G-ENDPOINT：p=3 不能靜默使用 L^∞ Morrey embedding。"
+  },
+  {
+    "key": "ns.c3.c3u.band_limited_strain_shell_Sq",
+    "latex": "S_q=\\Delta_qS,\\quad \\|\\nabla S_q\\|_\\infty\\le C\\lambda_q\\|S_q\\|_\\infty,\\quad R=\\lambda_q^{-1}",
+    "label_zh": "頻帶限制應變殼層",
+    "label_en": "Band-limited strain shell",
+    "definition_zh": "第29節取 Littlewood–Paley 殼層 S_q = Δ_q S 並用 Bernstein 不等式將其梯度控制在殼層自身振幅之下，作為 mean-to-pointwise 的第二條路線起點。",
+    "definition_en": "Section 29 takes the Littlewood-Paley shell S_q = Δ_q S and uses a Bernstein inequality to control its gradient by the shell's own amplitude, launching the second mean-to-pointwise route."
+  },
+  {
+    "key": "ns.c3.c3u.c3u5_band_limited_persistence",
+    "latex": "\\lambda_2(S_q(x_0))\\ge\\delta\\|S_q\\|_\\infty\\ \\Rightarrow\\ \\lambda_2(S_q(x))\\ge\\frac{\\delta}{2}\\|S_q\\|_\\infty\\ \\text{for }|x-x_0|\\le c\\delta R",
+    "label_zh": "C3-U.5：頻帶中間特徵值持續性",
+    "label_en": "C3-U.5: Band-Limited Middle-Eigenvalue Persistence",
+    "definition_zh": "第30節定理30.1證明若殼層在一點有中間特徵值間隙 δ，則此正號在半徑 cδR 的鄰域內持續，由 Bernstein 配合 Weyl 不等式得出。",
+    "definition_en": "Theorem 30.1 in Section 30 shows that a middle-eigenvalue gap δ at one point of the shell persists in sign over a neighborhood of radius cδR, via Bernstein plus Weyl's inequality.",
+    "defining_relation": "|x-x_0|\\le c\\delta R\\ \\Rightarrow\\ \\lambda_2(S_q(x))\\ge\\frac{\\delta}{2}\\|S_q\\|_\\infty"
+  },
+  {
+    "key": "ns.c3.c3u.strain_remainder_RqS",
+    "latex": "R_q^S=S-S_q,\\quad \\|R_q^S\\|_{L^\\infty,\\rm op}\\le\\frac{\\delta}{4}\\|S_q\\|_\\infty\\ \\Rightarrow\\ \\lambda_2(S(x))\\ge\\frac{\\delta}{4}\\|S_q\\|_\\infty",
+    "label_zh": "應變殼層餘量",
+    "label_en": "Strain shell remainder",
+    "definition_zh": "第31節定義餘量 R_q^S = S - S_q，證明只要其算子範數在 subcore 上小於殼層振幅之 δ/4，逐點 λ_2(S) 仍為正，是 band-limited 路線的第二個 proof obligation。",
+    "definition_en": "Section 31 defines the remainder R_q^S = S - S_q and shows that once its operator norm on the subcore is smaller than δ/4 of the shell amplitude, the pointwise λ_2(S) remains positive, the band-limited route's second proof obligation."
+  },
+  {
+    "key": "ns.c3.c3u.miller_operator_QSV",
+    "latex": "\\mathcal Q_{SV}",
+    "label_zh": "Miller 算子活躍核",
+    "label_en": "Miller operator-active core",
+    "definition_zh": "第33節指出由 Q_SV 與 ΔS 局部比值選出的 operator-active core雖更貼近應變導數，但 ‖ΔS‖_2 大仍不推出 λ_2(S) 為正。",
+    "definition_en": "Section 33 notes that the operator-active core selected by the local ratio of Q_SV to ΔS sits closer to strain derivatives, yet a large ‖ΔS‖_2 still does not imply λ_2(S) is positive.",
+    "notes": "承接內部依賴文件 NS_C3P_OperatorEscape_FarPressureMatrix_v0.1.md 中引入的 operator-escape 構造。"
+  },
+  {
+    "key": "ns.c3.c3u.c3u6_parabolic_middle_strain_toll",
+    "latex": "\\lambda_2^+(S)\\ge c_0R^{-2}\\text{ on }B_{cR}\\times[t_n-cR^2,t_n]\\ \\Rightarrow\\ \\int_{t_n-cR^2}^{t_n}\\|\\lambda_2^+(t)\\|_3^2dt\\ge c_1>0",
+    "label_zh": "C3-U.6：拋物型中間應變事件稅",
+    "label_en": "C3-U.6: Parabolic Middle-Strain Toll",
+    "definition_zh": "第34-35節證明一個振幅 R^(-2)、體積 R^3、時長 R^2 的相干正中間特徵值事件必支付 O(1) 的 scale-critical L_t^2 L_x^3 稅，故無限多此類事件蘊含此範數發散，恰與 Miller blow-up necessity相容而非矛盾。",
+    "definition_en": "Sections 34-35 show a coherent positive-middle-eigenvalue event of amplitude R^(-2), volume R^3, duration R^2 must pay an O(1) scale-critical L_t^2 L_x^3 toll, so infinitely many such events force this norm to diverge — consistent with, not contradicting, Miller's blow-up necessity.",
+    "defining_relation": "\\int_{t_n-cR^2}^{t_n}\\|\\lambda_2^+(t)\\|_3^2dt\\ge c_1>0"
+  },
+  {
+    "key": "ns.c3.c3u.etn_state_and_guards",
+    "latex": "\\Theta_{pc}^{press}=\\langle H_p,H_c,\\Delta H_{\\rm space},\\mathfrak E_{pc}^{ann},\\mathfrak T_{pc}^{far},K_p^H,K_c^H\\rangle,\\ \\Theta_{pc}^{mean}=\\langle M_p,M_c,\\int\\chi\\mathcal R_S,v_p,v_c\\rangle,\\ \\Theta_R^{pt}=\\langle\\bar S_R,\\delta_{2,R},\\mathfrak O_{p,R},S_q,R_q^S\\rangle",
+    "label_zh": "ETN 狀態元組與 X-Integration guards",
+    "label_en": "ETN state tuples and X-Integration guards",
+    "definition_zh": "第41節將本輪量打包成三個 True ETN 狀態元組（壓力、平均應變、逐點升級），第40節同步更新九條 X-Integration guards（G-PHD、G-ANN、G-PTURN、G-MTURN、G-HDIR、G-MORREY、G-ENDPOINT、G-SHELLGAP、G-SHELLREM）供後續回合遵守。",
+    "definition_en": "Section 41 packages this round's quantities into three True-ETN state tuples (pressure, mean-strain, pointwise-upgrade); Section 40 correspondingly updates nine X-Integration guards (G-PHD, G-ANN, G-PTURN, G-MTURN, G-HDIR, G-MORREY, G-ENDPOINT, G-SHELLGAP, G-SHELLREM) for later rounds to respect."
+  }
+]

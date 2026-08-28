@@ -1,0 +1,267 @@
+[
+  {
+    "key": "ns.c3.c3w.riesz_pressure",
+    "latex": "p = R_iR_j(u_iu_j)",
+    "label_zh": "Riesz 壓力表示",
+    "label_en": "Riesz pressure representation",
+    "definition_zh": "第1節採用標準 Riesz transform 壓力規範 $p=R_iR_j(u_iu_j)$，由 Riesz 有界性得到臨界估計 $\\|p(t)\\|_{3/2}\\le C\\|u(t)\\|_3^2$。",
+    "definition_en": "Section 1 fixes the standard Riesz-transform pressure gauge $p=R_iR_j(u_iu_j)$, giving the critical bound $\\|p(t)\\|_{3/2}\\le C\\|u(t)\\|_3^2$ via Riesz boundedness."
+  },
+  {
+    "key": "ns.c3.c3w.cutoff_function",
+    "latex": "\\chi_R(x) = \\chi_0\\!\\left(\\frac{x-x_0}{R}\\right)",
+    "label_zh": "局部截斷函數",
+    "label_en": "Local cutoff function",
+    "definition_zh": "第2節固定標準球狀截斷 $\\chi_R$（於 $B_R$ 上為1、支撐於 $B_{2R}$），滿足 $\\|\\nabla^2\\chi_R\\|_\\infty\\le CR^{-2}$，是後續壓力矩量的基本工具。",
+    "definition_en": "Section 2 fixes the standard radial cutoff $\\chi_R$ (equal to 1 on $B_R$, supported in $B_{2R}$) with $\\|\\nabla^2\\chi_R\\|_\\infty\\le CR^{-2}$, the basic tool for the pressure-moment quantities that follow."
+  },
+  {
+    "key": "ns.c3.c3w.pressure_matrix_contribution",
+    "latex": "P_{\\chi,R}(t) = \\int \\chi_R(x)\\,\\nabla^2 p(x,t)\\,dx",
+    "label_zh": "壓力矩陣貢獻（帶號平均應變強迫）",
+    "label_en": "Signed pressure matrix contribution to mean strain",
+    "definition_zh": "第3節定義 $P_{\\chi,R}(t)=\\int\\chi_R\\nabla^2p\\,dx$，作為 adjoint mean-strain transport $M_\\chi'$ 中壓力那一項的帶號、張量值平均強迫，刻意不取絕對值。",
+    "definition_en": "Section 3 defines $P_{\\chi,R}(t)=\\int\\chi_R\\nabla^2p\\,dx$, the signed, tensor-valued pressure contribution to the adjoint mean-strain transport $M_\\chi'$, deliberately not absolute-valued.",
+    "defining_relation": "P_{\\chi,R}(t) = \\int \\chi_R(x)\\,\\nabla^2 p(x,t)\\,dx",
+    "notes": "與 Q_S（quadratic strain/vorticity 項）共同組成 M_chi' = -integral chi[Q_S+grad^2 p]dx；C3-W 只處理壓力項，quadratic 項承接自 C3-V。"
+  },
+  {
+    "key": "ns.c3.c3w.thm_critical_pressure_forcing_bound",
+    "latex": "\\text{C3-W.1}",
+    "label_zh": "定理 C3-W.1：臨界壓力平均強迫界",
+    "label_en": "Theorem C3-W.1: Critical Pressure Mean-Forcing Bound",
+    "definition_zh": "第4節定理4.1證明 $|P_{\\chi,R}(t)|\\le CR^{-1}\\|p(t)-c(t)\\|_{L^{3/2}(B_{2R})}$，把壓力強迫由需要 $L^1$ Hessian降到只需臨界 $L^{3/2}$ 壓力振盪。",
+    "definition_en": "Theorem 4.1 in Section 4 proves $|P_{\\chi,R}(t)|\\le CR^{-1}\\|p(t)-c(t)\\|_{L^{3/2}(B_{2R})}$, reducing the pressure forcing from an $L^1$ Hessian requirement to critical $L^{3/2}$ pressure oscillation only.",
+    "defining_relation": "|P_{\\chi,R}(t)| \\le CR^{-1}\\|p(t)-c(t)\\|_{L^{3/2}(B_{2R}(x_0))}"
+  },
+  {
+    "key": "ns.c3.c3w.normalized_pressure_oscillation",
+    "latex": "\\Pi_R(t)",
+    "label_zh": "尺度臨界局部壓力振盪",
+    "label_en": "Scale-critical local pressure oscillation",
+    "definition_zh": "第5節定義 $\\Pi_R(t)=\\nu^{-2}\\inf_c\\|p(t)-c\\|_{L^{3/2}(B_{2R}(x_0))}$，在 Navier–Stokes scaling下為無因次量，並滿足 $\\frac{R}{\\nu^2}|P_{\\chi,R}(t)|\\le C\\Pi_R(t)$。",
+    "definition_en": "Section 5 defines $\\Pi_R(t)=\\nu^{-2}\\inf_c\\|p(t)-c\\|_{L^{3/2}(B_{2R}(x_0))}$, dimensionless under Navier–Stokes scaling and controlling $P_{\\chi,R}$ via $\\frac{R}{\\nu^2}|P_{\\chi,R}(t)|\\le C\\Pi_R(t)$."
+  },
+  {
+    "key": "ns.c3.c3w.normalized_pressure_mean_rotation",
+    "latex": "\\mathfrak R_I^P",
+    "label_zh": "標準化壓力平均旋轉量",
+    "label_en": "Normalized pressure mean-rotation magnitude",
+    "definition_zh": "第6節在滿足 $|I|\\le\\Theta R^2/\\nu$ 的黏性時間窗 $I$ 上定義 $\\mathfrak R_I^P=\\frac1{\\nu R}\\int_I|P_{\\chi,R}(t)|dt$，作為壓力驅動的平均應變轉動量。",
+    "definition_en": "Section 6 defines, on a viscous window $I$ with $|I|\\le\\Theta R^2/\\nu$, the quantity $\\mathfrak R_I^P=\\frac1{\\nu R}\\int_I|P_{\\chi,R}(t)|dt$ measuring pressure-driven mean-strain rotation.",
+    "defining_relation": "\\mathfrak R_I^P = \\frac{1}{\\nu R}\\int_I |P_{\\chi,R}(t)|\\,dt",
+    "notes": "與 C3-V 的 quadratic 版本 R_n^Q 在第0、34節直接對照，兩者在 geometric scale 下有相同的 alpha<1 Zeno frontier，但 weighted budget 不同（R^2(R^P)^2 vs R·R^Q）。"
+  },
+  {
+    "key": "ns.c3.c3w.thm_global_pressure_square_budget",
+    "latex": "\\text{Thm 7.1}",
+    "label_zh": "定理7.1：全域臨界壓力平方預算",
+    "label_en": "Theorem 7.1: Global critical pressure square budget",
+    "definition_zh": "第7節由 $\\|p\\|_{3/2}\\le C\\|u\\|_3^2$ 與能量不等式導出 $\\int_0^{T_*}\\|p(t)\\|_{3/2}^2dt\\le C\\|u_0\\|_2^4/\\nu$，是後續兩個 packing 定理的能量來源。",
+    "definition_en": "Section 7 derives $\\int_0^{T_*}\\|p(t)\\|_{3/2}^2dt\\le C\\|u_0\\|_2^4/\\nu$ from $\\|p\\|_{3/2}\\le C\\|u\\|_3^2$ and the energy inequality, the energy source feeding the two packing theorems that follow."
+  },
+  {
+    "key": "ns.c3.c3w.thm_pressure_rotation_r2_packing",
+    "latex": "\\text{C3-W.2}",
+    "label_zh": "定理 C3-W.2：壓力旋轉的 $R^2$ 加權 packing",
+    "label_en": "Theorem C3-W.2: Pressure-Rotation $R^2$-Weighted Packing",
+    "definition_zh": "第8節定理8.1證明對 pairwise disjoint 黏性窗口有 $\\sum_nR_n^2(\\mathfrak R_{I_n}^P)^2\\le C_\\Theta\\|u_0\\|_2^4/\\nu^4$，但第9節指出此界仍允許每代 $O(1)$ 旋轉的 Zeno-packing。",
+    "definition_en": "Theorem 8.1 in Section 8 proves $\\sum_nR_n^2(\\mathfrak R_{I_n}^P)^2\\le C_\\Theta\\|u_0\\|_2^4/\\nu^4$ over pairwise disjoint viscous windows, though Section 9 shows this still permits Zeno-packing at $O(1)$ rotation per generation.",
+    "defining_relation": "\\sum_n R_n^2\\left(\\mathfrak R_{I_n}^{P}\\right)^2 \\le C_\\Theta\\frac{\\|u_0\\|_2^4}{\\nu^4}"
+  },
+  {
+    "key": "ns.c3.c3w.instantaneous_pressure_forcing",
+    "latex": "\\pi_i(t)",
+    "label_zh": "標準化瞬時壓力強迫",
+    "label_en": "Normalized instantaneous pressure forcing",
+    "definition_zh": "第10節在同尺度 disjoint 球 $B_{2R}(x_i)$ 上定義 $\\pi_i(t)=\\frac{R}{\\nu^2}\\left|\\int\\chi_{i,R}\\nabla^2p\\,dx\\right|$，作為瞬時、逐核心的壓力強迫強度。",
+    "definition_en": "Section 10 defines $\\pi_i(t)=\\frac{R}{\\nu^2}\\left|\\int\\chi_{i,R}\\nabla^2p\\,dx\\right|$ on same-scale disjoint balls $B_{2R}(x_i)$ as the instantaneous per-core pressure-forcing strength."
+  },
+  {
+    "key": "ns.c3.c3w.b_pressure_active_core",
+    "latex": "\\pi_i(t) \\ge b",
+    "label_zh": "$b$-壓力活躍核心",
+    "label_en": "$b$-pressure-active core",
+    "definition_zh": "第10節將滿足 $\\pi_i(t)\\ge b$ 的核心稱為 $b$-pressure-active core，是第11至12節兩個 packing／時間預算定理的計數對象。",
+    "definition_en": "Section 10 calls a core satisfying $\\pi_i(t)\\ge b$ a $b$-pressure-active core, the object counted by the two packing and time-budget theorems of Sections 11-12.",
+    "defining_relation": "\\pi_i(t) \\ge b > 0"
+  },
+  {
+    "key": "ns.c3.c3w.thm_pressure_active_core_packing",
+    "latex": "m_b(t)",
+    "label_zh": "定理 C3-W.3：壓力活躍核心 packing（$m_b$）",
+    "label_en": "Theorem C3-W.3: Pressure-Active Core Packing ($m_b$)",
+    "definition_zh": "第11節定理11.1證明同一瞬間 $b$-pressure-active disjoint 核心數 $m_b(t)$ 滿足 $m_b(t)\\le Cb^{-3/2}\\nu^{-3}\\|p(t)\\|_{3/2}^{3/2}\\le Cb^{-3/2}(\\|u(t)\\|_3/\\nu)^3$。",
+    "definition_en": "Theorem 11.1 in Section 11 shows the count $m_b(t)$ of instantaneous disjoint $b$-pressure-active cores obeys $m_b(t)\\le Cb^{-3/2}\\nu^{-3}\\|p(t)\\|_{3/2}^{3/2}\\le Cb^{-3/2}(\\|u(t)\\|_3/\\nu)^3$.",
+    "defining_relation": "m_b(t) \\le Cb^{-3/2}\\nu^{-3}\\|p(t)\\|_{3/2}^{3/2} \\le Cb^{-3/2}\\left(\\frac{\\|u(t)\\|_3}{\\nu}\\right)^3",
+    "notes": "第31節與 C3-R 的 frontier core packing m_R^frontier ~< R^-1 並列比較，合併得 m_R ~< min{C R^-1, C b^{-3/2}(||u||_3/nu)^3}。"
+  },
+  {
+    "key": "ns.c3.c3w.thm_pressure_active_multiplicity_time_budget",
+    "latex": "\\text{C3-W.4}",
+    "label_zh": "定理 C3-W.4：壓力活躍多重度時間預算",
+    "label_en": "Theorem C3-W.4: Pressure-Active Multiplicity Time Budget",
+    "definition_zh": "第12節由定理11.1導出尺度無關的時間預算 $\\int_0^{T_*}m_b(t)^{4/3}dt\\le Cb^{-2}\\|u_0\\|_2^4/\\nu^5$，但第13節指出此界仍與 multi-core cascade相容。",
+    "definition_en": "Section 12 derives the scale-independent time budget $\\int_0^{T_*}m_b(t)^{4/3}dt\\le Cb^{-2}\\|u_0\\|_2^4/\\nu^5$ from Theorem 11.1, though Section 13 shows it remains compatible with multi-core cascade.",
+    "defining_relation": "\\int_0^{T_\\ast} m_b(t)^{4/3}\\,dt \\le Cb^{-2}\\frac{\\|u_0\\|_2^4}{\\nu^5}",
+    "notes": "第32節指出持續型 pressure-driven multiplicity 只給 alpha<3/2（m_n ~ R_n^{-alpha}），弱於 C3-R energy packing 已有的 alpha<=1，形式上是一個 no-go：pressure multiplicity 不改善 packing exponent。"
+  },
+  {
+    "key": "ns.c3.c3w.constantin_pressure_regularity_theorem",
+    "latex": "|p(x,t)|^{3/2}",
+    "label_zh": "Constantin 壓力正則性定理（外部）",
+    "label_en": "Constantin's pressure regularity theorem (external)",
+    "definition_zh": "第14節引用 Constantin 的外部定理：若 $|p|^{3/2}$ 在小 Lebesgue 集上具有足夠強的一致可積性則正則性得以維持，故本輪將 pressure-turnover escape等同於 critical concentration branch。",
+    "definition_en": "Section 14 invokes Constantin's external theorem — sufficiently strong uniform integrability of $|p|^{3/2}$ on small sets forces regularity — so this round identifies pressure-turnover escape with a critical concentration branch.",
+    "notes": "外部結果（References #1, Constantin, arXiv:2301.04489），本輪不證明，只建立 interface（guard G-PUI）。"
+  },
+  {
+    "key": "ns.c3.c3w.effective_volume",
+    "latex": "\\mathcal V_p(g)",
+    "label_zh": "有效體積",
+    "label_en": "Effective volume",
+    "definition_zh": "第15節回顧 C3-V 對 $g=\\nabla S$（於 $B_R$ 上）定義的有效體積 $\\mathcal V_p(g)=(\\|g\\|_2/\\|g\\|_p)^{1/(1/2-1/p)}$，是本輪 strain sparseness 論證的出發量。",
+    "definition_en": "Section 15 recalls the C3-V effective volume $\\mathcal V_p(g)=(\\|g\\|_2/\\|g\\|_p)^{1/(1/2-1/p)}$ for $g=\\nabla S$ on $B_R$, the starting quantity of this round's strain-sparseness argument.",
+    "notes": "承接自 C3-V（第15節標明「C3-V定義」）；本輪在此基礎上新增 A_eff、Omega_c 與 sparseness 升級鏈（C3-W.5–W.7）。"
+  },
+  {
+    "key": "ns.c3.c3w.effective_volume_fraction",
+    "latex": "\\phi_{p,R}",
+    "label_zh": "標準化有效體積比（間歇度參數）",
+    "label_en": "Normalized effective-volume fraction (intermittency parameter)",
+    "definition_zh": "第15節定義 $\\phi_{p,R}=\\mathcal V_p(g)/R^3$，是貫穿全輪 strain intermittency 論證與 sparseness scale $r_{\\rm sp}\\sim\\phi_{p,R}^{1/3}R$ 的核心參數。",
+    "definition_en": "Section 15 defines $\\phi_{p,R}=\\mathcal V_p(g)/R^3$, the central parameter running through the strain-intermittency argument and the sparseness scale $r_{\\rm sp}\\sim\\phi_{p,R}^{1/3}R$."
+  },
+  {
+    "key": "ns.c3.c3w.effective_amplitude",
+    "latex": "A_{\\rm eff}",
+    "label_zh": "有效振幅",
+    "label_en": "Effective amplitude",
+    "definition_zh": "第16節定義 $A_{\\rm eff}=\\|g\\|_2/\\mathcal V_p(g)^{1/2}$，並由 $\\|g\\|_p^p\\le\\|g\\|_\\infty^{p-2}\\|g\\|_2^2$ 導出 $A_{\\rm eff}\\le\\|g\\|_\\infty$。",
+    "definition_en": "Section 16 defines $A_{\\rm eff}=\\|g\\|_2/\\mathcal V_p(g)^{1/2}$ and derives $A_{\\rm eff}\\le\\|g\\|_\\infty$ from $\\|g\\|_p^p\\le\\|g\\|_\\infty^{p-2}\\|g\\|_2^2$."
+  },
+  {
+    "key": "ns.c3.c3w.high_gradient_active_set",
+    "latex": "\\Omega_c(g)",
+    "label_zh": "高梯度活躍集",
+    "label_en": "High-gradient active set",
+    "definition_zh": "第17節定義 $\\Omega_c(g)=\\{x\\in B_R:|g(x)|>c\\|g\\|_\\infty\\}$，因 $A_{\\rm eff}\\le\\|g\\|_\\infty$ 而含於 $\\{|g|>cA_{\\rm eff}\\}$。",
+    "definition_en": "Section 17 defines $\\Omega_c(g)=\\{x\\in B_R:|g(x)|>c\\|g\\|_\\infty\\}$, contained in $\\{|g|>cA_{\\rm eff}\\}$ since $A_{\\rm eff}\\le\\|g\\|_\\infty$.",
+    "defining_relation": "\\Omega_c(g) = \\{x\\in B_R : |g(x)| > c\\|g\\|_\\infty\\}"
+  },
+  {
+    "key": "ns.c3.c3w.thm_effective_volume_superlevel_bound",
+    "latex": "\\text{C3-W.5}",
+    "label_zh": "定理 C3-W.5：有效體積超水平集界",
+    "label_en": "Theorem C3-W.5: Effective-Volume Superlevel Bound",
+    "definition_zh": "第18節定理18.1由 Chebyshev 不等式證明 $|\\Omega_c(g)|\\le c^{-p}\\mathcal V_p(g)=c^{-p}\\phi_{p,R}R^3$，把體積間歇性直接轉成超水平集小體積。",
+    "definition_en": "Theorem 18.1 in Section 18 uses Chebyshev's inequality to prove $|\\Omega_c(g)|\\le c^{-p}\\mathcal V_p(g)=c^{-p}\\phi_{p,R}R^3$, translating volumetric intermittency directly into small superlevel-set volume.",
+    "defining_relation": "|\\Omega_c(g)| \\le c^{-p}\\mathcal V_p(g) = c^{-p}\\phi_{p,R}R^3"
+  },
+  {
+    "key": "ns.c3.c3w.line_occupancy_fraction",
+    "latex": "\\theta_A(x_0,r,d)",
+    "label_zh": "直線佔有比例",
+    "label_en": "Line occupancy fraction",
+    "definition_zh": "第19節對可測集 $A\\subset B_r(x_0)$ 與單位方向 $d\\in S^2/\\{\\pm1\\}$ 定義 $\\theta_A(x_0,r,d)=|A\\cap(x_0-rd,x_0+rd)|_1/(2r)$，量測 $A$ 沿該直線的一維佔有比例。",
+    "definition_en": "Section 19 defines, for measurable $A\\subset B_r(x_0)$ and unit direction $d\\in S^2/\\{\\pm1\\}$, the line occupancy fraction $\\theta_A(x_0,r,d)=|A\\cap(x_0-rd,x_0+rd)|_1/(2r)$."
+  },
+  {
+    "key": "ns.c3.c3w.thm_volume_to_1d_sparseness_lemma",
+    "latex": "\\text{C3-W.6}",
+    "label_zh": "定理 C3-W.6：體積轉一維稀疏性引理",
+    "label_en": "Theorem C3-W.6: Volume-to-One-Dimensional-Sparseness Lemma",
+    "definition_zh": "第20節定理20.1證明純幾何結果：若 $|A\\cap B_r(x_0)|<\\delta^3|B_r|$，則存在方向 $d$ 使 $\\theta_A(x_0,r,d)\\le\\delta$，以 hemisphere 上 $a^3+b^3$ 的凸性反證得到。",
+    "definition_en": "Theorem 20.1 in Section 20 proves the purely geometric fact that $|A\\cap B_r(x_0)|<\\delta^3|B_r|$ forces some direction $d$ with $\\theta_A(x_0,r,d)\\le\\delta$, via a convexity argument on $a^3+b^3$ over the hemisphere.",
+    "defining_relation": "|A\\cap B_r(x_0)| < \\delta^3|B_r| \\implies \\exists\\, d:\\ \\theta_A(x_0,r,d)\\le\\delta"
+  },
+  {
+    "key": "ns.c3.c3w.sparseness_scale",
+    "latex": "r_{\\rm sp}",
+    "label_zh": "稀疏化尺度",
+    "label_en": "Sparseness scale",
+    "definition_zh": "第22節定義 $r_{\\rm sp}=Cc^{-p/3}\\delta^{-1}\\phi_{p,R}^{1/3}R\\asymp\\phi_{p,R}^{1/3}R$，是高梯度活躍集轉為一維 $\\delta$-稀疏所在的尺度。",
+    "definition_en": "Section 22 defines $r_{\\rm sp}=Cc^{-p/3}\\delta^{-1}\\phi_{p,R}^{1/3}R\\asymp\\phi_{p,R}^{1/3}R$, the scale at which the high-gradient active set becomes linearly $\\delta$-sparse.",
+    "defining_relation": "r_{\\rm sp} = Cc^{-p/3}\\delta^{-1}\\phi_{p,R}^{1/3}R \\asymp \\phi_{p,R}^{1/3}R"
+  },
+  {
+    "key": "ns.c3.c3w.thm_strain_intermittency_to_sparseness",
+    "latex": "\\text{C3-W.7}",
+    "label_zh": "定理 C3-W.7：應變間歇性轉稀疏性定理",
+    "label_en": "Theorem C3-W.7: Strain-Intermittency-to-Sparseness Theorem",
+    "definition_zh": "第22節定理22.1證明若 $\\phi_{p,R}$ 足夠小使 $r_{\\rm sp}\\le R/2$，則 $\\Omega_c(\\nabla S)$ 在 $B_{R/2}$ 每點於 scale $r_{\\rm sp}\\asymp\\phi_{p,R}^{1/3}R$ 上沿某方向線性 $\\delta$-稀疏，是本輪把體積坍縮升級為幾何稀疏性的核心定理。",
+    "definition_en": "Theorem 22.1 in Section 22 proves that if $\\phi_{p,R}$ is small enough that $r_{\\rm sp}\\le R/2$, then $\\Omega_c(\\nabla S)$ is linearly $\\delta$-sparse along some direction at scale $r_{\\rm sp}\\asymp\\phi_{p,R}^{1/3}R$ at every point of $B_{R/2}$, the round's central upgrade from volume collapse to geometric sparseness.",
+    "defining_relation": "r_{\\rm sp} = Cc^{-p/3}\\delta^{-1}\\phi_{p,R}^{1/3}R \\le R/2 \\implies \\Omega_c(\\nabla S)\\ \\text{linearly}\\ \\delta\\text{-sparse at}\\ r_{\\rm sp}",
+    "notes": "此定理是下一輪 C3-X 的兩大出發點之一（另一為壓力集中），見第38–39節。"
+  },
+  {
+    "key": "ns.c3.c3w.nabla_s_d2u_equivalence",
+    "latex": "|\\nabla S| \\asymp |D^2u|",
+    "label_zh": "$\\nabla S$ 與 $D^2u$ 的逐點線性等價",
+    "label_en": "Pointwise linear equivalence of $\\nabla S$ and $D^2u$",
+    "definition_zh": "第23節由恆等式 $\\partial_j\\partial_ku_i=\\partial_jS_{ik}+\\partial_kS_{ij}-\\partial_iS_{jk}$ 得到 $|\\nabla S|\\asymp|D^2u|$（up to universal constants），使 strain-gradient間歇性與二階速度導數稀疏性落在同一 derivative order。",
+    "definition_en": "Section 23 derives $|\\nabla S|\\asymp|D^2u|$ (up to universal constants) from the identity $\\partial_j\\partial_ku_i=\\partial_jS_{ik}+\\partial_kS_{ij}-\\partial_iS_{jk}$, placing strain-gradient intermittency and second-order velocity-derivative sparseness at the same derivative order.",
+    "defining_relation": "\\partial_j\\partial_k u_i = \\partial_jS_{ik}+\\partial_kS_{ij}-\\partial_iS_{jk}, \\qquad |\\nabla S|\\asymp|D^2u|"
+  },
+  {
+    "key": "ns.c3.c3w.grujic_xu_higher_derivative_framework",
+    "latex": "D^k u",
+    "label_zh": "Grujić–Xu 高階導數稀疏性框架（外部）",
+    "label_en": "Grujić–Xu higher-derivative sparseness framework (external)",
+    "definition_zh": "第24、25節引用 Grujić–Xu 對 $D^ku$ 分量正負超水平集稀疏性的外部框架（2025最終版指出 $k\\to\\infty$ 時 scaling gap趨於消失），第24節並指出這要求 component/sign threshold 的額外對齊，C3-W 定理22.1只給 magnitude 版本。",
+    "definition_en": "Sections 24-25 invoke the external Grujić–Xu framework tracking positive/negative superlevel-set sparseness of components of $D^ku$ (whose final 2025 version shows the scaling gap vanishing as $k\\to\\infty$); Section 24 notes this needs extra component/sign threshold alignment, since C3-W's Theorem 22.1 only gives the magnitude version.",
+    "notes": "外部結果（References #4, Grujić–Xu, arXiv:1911.00974，2025 final版），本輪只建立 interface（guard G-COMPDER），不聲稱直接套用成立。"
+  },
+  {
+    "key": "ns.c3.c3w.grujic_geometric_measure_theorem",
+    "latex": "\\text{Grujić geometric-measure criterion}",
+    "label_zh": "Grujić 幾何測度正則性定理（外部）",
+    "label_en": "Grujić's geometric measure regularity theorem (external)",
+    "definition_zh": "第25節引用 Grujić 的外部定理：在潛在奇異時刻附近，若強速度／渦度區域在相關 spatial analyticity scale上對每個空間點皆存在方向呈一維稀疏，則可阻止 finite-time singularity。",
+    "definition_en": "Section 25 invokes Grujić's external theorem: if, near a potential singular time, the intense velocity/vorticity region is linearly sparse along some direction at every point at the relevant spatial analyticity scale, finite-time singularity is precluded.",
+    "notes": "外部結果（References #3, Grujić, arXiv:1111.0217），是第26節 analyticity-scale barrier 與 C3-W.8 的直接動機。"
+  },
+  {
+    "key": "ns.c3.c3w.analyticity_scale",
+    "latex": "\\rho_{\\rm an}",
+    "label_zh": "解析尺度",
+    "label_en": "Spatial analyticity scale",
+    "definition_zh": "第26節將 $\\rho_{\\rm an}$ 定義為對應 derivative formulation／時間切片可用的 spatial analyticity scale，是判斷 sparseness能否啟動 Grujić 判據的比較基準。",
+    "definition_en": "Section 26 introduces $\\rho_{\\rm an}$, the spatial analyticity scale available to the relevant derivative formulation/time slice, the benchmark against which sparseness is measured to trigger Grujić's criterion."
+  },
+  {
+    "key": "ns.c3.c3w.analyticity_scale_ratio",
+    "latex": "\\mathfrak A_R",
+    "label_zh": "解析尺度比",
+    "label_en": "Analyticity-scale ratio",
+    "definition_zh": "第26節定義 $\\mathfrak A_R=r_{\\rm sp}/\\rho_{\\rm an}\\asymp\\phi_{p,R}^{1/3}R/\\rho_{\\rm an}$，當 $\\mathfrak A_R\\lesssim1$ 且其餘條件對齊時，稀疏性落在可用解析尺度內，可能啟動 known regularity mechanism。",
+    "definition_en": "Section 26 defines $\\mathfrak A_R=r_{\\rm sp}/\\rho_{\\rm an}\\asymp\\phi_{p,R}^{1/3}R/\\rho_{\\rm an}$; when $\\mathfrak A_R\\lesssim1$ and the remaining conditions align, the sparseness lies within the admissible analyticity scale and may trigger a known regularity mechanism.",
+    "defining_relation": "\\mathfrak A_R = \\frac{r_{\\rm sp}}{\\rho_{\\rm an}} \\asymp \\frac{\\phi_{p,R}^{1/3}R}{\\rho_{\\rm an}}"
+  },
+  {
+    "key": "ns.c3.c3w.thm_intermittency_survivor_scale_ordering",
+    "latex": "\\text{C3-W.8}",
+    "label_zh": "定理 C3-W.8：間歇性倖存者尺度排序（W-I1/I2/I3）",
+    "label_en": "Theorem C3-W.8: Intermittency Survivor Scale Ordering (W-I1/I2/I3)",
+    "definition_zh": "第27節證明應變間歇性要持續逃避正則性，至少須保留三者之一：解析尺度縮得更快（W-I1：$\\rho_{\\rm an}\\ll\\phi_{p,R}^{1/3}R$）、分量／正負號門檻不匹配（W-I2）、或時間選取不匹配（W-I3）。",
+    "definition_en": "Section 27 proves that for strain intermittency to keep evading regularity, at least one of three conditions must persist: faster analyticity-scale collapse (W-I1: $\\rho_{\\rm an}\\ll\\phi_{p,R}^{1/3}R$), component/sign threshold mismatch (W-I2), or time-selection mismatch (W-I3).",
+    "defining_relation": "\\rho_{\\rm an} \\ll \\phi_{p,R}^{1/3}R \\quad \\text{(W-I1)}"
+  },
+  {
+    "key": "ns.c3.c3w.pressure_rotation_state",
+    "latex": "\\Theta_R^{P}",
+    "label_zh": "壓力旋轉狀態（True ETN）",
+    "label_en": "Pressure rotation state (True ETN)",
+    "definition_zh": "第37節把壓力側狀態彙整成 $\\Theta_R^P=\\langle\\Pi_R,\\mathfrak R_R^P,m_b,\\text{pressure mass concentration},\\operatorname{Prov}\\rangle$，納入 True ETN／無限維張力場框架。",
+    "definition_en": "Section 37 assembles the pressure-side state into $\\Theta_R^P=\\langle\\Pi_R,\\mathfrak R_R^P,m_b,\\text{pressure mass concentration},\\operatorname{Prov}\\rangle$ within the True ETN / infinite-dimensional tension field framework.",
+    "notes": "True ETN 為跨輪次的統一狀態記帳框架（見 Internal dependencies 中的「True ETN／無限維張力場」）；本輪新增壓力與間歇性兩個分支狀態。"
+  },
+  {
+    "key": "ns.c3.c3w.strain_intermittency_state",
+    "latex": "\\Theta_R^{I}",
+    "label_zh": "應變間歇性狀態（True ETN）",
+    "label_en": "Strain intermittency state (True ETN)",
+    "definition_zh": "第37節把應變間歇性側狀態彙整成 $\\Theta_R^I=\\langle\\phi_{p,R},A_{\\rm eff},\\Omega_c,r_{\\rm sp},\\rho_{\\rm an},\\mathfrak A_R\\rangle$，與 $\\Theta_R^P$ 共同構成「壓力集中 vs 解析尺度稀疏性」的新 bifurcation。",
+    "definition_en": "Section 37 assembles the strain-intermittency state into $\\Theta_R^I=\\langle\\phi_{p,R},A_{\\rm eff},\\Omega_c,r_{\\rm sp},\\rho_{\\rm an},\\mathfrak A_R\\rangle$, forming with $\\Theta_R^P$ the new bifurcation \"pressure concentration vs. analyticity-scale sparseness.\""
+  }
+]

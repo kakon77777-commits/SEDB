@@ -1,0 +1,281 @@
+[
+  {
+    "key": "ns.c3.c3o.chi_adjoint",
+    "latex": "\\chi",
+    "label_zh": "伴隨截斷函數",
+    "label_en": "Adjoint cutoff",
+    "definition_zh": "第2節定義：在 ancestry window $I=[t_0,t_1]$ 上解 backward adjoint 方程 $\\partial_t\\chi+u\\cdot\\nabla\\chi+\\nu\\Delta\\chi=0$、終端條件 $\\chi(t_1,x)=\\chi_1(x)$ 的截斷函數；其軌跡稱 Adjoint Ancestry Tube，backward 跟隨速度場並 parabolic 擴散，自動吸收原本 cutoff 移動造成的 gauge/advection/diffusion 誤差。",
+    "definition_en": "Defined in Sec. 2 as the cutoff solving the backward adjoint equation $\\partial_t\\chi+u\\cdot\\nabla\\chi+\\nu\\Delta\\chi=0$ on $I=[t_0,t_1]$ with terminal data $\\chi(t_1,x)=\\chi_1(x)$; its trajectory (the \"Adjoint Ancestry Tube\") backward-follows the velocity drift and diffuses parabolically, automatically absorbing gauge/advection/diffusion cutoff-error terms.",
+    "defining_relation": "\\partial_t\\chi+u\\cdot\\nabla\\chi+\\nu\\Delta\\chi=0,\\qquad \\chi(t_1,x)=\\chi_1(x)",
+    "notes": "與 C3-N 中泛用的 $\\chi$（產生一般 $\\mathcal C_\\chi$ 修正項）不同，本輪把 $\\chi$ 特化為此 adjoint PDE 的解，使 $\\mathcal C_\\chi$ 的 gauge/advection/diffusion 部分 exact 消失，只剩 $B_\\chi$。"
+  },
+  {
+    "key": "ns.c3.c3o.chi_1",
+    "latex": "\\chi_1",
+    "label_zh": "終端截斷",
+    "label_en": "Terminal cutoff",
+    "definition_zh": "第2節：終端時刻 $t_1$ 的給定截斷 $0\\le\\chi_1\\le1$，localized near child ancestry core，作為 adjoint cutoff 方程的終端條件。",
+    "definition_en": "Sec. 2: a prescribed cutoff $0\\le\\chi_1\\le1$ at terminal time $t_1$, localized near the child ancestry core, serving as terminal datum for the adjoint cutoff equation.",
+    "defining_relation": "0\\le\\chi_1\\le1,\\qquad \\chi(t_1,x)=\\chi_1(x)"
+  },
+  {
+    "key": "ns.c3.c3o.j_corr",
+    "latex": "J_{\\rm corr}",
+    "label_zh": "修正電流",
+    "label_en": "Correction current",
+    "definition_zh": "定理4.1（C3-O.1）定義的合併修正項，$J_{\\rm corr}=\\frac13F_B+F_p$，把 Betchov force $F_B$ 與 pressure current $F_p$ 合併成 adjoint balance 右端唯一的邊界型 correction。",
+    "definition_en": "Defined in Thm. 4.1 (C3-O.1) as the combined correction $J_{\\rm corr}=\\frac13F_B+F_p$, merging the Betchov force $F_B$ and pressure current $F_p$ into the single boundary-type correction on the RHS of the adjoint balance.",
+    "defining_relation": "J_{\\rm corr}=\\frac13F_B+F_p"
+  },
+  {
+    "key": "ns.c3.c3o.e_chi",
+    "latex": "E_\\chi(t)",
+    "label_zh": "局部應變能量",
+    "label_en": "Localized strain energy",
+    "definition_zh": "第5節定義，$E_\\chi(t)=\\frac12\\int\\chi|S|^2dx$，adjoint-cutoff 加權的局部應變能量，為 gauge-clean balance $E_\\chi'+D_\\chi=A_\\chi+B_\\chi$ 的能量項。",
+    "definition_en": "Defined in Sec. 5 as $E_\\chi(t)=\\frac12\\int\\chi|S|^2dx$, the adjoint-cutoff-weighted local strain energy in the gauge-clean balance $E_\\chi'+D_\\chi=A_\\chi+B_\\chi$.",
+    "defining_relation": "E_\\chi(t)=\\frac12\\int\\chi|S|^2dx"
+  },
+  {
+    "key": "ns.c3.c3o.d_chi",
+    "latex": "D_\\chi(t)",
+    "label_zh": "局部耗散",
+    "label_en": "Localized dissipation",
+    "definition_zh": "第5節定義，$D_\\chi(t)=\\nu\\int\\chi|\\nabla S|^2dx\\ge0$，adjoint-cutoff 加權的局部黏性耗散項。",
+    "definition_en": "Defined in Sec. 5 as $D_\\chi(t)=\\nu\\int\\chi|\\nabla S|^2dx\\ge0$, the adjoint-cutoff-weighted local viscous dissipation.",
+    "defining_relation": "D_\\chi(t)=\\nu\\int\\chi|\\nabla S|^2dx"
+  },
+  {
+    "key": "ns.c3.c3o.a_chi",
+    "latex": "A_\\chi(t)",
+    "label_zh": "局部自放大項",
+    "label_en": "Localized self-amplification term",
+    "definition_zh": "第5節定義，$A_\\chi(t)=-2\\int\\chi\\det S\\,dx$，局部 strain self-amplification（SSA）產生項，是 balance 方程唯一的 bulk（非邊界）來源。",
+    "definition_en": "Defined in Sec. 5 as $A_\\chi(t)=-2\\int\\chi\\det S\\,dx$, the local strain self-amplification (SSA) production term — the sole bulk (non-boundary) source in the balance equation.",
+    "defining_relation": "A_\\chi(t)=-2\\int\\chi\\det S\\,dx",
+    "notes": "勿與 C3-N recap（第0節）中速度梯度張量 $A=\\nabla u$ 混淆；兩者皆記作 \"A\" 但意義完全不同。"
+  },
+  {
+    "key": "ns.c3.c3o.b_chi",
+    "latex": "B_\\chi(t)",
+    "label_zh": "局部修正/邊界電流",
+    "label_en": "Localized correction/boundary current",
+    "definition_zh": "第5節定義，$B_\\chi(t)=\\int\\nabla\\chi\\cdot J_{\\rm corr}\\,dx$；在 adjoint cutoff 下，這是 C3-N 之 $\\mathcal C_\\chi$ 僅存的部分——gauge/advection/diffusion 項因 $\\chi$ 滿足 adjoint 方程而消失。",
+    "definition_en": "Defined in Sec. 5 as $B_\\chi(t)=\\int\\nabla\\chi\\cdot J_{\\rm corr}\\,dx$; under the adjoint cutoff this is all that remains of C3-N's $\\mathcal C_\\chi$, since the gauge/advection/diffusion piece vanishes once $\\chi$ solves the adjoint equation.",
+    "defining_relation": "B_\\chi(t)=\\int\\nabla\\chi\\cdot J_{\\rm corr}\\,dx"
+  },
+  {
+    "key": "ns.c3.c3o.delta_e_i",
+    "latex": "\\Delta E_I",
+    "label_zh": "窗口能量變化",
+    "label_en": "Window energy change",
+    "definition_zh": "第6節定義，$\\Delta E_I=E_\\chi(t_1)-E_\\chi(t_0)$，窗口 $I=[t_0,t_1]$ 上局部應變能量淨變化；$\\Delta E_I>0$ 即第7節的 positive local strain-growth window。",
+    "definition_en": "Defined in Sec. 6 as $\\Delta E_I=E_\\chi(t_1)-E_\\chi(t_0)$, the net change of local strain energy over $I=[t_0,t_1]$; $\\Delta E_I>0$ defines a positive local strain-growth window (Sec. 7).",
+    "defining_relation": "\\Delta E_I=E_\\chi(t_1)-E_\\chi(t_0)"
+  },
+  {
+    "key": "ns.c3.c3o.d_i",
+    "latex": "D_I",
+    "label_zh": "窗口耗散",
+    "label_en": "Window-integrated dissipation",
+    "definition_zh": "第6節定義，$D_I=\\int_ID_\\chi(t)\\,dt\\ge0$，窗口 $I$ 上累積的黏性耗散。",
+    "definition_en": "Defined in Sec. 6 as $D_I=\\int_ID_\\chi(t)\\,dt\\ge0$, the cumulative viscous dissipation over window $I$.",
+    "defining_relation": "D_I=\\int_ID_\\chi(t)\\,dt"
+  },
+  {
+    "key": "ns.c3.c3o.a_i",
+    "latex": "A_I",
+    "label_zh": "窗口自放大量",
+    "label_en": "Window-integrated self-amplification",
+    "definition_zh": "第6節定義，$A_I=\\int_IA_\\chi(t)\\,dt$，窗口累積 bulk SSA production；其正負決定第8節 Growth-Carrier Dichotomy 的分支。",
+    "definition_en": "Defined in Sec. 6 as $A_I=\\int_IA_\\chi(t)\\,dt$, cumulative bulk SSA production over $I$; its sign determines which branch of the Growth-Carrier Dichotomy (Sec. 8) applies.",
+    "defining_relation": "A_I=\\int_IA_\\chi(t)\\,dt"
+  },
+  {
+    "key": "ns.c3.c3o.b_i",
+    "latex": "B_I",
+    "label_zh": "窗口修正/邊界電流",
+    "label_en": "Window-integrated correction/boundary current",
+    "definition_zh": "第6節定義，$B_I=\\int_IB_\\chi(t)\\,dt$，滿足 window balance $\\Delta E_I+D_I=A_I+B_I$；第27節再分解為 $B_I=B_I^B+B_I^p$。",
+    "definition_en": "Defined in Sec. 6 as $B_I=\\int_IB_\\chi(t)\\,dt$, satisfying $\\Delta E_I+D_I=A_I+B_I$; further split in Sec. 27 as $B_I=B_I^B+B_I^p$.",
+    "defining_relation": "B_I=\\int_IB_\\chi(t)\\,dt"
+  },
+  {
+    "key": "ns.c3.c3o.rho_i",
+    "latex": "\\rho_I",
+    "label_zh": "邊界/自放大比",
+    "label_en": "Boundary-to-bulk ratio",
+    "definition_zh": "第9節定義（$A_I>0$ 時），$\\rho_I=B_I/A_I$；growth 要求 $\\rho_I>-1$，$\\rho_I\\le-1$ 為 C3-O.3 Hard Depletion Barrier（第10節）排除區。本輪核心 growth-carrier 分類指標，餵入第14節 O-A/O-B/O-C 與第23節 BD-1至BD-4。",
+    "definition_en": "Defined in Sec. 9 (for $A_I>0$) as $\\rho_I=B_I/A_I$; growth forces $\\rho_I>-1$, and $\\rho_I\\le-1$ is excluded by the Hard Depletion Barrier (C3-O.3, Sec. 10). The round's central growth-carrier classifier, feeding the O-A/O-B/O-C regimes (Sec. 14) and BD-1…BD-4 plane (Sec. 23).",
+    "defining_relation": "\\rho_I=\\frac{B_I}{A_I}",
+    "notes": "全文最終結論（第29、36節）：$\\rho$ 只能作 local strain-energy growth-carrier classifier，不能單獨作 regularity parameter。"
+  },
+  {
+    "key": "ns.c3.c3o.kappa_i",
+    "latex": "\\kappa_I",
+    "label_zh": "抵消走廊參數",
+    "label_en": "Cancellation-corridor parameter",
+    "definition_zh": "第11節定義（$A_I>0$ 時），$\\kappa_I=1+\\rho_I=(\\Delta E_I+D_I)/A_I$，growth window 恆正。第12節 C3-O.4：$\\rho_I\\to-1^+$（即 $\\kappa_I\\to0^+$）而 $\\Delta E_I+D_I$ 未同比例趨零時，需 $A_I\\to\\infty$ 且 $|B_I|\\sim A_I$（cancellation-precision debt）。",
+    "definition_en": "Defined in Sec. 11 (for $A_I>0$) as $\\kappa_I=1+\\rho_I=(\\Delta E_I+D_I)/A_I$, positive on growth windows. Sec. 12 (C3-O.4): as $\\rho_I\\to-1^+$ ($\\kappa_I\\to0^+$) with $\\Delta E_I+D_I$ not vanishing proportionally, $A_I\\to\\infty$ and $|B_I|\\sim A_I$ — the cancellation-precision debt.",
+    "defining_relation": "\\kappa_I=1+\\rho_I=\\frac{\\Delta E_I+D_I}{A_I}"
+  },
+  {
+    "key": "ns.c3.c3o.p_st",
+    "latex": "P_{st}",
+    "label_zh": "(Miller) 應變空間投影算子",
+    "label_en": "Miller's strain-space projection operator",
+    "definition_zh": "第15節引入（源自 Miller 的分解，本文未重新給出其明確定義），用以把 full strain equation 寫成 $\\partial_tS-\\nu\\Delta S+\\frac23P_{st}(S^2)+\\mathcal P_{NS}=0$，並建構 $\\mathcal N_{SSA}$ 與 $\\mathcal P_{NS}$。",
+    "definition_en": "Introduced in Sec. 15 (from Miller's decomposition; explicit definition not restated here) to write the full strain equation as $\\partial_tS-\\nu\\Delta S+\\frac23P_{st}(S^2)+\\mathcal P_{NS}=0$, and to build both $\\mathcal N_{SSA}$ and $\\mathcal P_{NS}$.",
+    "notes": "與 $\\mathcal P_{NS}$（calligraphic，算子缺陷場）及 $\\mathfrak P_I$（fraktur，純量 diagnostic）為三個不同的 \"P\" 家族記號，勿混淆。"
+  },
+  {
+    "key": "ns.c3.c3o.p_ns",
+    "latex": "\\mathcal P_{NS}",
+    "label_zh": "NS算子缺陷（被丟棄項）",
+    "label_en": "NS operator defect (omitted perturbation)",
+    "definition_zh": "第15節定義，$\\mathcal P_{NS}=P_{st}\\left((u\\cdot\\nabla)S+\\frac13S^2+\\frac14\\omega\\otimes\\omega\\right)$，即 full N–S strain equation 相對 SSA model 被丟棄的算子級項。第16節證 $\\langle\\mathcal P_{NS},S\\rangle=0$（正交但不代表小，命題17.1/C3-O.5），是本輪 no-go 論證與第31節 $\\Theta^{op}$ 的核心對象。",
+    "definition_en": "Defined in Sec. 15 as $\\mathcal P_{NS}=P_{st}\\left((u\\cdot\\nabla)S+\\frac13S^2+\\frac14\\omega\\otimes\\omega\\right)$, the operator-level perturbation omitted from full N–S relative to the SSA model. Sec. 16 shows $\\langle\\mathcal P_{NS},S\\rangle=0$ (orthogonal but not small — Prop. 17.1/C3-O.5), the central object of this round's no-go argument and of $\\Theta^{op}$.",
+    "defining_relation": "\\mathcal P_{NS}=P_{st}\\left((u\\cdot\\nabla)S+\\frac13S^2+\\frac14\\omega\\otimes\\omega\\right)",
+    "notes": "G-OP guard：$B/A\\to0$ 不得推出 $\\mathcal P_{NS}\\to0$。G-PROJ guard：全域正交 $\\langle\\mathcal P_{NS},S\\rangle=0$ 只是 orthogonality，不是 smallness。"
+  },
+  {
+    "key": "ns.c3.c3o.n_ssa",
+    "latex": "\\mathcal N_{SSA}",
+    "label_zh": "SSA非線性項",
+    "label_en": "SSA nonlinearity",
+    "definition_zh": "第31節（True ETN更新）定義，$\\mathcal N_{SSA}=\\frac23P_{st}(S^2)$，strain self-amplification model 自身的非線性項，作為 $\\Theta^{op}$ 第一分量。",
+    "definition_en": "Defined in Sec. 31 (True ETN update) as $\\mathcal N_{SSA}=\\frac23P_{st}(S^2)$, the nonlinearity of the SSA model itself, the first component of $\\Theta^{op}$.",
+    "defining_relation": "\\mathcal N_{SSA}=\\frac23P_{st}(S^2)"
+  },
+  {
+    "key": "ns.c3.c3o.mathfrak_p_i",
+    "latex": "\\mathfrak P_I",
+    "label_zh": "尺度不變算子缺陷比",
+    "label_en": "Scale-invariant operator-defect ratio",
+    "definition_zh": "第20節定義的 candidate diagnostic，$\\mathfrak P_I=\\frac{\\int_I\\|\\mathcal P_{NS}(t)\\|_{\\dot H^{-1}}^2dt}{\\nu^2\\int_I\\|S(t)\\|_{\\dot H^1}^2dt}$（分母非零時）；第21節證其在 N–S parabolic scaling 下不變。第22節強調僅是 candidate：未證 $\\mathfrak P_I<\\varepsilon\\Rightarrow$SSA近似，亦未證 $\\mathfrak P_I\\gg1\\Rightarrow$regularity，作用是防止「zero energy pairing」被偷換成「small operator」。",
+    "definition_en": "The candidate diagnostic of Sec. 20, $\\mathfrak P_I=\\frac{\\int_I\\|\\mathcal P_{NS}(t)\\|_{\\dot H^{-1}}^2dt}{\\nu^2\\int_I\\|S(t)\\|_{\\dot H^1}^2dt}$ (denominator nonzero); shown scale-invariant under NS parabolic scaling in Sec. 21. Sec. 22: only a candidate — neither $\\mathfrak P_I<\\varepsilon\\Rightarrow$SSA-approximation nor $\\mathfrak P_I\\gg1\\Rightarrow$regularity is proved; it exists to block \"zero energy pairing\" from being conflated with \"small operator.\"",
+    "defining_relation": "\\mathfrak P_I=\\frac{\\int_I\\|\\mathcal P_{NS}(t)\\|_{\\dot H^{-1}}^2dt}{\\nu^2\\int_I\\|S(t)\\|_{\\dot H^1}^2dt}",
+    "notes": "與 $\\rho_I$ 共組第23節 Balance–Dynamics plane 之 BD-1（both small）、BD-2（balance-SSA但operator-large）、BD-3（cancellation corridor）、BD-4（boundary driven）四區。"
+  },
+  {
+    "key": "ns.c3.c3o.theta_bal",
+    "latex": "\\Theta^{bal}",
+    "label_zh": "平衡層狀態",
+    "label_en": "Balance-layer state",
+    "definition_zh": "第31節 True ETN 更新定義，$\\Theta^{bal}=(E,D,A,B,\\rho,\\kappa)$，局部應變態的「平衡層」，由本輪能量/耗散/自放大/邊界電流/比值/走廊參數家族組成，對比 $\\Theta^{op}$。",
+    "definition_en": "Defined in Sec. 31's True ETN update as $\\Theta^{bal}=(E,D,A,B,\\rho,\\kappa)$, the \"balance layer\" of the local strain state, contrasted with $\\Theta^{op}$.",
+    "defining_relation": "\\Theta^{bal}=(E,D,A,B,\\rho,\\kappa)",
+    "notes": "分量沿用 $E_\\chi,D_\\chi,A_\\chi,B_\\chi,\\rho_I,\\kappa_I$（或其窗口版）的通用寫法，未加下標。"
+  },
+  {
+    "key": "ns.c3.c3o.theta_op",
+    "latex": "\\Theta^{op}",
+    "label_zh": "算子層狀態",
+    "label_en": "Operator-layer state",
+    "definition_zh": "第31節定義，$\\Theta^{op}=(\\mathcal N_{SSA},\\mathcal P_{NS},\\mathfrak P,\\operatorname{Prov})$，局部應變態的「算子層」。核心結論：$\\Theta^{bal}$ convergence 不推出 $\\Theta^{op}$ convergence——即第30節 Balance Fixed Point / Dynamics Fixed Point Separation 在狀態層級的正式化。",
+    "definition_en": "Defined in Sec. 31 as $\\Theta^{op}=(\\mathcal N_{SSA},\\mathcal P_{NS},\\mathfrak P,\\operatorname{Prov})$, the \"operator layer.\" Central conclusion: $\\Theta^{bal}$ convergence does not imply $\\Theta^{op}$ convergence — formalizing the Balance/Dynamics Fixed Point Separation (Sec. 30).",
+    "defining_relation": "\\Theta^{op}=\\left(\\mathcal N_{SSA},\\mathcal P_{NS},\\mathfrak P,\\operatorname{Prov}\\right)"
+  },
+  {
+    "key": "ns.c3.c3o.prov",
+    "latex": "\\operatorname{Prov}",
+    "label_zh": "溯源分量",
+    "label_en": "Provenance component",
+    "definition_zh": "僅在第31節 $\\Theta^{op}$ 元組末位出現一次，文中未再展開定義。",
+    "definition_en": "Appears only once, as the fourth component of $\\Theta^{op}$ in Sec. 31; not elaborated elsewhere in the text.",
+    "notes": "信心低：本檔案未給出 $\\operatorname{Prov}$ 的明確定義式；字面推測與 ancestry/adjoint tube 的來源追蹤有關，屬未經文本證實的推測，需後續 round 或原始定義確認。"
+  },
+  {
+    "key": "ns.c3.c3o.b_i_betchov",
+    "latex": "B_I^B",
+    "label_zh": "窗口Betchov電流分量",
+    "label_en": "Window Betchov-current component",
+    "definition_zh": "第27節定義，$B_I^B=\\frac13\\int_I\\int\\nabla\\chi\\cdot F_B$，$B_I=B_I^B+B_I^p$ 分解中源自 $F_B$ 的部分；第28節示 $\\rho_I\\to-1^+$ 時，$B_I^B,B_I^p$ 至少一者須達 $O(A_I)$ 量級。",
+    "definition_en": "Defined in Sec. 27 as $B_I^B=\\frac13\\int_I\\int\\nabla\\chi\\cdot F_B$, the Betchov-driven part of $B_I=B_I^B+B_I^p$; Sec. 28 shows as $\\rho_I\\to-1^+$ at least one of $B_I^B,B_I^p$ must reach $O(A_I)$ magnitude.",
+    "defining_relation": "B_I^B=\\frac13\\int_I\\int\\nabla\\chi\\cdot F_B"
+  },
+  {
+    "key": "ns.c3.c3o.b_i_pressure",
+    "latex": "B_I^p",
+    "label_zh": "窗口壓力電流分量",
+    "label_en": "Window pressure-current component",
+    "definition_zh": "第27節定義，$B_I^p=\\int_I\\int\\nabla\\chi\\cdot F_p$，源自 $F_p$ 的部分；與 $B_I^B$ 合稱把 boundary-dominated branch 再分為 Betchov-current dominated / pressure-current dominated。",
+    "definition_en": "Defined in Sec. 27 as $B_I^p=\\int_I\\int\\nabla\\chi\\cdot F_p$; together with $B_I^B$ refines the boundary-dominated branch into Betchov- vs. pressure-current-dominated sub-branches.",
+    "defining_relation": "B_I^p=\\int_I\\int\\nabla\\chi\\cdot F_p"
+  },
+  {
+    "key": "ns.c3.c3o.f_b",
+    "latex": "F_B",
+    "label_zh": "Betchov型力場",
+    "label_en": "Betchov-type force field",
+    "definition_zh": "源自 C3-N（第0節 recap），$F_B=\\left(A^2-\\frac12\\operatorname{tr}(A^2)I\\right)u$，$A=\\nabla u$；本輪用於構成 $J_{\\rm corr}=\\frac13F_B+F_p$ 及窗口分量 $B_I^B$。",
+    "definition_en": "Inherited from C3-N (recapped Sec. 0), $F_B=\\left(A^2-\\frac12\\operatorname{tr}(A^2)I\\right)u$ with $A=\\nabla u$; used this round in $J_{\\rm corr}=\\frac13F_B+F_p$ and its window component $B_I^B$.",
+    "defining_relation": "F_B=\\left(A^2-\\frac12\\operatorname{tr}(A^2)I\\right)u,\\qquad A=\\nabla u",
+    "notes": "此處 $A=\\nabla u$（速度梯度張量）與本輪的 $A_\\chi,A_I$（self-amplification 項）為不同記號，僅字母相同。"
+  },
+  {
+    "key": "ns.c3.c3o.f_p",
+    "latex": "F_p",
+    "label_zh": "壓力電流",
+    "label_en": "Pressure current",
+    "definition_zh": "源自 C3-N（第0節 recap），$F_p=(\\nabla^2p-\\Delta p\\,I)u$，含 nonlocal pressure Hessian；第26節強調 gauge-clean 不等於 boundary-small，主因即 $F_p$ 可能很大。",
+    "definition_en": "Inherited from C3-N (recapped Sec. 0), $F_p=(\\nabla^2p-\\Delta p\\,I)u$, involving the nonlocal pressure Hessian; Sec. 26 stresses gauge-clean does not imply boundary-small, precisely because $F_p$ can be large.",
+    "defining_relation": "F_p=(\\nabla^2p-\\Delta p\\,I)u"
+  },
+  {
+    "key": "ns.c3.c3o.g_adj",
+    "latex": "G\\text{-}ADJ",
+    "label_zh": "X-Integration守則：伴隨截斷",
+    "label_en": "X-Integration guard: adjoint cutoff",
+    "definition_zh": "第32節 X-Integration hard guards之一：計算 ratio 時應優先使用 adjoint cutoff，或明確做完整的 gauge subtraction。",
+    "definition_en": "One of the Sec. 32 X-Integration hard guards: ratio computations must use the adjoint cutoff, or perform a complete explicit gauge subtraction."
+  },
+  {
+    "key": "ns.c3.c3o.g_grow",
+    "latex": "G\\text{-}GROW",
+    "label_zh": "X-Integration守則：僅限成長窗口",
+    "label_en": "X-Integration guard: growth windows only",
+    "definition_zh": "第32節守則：ratio 只能在 $\\Delta E>0$ 的 growth windows 中作 growth-carrier 判斷。",
+    "definition_en": "Sec. 32 guard: the ratio may only be used for growth-carrier judgments within $\\Delta E>0$ growth windows."
+  },
+  {
+    "key": "ns.c3.c3o.g_ratio",
+    "latex": "G\\text{-}RATIO",
+    "label_zh": "X-Integration守則：比值下界",
+    "label_en": "X-Integration guard: ratio lower bound",
+    "definition_zh": "第32節守則：若 $A>0$，positive growth 要求 $\\rho>-1$。",
+    "definition_en": "Sec. 32 guard: if $A>0$, positive growth requires $\\rho>-1$."
+  },
+  {
+    "key": "ns.c3.c3o.g_cancel",
+    "latex": "G\\text{-}CANCEL",
+    "label_zh": "X-Integration守則：保存總量",
+    "label_en": "X-Integration guard: preserve gross quantities",
+    "definition_zh": "第32節守則：若 $\\rho\\to-1$，必須保存 gross 的 $A,B$，不能只保存 residual $A+B$。",
+    "definition_en": "Sec. 32 guard: if $\\rho\\to-1$, the gross quantities $A,B$ must be preserved, not merely the residual $A+B$."
+  },
+  {
+    "key": "ns.c3.c3o.g_op",
+    "latex": "G\\text{-}OP",
+    "label_zh": "X-Integration守則：比值趨零不推小算子",
+    "label_en": "X-Integration guard: ratio-to-zero does not imply small operator",
+    "definition_zh": "第32節守則：$B/A\\to0$ 不得推出 $\\mathcal P_{NS}\\to0$。",
+    "definition_en": "Sec. 32 guard: $B/A\\to0$ must not be taken to imply $\\mathcal P_{NS}\\to0$."
+  },
+  {
+    "key": "ns.c3.c3o.g_proj",
+    "latex": "G\\text{-}PROJ",
+    "label_zh": "X-Integration守則：正交非微小",
+    "label_en": "X-Integration guard: orthogonality is not smallness",
+    "definition_zh": "第32節守則：全域 $\\langle\\mathcal P_{NS},S\\rangle=0$ 只是 orthogonality，不是 smallness。",
+    "definition_en": "Sec. 32 guard: the global identity $\\langle\\mathcal P_{NS},S\\rangle=0$ is only orthogonality, not smallness."
+  },
+  {
+    "key": "ns.c3.c3o.g_press",
+    "latex": "G\\text{-}PRESS",
+    "label_zh": "X-Integration守則：壓力/Betchov分開保存",
+    "label_en": "X-Integration guard: keep pressure/Betchov separate",
+    "definition_zh": "第32節守則：pressure 與 Betchov correction 必須分開保存，不可合併後只看總量。",
+    "definition_en": "Sec. 32 guard: the pressure and Betchov corrections must be kept separate, not merged and tracked only as a total."
+  }
+]

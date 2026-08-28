@@ -1,0 +1,259 @@
+[
+  {
+    "key": "ns.c3.c3v.ancestry_pair",
+    "latex": "P=(x_p,t_p,R_p),\\ C=(x_c,t_c,R_c)",
+    "label_zh": "母代／子代三元組",
+    "label_en": "Parent/child triple",
+    "definition_zh": "第2節沿用C3-U記號，以三元組P=(x_p,t_p,R_p)與C=(x_c,t_c,R_c)標記母代與子代的中心、時刻與尺度，並假設R_c≍R_p。",
+    "definition_en": "Section 2 reuses the C3-U notation in which triples P=(x_p,t_p,R_p) and C=(x_c,t_c,R_c) record the center, time, and scale of a parent and child ancestry node, with R_c≍R_p assumed.",
+    "notes": "Carried over from C3-U; every subsequent turnover/enstrophy quantity in this round is built on this pair."
+  },
+  {
+    "key": "ns.c3.c3v.pressure_source_scalar",
+    "latex": "f(t,x)=\\operatorname{tr}((\\nabla u(t,x))^2)",
+    "label_zh": "壓力源純量",
+    "label_en": "Pressure source scalar",
+    "definition_zh": "第1節沿用的壓力源純量f=tr((∇u)^2)滿足逐點界|f|≤|∇u|^2，是本輪端點遞轉論證的起點。",
+    "definition_en": "Section 1 recalls the pressure source scalar f=tr((∇u)^2), which obeys the pointwise bound |f|≤|∇u|^2 and anchors this round's endpoint turnover argument."
+  },
+  {
+    "key": "ns.c3.c3v.far_pressure_turnover",
+    "latex": "\\mathfrak T_{pc}^{far}=\\frac{R_p}{\\nu^2}\\left\\|\\psi_p(f_c-f_p)\\right\\|_1",
+    "label_zh": "遠場壓力遞轉量",
+    "label_en": "Far-pressure turnover",
+    "definition_zh": "第2節回顧C3-U對母子代遠場壓力源差異的加權L^1遞轉量定義𝔗_{pc}^{far}。",
+    "definition_en": "Section 2 recalls C3-U's definition of the far-pressure turnover 𝔗_{pc}^{far}, a weighted L^1 measure of the pressure-source difference between parent and child.",
+    "defining_relation": "\\mathfrak T_{pc}^{far}=\\frac{R_p}{\\nu^2}\\left\\|\\psi_p(f_c-f_p)\\right\\|_1",
+    "notes": "Inherited from C3-U, where it was bounded via ∫_{t_p}^{t_c}∂_tf; C3-V's Theorem 3.1 replaces that with a cheaper endpoint bound."
+  },
+  {
+    "key": "ns.c3.c3v.thm_endpoint_pressure_turnover_bound",
+    "latex": "\\mathfrak T_{pc}^{far}\\le\\frac{R_p}{\\nu^2}\\left[\\|\\nabla u(t_c)\\|_2^2+\\|\\nabla u(t_p)\\|_2^2\\right]",
+    "label_zh": "定理C3-V.1（端點壓力遞轉界）",
+    "label_en": "Theorem C3-V.1 (Endpoint Pressure-Turnover Bound)",
+    "definition_zh": "第3節定理3.1證明遠場壓力遞轉量可由母子代端點enstrophy直接界定，無需∂_tf可積性假設。",
+    "definition_en": "Theorem 3.1 in Section 3 shows the far-pressure turnover is bounded directly by the parent and child endpoint enstrophies, avoiding any integrability assumption on ∂_tf.",
+    "defining_relation": "\\mathfrak T_{pc}^{far}\\le\\frac{R_p}{\\nu^2}\\left[\\|\\nabla u(t_c)\\|_2^2+\\|\\nabla u(t_p)\\|_2^2\\right]"
+  },
+  {
+    "key": "ns.c3.c3v.rescaled_enstrophy",
+    "latex": "\\mathfrak E_p=\\frac{R_p\\|\\nabla u(t_p)\\|_2^2}{\\nu^2},\\quad \\mathfrak E_{c|p}=\\frac{R_p\\|\\nabla u(t_c)\\|_2^2}{\\nu^2}",
+    "label_zh": "（母代尺度下）重標化enstrophy",
+    "label_en": "Parent-scale rescaled enstrophy",
+    "definition_zh": "第4節定義母代重標化enstrophy 𝔈_p與以母代尺度R_p計算的子代enstrophy 𝔈_{c|p}，並得到𝔗_{pc}^{far}≤𝔈_p+𝔈_{c|p}。",
+    "definition_en": "Section 4 defines the parent rescaled enstrophy 𝔈_p and the child enstrophy 𝔈_{c|p} evaluated at the parent scale R_p, yielding 𝔗_{pc}^{far}≤𝔈_p+𝔈_{c|p}.",
+    "defining_relation": "\\mathfrak E_p=\\frac{R_p\\|\\nabla u(t_p)\\|_2^2}{\\nu^2},\\ \\ \\mathfrak E_{c|p}=\\frac{R_p\\|\\nabla u(t_c)\\|_2^2}{\\nu^2},\\ \\ \\mathfrak T_{pc}^{far}\\le\\mathfrak E_p+\\mathfrak E_{c|p}",
+    "notes": "𝔈_{c|p}≍𝔈_c since R_c≍R_p; this pair is the load-bearing scalar behind every later boxed bound in Sections 5-11."
+  },
+  {
+    "key": "ns.c3.c3v.far_matrix_variation",
+    "latex": "\\Delta\\widehat H_{pc},\\ \\Delta\\widehat H_{\\rm space},\\ \\Delta\\widehat H_{\\rm recl}",
+    "label_zh": "遠矩陣變化量（空間位移／再分類分量）",
+    "label_en": "Far-matrix variation (spatial-shift / reclassification components)",
+    "definition_zh": "承第0節C3-U對ΔH的空間、再分類、時間三分解，第5-7節將其正規化為ΔĤ_{recl}、ΔĤ_{space}並合併為第7節定理7.1所界定的ΔĤ_{pc}。",
+    "definition_en": "Building on C3-U's three-way split of ΔH (spatial, reclassification, temporal) recalled in Section 0, Sections 5-7 normalize the spatial and reclassification pieces and combine them into ΔĤ_{pc}, bounded in Theorem 7.1 of Section 7.",
+    "notes": "Section 0's ΔH=ΔH_space+ΔH_recl+ΔH_time is the C3-U decomposition this round refines on the space/reclassification pieces only."
+  },
+  {
+    "key": "ns.c3.c3v.thm_endpoint_far_matrix_variation",
+    "latex": "|\\Delta\\widehat H_{pc}|\\le C\\left[\\kappa^{-3}(\\mathfrak E_p+\\mathfrak E_{c|p})+\\frac{d_{pc}}{R_p}\\kappa^{-4}\\mathfrak E_p\\right]",
+    "label_zh": "定理C3-V.2（端點遠矩陣變化定理）",
+    "label_en": "Theorem C3-V.2 (Endpoint Far-Matrix Variation Theorem)",
+    "definition_zh": "第7節定理7.1在R_c≍R_p下，把遠矩陣變化量完全用端點重標化enstrophy與壓力視界κ界定，說明壓力方向遺傳不需先證∂_tf可積。",
+    "definition_en": "Theorem 7.1 in Section 7 bounds the far-matrix variation entirely by endpoint rescaled enstrophy and the pressure horizon κ under R_c≍R_p, showing pressure-direction heredity need not first establish integrability of ∂_tf.",
+    "defining_relation": "|\\Delta\\widehat H_{pc}|\\le C\\left[\\kappa^{-3}(\\mathfrak E_p+\\mathfrak E_{c|p})+\\frac{d_{pc}}{R_p}\\kappa^{-4}\\mathfrak E_p\\right]"
+  },
+  {
+    "key": "ns.c3.c3v.bounding_constants",
+    "latex": "\\mathfrak E_p,\\mathfrak E_{c|p}\\le E_*,\\quad \\frac{d_{pc}}{R_p}\\le D_*",
+    "label_zh": "有界enstrophy／尺度比常數",
+    "label_en": "Bounded-enstrophy / scale-ratio constants",
+    "definition_zh": "第8節引入常數E_*與D_*分別界定重標化enstrophy上界及母子中心距與尺度比，作為後續條件版遺傳定理的假設。",
+    "definition_en": "Section 8 introduces the constants E_* and D_*, bounding the rescaled enstrophies and the center-distance-to-scale ratio respectively, as the hypotheses feeding the conditional heredity theorems that follow."
+  },
+  {
+    "key": "ns.c3.c3v.far_pressure_unit_direction",
+    "latex": "K_p^H=-\\frac{\\widehat H_p}{|\\widehat H_p|},\\quad K_c^H=-\\frac{\\widehat H_c}{|\\widehat H_c|}",
+    "label_zh": "遠壓力單位方向",
+    "label_en": "Far-pressure unit direction",
+    "definition_zh": "第9節在非退化假設|Ĥ_p|≥h_*>0下，把母子代遠壓力矩陣正規化為單位方向K_p^H、K_c^H，證明|Ĥ_c-Ĥ_p|小則|K_c^H-K_p^H|≤4ε。",
+    "definition_en": "Under the nondegeneracy hypothesis |Ĥ_p|≥h_*>0, Section 9 normalizes the parent and child far-pressure matrices into unit directions K_p^H, K_c^H and shows a small |Ĥ_c-Ĥ_p| forces |K_c^H-K_p^H|≤4ε."
+  },
+  {
+    "key": "ns.c3.c3v.thm_direction_stability",
+    "latex": "\\forall\\epsilon_H>0\\ \\exists\\kappa_0(E_*,D_*,h_*,\\epsilon_H):\\ \\kappa\\ge\\kappa_0\\Rightarrow|K_c^H-K_p^H|\\le\\epsilon_H",
+    "label_zh": "定理C3-V.3（有界enstrophy下遠壓力方向穩定性）",
+    "label_en": "Theorem C3-V.3 (Bounded-Enstrophy Far-Pressure Direction Stability)",
+    "definition_zh": "第10節定理10.1證明在E_*,D_*,h_*固定下，存在門檻κ_0使κ≥κ_0時遠壓力方向差可任意小，是真正的條件式壓力方向遺傳定理。",
+    "definition_en": "Theorem 10.1 in Section 10 shows that for fixed E_*, D_*, h_* there is a threshold κ_0 beyond which |K_c^H-K_p^H| can be made arbitrarily small, giving a genuine conditional pressure-direction heredity theorem."
+  },
+  {
+    "key": "ns.c3.c3v.pressure_failure_branch_trichotomies",
+    "latex": "\\text{V-P1, V-P2, V-P3};\\quad \\text{H-F1, H-F2, H-F3}",
+    "label_zh": "壓力方向／壓力遺傳失敗分支",
+    "label_en": "Pressure-direction / pressure-heredity failure branches",
+    "definition_zh": "第11節列出遠壓力方向無法遺傳時必居其一的三分支：V-P1重標化enstrophy發散、V-P2遠矩陣退化、V-P3壓力視界不足。",
+    "definition_en": "Section 11 lists the trichotomy V-P1 (rescaled-enstrophy escape), V-P2 (far-matrix degeneracy), V-P3 (insufficient pressure horizon) that must contain the cause whenever far-pressure direction fails to be hereditary.",
+    "notes": "Section 42 restates an analogous overall trichotomy H-F1/H-F2/H-F3 for pressure-poor-to-rich recovery, adding mean-strain rotation (H-F3) as the branch this round isolates."
+  },
+  {
+    "key": "ns.c3.c3v.pressure_efficiency",
+    "latex": "\\eta_p=K_p^H:v_p,\\quad \\eta_c=K_c^H:v_c",
+    "label_zh": "壓力效率",
+    "label_en": "Pressure efficiency",
+    "definition_zh": "第12節定義壓力效率η=K^H:v，即遠壓力單位方向與平均應變方向的內積，用以量測pressure-poor heredity是否恢復。",
+    "definition_en": "Section 12 defines the pressure efficiency η=K^H:v as the inner product of the far-pressure unit direction with the mean-strain direction, used to detect recovery from pressure-poor heredity."
+  },
+  {
+    "key": "ns.c3.c3v.mean_strain_vector",
+    "latex": "M_p=av_p,\\ M_c=bv_c,\\quad |M_p|,|M_c|\\ge\\mu_*\\nu R_p",
+    "label_zh": "局部平均應變向量",
+    "label_en": "Local mean-strain vector",
+    "definition_zh": "第13節以M_p=av_p、M_c=bv_c記局部平均應變向量並要求非退化下界|M_p|,|M_c|≥μ_*νR_p，由此得|M_c-M_p|≥μ_*νR_p|v_c-v_p|。",
+    "definition_en": "Section 13 writes the local mean-strain vectors as M_p=av_p, M_c=bv_c with nondegeneracy lower bound |M_p|,|M_c|≥μ_*νR_p, giving |M_c-M_p|≥μ_*νR_p|v_c-v_p|."
+  },
+  {
+    "key": "ns.c3.c3v.thm_mean_rotation_toll",
+    "latex": "\\frac{|M_c-M_p|}{\\nu R_p}\\ge\\frac{\\mu_*\\delta}{2}",
+    "label_zh": "定理C3-V.4（壓力效率恢復需付平均旋轉代價）",
+    "label_en": "Theorem C3-V.4 (Pressure-Efficiency Recovery Requires Mean-Rotation Toll)",
+    "definition_zh": "第14節證明若壓力效率回升η_c-η_p≥δ且遠壓力方向穩定，則局部平均應變向量差必須付出正規化下界μ_*δ/2的旋轉代價。",
+    "definition_en": "Section 14 shows that if pressure efficiency recovers by η_c-η_p≥δ while the far-pressure direction stays stable, the mean-strain vector must pay a normalized rotation toll of at least μ_*δ/2.",
+    "defining_relation": "\\frac{|M_c-M_p|}{\\nu R_p}\\ge\\frac{\\mu_*\\delta}{2}"
+  },
+  {
+    "key": "ns.c3.c3v.quadratic_strain_vorticity_tensor",
+    "latex": "Q_S=S^2+\\frac14\\omega\\otimes\\omega-\\frac14|\\omega|^2I",
+    "label_zh": "應變-渦度二次張量",
+    "label_en": "Strain-vorticity quadratic tensor",
+    "definition_zh": "第15節由C3-U的伴隨恆等式引入二次張量Q_S=S^2+¼ω⊗ω-¼|ω|^2I，作為平均應變遞轉的局部核心項。",
+    "definition_en": "Section 15 introduces the quadratic tensor Q_S=S^2+¼ω⊗ω-¼|ω|^2I from C3-U's adjoint identity as the local kernel driving mean-strain turnover.",
+    "defining_relation": "Q_S=S^2+\\frac14\\omega\\otimes\\omega-\\frac14|\\omega|^2I"
+  },
+  {
+    "key": "ns.c3.c3v.normalized_turnover_functionals",
+    "latex": "\\mathfrak R_{pc}^{Q}=\\frac{1}{\\nu R_p}\\int_{I_{pc}}\\!\\!\\int\\chi|Q_S|\\,dxdt,\\quad \\mathfrak R_{pc}^{P}=\\frac{1}{\\nu R_p}\\int_{I_{pc}}\\!\\!\\int\\chi|\\nabla^2p|\\,dxdt",
+    "label_zh": "正規化二次／壓力Hessian遞轉量",
+    "label_en": "Normalized quadratic / pressure-Hessian turnover",
+    "definition_zh": "第15節定義正規化局部應變-渦度二次遞轉量𝔯_{pc}^Q與局部壓力Hessian遞轉量𝔯_{pc}^P，兩者之和界定平均應變向量差|M_c-M_p|/(νR_p)。",
+    "definition_en": "Section 15 defines the normalized local quadratic turnover 𝔯_{pc}^Q and the normalized local pressure-Hessian turnover 𝔯_{pc}^P, whose sum bounds the mean-strain difference |M_c-M_p|/(νR_p).",
+    "defining_relation": "\\mathfrak R_{pc}^{Q}=\\frac{1}{\\nu R_p}\\int_{I_{pc}}\\int\\chi|Q_S|\\,dxdt,\\ \\ \\mathfrak R_{pc}^{P}=\\frac{1}{\\nu R_p}\\int_{I_{pc}}\\int\\chi|\\nabla^2p|\\,dxdt,\\ \\ \\frac{|M_c-M_p|}{\\nu R_p}\\le\\mathfrak R_{pc}^{Q}+\\mathfrak R_{pc}^{P}",
+    "notes": "Section 16's mean-rotation carrier dichotomy shows at least one of 𝔯_{pc}^Q≥r_0/2 or 𝔯_{pc}^P≥r_0/2 must hold whenever the mean-strain difference is ≥r_0."
+  },
+  {
+    "key": "ns.c3.c3v.thm_weighted_quadratic_packing",
+    "latex": "\\sum_nR_n\\mathfrak R_n^{Q}\\le\\frac{C}{\\nu}\\int_0^{T_*}\\|\\nabla u(t)\\|_2^2dt\\le\\frac{C\\|u_0\\|_2^2}{\\nu^2}",
+    "label_zh": "定理C3-V.5（加權二次遞轉封裝定理）",
+    "label_en": "Theorem C3-V.5 (Weighted Quadratic-Turnover Packing)",
+    "definition_zh": "第18節定理18.1證明對兩兩不相交的祖先窗口，尺度加權的二次遞轉量總和∑R_n𝔯_n^Q由初始動能界定，是R-加權而非未加權的封裝律。",
+    "definition_en": "Theorem 18.1 in Section 18 shows that over pairwise-disjoint ancestry windows, the scale-weighted sum ∑R_n𝔯_n^Q of quadratic turnovers is bounded by the initial kinetic energy — an R-weighted, not unweighted, packing law.",
+    "defining_relation": "\\sum_nR_n\\mathfrak R_n^{Q}\\le\\frac{C}{\\nu}\\int_0^{T_*}\\|\\nabla u(t)\\|_2^2dt\\le\\frac{C\\|u_0\\|_2^2}{\\nu^2}",
+    "notes": "Section 19 stresses this does NOT give ∑𝔯_n^Q<∞; under geometric R_n=R_0r^{-n} it permits 𝔯_n^Q~1 every generation, which Section 20's Zeno No-Go and Section 43 use to declare energy-only Pressure-Poor Heredity a NO-GO."
+  },
+  {
+    "key": "ns.c3.c3v.thm_turnover_zeno_nogo",
+    "latex": "\\sum_n\\nu\\int_{I_n}\\|\\nabla u\\|_2^2dt<\\infty\\ \\text{yet}\\ \\mathfrak R_n^Q\\sim E_*\\ \\forall n",
+    "label_zh": "定理C3-V.6（遞轉芝諾不可行定理）",
+    "label_en": "Theorem C3-V.6 (Turnover Zeno No-Go)",
+    "definition_zh": "第20節用幾何尺度R_n=2^{-n}R_0的抽象記帳構造，展示有限動能耗散並不蘊含有限的總平均方向變化，𝔯_n^Q每代可保持O(1)。",
+    "definition_en": "Section 20 constructs an abstract geometric-ledger bookkeeping with R_n=2^{-n}R_0 showing finite kinetic-energy dissipation does not imply finite total mean-direction variation, since 𝔯_n^Q can stay O(1) every generation.",
+    "notes": "Explicitly flagged in the text as a scaling ledger, not a Navier-Stokes blow-up construction."
+  },
+  {
+    "key": "ns.c3.c3v.persistent_window_hypothesis",
+    "latex": "J_n\\subset I_n,\\ |J_n|\\ge\\theta\\frac{R_n^2}{\\nu},\\quad \\mathfrak E_{R_n}(t)\\ge cb_0^{2/3}\\kappa_n^2\\gamma_n^{-2/3}\\ \\text{on}\\ J_n",
+    "label_zh": "持續黏性窗口假設",
+    "label_en": "Persistent viscous-window hypothesis",
+    "definition_zh": "第23節加入明確條件：每個祖先窗口I_n存在測度≥θR_n^2/ν的固定比例子集J_n，其上共同遠壓力支持的錐退化不等式（第22節b_0常數）持續成立。",
+    "definition_en": "Section 23 adds an explicit condition that each ancestry window I_n contains a fixed-fraction subset J_n of measure ≥θR_n^2/ν on which the cone-degeneration inequality (with the b_0 constant from Section 22) persists."
+  },
+  {
+    "key": "ns.c3.c3v.thm_persistent_cone_degeneration_packing",
+    "latex": "\\sum_nR_n\\kappa_n^2\\gamma_n^{-2/3}\\le C\\frac{\\|u_0\\|_2^2}{\\theta\\nu^2b_0^{2/3}}",
+    "label_zh": "定理C3-V.7（持續錐退化封裝定理）",
+    "label_en": "Theorem C3-V.7 (Persistent Cone-Degeneration Packing Theorem)",
+    "definition_zh": "第24節定理24.1在持續黏性窗口假設下，證明尺度加權的錐退化量∑R_nκ_n^2γ_n^{-2/3}由初始動能界定，是首個直接接上global energy budget的幾何衰減速率限制。",
+    "definition_en": "Theorem 24.1 in Section 24 proves that under the persistent-window hypothesis, the scale-weighted cone-degeneration sum ∑R_nκ_n^2γ_n^{-2/3} is bounded by the initial energy — the first geometric decay-rate restriction tied directly to the global energy budget.",
+    "defining_relation": "\\sum_nR_n\\kappa_n^2\\gamma_n^{-2/3}\\le C\\frac{\\|u_0\\|_2^2}{\\theta\\nu^2b_0^{2/3}}"
+  },
+  {
+    "key": "ns.c3.c3v.cone_collapse_rate_exponent",
+    "latex": "\\gamma_n\\asymp(R_n/R_0)^\\alpha,\\quad \\alpha<\\frac32",
+    "label_zh": "錐塌縮速率指數",
+    "label_en": "Cone collapse rate exponent",
+    "definition_zh": "第25節在幾何尺度R_n=R_0r^{-n}下引入錐邊界指數α（γ_n≍(R_n/R_0)^α），證明持續支持分支需要α<3/2，否則與定理24.1矛盾。",
+    "definition_en": "Section 25 introduces the cone-margin exponent α via γ_n≍(R_n/R_0)^α under geometric scales R_n=R_0r^{-n}, showing the persistent-support branch forces α<3/2 on pain of contradicting Theorem 24.1."
+  },
+  {
+    "key": "ns.c3.c3v.morrey_obstruction",
+    "latex": "\\mathfrak O_{p,R}=\\frac{C_pR^{1-3/p}\\|\\nabla S\\|_{L^p(B_R)}}{|\\bar S_R|}",
+    "label_zh": "Morrey型平均-逐點障礙量",
+    "label_en": "Morrey mean-to-pointwise obstruction",
+    "definition_zh": "第27節對p>3定義障礙量𝔒_{p,R}，其若小於正規化中間特徵值間隙即可把平均應變符號升為逐點符號。",
+    "definition_en": "For p>3, Section 27 defines the obstruction 𝔒_{p,R}, which, when smaller than the normalized middle-eigenvalue gap, allows the mean-strain sign to be promoted to a pointwise sign.",
+    "defining_relation": "\\mathfrak O_{p,R}=\\frac{C_pR^{1-3/p}\\|\\nabla S\\|_{L^p(B_R)}}{|\\bar S_R|}"
+  },
+  {
+    "key": "ns.c3.c3v.normalized_mean_strain",
+    "latex": "\\mu_R=\\frac{R^2|\\bar S_R|}{\\nu}",
+    "label_zh": "正規化平均應變",
+    "label_en": "Normalized mean strain",
+    "definition_zh": "第28節定義尺度不變量μ_R=R^2|S̄_R|/ν，作為量測局部平均應變非退化程度的正規化量。",
+    "definition_en": "Section 28 defines the scale-invariant quantity μ_R=R^2|S̄_R|/ν, normalizing the local mean-strain magnitude for nondegeneracy comparisons.",
+    "defining_relation": "\\mu_R=\\frac{R^2|\\bar S_R|}{\\nu}"
+  },
+  {
+    "key": "ns.c3.c3v.active_volume_and_fraction",
+    "latex": "\\mathcal V_p(g)=\\left(\\frac{\\|g\\|_2}{\\|g\\|_p}\\right)^{1/a_p},\\quad \\phi_{p,R}=\\frac{\\mathcal V_p(g)}{R^3},\\quad a_p=\\frac12-\\frac1p",
+    "label_zh": "有效活躍體積與正規化活躍體積分率",
+    "label_en": "Effective active volume and normalized active-volume fraction",
+    "definition_zh": "第29節對g=∇S|_{B_R}與p>2定義具體積量綱的局部有效活躍體積𝒱_p(g)及其正規化分率φ_{p,R}=𝒱_p(g)/R^3，作為本專案自定的局部集中度診斷量。",
+    "definition_en": "For g=∇S restricted to B_R and p>2, Section 29 defines the volume-dimensioned local effective active volume 𝒱_p(g) and its normalized fraction φ_{p,R}=𝒱_p(g)/R^3, a project-specific local-concentration diagnostic.",
+    "defining_relation": "\\mathcal V_p(g)=\\left(\\frac{\\|g\\|_2}{\\|g\\|_p}\\right)^{1/a_p},\\ \\ \\phi_{p,R}=\\frac{\\mathcal V_p(g)}{R^3},\\ \\ a_p=\\frac12-\\frac1p",
+    "notes": "Section 29 explicitly cautions φ_{p,R} is not identical to the full Cheskidov-Shvydkoy volumetric intermittency machinery, only a project-local analogue."
+  },
+  {
+    "key": "ns.c3.c3v.higher_derivative_stock",
+    "latex": "\\mathfrak H_R=\\frac{R^3}{\\nu^2}\\|\\nabla S\\|_{L^2(B_R)}^2",
+    "label_zh": "高階導數應變儲量",
+    "label_en": "Higher-derivative strain stock",
+    "definition_zh": "第30節定義尺度不變的瞬時局部H^2-型應變梯度儲量𝔥_R=(R^3/ν^2)‖∇S‖_{L^2(B_R)}^2。",
+    "definition_en": "Section 30 defines the scale-invariant instantaneous local H^2-type strain-gradient stock 𝔥_R=(R^3/ν^2)‖∇S‖_{L^2(B_R)}^2.",
+    "defining_relation": "\\mathfrak H_R=\\frac{R^3}{\\nu^2}\\|\\nabla S\\|_{L^2(B_R)}^2"
+  },
+  {
+    "key": "ns.c3.c3v.thm_fluctuation_intermittency_identity",
+    "latex": "\\mathfrak O_{p,R}=C_p\\frac{\\mathfrak H_R^{1/2}}{\\mu_R\\phi_{p,R}^{\\,1/2-1/p}}",
+    "label_zh": "定理C3-V.8（漲落-間歇性恆等式）",
+    "label_en": "Theorem C3-V.8 (Fluctuation-Intermittency Identity)",
+    "definition_zh": "第31節定理31.1證明在∇S≠0、S̄_R≠0下，Morrey障礙量、高階導數儲量、正規化平均應變與活躍體積分率間存在精確恆等式，所有R冪次完全抵消。",
+    "definition_en": "Theorem 31.1 in Section 31 proves that whenever ∇S≠0 and S̄_R≠0, the Morrey obstruction, higher-derivative stock, normalized mean strain, and active-volume fraction satisfy an exact identity with all powers of R canceling.",
+    "defining_relation": "\\mathfrak O_{p,R}=C_p\\frac{\\mathfrak H_R^{1/2}}{\\mu_R\\phi_{p,R}^{\\,1/2-1/p}}"
+  },
+  {
+    "key": "ns.c3.c3v.thm_strain_fluctuation_escape_dichotomy",
+    "latex": "\\phi_{p,R}\\le\\theta\\ \\ (\\text{V-F1})\\quad\\vee\\quad \\mathfrak H_R\\ge c\\delta^2\\mu_0^2\\theta^{\\,1-2/p}\\ \\ (\\text{V-F2})",
+    "label_zh": "定理C3-V.9（應變漲落逃逸二分定理）",
+    "label_en": "Theorem C3-V.9 (Strain-Fluctuation Escape Dichotomy)",
+    "definition_zh": "第32節在μ_R≥μ_0>0且障礙量𝔒_{p,R}≥δ>0下，證明對任意0<θ<1必居其一：V-F1間歇集中φ_{p,R}≤θ，或V-F2高階導數儲量下界𝔥_R≥cδ^2μ_0^2θ^{1-2/p}。",
+    "definition_en": "Under μ_R≥μ_0>0 and obstruction 𝔒_{p,R}≥δ>0, Section 32 proves that for any 0<θ<1, either V-F1 intermittent concentration φ_{p,R}≤θ holds, or V-F2 the higher-derivative stock satisfies 𝔥_R≥cδ^2μ_0^2θ^{1-2/p}.",
+    "defining_relation": "\\phi_{p,R}\\le\\theta\\quad\\vee\\quad \\mathfrak H_R\\ge c\\delta^2\\mu_0^2\\theta^{\\,1-2/p}"
+  },
+  {
+    "key": "ns.c3.c3v.frontier_rescaling_family",
+    "latex": "V_Q(y,0)=\\frac{1}{\\nu\\lambda_Q}u\\left(x_Q+\\frac{y}{\\lambda_Q},T_Q\\right),\\quad \\Sigma_Q=\\nabla_{sym}V_Q,\\quad 2^{-j}\\|\\Delta_jV_Q(0)\\|_\\infty\\le\\beta_*",
+    "label_zh": "前緣重標化速度場與應變殼層",
+    "label_en": "First-frontier rescaled velocity and strain shell",
+    "definition_zh": "第36節回顧C3-I的前緣重標化速度場V_Q及其UV上界常數β_*，第37節由此定義重標化應變殼層Σ_Q=∇_{sym}V_Q。",
+    "definition_en": "Section 36 recalls the C3-I first-frontier rescaled velocity field V_Q and its UV cap constant β_*, and Section 37 defines from it the rescaled strain shell Σ_Q=∇_{sym}V_Q.",
+    "notes": "Inherited from C3-I (NS_C3I_FrontierUVCap_DefectTrichotomy); Sections 36-38 of this round track whether the velocity UV cap propagates to Σ_Q."
+  },
+  {
+    "key": "ns.c3.c3v.thm_derivative_amplification_barrier",
+    "latex": "\\|\\Delta_j\\Sigma_Q\\|_\\infty\\le C\\beta_*2^{2j}\\ \\ \\not\\Rightarrow\\ \\ \\sum_{j>M}\\|\\Delta_j\\Sigma_Q\\|_\\infty\\to0",
+    "label_zh": "定理C3-V.10（導數放大障壁）",
+    "label_en": "Theorem C3-V.10 (Derivative Amplification Barrier)",
+    "definition_zh": "第38節證明前緣速度UV上界僅給出‖Δ_jΣ_Q‖_∞≤Cβ_*2^{2j}，允許高頻增長，因此速度UV上界不蘊含應變UV餘項變小，更不推出Morrey障礙量𝔒_{p,R}變小。",
+    "definition_en": "Section 38 shows the first-frontier velocity UV cap only yields ‖Δ_jΣ_Q‖_∞≤Cβ_*2^{2j}, which permits high-frequency growth, so the velocity UV cap does not imply smallness of the strain UV remainder, let alone smallness of the Morrey obstruction 𝔒_{p,R}."
+  }
+]

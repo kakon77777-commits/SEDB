@@ -1,0 +1,273 @@
+[
+  {
+    "key": "ns.c4.c4i.record_window",
+    "latex": "J_j=(\\tau_j,\\tau_{j+1}),\\ J=(a,b)",
+    "label_zh": "記錄窗口",
+    "label_en": "Record window",
+    "definition_zh": "承接C4-H的收縮式late-time記錄窗口J_j=(tau_j,tau_{j+1})（見§0），本輪§2將其寫成一般記法J=(a,b)作為容量-重疊分析的基本區間。",
+    "definition_en": "The shrinking late-time record windows J_j=(tau_j,tau_{j+1}) inherited from C4-H (§0) are written generically as J=(a,b) in §2, the base interval for this round's capacity-overlap analysis.",
+    "notes": "Carries over directly from C4-H's record ladder; |J_j|->0 as j->infinity toward the putative singular time T_*."
+  },
+  {
+    "key": "ns.c4.c4i.middle_load_density",
+    "latex": "m(t)=\\int_{\\mathbb R^3}\\lambda_2^+(x,t)|S(x,t)|^2\\,dx",
+    "label_zh": "中間應變負荷密度",
+    "label_en": "Middle load density",
+    "definition_zh": "§2定義的時間函數，把Miller中間特徵值正部λ_2^+與應變張量平方在空間上積分成單一非負的middle toll密度。",
+    "definition_en": "A time-dependent quantity defined in §2 that integrates the positive part of Miller's middle eigenvalue λ2+ weighted by |S|^2 over space into a single nonnegative middle-toll density.",
+    "defining_relation": "m(t)=\\int_{\\mathbb R^3}\\lambda_2^+(x,t)|S(x,t)|^2\\,dx,\\qquad m(t)\\ge0"
+  },
+  {
+    "key": "ns.c4.c4i.operator_load_density",
+    "latex": "o(t)=\\nu[\\zeta(t)r_\\nu(t)-1]_+\\|\\Delta S(t)\\|_2^2",
+    "label_zh": "算子負荷密度",
+    "label_en": "Operator load density",
+    "definition_zh": "§2定義的時間函數，用C4-H的閾值超額[ζr_ν-1]_+乘上‖ΔS‖²_2衡量算子項超出增長閾值的負荷。",
+    "definition_en": "A time-dependent quantity defined in §2 measuring how far the operator term exceeds the growth threshold, via [ζ r_ν - 1]_+ times the squared norm of ΔS.",
+    "defining_relation": "o(t)=\\nu[\\zeta(t)r_\\nu(t)-1]_+\\|\\Delta S(t)\\|_2^2,\\qquad o(t)\\ge0"
+  },
+  {
+    "key": "ns.c4.c4i.peak_capacities",
+    "latex": "M=\\operatorname*{ess\\,sup}_{t\\in J}m(t),\\quad O=\\operatorname*{ess\\,sup}_{t\\in J}o(t)",
+    "label_zh": "峰值容量",
+    "label_en": "Peak capacities",
+    "definition_zh": "§3將m、o在記錄窗口J上的本質上確界分別記作M、O，作為之後duty-cycle下界公式的分母。",
+    "definition_en": "§3 sets M and O as the essential suprema of m and o over the record window J, the denominators in the duty-cycle lower bounds that follow."
+  },
+  {
+    "key": "ns.c4.c4i.threshold_active_sets",
+    "latex": "E_m(\\mu)=\\{t\\in J:m(t)\\ge\\mu\\},\\quad E_o(\\omega)=\\{t\\in J:o(t)\\ge\\omega\\}",
+    "label_zh": "閾值活躍集",
+    "label_en": "Threshold-active sets",
+    "definition_zh": "§3定義的時間子集，分別收集middle load與operator load超過給定閾值μ、ω的時刻。",
+    "definition_en": "Time subsets defined in §3 collecting the moments at which the middle load and operator load exceed given thresholds μ and ω respectively."
+  },
+  {
+    "key": "ns.c4.c4i.capacity_to_overlap_theorem",
+    "latex": "|E_m(\\mu)\\cap E_o(\\omega)|\\ge\\left[\\frac{A-\\mu|J|}{M-\\mu}+\\frac{B-\\omega|J|}{O-\\omega}-|J|\\right]_+",
+    "label_zh": "中間-算子容量至重疊定理",
+    "label_en": "Middle–Operator Capacity-to-Overlap Theorem (C4-I.1)",
+    "definition_zh": "§5定理5.1，由包含-排斥不等式從單通道duty-cycle下界推出E_m(μ)、E_o(ω)的same-time重疊測度下界，是本輪核心正面結果。",
+    "definition_en": "Theorem 5.1 in §5, deriving a lower bound on the measure of the same-time overlap E_m(μ)∩E_o(ω) from single-channel duty-cycle bounds via inclusion-exclusion — the round's central positive result.",
+    "defining_relation": "|E_m(\\mu)\\cap E_o(\\omega)|\\ge\\left[\\frac{A-\\mu|J|}{M-\\mu}+\\frac{B-\\omega|J|}{O-\\omega}-|J|\\right]_+",
+    "notes": "§6-7 specialize this to a same-time overlap criterion and a zero-threshold version; §50 packages its right-hand side as the functional 𝔠_overlap inside the state tuple Θ_J^MO."
+  },
+  {
+    "key": "ns.c4.c4i.desync_debt",
+    "latex": "\\text{Middle–Operator Peak-Capacity Desynchronization Debt}",
+    "label_zh": "峰值容量去同步債務",
+    "label_en": "Peak-Capacity Desynchronization Debt",
+    "definition_zh": "§8將E_m(μ)∩E_o(ω)=∅時必然成立的容量比不等式命名為此債務，量化若無同時重疊峰值容量比需付出的代價。",
+    "definition_en": "§8 names the capacity-ratio inequality that must hold whenever E_m(μ)∩E_o(ω)=∅ as this debt, quantifying the cost paid in peak-capacity ratios when same-time overlap fails."
+  },
+  {
+    "key": "ns.c4.c4i.peak_average_ratio_theorem",
+    "latex": "M\\le K_m\\frac{A}{|J|},\\ O\\le K_o\\frac{B}{|J|}\\ \\Rightarrow\\ \\tfrac1{K_m}+\\tfrac1{K_o}>1\\Rightarrow\\text{overlap forced}",
+    "label_zh": "有界峰值/平均比定理",
+    "label_en": "Bounded Peak/Average Ratios Force Same-Time Overlap (C4-I.2)",
+    "definition_zh": "§10的條件式定理：若峰值容量M、O被平均容量的常數倍K_m、K_o控制且1/K_m+1/K_o>1，則same-time overlap被迫成立，但目前未有已證的一致K_m、K_o上界。",
+    "definition_en": "The conditional theorem of §10: if peak capacities M, O are bounded by constant multiples K_m, K_o of the averages and 1/K_m+1/K_o>1, same-time overlap is forced, though no uniform bound on K_m, K_o is yet proved.",
+    "notes": "Explicitly logged as open (no proved uniform K_m, K_o upper bounds); becomes proof obligation J1 of the next round C4-J (§54)."
+  },
+  {
+    "key": "ns.c4.c4i.growth_direction",
+    "latex": "D=\\|\\Delta S\\|_2,\\qquad e_D=\\frac{-\\Delta S}{D}",
+    "label_zh": "增長方向與模長",
+    "label_en": "Growth direction and magnitude",
+    "definition_zh": "§12定義的‖ΔS‖_2模長D及對應單位方向e_D=-ΔS/D，作為之後算子平行/正交分解的參考軸。",
+    "definition_en": "The magnitude D=‖ΔS‖_2 and its associated unit vector e_D=-ΔS/D, defined in §12 as the reference axis for the operator's parallel/orthogonal decomposition that follows."
+  },
+  {
+    "key": "ns.c4.c4i.normalized_operator",
+    "latex": "\\widehat Q=\\frac{\\mathcal Q_{SV}}{\\nu D},\\qquad \\|\\widehat Q\\|_2=r_\\nu",
+    "label_zh": "正規化算子與Miller比",
+    "label_en": "Normalized operator and Miller ratio",
+    "definition_zh": "§12把Miller strain/vorticity算子Q_SV（引自§1.2）除以νD正規化為Q̂，其模長即為C4-H沿用的Miller比r_ν。",
+    "definition_en": "§12 normalizes Miller's strain/vorticity operator Q_SV (introduced in §1.2) by νD into Q̂, whose norm recovers the Miller ratio r_ν carried over from C4-H.",
+    "notes": "Q_SV, r_ν and ζ are inherited notation from Miller's 2026 paper and C4-G/C4-H; this round's new contribution is the normalized Q̂ and its angle decomposition."
+  },
+  {
+    "key": "ns.c4.c4i.gate_variable",
+    "latex": "g=\\zeta r_\\nu,\\quad \\widehat Q=-g\\,e_D+Q_\\perp,\\quad \\tfrac12\\tfrac{d}{dt}\\|S\\|_{\\dot H^1}^2=\\nu(g-1)D^2",
+    "label_zh": "閘門變數g",
+    "label_en": "Gate variable g",
+    "definition_zh": "§13將Q̂沿e_D的投影係數命名為g=ζr_ν，並證明Ḣ¹增長率恰為ν(g-1)D²，使g取代單純算子範數成為§46所稱的真正gate variable。",
+    "definition_en": "§13 names the projection coefficient of Q̂ along e_D as g=ζr_ν and shows the Ḣ¹ growth rate equals ν(g-1)D², making g — rather than the bare operator norm — the round's true gate variable, as stated explicitly in §46.",
+    "defining_relation": "g=\\zeta r_\\nu,\\qquad \\widehat Q=-g\\,e_D+Q_\\perp,\\qquad \\langle Q_\\perp,e_D\\rangle=0,\\qquad \\tfrac12\\tfrac{d}{dt}\\|S\\|_{\\dot H^1}^2=\\nu(g-1)D^2",
+    "notes": "§46 demotes r_ν alone and installs g as the operator-funnel gate variable refining C4-G; §45 tabulates the three branches g>1 (Growth-Aligned), -1≤g≤1 with r_ν≫1 (Orthogonal Congestion), g<-1 (Growth-Opposing)."
+  },
+  {
+    "key": "ns.c4.c4i.orthogonal_operator_component",
+    "latex": "Q_\\perp,\\qquad \\|Q_\\perp\\|_2^2=r_\\nu^2-g^2",
+    "label_zh": "算子正交分量",
+    "label_en": "Orthogonal operator component",
+    "definition_zh": "§13由畢氏定理得到的Q̂正交於e_D的殘餘分量，其模長平方等於r_ν²-g²。",
+    "definition_en": "The component of Q̂ orthogonal to e_D obtained via the Pythagorean identity in §13, with squared norm r_ν²-g².",
+    "notes": "Recurs as a coordinate of the operator-angle state tuple Θ^angle (§50) and is bounded below in the C4-I.3 dichotomy (§14)."
+  },
+  {
+    "key": "ns.c4.c4i.large_ratio_dichotomy",
+    "latex": "r_\\nu\\ge R>1,\\ g\\le1\\ \\Rightarrow\\ (g<-1)\\ \\vee\\ \\big(-1\\le g\\le1\\ \\wedge\\ \\|Q_\\perp\\|_2\\ge\\sqrt{R^2-1}\\big)",
+    "label_zh": "大比值非增長路由定理",
+    "label_en": "Large-Ratio Non-Growth Routing Theorem (C4-I.3)",
+    "definition_zh": "§14定理，證明若Miller比大但g不大於1，則必落入I-OPPOSE（強烈對抗增長，g<-1）或I-ORTH（正交算子分量至少√(R²-1)）之一。",
+    "definition_en": "The theorem of §14 proving that a large Miller ratio with g≤1 must fall into either I-OPPOSE (strongly growth-opposing, g<-1) or I-ORTH (orthogonal operator component at least √(R²-1)).",
+    "defining_relation": "r_\\nu\\ge R>1,\\ g\\le1\\ \\Rightarrow\\ \\underbrace{g<-1}_{\\text{I-OPPOSE}}\\ \\vee\\ \\underbrace{\\big(-1\\le g\\le1\\ \\wedge\\ \\|Q_\\perp\\|_2\\ge\\sqrt{R^2-1}\\big)}_{\\text{I-ORTH}}",
+    "notes": "§15 reframes this as a sharper replacement for the cruder 1-ζ depletion classification used before C4-I."
+  },
+  {
+    "key": "ns.c4.c4i.vorticity_quadratic",
+    "latex": "W=P_{st}(\\omega\\otimes\\omega),\\qquad \\langle W,-\\Delta S\\rangle=0,\\qquad W\\in\\{e_D\\}^\\perp",
+    "label_zh": "渦度平方項",
+    "label_en": "Vorticity-quadratic term",
+    "definition_zh": "§16定義W=P_st(ω⊗ω)，並引用Miller正交性⟨W,-ΔS⟩=0證明它恆屬於增長方向的正交補空間。",
+    "definition_en": "§16 defines W=P_st(ω⊗ω) and invokes Miller's orthogonality ⟨W,-ΔS⟩=0 to show it always lies in the orthogonal complement of the growth direction.",
+    "notes": "The operator-level analogue of the pressure-Hessian orthogonality of §24; both trace back to Miller's 2026 identity quoted in §1.2."
+  },
+  {
+    "key": "ns.c4.c4i.advection_strain_square_operator",
+    "latex": "A=P_{st}\\big((u\\cdot\\nabla)S+S^2\\big),\\qquad \\mathcal Q_{SV}=A+\\tfrac34W,\\qquad \\langle A,e_D\\rangle=\\langle\\mathcal Q_{SV},e_D\\rangle",
+    "label_zh": "平流/應變平方算子",
+    "label_en": "Advection/strain-square operator",
+    "definition_zh": "§17定義A=P_st((u·∇)S+S²)，證明所有growth-parallel資訊都活在A中，並給出Miller算子的分解Q_SV=A+¾W。",
+    "definition_en": "§17 defines A=P_st((u·∇)S+S²), shows all growth-parallel information lives in A, and gives the decomposition Q_SV=A+(3/4)W of Miller's operator.",
+    "defining_relation": "A=P_{st}\\big((u\\cdot\\nabla)S+S^2\\big),\\qquad \\mathcal Q_{SV}=A+\\tfrac34W,\\qquad \\langle A,e_D\\rangle=\\langle\\mathcal Q_{SV},e_D\\rangle"
+  },
+  {
+    "key": "ns.c4.c4i.orthogonal_congestion_theorem",
+    "latex": "\\|(\\mathcal Q_{SV})_\\perp\\|_2\\ge Q_0\\ \\Rightarrow\\ \\|A_\\perp\\|_2\\ge\\tfrac{Q_0}2\\ \\vee\\ \\|W\\|_2\\ge\\tfrac{2Q_0}3",
+    "label_zh": "正交壅塞分派定理",
+    "label_en": "Orthogonal Congestion Split (Theorem 18.1)",
+    "definition_zh": "§18定理，證明growth-orthogonal算子壅塞(Q_SV)_⊥若夠大，必由正交平流/應變平方分量A_⊥或渦度平方項W之一承擔。",
+    "definition_en": "The theorem of §18 showing that if the growth-orthogonal operator congestion (Q_SV)_⊥ is large enough, it must be carried by either the orthogonal advection/strain-square component A_⊥ or the vorticity-quadratic term W."
+  },
+  {
+    "key": "ns.c4.c4i.growth_aligned_source_dichotomy",
+    "latex": "g>1\\ \\Rightarrow\\ \\big(-\\langle A_{adv},-\\Delta S\\rangle>\\tfrac{\\nu D^2}2\\big)\\ \\vee\\ \\big(-\\langle A_{S^2},-\\Delta S\\rangle>\\tfrac{\\nu D^2}2\\big)",
+    "label_zh": "增長對齊來源二分定理",
+    "label_en": "Growth-Aligned Operator Source Dichotomy (C4-I.4)",
+    "definition_zh": "§19-20定理，把A分成平流部分A_adv與應變平方部分A_S²，證明g>1時增長必至少一半來自I-ADV或I-SSA其中之一，渦度項因Miller正交性不能直接驅動增長。",
+    "definition_en": "The theorem of §19-20 splitting A into an advective part A_adv and a strain-square part A_S², proving that when g>1 the growth must come at least half from I-ADV or I-SSA, since Miller orthogonality forbids the vorticity term from directly driving growth.",
+    "defining_relation": "A=A_{adv}+A_{S^2},\\ A_{adv}=P_{st}((u\\cdot\\nabla)S),\\ A_{S^2}=P_{st}(S^2),\\quad g>1\\Rightarrow \\text{I-ADV}\\vee\\text{I-SSA}"
+  },
+  {
+    "key": "ns.c4.c4i.ssa_pointwise_nogo",
+    "latex": "S=\\operatorname{diag}(-2,-1,3),\\ \\lambda_2(S)=-1<0,\\ B=e_1\\otimes e_1,\\ -\\operatorname{tr}(SB^2)=2>0",
+    "label_zh": "SSA增長不逼λ2+ pointwise的反例",
+    "label_en": "SSA-growth-does-not-force-pointwise-λ2+ counterexample",
+    "definition_zh": "§22用具體對角矩陣構造pointwise矩陣代數反例，證明strain-square-aligned的Ḣ¹增長本身不能推出同一點λ_2^+>0，即NG-I3。",
+    "definition_en": "§22 constructs a pointwise matrix-algebra counterexample with an explicit diagonal matrix, showing that strain-square-aligned Ḣ¹ growth alone cannot force λ2+>0 at the same point — logged as NG-I3.",
+    "notes": "A purely algebraic no-go, not a constructed Navier–Stokes solution (stated explicitly in §22); reinforced in §23 as a second obstruction to same-time middle/operator overlap."
+  },
+  {
+    "key": "ns.c4.c4i.adjoint_cutoff",
+    "latex": "\\partial_t\\chi+u\\cdot\\nabla\\chi+\\nu\\Delta\\chi=0",
+    "label_zh": "伴隨局部截斷函數χ",
+    "label_en": "Adjoint local cutoff χ",
+    "definition_zh": "§26引入滿足反向平流-擴散方程的局部測試函數χ，作為之後adjoint local core上pressure re-entry分析的權重。",
+    "definition_en": "§26 introduces the local test function χ solving the backward advection-diffusion equation, used as the weight for the pressure-re-entry analysis on the adjoint local core that follows.",
+    "notes": "Carried over from C3-U's pressure-heredity framework and C3-X's Hessian-sensitive pressure oscillation, which §29 explicitly says this round continues (\"沿用 C3-X\")."
+  },
+  {
+    "key": "ns.c4.c4i.adjoint_mean_strain_balance",
+    "latex": "M_\\chi(t)=\\int\\chi S\\,dx,\\quad M_\\chi'=-B_\\chi-P_\\chi,\\quad B_\\chi=\\int\\chi\\Big[S^2+\\tfrac14\\omega\\otimes\\omega-\\tfrac14|\\omega|^2I\\Big]dx,\\quad P_\\chi=\\int\\chi\\nabla^2p\\,dx",
+    "label_zh": "伴隨局部平均應變平衡式",
+    "label_en": "Adjoint local mean-strain balance",
+    "definition_zh": "§26給出C3-U的exact恆等式M_χ'=-B_χ-P_χ，將局部平均應變的時間變化率精確分解成二次平均強迫B_χ與壓力平均強迫P_χ兩項。",
+    "definition_en": "§26 states C3-U's exact identity M_χ'=-B_χ-P_χ, exactly splitting the time-derivative of the local mean strain into a quadratic mean forcing term B_χ and a pressure mean forcing term P_χ.",
+    "defining_relation": "M_\\chi(t)=\\int\\chi S\\,dx,\\qquad M_\\chi'=-B_\\chi-P_\\chi,\\qquad B_\\chi=\\int\\chi\\Big[S^2+\\tfrac14\\omega\\otimes\\omega-\\tfrac14|\\omega|^2I\\Big]dx,\\qquad P_\\chi=\\int\\chi\\nabla^2p\\,dx",
+    "notes": "The pivot identity for the round's second half (§26 onward); B_χ and P_χ are the two compensators whose trade-off drives C4-I.5 through C4-I.7."
+  },
+  {
+    "key": "ns.c4.c4i.normalized_scale_quantities",
+    "latex": "b_\\chi=\\tfrac{R}{\\nu^2}|B_\\chi|,\\quad r_\\chi=\\tfrac{R}{\\nu^2}|M_\\chi'|,\\quad \\pi_\\chi=\\tfrac{R}{\\nu^2}|P_\\chi|,\\quad b_\\chi\\le r_\\chi+\\pi_\\chi",
+    "label_zh": "尺度正規化三角量",
+    "label_en": "Scale-normalized triangle quantities",
+    "definition_zh": "§27把B_χ、M_χ'、P_χ依半徑R與ν²正規化為無量綱量b_χ、r_χ、π_χ，並給出exact三角不等式b_χ≤r_χ+π_χ。",
+    "definition_en": "§27 normalizes B_χ, M_χ', P_χ by radius R and ν² into the dimensionless quantities b_χ, r_χ, π_χ, and states the exact triangle inequality b_χ≤r_χ+π_χ.",
+    "defining_relation": "b_\\chi=\\frac{R}{\\nu^2}|B_\\chi|,\\quad r_\\chi=\\frac{R}{\\nu^2}|M_\\chi'|,\\quad \\pi_\\chi=\\frac{R}{\\nu^2}|P_\\chi|,\\quad b_\\chi\\le r_\\chi+\\pi_\\chi"
+  },
+  {
+    "key": "ns.c4.c4i.mean_rotation_pressure_dichotomy",
+    "latex": "b_\\chi\\ge b_0\\ \\Rightarrow\\ (r_\\chi\\ge\\theta b_0)\\ \\vee\\ (\\pi_\\chi\\ge(1-\\theta)b_0)",
+    "label_zh": "平均旋轉/壓力二分定理",
+    "label_en": "Adjoint Mean-Rotation/Pressure Dichotomy (C4-I.5)",
+    "definition_zh": "§28定理，若二次平均強迫b_χ不小於b_0，則必至少走I-MROT（平均旋轉r_χ夠大）或I-PRESS（壓力強迫π_χ夠大）之一。",
+    "definition_en": "The theorem of §28: if the quadratic mean forcing b_χ is at least b_0, then either I-MROT (mean rotation r_χ large enough) or I-PRESS (pressure forcing π_χ large enough) must hold.",
+    "defining_relation": "b_\\chi\\ge b_0>0\\ \\Rightarrow\\ \\underbrace{r_\\chi\\ge\\theta b_0}_{\\text{I-MROT}}\\ \\vee\\ \\underbrace{\\pi_\\chi\\ge(1-\\theta)b_0}_{\\text{I-PRESS}}"
+  },
+  {
+    "key": "ns.c4.c4i.critical_pressure_oscillation",
+    "latex": "\\Pi_R^{(2)}=\\frac1{\\nu^2}\\inf_{\\ell\\in\\mathcal A_1}\\|p-\\ell\\|_{L^{3/2}(B_{CR})},\\qquad \\Pi_R^{(2)}\\ge c\\,\\pi_\\chi",
+    "label_zh": "臨界局部壓力振盪",
+    "label_en": "Critical local pressure oscillation Π_R^(2)",
+    "definition_zh": "§30由§29的Hessian估計定義的正規化臨界L^{3/2}壓力振盪量，滿足Π_R^(2)≥cπ_χ，是本輪連接local pressure Hessian強迫與critical積分範數的橋樑。",
+    "definition_en": "Defined in §30 from the Hessian estimate of §29 as the normalized critical L^{3/2} local pressure oscillation, satisfying Π_R^(2)≥cπ_χ — this round's bridge between local pressure-Hessian forcing and a critical integral norm.",
+    "defining_relation": "\\Pi_R^{(2)}=\\frac1{\\nu^2}\\inf_{\\ell\\in\\mathcal A_1}\\|p-\\ell\\|_{L^{3/2}(B_{CR})},\\qquad \\Pi_R^{(2)}\\ge c\\,\\pi_\\chi",
+    "notes": "Built on the affine-subtraction Hessian estimate of §29 (continuing C3-X) and legitimated by the Bradshaw–Tsai local pressure expansion cited in §1.3 and §25."
+  },
+  {
+    "key": "ns.c4.c4i.mean_stability_forces_reentry",
+    "latex": "b_\\chi\\ge b_0,\\ r_\\chi\\le\\varepsilon<b_0\\ \\Rightarrow\\ \\Pi_R^{(2)}\\ge c(b_0-\\varepsilon)",
+    "label_zh": "平均穩定性逼壓力重入定理",
+    "label_en": "Mean-Stability Forces Pressure Re-entry Theorem (C4-I.6)",
+    "definition_zh": "§31定理，證明當二次強迫nondegenerate而局部平均應變旋轉被壓低到ε以下時，臨界壓力振盪必至少為c(b_0-ε)。",
+    "definition_en": "The theorem of §31 proving that when the quadratic forcing is nondegenerate but the local mean-strain rotation is suppressed below ε, the critical pressure oscillation must be at least c(b_0-ε).",
+    "defining_relation": "b_\\chi\\ge b_0,\\quad r_\\chi\\le\\varepsilon<b_0\\ \\Rightarrow\\ \\Pi_R^{(2)}\\ge c(b_0-\\varepsilon)"
+  },
+  {
+    "key": "ns.c4.c4i.pressure_concentration_certificate",
+    "latex": "R_n\\to0,\\ \\Pi_{R_n}^{(2)}\\ge\\pi_0>0\\ \\Rightarrow\\ \\int_{B_{CR_n}}|p|^{3/2}dx\\ge c\\,\\pi_0^{3/2}\\nu^3",
+    "label_zh": "壓力集中證書",
+    "label_en": "Pressure Concentration Certificate",
+    "definition_zh": "§32命名的結果，證明若收縮核上臨界壓力振盪保持≥π_0，則即使球體體積|B_CR_n|→0，對應的L^{3/2}壓力質量仍不消失。",
+    "definition_en": "The result named in §32, showing that if the critical pressure oscillation on shrinking cores stays ≥π_0, the corresponding L^{3/2} pressure mass does not vanish even as the ball volume tends to zero.",
+    "notes": "§48 links this to the Constantin pressure-regularity interface (§1.4): a hypothetical singularity on the pressure branch must exhibit exactly this concentration / loss of small-set control."
+  },
+  {
+    "key": "ns.c4.c4i.quadratic_absolute_intensity",
+    "latex": "A_\\chi^{quad}=\\int\\chi\\Big|S^2+\\tfrac14\\omega\\otimes\\omega-\\tfrac14|\\omega|^2I\\Big|dx,\\qquad a_\\chi^{quad}=\\tfrac{R}{\\nu^2}A_\\chi^{quad}",
+    "label_zh": "局部二次絕對強度",
+    "label_en": "Local quadratic absolute intensity",
+    "definition_zh": "§33定義，把B_χ被積式取絕對值再積分得到A_χ^quad，並給出正規化版本a_χ^quad，用以和signed平均B_χ對比。",
+    "definition_en": "Defined in §33 by taking the absolute value of B_χ's integrand before integrating to get A_χ^quad, with its normalized version a_χ^quad, contrasted against the signed mean B_χ.",
+    "defining_relation": "A_\\chi^{quad}=\\int\\chi\\Big|S^2+\\tfrac14\\omega\\otimes\\omega-\\tfrac14|\\omega|^2I\\Big|dx,\\qquad a_\\chi^{quad}=\\frac{R}{\\nu^2}A_\\chi^{quad}"
+  },
+  {
+    "key": "ns.c4.c4i.quadratic_coherence_ratio",
+    "latex": "\\kappa_\\chi^{quad}=\\frac{|B_\\chi|}{A_\\chi^{quad}}\\in[0,1]",
+    "label_zh": "局部二次相干比",
+    "label_en": "Local quadratic coherence ratio κ_χ^quad",
+    "definition_zh": "§34定義的比值，衡量signed平均強迫B_χ相對其絕對強度A_χ^quad保留了多少相干性，越接近0代表matrix/spatial cancellation越嚴重。",
+    "definition_en": "The ratio defined in §34 measuring how much of the signed mean forcing B_χ survives relative to its absolute intensity A_χ^quad — values near 0 indicate severe matrix/spatial cancellation.",
+    "defining_relation": "\\kappa_\\chi^{quad}=\\frac{|B_\\chi|}{A_\\chi^{quad}}\\in[0,1]\\quad(\\kappa_\\chi^{quad}:=0\\text{ if }A_\\chi^{quad}=0)"
+  },
+  {
+    "key": "ns.c4.c4i.quadratic_three_way_reentry",
+    "latex": "a_\\chi^{quad}\\ge a_0\\ \\Rightarrow\\ (\\kappa_\\chi^{quad}<\\kappa_0)\\ \\vee\\ (r_\\chi\\ge\\theta\\kappa_0a_0)\\ \\vee\\ (\\Pi_R^{(2)}\\ge c(1-\\theta)\\kappa_0a_0)",
+    "label_zh": "二次強迫三路重入定理",
+    "label_en": "Quadratic Forcing Three-Way Re-entry Theorem (C4-I.7)",
+    "definition_zh": "§35本輪最終定理，證明局部二次絕對強度夠大時，必至少走I-QCANCEL（相干比小）、I-MROT（平均旋轉大）、I-PRESS（臨界壓力振盪大）三者之一。",
+    "definition_en": "The round's culminating theorem in §35, proving that when the local quadratic absolute intensity is large enough, at least one of I-QCANCEL (low coherence), I-MROT (large mean rotation), or I-PRESS (large critical pressure oscillation) must hold.",
+    "defining_relation": "a_\\chi^{quad}\\ge a_0\\ \\Rightarrow\\ \\underbrace{\\kappa_\\chi^{quad}<\\kappa_0}_{\\text{I-QCANCEL}}\\ \\vee\\ \\underbrace{r_\\chi\\ge\\theta\\kappa_0a_0}_{\\text{I-MROT}}\\ \\vee\\ \\underbrace{\\Pi_R^{(2)}\\ge c(1-\\theta)\\kappa_0a_0}_{\\text{I-PRESS}}",
+    "notes": "Proved from C4-I.5 (§28) plus §30 in §35's proof; restated in prose as the round's headline conclusion in §36 and §56."
+  },
+  {
+    "key": "ns.c4.c4i.desynchronization_mechanisms",
+    "latex": "\\text{I-D1: Temporal Gate Pulse Separation}\\quad\\vee\\quad\\text{I-D2: Local Compensation Separation}",
+    "label_zh": "兩種剩餘去同步機制",
+    "label_en": "Two Remaining Desynchronization Mechanisms (C4-I.8)",
+    "definition_zh": "§44總結C4-I後仍可逃避更強同步化的兩條路徑：I-D1時間脈衝分離（middle/operator在同一J_j內不同次時段支付）與I-D2局部補償分離（透過平均旋轉或二次矩陣消去避開壓力重新進場）。",
+    "definition_en": "§44 summarizes the two remaining escape routes from stronger synchronization after C4-I: I-D1, temporal pulse separation (middle and operator growth paid at different sub-times within the same J_j), and I-D2, local compensation separation (evading pressure re-entry via mean rotation or quadratic matrix cancellation).",
+    "notes": "These become the two compensator mechanisms framing the next round C4-J (§53-54), whose obligations J1-J4 target I-D1 and J5-J7 target I-D2."
+  },
+  {
+    "key": "ns.c4.c4i.state_tuples",
+    "latex": "\\Theta_J^{MO}=\\langle A,B,M,O,E_m,E_o,\\mathfrak C_{overlap}\\rangle,\\ \\Theta^{angle}=\\langle r_\\nu,g,Q_\\perp,A_\\perp,W\\rangle,\\ \\Theta_\\chi^{reentry}=\\langle a_\\chi^{quad},\\kappa_\\chi^{quad},r_\\chi,\\Pi_R^{(2)}\\rangle",
+    "label_zh": "True ETN狀態元組",
+    "label_en": "True ETN state tuples",
+    "definition_zh": "§50為本輪三個子系統各登記一個狀態元組：記錄窗口的Θ_J^MO、算子角度的Θ^angle、與局部壓力重新進場的Θ_χ^reentry，作為True ETN（無限維張力場）框架下的bookkeeping更新。",
+    "definition_en": "§50 registers one state tuple for each of the round's three subsystems — the record-window state Θ_J^MO, the operator-angle state Θ^angle, and the local pressure-reentry state Θ_χ^reentry — as this round's bookkeeping update to the True ETN (infinite-dimensional tension field) framework.",
+    "notes": "True ETN is the running cross-round state-tracking framework listed among Internal dependencies; these three tuples are C4-I's specific contribution to it."
+  }
+]

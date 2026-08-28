@@ -1,0 +1,214 @@
+[
+  {
+    "key": "ns.c3.c3c.theta_tau",
+    "latex": "\\Theta_\\tau",
+    "label_zh": "三元組轉移純量參數",
+    "label_en": "Triad transfer scalar parameter",
+    "definition_zh": "定義於第1節（回顧自先前輪次）：唯一純量 $\\Theta_\\tau$ 使 $(\\dot e_k,\\dot e_p,\\dot e_q)$ 正比於 $(s_pp-s_qq,\\,s_qq-s_kk,\\,s_kk-s_pp)$，同時滿足能量與帶號螺度守恆；本輪 Class II/III/IV 所有 $\\dot e$ 與 $\\mathcal R$ 公式皆以它為共同因子。",
+    "definition_en": "Defined (reviewed) in §1: the unique scalar $\\Theta_\\tau$ such that $(\\dot e_k,\\dot e_p,\\dot e_q)$ is proportional to $(s_pp-s_qq,\\,s_qq-s_kk,\\,s_kk-s_pp)$, consistent with triadwise energy and signed-helicity conservation; every Class II/III/IV transfer formula in this round factors through it.",
+    "defining_relation": "\\begin{pmatrix}\\dot e_k\\\\\\dot e_p\\\\\\dot e_q\\end{pmatrix}=\\Theta_\\tau\\begin{pmatrix}s_pp-s_qq\\\\s_qq-s_kk\\\\s_kk-s_pp\\end{pmatrix}",
+    "notes": "Section title is explicitly '回顧' (review), so this restates rather than newly defines the parameter; included because every formula in this round is built on it."
+  },
+  {
+    "key": "ns.c3.c3c.class_ii_transfer",
+    "latex": "\\dot e_k=(q-p)\\Theta_\\tau,\\ \\dot e_p=-(q+k)\\Theta_\\tau,\\ \\dot e_q=(p+k)\\Theta_\\tau",
+    "label_zh": "Class II 精確轉移方程",
+    "label_en": "Class II exact transfer equations",
+    "definition_zh": "第2節：對 helicity 符號組態 $(s_k,s_p,s_q)=(+,-,-)$（$0<k\\le p\\le q$）代入三元組轉移代數得到的三個精確方程，是本輪推導 $\\mathcal R_{\\mathrm{II}}$ 及後續所有結果的起點。",
+    "definition_en": "§2: the three exact equations from substituting sign pattern $(s_k,s_p,s_q)=(+,-,-)$, $0<k\\le p\\le q$, into the triad transfer algebra; the starting point for $\\mathcal R_{\\mathrm{II}}$ and everything downstream in this round.",
+    "defining_relation": "\\dot e_k=(q-p)\\Theta_\\tau,\\quad\\dot e_p=-(q+k)\\Theta_\\tau,\\quad\\dot e_q=(p+k)\\Theta_\\tau",
+    "notes": "Listed by name in the §30 status table as 'Class-II exact transfer equations: PROVED'."
+  },
+  {
+    "key": "ns.c3.c3c.r_ii",
+    "latex": "\\mathcal R_{\\mathrm{II}}",
+    "label_zh": "Class II 臨界配對生成量",
+    "label_en": "Class II critical pair-production contribution",
+    "definition_zh": "第2節定義：$\\mathcal R_{\\mathrm{II}}=k(q-p)\\Theta_\\tau$，即 Class II triad 中最小波數 $k$（唯一符號模）的能量變化率，是本輪 quadratic tax 與 congestion 論證的核心對象。",
+    "definition_en": "Defined in §2 as $\\mathcal R_{\\mathrm{II}}=k(q-p)\\Theta_\\tau$, the energy-transfer rate into the unique-sign smallest mode $k$ of a Class II triad; the central quantity behind this round's quadratic-tax and congestion arguments.",
+    "defining_relation": "\\mathcal R_{\\mathrm{II}}=k(q-p)\\Theta_\\tau"
+  },
+  {
+    "key": "ns.c3.c3c.x_p_x_q",
+    "latex": "X_p=p|\\dot e_p|,\\quad X_q=q|\\dot e_q|",
+    "label_zh": "高頻模臨界交換量",
+    "label_en": "High-mode critical exchange magnitudes",
+    "definition_zh": "第4節定義：$X_p=p|\\dot e_p|$、$X_q=q|\\dot e_q|$；在 Class II 中分別等於 $p(q+k)|\\Theta_\\tau|$ 與 $q(p+k)|\\Theta_\\tau|$，度量兩個高頻模 $p,q$ 各自的絕對能量交換規模。",
+    "definition_en": "Defined in §4 as $X_p=p|\\dot e_p|$, $X_q=q|\\dot e_q|$ — equal to $p(q+k)|\\Theta_\\tau|$ and $q(p+k)|\\Theta_\\tau|$ respectively for Class II — measuring the absolute exchange scale carried by each high mode $p,q$.",
+    "defining_relation": "X_p=p|\\dot e_p|=p(q+k)|\\Theta_\\tau|,\\quad X_q=q|\\dot e_q|=q(p+k)|\\Theta_\\tau|"
+  },
+  {
+    "key": "ns.c3.c3c.x_hi",
+    "latex": "X_{\\mathrm{hi}}",
+    "label_zh": "隱藏高頻交換規模",
+    "label_en": "Hidden high-frequency exchange scale",
+    "definition_zh": "第4節定義 $X_{\\mathrm{hi}}=\\min\\{X_p,X_q\\}\\ge p^2|\\Theta_\\tau|$，代表 Class II triad 中兩個高頻模背後、不被 $\\mathcal R_{\\mathrm{II}}$ 淨值反映的最小絕對交換規模，是 quadratic tax 定理的比較基準。",
+    "definition_en": "Defined in §4 as $X_{\\mathrm{hi}}=\\min\\{X_p,X_q\\}\\ge p^2|\\Theta_\\tau|$, the smaller of the two high-mode exchange magnitudes; the reference scale against which the quadratic nonlocality tax measures $\\mathcal R_{\\mathrm{II}}$'s smallness.",
+    "defining_relation": "X_{\\mathrm{hi}}=\\min\\{X_p,X_q\\}\\ge p^2|\\Theta_\\tau|"
+  },
+  {
+    "key": "ns.c3.c3c.quadratic_nonlocality_tax",
+    "latex": "|\\mathcal R_{\\mathrm{II}}|\\le\\left(\\frac{k}{p}\\right)^2X_{\\mathrm{hi}}",
+    "label_zh": "Class II 二次非局部稅（定理 C3-C.1）",
+    "label_en": "Class-II Quadratic Nonlocality Tax (Theorem C3-C.1)",
+    "definition_zh": "定理5.1（C3-C.1）：$|\\mathcal R_{\\mathrm{II}}|\\le(k/p)^2X_{\\mathrm{hi}}$，由 $|\\mathcal R_{\\mathrm{II}}|\\le k^2|\\Theta_\\tau|$ 與 $X_{\\mathrm{hi}}\\ge p^2|\\Theta_\\tau|$ 直接合併而得；dyadic 形式（第6節）：若 $p\\ge2^Nk$ 則 $|\\mathcal R_{\\mathrm{II}}|\\le2^{-2N}X_{\\mathrm{hi}}$，每多一個 dyadic 分離，效率再降4倍。",
+    "definition_en": "Theorem 5.1 (C3-C.1): $|\\mathcal R_{\\mathrm{II}}|\\le(k/p)^2X_{\\mathrm{hi}}$, combining $|\\mathcal R_{\\mathrm{II}}|\\le k^2|\\Theta_\\tau|$ (§3) with $X_{\\mathrm{hi}}\\ge p^2|\\Theta_\\tau|$ (§4); the dyadic form (§6) states that if $p\\ge2^Nk$ then $|\\mathcal R_{\\mathrm{II}}|\\le2^{-2N}X_{\\mathrm{hi}}$ — each extra dyadic separation costs another factor of 4.",
+    "defining_relation": "|\\mathcal R_{\\mathrm{II}}|\\le\\left(\\frac{k}{p}\\right)^2X_{\\mathrm{hi}};\\quad p\\ge2^Nk\\Rightarrow|\\mathcal R_{\\mathrm{II}}|\\le2^{-2N}X_{\\mathrm{hi}}",
+    "notes": "Restated in §7 as the 'hidden-exchange debt' certificate $X_{\\mathrm{hi}}\\ge(p/k)^2|\\mathcal R_{\\mathrm{II}}|$; registered as checklist item G-tax in §23."
+  },
+  {
+    "key": "ns.c3.c3c.chi_tau",
+    "latex": "\\chi_\\tau=\\frac{k}{p}",
+    "label_zh": "非局部性比值",
+    "label_en": "Nonlocality ratio",
+    "definition_zh": "第7、11節定義 $\\chi_\\tau=k/p$（世系中記為 $\\chi_n=k_n/p_n$），量化 triad 的 strongly-nonlocal 程度；第23節登記為 guard G-$\\chi$。",
+    "definition_en": "Defined in §7/§11 as $\\chi_\\tau=k/p$ (written $\\chi_n=k_n/p_n$ along a genealogy in §12/§23), quantifying how strongly nonlocal a triad is; registered as guard G-$\\chi$ in §23.",
+    "defining_relation": "\\chi_\\tau=\\frac{k}{p}"
+  },
+  {
+    "key": "ns.c3.c3c.delta_tau",
+    "latex": "\\delta_\\tau=\\frac{q-p}{p}",
+    "label_zh": "徑向漂移比值",
+    "label_en": "Radial drift ratio",
+    "definition_zh": "第11節「Radial step bound」定義 $\\delta_\\tau=(q-p)/p$（世系中為 $\\delta_n$），並證明 $0\\le\\delta_\\tau\\le\\chi_\\tau\\le1$；第23節登記為 guard G-$\\delta$。",
+    "definition_en": "Defined in §11 ('Radial step bound') as $\\delta_\\tau=(q-p)/p$ (written $\\delta_n$ along the genealogy), with the proven bound $0\\le\\delta_\\tau\\le\\chi_\\tau\\le1$; registered as guard G-$\\delta$ in §23.",
+    "defining_relation": "0\\le\\delta_\\tau=\\frac{q-p}{p}\\le\\chi_\\tau\\le1"
+  },
+  {
+    "key": "ns.c3.c3c.delta_rad",
+    "latex": "\\Delta_{\\mathrm{rad}}=q-p",
+    "label_zh": "高頻端徑向前進量",
+    "label_en": "High-end radial advancement",
+    "definition_zh": "第11節定義的未正規化徑向步長 $\\Delta_{\\mathrm{rad}}=q-p$（high receiver $q$ 與 high donor $p$ 之差），三角不等式給出 $\\Delta_{\\mathrm{rad}}\\le k$，正規化後即為 $\\delta_\\tau$。",
+    "definition_en": "The un-normalized radial step defined in §11, $\\Delta_{\\mathrm{rad}}=q-p$ (gap between high receiver $q$ and high donor $p$); bounded by the triangle inequality as $\\Delta_{\\mathrm{rad}}\\le k$, normalizing to $\\delta_\\tau$.",
+    "defining_relation": "\\Delta_{\\mathrm{rad}}=q-p\\le k"
+  },
+  {
+    "key": "ns.c3.c3c.radial_genealogy",
+    "latex": "p_n=p_0\\prod_{j=0}^{n-1}(1+\\delta_j)",
+    "label_zh": "Class II 徑向世系",
+    "label_en": "Class-II radial genealogy",
+    "definition_zh": "第12節構造的理想化 high-end 世系 $p_0\\to q_0=p_1\\to q_1=p_2\\to\\cdots$，遞迴式 $p_{n+1}=p_n(1+\\delta_n)$，通解 $p_n=p_0\\prod_{j<n}(1+\\delta_j)$，是第13節 congestion lemma 證明的基礎。",
+    "definition_en": "The idealized source-preserving high-end genealogy $p_0\\to q_0=p_1\\to q_1=p_2\\to\\cdots$ built in §12, with recursion $p_{n+1}=p_n(1+\\delta_n)$ and closed form $p_n=p_0\\prod_{j<n}(1+\\delta_j)$; the basis for the §13 congestion lemma's proof.",
+    "defining_relation": "p_{n+1}=p_n(1+\\delta_n)\\ \\Longrightarrow\\ p_n=p_0\\prod_{j=0}^{n-1}(1+\\delta_j)"
+  },
+  {
+    "key": "ns.c3.c3c.radial_drift_congestion_lemma",
+    "latex": "\\sum_{n=0}^{\\infty}\\delta_n=\\infty",
+    "label_zh": "徑向漂移擁塞引理（定理 C3-C.2）",
+    "label_en": "Radial-Drift Congestion Lemma (Theorem C3-C.2)",
+    "definition_zh": "定理13.1（C3-C.2）：若 Class II high-end genealogy 滿足 $p_n\\to\\infty$，則必有 $\\sum_n\\delta_n=\\infty$（進而 $\\sum_n\\chi_n=\\infty$），否則乘積 $\\prod(1+\\delta_n)$ 收斂使 $p_n$ 有界，矛盾；第14節推出均勻 $\\chi_n\\le\\varepsilon$ 下跨一個 dyadic scale 至少需 $m\\gtrsim1/\\varepsilon$ 步。",
+    "definition_en": "Theorem 13.1 (C3-C.2): if a Class-II high-end genealogy has $p_n\\to\\infty$, then $\\sum_n\\delta_n=\\infty$ (hence $\\sum_n\\chi_n=\\infty$), proved by contradiction via convergence of $\\prod(1+\\delta_n)$; §14 derives that under uniform $\\chi_n\\le\\varepsilon$, crossing one dyadic scale costs at least $m\\gtrsim1/\\varepsilon$ steps.",
+    "defining_relation": "p_n\\to\\infty\\Rightarrow\\sum_{n=0}^{\\infty}\\delta_n=\\infty\\Rightarrow\\sum_{n=0}^{\\infty}\\chi_n=\\infty;\\qquad \\chi_n\\le\\varepsilon\\Rightarrow m\\gtrsim\\varepsilon^{-1}",
+    "notes": "The step-count bound (§14) is registered as guards G-drift/G-congestion in §23."
+  },
+  {
+    "key": "ns.c3.c3c.cancellation_ratio",
+    "latex": "\\frac{|\\dot e_p+\\dot e_q|}{\\min\\{|\\dot e_p|,|\\dot e_q|\\}}\\le\\frac{k}{p}",
+    "label_zh": "高頻交換相消比（定理 8.1）",
+    "label_en": "High-exchange cancellation ratio (Theorem 8.1)",
+    "definition_zh": "定理8.1：Class II 的 $\\dot e_p+\\dot e_q=-\\dot e_k$，兩高頻模轉移殘餘量相對其較小者之比 $\\le k/p$；當 $k/p\\to0$，兩個高頻轉移趨於大量相反、幾乎完全相消，對應 Waleffe 對強非局部 reverse-type 交互作用 pair cancellation 的精確代數版本。",
+    "definition_en": "Theorem 8.1: since $\\dot e_p+\\dot e_q=-\\dot e_k$ for Class II, the ratio of the residual to the smaller of the two high-mode transfers is $\\le k/p$; as $k/p\\to0$ the two high-mode transfers become large, nearly-canceling opposites — the exact algebraic counterpart of Waleffe's pair-cancellation description for strongly nonlocal reverse-type interactions.",
+    "defining_relation": "\\frac{|\\dot e_p+\\dot e_q|}{\\min\\{|\\dot e_p|,|\\dot e_q|\\}}\\le\\frac{k}{p}"
+  },
+  {
+    "key": "ns.c3.c3c.donor_receiver_arrow",
+    "latex": "p\\longrightarrow\\{k,q\\}",
+    "label_zh": "施者—受者流向記號",
+    "label_en": "Donor-to-receivers flow notation",
+    "definition_zh": "本輪反覆使用的記號 $X\\longrightarrow\\{Y,Z\\}$，表示能量施者 $X$（$\\dot e_X<0$）餵給受者 $Y,Z$（$\\dot e>0$）；Class II positive pair production 為 $p\\to\\{k,q\\}$（第9節），Class III／IV 則為 $k\\to\\{p,q\\}$（第16、18節）。",
+    "definition_en": "Recurring notation $X\\longrightarrow\\{Y,Z\\}$ meaning donor $X$ ($\\dot e_X<0$) feeds receivers $Y,Z$ ($\\dot e>0$); Class II's positive pair production is $p\\to\\{k,q\\}$ (§9), while Class III and IV are both $k\\to\\{p,q\\}$ (§16, §18)."
+  },
+  {
+    "key": "ns.c3.c3c.r_iii",
+    "latex": "\\mathcal R_{\\mathrm{III}}",
+    "label_zh": "Class III 臨界配對生成量",
+    "label_en": "Class III critical pair-production contribution",
+    "definition_zh": "第16節：對符號組態 $(+,-,+)$（unique sign 在中頻 $p$），$\\mathcal R_{\\mathrm{III}}=p(q-k)\\Theta_\\tau$；正production時 $k$ 為 donor（$k\\to\\{p,q\\}$），第17節證明強非局部時 $|\\mathcal R_{\\mathrm{III}}|\\sim p^2|\\Theta_\\tau|$，沒有 $(k/p)^2$ 稅。",
+    "definition_en": "§16: for sign pattern $(+,-,+)$ (unique sign at middle mode $p$), $\\mathcal R_{\\mathrm{III}}=p(q-k)\\Theta_\\tau$; when positive, $k$ is the donor ($k\\to\\{p,q\\}$), and §17 shows that in the strongly nonlocal regime $|\\mathcal R_{\\mathrm{III}}|\\sim p^2|\\Theta_\\tau|$ — no $(k/p)^2$ tax.",
+    "defining_relation": "\\mathcal R_{\\mathrm{III}}=p(q-k)\\Theta_\\tau",
+    "notes": "Classified a SURVIVOR in the §27 survivor map: forward-compatible and untaxed by the radial-gap suppression."
+  },
+  {
+    "key": "ns.c3.c3c.r_iv",
+    "latex": "\\mathcal R_{\\mathrm{IV}}",
+    "label_zh": "Class IV 臨界配對生成量",
+    "label_en": "Class IV critical pair-production contribution",
+    "definition_zh": "第18節：對符號組態 $(+,+,-)$（unique sign 在最高頻 $q$），$\\mathcal R_{\\mathrm{IV}}=q(k-p)\\Theta_\\tau$；正production時同樣 $k$ 為 donor（$k\\to\\{p,q\\}$）。第19節證明 Class IV 是三個 heterochiral classes 中唯一 unique-sign 模位於 triad 最大波數者。",
+    "definition_en": "§18: for sign pattern $(+,+,-)$ (unique sign at largest mode $q$), $\\mathcal R_{\\mathrm{IV}}=q(k-p)\\Theta_\\tau$; when positive, $k$ is again the donor ($k\\to\\{p,q\\}$). §19 proves Class IV is the only heterochiral class whose unique-sign mode sits at the triad's largest wavenumber.",
+    "defining_relation": "\\mathcal R_{\\mathrm{IV}}=q(k-p)\\Theta_\\tau",
+    "notes": "Classified PRIMARY FRONTIER SURVIVOR in the §27 survivor map — top-priority class for C3-D."
+  },
+  {
+    "key": "ns.c3.c3c.class_iv_top_unique",
+    "latex": "\\text{Class IV: unique-sign mode}=q\\ (\\text{largest})",
+    "label_zh": "Class IV 頂端唯一性分類",
+    "label_en": "Class-IV top-unique classification",
+    "definition_zh": "第19節表格比較三個 heterochiral classes 的 unique-sign 波數位置：Class II 在最小 $k$，Class III 在中間 $p$，Class IV 在最大 $q$；故若追蹤 unique-sign critical pair-production frontier，Class IV 是唯一直接 frontier-capable 的 class（不表示 global blow-up 只能由 Class IV 構成）。",
+    "definition_en": "The §19 table compares the unique-sign wavenumber position across the three heterochiral classes: Class II at smallest $k$, Class III at middle $p$, Class IV at largest $q$; hence Class IV is the only class directly capable of extending the unique-sign pair-production frontier (not implying blow-up must be built from Class IV alone)."
+  },
+  {
+    "key": "ns.c3.c3c.forward_compatible",
+    "latex": "\\text{forward-compatible}",
+    "label_zh": "前向相容分類（定理 C3-C.3）",
+    "label_en": "Forward-Compatible Survivor Classification (Theorem C3-C.3)",
+    "definition_zh": "第21節定義：positive pair-production event 稱為 forward-compatible，若最低波數 $k$ 是 energy donor。由精確符號關係，Class III、IV 均 forward-compatible；Class II 的 donor 是 $p$ 而非 $k$，故在此精確意義下不是 forward-compatible，此分類為純代數推導，不依賴 Waleffe 統計不穩定性假設。",
+    "definition_en": "§21 defines a positive pair-production event as forward-compatible if the lowest wavenumber $k$ is the energy donor. By exact sign relations, Class III and IV are both forward-compatible; Class II's donor is $p$, not $k$, so it is not forward-compatible in this precise sense — a classification following purely from exact conservation algebra, not Waleffe's statistical instability assumption."
+  },
+  {
+    "key": "ns.c3.c3c.c_ii_n",
+    "latex": "\\mathfrak C_{II}^{(N)}",
+    "label_zh": "第 N 層 Class II 三元組集合",
+    "label_en": "N-th shell Class-II triad set",
+    "definition_zh": "第25節（定理25.1）定義：滿足 $p\\ge2^Nk$ 的所有 Class-II triads 集合，用以界定 strongly-nonlocal（dyadic separation $\\ge N$）子族，是 $P_{II}^{(N)}$、$V_{II}^{(N)}$ 的求和範圍。",
+    "definition_en": "Defined in §25 (Theorem 25.1) as the set of all Class-II triads satisfying $p\\ge2^Nk$, delimiting the strongly-nonlocal (dyadic separation $\\ge N$) subfamily over which $P_{II}^{(N)}$ and $V_{II}^{(N)}$ are summed.",
+    "defining_relation": "\\mathfrak C_{II}^{(N)}=\\{\\tau:\\ p\\ge2^Nk\\}"
+  },
+  {
+    "key": "ns.c3.c3c.p_ii_n",
+    "latex": "P_{II}^{(N)}",
+    "label_zh": "累積配對生成量",
+    "label_en": "Cumulative pair production",
+    "definition_zh": "第25節定義 $P_{II}^{(N)}=\\int\\sum_{\\tau\\in\\mathfrak C_{II}^{(N)}}|\\mathcal R_\\tau(t)|\\,dt$，即 $N$ 層以上 strongly-nonlocal Class II triads 的臨界配對生成絕對值對時間與 triad 求和積分的總量，定理25.1證明其 $\\le2^{-2N}V_{II}^{(N)}$。",
+    "definition_en": "Defined in §25 as $P_{II}^{(N)}=\\int\\sum_{\\tau\\in\\mathfrak C_{II}^{(N)}}|\\mathcal R_\\tau(t)|\\,dt$, the total (time-integrated, triad-summed) absolute critical pair production from strongly-nonlocal Class-II triads at dyadic level $\\ge N$; Theorem 25.1 shows it is $\\le2^{-2N}V_{II}^{(N)}$.",
+    "defining_relation": "P_{II}^{(N)}=\\int\\sum_{\\tau\\in\\mathfrak C_{II}^{(N)}}|\\mathcal R_\\tau(t)|\\,dt\\ \\le\\ 2^{-2N}V_{II}^{(N)}"
+  },
+  {
+    "key": "ns.c3.c3c.v_ii_n",
+    "latex": "V_{II}^{(N)}",
+    "label_zh": "隱藏高頻交換變差量",
+    "label_en": "Hidden high-exchange variation",
+    "definition_zh": "第25節定義 $V_{II}^{(N)}=\\int\\sum_{\\tau\\in\\mathfrak C_{II}^{(N)}}X_{\\mathrm{hi},\\tau}(t)\\,dt$；第26節指出若能證 $V_{II}^{(N)}=o(2^{2N})$（$N\\to\\infty$）則 $P_{II}^{(N)}\\to0$，此為第30節狀態表列為 OPEN 的具體後續 proof target；第24節強調它是 absolute turnover，energy conservation 不控制它，故目前無已證全域有限界。",
+    "definition_en": "Defined in §25 as $V_{II}^{(N)}=\\int\\sum_{\\tau\\in\\mathfrak C_{II}^{(N)}}X_{\\mathrm{hi},\\tau}(t)\\,dt$; §26 notes that proving $V_{II}^{(N)}=o(2^{2N})$ as $N\\to\\infty$ would force $P_{II}^{(N)}\\to0$ — listed OPEN in §30; §24 stresses it is absolute exchange turnover, unbounded by energy conservation alone, so no finite global bound is currently proved.",
+    "defining_relation": "V_{II}^{(N)}=\\int\\sum_{\\tau\\in\\mathfrak C_{II}^{(N)}}X_{\\mathrm{hi},\\tau}(t)\\,dt",
+    "notes": "The paper's key concrete forward proof target: 'control the growth rate of $V_{II}^{(N)}$' (§26), central to C3-D obligation D3."
+  },
+  {
+    "key": "ns.c3.c3c.r_iv_q",
+    "latex": "\\mathcal R_{IV,q}",
+    "label_zh": "第 q 殼層 Class IV frontier 生成量",
+    "label_en": "Shell-q Class-IV frontier production",
+    "definition_zh": "第29節 D1 定義：unique-sign highest mode 位於殼層 $q$ 的 Class-IV positive pair production；C3-D 的 proof obligation 之一是研究 $\\sum_{q>Q}\\int[\\mathcal R_{IV,q}]_+\\,dt$ 在 blow-up 情境下是否必有 nontrivial lower envelope。",
+    "definition_en": "Defined in §29 (obligation D1) as the Class-IV positive pair production whose unique-sign highest mode sits at shell $q$; a C3-D proof obligation is whether $\\sum_{q>Q}\\int[\\mathcal R_{IV,q}]_+\\,dt$ must have a nontrivial lower envelope in a blow-up scenario.",
+    "defining_relation": "\\sum_{q>Q}\\int[\\mathcal R_{IV,q}]_+\\,dt",
+    "notes": "Forward-looking definition for the next round (C3-D), not analyzed within C3-C itself."
+  },
+  {
+    "key": "ns.c3.c3c.x_integration_guards",
+    "latex": "\\text{G-}\\chi,\\ \\text{G-}\\delta,\\ \\text{G-tax},\\ \\text{G-drift},\\ \\text{G-congestion}",
+    "label_zh": "C3-C X-Integration 守衛清單",
+    "label_en": "C3-C X-Integration guard checklist",
+    "definition_zh": "第23節將本輪結果整理為五個守衛條件：G-$\\chi$（$\\chi_n=k_n/p_n$）、G-$\\delta$（$\\delta_n\\le\\chi_n$）、G-tax（$|\\mathcal R_n|/X_{\\mathrm{hi},n}\\le\\chi_n^2$）、G-drift（$p_n\\to\\infty\\Rightarrow\\sum\\delta_n=\\infty$）、G-congestion（$\\chi_n\\le\\varepsilon\\Rightarrow$每 dyadic scale 至少 $O(\\varepsilon^{-1})$ 步）；Class-II singular certificate 不能只宣稱「all interactions legal」，還須攜帶這些 debt。",
+    "definition_en": "§23 packages this round's results into five guard conditions a singular certificate must carry: G-$\\chi$ ($\\chi_n=k_n/p_n$), G-$\\delta$ ($\\delta_n\\le\\chi_n$), G-tax ($|\\mathcal R_n|/X_{\\mathrm{hi},n}\\le\\chi_n^2$), G-drift ($p_n\\to\\infty\\Rightarrow\\sum\\delta_n=\\infty$), G-congestion ($\\chi_n\\le\\varepsilon\\Rightarrow$ at least $O(\\varepsilon^{-1})$ steps per dyadic scale) — a Class-II singular certificate cannot just assert 'all interactions legal'.",
+    "notes": "Bundles ns.c3.c3c.chi_tau, delta_tau, quadratic_nonlocality_tax, radial_drift_congestion_lemma under the paper's 'X-Integral Unified Program' (see Internal dependencies)."
+  },
+  {
+    "key": "ns.c3.c3c.c3d_frontier_rigidity",
+    "latex": "\\textbf{C3-D --- Forward Heterochiral Frontier Rigidity}",
+    "label_zh": "C3-D：前向異手性前緣剛性（下輪主線）",
+    "label_en": "C3-D: Forward Heterochiral Frontier Rigidity (next round's program)",
+    "definition_zh": "第28節於本輪末提出的下一主線名稱：核心 survivor 為 Classes III/IV 加上 non-negligibly local 的 Class II，Class IV 優先度最高；第29節列出四項 proof obligations（D1 Class-IV dyadic frontier production、D2 分離 III/IV ancestry、D3 控制 $V_{II}^{(N)}$、D4 wave-space advection formulation）。",
+    "definition_en": "The name coined at the end of this round (§28) for the next research program: core survivors are Classes III/IV plus non-negligibly-local Class II, with Class IV top priority; §29 lists four proof obligations (D1 Class-IV dyadic frontier production, D2 separating III/IV ancestry, D3 controlling $V_{II}^{(N)}$, D4 a wave-space advection formulation).",
+    "notes": "Listed OPEN in the §30 status table; a forward pointer to the next paper in the series, not a result proved in C3-C."
+  }
+]

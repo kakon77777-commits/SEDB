@@ -1,0 +1,264 @@
+[
+  {
+    "key": "ns.c4.c4d.hereditary_uv_amplitude",
+    "latex": "a_q^\\sigma(t) = \\dfrac{\\|u_q^\\sigma(t)\\|_\\infty}{\\nu\\lambda_q}",
+    "label_zh": "遺傳性UV振幅",
+    "label_en": "Hereditary UV amplitude",
+    "definition_zh": "第0節重申此為 C4-C 已建立的核心 hereditary UV anchor：shell-helical 速度場的 sup 範數除以黏性尺度 $\\nu\\lambda_q$。",
+    "definition_en": "Section 0 restates the hereditary UV anchor already established in C4-C: the sup-norm of the shell-helical velocity field normalized by the viscous scale $\\nu\\lambda_q$.",
+    "notes": "Carries over from C4-C (NS_C4C_SharedEventCoupling_AmplitudeFluxBarrier_v0.1); C4-D works mainly with its single-shell simplification $a(t)$ from section 3."
+  },
+  {
+    "key": "ns.c4.c4d.shell_helical_field",
+    "latex": "f(t,x) = u_q^\\sigma(t,x) = \\Delta_q P^\\sigma u(t,x)",
+    "label_zh": "shell-helical 速度場",
+    "label_en": "Shell-helical velocity field",
+    "definition_zh": "第2節將 $f$ 定義為速度場 $u$ 經 Littlewood–Paley 投影 $\\Delta_q$ 與 helicity 投影 $P^\\sigma$ 後所得、支撐於固定 dyadic annulus 的分量。",
+    "definition_en": "Section 2 defines $f$ as the component of the velocity field $u$ obtained via the Littlewood–Paley projector $\\Delta_q$ and helicity projector $P^\\sigma$, supported in a fixed dyadic annulus."
+  },
+  {
+    "key": "ns.c4.c4d.shell_nonlinear_source",
+    "latex": "N(t,x) = \\Delta_q P^\\sigma \\mathbb P \\nabla\\cdot(u\\otimes u)",
+    "label_zh": "shell 非線性源項",
+    "label_en": "Shell nonlinear source",
+    "definition_zh": "第2節定義 $N$ 為 Navier–Stokes 非線性項經 Leray 投影 $\\mathbb P$ 與 shell/helicity 投影後的量，是驅動 $f$ 演化的來源。",
+    "definition_en": "Section 2 defines $N$ as the Navier–Stokes nonlinear term after Leray projection $\\mathbb P$ and shell/helicity projection, the source driving the evolution of $f$."
+  },
+  {
+    "key": "ns.c4.c4d.shell_equation",
+    "latex": "\\partial_t f - \\nu\\Delta f + N = 0",
+    "label_zh": "shell 演化方程",
+    "label_en": "Shell evolution equation",
+    "definition_zh": "第2節給出 $f$ 在固定 shell 上滿足的精確 PDE，是全篇 amplitude-source 耦合分析的出發點。",
+    "definition_en": "Section 2 states the exact PDE satisfied by $f$ on the fixed shell, the starting point for the amplitude-source coupling analysis carried through the round.",
+    "defining_relation": "\\partial_t f - \\nu\\Delta f + N = 0"
+  },
+  {
+    "key": "ns.c4.c4d.critical_amplitude",
+    "latex": "a(t) = \\dfrac{\\|f(t)\\|_\\infty}{\\nu\\lambda}",
+    "label_zh": "臨界振幅",
+    "label_en": "Critical amplitude",
+    "definition_zh": "第3節引入單一 shell 上的局部記法 $a(t)$，作為 hereditary 振幅的簡化版本，用來定義 crossing 事件。",
+    "definition_en": "Section 3 introduces the local single-shell notation $a(t)$, a simplified form of the hereditary amplitude used to define crossing events throughout the round.",
+    "defining_relation": "a(t) = \\dfrac{\\|f(t)\\|_\\infty}{\\nu\\lambda}"
+  },
+  {
+    "key": "ns.c4.c4d.crossing_parameters",
+    "latex": "0<\\beta_0<\\beta_1;\\quad a(t_0)=\\beta_0,\\ a(t_1)=\\beta_1,\\ t_0<t_1",
+    "label_zh": "交叉門檻與時刻",
+    "label_en": "Crossing thresholds and times",
+    "definition_zh": "第3節固定門檻 $\\beta_0<\\beta_1$，並令 $t_1$ 為 $a$ 達到 $\\beta_1$ 的 first/hysteretic crossing 時刻、$t_0$ 為其前最後一次 $a=\\beta_0$ 的時刻。",
+    "definition_en": "Section 3 fixes thresholds $\\beta_0<\\beta_1$ and lets $t_1$ be the first/hysteretic crossing time where $a=\\beta_1$, with $t_0$ the last preceding time where $a=\\beta_0$."
+  },
+  {
+    "key": "ns.c4.c4d.viscous_window_scale",
+    "latex": "\\tau_\\lambda = \\dfrac{\\theta}{\\nu\\lambda^2}",
+    "label_zh": "黏性視窗尺度",
+    "label_en": "Viscous window timescale",
+    "definition_zh": "第4節定義 $\\tau_\\lambda$ 為以固定常數 $\\theta$ 加權的 shell 黏性時間尺度，用來設定 backward window 的長度。",
+    "definition_en": "Section 4 defines $\\tau_\\lambda$ as the shell viscous timescale weighted by a fixed constant $\\theta$, setting the length of the backward window."
+  },
+  {
+    "key": "ns.c4.c4d.backward_viscous_window",
+    "latex": "I_\\lambda = [t_1-\\tau_\\lambda,\\ t_1]",
+    "label_zh": "反向黏性視窗",
+    "label_en": "Backward viscous window",
+    "definition_zh": "第4節定義 $I_\\lambda$ 為緊接在 crossing 時刻 $t_1$ 之前、長度為 $\\tau_\\lambda$ 的時間區間，是定理5.1二分法的作用範圍。",
+    "definition_en": "Section 4 defines $I_\\lambda$ as the length-$\\tau_\\lambda$ interval immediately preceding the crossing time $t_1$, the domain on which the Theorem 5.1 dichotomy acts."
+  },
+  {
+    "key": "ns.c4.c4d.persistence_fast_dichotomy",
+    "latex": "\\text{D-PERSIST}\\ \\vee\\ \\text{D-FAST}",
+    "label_zh": "持續或快速交叉二分定理（C4-D.1）",
+    "label_en": "Persistence-or-Fast-Crossing Dichotomy (C4-D.1)",
+    "definition_zh": "第5節定理5.1證明任一 $\\beta_0\\to\\beta_1$ crossing 必落入 D-PERSIST（整個 backward window 內 $a>\\beta_0$）或 D-FAST（crossing 在 $\\le\\tau_\\lambda$ 時間內完成）之一。",
+    "definition_en": "Theorem 5.1 in section 5 shows that any $\\beta_0\\to\\beta_1$ crossing must fall into D-PERSIST (amplitude stays above $\\beta_0$ throughout the backward window) or D-FAST (the crossing completes within time $\\tau_\\lambda$).",
+    "notes": "D-PERSIST routes directly back to the C4-A persistence-to-synchronization machinery (section 6), so C4-D's own analysis concerns only D-FAST."
+  },
+  {
+    "key": "ns.c4.c4d.branch_d_fast",
+    "latex": "t_1-t_0\\le\\dfrac{\\theta}{\\nu\\lambda^2}",
+    "label_zh": "D-FAST 分支",
+    "label_en": "D-FAST branch",
+    "definition_zh": "第5-6節指出，唯一需要 C4-D 深入研究的分支，即振幅在受黏性尺度界定的短時間內完成 $\\beta_0\\to\\beta_1$ 的 crossing。",
+    "definition_en": "Sections 5-6 identify D-FAST — the branch where amplitude completes the $\\beta_0\\to\\beta_1$ crossing within a viscously-bounded short time — as the sole branch C4-D goes on to analyze."
+  },
+  {
+    "key": "ns.c4.c4d.sup_envelope",
+    "latex": "M(t) = \\|f(t)\\|_\\infty",
+    "label_zh": "sup範數包絡",
+    "label_en": "Sup-norm envelope",
+    "definition_zh": "第7節定義 $M(t)$ 為 $f$ 的 sup 範數，在 band-limited 條件下為 locally Lipschitz 函數且於某點 $x_t$ 達到。",
+    "definition_en": "Section 7 defines $M(t)$ as the sup-norm of $f$, locally Lipschitz under the band-limited condition and attained at some point $x_t$.",
+    "defining_relation": "M(t) = \\|f(t)\\|_\\infty = f(t,x_t)\\cdot e_t"
+  },
+  {
+    "key": "ns.c4.c4d.envelope_direction",
+    "latex": "e_t = \\dfrac{f(t,x_t)}{M(t)}",
+    "label_zh": "包絡方向向量",
+    "label_en": "Envelope maximizer direction",
+    "definition_zh": "第8節在 $M$ 可微的 a.e. 時刻，於最大化點 $x_t$ 定義單位方向 $e_t$，並給出標準 max-envelope/Danskin-type 恆等式 $M'=e_t\\cdot\\partial_tf(t,x_t)$。",
+    "definition_en": "Section 8 defines the unit direction $e_t$ at the maximizing point $x_t$, giving the standard max-envelope/Danskin-type identity $M'=e_t\\cdot\\partial_t f(t,x_t)$.",
+    "defining_relation": "M'(t) = e_t\\cdot\\partial_t f(t,x_t)"
+  },
+  {
+    "key": "ns.c4.c4d.positive_source_theorem",
+    "latex": "g(t) := -e_t\\cdot N(t,x_t) \\ge M'(t) > 0",
+    "label_zh": "正振幅變化需正非線性源定理（C4-D.2）",
+    "label_en": "Positive Amplitude Variation Requires Positive Nonlinear Source (C4-D.2)",
+    "definition_zh": "第9-10節用最大點處 $e_t\\cdot\\Delta f\\le0$ 證明，凡 $M'(t)>0$ 的可微時刻必有源投影 $g(t)\\ge M'(t)$，即振幅上升只能由非線性源驅動而非黏性。",
+    "definition_en": "Sections 9-10 use $e_t\\cdot\\Delta f\\le 0$ at the maximizing point to show that whenever $M'(t)>0$, the source projection satisfies $g(t)\\ge M'(t)$ — amplitude growth can only be driven by the nonlinear source, never viscosity.",
+    "defining_relation": "g(t) := -e_t\\cdot N(t,x_t) \\ge M'(t) > 0"
+  },
+  {
+    "key": "ns.c4.c4d.source_efficiency",
+    "latex": "\\eta(t) = \\dfrac{g(t)}{\\|N(t)\\|_\\infty} \\in (0,1]",
+    "label_zh": "源效率",
+    "label_en": "Source efficiency",
+    "definition_zh": "第12節定義 $\\eta(t)$ 為源投影 $g(t)$ 占源 sup-norm 的比例，並固定門檻 $\\eta_0\\in(0,1)$ 以分割後續的 good/bad source 時間集合。",
+    "definition_en": "Section 12 defines $\\eta(t)$ as the fraction of the source sup-norm captured by the projection $g(t)$, with a fixed threshold $\\eta_0\\in(0,1)$ splitting the subsequent good/bad source time sets.",
+    "defining_relation": "\\eta(t) = \\dfrac{g(t)}{\\|N(t)\\|_\\infty}"
+  },
+  {
+    "key": "ns.c4.c4d.good_bad_sets",
+    "latex": "G=\\{t: M'(t)>0,\\ \\eta(t)\\ge\\eta_0\\},\\quad B=\\{t: M'(t)>0,\\ \\eta(t)<\\eta_0\\}",
+    "label_zh": "好/壞源效率時間集",
+    "label_en": "Good/bad source-efficiency time sets",
+    "definition_zh": "第12-13節依源效率是否達 $\\eta_0$ 把振幅上升時刻分成 $G$（導向 D-WORK 分支）與 $B$（導向 D-SRC 分支），且正變化總量至少一半集中在其中一個集合上。",
+    "definition_en": "Sections 12-13 split amplitude-increasing times by whether source efficiency reaches $\\eta_0$ into $G$ (leading to the D-WORK branch) and $B$ (leading to the D-SRC branch), with at least half the total positive variation concentrated on one of the two."
+  },
+  {
+    "key": "ns.c4.c4d.source_overcapacity_theorem",
+    "latex": "\\dfrac{1}{\\nu\\lambda}\\int_B \\|N(t)\\|_\\infty\\,dt \\ge \\dfrac{\\Delta\\beta}{2\\eta_0}",
+    "label_zh": "非線性源超載脈衝定理（定理14.1）",
+    "label_en": "Nonlinear Source-Overcapacity Impulse (Theorem 14.1)",
+    "definition_zh": "第14節證明若 D-SRC 成立，源項 sup-norm 的時間積分必超過以 $\\Delta\\beta/\\eta_0$ 定標的臨界量，本文稱之為 Nonlinear Source-Overcapacity Impulse。",
+    "definition_en": "Section 14 proves that if D-SRC holds, the time-integrated source sup-norm must exceed a critical quantity scaled by $\\Delta\\beta/\\eta_0$, termed the Nonlinear Source-Overcapacity Impulse.",
+    "defining_relation": "\\dfrac{1}{\\nu\\lambda}\\int_B \\|N(t)\\|_\\infty\\,dt \\ge \\dfrac{\\Delta\\beta}{2\\eta_0}"
+  },
+  {
+    "key": "ns.c4.c4d.shell_work_density",
+    "latex": "w(t,y) = -f(t,y)\\cdot N(t,y)",
+    "label_zh": "非線性 shell 功率密度",
+    "label_en": "Nonlinear shell work density",
+    "definition_zh": "第16節定義 $w(t,y)$ 為 $f$ 與源項 $N$ 的負內積，於最大化點 $x_t$ 恰等於 $M(t)g(t)>0$。",
+    "definition_en": "Section 16 defines $w(t,y)$ as the negative inner product of $f$ and the source $N$, equal to $M(t)g(t)>0$ at the maximizing point $x_t$.",
+    "defining_relation": "w(t,y) = -f(t,y)\\cdot N(t,y)"
+  },
+  {
+    "key": "ns.c4.c4d.positive_work_ball_theorem",
+    "latex": "w(t,y) \\ge c_\\ast M(t)g(t),\\quad y\\in B_t = B(x_t,\\,c_\\ast\\eta_0\\lambda^{-1})",
+    "label_zh": "帶限局部正功球定理（C4-D.3 / 定理17.1）",
+    "label_en": "Band-Limited Local Positive-Work Ball (C4-D.3 / Theorem 17.1)",
+    "definition_zh": "第17節用 Bernstein 估計把最大化點的 pointwise 正功率，擴展為半徑 $c_\\ast\\eta_0\\lambda^{-1}$ 的球 $B_t$ 上處處成立的正下界。",
+    "definition_en": "Section 17 uses Bernstein estimates to extend the pointwise positive work rate at the maximizing point into a lower bound holding throughout a ball $B_t$ of radius $c_\\ast\\eta_0\\lambda^{-1}$.",
+    "defining_relation": "w(t,y) \\ge c_\\ast M(t)g(t),\\quad y\\in B_t"
+  },
+  {
+    "key": "ns.c4.c4d.local_work_rate",
+    "latex": "L(t) := \\int_{B_t} w(t,y)\\,dy \\ge c\\,\\eta_0^3\\nu\\beta_0\\lambda^{-2}M'(t)",
+    "label_zh": "局部正功率",
+    "label_en": "Local positive work rate",
+    "definition_zh": "第18節將正功密度在 $B_t$ 上積分得 $L(t)$，並用 crossing 區間內 $M(t)\\ge\\nu\\lambda\\beta_0$ 化為以 $M'(t)$ 定標的下界。",
+    "definition_en": "Section 18 integrates the positive work density over $B_t$ to obtain $L(t)$, then uses $M(t)\\ge\\nu\\lambda\\beta_0$ within the crossing interval to bound it below in terms of $M'(t)$."
+  },
+  {
+    "key": "ns.c4.c4d.global_shell_work",
+    "latex": "W_q^\\sigma(t) = -\\int_{\\mathbb R^3} f(t,x)\\cdot N(t,x)\\,dx",
+    "label_zh": "全域 shell 非線性功",
+    "label_en": "Global shell nonlinear work",
+    "definition_zh": "第20節定義 $W_q^\\sigma$ 為功密度 $w$ 的全空間積分，並在 shell energy balance 中指出它是未扣黏性耗散的非線性能量輸入項。",
+    "definition_en": "Section 20 defines $W_q^\\sigma$ as the whole-space integral of the work density $w$, identified in the shell energy balance as the nonlinear energy input term prior to subtracting viscous dissipation.",
+    "defining_relation": "\\tfrac12\\tfrac{d}{dt}\\|f\\|_2^2 + \\nu\\|\\nabla f\\|_2^2 = W_q^\\sigma"
+  },
+  {
+    "key": "ns.c4.c4d.spatial_work_split",
+    "latex": "W^+(t)=\\int[w]_+dx,\\quad W^-(t)=\\int[-w]_+dx,\\quad W_q^\\sigma=W^+-W^-",
+    "label_zh": "正/負空間功變化",
+    "label_en": "Positive/negative spatial work variation",
+    "definition_zh": "第21節把功密度 $w$ 拆成空間上的正、負部分積分 $W^+,W^-$，使全域 shell work 等於兩者之差。",
+    "definition_en": "Section 21 splits the work density $w$ into positive and negative spatial integrals $W^+,W^-$, so the global shell work equals their difference."
+  },
+  {
+    "key": "ns.c4.c4d.local_to_global_cancellation",
+    "latex": "[W_q^\\sigma]_+ + W^- \\ge W^+ \\ge L\\ \\text{on } G",
+    "label_zh": "局部至全域功抵消恆等式（C4-D.5）",
+    "label_en": "Local-to-Global Work Cancellation Identity (C4-D.5)",
+    "definition_zh": "第22節證明正 shell work 與負功抵消之和必至少覆蓋 good-source 時刻上局部正功球提供的功率 $L$。",
+    "definition_en": "Section 22 proves that positive shell work together with negative-work cancellation must jointly cover the local positive-work-ball contribution $L$ at good-source times."
+  },
+  {
+    "key": "ns.c4.c4d.dimensionless_positive_work",
+    "latex": "\\mathfrak F_q = \\dfrac{\\lambda}{\\nu^2}\\int_G [W_q^\\sigma(t)]_+\\,dt",
+    "label_zh": "無量綱正 shell 功",
+    "label_en": "Dimensionless positive shell work",
+    "definition_zh": "第23節定義 $\\mathfrak F_q$ 為正 shell work 在 $G$ 上以臨界權重 $\\lambda/\\nu^2$ 定標的無量綱時間積分，是 branching bridge 的其中一支。",
+    "definition_en": "Section 23 defines $\\mathfrak F_q$ as the critically-weighted, dimensionless time-integral of positive shell work over $G$, gating one leg of the branching bridge.",
+    "defining_relation": "\\mathfrak F_q = \\dfrac{\\lambda}{\\nu^2}\\int_G [W_q^\\sigma(t)]_+\\,dt \\ge c\\,\\eta_0^3\\beta_0\\Delta\\beta"
+  },
+  {
+    "key": "ns.c4.c4d.dimensionless_work_cancellation",
+    "latex": "\\mathfrak C_q^{sp} = \\dfrac{\\lambda}{\\nu^2}\\int_G W^-(t)\\,dt",
+    "label_zh": "無量綱空間功抵消量",
+    "label_en": "Dimensionless spatial work-cancellation quantity",
+    "definition_zh": "第23節定義 $\\mathfrak C_q^{sp}$ 為負空間功變化以相同臨界權重定標的無量綱積分，量化 spatial work cancellation 這條逃逸支。",
+    "definition_en": "Section 23 defines $\\mathfrak C_q^{sp}$ as the critically-weighted dimensionless integral of negative spatial work variation, quantifying the spatial-work-cancellation escape leg.",
+    "defining_relation": "\\mathfrak C_q^{sp} = \\dfrac{\\lambda}{\\nu^2}\\int_G W^-(t)\\,dt \\ge c\\,\\eta_0^3\\beta_0\\Delta\\beta"
+  },
+  {
+    "key": "ns.c4.c4d.amplitude_to_work_bridge",
+    "latex": "\\mathfrak S_q\\gtrsim1\\ \\vee\\ \\mathfrak F_q\\ge c\\,\\eta_0^3\\beta_0\\Delta\\beta\\ \\vee\\ \\mathfrak C_q^{sp}\\ge c\\,\\eta_0^3\\beta_0\\Delta\\beta",
+    "label_zh": "振幅至功分支橋（C4-D.6）",
+    "label_en": "Amplitude-to-Work Branching Bridge (C4-D.6)",
+    "definition_zh": "第23節提出的本輪核心結果：每次 D-FAST crossing 必落入 source-overcapacity、positive shell work、spatial work cancellation 三支之一。",
+    "definition_en": "The round's central result, stated in section 23: every D-FAST crossing must fall into one of three legs — source overcapacity, positive shell work, or spatial work cancellation.",
+    "defining_relation": "\\mathfrak S_q\\gtrsim1\\ \\vee\\ \\mathfrak F_q\\ge c\\,\\eta_0^3\\beta_0\\Delta\\beta\\ \\vee\\ \\mathfrak C_q^{sp}\\ge c\\,\\eta_0^3\\beta_0\\Delta\\beta",
+    "notes": "Replaces the direct amplitude-to-flux implication already disproved in C4-C (NS_C4C_SharedEventCoupling_AmplitudeFluxBarrier_v0.1); this theorem gives section 35 (C4-D.8) its partial closure of the C4-C barrier."
+  },
+  {
+    "key": "ns.c4.c4d.work_dipole_debt",
+    "latex": "|\\Omega_-| \\ge c\\,\\eta_0^4\\lambda^{-3},\\quad \\Omega_- = \\{w<0\\}",
+    "label_zh": "功偶極/功多重性債務",
+    "label_en": "Work-Dipole / Work-Multiplicity Debt",
+    "definition_zh": "第25節證明若空間功抵消要達到與局部正功球相當的規模，負功集合 $\\Omega_-$ 的體積必至少達到一個 shell-volume 級下界，本文稱之為 Work-Dipole / Work-Multiplicity Debt。",
+    "definition_en": "Section 25 proves that for spatial work cancellation to reach a scale comparable to the local positive-work ball, the negative-work set $\\Omega_-$ must have volume at least a shell-volume-scale lower bound, termed the Work-Dipole / Work-Multiplicity Debt."
+  },
+  {
+    "key": "ns.c4.c4d.robust_heterochiral_coefficient",
+    "latex": "\\mathcal R_\\tau = \\kappa_\\tau q_\\tau \\dot e_{q_\\tau},\\quad c_\\ast\\le\\kappa_\\tau\\le1",
+    "label_zh": "穩健異手性三元組係數",
+    "label_en": "Robust heterochiral triad coefficient",
+    "definition_zh": "第30節引用 C4-C 已證結果，指出臨界 helical variation $\\mathcal R_\\tau$ 與最高模態非線性能量導數 $q_\\tau\\dot e_{q_\\tau}$ 成正比，係數 $\\kappa_\\tau\\in[c_\\ast,1]$ 對兩種正負號都成立。",
+    "definition_en": "Section 30 recalls the C4-C result that the critical helical variation $\\mathcal R_\\tau$ is proportional to the highest-mode nonlinear energy derivative $q_\\tau\\dot e_{q_\\tau}$, with coefficient $\\kappa_\\tau\\in[c_\\ast,1]$ valid for either sign.",
+    "defining_relation": "\\mathcal R_\\tau = \\kappa_\\tau q_\\tau \\dot e_{q_\\tau}",
+    "notes": "The coefficient bound $c_\\ast\\le\\kappa_\\tau\\le1$ itself is proved in C4-C; C4-D reuses it as the mechanism behind Theorem C4-D.7."
+  },
+  {
+    "key": "ns.c4.c4d.helical_forces_work_cancellation",
+    "latex": "X_\\pm = \\sum_{\\tau\\in rob}[\\pm q_\\tau\\dot e_{q_\\tau}]_+,\\ P_\\pm=\\sum_{\\tau\\in rob}[\\pm\\mathcal R_\\tau]_+;\\quad X_- \\ge (1-\\eta)c_\\ast X_+",
+    "label_zh": "螺旋度抵消迫使高模態功抵消定理（C4-D.7）",
+    "label_en": "Helical Cancellation Forces High-Mode Work Cancellation (C4-D.7)",
+    "definition_zh": "第31節在正負部分和 $X_\\pm,P_\\pm$ 上證明，若臨界 helical production 大部分被 $P_-$ 抵消，則必存在相當規模的負最高模態非線性能量功 $X_-$，即 helical cancellation 並非獨立逃逸通道。",
+    "definition_en": "Section 31 proves, via the positive/negative sums $X_\\pm,P_\\pm$, that substantial cancellation of positive critical helical production by $P_-$ forces a comparable negative highest-mode nonlinear energy work $X_-$ — helical cancellation is not an independent escape channel.",
+    "defining_relation": "X_- \\ge (1-\\eta)c_\\ast X_+",
+    "notes": "Section 32 notes this is strictly stronger than the corresponding C4-C result, which only forced net helicity or $P_-$-cancellation without pinning down $X_-$."
+  },
+  {
+    "key": "ns.c4.c4d.rank_defect_branch",
+    "latex": "G_{\\rm top}^+ + G_{\\rm nontop}^+ = G_q^+",
+    "label_zh": "秩虧/高頻參與分支",
+    "label_en": "Rank-Defect / Higher-Frequency-Participation Branch",
+    "definition_zh": "第27-28節將正 triad work $G_q^+$ 依 receiving mode 是否為 triad 最高波數分成 top-rank 與 non-top 兩部分，若 non-top 佔主導則表示仍有更高絕對頻率參與，本文稱為 Rank-Defect Branch。",
+    "definition_en": "Sections 27-28 split the positive triad work $G_q^+$ by whether the receiving mode is the triad's highest wavenumber; when the non-top part dominates, still-higher absolute frequencies are shown to participate, termed the Rank-Defect Branch.",
+    "notes": "Section 39 links this branch to the C1/C3-G absolute-frequency ancestry and carrier-relay machinery for future closure."
+  },
+  {
+    "key": "ns.c4.c4d.barrier_partial_closure",
+    "latex": "\\text{amplitude}\\Rightarrow\\text{flux}:\\ \\mathrm{FALSE};\\quad \\text{amplitude}\\Rightarrow\\text{finite branch set}:\\ \\mathrm{PROVED}",
+    "label_zh": "振幅至通量障礙——部分閉合（C4-D.8）",
+    "label_en": "Amplitude-to-Flux Barrier — Partial Closure (C4-D.8)",
+    "definition_zh": "第35節總結本輪狀態：C4-C 的 direct amplitude-to-flux implication 仍為 FALSE，但 amplitude crossing 蘊含 finite structured branch set 現已 PROVED，是本輪最主要的 closure。",
+    "definition_en": "Section 35 summarizes the round's status: the C4-C direct amplitude-to-flux implication remains FALSE, but amplitude crossing implying a finite structured branch set is now PROVED — the round's main closure.",
+    "notes": "The 'Amplitude-to-Flux Barrier' itself is the named object left open by C4-C (NS_C4C_SharedEventCoupling_AmplitudeFluxBarrier_v0.1); C4-D closes it only in the branching sense, not the direct sense."
+  }
+]

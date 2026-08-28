@@ -1,0 +1,269 @@
+[
+  {
+    "key": "ns.c5.c5c.strain_energy_e0",
+    "latex": "E_0(t)",
+    "label_zh": "應變能量",
+    "label_en": "strain energy",
+    "definition_zh": "在光滑預奇異 Navier–Stokes 演化上，應變能量定義為 \\(E_0(t)=\frac12\\|S(t)\\|_2^2\\)（§2）。",
+    "definition_en": "On smooth pre-singular Navier–Stokes evolution, the strain energy is defined by \\(E_0(t)=\frac12\\|S(t)\\|_2^2\\) (§2).",
+    "defining_relation": "E_0(t)=\\frac12\\|S(t)\\|_2^2",
+    "notes": "Miller strain identities (§1.1); all C5-C cumulative identities act on smooth pre-singular solutions."
+  },
+  {
+    "key": "ns.c5.c5c.strain_enstrophy_e1",
+    "latex": "E_1(t)",
+    "label_zh": "應變渦能",
+    "label_en": "strain enstrophy",
+    "definition_zh": "應變渦能（\\(\\dot H^1\\) 能量）定義為 \\(E_1(t)=\frac12\\|S(t)\\|_{\\dot H^1}^2=\frac12\\|\nabla S(t)\\|_2^2\\)（§2）。",
+    "definition_en": "Strain enstrophy (the \\(\\dot H^1\\) energy) is defined by \\(E_1(t)=\frac12\\|S(t)\\|_{\\dot H^1}^2=\frac12\\|\nabla S(t)\\|_2^2\\) (§2).",
+    "defining_relation": "E_1(t)=\\frac12\\|S(t)\\|_{\\dot H^1}^2=\\frac12\\|\\nabla S(t)\\|_2^2"
+  },
+  {
+    "key": "ns.c5.c5c.record_window",
+    "latex": "J_j=(\\tau_j,\\tau_{j+1}),\\quad L_j=|J_j|,\\quad s=(t-\\tau_j)/L_j",
+    "label_zh": "紀錄窗與正規化時間",
+    "label_en": "record window and normalized time",
+    "definition_zh": "第 \\(j\\) 個紀錄窗為 \\(J_j=(\tau_j,\tau_{j+1})\\)，長度 \\(L_j=|J_j|\\)，並以 \\(s=(t-\tau_j)/L_j\\in[0,1]\\) 作正規化時間（§2）。",
+    "definition_en": "The \\(j\\)-th record window is \\(J_j=(\tau_j,\tau_{j+1})\\) of length \\(L_j=|J_j|\\), with normalized time \\(s=(t-\tau_j)/L_j\\in[0,1]\\) (§2)."
+  },
+  {
+    "key": "ns.c5.c5c.enstrophy_amplification",
+    "latex": "a(t)",
+    "label_zh": "渦能放大率",
+    "label_en": "enstrophy amplification",
+    "definition_zh": "應變渦能放大率定義為 \\(a(t)=-2\\int_{\\mathbb R^3}\\det S\\,dx\\)，並由應變渦能恆等給出 \\(E_0'+2\nu E_1=a(t)\\)（§3）。",
+    "definition_en": "Strain-enstrophy amplification is \\(a(t)=-2\\int_{\\mathbb R^3}\\det S\\,dx\\), entering the identity \\(E_0'+2\nu E_1=a(t)\\) (§3).",
+    "defining_relation": "E_0'+2\\nu E_1=a(t)=-2\\int_{\\mathbb R^3}\\det S\\,dx"
+  },
+  {
+    "key": "ns.c5.c5c.middle_load",
+    "latex": "m(t)",
+    "label_zh": "中間荷載",
+    "label_en": "middle load",
+    "definition_zh": "中間荷載定義為 \\(m(t)=\\int\\lambda_2^+|S|^2\\,dx\\)，並由 C4-H 點態矩陣不等式控制 \\(a(t)\\le m(t)\\)（§3）。",
+    "definition_en": "Middle load is \\(m(t)=\\int\\lambda_2^+|S|^2\\,dx\\), dominating amplification via the C4-H bound \\(a(t)\\le m(t)\\) (§3).",
+    "defining_relation": "m(t)=\\int\\lambda_2^+|S|^2\\,dx,\\qquad a(t)\\le m(t)",
+    "notes": "The pointwise bound \\(a\\le m\\) is inherited from C4-H."
+  },
+  {
+    "key": "ns.c5.c5c.middle_slack",
+    "latex": "q(t)",
+    "label_zh": "中間鬆弛",
+    "label_en": "middle slack",
+    "definition_zh": "中間鬆弛定義為 \\(q(t)=m(t)-a(t)\\ge0\\)，從而給出精確點態帳本 \\(m=E_0'+2\nu E_1+q\\)（§4）。",
+    "definition_en": "Middle slack is the nonnegative remainder \\(q(t)=m(t)-a(t)\\ge0\\), yielding the exact pointwise ledger \\(m=E_0'+2\nu E_1+q\\) (§4).",
+    "defining_relation": "q(t)=m(t)-a(t)\\ge0,\\qquad m=E_0'+2\\nu E_1+q"
+  },
+  {
+    "key": "ns.c5.c5c.total_middle_toll",
+    "latex": "\\mathcal{M}_j",
+    "label_zh": "中間總荷載",
+    "label_en": "total middle toll",
+    "definition_zh": "紀錄窗 \\(J_j\\) 上的中間總荷載（total middle toll）定義為 \\(\\mathcal M_j=\\int_{J_j}m(t)\\,dt>0\\)（§5）。",
+    "definition_en": "The total middle toll on the record window \\(J_j\\) is \\(\\mathcal M_j=\\int_{J_j}m(t)\\,dt>0\\) (§5).",
+    "defining_relation": "\\mathcal{M}_j=\\int_{J_j}m(t)\\,dt>0"
+  },
+  {
+    "key": "ns.c5.c5c.middle_supply",
+    "latex": "C_j(s)",
+    "label_zh": "中間供給",
+    "label_en": "middle supply",
+    "definition_zh": "正規化中間供給路徑定義為 \\(C_j(s)=\\mathcal M_j^{-1}\\int_{\tau_j}^{t_j(s)}m(t)\\,dt\\)，單調非減且 \\(C_j(0)=0\\)、\\(C_j(1)=1\\)（§6、§8）。",
+    "definition_en": "The normalized middle-supply path is \\(C_j(s)=\\mathcal M_j^{-1}\\int_{\tau_j}^{t_j(s)}m(t)\\,dt\\), nondecreasing with \\(C_j(0)=0\\) and \\(C_j(1)=1\\) (§6, §8).",
+    "defining_relation": "C_j(s)=\\frac1{\\mathcal{M}_j}\\int_{\\tau_j}^{t_j(s)}m(t)\\,dt"
+  },
+  {
+    "key": "ns.c5.c5c.dissipation_demand",
+    "latex": "D_j(s)",
+    "label_zh": "應變耗散需求",
+    "label_en": "strain-dissipation demand",
+    "definition_zh": "正規化應變耗散需求路徑定義為 \\(D_j(s)=(2\nu/\\mathcal M_j)\\int_{\tau_j}^{t_j(s)}E_1(t)\\,dt\\)，單調非減且值域落在 \\([0,1]\\)（§6、§8）。",
+    "definition_en": "The normalized strain-dissipation demand path is \\(D_j(s)=(2\nu/\\mathcal M_j)\\int_{\tau_j}^{t_j(s)}E_1(t)\\,dt\\), nondecreasing and valued in \\([0,1]\\) (§6, §8).",
+    "defining_relation": "D_j(s)=\\frac{2\\nu}{\\mathcal{M}_j}\\int_{\\tau_j}^{t_j(s)}E_1(t)\\,dt"
+  },
+  {
+    "key": "ns.c5.c5c.cumulative_slack",
+    "latex": "Q_j(s)",
+    "label_zh": "累積中間鬆弛",
+    "label_en": "cumulative middle slack",
+    "definition_zh": "正規化中間鬆弛累積路徑定義為 \\(Q_j(s)=\\mathcal M_j^{-1}\\int_{\tau_j}^{t_j(s)}q(t)\\,dt\\)，單調非減且 \\(Q_j(0)=0\\)（§6、§8）。",
+    "definition_en": "The normalized cumulative middle-slack path is \\(Q_j(s)=\\mathcal M_j^{-1}\\int_{\tau_j}^{t_j(s)}q(t)\\,dt\\), nondecreasing with \\(Q_j(0)=0\\) (§6, §8)."
+  },
+  {
+    "key": "ns.c5.c5c.e0_record_displacement",
+    "latex": "R_j(s)",
+    "label_zh": "E0 紀錄位移",
+    "label_en": "normalized E0 record displacement",
+    "definition_zh": "正規化 \\(E_0\\) 紀錄位移定義為 \\(R_j(s)=(E_0(t_j(s))-E_0(\tau_j))/\\mathcal M_j\\)，並滿足 \\(-2\\le R_j(s)\\le1\\)（§6、§8）。",
+    "definition_en": "Normalized \\(E_0\\) record displacement is \\(R_j(s)=(E_0(t_j(s))-E_0(\tau_j))/\\mathcal M_j\\), taking values in \\([-2,1]\\) (§6, §8).",
+    "defining_relation": "R_j(s)=\\frac{E_0(t_j(s))-E_0(\\tau_j)}{\\mathcal{M}_j}=C_j(s)-D_j(s)-Q_j(s)"
+  },
+  {
+    "key": "ns.c5.c5c.exact_middle_ledger",
+    "latex": "C_j=R_j+D_j+Q_j",
+    "label_zh": "精確中間累積帳本",
+    "label_en": "exact middle cumulative ledger",
+    "definition_zh": "定理 7.1（C5-C.1）斷言對所有 \\(s\\in[0,1]\\) 有精確中間累積帳本 \\(C_j(s)=R_j(s)+D_j(s)+Q_j(s)\\)（§7）。",
+    "definition_en": "Theorem 7.1 (C5-C.1) asserts the exact middle cumulative ledger \\(C_j(s)=R_j(s)+D_j(s)+Q_j(s)\\) for all \\(s\\in[0,1]\\) (§7).",
+    "defining_relation": "C_j(s)=R_j(s)+D_j(s)+Q_j(s)",
+    "notes": "Helly compactness of the monotone paths \\(C_j,D_j,Q_j\\) is recorded in §9; the X-guard G-CUMLEDGER requires preserving this identity."
+  },
+  {
+    "key": "ns.c5.c5c.middle_record_fraction",
+    "latex": "\\alpha_j^{mid}",
+    "label_zh": "中間紀錄分數",
+    "label_en": "middle record fraction",
+    "definition_zh": "中間紀錄分數 \\(\\alpha_j^{mid}=(E_0(\tau_{j+1})-E_0(\tau_j))/\\mathcal M_j>0\\) 滿足端點帳本 \\(1=\\alpha_j^{mid}+\\delta_j^{mid}+Q_j(1)\\)（§8）。",
+    "definition_en": "The middle record fraction \\(\\alpha_j^{mid}=(E_0(\tau_{j+1})-E_0(\tau_j))/\\mathcal M_j>0\\) obeys the endpoint ledger \\(1=\\alpha_j^{mid}+\\delta_j^{mid}+Q_j(1)\\) (§8).",
+    "notes": "Carries over from C5-A; the quantity \\(1-\\alpha_j^{mid}\\) is the inefficiency budget controlling supply deficit (§12–§13)."
+  },
+  {
+    "key": "ns.c5.c5c.dissipation_demand_mass",
+    "latex": "\\delta_j^{mid}",
+    "label_zh": "耗散需求質量",
+    "label_en": "dissipation-demand mass",
+    "definition_zh": "耗散需求總質量定義為 \\(\\delta_j^{mid}=D_j(1)=(2\nu/\\mathcal M_j)\\int_{J_j}E_1\\,dt\\)，並滿足 \\(0\\le\\delta_j^{mid}\\le1\\)（§8、§16）。",
+    "definition_en": "Total dissipation-demand mass is \\(\\delta_j^{mid}=D_j(1)=(2\nu/\\mathcal M_j)\\int_{J_j}E_1\\,dt\\), satisfying \\(0\\le\\delta_j^{mid}\\le1\\) (§8, §16)."
+  },
+  {
+    "key": "ns.c5.c5c.middle_supply_rate",
+    "latex": "c_j(s)",
+    "label_zh": "中間供給速率",
+    "label_en": "middle supply rate",
+    "definition_zh": "中間供給速率 \\(c_j(s)=C_j'(s)=L_j m(t_j(s))/\\mathcal M_j\\ge0\\) 滿足 \\(\\int_0^1 c_j\\,ds=1\\)（§10）。",
+    "definition_en": "The middle supply rate \\(c_j(s)=C_j'(s)=L_j m(t_j(s))/\\mathcal M_j\\ge0\\) is a probability density on \\([0,1]\\) (§10)."
+  },
+  {
+    "key": "ns.c5.c5c.demand_rate",
+    "latex": "d_j(s)",
+    "label_zh": "耗散需求速率",
+    "label_en": "dissipation demand rate",
+    "definition_zh": "應變耗散需求速率 \\(d_j(s)=D_j'(s)=2\nu L_j E_1(t_j(s))/\\mathcal M_j\\ge0\\) 是交叉曲率所作用的非負路徑，且 \\(\\int_0^1 d_j=\\delta_j^{mid}\\le1\\)（§10、§25）。",
+    "definition_en": "The strain-dissipation demand rate \\(d_j(s)=D_j'(s)=2\nu L_j E_1(t_j(s))/\\mathcal M_j\\ge0\\) is the nonnegative path whose curvature encodes operator sign, with \\(\\int_0^1 d_j=\\delta_j^{mid}\\le1\\) (§10, §25).",
+    "defining_relation": "d_j(s)=D_j'(s)=\\frac{2\\nu L_j E_1(t_j(s))}{\\mathcal{M}_j}",
+    "notes": "C5-C.5 identifies \\(O^+\\)/\\(O^-\\) with the convexity/concavity sources of \\(d_j\\) (§27–§28)."
+  },
+  {
+    "key": "ns.c5.c5c.operator_signed_growth",
+    "latex": "h(t)",
+    "label_zh": "算子符號增長",
+    "label_en": "operator signed growth",
+    "definition_zh": "沿用 C5-A/B 的算子符號增長 \\(h(t)=E_1'(t)=\nu(\\zeta r_\nu-1)\\|\\Delta S\\|_2^2\\)，其正負部分積分分別為 \\(P_j\\) 與 \\(N_j\\)（§20）。",
+    "definition_en": "Operator signed growth, carried from C5-A/B, is \\(h(t)=E_1'(t)=\nu(\\zeta r_\nu-1)\\|\\Delta S\\|_2^2\\), with positive/negative integrals \\(P_j\\) and \\(N_j\\) (§20).",
+    "defining_relation": "h(t)=E_1'(t)=\\nu(\\zeta r_\\nu-1)\\|\\Delta S\\|_2^2",
+    "notes": "Carries over from C5-A/B; C5-C reinterprets \\(\\mathrm{sign}(h)\\) as the curvature sign of \\(d_j\\)."
+  },
+  {
+    "key": "ns.c5.c5c.operator_bv_path",
+    "latex": "G_j(s)",
+    "label_zh": "算子 BV 路徑",
+    "label_en": "operator BV record path",
+    "definition_zh": "算子 BV 紀錄路徑 \\(G_j(s)=(E_1(t_j(s))-E_1(\tau_j))/V_j^{op}\\) 滿足 \\(G_j(0)=0\\)、\\(G_j(1)=\beta_j^{op}>0\\) 且 \\(\\operatorname{Var}_{[0,1]}G_j=1\\)（§21）。",
+    "definition_en": "The operator BV record path \\(G_j(s)=(E_1(t_j(s))-E_1(\tau_j))/V_j^{op}\\) satisfies \\(G_j(0)=0\\), \\(G_j(1)=\beta_j^{op}>0\\), and \\(\\operatorname{Var}_{[0,1]}G_j=1\\) (§21).",
+    "defining_relation": "G_j(s)=\\frac{E_1(t_j(s))-E_1(\\tau_j)}{V_j^{op}},\\quad \\operatorname{Var}_{[0,1]}G_j=1",
+    "notes": "Theorem 22.1 (C5-C.3) compactifies \\(G_j\\) to some \\(G_\\ast\\in BV([0,1])\\) with \\(\\operatorname{Var} G_\\ast\\le 1\\)."
+  },
+  {
+    "key": "ns.c5.c5c.cross_curvature",
+    "latex": "\\kappa_j^{MO}",
+    "label_zh": "交叉曲率數",
+    "label_en": "cross-curvature number",
+    "definition_zh": "交叉曲率數定義為 \\(\\kappa_j^{MO}=2\nu L_j V_j^{op}/\\mathcal M_j\\)，並精確等於 \\(\\operatorname{Var}_{[0,1]}d_j\\)，從而使 \\(Dd_j=\\kappa_j^{MO}(\\mu_j^{op,+}-\\mu_j^{op,-})\\)（§26–§27）。",
+    "definition_en": "The cross-curvature number is \\(\\kappa_j^{MO}=2\nu L_j V_j^{op}/\\mathcal M_j\\), equal to \\(\\operatorname{Var}_{[0,1]}d_j\\), and satisfies \\(Dd_j=\\kappa_j^{MO}(\\mu_j^{op,+}-\\mu_j^{op,-})\\) (§26–§27).",
+    "defining_relation": "\\kappa_j^{MO}=\\frac{2\\nu L_j V_j^{op}}{\\mathcal{M}_j}=\\operatorname{Var}_{[0,1]}d_j,\\qquad Dd_j=\\kappa_j^{MO}(\\mu_j^{op,+}-\\mu_j^{op,-})",
+    "notes": "The boxed intro form uses \\((D_j^0)''\\) and \\(P_j+N_j\\); the body identifies \\(d_j=D_j'\\) and \\(V_j^{op}=P_j+N_j\\). Guard G-CROSSCURV."
+  },
+  {
+    "key": "ns.c5.c5c.operator_signed_measures",
+    "latex": "\\mu_j^{op,\\pm}",
+    "label_zh": "算子符號測度",
+    "label_en": "operator signed measures",
+    "definition_zh": "算子導數測度由分布意義 \\(DG_j=\\mu_j^{op,+}-\\mu_j^{op,-}\\) 給出，且 \\(|DG_j|=\\mu_j^{op,+}+\\mu_j^{op,-}\\) 為總質量 1 的測度（§23）。",
+    "definition_en": "Operator derivative measures satisfy \\(DG_j=\\mu_j^{op,+}-\\mu_j^{op,-}\\) distributionally, with \\(|DG_j|=\\mu_j^{op,+}+\\mu_j^{op,-}\\) of total mass 1 (§23).",
+    "notes": "Weak-star limits of \\(|DG_j|\\) and \\(DG_j\\) produce \\(\\Lambda_\\ast^{op}\\) and \\(DG_\\ast\\) used to define the variation-cancellation defect."
+  },
+  {
+    "key": "ns.c5.c5c.operator_variation_cancellation_defect",
+    "latex": "\\mathfrak{D}_\\ast^{op}",
+    "label_zh": "算子變分相消缺陷",
+    "label_en": "operator variation-cancellation defect",
+    "definition_zh": "算子變分相消缺陷定義為 \\(\\mathfrak D_\\ast^{op}=\\Lambda_\\ast^{op}-|DG_\\ast|\\ge0\\)，記錄在符號 BV 極限中互相抵消的有限尺度 \\(O^+/O^-\\) 微觀變分（§24）。",
+    "definition_en": "The operator variation-cancellation defect is \\(\\mathfrak D_\\ast^{op}=\\Lambda_\\ast^{op}-|DG_\\ast|\\ge0\\), recording finite-scale \\(O^+/O^-\\) micro-variation cancelled in the signed BV limit (§24).",
+    "defining_relation": "\\mathfrak{D}_\\ast^{op}=\\Lambda_\\ast^{op}-|DG_\\ast|\\ge0"
+  },
+  {
+    "key": "ns.c5.c5c.curvature_variation_defect",
+    "latex": "\\mathfrak{D}_\\ast^{curv}",
+    "label_zh": "曲率變分缺陷",
+    "label_en": "curvature variation defect",
+    "definition_zh": "即使 \\(\\kappa_j^{MO}\\) 有界，曲率變分缺陷 \\(\\mathfrak D_\\ast^{curv}=\\Lambda_\\ast^{curv}-|Dd_\\ast|\\ge0\\) 仍可記錄在極限速率 \\(d_\\ast\\) 中被相消的有限尺度曲率開關（§33）。",
+    "definition_en": "Even for bounded \\(\\kappa_j^{MO}\\), the curvature variation defect \\(\\mathfrak D_\\ast^{curv}=\\Lambda_\\ast^{curv}-|Dd_\\ast|\\ge0\\) records finite-scale curvature switches cancelled in the limit rate \\(d_\\ast\\) (§33).",
+    "notes": "Guard G-CURVDEF: BV limits must separate \\(|Dd_\\ast|\\) from total curvature mass; this is the C-T2 micro-oscillation regime of §50."
+  },
+  {
+    "key": "ns.c5.c5c.supply_fraction",
+    "latex": "\\theta_j(s)",
+    "label_zh": "供給分數",
+    "label_en": "supply fraction",
+    "definition_zh": "當 \\(c_j+d_j>0\\) 時供給分數為 \\(\theta_j(s)=c_j/(c_j+d_j)\\in[0,1]\\)，否則取 \\(\theta_j=1/2\\)（§17）。",
+    "definition_en": "The supply fraction is \\(\theta_j(s)=c_j/(c_j+d_j)\\in[0,1]\\) when \\(c_j+d_j>0\\), and \\(\theta_j=1/2\\) otherwise (§17).",
+    "defining_relation": "\\theta_j(s)=\\frac{c_j(s)}{c_j(s)+d_j(s)}\\in[0,1]"
+  },
+  {
+    "key": "ns.c5.c5c.supply_demand_young_measure",
+    "latex": "\\mathscr{S}_j",
+    "label_zh": "供給–需求 Young 測度",
+    "label_en": "supply–demand Young measure",
+    "definition_zh": "供給–需求 Young 測度 \\(\\mathscr S_j=(s,\theta_j)_{\\#}\\Lambda_j^{SD}\\) 是 \\([0,1]\times[0,1]\\) 上的推前測度，其弱極限滿足封閉相容約束 \\((1+\\delta_\\ast)\\int[1-2\theta]_+\\,d\\mathscr S_\\ast\\le1-\\alpha_\\ast\\)（§16、§19）。",
+    "definition_en": "The supply–demand Young measure \\(\\mathscr S_j=(s,\theta_j)_{\\#}\\Lambda_j^{SD}\\) is a pushforward on \\([0,1]\times[0,1]\\) whose weak limit obeys the closed compatibility constraint \\((1+\\delta_\\ast)\\int[1-2\theta]_+\\,d\\mathscr S_\\ast\\le1-\\alpha_\\ast\\) (§16, §19).",
+    "defining_relation": "\\mathscr{S}_j=(s,\\theta_j)_\\#\\Lambda_j^{SD},\\qquad (1+\\delta_\\ast)\\int[1-2\\theta]_+\\,d\\mathscr{S}_\\ast\\le 1-\\alpha_\\ast",
+    "notes": "Here \\(d\\Lambda_j^{SD}=(c_j+d_j)/(1+\\delta_j)\\,ds\\) is the supply–demand common probability on \\([0,1]\\) (§16)."
+  },
+  {
+    "key": "ns.c5.c5c.marked_transition_state",
+    "latex": "\\mathscr{T}_j",
+    "label_zh": "帶標記轉移態",
+    "label_en": "marked transition state",
+    "definition_zh": "帶算子符號標記的供給–需求狀態 \\(\\mathscr T_j=(s,\theta_j,\\sigma_j)_{\\#}\\Lambda_j^{SD}\\) 活在緊集 \\([0,1]\times[0,1]\times\\{-1,0,+1\\}\\) 上（§37）。",
+    "definition_en": "The operator-sign-marked supply–demand state \\(\\mathscr T_j=(s,\theta_j,\\sigma_j)_{\\#}\\Lambda_j^{SD}\\) lives on the compact \\([0,1]\times[0,1]\times\\{-1,0,+1\\}\\) (§37).",
+    "notes": "The integrand of the supply-deficit constraint is independent of \\(\\sigma\\), so marking does not change the inequality (§38); anti-phase mass \\(\\mathfrak A_\\ast^+\\) is the \\(\\sigma=+1\\) slice (§39)."
+  },
+  {
+    "key": "ns.c5.c5c.curvature_congestion",
+    "latex": "\\mathrm{C\\text{-}K}\\infty:\\ \\kappa_j^{MO}\\to\\infty",
+    "label_zh": "曲率壅塞",
+    "label_en": "curvature congestion",
+    "definition_zh": "交叉曲率體制 C-K∞ 指 \\(\\kappa_j^{MO}\to\\infty\\)，此時 \\(\\operatorname{Var}d_j\to\\infty\\) 而 \\(\\|d_j\\|_{L^1}\\le1\\)，算子轉移無法被普通 BV 緊緻性吸收而形成曲率壅塞（§30、§34）。",
+    "definition_en": "The C-K∞ regime is \\(\\kappa_j^{MO}\to\\infty\\), forcing \\(\\operatorname{Var}d_j\to\\infty\\) while \\(\\|d_j\\|_{L^1}\\le1\\), so operator transitions escape ordinary BV compactness as curvature congestion (§30, §34).",
+    "notes": "Sibling regimes are C-K0 (vanishing curvature, demand-rate flattening, §31) and C-KF (finite curvature, BV transition closure, §32); C5-B operator phase measure is the normalized curvature profile of C-K∞ (§34)."
+  },
+  {
+    "key": "ns.c5.c5c.temporal_transition_state",
+    "latex": "\\Theta_\\ast^{TC}",
+    "label_zh": "時間轉移狀態",
+    "label_en": "temporal transition state",
+    "definition_zh": "C5-C 時間轉移狀態 \\(\\Theta_\\ast^{TC}\\) 收集極限累積路徑 \\(C_\\ast,D_\\ast,Q_\\ast,R_\\ast\\)、Young 態 \\(\\mathscr S_\\ast,\\mathscr T_\\ast\\)、算子 BV 路徑 \\(G_\\ast\\)、交叉曲率尺度與各缺陷測度（§59）。",
+    "definition_en": "The C5-C temporal transition state \\(\\Theta_\\ast^{TC}\\) collects the limit cumulative paths \\(C_\\ast,D_\\ast,Q_\\ast,R_\\ast\\), Young states \\(\\mathscr S_\\ast,\\mathscr T_\\ast\\), the operator BV path \\(G_\\ast\\), the cross-curvature scale, and the defect measures (§59).",
+    "defining_relation": "\\Theta_\\ast^{TC}=\\bigl\\langle C_\\ast,D_\\ast,Q_\\ast,R_\\ast,\\mathscr{S}_\\ast,\\mathscr{T}_\\ast,G_\\ast,\\Lambda_\\ast^{op},\\mathfrak{D}_\\ast^{op},\\kappa_\\ast^{MO},\\mathfrak{D}_\\ast^{curv},\\mathfrak{c}_M,\\mathfrak{c}_+\\bigr\\rangle",
+    "notes": "The load-concentration defects \\(\\mathfrak c_M,\\mathfrak c_+\\) carry over from C5-B and appear as the C-T4 alternative in §50."
+  },
+  {
+    "key": "ns.c5.c5c.supply_deficit_budget",
+    "latex": "\\int_0^1[d_j-c_j]_+\\,ds\\le 1-\\alpha_j^{mid}",
+    "label_zh": "中間供給赤字預算",
+    "label_en": "middle supply-deficit budget",
+    "definition_zh": "定理 13.1（C5-C.2）斷言 \\(\\int_0^1[d_j-c_j]_+\\,ds\\le1-\\alpha_j^{mid}\\)，即正規化供給赤字不得超出中間紀錄無效率預算（§13）。",
+    "definition_en": "Theorem 13.1 (C5-C.2) asserts \\(\\int_0^1[d_j-c_j]_+\\,ds\\le1-\\alpha_j^{mid}\\), so normalized supply deficit cannot exceed the middle-record inefficiency budget (§13).",
+    "defining_relation": "\\int_0^1[d_j(s)-c_j(s)]_+\\,ds\\le 1-\\alpha_j^{mid}",
+    "notes": "Guard G-SUPDEM: middle supply \\(c\\) and strain demand \\(d\\) must not be collapsed into a single load."
+  },
+  {
+    "key": "ns.c5.c5c.scalar_ordering_nogo",
+    "latex": "O^+\\to M",
+    "label_zh": "純量時序禁則",
+    "label_en": "scalar temporal ordering no-go",
+    "definition_zh": "結論 48.1（C5-C.7）斷言僅憑 \\(E_0/E_1\\) 帳本、中間上界強迫與交叉曲率恆等，仍不足以禁止分離的 \\(O^+\\to M\\)（及反向）補償排序（§45–§48）。",
+    "definition_en": "Conclusion 48.1 (C5-C.7) asserts that the \\(E_0/E_1\\) ledgers, middle upper forcing, and cross-curvature identity still do not forbid a separated \\(O^+\\to M\\) (or reverse) compensation ordering (§45–§48).",
+    "notes": "The §45–§47 construction is an abstract scalar ledger, not an N–S orbit (guard G-ORDERNO); it marks the logical boundary of pure temporal-scalar closure (G-TEMPEND)."
+  }
+]

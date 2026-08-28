@@ -1,0 +1,272 @@
+[
+  {
+    "key": "ns.c5.c5k.theorem_3_14",
+    "latex": "\\mathrm{Theorem\\ 3.14}",
+    "label_zh": "Grujić–Xu 定理 3.14",
+    "label_en": "Grujić–Xu Theorem 3.14",
+    "definition_zh": "第 1.1 節重審 Grujić–Xu 2024 定理 3.14：對每個滿足設置與剩餘時間的 (k,t)，若可容許窗 I_k(t) 內存在達到 1D 稀疏性的時刻，則 T* 不是爆破時刻。",
+    "definition_en": "Section 1.1 re-audits Grujić–Xu 2024 Theorem 3.14: if every required pair (k,t) admits a 1D-sparseness time inside I_k(t), then T* is not a blow-up time.",
+    "notes": "External-closure object of this round; C5-K does not reprove it, but records that order-dependent times and Type-A/B switching are already handled once all window passes hold."
+  },
+  {
+    "key": "ns.c5.c5k.type_a_string",
+    "latex": "\\mathcal{A}",
+    "label_zh": "A 型字串",
+    "label_en": "Type-A string",
+    "definition_zh": "第 2 節依公開定義 3.15 與條件 (3.43) 將導數區段字串標為 A 型，表示該區段呈由時間相關最大化元主導的上升型行為。",
+    "definition_en": "Section 2, following published Definition 3.15 and condition (3.43), labels a derivative-section string as Type-A when it exhibits maximizer-dominated ascending behaviour.",
+    "notes": "Once Theorem 3.14 hypotheses hold, C5-K.1 removes generic TYPE-SWITCH as an independent C5 residual."
+  },
+  {
+    "key": "ns.c5.c5k.type_b_string",
+    "latex": "\\mathcal{B}",
+    "label_zh": "B 型字串",
+    "label_en": "Type-B string",
+    "definition_zh": "第 2 節依公開定義 3.15 與條件 (3.44) 將導數區段字串標為 B 型，表示該區段呈下降或尾部主導的行為。",
+    "definition_en": "Section 2, following published Definition 3.15 and condition (3.44), labels a derivative-section string as Type-B when it exhibits descending or tail-dominating behaviour.",
+    "notes": "Paired with Type-A under published dynamic interpolation; not retained as a standalone C5 survivor motif."
+  },
+  {
+    "key": "ns.c5.c5k.lemma_3_16",
+    "latex": "\\mathrm{Lemma\\ 3.16}",
+    "label_zh": "A 型控制引理",
+    "label_en": "Type-A control lemma",
+    "definition_zh": "第 3 節核對公開 Lemma 3.16：若字串以 A 型起頭且空間假設可用，則直至首次 A-to-B 切換，導數根被控制在初始最大值的 (1+ε̃)^{1/ℓ_{i+q}} 倍之內。",
+    "definition_en": "Section 3 audits published Lemma 3.16: if a string starts Type-A and the spatial hypothesis is available, derivative roots stay bounded by a (1+ε̃)^{1/ℓ_{i+q}} factor times the initial string maximum until the first A-to-B switch.",
+    "notes": "Treated as EXTERNAL/VERIFIED; C5-K does not replace the published Type-A dynamic proof."
+  },
+  {
+    "key": "ns.c5.c5k.lemma_3_17",
+    "latex": "\\mathrm{Lemma\\ 3.17}",
+    "label_zh": "B 型控制引理",
+    "label_en": "Type-B control lemma",
+    "definition_zh": "第 4 節核對公開 Lemma 3.17：若字串以 B 型起頭，則直至首次 B-to-A 切換，導數根的時間上確界不超過該區段的初始最大值。",
+    "definition_en": "Section 4 audits published Lemma 3.17: if a string starts Type-B, the time-supremum of derivative roots stays at most the initial section/string maximum until the first B-to-A switch.",
+    "notes": "Treated as EXTERNAL/VERIFIED; together with Lemma 3.16 it supplies the published switch-interval stitching of Theorem 3.14."
+  },
+  {
+    "key": "ns.c5.c5k.possible_blowup_time",
+    "latex": "T^\\ast",
+    "label_zh": "可能爆破時刻",
+    "label_en": "possible blow-up time",
+    "definition_zh": "第 1.1 節將 T* 取為可能爆破時刻：若所有所需 (k,t) 的窗內空間通過皆成立，則定理 3.14 斷言它不是爆破時刻。",
+    "definition_en": "Section 1.1 takes T* as the candidate blow-up time, which Theorem 3.14 concludes is not a blow-up time once every required window pass holds.",
+    "notes": "Inherited from Grujić–Xu 2024; global regularity remains OPEN at the end of C5-K."
+  },
+  {
+    "key": "ns.c5.c5k.amplitude_A_k",
+    "latex": "A_k(t)",
+    "label_zh": "階振幅",
+    "label_en": "order-k amplitude",
+    "definition_zh": "第 1.1 節沿用鏈振幅 A_k(t) 作為定理 3.14 剩餘時間條件與可容許窗長度的輸入。",
+    "definition_en": "Section 1.1 uses the inherited chain amplitude A_k(t) as the input that sets both the remaining-time gate of Theorem 3.14 and the length of the admissible window.",
+    "notes": "Carries over from C5-I/J and the Grujić–Xu derivative chain; not redefined in this round."
+  },
+  {
+    "key": "ns.c5.c5k.theorem_constant_C_tilde",
+    "latex": "\\widetilde{\\mathcal{C}}_k",
+    "label_zh": "階相關定理常數",
+    "label_en": "order-dependent theorem constant",
+    "definition_zh": "第 1.1 節沿用 Grujić–Xu 定理 3.14 的階相關常數 𝒞̃_k，同時決定可容許窗長度 τ_k 與空間尺度 r_k。",
+    "definition_en": "Section 1.1 inherits the Grujić–Xu Theorem 3.14 order-dependent constant 𝒞̃_k, which simultaneously sets the admissible-window length τ_k and the spatial scale r_k.",
+    "notes": "Published theorem constant; appears in every C5-K clock, window, and scale formula."
+  },
+  {
+    "key": "ns.c5.c5k.chain_clock_tau",
+    "latex": "\\tau_k(t)",
+    "label_zh": "鏈時鐘",
+    "label_en": "chain clock",
+    "definition_zh": "第 9 節將定理鏈時鐘定義為 τ_k(t)=[𝒞̃_k A_k(t)^{2/(k+1)}]^{-1}，作為階 k 在基時 t 的可容許時間長度。",
+    "definition_en": "Section 9 defines the theorem chain clock τ_k(t)=[𝒞̃_k A_k(t)^{2/(k+1)}]^{-1} as the admissible time length of order k at base time t.",
+    "defining_relation": "\\tau_k(t)=\\bigl[\\widetilde{\\mathcal{C}}_k A_k(t)^{2/(k+1)}\\bigr]^{-1}"
+  },
+  {
+    "key": "ns.c5.c5k.admissible_window",
+    "latex": "I_k(t)",
+    "label_zh": "可容許定理窗",
+    "label_en": "admissible theorem window",
+    "definition_zh": "第 9 節（並於第 1.1 節依定理 3.14 核對）將可容許窗定義為 I_k(t)=[t+τ_k/4, t+τ_k]，即定理要求存在空間通過的整段區間。",
+    "definition_en": "Section 9 (matching the Section 1.1 audit of Theorem 3.14) defines the admissible window I_k(t)=[t+τ_k/4, t+τ_k] as the full interval in which a spatial pass is required to exist.",
+    "defining_relation": "I_k(t)=[t+\\tau_k(t)/4,\\,t+\\tau_k(t)]"
+  },
+  {
+    "key": "ns.c5.c5k.chain_clock_frequency",
+    "latex": "\\Omega_k(t)",
+    "label_zh": "鏈時鐘頻率",
+    "label_en": "chain-clock frequency",
+    "definition_zh": "第 9 節將鏈時鐘頻率定義為 Ω_k(t)=τ_k(t)^{-1}=𝒞̃_k A_k(t)^{2/(k+1)}。",
+    "definition_en": "Section 9 defines the chain-clock frequency by Ω_k(t)=τ_k(t)^{-1}=𝒞̃_k A_k(t)^{2/(k+1)}.",
+    "defining_relation": "\\Omega_k(t)=\\tau_k(t)^{-1}=\\widetilde{\\mathcal{C}}_k A_k(t)^{2/(k+1)}"
+  },
+  {
+    "key": "ns.c5.c5k.spatial_scale_r",
+    "latex": "r_k(s)",
+    "label_zh": "定理空間尺度",
+    "label_en": "theorem spatial scale",
+    "definition_zh": "第 10 節將定理選取的 1D 稀疏性尺度定為 r_k(s)=(2𝒞̃_k A_k(s)^{1/(k+1)})^{-1}。",
+    "definition_en": "Section 10 sets the theorem-selected 1D-sparseness scale to r_k(s)=(2𝒞̃_k A_k(s)^{1/(k+1)})^{-1}.",
+    "defining_relation": "r_k(s)=\\frac{1}{2\\widetilde{\\mathcal{C}}_k A_k(s)^{1/(k+1)}}"
+  },
+  {
+    "key": "ns.c5.c5k.spatial_defect_score",
+    "latex": "\\beta_k(s)",
+    "label_zh": "空間缺陷分數",
+    "label_en": "spatial defect score",
+    "definition_zh": "第 10 節將 β_k(s) 定義為在尺度 r_k(s) 內、對所有基點與方向，符號超水平集 1D 厚度的上確界–下確界。",
+    "definition_en": "Section 10 defines β_k(s) as the sup-inf 1D thickness of the selected sign superlevel set over basepoints, scales up to r_k(s), and directions.",
+    "defining_relation": "\\beta_k(s)=\\sup_{x_0}\\inf_{0<\\rho\\le r_k(s)}\\inf_{[\\nu]\\in\\mathbb{RP}^2}b_{V_{\\lambda,k}(x_0,s)}(x_0,\\rho,[\\nu])"
+  },
+  {
+    "key": "ns.c5.c5k.window_spatial_score",
+    "latex": "\\beta_k^{win}(t)",
+    "label_zh": "窗空間分數",
+    "label_en": "window spatial score",
+    "definition_zh": "第 11 節將窗空間分數定義為 β_k^{win}(t)=inf_{s∈I_k(t)} β_k(s)，並以 β_k^{win}(t)>δ 判定嚴格整窗失敗。",
+    "definition_en": "Section 11 defines the window spatial score by β_k^{win}(t)=inf_{s∈I_k(t)} β_k(s), with strict whole-window failure when β_k^{win}(t)>δ.",
+    "defining_relation": "\\beta_k^{win}(t)=\\inf_{s\\in I_k(t)}\\beta_k(s)"
+  },
+  {
+    "key": "ns.c5.c5k.window_persistent_sign_defect",
+    "latex": "\\mathrm{Window\\text{-}Persistent\\ Sign\\ Defect}",
+    "label_zh": "窗持久符號缺陷",
+    "label_en": "window-persistent sign defect",
+    "definition_zh": "第 12 節將窗持久符號缺陷定義為整個可容許窗 I_k(t) 內沒有任何時刻通過定理 1D 稀疏性條件，從而使每個 s∈I_k(t) 都帶有過厚的符號核。",
+    "definition_en": "Section 12 defines a window-persistent sign defect as the failure of the 1D-sparseness condition at every time in the admissible window I_k(t), so every s∈I_k(t) carries a too-thick sign core.",
+    "notes": "This is the true spatial survivor of C5-K, replacing generic Type-switch and order-dependent-time mismatch as independent residuals."
+  },
+  {
+    "key": "ns.c5.c5k.descent_margin_kappa",
+    "latex": "\\kappa_{\\lambda,\\delta}",
+    "label_zh": "下降邊際常數",
+    "label_en": "descent-margin constant",
+    "definition_zh": "第 13 節定義 κ_{λ,δ}=(1+λ)δ−1>0，作為整窗符號失敗所強制的下階振幅下降係數。",
+    "definition_en": "Section 13 defines κ_{λ,δ}=(1+λ)δ−1>0 as the lower-order amplitude descent coefficient forced by whole-window sign failure.",
+    "defining_relation": "\\kappa_{\\lambda,\\delta}=(1+\\lambda)\\delta-1>0"
+  },
+  {
+    "key": "ns.c5.c5k.descent_factor_d_k",
+    "latex": "d_k(c)",
+    "label_zh": "根下降因子",
+    "label_en": "root-descent factor",
+    "definition_zh": "第 14 節沿用 C5-I 在固定區段正規化 c 下的下降因子 d_k(c)，使窗內每一時刻皆有 ℛ(k−1,c,s)≥d_k(c)ℛ(k,c,s)。",
+    "definition_en": "Section 14 inherits the C5-I descent factor d_k(c) in a fixed section normalization c, so that ℛ(k−1,c,s)≥d_k(c)ℛ(k,c,s) holds at every time in the window.",
+    "notes": "Carries over from C5-I; C5-K upgrades the one-time witness to a window-persistent inequality."
+  },
+  {
+    "key": "ns.c5.c5k.derivative_root_R",
+    "latex": "\\mathcal{R}(j,c,t)",
+    "label_zh": "導數根",
+    "label_en": "derivative root",
+    "definition_zh": "第 2 節沿用公開導數根 ℛ(j,c(ℓ_i),t) 作為區段最大化、Type-A/B 控制、以及窗內下降帶的對象。",
+    "definition_en": "Section 2 inherits the published derivative root ℛ(j,c(ℓ_i),t) as the object of section maximizers, Type-A/B control, and the window-persistent descent strip.",
+    "notes": "Carries over from Grujić–Xu and C5-I/J; C5-K evaluates it throughout entire admissible windows rather than at isolated times."
+  },
+  {
+    "key": "ns.c5.c5k.window_persistent_descent_strip",
+    "latex": "\\mathrm{Window\\text{-}Persistent\\ Descent\\ Strip}",
+    "label_zh": "窗持久下降帶",
+    "label_en": "window-persistent descent strip",
+    "definition_zh": "第 13 節證明：若整窗空間條件失敗，則對所有 s∈I_k(t) 皆有 A_{k−1}(s)≥κ_{λ,δ} r_k(s) A_k(s)，從而使 C5-I 下降升為整條時間帶。",
+    "definition_en": "Section 13 proves that whole-window spatial failure yields A_{k−1}(s)≥κ_{λ,δ} r_k(s) A_k(s) for every s∈I_k(t), promoting the C5-I descent toll to a full temporal strip.",
+    "defining_relation": "A_{k-1}(s)\\ge\\frac{\\kappa_{\\lambda,\\delta}}{2\\widetilde{\\mathcal{C}}_k}A_k(s)^{k/(k+1)}\\qquad\\forall s\\in I_k(t)"
+  },
+  {
+    "key": "ns.c5.c5k.harmonic_temporal_critical_saturation",
+    "latex": "\\mathrm{Harmonic\\text{--}Temporal\\ Critical\\ Saturation}",
+    "label_zh": "諧和–時間臨界飽和",
+    "label_en": "harmonic–temporal critical saturation",
+    "definition_zh": "第 16 節將諧和–時間臨界飽和定義為一連串失敗窗滿足 β_{k_j}^{win}(t_j)↓δ，使整窗最小值逼近但未跨越諧和閾值。",
+    "definition_en": "Section 16 defines harmonic–temporal critical saturation as a sequence of failing windows with β_{k_j}^{win}(t_j)↓δ, so the whole-window minimum approaches but never crosses the harmonic threshold.",
+    "notes": "Stronger than C5-I pointwise saturation: the closest approach to a harmonic pass is measured across the full admissible window."
+  },
+  {
+    "key": "ns.c5.c5k.block_clock_spread",
+    "latex": "\\mathfrak{S}_{J,K}^{clock}(t)",
+    "label_zh": "區塊時鐘展度",
+    "label_en": "block clock spread",
+    "definition_zh": "第 21 節將區塊時鐘展度定義為導數區塊 [J,K] 上最大與最小鏈時鐘之比。",
+    "definition_en": "Section 21 defines the block clock spread as the ratio of the maximal to the minimal chain clock over the derivative block [J,K].",
+    "defining_relation": "\\mathfrak{S}_{J,K}^{clock}(t)=\\frac{\\max_{J\\le k\\le K}\\tau_k(t)}{\\min_{J\\le k\\le K}\\tau_k(t)}"
+  },
+  {
+    "key": "ns.c5.c5k.adjacent_window_overlap_lemma",
+    "latex": "I_k(t)\\cap I_{k+1}(t)\\ne\\varnothing",
+    "label_zh": "相鄰鏈窗重疊引理",
+    "label_en": "Adjacent Chain-Window Overlap Lemma",
+    "definition_zh": "第 19 節的 C5-K.3 斷言：同一基時 t 的相鄰窗相交若且唯若 1/4≤τ_{k+1}(t)/τ_k(t)≤4。",
+    "definition_en": "Section 19 (C5-K.3) asserts that adjacent windows at the same base time t overlap if and only if 1/4≤τ_{k+1}(t)/τ_k(t)≤4.",
+    "defining_relation": "I_k(t)\\cap I_{k+1}(t)\\ne\\varnothing\\iff\\frac14\\le\\frac{\\tau_{k+1}(t)}{\\tau_k(t)}\\le 4"
+  },
+  {
+    "key": "ns.c5.c5k.chain_window_helly_lemma",
+    "latex": "\\mathfrak{S}_{J,K}^{clock}(t)\\le 4",
+    "label_zh": "鏈窗 Helly 引理",
+    "label_en": "Chain-Window Helly Lemma",
+    "definition_zh": "第 21 節的 C5-K.4 斷言：區塊時鐘展度 ≤4 等價於存在對所有階 J,…,K 同時可容許的共同時刻 s。",
+    "definition_en": "Section 21 (C5-K.4) asserts that block clock spread ≤4 is equivalent to existence of one time s admissible for every order J,…,K.",
+    "defining_relation": "\\mathfrak{S}_{J,K}^{clock}(t)\\le 4\\iff\\bigcap_{k=J}^{K}I_k(t)\\ne\\varnothing"
+  },
+  {
+    "key": "ns.c5.c5k.common_time_block_descent",
+    "latex": "\\mathcal{R}(J,c,s_\\ast)\\ge\\Bigl(\\prod_{k=J+1}^{K}d_k(c)\\Bigr)\\mathcal{R}(K,c,s_\\ast)",
+    "label_zh": "共同時間區塊下降",
+    "label_en": "common-time block descent",
+    "definition_zh": "第 23 節的 C5-K.5 證明：在共同可容許時刻 s_* 上，若 J+1,…,K 皆有窗持久符號缺陷，則低階根至少是高階根乘上下降因子的連乘積。",
+    "definition_en": "Section 23 (C5-K.5) proves that at a common admissible time s_*, if every level J+1,…,K has a window-persistent sign defect, then the lower-order root is at least the product of the descent factors times the top-order root.",
+    "defining_relation": "\\mathcal{R}(J,c,s_\\ast)\\ge\\Bigl(\\prod_{k=J+1}^{K}d_k(c)\\Bigr)\\mathcal{R}(K,c,s_\\ast)"
+  },
+  {
+    "key": "ns.c5.c5k.chain_clock_separation",
+    "latex": "\\mathrm{Chain\\text{-}Clock\\ Separation}",
+    "label_zh": "鏈時鐘分離",
+    "label_en": "chain-clock separation",
+    "definition_zh": "第 25 節將鏈時鐘分離定義為區塊時鐘展度 𝔖_{J,K}^{clock}>4，從而使整塊導數階無法共享同一定理時刻。",
+    "definition_en": "Section 25 defines chain-clock separation as block clock spread 𝔖_{J,K}^{clock}>4, so that no common theorem time exists across the full derivative block.",
+    "notes": "C5-K.7 shows this is not free temporal noise: it is equivalent to a large adjacent derivative-root clock jump."
+  },
+  {
+    "key": "ns.c5.c5k.adjacent_clock_ratio",
+    "latex": "\\frac{\\tau_{k+1}(t)}{\\tau_k(t)}",
+    "label_zh": "相鄰時鐘比",
+    "label_en": "adjacent clock ratio",
+    "definition_zh": "第 26–27 節（C5-K.7）將相鄰鏈時鐘比寫成振幅幾何，並證明比落出 [1/4,4] 等價於強向上或向下的根–時鐘跳躍。",
+    "definition_en": "Sections 26–27 (C5-K.7) express the adjacent chain-clock ratio in amplitude geometry and prove that leaving [1/4,4] is a strong upward or downward root-clock jump.",
+    "defining_relation": "\\frac{\\tau_{k+1}}{\\tau_k}=\\frac{\\widetilde{\\mathcal{C}}_k}{\\widetilde{\\mathcal{C}}_{k+1}}\\left(\\frac{A_k^{1/(k+1)}}{A_{k+1}^{1/(k+2)}}\\right)^2"
+  },
+  {
+    "key": "ns.c5.c5k.theorem_time_pass_flag",
+    "latex": "\\mathsf{W}_k(t)",
+    "label_zh": "定理時通過旗標",
+    "label_en": "theorem-time pass flag",
+    "definition_zh": "第 30 節將 𝖶_k(t) 定義為指示函數：若 I_k(t) 內存在滿足空間條件 (3.41) 的時刻則為 1，否則為 0。",
+    "definition_en": "Section 30 defines 𝖶_k(t) as the indicator that equals 1 iff some s∈I_k(t) satisfies the spatial condition (3.41), and 0 otherwise.",
+    "defining_relation": "\\mathsf{W}_k(t)=\\begin{cases}1,&\\exists s\\in I_k(t)\\text{ satisfying (3.41)},\\\\0,&\\text{otherwise.}\\end{cases}"
+  },
+  {
+    "key": "ns.c5.c5k.theorem_setup_defect",
+    "latex": "\\mathrm{Theorem\\text{-}Setup\\ Defect}",
+    "label_zh": "定理設置缺陷",
+    "label_en": "theorem-setup defect",
+    "definition_zh": "第 33 節將定理設置缺陷定義為在到達空間問題之前，定理 3.14 的鏈條件、參數相容、剩餘時間或正則性假設已不可用。",
+    "definition_en": "Section 33 defines a theorem-setup defect as failure of the chain, parameter-compatibility, remaining-time, or regularity hypotheses of Theorem 3.14 before the spatial question is reached.",
+    "notes": "Kept strictly distinct from window-persistent sign defect; C5-K does not treat setup hypotheses as automatic."
+  },
+  {
+    "key": "ns.c5.c5k.window_root_turnover",
+    "latex": "\\mathfrak{T}_k^{win}(t)",
+    "label_zh": "窗內根週轉因子",
+    "label_en": "window root-turnover factor",
+    "definition_zh": "第 34 節將失敗定理窗內導數根的上確界與下確界之比定義為 𝔗_k^{win}(t)∈[1,∞]，其發散即為同階窗內根週轉缺陷。",
+    "definition_en": "Section 34 defines the window root-turnover factor 𝔗_k^{win}(t)∈[1,∞] as the ratio of sup to inf of ℛ(k,c,·) on a failing theorem window, with divergence recording same-order temporal turnover.",
+    "defining_relation": "\\mathfrak{T}_k^{win}(t)=\\frac{\\sup_{s\\in I_k(t)}\\mathcal{R}(k,c,s)}{\\inf_{s\\in I_k(t)}\\mathcal{R}(k,c,s)}\\in[1,\\infty]"
+  },
+  {
+    "key": "ns.c5.c5k.ascent_clock_harmonic_trichotomy",
+    "latex": "\\mathrm{K\\text{-}HARM}\\vee\\mathrm{K\\text{-}CLOCK}\\vee\\mathrm{K\\text{-}SETUP}",
+    "label_zh": "強上升–時鐘–諧和三分法",
+    "label_en": "strong ascent–clock–harmonic trichotomy",
+    "definition_zh": "第 45 節的 C5-K.9 斷言：若區塊根上升強到超過下降因子連乘的倒數，則至少發生窗內諧和通過、鏈時鐘分離、或共同定理設置不可用三者之一。",
+    "definition_en": "Section 45 (C5-K.9) asserts that if block root ascent exceeds the reciprocal product of descent factors, then at least one of window-harmonic pass, chain-clock separation, or unavailable common theorem setup must hold.",
+    "notes": "Upgrades C5-K.6 (clock-synchronized Type-A puncture) by including the setup gate as a third alternative."
+  }
+]

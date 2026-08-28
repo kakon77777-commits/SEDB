@@ -1,0 +1,348 @@
+[
+  {
+    "key": "ns.c3.c3h.ancestry_node",
+    "latex": "\\mathfrak a_n",
+    "label_zh": "血緣鏈節點",
+    "label_en": "Ancestry ray node",
+    "definition_zh": "第1節定義 $\\mathfrak a_n=(q_n,\\sigma_n,x_n,t_n)$，為血緣鏈上第 $n$ 個 first-crossing 事件的座標包。",
+    "definition_en": "Sec. 1 defines $\\mathfrak a_n=(q_n,\\sigma_n,x_n,t_n)$ as the coordinate tuple of the n-th first-crossing event on the ancestry ray."
+  },
+  {
+    "key": "ns.c3.c3h.lambda_n",
+    "latex": "\\lambda_n",
+    "label_zh": "血緣節點 dyadic 尺度",
+    "label_en": "Ancestry-node dyadic scale",
+    "definition_zh": "$\\lambda_n=2^{q_n}\\to\\infty$ 是第 $n$ 個血緣節點的 dyadic 尺度，為 rescaling 的核心縮放因子。",
+    "definition_en": "$\\lambda_n=2^{q_n}\\to\\infty$ is the dyadic scale of ancestry node n, the core scaling factor of the rescaling.",
+    "defining_relation": "\\lambda_n=2^{q_n}"
+  },
+  {
+    "key": "ns.c3.c3h.beta_star",
+    "latex": "\\beta_\\ast",
+    "label_zh": "臨界 first-crossing 閾值",
+    "label_en": "Critical first-crossing threshold",
+    "definition_zh": "固定臨界閾值，由第1節 $a_{q_n}^{\\sigma_n}(t_n)=\\beta_\\ast$ 定義，本輪成為極限 profile $w_\\ast$ 的精確 $L^\\infty$ 錨定值。",
+    "definition_en": "The fixed threshold defined by $a_{q_n}^{\\sigma_n}(t_n)=\\beta_\\ast$ in Sec. 1, which this round also fixes as the exact $L^\\infty$ anchor value of the limit profile $w_\\ast$.",
+    "defining_relation": "a_{q_n}^{\\sigma_n}(t_n)=\\frac{\\|u_{q_n}^{\\sigma_n}(t_n)\\|_\\infty}{\\nu\\lambda_n}=\\beta_\\ast"
+  },
+  {
+    "key": "ns.c3.c3h.a_q_sigma",
+    "latex": "a_q^{\\sigma}(t)",
+    "label_zh": "正規化 dyadic-helical 振幅比",
+    "label_en": "Normalized dyadic-helical amplitude ratio",
+    "definition_zh": "承接先前輪次的正規化振幅比 $a_q^\\sigma(t)=\\|u_q^\\sigma(t)\\|_\\infty/(\\nu2^q)$，第4節給出其 rescaling 恆等式。",
+    "definition_en": "The normalized amplitude ratio $a_q^\\sigma(t)=\\|u_q^\\sigma(t)\\|_\\infty/(\\nu2^q)$ inherited from earlier rounds, with its rescaling identity given in Sec. 4."
+  },
+  {
+    "key": "ns.c3.c3h.v_n",
+    "latex": "v_n(y,s)",
+    "label_zh": "血緣中心化黏性正規化速度場",
+    "label_en": "Ancestry-centered viscosity-normalized rescaled velocity",
+    "definition_zh": "第2節核心定義 $v_n(y,s)=\\frac1{\\nu\\lambda_n}u(x_n+y/\\lambda_n,t_n+s/(\\nu\\lambda_n^2))$，即以血緣節點為中心的 N–S critical rescaling。",
+    "definition_en": "The central Sec. 2 definition $v_n(y,s)=\\frac1{\\nu\\lambda_n}u(x_n+y/\\lambda_n,t_n+s/(\\nu\\lambda_n^2))$, the ancestry-centered N–S critical rescaling.",
+    "defining_relation": "v_n(y,s)=\\frac1{\\nu\\lambda_n}u\\left(x_n+\\frac{y}{\\lambda_n},t_n+\\frac{s}{\\nu\\lambda_n^2}\\right)",
+    "notes": "第0節曾以「$v_0\\to v_1\\to\\cdots$」表示血緣鏈節點，與此處速度場 $v_n$ 是不同物件，源文本有此符號重疊。"
+  },
+  {
+    "key": "ns.c3.c3h.pi_n",
+    "latex": "\\pi_n(y,s)",
+    "label_zh": "血緣中心化重整化壓力場",
+    "label_en": "Ancestry-centered rescaled pressure",
+    "definition_zh": "第2節定義 $\\pi_n(y,s)=\\frac1{\\nu^2\\lambda_n^2}p(x_n+y/\\lambda_n,t_n+s/(\\nu\\lambda_n^2))$，是與 $v_n$ 配對的重整化壓力場。",
+    "definition_en": "Sec. 2 defines $\\pi_n(y,s)=\\frac1{\\nu^2\\lambda_n^2}p(x_n+y/\\lambda_n,t_n+s/(\\nu\\lambda_n^2))$, the rescaled pressure paired with $v_n$.",
+    "defining_relation": "\\pi_n(y,s)=\\frac1{\\nu^2\\lambda_n^2}p\\left(x_n+\\frac{y}{\\lambda_n},t_n+\\frac{s}{\\nu\\lambda_n^2}\\right)"
+  },
+  {
+    "key": "ns.c3.c3h.rescaled_lifespan",
+    "latex": "-\\nu\\lambda_n^2t_n<s<\\nu\\lambda_n^2(T_\\ast-t_n)",
+    "label_zh": "重整化生存時間區間",
+    "label_en": "Rescaled lifespan interval",
+    "definition_zh": "第3節：$v_n$ 的時間定義域，因 $t_n\\uparrow T_\\ast$ 使 backward lifespan 趨於 $(-\\infty,0]$。",
+    "definition_en": "Sec. 3: the time domain of $v_n$, whose backward lifespan tends to $(-\\infty,0]$ as $t_n\\uparrow T_\\ast$."
+  },
+  {
+    "key": "ns.c3.c3h.dyadic_scaling_identity",
+    "latex": "\\Delta_jP^\\sigma v_n(y,s)",
+    "label_zh": "Dyadic 尺度縮放恆等式",
+    "label_en": "Dyadic scaling identity",
+    "definition_zh": "第4節恆等式，把 rescaled 場的 dyadic-helical 分量 $\\Delta_jP^\\sigma v_n$ 精確對應回原場在 $q_n+j$ 層的分量。",
+    "definition_en": "The Sec. 4 identity exactly relating the rescaled field's dyadic-helical piece $\\Delta_jP^\\sigma v_n$ back to the original field's piece at level $q_n+j$.",
+    "defining_relation": "\\Delta_jP^\\sigma v_n(y,s)=\\frac1{\\nu\\lambda_n}\\left[\\Delta_{q_n+j}P^\\sigma u\\right]\\left(x_n+\\frac{y}{\\lambda_n},t_n+\\frac{s}{\\nu\\lambda_n^2}\\right)"
+  },
+  {
+    "key": "ns.c3.c3h.sigma_star",
+    "latex": "\\sigma_\\ast",
+    "label_zh": "固定 helicity 子序列符號",
+    "label_en": "Fixed helicity subsequence sign",
+    "definition_zh": "第6節：固定 helicity 子序列符號，取子序列使 $\\sigma_n=\\sigma_\\ast$ 對所有 $n$ 成立。",
+    "definition_en": "Sec. 6: the fixed helicity sign of a subsequence with $\\sigma_n=\\sigma_\\ast$ for all n."
+  },
+  {
+    "key": "ns.c3.c3h.w_star",
+    "latex": "w_\\ast(y)",
+    "label_zh": "Unit-shell 極限 profile",
+    "label_en": "Unit-shell snapshot limit profile",
+    "definition_zh": "定理9.1：$\\Delta_0P^{\\sigma_\\ast}v_n(0)\\to w_\\ast$ 於 $C^\\infty_{\\rm loc}$，滿足 $|w_\\ast(0)|\\ge\\frac12\\beta_\\ast$ 與 helical 關係 $\\nabla\\times w_\\ast=\\sigma_\\ast Dw_\\ast$。",
+    "definition_en": "Thm 9.1: $\\Delta_0P^{\\sigma_\\ast}v_n(0)\\to w_\\ast$ in $C^\\infty_{\\rm loc}$, satisfying $|w_\\ast(0)|\\ge\\frac12\\beta_\\ast$ and the helical relation $\\nabla\\times w_\\ast=\\sigma_\\ast Dw_\\ast$.",
+    "defining_relation": "\\Delta_0P^{\\sigma_\\ast}v_n(0)\\to w_\\ast,\\qquad \\nabla\\times w_\\ast=\\sigma_\\ast Dw_\\ast",
+    "notes": "算子 $D$ 未在本輪重新定義，可能承襲自更早輪次（如 C3-A）的 helical/Beltrami 分解，信心中等。"
+  },
+  {
+    "key": "ns.c3.c3h.local_mass_constants",
+    "latex": "r_0,\\ c_0",
+    "label_zh": "局部臨界質量下界常數",
+    "label_en": "Local critical-mass lower-bound constants",
+    "definition_zh": "第10節：固定常數 $r_0>0,c_0>0$ 使 $\\|w_n\\|_{L^3(B_{r_0})}\\ge c_0\\beta_\\ast$，給出局部臨界質量下界。",
+    "definition_en": "Sec. 10: fixed constants $r_0>0,c_0>0$ giving the local critical-mass lower bound $\\|w_n\\|_{L^3(B_{r_0})}\\ge c_0\\beta_\\ast$."
+  },
+  {
+    "key": "ns.c3.c3h.w_n",
+    "latex": "w_n",
+    "label_zh": "錨定 unit shell",
+    "label_en": "Anchored unit shell",
+    "definition_zh": "第21節定義 $w_n=\\Delta_0P^{\\sigma_\\ast}v_n$，即錨定 unit shell，滿足 $\\|w_n(0)\\|_\\infty=\\beta_\\ast$。",
+    "definition_en": "Sec. 21 defines $w_n=\\Delta_0P^{\\sigma_\\ast}v_n$, the anchored unit shell satisfying $\\|w_n(0)\\|_\\infty=\\beta_\\ast$.",
+    "defining_relation": "w_n=\\Delta_0P^{\\sigma_\\ast}v_n"
+  },
+  {
+    "key": "ns.c3.c3h.vn_critical_norms",
+    "latex": "\\|v_n(0)\\|_3,\\ \\|v_n(0)\\|_{\\dot H^{1/2}}",
+    "label_zh": "$v_n$ 的發散臨界範數",
+    "label_en": "Diverging critical norms of $v_n$",
+    "definition_zh": "定理13.1與第14節：$\\|v_n(0)\\|_3\\to\\infty$ 且 $\\|v_n(0)\\|_{\\dot H^{1/2}}\\to\\infty$，由 scaling 加 Seregin 必要 blow-up 定理導出。",
+    "definition_en": "Thm 13.1 & Sec. 14: $\\|v_n(0)\\|_3\\to\\infty$ and $\\|v_n(0)\\|_{\\dot H^{1/2}}\\to\\infty$, derived from scaling combined with Seregin's necessary blow-up theorems.",
+    "defining_relation": "\\|v_n(0)\\|_3=\\frac1\\nu\\|u(t_n)\\|_3\\to\\infty,\\qquad \\|v_n(0)\\|_{\\dot H^{1/2}}=\\frac1\\nu\\|u(t_n)\\|_{\\dot H^{1/2}}\\to\\infty"
+  },
+  {
+    "key": "ns.c3.c3h.v_n_mu",
+    "latex": "v_{n,\\mu}(y)=\\mu v_n(\\mu y)",
+    "label_zh": "次級 N–S 尺度變換",
+    "label_en": "Secondary N–S scaling map",
+    "definition_zh": "第18節：次級尺度變換 $v_{n,\\mu}(y)=\\mu v_n(\\mu y)$，證明 $\\|v_{n,\\mu}\\|_3=\\|v_n\\|_3$ 恆成立。",
+    "definition_en": "Sec. 18: the secondary scaling map $v_{n,\\mu}(y)=\\mu v_n(\\mu y)$, showing $\\|v_{n,\\mu}\\|_3=\\|v_n\\|_3$ always holds."
+  },
+  {
+    "key": "ns.c3.c3h.z_n",
+    "latex": "z_n",
+    "label_zh": "振幅正規化場（非法重整化嘗試）",
+    "label_en": "Amplitude-normalized field (illegitimate attempt)",
+    "definition_zh": "第19節：$z_n=v_n/\\|v_n(0)\\|_3$ 使 $\\|z_n(0)\\|_3=1$，但方程混入發散係數 $M_n$，故非法。",
+    "definition_en": "Sec. 19: $z_n=v_n/\\|v_n(0)\\|_3$ gives $\\|z_n(0)\\|_3=1$, but its equation carries a diverging coefficient $M_n$, making it illegitimate."
+  },
+  {
+    "key": "ns.c3.c3h.m_n",
+    "latex": "M_n",
+    "label_zh": "發散振幅係數",
+    "label_en": "Diverging amplitude coefficient",
+    "definition_zh": "第19節：$M_n=\\|v_n(0)\\|_3\\to\\infty$，是 $z_n$ 方程非線性項前的發散係數。",
+    "definition_en": "Sec. 19: $M_n=\\|v_n(0)\\|_3\\to\\infty$, the diverging coefficient multiplying the nonlinear term in the $z_n$ equation."
+  },
+  {
+    "key": "ns.c3.c3h.r_n",
+    "latex": "r_n",
+    "label_zh": "臨界背景缺陷",
+    "label_en": "Critical background defect",
+    "definition_zh": "第21節定義 $r_n=v_n-w_n$，是扣除錨定 shell 後承載發散臨界質量的背景缺陷。",
+    "definition_en": "Sec. 21 defines $r_n=v_n-w_n$, the background defect carrying the diverging critical mass after subtracting the anchored shell.",
+    "defining_relation": "r_n=v_n-w_n",
+    "notes": "依方向分為 D-IR/D-UV/D-SP/D-CORE，對應分量 $r_n^{IR},r_n^{UV},r_n^{SP},r_n^{CORE}$。"
+  },
+  {
+    "key": "ns.c3.c3h.d_ir",
+    "latex": "D-IR",
+    "label_zh": "紅外缺陷方向",
+    "label_en": "Infrared defect direction (D-IR)",
+    "definition_zh": "第22節：紅外缺陷方向 $|\\xi|\\ll1$，對應 $r_n^{IR}$ 分量。",
+    "definition_en": "Sec. 22: the infrared escape direction $|\\xi|\\ll1$, corresponding to component $r_n^{IR}$."
+  },
+  {
+    "key": "ns.c3.c3h.d_uv",
+    "latex": "D-UV",
+    "label_zh": "紫外多重性缺陷方向",
+    "label_en": "Ultraviolet multiplicity defect direction (D-UV)",
+    "definition_zh": "第22節：紫外缺陷方向 $|\\xi|\\gg1$，對應 $r_n^{UV}$ 分量。",
+    "definition_en": "Sec. 22: the ultraviolet escape direction $|\\xi|\\gg1$, corresponding to component $r_n^{UV}$."
+  },
+  {
+    "key": "ns.c3.c3h.d_sp",
+    "latex": "D-SP",
+    "label_zh": "空間缺陷方向",
+    "label_en": "Spatial defect direction (D-SP)",
+    "definition_zh": "第22節：空間缺陷方向 $|y|\\to\\infty$，對應 $r_n^{SP}$ 分量。",
+    "definition_en": "Sec. 22: the spatial escape direction $|y|\\to\\infty$, corresponding to component $r_n^{SP}$."
+  },
+  {
+    "key": "ns.c3.c3h.d_core",
+    "latex": "D-CORE",
+    "label_zh": "核心多尺度壅塞",
+    "label_en": "Core multiscale congestion (D-CORE)",
+    "definition_zh": "第22節：核心多尺度壅塞，指臨界質量在 anchored cone 內跨尺度累積而不逃離，對應 $r_n^{CORE}$。",
+    "definition_en": "Sec. 22: core multiscale congestion, where critical mass accumulates across scales inside the anchored cone rather than escaping; corresponds to $r_n^{CORE}$."
+  },
+  {
+    "key": "ns.c3.c3h.xrendefect",
+    "latex": "\\operatorname{XRenDefect}_n",
+    "label_zh": "X-缺陷證書",
+    "label_en": "X-Defect Certificate",
+    "definition_zh": "第23節證書，打包 anchor 與四類方向性缺陷分量連同 provenance 供分析。",
+    "definition_en": "The Sec. 23 certificate bundling the anchor with the four directional defect components and provenance for analysis.",
+    "defining_relation": "\\operatorname{XRenDefect}_n=\\left\\langle w_n,r_n^{IR},r_n^{UV},r_n^{SP},r_n^{CORE},\\operatorname{Prov}_n\\right\\rangle"
+  },
+  {
+    "key": "ns.c3.c3h.prov_n",
+    "latex": "\\operatorname{Prov}_n",
+    "label_zh": "來源證明記錄",
+    "label_en": "Provenance record",
+    "definition_zh": "出現於 XRenDefect/XRenCert 中，記錄第 $n$ 個 rescaled 物件的來源軌跡，記號承襲自 X-Integration 框架。",
+    "definition_en": "Appears in XRenDefect/XRenCert, recording the provenance trail of the n-th rescaled object; notation inherited from the X-Integration framework."
+  },
+  {
+    "key": "ns.c3.c3h.ancestry_edge",
+    "latex": "(p_n,\\sigma_n^p,x_n^p,t_n^p)\\to(q_n,\\sigma_n^c,x_n^c,t_n^c)",
+    "label_zh": "因果血緣邊（親代-子代對）",
+    "label_en": "Causal ancestry edge (parent-child pair)",
+    "definition_zh": "第24節：親代-子代因果邊，是 $d_n,y_n^p,\\delta_n$ 等 rescaled 邊量的共同基礎。",
+    "definition_en": "Sec. 24: the parent-child causal edge, the common basis for the rescaled edge quantities $d_n,y_n^p,\\delta_n$."
+  },
+  {
+    "key": "ns.c3.c3h.d_n",
+    "latex": "d_n",
+    "label_zh": "尺度偏移",
+    "label_en": "Scale offset",
+    "definition_zh": "第24節定義 $d_n=p_n-q_n\\in\\{-C_L,\\ldots,C_L\\}$，衡量親代與子代 dyadic 尺度的有限偏移。",
+    "definition_en": "Sec. 24 defines $d_n=p_n-q_n\\in\\{-C_L,\\ldots,C_L\\}$, the finite dyadic-scale offset between parent and child."
+  },
+  {
+    "key": "ns.c3.c3h.y_n_p",
+    "latex": "y_n^p",
+    "label_zh": "重整化親代-子代空間位移",
+    "label_en": "Rescaled parent-child spatial displacement",
+    "definition_zh": "第25節定義 $y_n^p=\\lambda_n(x_n^p-x_n^c)$，滿足 $|y_n^p|\\le C$，是重整化後的親代-子代空間位移。",
+    "definition_en": "Sec. 25 defines $y_n^p=\\lambda_n(x_n^p-x_n^c)$, satisfying $|y_n^p|\\le C$, the rescaled parent-child spatial displacement."
+  },
+  {
+    "key": "ns.c3.c3h.delta_n",
+    "latex": "\\delta_n",
+    "label_zh": "重整化時間間隔",
+    "label_en": "Rescaled (normalized) time lag",
+    "definition_zh": "第26節核心定義 $\\delta_n=\\nu\\lambda_n^2(t_n^c-t_n^p)$，滿足 $0<\\delta_n\\le\\theta$ 但缺乏一致正下界，是因果坍縮 No-Go 的關鍵量。",
+    "definition_en": "The central Sec. 26 definition $\\delta_n=\\nu\\lambda_n^2(t_n^c-t_n^p)$, satisfying $0<\\delta_n\\le\\theta$ with no uniform positive lower bound, key to the causal-collapse No-Go.",
+    "defining_relation": "\\delta_n=\\nu\\lambda_n^2(t_n^c-t_n^p)"
+  },
+  {
+    "key": "ns.c3.c3h.theta",
+    "latex": "\\theta",
+    "label_zh": "黏性視窗上界參數",
+    "label_en": "Viscous-window bound parameter",
+    "definition_zh": "第26節中作為 $\\delta_n$ 上界出現的黏性視窗常數，應承襲自更早輪次（如 C3-E）。",
+    "definition_en": "The viscous-window constant bounding $\\delta_n$ in Sec. 26, likely inherited from an earlier round (e.g. C3-E)."
+  },
+  {
+    "key": "ns.c3.c3h.g_timegap",
+    "latex": "G_{\\rm time-gap}",
+    "label_zh": "時間間隔極限合法性防護",
+    "label_en": "Time-gap limit-legality guard",
+    "definition_zh": "第28節防護條件 $G_{\\rm time-gap}:\\delta_\\ast>0$，是 No-Go 27.1 的正式化，缺此則因果邊在極限中坍縮為同時發生。",
+    "definition_en": "The Sec. 28 guard $G_{\\rm time-gap}:\\delta_\\ast>0$ formalizing No-Go 27.1; without it the causal edge collapses to simultaneity in the limit.",
+    "defining_relation": "G_{\\rm time-gap}:\\ \\delta_\\ast>0"
+  },
+  {
+    "key": "ns.c3.c3h.motif",
+    "latex": "\\mathfrak m_n",
+    "label_zh": "重整化血緣母題",
+    "label_en": "Renormalized ancestry motif",
+    "definition_zh": "第30節定義 $\\mathfrak m_n=\\langle d_n,\\sigma_n^p,\\sigma_n^c,y_n^p,\\delta_n,\\eta_n,\\mathcal C_n\\rangle$，是 coherent 子序列下收斂的血緣邊 metadata 母題。",
+    "definition_en": "Sec. 30 defines $\\mathfrak m_n=\\langle d_n,\\sigma_n^p,\\sigma_n^c,y_n^p,\\delta_n,\\eta_n,\\mathcal C_n\\rangle$, the ancestry-edge metadata motif convergent on a coherent subsequence.",
+    "defining_relation": "\\mathfrak m_n=\\left\\langle d_n,\\sigma_n^p,\\sigma_n^c,y_n^p,\\delta_n,\\eta_n,\\mathcal C_n\\right\\rangle"
+  },
+  {
+    "key": "ns.c3.c3h.eta_n",
+    "latex": "\\eta_n",
+    "label_zh": "母題相干係數",
+    "label_en": "Motif coherence parameter",
+    "definition_zh": "第30節：母題 $\\mathfrak m_n$ 的相干係數 $\\eta_n\\in[0,1]$，coherent 子序列要求 $\\eta_n\\ge\\eta_0>0$。",
+    "definition_en": "Sec. 30: the coherence parameter $\\eta_n\\in[0,1]$ within $\\mathfrak m_n$, required to satisfy $\\eta_n\\ge\\eta_0>0$ on a coherent subsequence."
+  },
+  {
+    "key": "ns.c3.c3h.triad_class",
+    "latex": "\\mathcal C_n",
+    "label_zh": "三元交互類別標籤",
+    "label_en": "Triad interaction class label",
+    "definition_zh": "第30節：$\\mathfrak m_n$ 中的有限三元交互類別標籤，描述該血緣邊涉及的 helical triad 類型。",
+    "definition_en": "Sec. 30: the finite triad-interaction class label within $\\mathfrak m_n$, describing the helical triad type of that ancestry edge."
+  },
+  {
+    "key": "ns.c3.c3h.v_infty",
+    "latex": "v_\\infty",
+    "label_zh": "候選 ancient 解",
+    "label_en": "Candidate ancient-solution limit",
+    "definition_zh": "第32節：假設性 ancient solution 極限 $v_n\\to v_\\infty$，本輪僅建立 backward lifespan 條件而非 full-field compactness。",
+    "definition_en": "Sec. 32: the hypothetical ancient-solution limit $v_n\\to v_\\infty$; this round establishes only the backward-lifespan condition, not full-field compactness."
+  },
+  {
+    "key": "ns.c3.c3h.trichotomy",
+    "latex": "\\text{Branch A / B / C}",
+    "label_zh": "重整化三分法",
+    "label_en": "Renormalization trichotomy",
+    "definition_zh": "第37節將 rescaling 結果分三支：A 全域緊性、B unit-shell 緊但 defect 發散、C metadata 收斂但 $\\delta_n\\to0$。",
+    "definition_en": "Sec. 37 splits the rescaling outcome into three branches: A (global compactness), B (unit shell compact, defect diverges), C (metadata converges but $\\delta_n\\to0$)."
+  },
+  {
+    "key": "ns.c3.c3h.xrencert",
+    "latex": "\\operatorname{XRenCert}_n",
+    "label_zh": "X-整合極限證書",
+    "label_en": "X-Integration limit certificate",
+    "definition_zh": "第41節頂層證書，彙整 $v_n,w_n,r_n,\\mathfrak m_n,\\beta_\\ast$ 與 provenance，供極限稽核使用。",
+    "definition_en": "The Sec. 41 top-level certificate collecting $v_n,w_n,r_n,\\mathfrak m_n,\\beta_\\ast$ and provenance for the limit audit.",
+    "defining_relation": "\\operatorname{XRenCert}_n=\\left\\langle v_n,w_n,r_n,\\mathfrak m_n,\\beta_\\ast,\\operatorname{Prov}_n\\right\\rangle"
+  },
+  {
+    "key": "ns.c3.c3h.audit_guards",
+    "latex": "\\text{G-ANCHOR, G-DEFECT, G-ANCIENT, G-COMPACT, G-NONLINEAR, G-HEL}",
+    "label_zh": "XRenCert 稽核防護項",
+    "label_en": "XRenCert audit guards",
+    "definition_zh": "第41節列出的六項稽核，檢查 anchor、defect、ancient limit、compactness topology、nonlinear passage、helicity 是否於極限中保存。",
+    "definition_en": "The six Sec. 41 checklist items verifying whether the anchor, defect, ancient limit, compactness topology, nonlinear passage, and helicity survive the limit."
+  },
+  {
+    "key": "ns.c3.c3h.theta_hat_n",
+    "latex": "\\widehat\\Theta_n",
+    "label_zh": "重整化 ETN 狀態",
+    "label_en": "Renormalized ETN state",
+    "definition_zh": "第42節定義 $\\widehat\\Theta_n=\\mathcal R_{\\lambda_n,x_n,t_n}\\Theta$，是 True ETN 狀態經 zoom operator 作用後的重整化血緣深度層。",
+    "definition_en": "Sec. 42 defines $\\widehat\\Theta_n=\\mathcal R_{\\lambda_n,x_n,t_n}\\Theta$, the renormalized-ancestry-depth layer of the True ETN state under the zoom operator.",
+    "defining_relation": "\\widehat\\Theta_n=\\mathcal R_{\\lambda_n,x_n,t_n}\\Theta"
+  },
+  {
+    "key": "ns.c3.c3h.zoom_operator",
+    "latex": "\\mathcal R_{\\lambda,x,t}",
+    "label_zh": "N–S 臨界縮放算子",
+    "label_en": "N–S critical zoom operator",
+    "definition_zh": "第42節：作用於 True ETN 狀態 $\\Theta$ 的抽象 N–S 臨界縮放算子。",
+    "definition_en": "Sec. 42: the abstract N–S critical zoom operator acting on the True ETN state $\\Theta$."
+  },
+  {
+    "key": "ns.c3.c3h.core_functional",
+    "latex": "\\mathfrak C_{R,M}(v_n)",
+    "label_zh": "相空間核心泛函",
+    "label_en": "Phase-space core functional",
+    "definition_zh": "第44節（C3-I 義務 I1）：定義於 $B_R\\times\\{2^{-M}\\lesssim|\\xi|\\lesssim2^M\\}$ 上，衡量 $v_n$ 的 critical mass 以建立 anchor 下界。",
+    "definition_en": "Sec. 44 (C3-I obligation I1): defined on $B_R\\times\\{2^{-M}\\lesssim|\\xi|\\lesssim2^M\\}$, measuring $v_n$'s critical mass to establish the anchor lower bound."
+  },
+  {
+    "key": "ns.c3.c3h.two_threshold",
+    "latex": "\\beta_0<\\beta_1",
+    "label_zh": "雙閾值 first-crossing 參數",
+    "label_en": "Two-threshold first-crossing parameters",
+    "definition_zh": "第44節（I6）：提議的雙閾值 first-crossing 參數，用於嘗試建立一致時間間隔下界。",
+    "definition_en": "Sec. 44 (I6): the proposed two-threshold first-crossing parameters, aimed at establishing a uniform time-gap lower bound."
+  },
+  {
+    "key": "ns.c3.c3h.delta_0",
+    "latex": "\\delta_0",
+    "label_zh": "目標一致時間間隔下界",
+    "label_en": "Target uniform time-gap lower bound",
+    "definition_zh": "第44節：$\\delta_n\\ge\\delta_0>0$ 中欲證得的目標一致時間間隔下界，目前為未解問題。",
+    "definition_en": "Sec. 44: the target uniform time-gap lower bound $\\delta_0$ in $\\delta_n\\ge\\delta_0>0$, currently an open problem."
+  }
+]

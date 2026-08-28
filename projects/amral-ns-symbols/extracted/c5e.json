@@ -1,0 +1,265 @@
+[
+  {
+    "key": "ns.c5.c5e.vartheta",
+    "latex": "\\vartheta(S)",
+    "label_zh": "正規化中間隙變數",
+    "label_en": "normalized middle-gap variable",
+    "definition_zh": "第 2 節對非零無跡對稱應變引入正規化中間隙形狀變數，並在中間特徵值非正時令其為零。",
+    "definition_en": "Section 2 introduces the normalized middle-gap shape variable of a nonzero trace-free symmetric strain, set to zero when the middle eigenvalue is nonpositive.",
+    "defining_relation": "\\vartheta(S)=\\frac{\\lambda_2^+(S)\\lambda_3(S)}{|S|_F^2}",
+    "notes": "This is the C5-D shape variable; C5-E.1 proves it is quantitatively equivalent to λ₂⁺/|S| in the positive-middle sector."
+  },
+  {
+    "key": "ns.c5.c5e.xi_2",
+    "latex": "\\xi_2(S)",
+    "label_zh": "正規化中間特徵值",
+    "label_en": "normalized middle eigenvalue",
+    "definition_zh": "第 2 節將 Miller 中間特徵值正部除以 Frobenius 範數，作為正中間扇區的尺度不變形狀座標。",
+    "definition_en": "Section 2 normalizes Miller's positive middle eigenvalue by the Frobenius norm, yielding the scale-invariant shape coordinate of the positive-middle sector.",
+    "defining_relation": "\\xi_2(S)=\\frac{\\lambda_2^+(S)}{|S|_F}",
+    "notes": "C5-E.1 gives (1/√6) ξ₂ ≤ ϑ ≤ (1/√2) ξ₂ whenever λ₂>0, so middle-gap degeneration is genuine middle-eigenvalue degeneration."
+  },
+  {
+    "key": "ns.c5.c5e.lambda_2_plus",
+    "latex": "\\lambda_2^+(S)",
+    "label_zh": "中間特徵值正部",
+    "label_en": "positive part of the middle eigenvalue",
+    "definition_zh": "第 1.1 與第 2 節沿用 Miller 的 λ₂⁺(S)=max(λ₂(S),0)，作為應變中間通道的尺度臨界正則幾何。",
+    "definition_en": "Sections 1.1 and 2 take Miller's λ₂⁺(S)=max(λ₂(S),0) as the scale-critical regularity geometry of the middle-strain channel.",
+    "notes": "Carries over from Miller (ARMA 2020) and from the C5-D strong-middle analysis."
+  },
+  {
+    "key": "ns.c5.c5e.q_motif",
+    "latex": "Q",
+    "label_zh": "二次抵消 motif",
+    "label_en": "quadratic cancellation motif",
+    "definition_zh": "第 0 節將 C5-D 的七點零重心二次抵消 motif 視為本輪必須轉成場缺陷的殘餘補償器。",
+    "definition_en": "Section 0 treats the C5-D seven-point zero-barycenter quadratic cancellation motif as the residual compensator that this round must convert into field defects.",
+    "notes": "Inherited from C4-J and C5-D; C5-E eliminates it as a free motif by the trichotomy Q ⇒ gap concentration ∨ derivative fluctuation ∨ vorticity leakage."
+  },
+  {
+    "key": "ns.c5.c5e.quadratic_coercivity",
+    "latex": "|Q(S,\\omega)|\\ge c_Q\\delta(|S|^2+|\\omega|^2)",
+    "label_zh": "中間隙外二次強制性",
+    "label_en": "pointwise quadratic coercivity away from the middle gap",
+    "definition_zh": "第 4 節 C5-E.2 斷言：在 ϑ≥δ>0 的區域，萬有常數 c_Q>0 使 |Q| 與 |S|²+|ω|² 可比較，故 Q 加權集中不是矩陣正規化假象。",
+    "definition_en": "Section 4 (C5-E.2) asserts that on {ϑ≥δ>0} a universal c_Q>0 makes |Q| comparable to |S|²+|ω|², so Q-weighted concentration is genuine quadratic-activity concentration.",
+    "defining_relation": "|Q(S,\\omega)|\\ge c_Q\\delta\\bigl(|S|^2+|\\omega|^2\\bigr)\\qquad(\\vartheta(S)\\ge\\delta>0)"
+  },
+  {
+    "key": "ns.c5.c5e.q_mass",
+    "latex": "A_j^Q",
+    "label_zh": "Q 加權質量",
+    "label_en": "Q-weighted mass",
+    "definition_zh": "第 6 節以選定伴隨／局部核截斷 χ_j≥0 定義活躍 Q motif 的總質量 A_j^Q=∫ χ_j |Q_j| dx。",
+    "definition_en": "Section 6 defines the total mass A_j^Q=∫ χ_j |Q_j| dx of an active Q motif against a selected adjoint/local-core cutoff χ_j≥0."
+  },
+  {
+    "key": "ns.c5.c5e.nu_q",
+    "latex": "\\nu_j^Q",
+    "label_zh": "Q 加權機率測度",
+    "label_en": "Q-weighted spatial probability measure",
+    "definition_zh": "第 6 節在 A_j^Q>0 時把 |Q| 截斷質量正規化為空間機率測度，作為後續方向／間隙缺陷的權重。",
+    "definition_en": "Section 6 normalizes truncated |Q|-mass to a spatial probability measure whenever A_j^Q>0, which then weights all subsequent direction/gap defects.",
+    "defining_relation": "d\\nu_j^Q(x)=\\frac{\\chi_j(x)|Q_j(x)|}{A_j^Q}\\,dx"
+  },
+  {
+    "key": "ns.c5.c5e.strain_direction",
+    "latex": "V_j(x)",
+    "label_zh": "應變方向",
+    "label_en": "strain direction",
+    "definition_zh": "第 7 節在 S_j≠0 時令 V_j=S_j/|S_j| 取值於無跡對稱矩陣單位球面 S⁴，並在 S_j=0 時送入墓地 ∂_S。",
+    "definition_en": "Section 7 sets V_j=S_j/|S_j| in the unit sphere S⁴ of trace-free symmetric matrices when S_j≠0, and sends S_j=0 to the cemetery ∂_S."
+  },
+  {
+    "key": "ns.c5.c5e.joint_pushforward",
+    "latex": "\\Xi_j^{S\\theta}",
+    "label_zh": "應變方向／間隙聯合測度",
+    "label_en": "joint strain-direction/gap measure",
+    "definition_zh": "第 7 節將配對 (應變方向 V_j, 間隙狀態 θ_j=ϑ(S_j)) 對 ν_j^Q 的 push-forward 作為緊緻狀態空間上的 Q 加權缺陷測度。",
+    "definition_en": "Section 7 takes the push-forward of the pair (strain direction V_j, gap state θ_j=ϑ(S_j)) under ν_j^Q as the Q-weighted joint defect measure on the compact state space.",
+    "defining_relation": "\\Xi_j^{S\\theta}=(V_j,\\theta_j)_{\\#}\\nu_j^Q"
+  },
+  {
+    "key": "ns.c5.c5e.gap_distribution",
+    "latex": "\\mathfrak{g}_j(\\delta)",
+    "label_zh": "中間隙分布函數",
+    "label_en": "middle-gap distribution function",
+    "definition_zh": "第 8 節記錄 Q 加權測度落在 {θ_j≤δ} 的質量，並以弱極限 Ξ_*^{Sθ} 定義極限間隙質量 𝔤_*(δ)。",
+    "definition_en": "Section 8 records the Q-weighted mass of {θ_j≤δ} and defines the limit gap mass 𝔤_*(δ) from any weak limit Ξ_*^{Sθ}."
+  },
+  {
+    "key": "ns.c5.c5e.middle_gap_defect_mass",
+    "latex": "\\mathfrak{G}_*",
+    "label_zh": "中間隙缺陷質量",
+    "label_en": "middle-gap defect mass",
+    "definition_zh": "第 9 節取極限測度在 {θ=0} 的質量（等同 δ↓0 時 𝔤_* 的極限），正值時稱中間隙缺陷測度活躍。",
+    "definition_en": "Section 9 takes the limit-measure mass of {θ=0} (equivalently the δ↓0 limit of 𝔤_*), and calls the middle-gap defect measure active when this mass is positive.",
+    "defining_relation": "\\mathfrak{G}_*=\\Xi_*^{S\\theta}\\{\\theta=0\\}=\\lim_{\\delta\\downarrow 0}\\mathfrak{g}_*(\\delta)"
+  },
+  {
+    "key": "ns.c5.c5e.barycenter_residual",
+    "latex": "\\kappa_j^Q",
+    "label_zh": "二次重心殘差",
+    "label_en": "quadratic barycenter residual",
+    "definition_zh": "第 10 節以 Q 方向 U_j=Q_j/|Q_j|∈S⁵ 的 ν_j^Q 平均之模長記錄七點抵消極端分支，第 11 節證明其趨於 0 時不能收斂到單一強中間方向。",
+    "definition_en": "Section 10 records the modulus of the ν_j^Q-mean of the Q-direction U_j=Q_j/|Q_j|∈S⁵ as the seven-point cancellation extreme branch, and Section 11 proves that κ_j^Q→0 cannot concentrate on a single strong-middle direction.",
+    "notes": "This is the Q-weighted form of the C5-D seven-point zero-barycenter cancellation."
+  },
+  {
+    "key": "ns.c5.c5e.strong_middle_subset",
+    "latex": "\\mathcal{S}_\\delta",
+    "label_zh": "均勻強中間子集",
+    "label_en": "uniform strong-middle subset",
+    "definition_zh": "第 12 節定義 {V∈S⁴: ϑ(V)≥δ}，其上 C5-D 錐半徑與半空間裕度可取均勻常數 r_δ、γ_δ ≳ δ。",
+    "definition_en": "Section 12 defines {V∈S⁴: ϑ(V)≥δ}, on which the C5-D cone radius and half-space margin admit uniform constants r_δ, γ_δ ≳ δ."
+  },
+  {
+    "key": "ns.c5.c5e.strain_carrying_set",
+    "latex": "E_S(\\eta)",
+    "label_zh": "應變承載集",
+    "label_en": "strain-carrying set",
+    "definition_zh": "第 15 節對 0<η<1 定義 {|S|²≥η|Q|}，作為把方向洩漏轉成導數庫存前的應變承載分支。",
+    "definition_en": "Section 15 defines {|S|²≥η|Q|} for 0<η<1, the strain-carrying branch used before converting directional leakage into derivative stock."
+  },
+  {
+    "key": "ns.c5.c5e.vorticity_dominant_set",
+    "latex": "E_\\omega(\\eta)",
+    "label_zh": "渦量主導集",
+    "label_en": "vorticity-dominant set",
+    "definition_zh": "第 15–16 節定義 {|S|²<η|Q|}，並由 |Q|≤|S|²+c_ω|ω|²（c_ω=√2/4）得到其上 |ω|² ≳ |Q|。",
+    "definition_en": "Sections 15–16 define {|S|²<η|Q|} and, from |Q|≤|S|²+c_ω|ω|² with c_ω=√2/4, obtain |ω|² ≳ |Q| there."
+  },
+  {
+    "key": "ns.c5.c5e.strain_derivative_stock",
+    "latex": "\\mathfrak{H}_R",
+    "label_zh": "應變導數庫存",
+    "label_en": "strain-derivative fluctuation stock",
+    "definition_zh": "第 20 節將應變承載洩漏經加權 Poincaré 得到的 ∫|∇S|² 無量綱化為高階應變波動庫存，並在 E-DER 分支滿足 ℌ_R ≳ a_R^Q。",
+    "definition_en": "Section 20 nondimensionalizes the weighted-Poincaré output ∫|∇S|² of strain-carrying leakage into a higher-derivative strain fluctuation stock, which obeys ℌ_R ≳ a_R^Q on the E-DER branch.",
+    "defining_relation": "\\mathfrak{H}_R=\\frac{R^3}{\\nu^2}\\int_{B_{CR}}|\\nabla S|^2"
+  },
+  {
+    "key": "ns.c5.c5e.vorticity_stock",
+    "latex": "\\mathfrak{W}_R",
+    "label_zh": "局部臨界渦量庫存",
+    "label_en": "local critical vorticity stock",
+    "definition_zh": "第 20 節將渦量主導洩漏上的 ∫χ|ω|² 無量綱化為局部臨界渦量／能散庫存，並在 E-VORT 分支滿足 𝔚_R ≳ a_R^Q。",
+    "definition_en": "Section 20 nondimensionalizes ∫χ|ω|² on vorticity-dominant leakage into a local critical vorticity/enstrophy stock, which obeys 𝔚_R ≳ a_R^Q on the E-VORT branch.",
+    "defining_relation": "\\mathfrak{W}_R=\\frac{R}{\\nu^2}\\int\\chi|\\omega|^2"
+  },
+  {
+    "key": "ns.c5.c5e.normalized_q_intensity",
+    "latex": "a_R^Q",
+    "label_zh": "正規化 Q 強度",
+    "label_en": "normalized Q intensity",
+    "definition_zh": "第 20 節定義無量綱局部 Q 強度 a_R^Q=R ν^{-2} A_χ^Q，作為第 21 節三分法的非退化強度閾值尺度。",
+    "definition_en": "Section 20 defines the dimensionless local Q intensity a_R^Q=R ν^{-2} A_χ^Q, the nondegeneracy scale for the Section 21 trichotomy."
+  },
+  {
+    "key": "ns.c5.c5e.middle_load",
+    "latex": "M_\\delta",
+    "label_zh": "中間負荷",
+    "label_en": "middle load",
+    "definition_zh": "第 23 節記錄可測集 G_δ={ϑ≤δ} 所承擔的中間源 ∫ λ₂⁺|S|²，C5-E.7 由此迫使該集上的三次應變至少以 δ^{-1} 放大。",
+    "definition_en": "Section 23 records the middle source ∫ λ₂⁺|S|² carried by G_δ={ϑ≤δ}, from which C5-E.7 forces cubic strain on that set at least at rate δ^{-1}.",
+    "defining_relation": "M_\\delta=\\int_{G_\\delta}\\lambda_2^+|S|^2\\,dx"
+  },
+  {
+    "key": "ns.c5.c5e.effective_amplitude",
+    "latex": "A_{\\mathrm{eff}}(f)",
+    "label_zh": "有效三次振幅",
+    "label_en": "effective cubic amplitude",
+    "definition_zh": "第 25 節對非零 f∈L²∩L³ 定義三次／二次範數比，並得到 A_eff(f)≤‖f‖_∞。",
+    "definition_en": "Section 25 defines the cubic-to-quadratic norm ratio of a nonzero f∈L²∩L³, which satisfies A_eff(f)≤‖f‖_∞.",
+    "defining_relation": "A_{\\mathrm{eff}}(f)=\\frac{\\|f\\|_3^3}{\\|f\\|_2^2}"
+  },
+  {
+    "key": "ns.c5.c5e.effective_volume",
+    "latex": "V_{\\mathrm{eff}}(f)",
+    "label_zh": "有效活躍體積",
+    "label_en": "effective active volume",
+    "definition_zh": "第 26 節定義具體積量綱的比 V_eff(f)=‖f‖₂⁶/‖f‖₃⁶，在振幅大致常數的集合上與該集合體積同階。",
+    "definition_en": "Section 26 defines the volume-dimensional ratio V_eff(f)=‖f‖₂⁶/‖f‖₃⁶, which is comparable to the volume of a set on which f is roughly constant.",
+    "defining_relation": "V_{\\mathrm{eff}}(f)=\\frac{\\|f\\|_2^6}{\\|f\\|_3^6}"
+  },
+  {
+    "key": "ns.c5.c5e.effective_superlevel",
+    "latex": "E_c(f)",
+    "label_zh": "有效超水平集",
+    "label_en": "effective-amplitude superlevel set",
+    "definition_zh": "第 27 節 C5-E.8 定義 |f|≥c A_eff(f) 的顯式集合，其體積 ≤ c^{-2} V_eff(f) 且承載至少 1-c 比例的三次活動。",
+    "definition_en": "Section 27 (C5-E.8) defines the explicit set {|f|≥c A_eff(f)}, which has volume ≤ c^{-2} V_eff(f) and carries at least a 1-c fraction of the cubic activity.",
+    "defining_relation": "E_c(f)=\\bigl\\{x:\\,|f(x)|\\ge c A_{\\mathrm{eff}}(f)\\bigr\\}"
+  },
+  {
+    "key": "ns.c5.c5e.normalized_effective_volume",
+    "latex": "\\phi_{S,3}(R)",
+    "label_zh": "正規化有效體積比",
+    "label_en": "normalized effective-volume ratio",
+    "definition_zh": "第 29 節在祖先尺度 R 上將 V_eff(S) 除以 R³，C5-E.9 證明非退化中間負荷與有界應變庫存迫使它隨 δ→0 而崩潰。",
+    "definition_en": "Section 29 divides V_eff(S) by the ancestry-scale volume R³, and C5-E.9 proves that nondegenerate middle load plus bounded strain stock forces this ratio to collapse as δ→0.",
+    "defining_relation": "\\phi_{S,3}(R)=\\frac{V_{\\mathrm{eff}}(S)}{R^3}"
+  },
+  {
+    "key": "ns.c5.c5e.normalized_middle_load",
+    "latex": "b_R^{\\mathrm{mid}}",
+    "label_zh": "正規化中間隙負荷",
+    "label_en": "normalized middle-gap load",
+    "definition_zh": "第 29 節定義無量綱局部中間隙負荷 b_R^{mid}=R³ ν^{-3} M_δ，C5-E.9 在其有正下界時迫使有效體積崩潰。",
+    "definition_en": "Section 29 defines the dimensionless local middle-gap load b_R^{mid}=R³ ν^{-3} M_δ, whose positive lower bound in C5-E.9 forces effective-volume collapse."
+  },
+  {
+    "key": "ns.c5.c5e.strain_enstrophy_stock",
+    "latex": "e_R^S",
+    "label_zh": "應變能散庫存",
+    "label_en": "strain-enstrophy stock",
+    "definition_zh": "第 29–30 節定義 e_R^S=R ν^{-2} ‖S‖₂²，若它無界則中間隙路線改走應變能散逃逸而非有效體積崩潰。",
+    "definition_en": "Sections 29–30 define e_R^S=R ν^{-2} ‖S‖₂², whose unboundedness is the strain-enstrophy-escape alternative to effective-volume collapse on the middle-gap route."
+  },
+  {
+    "key": "ns.c5.c5e.sparseness_radius",
+    "latex": "r_{\\mathrm{sp}}",
+    "label_zh": "稀疏化半徑",
+    "label_en": "sparseness radius",
+    "definition_zh": "第 31 節取 r_sp ≍ δ_sp^{-1} c^{-2/3} V_eff(S)^{1/3}，使有效超水平集在任意基點具一線方向的一維 δ_sp-稀疏性。",
+    "definition_en": "Section 31 takes r_sp ≍ δ_sp^{-1} c^{-2/3} V_eff(S)^{1/3}, so that the effective superlevel set is 1D δ_sp-sparse along some line through every base point.",
+    "notes": "The underlying volume-to-line occupancy lemma is inherited from C3-W."
+  },
+  {
+    "key": "ns.c5.c5e.defect_state",
+    "latex": "\\Theta_*^{SDef}",
+    "label_zh": "C5-E 缺陷狀態",
+    "label_en": "C5-E defect state",
+    "definition_zh": "第 43 節把本輪 Q 加權方向／間隙測度、間隙質量、方向分散、導數庫存、渦量庫存、有效體積比、稀疏半徑與導數定理介面狀態打包為 True-ETN 缺陷狀態。",
+    "definition_en": "Section 43 packages this round's Q-weighted direction/gap measure, gap mass, directional dispersion, derivative stock, vorticity stock, effective-volume ratio, sparseness radius, and derivative-theorem interface status into a True-ETN defect state.",
+    "defining_relation": "\\Theta_*^{SDef}=\\bigl\\langle\\Xi_*^{S\\theta},\\,\\mathfrak{G}_*,\\,\\mathfrak{D}_*^{\\mathrm{dir}},\\,\\mathfrak{H}_*,\\,\\mathfrak{W}_*,\\,\\phi_{S,3}^*,\\,r_{\\mathrm{sp}}^*,\\,\\mathsf{G}_{\\mathrm{der}}\\bigr\\rangle",
+    "notes": "True-ETN update for C5-E; the interface flag 𝖦_der remains OPEN."
+  },
+  {
+    "key": "ns.c5.c5e.derivative_intermittency_pregate",
+    "latex": "\\mathbf{Derivative\\text{-}Intermittency\\ Pre\\text{-}Gate}",
+    "label_zh": "導數間歇前置閘",
+    "label_en": "Derivative-Intermittency Pre-Gate",
+    "definition_zh": "第 0、34 與 36 節將 ℌ_R、𝔚_R、φ_{S,3} 等已證場缺陷命名為導數／間歇前置閘，強調尚未對接已發表的 Grujić–Xu 正則假設。",
+    "definition_en": "Sections 0, 34 and 36 name the proved field defects ℌ_R, 𝔚_R, φ_{S,3} a derivative/intermittency pre-gate, stressing that they do not yet match the published Grujić–Xu regularity hypotheses."
+  },
+  {
+    "key": "ns.c5.c5e.spatial_debt_trichotomy",
+    "latex": "Q\\Rightarrow\\mathrm{Gap}\\vee\\mathrm{Derivative}\\vee\\mathrm{Vorticity}",
+    "label_zh": "Q 抵消空間債務三分法",
+    "label_en": "Q-cancellation spatial-debt trichotomy",
+    "definition_zh": "第 21 節 C5-E.6 斷言：在非退化局部 Q 強度下，反覆小二次均值必走中間隙缺陷、應變導數波動庫存 ℌ_R≳1、或渦量主導洩漏 𝔚_R≳1 之一。",
+    "definition_en": "Section 21 (C5-E.6) asserts that under nondegenerate local Q intensity, recurrent small quadratic mean must take at least one of middle-gap defect, strain-derivative stock ℌ_R≳1, or vorticity-dominant leakage 𝔚_R≳1.",
+    "defining_relation": "Q\\ \\Rightarrow\\ \\text{Gap Concentration}\\ \\vee\\ \\text{Strain-Derivative Fluctuation}\\ \\vee\\ \\text{Vorticity-Dominant Leakage}"
+  },
+  {
+    "key": "ns.c5.c5e.grujic_xu_theorems",
+    "latex": "\\text{Grujić--Xu 2024, Thm.\\ 3.5/3.14}",
+    "label_zh": "Grujić–Xu 導數稀疏正則準則",
+    "label_en": "Grujić–Xu derivative-sparseness regularity criteria",
+    "definition_zh": "第 1.2 與第 35 節援引 J. Math. Fluid Mech. 26, Article 53 (2024) 的 Theorem 3.5／3.14，其前件是 D^k u 或 D^k ω 的分量／符號超水平集在後續解析時間的一維稀疏性。",
+    "definition_en": "Sections 1.2 and 35 invoke Theorems 3.5 and 3.14 of J. Math. Fluid Mech. 26, Article 53 (2024), whose antecedents are 1D sparseness of component/sign superlevel sets of D^k u or D^k ω at a later analytic time.",
+    "notes": "C5-E.10 records an OPEN INTERFACE (E-G1–E-G5): strain-amplitude / ∇S intermittency is not identified with these D^k-component/sign hypotheses."
+  }
+]

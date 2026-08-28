@@ -1,0 +1,254 @@
+[
+  {
+    "key": "ns.c3.c3a.u_lambda_scaling",
+    "latex": "u_\\lambda(x,t)",
+    "label_zh": "拋物型重新縮放",
+    "label_en": "Parabolic rescaling",
+    "definition_zh": "第1節重述標準 Navier–Stokes 拋物縮放，用以推導使量綱平衡的臨界 Sobolev 指數 $s=1/2$，是本輪 critical $\\dot H^{1/2}$ 論證的出發點。",
+    "definition_en": "Section 1 restates the standard NS parabolic rescaling of the velocity field, used to derive the scaling-critical Sobolev exponent $s=1/2$ that anchors this round's $\\dot H^{1/2}$ argument.",
+    "defining_relation": "u_\\lambda(x,t) = \\lambda u(\\lambda x,\\lambda^2 t)",
+    "notes": "屬標準 NS scaling，非 C3-A 原創，此處重述以自成一體地推出 critical exponent；同一縮放也用於第7節 helicity 不變性 $H[u_\\lambda]=H[u]$ 及第17節 $\\mathcal R_\\lambda$ 的 scaling 性質。"
+  },
+  {
+    "key": "ns.c3.c3a.energy_e",
+    "latex": "E(t)",
+    "label_zh": "動能",
+    "label_en": "Kinetic energy",
+    "definition_zh": "第2節定義的標準動能，滿足 $\\frac{d}{dt}E+\\nu\\|\\nabla u\\|_2^2=0$；本輪中的角色是作為第8節 Trilemma 三個 quantity 之一，代表 positive + nonlinearly conserved 但 subcritical 的一角。",
+    "definition_en": "The standard kinetic energy defined in Section 2, obeying $\\frac{d}{dt}E+\\nu\\|\\nabla u\\|_2^2=0$; its role here is as one vertex of the Section 8 Trilemma, exemplifying positive + nonlinearly conserved but subcritical.",
+    "defining_relation": "E(t) = \\frac12\\|u(t)\\|_2^2",
+    "notes": "與 u, p, nu 等同屬系列既有基礎量，此輪新意在於把它明確放入三難表格中與 helicity、$\\dot H^{1/2}$ 比較。"
+  },
+  {
+    "key": "ns.c3.c3a.freq_cutoff_proj",
+    "latex": "P_{\\le K}, P_{>K}",
+    "label_zh": "頻率截斷投影",
+    "label_en": "Frequency cutoff projectors",
+    "definition_zh": "第3節引入的 $L^2$-正交 Fourier 截斷投影算子，在頻率 $K$ 處把 $u$ 分成低頻與高頻部分，是本輪 exact flux antisymmetry 論證的基礎工具。",
+    "definition_en": "The $L^2$-orthogonal Fourier cutoff projectors introduced in Section 3, splitting $u$ at frequency $K$ into low- and high-frequency parts; the basic tool behind this round's exact flux-antisymmetry argument.",
+    "notes": "與第10節螺旋投影 $P^\\pm$、貫穿全文的 Leray 投影 $\\mathbb P$ 是三種不同的投影記號，勿混淆。"
+  },
+  {
+    "key": "ns.c3.c3a.u_low_high",
+    "latex": "u_L, u_H",
+    "label_zh": "低頻／高頻速度場",
+    "label_en": "Low/high-frequency velocity parts",
+    "definition_zh": "第3節由截斷投影定義的 $u$ 之低頻分量 $u_L$ 與高頻分量 $u_H$，用以建構 $E_L,E_H$ 與 flux $\\Pi_K$。",
+    "definition_en": "The low- and high-frequency components of $u$ defined in Section 3 via the cutoff projectors, used to build $E_L, E_H$, and the flux $\\Pi_K$.",
+    "defining_relation": "u_L=P_{\\le K}u, \\qquad u_H=P_{>K}u"
+  },
+  {
+    "key": "ns.c3.c3a.energy_low_high",
+    "latex": "E_L, E_H",
+    "label_zh": "低頻／高頻能量",
+    "label_en": "Low/high-frequency energy",
+    "definition_zh": "第3節定義，將動能依頻率 $K$ 分成低頻能量 $E_L$ 與高頻能量 $E_H$，兩者透過 flux $\\Pi_K$ 精確反向耦合。",
+    "definition_en": "Defined in Section 3 by splitting kinetic energy at frequency $K$; $E_L$ and $E_H$ are exactly, oppositely coupled through the flux $\\Pi_K$.",
+    "defining_relation": "E_L=\\frac12\\|u_L\\|_2^2, \\qquad E_H=\\frac12\\|u_H\\|_2^2"
+  },
+  {
+    "key": "ns.c3.c3a.nonlinear_n",
+    "latex": "N(u)",
+    "label_zh": "投影非線性項",
+    "label_en": "Projected nonlinear (inertial) term",
+    "definition_zh": "第3節為 Leray 投影後的對流非線性項 $\\mathbb P(u\\cdot\\nabla u)$ 引入的簡寫，用於定義 flux $\\Pi_K=-\\langle N(u),u_H\\rangle$。",
+    "definition_en": "A shorthand introduced in Section 3 for the Leray-projected convective nonlinear term $\\mathbb P(u\\cdot\\nabla u)$, used to define the flux $\\Pi_K=-\\langle N(u),u_H\\rangle$.",
+    "defining_relation": "N(u)=\\mathbb P(u\\cdot\\nabla u)",
+    "notes": "此簡寫僅在第3節使用；第6節的 $\\mathcal P_{\\mathrm{crit}}$ 與第10節的 $\\mathcal R_\\pm$ 雖用到同一 $\\mathbb P(u\\cdot\\nabla u)$ 表達式，卻未再沿用 $N(u)$ 記號而是重新展開書寫。"
+  },
+  {
+    "key": "ns.c3.c3a.flux_pi_k",
+    "latex": "\\Pi_K(t)",
+    "label_zh": "跨截斷頻率能量通量",
+    "label_en": "Flux into high frequencies across cutoff K",
+    "definition_zh": "第3節定義的跨頻率 $K$ 能量通量，滿足 $\\frac{dE_H}{dt}+\\nu\\|\\nabla u_H\\|_2^2=\\Pi_K$ 且 $\\frac{dE_L}{dt}+\\nu\\|\\nabla u_L\\|_2^2=-\\Pi_K$。",
+    "definition_en": "The energy flux across cutoff frequency $K$ defined in Section 3, satisfying $\\frac{dE_H}{dt}+\\nu\\|\\nabla u_H\\|_2^2=\\Pi_K$ and $\\frac{dE_L}{dt}+\\nu\\|\\nabla u_L\\|_2^2=-\\Pi_K$.",
+    "defining_relation": "\\Pi_K(t) = -\\langle N(u),u_H\\rangle",
+    "notes": "第15節守衛清單第7點明確指出 pair-production rate $\\mathcal R$ 不能被 $\\Pi_K$ 取代，兩者性質不同（$\\mathcal R$ 不是 energy flux）。"
+  },
+  {
+    "key": "ns.c3.c3a.flux_antisymmetry",
+    "latex": "\\text{high-side gain}=\\text{low-side nonlinear loss}",
+    "label_zh": "低高頻能量通量精確反對稱恆等式",
+    "label_en": "Exact low/high energy flux antisymmetry identity",
+    "definition_zh": "第3節 boxed 的結構性結論：跨任意截斷 $K$ 的非線性能量轉移在 $L^2$ energy 層級精確反對稱，文中稱為 C3 的第一個 exact parent-depletion identity；第19節狀態表列為 PROVED。",
+    "definition_en": "The boxed structural conclusion of Section 3: nonlinear energy transfer across any cutoff $K$ is exactly antisymmetric at the $L^2$ energy level, termed this round's first exact parent-depletion identity; listed PROVED in the Section 19 status table.",
+    "defining_relation": "\\frac{dE_H}{dt}+\\nu\\|\\nabla u_H\\|_2^2=\\Pi_K, \\qquad \\frac{dE_L}{dt}+\\nu\\|\\nabla u_L\\|_2^2=-\\Pi_K",
+    "notes": "第4節隨即證明此恆等式雖真，仍不足以對 C1 的 critical UV replenishment 構成約束。"
+  },
+  {
+    "key": "ns.c3.c3a.v_lambda_a",
+    "latex": "v_{\\lambda,A}(x)",
+    "label_zh": "雙參數重縮放測試場",
+    "label_en": "Two-parameter rescaled test field",
+    "definition_zh": "第4節由固定、Fourier support 位於 unit annulus 的 divergence-free Schwartz 場 $v$ 構造的雙參數（振幅 $A$、尺度 $\\lambda$）測試場族，證明可同時令 $\\|v_{\\lambda,A}\\|_3=M$ 任意大而 $\\|v_{\\lambda,A}\\|_2^2<\\varepsilon$ 任意小；命題4.1並排除任何形如 $\\|P_{>K}u\\|_3\\ge M\\Rightarrow\\|P_{>K}u\\|_2^2\\ge c(M)$ 的 uniform lower bound。",
+    "definition_en": "A two-parameter (amplitude $A$, scale $\\lambda$) rescaled family in Section 4, built from a fixed divergence-free Schwartz field $v$ supported in the unit annulus; shows $\\|v_{\\lambda,A}\\|_3=M$ can be made arbitrarily large while $\\|v_{\\lambda,A}\\|_2^2<\\varepsilon$ stays arbitrarily small, and Proposition 4.1 rules out any uniform bound $\\|P_{>K}u\\|_3\\ge M\\Rightarrow\\|P_{>K}u\\|_2^2\\ge c(M)$.",
+    "defining_relation": "v_{\\lambda,A}(x) = A\\lambda v(\\lambda x)",
+    "notes": "此處振幅參數 $A$ 與第5節起代表 critical quadratic size 的 $A(t)$ 是同一字母的不同用途，務必區分。第19節狀態表對應行「$L^3$ large with arbitrarily small $L^2$ energy: PROVED」。"
+  },
+  {
+    "key": "ns.c3.c3a.critical_size_a",
+    "latex": "A(t)",
+    "label_zh": "臨界正定二次量",
+    "label_en": "Critical positive quadratic size",
+    "definition_zh": "第5節定義的 scaling-critical 正定量，經 Sobolev embedding $\\dot H^{1/2}\\hookrightarrow L^3$ 把 C1 的 $L^3$ blow-up 判準轉譯成 $\\limsup_{t\\uparrow T_\\ast}A(t)=\\infty$；第9節進一步證明 $A=H_++H_-$。",
+    "definition_en": "The scaling-critical positive quantity defined in Section 5; via $\\dot H^{1/2}\\hookrightarrow L^3$ it translates C1's $L^3$ blow-up criterion into $\\limsup_{t\\uparrow T_\\ast}A(t)=\\infty$, and Section 9 shows $A=H_++H_-$.",
+    "defining_relation": "A(t) = \\|u(t)\\|_{\\dot H^{1/2}}^2 = H_+(t)+H_-(t)",
+    "notes": "與第4節 $v_{\\lambda,A}$ 中的振幅 $A$ 為同名不同義的獨立記號。"
+  },
+  {
+    "key": "ns.c3.c3a.p_crit",
+    "latex": "\\mathcal P_{\\mathrm{crit}}(t)",
+    "label_zh": "臨界非線性生成項",
+    "label_en": "Critical nonlinear production term",
+    "definition_zh": "第6節定義，出現在 $\\frac12\\frac{d}{dt}\\|u\\|_{\\dot H^{1/2}}^2+\\nu\\|u\\|_{\\dot H^{3/2}}^2=\\mathcal P_{\\mathrm{crit}}$ 中，一般不為零，顯示 $\\dot H^{1/2}$ 雖 positive+critical 卻失去 exact nonlinear conservation。",
+    "definition_en": "Defined in Section 6, appearing in $\\frac12\\frac{d}{dt}\\|u\\|_{\\dot H^{1/2}}^2+\\nu\\|u\\|_{\\dot H^{3/2}}^2=\\mathcal P_{\\mathrm{crit}}$; generically nonzero, showing $\\dot H^{1/2}$ is positive+critical but lacks exact nonlinear conservation.",
+    "defining_relation": "\\mathcal P_{\\mathrm{crit}} = -\\left\\langle |D|u, \\mathbb P(u\\cdot\\nabla u) \\right\\rangle",
+    "notes": "是第10–11節 sector-resolved $\\mathcal R_\\pm$／$\\mathcal R$ 的整場（未分 helicity sector）前身；本文未明示兩者精確代數關係，但扮演類似角色（皆為伴隨耗散項出現的非線性生成項）。"
+  },
+  {
+    "key": "ns.c3.c3a.helicity_h",
+    "latex": "H(t)",
+    "label_zh": "螺度",
+    "label_en": "Helicity",
+    "definition_zh": "第7節定義的標準螺度泛函，非線性貢獻恆為零（$\\frac{dH}{dt}=-2\\nu\\int\\omega\\cdot(\\nabla\\times\\omega)dx$）且在 $u_\\lambda$ 縮放下不變，但不具正定性；是 Trilemma 三量之一。",
+    "definition_en": "The standard helicity functional defined in Section 7; its nonlinear contribution vanishes identically ($\\frac{dH}{dt}=-2\\nu\\int\\omega\\cdot(\\nabla\\times\\omega)dx$) and it is scale-invariant under $u_\\lambda$, but it is sign-indefinite — one vertex of the Trilemma.",
+    "defining_relation": "H(t) = \\int_{\\mathbb R^3} u\\cdot\\omega\\,dx",
+    "notes": "第9節進一步分解為 $H=H_+-H_-$。"
+  },
+  {
+    "key": "ns.c3.c3a.trilemma",
+    "latex": "\\text{positive}+\\text{critical}+\\text{nonlinearly conserved}",
+    "label_zh": "守恆—臨界—正定三難",
+    "label_en": "Conservation–Criticality–Positivity Trilemma",
+    "definition_zh": "第8節本輪核心結構性結果：$\\|u\\|_2^2$、helicity $H$、$\\|u\\|_{\\dot H^{1/2}}^2$ 三個最自然的 quadratic quantity 各自只具備 positive／critical／conserved 三性質中的兩個，沒有一個同時具備三者，迫使研究從 scalar invariant 轉向 signed paired（helical sector）structure。",
+    "definition_en": "This round's central structural result (Section 8): the three most natural quadratic quantities — $\\|u\\|_2^2$, helicity $H$, and $\\|u\\|_{\\dot H^{1/2}}^2$ — each have only two of the three properties (positive, scaling-critical, nonlinearly conserved); none has all three, forcing the shift from scalar invariants to signed paired (helical-sector) structure developed from Section 9 onward.",
+    "notes": "第19節狀態表列為 PROVED/STRUCTURAL；為全篇標題概念，本質是三量比較表的結論而非單一公式，此處以其自身 boxed 文字作為 latex 記號。"
+  },
+  {
+    "key": "ns.c3.c3a.helical_eigenbasis",
+    "latex": "h^\\pm(\\xi)",
+    "label_zh": "螺旋本徵基底",
+    "label_en": "Helical eigenbasis",
+    "definition_zh": "第9節引入的 Fourier space curl 算子本徵向量場，滿足 $i\\xi\\times h^\\pm=\\pm|\\xi|h^\\pm$，是 helical decomposition（分解 $u=u^++u^-$）的基底。",
+    "definition_en": "The Fourier-space eigenvectors of the curl operator introduced in Section 9, satisfying $i\\xi\\times h^\\pm=\\pm|\\xi|h^\\pm$; the basis underlying the helical decomposition $u=u^++u^-$.",
+    "defining_relation": "i\\xi\\times h^\\pm(\\xi) = \\pm|\\xi|h^\\pm(\\xi)"
+  },
+  {
+    "key": "ns.c3.c3a.helical_components",
+    "latex": "u^\\pm",
+    "label_zh": "正／負螺旋分量",
+    "label_en": "Positive/negative helical components",
+    "definition_zh": "第9節將 $u$ 依 $h^\\pm(\\xi)$ 基底分解出的兩個分量，各自為 curl 算子的正／負本徵場，是全篇 sector-resolved 論證（$H_\\pm,D_\\pm,\\mathcal R_\\pm$）的基礎物件。",
+    "definition_en": "The two components into which Section 9 splits $u$ via the $h^\\pm(\\xi)$ basis, each a positive/negative eigenfield of the curl operator; the foundational objects for all sector-resolved quantities ($H_\\pm,D_\\pm,\\mathcal R_\\pm$) in the paper.",
+    "defining_relation": "u=u^++u^-, \\qquad \\nabla\\times u^\\pm=\\pm|D|u^\\pm"
+  },
+  {
+    "key": "ns.c3.c3a.sector_helicity_pm",
+    "latex": "H_+(t), H_-(t)",
+    "label_zh": "正／負螺旋扇區臨界量",
+    "label_en": "Positive/negative-sector critical sizes (sector helicities)",
+    "definition_zh": "第9節定義為各螺旋分量的 $\\dot H^{1/2}$ 範數平方，滿足 $H=H_+-H_-$（重建螺度）與 $A=H_++H_-$（重建臨界正定量），是本輪把 scalar invariant 拆成 signed paired structure 的關鍵記號。",
+    "definition_en": "Defined in Section 9 as the $\\dot H^{1/2}$-norm-squared of each helical component; satisfy $H=H_+-H_-$ (recovering helicity) and $A=H_++H_-$ (recovering the critical positive size) — the key notation by which this round splits a scalar invariant into signed paired structure.",
+    "defining_relation": "H_+(t) = \\|u^+(t)\\|_{\\dot H^{1/2}}^2, \\quad H_-(t) = \\|u^-(t)\\|_{\\dot H^{1/2}}^2, \\quad H=H_+-H_-, \\quad A=H_++H_-",
+    "notes": "文中稱為「positive sector helicities」，但其定義本身是 $\\dot H^{1/2}$ 範數而非螺度積分，命名與第7節的 $H$ 相關但構造不同，讀者需留意此處的雙重意涵。"
+  },
+  {
+    "key": "ns.c3.c3a.helical_projectors",
+    "latex": "P^\\pm",
+    "label_zh": "螺旋投影算子",
+    "label_en": "Helical projectors",
+    "definition_zh": "第10節引入，對應 $h^\\pm(\\xi)$ 基底的投影算子，用於從非線性項 $\\mathbb P(u\\cdot\\nabla u)$ 中取出各 sector 的分量以定義 $\\mathcal R_\\pm$。",
+    "definition_en": "Introduced in Section 10 as the projectors associated with the $h^\\pm(\\xi)$ basis, used to extract each sector's component from the nonlinear term $\\mathbb P(u\\cdot\\nabla u)$ in defining $\\mathcal R_\\pm$.",
+    "notes": "與第3節的頻率截斷投影 $P_{\\le K}/P_{>K}$、Leray 投影 $\\mathbb P$ 為三種不同投影記號，本文未給出 $P^\\pm$ 的顯式公式。"
+  },
+  {
+    "key": "ns.c3.c3a.sector_dissipation_pm",
+    "latex": "D_\\pm",
+    "label_zh": "扇區耗散量",
+    "label_en": "Sector dissipation",
+    "definition_zh": "第10節定義，各螺旋 sector 在 $\\dot H^{3/2}$ 層級的耗散量，出現於 $\\frac12H_\\pm'+\\nu D_\\pm=\\mathcal R_\\pm$ 及第11節 pair-production identity 的 $\\nu(D_++D_-)$ 項。",
+    "definition_en": "Defined in Section 10 as each helical sector's dissipation at the $\\dot H^{3/2}$ level, appearing in $\\frac12H_\\pm'+\\nu D_\\pm=\\mathcal R_\\pm$ and in the $\\nu(D_++D_-)$ term of the Section 11 pair-production identity.",
+    "defining_relation": "D_\\pm = \\|u^\\pm\\|_{\\dot H^{3/2}}^2"
+  },
+  {
+    "key": "ns.c3.c3a.sector_production_pm",
+    "latex": "\\mathcal R_\\pm",
+    "label_zh": "扇區非線性生成項",
+    "label_en": "Sector nonlinear production terms",
+    "definition_zh": "第10節定義的各 sector 非線性生成率，出現在 $\\frac12H_\\pm'+\\nu D_\\pm=\\mathcal R_\\pm$ 中；因非線性螺度守恆推出 $\\mathcal R_+=\\mathcal R_-$（第19節列 PROVED），此共同值即定義為 $\\mathcal R$。",
+    "definition_en": "The per-sector nonlinear production rates defined in Section 10, appearing in $\\frac12H_\\pm'+\\nu D_\\pm=\\mathcal R_\\pm$; nonlinear helicity conservation forces $\\mathcal R_+=\\mathcal R_-$ (PROVED per Section 19), and this common value is what defines $\\mathcal R$.",
+    "defining_relation": "\\mathcal R_\\pm = -\\left\\langle |D|u^\\pm, P^\\pm\\mathbb P(u\\cdot\\nabla u)\\right\\rangle, \\qquad \\mathcal R_+=\\mathcal R_-"
+  },
+  {
+    "key": "ns.c3.c3a.pair_production_rate",
+    "latex": "\\mathcal R(t)",
+    "label_zh": "臨界螺旋成對生成率",
+    "label_en": "Critical helical pair-production rate",
+    "definition_zh": "第10–11節定義為兩 sector 生成項的共同值，第11節將其命名為 critical helical pair-production rate，是全篇最核心的新量，明言不是 energy flux（區別於 $\\Pi_K$）；在縮放 $u_\\lambda$ 下 $\\mathcal R_\\lambda(t)=\\lambda^2\\mathcal R(\\lambda^2t)$，本身也是 scaling-critical rate（第17節）。",
+    "definition_en": "Defined in Sections 10–11 as the common value of the two sector-production terms and named the critical helical pair-production rate in Section 11 — the paper's central new quantity, explicitly not an energy flux (unlike $\\Pi_K$). Under the rescaling $u_\\lambda$ it obeys $\\mathcal R_\\lambda(t)=\\lambda^2\\mathcal R(\\lambda^2t)$, i.e. it is itself scaling-critical (Section 17), which is why Theorem 12.1 does not yet yield a contradiction.",
+    "defining_relation": "\\mathcal R(t) = \\mathcal R_+(t) = \\mathcal R_-(t)"
+  },
+  {
+    "key": "ns.c3.c3a.pair_production_identity",
+    "latex": "\\frac12A'(t) + \\nu\\left(D_+(t)+D_-(t)\\right) = 2\\mathcal R(t)",
+    "label_zh": "精確臨界成對生成恆等式",
+    "label_en": "Exact critical pair-production identity",
+    "definition_zh": "第11節 boxed 的核心恆等式，由兩 sector 演化方程相加得到，顯示全 N–S 臨界正定量 $A$ 的非線性成長並非任意 scalar source，而是兩個 signed helical sectors 的等量非線性生成；為定理12.1證明的直接依據。",
+    "definition_en": "The boxed core identity of Section 11, obtained by summing the two sector evolution equations; shows the nonlinear growth of the full critical positive size $A$ is not an arbitrary scalar source but equal nonlinear production in the two signed helical sectors — the direct basis for the proof of Theorem 12.1."
+  },
+  {
+    "key": "ns.c3.c3a.thm_pair_production_divergence",
+    "latex": "\\int_0^{T_\\ast}[\\mathcal R(t)]_+\\,dt=\\infty",
+    "label_zh": "定理 12.1（成對生成發散）",
+    "label_en": "Theorem 12.1 (Pair-Production Divergence)",
+    "definition_zh": "本輪主定理（第12節）：若 $T_\\ast<\\infty$ 為 maximal finite blow-up time，則正部生成率的時間積分必發散；證明依賴 $L^3$ endpoint regularity criterion（Escauriaza–Seregin–Šverák）與第11節的 pair-production identity。第19節列為 PROVED given standard endpoint regularity。",
+    "definition_en": "This round's main theorem (Section 12): if $T_\\ast<\\infty$ is the maximal finite blow-up time, the time integral of the positive part of the production rate must diverge; the proof relies on the $L^3$ endpoint regularity criterion (Escauriaza–Seregin–Šverák) and the Section 11 pair-production identity. Listed in Section 19 as PROVED given standard endpoint regularity.",
+    "defining_relation": "[x]_+=\\max\\{x,0\\}"
+  },
+  {
+    "key": "ns.c3.c3a.xhelpaircert",
+    "latex": "\\operatorname{XHelPairCert}_n",
+    "label_zh": "X 螺旋成對證書",
+    "label_en": "X Helical Pair Certificate",
+    "definition_zh": "第15節為 X 積分框架新增的每區間（$I_n=[t_{n-1},t_n]$）證書，在既有（前一輪的）$\\operatorname{XUVRepCert}_n$ 之外，記錄本輪的 sector helicities、dissipations、pair-production rate 與 helical provenance $\\operatorname{Prov}_{\\rm hel}$，並附 8 項守衛檢查條件。",
+    "definition_en": "A per-interval ($I_n=[t_{n-1},t_n]$) certificate added to the X-integral framework in Section 15, alongside the prior round's $\\operatorname{XUVRepCert}_n$; records this round's sector helicities, dissipations, pair-production rate, and helical provenance $\\operatorname{Prov}_{\\rm hel}$, subject to 8 listed guard checks.",
+    "defining_relation": "\\operatorname{XHelPairCert}_n = \\left\\langle H_+,H_-,D_+,D_-,\\mathcal R,\\operatorname{Prov}_{\\rm hel}\\right\\rangle_{I_n}",
+    "notes": "$\\operatorname{Prov}_{\\rm hel}$ 本身未在文中進一步展開定義，僅作為證書內一個 provenance 欄位出現。$I_n$、$\\operatorname{XUVRepCert}_n$ 為承襲自前一輪（C1）的既有記號，非本輪新定義，此處僅標註以利區分。"
+  },
+  {
+    "key": "ns.c3.c3a.theta_crit",
+    "latex": "\\Theta_{\\rm crit}(t)",
+    "label_zh": "臨界張力座標元組",
+    "label_en": "Critical tension coordinate tuple",
+    "definition_zh": "第16節提議加入 True ETN state 的成對臨界座標元組，整合 sector helicities、其和差（即 $H$ 與 $A$）、pair-production rate 與 dissipations，取代舊有單一 shell 記號 $E_j,T_j,D_j$，文中稱其更接近真正的「張力」。",
+    "definition_en": "The paired critical-coordinate tuple Section 16 proposes adding to the True ETN state, bundling sector helicities, their sum/difference (recovering $H$ and $A$), the pair-production rate, and the dissipations; proposed to supersede the older single-shell notation $E_j,T_j,D_j$ as a closer approximation to genuine tension.",
+    "defining_relation": "\\Theta_{\\rm crit}(t) = \\left\\langle H_+(t),H_-(t),H_+(t)-H_-(t),H_+(t)+H_-(t),\\mathcal R(t),D_+(t),D_-(t)\\right\\rangle",
+    "notes": "$E_j,T_j,D_j$ 是既有 ETN 框架（外部前作）的舊記號，此處僅作對比，非本輪定義。"
+  },
+  {
+    "key": "ns.c3.c3a.minority_factor_estimate",
+    "latex": "|\\mathcal R| \\le C \\min\\left\\{\\|u^+\\|_{\\dot H^{1/2}},\\|u^-\\|_{\\dot H^{1/2}}\\right\\}\\|u\\|_{\\dot H^{3/2}}^2",
+    "label_zh": "H1／少數方生成率估計（候選引理）",
+    "label_en": "H1 — Minority-factor estimate (candidate lemma)",
+    "definition_zh": "第18節提出、明確標記為 CANDIDATE LEMMA（非定理）的待驗證不等式，猜測 $|\\mathcal R|$ 受兩 sector 中較小的 $\\dot H^{1/2}$ 範數（少數方）與 $\\|u\\|_{\\dot H^{3/2}}^2$ 所控制；若成立則任何 blow-up 都不能讓兩個 helicity sectors 同時永久保持小 critical size。第19節列為 OPEN。",
+    "definition_en": "An unproven inequality proposed in Section 18 and explicitly marked CANDIDATE LEMMA (not a theorem), conjecturing that $|\\mathcal R|$ is controlled by the smaller (minority) of the two sectors' $\\dot H^{1/2}$ norms times $\\|u\\|_{\\dot H^{3/2}}^2$; if true, no blow-up could keep both helicity sectors permanently small in critical size. Listed OPEN in Section 19."
+  },
+  {
+    "key": "ns.c3.c3a.triad_sign_classification",
+    "latex": "(s_1,s_2,s_3)\\in\\{+,-\\}^3",
+    "label_zh": "H2／三元交互作用符號分類",
+    "label_en": "H2 — Triad sign classification",
+    "definition_zh": "第18節提出的下一步工作 H2：把每個 helicity triad 交互作用依三個因子的正負號窮舉為 8 類，逐一判定哪些對 $\\mathcal R$ 恰好抵消、哪些只是 redistribute、哪些真正 pair-produce critical size；本文尚未展開此分類。",
+    "definition_en": "The H2 task proposed in Section 18: exhaustively classify every helicity-triad interaction into 8 classes by the signs of its three factors, to determine which exactly cancel in $\\mathcal R$, which merely redistribute, and which genuinely pair-produce critical size; not yet carried out in this document."
+  },
+  {
+    "key": "ns.c3.c3a.persistent_triadic_obstruction",
+    "latex": "q\\to q+1\\to q+2\\to\\cdots",
+    "label_zh": "持續三元阻礙（未決）",
+    "label_en": "Persistent triadic obstruction (open)",
+    "definition_zh": "第19節狀態表中列為 OPEN 的項目，對應第18節 H2（triad 符號分類）與 H3（跨尺度 pair-production congestion，即同一 mixed-helicity parent 是否能無限次支援 $q\\to q+1\\to\\cdots$ 而不出現 depletion、alignment loss、back-transfer、viscous penalty 或 branch multiplicity explosion），是 C3-B 待處理的核心未決問題。",
+    "definition_en": "The item listed OPEN in the Section 19 status table, corresponding to Section 18's H2 (triad sign classification) and H3 (cross-scale pair-production congestion — whether the same mixed-helicity parent structure can indefinitely support $q\\to q+1\\to\\cdots$ without depletion, alignment loss, back-transfer, viscous penalty, or branch-multiplicity explosion); the central open question deferred to C3-B.",
+    "notes": "H3 本身未引入獨立新記號，$q$ 沿用既有 dyadic shell index 慣例；此條目主要對應狀態表用語與 H3 描述，而非單一公式。"
+  }
+]

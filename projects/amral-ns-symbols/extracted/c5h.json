@@ -1,0 +1,233 @@
+[
+  {
+    "key": "ns.c5.c5h.a_k",
+    "latex": "A_k(s)",
+    "label_zh": "空間導數最大振幅",
+    "label_en": "Maximum Derivative Amplitude",
+    "definition_zh": "速度場第 k 階空間導數的 L-infinity 範數（定義於第 0 節）。",
+    "definition_en": "The L-infinity norm of the k-th order spatial derivative of the velocity field (Sec 0).",
+    "defining_relation": "\\|D^ku(s)\\|_\\infty",
+    "notes": "Used as the primary norm reference for evaluating structural direct and chain closure scales."
+  },
+  {
+    "key": "ns.c5.c5h.l_k",
+    "latex": "L_k(s)",
+    "label_zh": "空間導數 L2 範數",
+    "label_en": "L2 Norm of Derivative",
+    "definition_zh": "速度場第 k 階空間導數的 L2 範數（定義於第 0 節）。",
+    "definition_en": "The L2 norm of the k-th order spatial derivative of the velocity field (Sec 0)."
+  },
+  {
+    "key": "ns.c5.c5h.r_vol_k",
+    "latex": "r_{vol,k}",
+    "label_zh": "有效體積半徑",
+    "label_en": "Effective Volume Radius",
+    "definition_zh": "由 L2 與 L-infinity 範數組合給出的 global volume superlevel set 空間尺度（定義於第 0 節）。",
+    "definition_en": "The spatial scale of the global volume superlevel set derived from L2 and L-infinity norms (Sec 0).",
+    "defining_relation": "\\lesssim L_k^{2/3} A_k^{-2/3}"
+  },
+  {
+    "key": "ns.c5.c5h.r_dir_k",
+    "latex": "r_{dir,k}",
+    "label_zh": "直接目標半徑",
+    "label_en": "Direct Target Radius",
+    "definition_zh": "Grujić–Xu Theorem 3.5 所要求的 d=3 fixed-order direct 空間稀疏尺度（定義於第 0 節）。",
+    "definition_en": "The d=3 fixed-order direct spatial sparseness target scale required by Grujić–Xu Theorem 3.5 (Sec 0).",
+    "defining_relation": "\\frac{1}{2^k c_{dir,k} A_k^{3/(2k+3)}}"
+  },
+  {
+    "key": "ns.c5.c5h.g_k_dir",
+    "latex": "\\mathfrak{G}_k^{dir}",
+    "label_zh": "直接門檻比值",
+    "label_en": "Direct Gate Ratio",
+    "definition_zh": "體積半徑與直接目標半徑的比值，若小於等於 1 則觸發 published regularity theorem（定義於第 0 節）。",
+    "definition_en": "The ratio of effective volume radius to the direct target radius, which triggers the regularity theorem if smaller than or equal to 1 (Sec 0).",
+    "defining_relation": "r_{vol,k}/r_{dir,k}",
+    "notes": "C5-H establishes that this ratio intrinsically tends to infinity for smooth single-scale profiles, serving as a no-go for fixed-order automatic closure."
+  },
+  {
+    "key": "ns.c5.c5h.r_apr_k",
+    "latex": "r_{apr,k}",
+    "label_zh": "先驗稀疏尺度",
+    "label_en": "A-Priori Sparseness Scale",
+    "definition_zh": "Theorem 3.7 基於能量層級所給出的先驗 1D 稀疏空間尺度（定義於第 2 節）。",
+    "definition_en": "The a-priori 1D sparseness spatial scale based on energy level given by Theorem 3.7 (Sec 2).",
+    "defining_relation": "c(\\|u_0\\|_2) A_k^{-2/(2k+3)}"
+  },
+  {
+    "key": "ns.c5.c5h.r_chain_k",
+    "latex": "r_{chain,k}",
+    "label_zh": "鏈尺度",
+    "label_en": "Chain Scale",
+    "definition_zh": "Theorem 3.14 的 asymptotic critical velocity chain 空間目標尺度（定義於第 3 節）。",
+    "definition_en": "The asymptotic critical velocity chain spatial target scale from Theorem 3.14 (Sec 3).",
+    "defining_relation": "\\frac{1}{2\\widetilde{\\mathcal C}_k A_k^{1/(k+1)}}"
+  },
+  {
+    "key": "ns.c5.c5h.r_k_c_t",
+    "latex": "\\mathcal R(k,c,t)",
+    "label_zh": "鏈正規化導數振幅",
+    "label_en": "Chain-Normalized Derivative Amplitude",
+    "definition_zh": "Grujić–Xu 用於 ascending / descending chains 比較並進行動態插值的精確正規化振幅（定義於第 4 節）。",
+    "definition_en": "The exact normalized amplitude used by Grujić–Xu to compare ascending/descending chains for dynamic interpolation (Sec 4).",
+    "defining_relation": "\\frac{A_k(t)^{1/(k+1)}}{c^{k/(k+1)} (k!)^{1/(k+1)}}"
+  },
+  {
+    "key": "ns.c5.c5h.tau_dir_k",
+    "latex": "\\tau_{dir,k}",
+    "label_zh": "直接時間窗延遲",
+    "label_en": "Direct Time-Window Delay",
+    "definition_zh": "Theorem 3.5 直接空間門檻要求的 admissible time window 延遲，帶有指數衰減因子（定義於第 8 節）。",
+    "definition_en": "The admissible time window delay for Theorem 3.5 direct spatial gate, bearing an exponential decay factor (Sec 8)."
+  },
+  {
+    "key": "ns.c5.c5h.tau_chain_k",
+    "latex": "\\tau_{chain,k}",
+    "label_zh": "鏈時間窗延遲",
+    "label_en": "Chain Time-Window Delay",
+    "definition_zh": "Theorem 3.14 動態鏈機制的時間窗延遲，不帶直接門檻的指數衰減因子（定義於第 9 節）。",
+    "definition_en": "The time window delay for Theorem 3.14 dynamic chain mechanism, which is free of direct-gate exponential decay factors (Sec 9)."
+  },
+  {
+    "key": "ns.c5.c5h.m_k",
+    "latex": "M_k(t)",
+    "label_zh": "L2 旋轉不變矩",
+    "label_en": "L2 Rotationally Invariant Moment",
+    "definition_zh": "速度場分佈的第 k 階 L2 旋轉不變頻譜矩（定義於第 10 節）。",
+    "definition_en": "The k-th order L2 rotationally invariant spectral moment of the velocity field (Sec 10)."
+  },
+  {
+    "key": "ns.c5.c5h.l_k_sharp",
+    "latex": "L_k^\\sharp",
+    "label_zh": "L2 矩平方根",
+    "label_en": "Root of L2 Moment",
+    "definition_zh": "L2 頻譜矩的平方根，用於控制 fixed-order component 的 L2 norm（定義於第 10 節）。",
+    "definition_en": "The square root of the L2 spectral moment, bounding the L2 norms of fixed-order components (Sec 10)."
+  },
+  {
+    "key": "ns.c5.c5h.lambda_k",
+    "latex": "\\Lambda_k",
+    "label_zh": "頻譜階梯頻率",
+    "label_en": "Spectral Frequency Ladder",
+    "definition_zh": "兩步 L2 頻譜頻率，由 Fourier moment log-convexity 強迫為單調遞增（定義於第 12 節）。",
+    "definition_en": "The two-step L2 spectral frequency, forced to be monotone by Fourier moment log-convexity (Sec 12).",
+    "defining_relation": "\\left( \\frac{M_{k+2}}{M_k} \\right)^{1/4}"
+  },
+  {
+    "key": "ns.c5.c5h.v_k_eff",
+    "latex": "V_k^{eff}",
+    "label_zh": "無因次有效體積",
+    "label_en": "Dimensionless Effective Volume",
+    "definition_zh": "結合頻譜矩平方根與無窮大範數定義的無因次有效體積（定義於第 14 節）。",
+    "definition_en": "The dimensionless effective volume defined by the root L2 moment and infinity norm (Sec 14)."
+  },
+  {
+    "key": "ns.c5.c5h.n_k",
+    "latex": "\\mathfrak{N}_k",
+    "label_zh": "頻譜胞元重數",
+    "label_en": "Spectral-Cell Multiplicity",
+    "definition_zh": "量化有效體積內含有多少個頻譜尺寸胞元的物理重數，完全不受 log-convexity 控制（定義於第 14 節）。",
+    "definition_en": "The physical multiplicity quantifying how many spectral-sized cells fit in the effective volume, which is completely uncontrolled by log-convexity (Sec 14).",
+    "defining_relation": "\\Lambda_k^3 V_k^{eff}",
+    "notes": "Central motif in establishing that spectral cascade does not force physical geometric concentration."
+  },
+  {
+    "key": "ns.c5.c5h.g_k_chain_vol",
+    "latex": "\\mathfrak{G}_k^{chain,vol}",
+    "label_zh": "鏈尺度空間比值",
+    "label_en": "Chain-Scale Spatial Ratio",
+    "definition_zh": "以全局體積半徑除以 Theorem 3.14 鏈尺度目標定義的體積驗證鏈比值（定義於第 19 節）。",
+    "definition_en": "The volume-certified chain ratio dividing the global volume radius by the Theorem 3.14 chain scale (Sec 19)."
+  },
+  {
+    "key": "ns.c5.c5h.x_k",
+    "latex": "\\mathfrak{X}_k",
+    "label_zh": "頻譜振幅根比",
+    "label_en": "Spectral-to-Root Ratio",
+    "definition_zh": "頻譜頻率與振幅鏈根的比值，將空間重數階梯與動態鏈振幅階梯連接（定義於第 20 節）。",
+    "definition_en": "The ratio of spectral frequency to amplitude chain root, connecting the spatial multiplicity ladder with the dynamic chain amplitude ladder (Sec 20)."
+  },
+  {
+    "key": "ns.c5.c5h.theta_k_h",
+    "latex": "\\Theta_k^{H}",
+    "label_zh": "高階空間狀態",
+    "label_en": "High-Order Spatial State",
+    "definition_zh": "包含鏈振幅、頻譜頻率與胞元重數，顯示 all-order 狀態本質上至少是高維度的（定義於第 22 節）。",
+    "definition_en": "State vector including chain amplitude, spectral frequency, and cell multiplicity, demonstrating the all-order state is intrinsically multidimensional (Sec 22)."
+  },
+  {
+    "key": "ns.c5.c5h.epsilon_k_eff",
+    "latex": "\\varepsilon_k^{eff}",
+    "label_zh": "實際體積集中增益",
+    "label_en": "Effective Concentration-Gain Exponent",
+    "definition_zh": "相對先驗能量尺度的幾何指數增益，必須大於理論指數缺陷方能跨越門檻（定義於第 29 節）。",
+    "definition_en": "The actual concentration gain exponent relative to the a-priori scale, which must strictly beat the theoretical exponent gap (Sec 29).",
+    "defining_relation": "\\frac{\\log(r_{apr,k}/r_{eff,k})}{\\log A_k}"
+  },
+  {
+    "key": "ns.c5.c5h.h_spec",
+    "latex": "\\text{H-SPEC}",
+    "label_zh": "頻譜根不匹配缺陷",
+    "label_en": "Spectral-Root Mismatch",
+    "definition_zh": "頻譜頻率相較振幅鏈根過小的高階缺陷型態（定義於第 37 節）。",
+    "definition_en": "High-order defect where the spectral frequency is insufficient relative to the amplitude chain root (Sec 37)."
+  },
+  {
+    "key": "ns.c5.c5h.h_mult",
+    "latex": "\\text{H-MULT}",
+    "label_zh": "頻譜胞元重數缺陷",
+    "label_en": "Spectral-Cell Multiplicity Defect",
+    "definition_zh": "物理重數過大導致全局空間體積無法達到 1D sparseness 尺度的高階缺陷（定義於第 37 節）。",
+    "definition_en": "High-order defect where the physical multiplicity is too large to allow global volume to reach the 1D sparseness scale (Sec 37)."
+  },
+  {
+    "key": "ns.c5.c5h.h_sat",
+    "latex": "\\text{H-SAT}",
+    "label_zh": "漸近先驗飽和缺陷",
+    "label_en": "Asymptotic A-Priori Saturation Defect",
+    "definition_zh": "高階空間集中度無法比先驗能量稀疏尺度好上任何固定指數冪次的現象（定義於第 32 節）。",
+    "definition_en": "The phenomenon where high-order actual spatial concentration does not improve upon the a-priori sparseness by any fixed exponential power (Sec 32)."
+  },
+  {
+    "key": "ns.c5.c5h.h_time",
+    "latex": "\\text{H-TIME}",
+    "label_zh": "鏈時間窗缺陷",
+    "label_en": "Chain Time Mismatch",
+    "definition_zh": "有利的空間集中發生時間未能對齊 Theorem 3.14 動態容許時間窗的缺陷（定義於第 37 節）。",
+    "definition_en": "Defect where the favorable spatial geometry fails to align with the dynamic theorem-admissible later time window (Sec 37)."
+  },
+  {
+    "key": "ns.c5.c5h.h_chain",
+    "latex": "\\text{H-CHAIN}",
+    "label_zh": "鏈結構缺陷",
+    "label_en": "Derivative-Chain Structural Defect",
+    "definition_zh": "未能滿足遞增/遞減鏈或 Type-A/B 截面分佈的高階結構缺陷（定義於第 37 節）。",
+    "definition_en": "Defect where ascending/descending chains or Type-A/B section topological conditions are not structurally met (Sec 37)."
+  },
+  {
+    "key": "ns.c5.c5h.theta_i_block",
+    "latex": "\\Theta_i^{block}",
+    "label_zh": "C5-H 區塊狀態",
+    "label_en": "C5-H Block State",
+    "definition_zh": "在指數分離的導數區塊上追蹤最大值與各項幾何時間元數據的壓縮狀態向量（定義於第 39 節）。",
+    "definition_en": "Compressed state vector tracking maxima and metadata on exponentially separated derivative blocks (Sec 39)."
+  },
+  {
+    "key": "ns.c5.c5h.z_j_i",
+    "latex": "Z_{j,i}",
+    "label_zh": "區塊缺陷向量",
+    "label_en": "Block Defect Vector",
+    "definition_zh": "映射至 [0,1] 以供全無限階序空間抽取 sectionwise 缺陷測度之正規化向量（定義於第 50 節）。",
+    "definition_en": "Normalized vector compactified into [0,1] for extracting sectionwise defect measures over the infinite order space (Sec 50)."
+  },
+  {
+    "key": "ns.c5.c5h.theta_h_j_i",
+    "latex": "\\Theta^{H}_{j,i}",
+    "label_zh": "C5-H 最終全階狀態",
+    "label_en": "True ETN C5-H All-Order State",
+    "definition_zh": "更新後的 C5 全階狀態張量，正式包含動態鏈狀態與 sign geometry 缺陷追蹤（定義於第 56 節）。",
+    "definition_en": "The updated C5 all-order state tensor formally including dynamic chain states and sign geometry defect tracking (Sec 56).",
+    "defining_relation": "\\langle \\mathcal R_{j,m_i}, \\Lambda_{j,m_i}, \\mathfrak N_{j,m_i}, \\varepsilon_{j,m_i}^{eff}, \\mathsf{Sign}_{j,i}, \\mathsf{Time}_{j,i}, \\mathsf{ChainType}_{j,i} \\rangle",
+    "notes": "This entirely supersedes the scalar static-volume approach and sets the agenda for C5-I."
+  }
+]

@@ -1,0 +1,283 @@
+[
+  {
+    "key": "ns.c5.c5m.residual_class_a",
+    "latex": "\\mathsf{A}",
+    "label_zh": "殘差類 A（合法性／譜系）",
+    "label_en": "Residual class A",
+    "definition_zh": "第 3 節將殘差類 A 定義為涵蓋 UV 譜系合法性、最終局部源主導、合法父路由與 Grujić–Xu 定理入場／參數／剩餘時間前置條件的證明／定理入場合法性缺陷，而非物理奇異機制。",
+    "definition_en": "Section 3 defines residual class A as the proof/theorem-entry legality defect covering UV ancestry legality, eventual local-source dominance, legal parent routing, and Grujić–Xu theorem-setup antecedents, rather than a physical singularity mechanism.",
+    "notes": "Carries C3-G/C4 UV-ancestry legality into the C5 residual alphabet; Section 23 and the X-integration guards forbid treating A as a physical SCC."
+  },
+  {
+    "key": "ns.c5.c5m.residual_class_t",
+    "latex": "\\mathsf{T}",
+    "label_zh": "殘差類 T（時間相位）",
+    "label_en": "Residual class T",
+    "definition_zh": "第 4 節將殘差類 T 定義為由 Young 相位振盪、時間荷載集中與分離純量補償循環組成的時間相位缺陷類。",
+    "definition_en": "Section 4 defines residual class T as the temporal-phase defect comprising Young phase oscillation, temporal load concentration, and separated scalar compensation cycles.",
+    "notes": "Compactified from C5-B/C; Section 26 records it as compact but not eliminated, and it is C6 likely target I as a possibly isolated SCC."
+  },
+  {
+    "key": "ns.c5.c5m.residual_class_g",
+    "latex": "\\mathsf{G}",
+    "label_zh": "殘差類 G（場幾何）",
+    "label_en": "Residual class G",
+    "definition_zh": "第 5 節將殘差類 G 定義為由中間間隙缺陷、應變方向／壓縮軸散布、導數應變漲落、渦度主導洩漏與三次應變間歇／活躍體積塌縮組成的場幾何退化類。",
+    "definition_en": "Section 5 defines residual class G as the field-geometry degeneration comprising middle-gap defects, strain-direction/compressive-axis dispersion, derivative-strain fluctuation, vorticity-dominant leakage, and cubic-strain intermittency/active-volume collapse.",
+    "notes": "Absorbs free Seven-Point Q-cancellation from C5-D/E; Section 27 records G as highly compressed but not eliminated."
+  },
+  {
+    "key": "ns.c5.c5m.residual_class_p",
+    "latex": "\\mathsf{P}",
+    "label_zh": "殘差類 P（壓力補償）",
+    "label_en": "Residual class P",
+    "definition_zh": "第 6 節將殘差類 P 定義為由平均旋轉補償、壓力集中、遠場壓力符號 (-,+,+)／(-,-,+)、行列式零符號邊界、壓力源碎裂／週轉與壓縮軸壓力鎖定組成的壓力補償／來源類。",
+    "definition_en": "Section 6 defines residual class P as the pressure compensation/provenance class comprising mean-rotation compensation, pressure concentration, far-pressure signatures (-,+,+) / (-,-,+), det-zero signature boundary, pressure-source fragmentation/turnover, and compressive-axis pressure locking.",
+    "notes": "C5-D/F supply finite-dimensional incompatibilities but do not kill all provenance routes; Section 28 records P as geometrically constrained but not eliminated."
+  },
+  {
+    "key": "ns.c5.c5m.residual_class_h",
+    "latex": "\\mathsf{H}",
+    "label_zh": "殘差類 H（調和／定理窗）",
+    "label_en": "Residual class H",
+    "definition_zh": "第 7 節將殘差類 H 定義為由固定 k 階直接閘門失敗、窗持續符號缺陷、調和－時間臨界飽和、持續壞導數簇、以及定理設置合法但調和窗永不通過所組成的高階調和／定理窗缺陷類。",
+    "definition_en": "Section 7 defines residual class H as the high-order harmonic/theorem-window defect comprising fixed-k direct-gate failure, Window-Persistent Sign Defect, harmonic-temporal critical saturation, persistent bad derivative clusters, and legal theorem setups whose harmonic window never passes.",
+    "notes": "Absorbs C5-G/I/J/K/L theorem-window motifs after deleting SHELLFULL, COMPSIGN, generic Type switching, and line fragmentation as independent nodes."
+  },
+  {
+    "key": "ns.c5.c5m.residual_class_f",
+    "latex": "\\mathsf{F}",
+    "label_zh": "殘差類 F（強迫／階債務）",
+    "label_en": "Residual class F",
+    "definition_zh": "第 8 節將殘差類 F 定義為由黏性 D^{k+2}u 週轉通行費、投影非線性週轉、階曲率、鏈時鐘變動、根階變動與定理／階乘正規化漂移組成的強迫／階變動債務類。",
+    "definition_en": "Section 8 defines residual class F as the forcing/order-variation debt comprising viscous D^{k+2}u turnover toll, projected nonlinear turnover, order curvature, chain-clock variation, root-order variation, and theorem/factorial normalization drift.",
+    "notes": "Generic root turnover and generic clock mismatch from C5-L are deleted as independent motifs and routed into F; pairs with H as C6 likely target III."
+  },
+  {
+    "key": "ns.c5.c5m.residual_alphabet",
+    "latex": "\\mathfrak{D}_{C5}",
+    "label_zh": "C5 六類殘差字母表",
+    "label_en": "C5 residual alphabet",
+    "definition_zh": "第 9 節將 C5 最終殘差字母表定義為六個殘差類組成的有限集合 {A, T, G, P, H, F}。",
+    "definition_en": "Section 9 defines the C5 residual alphabet as the finite six-class set {A, T, G, P, H, F}.",
+    "defining_relation": "\\mathfrak{D}_{C5}=\\{\\mathsf{A},\\mathsf{T},\\mathsf{G},\\mathsf{P},\\mathsf{H},\\mathsf{F}\\}",
+    "notes": "Re-certified as structurally closed by the Six-Class Closure Theorem (Section 31); C6 works on cycles in this alphabet rather than adding a seventh class."
+  },
+  {
+    "key": "ns.c5.c5m.compatibility_graph",
+    "latex": "\\mathcal{G}_{C5}",
+    "label_zh": "C5 認證相容圖",
+    "label_en": "C5 compatibility graph",
+    "definition_zh": "第 11 節將認證相容圖定義為以六類殘差加上正則頂點 REG 為頂、並以 U/C/E 標記邊的有向圖。",
+    "definition_en": "Section 11 defines the certified compatibility graph as the directed graph on the six residual classes plus the regularity vertex REG, with edges marked U/C/E.",
+    "defining_relation": "\\mathcal{G}_{C5}=(V,E)",
+    "notes": "C6-A's first obligation is an edge-completeness audit of this graph; SCC extraction is only certified when the representation is complete for the survivor path."
+  },
+  {
+    "key": "ns.c5.c5m.graph_vertex_set",
+    "latex": "V",
+    "label_zh": "相容圖頂點集",
+    "label_en": "Graph vertex set",
+    "definition_zh": "第 11 節將相容圖頂點集定義為六個殘差類與正則頂點 REG 的聯集。",
+    "definition_en": "Section 11 defines the compatibility-graph vertex set as the six residual classes together with the regularity vertex REG.",
+    "defining_relation": "V=\\{\\mathsf{A},\\mathsf{T},\\mathsf{G},\\mathsf{P},\\mathsf{H},\\mathsf{F},\\mathrm{REG}\\}"
+  },
+  {
+    "key": "ns.c5.c5m.reg_vertex",
+    "latex": "\\mathrm{REG}",
+    "label_zh": "正則頂點 REG",
+    "label_en": "Regularity vertex",
+    "definition_zh": "第 11 節將 REG 定義為相容圖中表示被外部正則性閘門殺死的正則頂點，因而不列為殘差節點。",
+    "definition_en": "Section 11 introduces REG as the compatibility-graph vertex representing an external-theorem kill, and therefore not a residual node.",
+    "notes": "X-integration guard in Section 42 forbids listing external theorem kill states as residual nodes; H→REG and P→REG are the principal E-type exits."
+  },
+  {
+    "key": "ns.c5.c5m.edge_status",
+    "latex": "\\mathrm{U}/\\mathrm{C}/\\mathrm{E}",
+    "label_zh": "邊狀態標記 U/C/E",
+    "label_en": "Edge-status labels",
+    "definition_zh": "第 11 節將相容圖的每條邊標記為 U（無條件恆等／路由）、C（依賴額外／局部化／譜系閘門的條件邊）或 E（外部定理閉合）。",
+    "definition_en": "Section 11 marks each compatibility-graph edge as U (unconditional identity/routing), C (conditional on an extra/localization/ancestry gate), or E (external theorem closure).",
+    "notes": "Section 42 requires preserving U/C/E proof status and forbids declaring an SCC from an unproved reverse edge."
+  },
+  {
+    "key": "ns.c5.c5m.miller_qsv",
+    "latex": "\\mathcal{Q}_{SV}",
+    "label_zh": "Miller 應變－渦度算子",
+    "label_en": "Miller strain-vorticity operator",
+    "definition_zh": "第 2 節將 Miller 應變－渦度算子定義為對 (u·∇)S + S² + (3/4) ω⊗ω 的無跡對稱投影 P_st。",
+    "definition_en": "Section 2 defines the Miller strain-vorticity operator as the traceless-symmetric projection P_st of (u·∇)S + S² + (3/4) ω⊗ω.",
+    "defining_relation": "\\mathcal{Q}_{SV}=P_{st}\\bigl((u\\cdot\\nabla)S+S^{2}+\\tfrac{3}{4}\\omega\\otimes\\omega\\bigr)",
+    "notes": "Imported as an external theorem gate from Miller's strain-vorticity work; used alongside the middle-eigenvalue gate rather than as a residual node."
+  },
+  {
+    "key": "ns.c5.c5m.miller_sv_identity",
+    "latex": "\\langle-\\Delta S,\\omega\\otimes\\omega\\rangle=0",
+    "label_zh": "Miller 應變－渦度恆等式",
+    "label_en": "Miller strain-vorticity identity",
+    "definition_zh": "第 2 節將 Miller 應變－渦度閘門的核心恆等式表述為 ⟨−ΔS, ω⊗ω⟩ = 0。",
+    "definition_en": "Section 2 records the core identity of the Miller strain-vorticity operator gate as ⟨−ΔS, ω⊗ω⟩ = 0.",
+    "defining_relation": "\\langle-\\Delta S,\\omega\\otimes\\omega\\rangle=0"
+  },
+  {
+    "key": "ns.c5.c5m.miller_middle_eigenvalue_gate",
+    "latex": "\\text{Miller middle-eigenvalue gate}",
+    "label_zh": "Miller 中間特徵值閘門",
+    "label_en": "Miller middle-eigenvalue gate",
+    "definition_zh": "第 2 節將 Miller 中間特徵值閘門表述為：有限時間爆破必須逃出中間應變尺度臨界正則性體制。",
+    "definition_en": "Section 2 states the Miller middle-eigenvalue gate as the requirement that a finite-time blow-up must escape the middle-strain scale-critical regularity regime.",
+    "notes": "External E-type gate from Miller's middle-eigenvalue criterion; finite-time blow-up must leave this regime before any residual cycle can be physical."
+  },
+  {
+    "key": "ns.c5.c5m.grujic_xu_thm_3_5",
+    "latex": "\\text{Gruji\\'{c}--Xu Theorem 3.5}",
+    "label_zh": "Grujić–Xu 固定階閘門",
+    "label_en": "Grujić–Xu fixed-order gate",
+    "definition_zh": "第 2 節將 Grujić–Xu 定理 3.5 表述為：在定理可接受的後期時刻，若選定的 D^k u 或 D^k ω 分量／符號超水平集在定理尺度上為一維稀疏，則 T* 不是爆破時刻。",
+    "definition_en": "Section 2 records Grujić–Xu Theorem 3.5: on a theorem-admissible later time, if a selected D^k u or D^k ω component/sign superlevel set is 1D-sparse at theorem scale, then T* is not a blow-up time.",
+    "notes": "Principal H→REG edge of type E; prepared as a theorem-ready interface in C5-G, with antecedents still tracked by class A."
+  },
+  {
+    "key": "ns.c5.c5m.grujic_xu_thm_3_14",
+    "latex": "\\text{Gruji\\'{c}--Xu Theorem 3.14}",
+    "label_zh": "Grujić–Xu 鏈閘門",
+    "label_en": "Grujić–Xu chain gate",
+    "definition_zh": "第 2 節將 Grujić–Xu 定理 3.14 表述為：在導數鏈設置、時間窗與分量／符號幾何等假設成立時，動態插值／調和測度機制排除爆破。",
+    "definition_en": "Section 2 records Grujić–Xu Theorem 3.14: under the derivative-chain, time-window, and component/sign-geometry hypotheses, dynamic interpolation/harmonic-measure machinery rules out blow-up.",
+    "notes": "Second H→REG edge of type E; C5-K audited the dynamic interpolation/switch interface, while remaining-time antecedents stay in class A."
+  },
+  {
+    "key": "ns.c5.c5m.q_cancellation_routing",
+    "latex": "Q\\text{-cancellation}\\Rightarrow\\mathsf{G}",
+    "label_zh": "Q 相消路由至 G",
+    "label_en": "Q-cancellation routing",
+    "definition_zh": "第 5 節將自由七點 Q 相消從獨立節點刪除，並強制路由為 Q-cancellation ⇒ G。",
+    "definition_en": "Section 5 deletes free Seven-Point Q-cancellation as an independent node and routes it by the implication Q-cancellation ⇒ G.",
+    "defining_relation": "Q\\text{-cancellation}\\Rightarrow\\mathsf{G}",
+    "notes": "Pseudo-defect deletion item 1 in Section 10; the C4/C5-D free Q-cancellation motif is no longer an independent residual class."
+  },
+  {
+    "key": "ns.c5.c5m.turnover_clock_routing",
+    "latex": "\\text{TURNOVER/CLOCK}\\Rightarrow\\mathsf{F}",
+    "label_zh": "週轉／時鐘路由至 F",
+    "label_en": "Turnover/clock routing",
+    "definition_zh": "第 8 節將泛型根週轉與泛型時鐘失配從獨立節點刪除，並強制路由為 TURNOVER/CLOCK ⇒ F。",
+    "definition_en": "Section 8 deletes generic root turnover and generic clock mismatch as independent nodes and routes them by the implication TURNOVER/CLOCK ⇒ F.",
+    "defining_relation": "\\text{TURNOVER/CLOCK}\\Rightarrow\\mathsf{F}",
+    "notes": "Pseudo-defect deletion items 4–5 in Section 10, compressing C5-L turnover/clock motifs into residual class F."
+  },
+  {
+    "key": "ns.c5.c5m.finite_recurrence_principle",
+    "latex": "D_1,D_2,\\ldots\\in\\mathfrak{D}_{C5}",
+    "label_zh": "有限復現原理",
+    "label_en": "Finite recurrence principle",
+    "definition_zh": "第 18 節證明：任意無限假設倖存標籤序列因殘差字母表有限，必有某個殘差類出現無限多次，故每個無限倖存者都有復現殘差類。",
+    "definition_en": "Section 18 proves that any infinite hypothetical survivor label sequence in the finite residual alphabet has some class occurring infinitely often, hence every infinite survivor has a recurrent residual class.",
+    "defining_relation": "D_1,D_2,\\ldots,\\qquad D_n\\in\\mathfrak{D}_{C5}",
+    "notes": "Graph-theoretic, not PDE-theoretic; Section 25 stresses that a finite defect graph need not imply global regularity."
+  },
+  {
+    "key": "ns.c5.c5m.sink_scc",
+    "latex": "\\text{sink SCC}",
+    "label_zh": "匯點強連通分量",
+    "label_en": "Sink SCC",
+    "definition_zh": "第 19 節在認證路由圖對該倖存路徑完備時，證明其 SCC 縮合圖有限且無環，故無限路徑經暫態後必在某匯點 SCC 中復現。",
+    "definition_en": "Section 19 proves that if the certified routing graph is complete for a survivor path, then its SCC condensation is finite and acyclic, so an infinite path is eventually recurrent in some sink SCC.",
+    "notes": "Section 45 records the sink-SCC principle as proved only conditionally on graph completeness; uniqueness of a sink SCC is not proved, and C6's true object is the recurrent sink SCC rather than a new isolated defect node."
+  },
+  {
+    "key": "ns.c5.c5m.finite_defect_recurrence_theorem",
+    "latex": "\\text{Finite Defect Recurrence Theorem}",
+    "label_zh": "有限缺陷復現定理",
+    "label_en": "Finite Defect Recurrence Theorem",
+    "definition_zh": "第 24 節將有限缺陷復現定理陳述為：在當前認證 C5 圖內，任何避開 REG 的無限假設倖存路徑都有復現殘差子序列，且在圖表示完備時最終復現支撐於某匯點 SCC。",
+    "definition_en": "Section 24 states the Finite Defect Recurrence Theorem: every infinite hypothetical survivor path avoiding REG in the certified C5 graph has a recurrent residual subsequence, and if the graph representation is complete then eventual recurrence is supported on a sink SCC.",
+    "notes": "Boxed status is PROVED AS FINITE GRAPH THEORY; graph completeness itself remains a C6 edge-audit problem."
+  },
+  {
+    "key": "ns.c5.c5m.six_class_closure_theorem",
+    "latex": "\\text{Six-Class Closure Theorem}",
+    "label_zh": "六類閉包定理",
+    "label_en": "Six-Class Closure Theorem",
+    "definition_zh": "第 31 節將六類閉包定理陳述為：在當前 C3/C4/C5 守衛與條件譜系框架下，所有 C5-A–L 遭遇的復現倖存狀態都可編碼為六類殘差字母表加各類緊緻元數據，無需第七個獨立殘差類。",
+    "definition_en": "Section 31 states the Six-Class Closure Theorem: under current C3/C4/C5 guards and the conditional ancestry framework, every C5-A–L recurrent survivor state encodes into the six-class residual alphabet plus compact metadata, with no seventh independent residual class required.",
+    "notes": "This is research-program closure of C5 defect-state classification, not PDE proof closure of Navier–Stokes regularity."
+  },
+  {
+    "key": "ns.c5.c5m.c5_phase_closure_theorem",
+    "latex": "\\text{C5 Phase Closure Theorem}",
+    "label_zh": "C5 相位閉包定理",
+    "label_en": "C5 Phase Closure Theorem",
+    "definition_zh": "第 33 節將 C5 相位閉包定理陳述為：C5-A–L 已為所有復現母題族提供緊緻狀態表示並把主要偽缺陷路由到有限殘差字母表或外部正則閘門，故研究相位關閉而整體正則性仍開放。",
+    "definition_en": "Section 33 states the C5 Phase Closure Theorem: C5-A–L supplied compact state representations for all recurrent motif families and routed the main pseudo-defects into the finite residual alphabet or external regularity gates, so the research phase is closed while global regularity remains open.",
+    "notes": "Formal status PHASE CLOSED versus PDE status GLOBAL REGULARITY OPEN; NG-M5 forbids equating C5 phase closure with Millennium-problem closure."
+  },
+  {
+    "key": "ns.c5.c5m.hf_forcing_loop",
+    "latex": "\\mathsf{H}\\longrightarrow\\mathsf{F}\\longrightarrow\\mathsf{H}",
+    "label_zh": "高階強迫迴路 H→F→H",
+    "label_en": "High-order forcing loop",
+    "definition_zh": "第 20 節將候選復現迴路 I 定義為持續壞定理窗經導數下降／荷載支付高階黏性、投影非線性與時鐘債務後把活動推到更高導數層並再次產生壞窗的 H→F→H 迴路。",
+    "definition_en": "Section 20 defines candidate recurrent cycle I as the loop H→F→H in which a persistent bad theorem window pays high-order viscous/projected-nonlinear/clock debt, pushes activity to a higher derivative level, and regenerates a bad window.",
+    "defining_relation": "\\mathsf{H}\\longrightarrow\\mathsf{F}\\longrightarrow\\mathsf{H}",
+    "notes": "C5 has no finite all-order budget excluding this loop; Section 39 flags H↔F as the hardest likely sink-SCC candidate for C6."
+  },
+  {
+    "key": "ns.c5.c5m.gp_loop",
+    "latex": "\\mathsf{G}\\leftrightarrow\\mathsf{P}",
+    "label_zh": "幾何－壓力迴路 G↔P",
+    "label_en": "Geometry–pressure loop",
+    "definition_zh": "第 21 節將候選復現迴路 II 定義為由強中間相干逼出壓力／平均旋轉、壓力軸／符號回饋應變幾何、以及間隙塌縮／雙負壓力／源碎裂避開有限維障礙所形成的 G↔P 補償迴路。",
+    "definition_en": "Section 21 defines candidate recurrent cycle II as the compensation loop G↔P in which strong-middle coherence forces pressure/mean rotation, pressure axis/signature feeds back into strain geometry, and gap collapse/two-negative pressure/source fragmentation can evade finite-dimensional obstructions.",
+    "defining_relation": "\\mathsf{G}\\leftrightarrow\\mathsf{P}",
+    "notes": "C5 already obtained two finite-dimensional incompatibilities; C6 likely target II is whether the remaining routes must accumulate derivative/high-order debt."
+  },
+  {
+    "key": "ns.c5.c5m.isolated_temporal_scc",
+    "latex": "\\mathsf{T}_{\\mathrm{SCC}}",
+    "label_zh": "孤立時間 SCC",
+    "label_en": "Isolated temporal SCC",
+    "definition_zh": "第 22 節將候選復現類 III 定義為可在純量時間層以振盪、集中與分離補償自我復現的孤立 T 強連通分量。",
+    "definition_en": "Section 22 defines candidate recurrent class III as the isolated temporal SCC in which T can self-recur at the scalar temporal layer via oscillation, concentration, and separated compensation.",
+    "notes": "Removing this candidate SCC requires a universal T→G/P/H shared-source theorem, which Section 12 records as CONDITIONAL and Section 37 lists as C6 likely target I."
+  },
+  {
+    "key": "ns.c5.c5m.temporal_shared_source_coupling",
+    "latex": "\\mathsf{T}\\to\\mathsf{G}/\\mathsf{P}/\\mathsf{H}",
+    "label_zh": "時間共用源耦合",
+    "label_en": "Temporal shared-source coupling",
+    "definition_zh": "第 22 節將移除孤立時間 SCC 所需的萬有橋接表述為 T→G/P/H 共用源定理，目前仍開放。",
+    "definition_en": "Section 22 formulates the universal bridge needed to kill the isolated temporal SCC as a shared-source theorem T→G/P/H, which remains open.",
+    "defining_relation": "\\mathsf{T}\\to\\mathsf{G}/\\mathsf{P}/\\mathsf{H}",
+    "notes": "Section 12 marks T→G/P as CONDITIONAL on a shared-source/localization bridge; this is the cross-domain coupling C6-A must audit."
+  },
+  {
+    "key": "ns.c5.c5m.window_persistent_sign_defect",
+    "latex": "\\text{Window-Persistent Sign Defect}",
+    "label_zh": "窗持續符號缺陷",
+    "label_en": "Window-Persistent Sign Defect",
+    "definition_zh": "第 7 節將窗持續符號缺陷列為殘差類 H 的組成部分，表示定理設置合法但符號／調和窗在定理尺度上持續不通過。",
+    "definition_en": "Section 7 lists the Window-Persistent Sign Defect as a constituent of residual class H: the theorem setup is legal, yet the sign/harmonic window never passes at theorem scale.",
+    "notes": "Carried from C5-K/L persistent-window compression into class H after generic Type switching and line fragmentation were deleted as independent motifs."
+  },
+  {
+    "key": "ns.c5.c5m.etn_c5_final",
+    "latex": "\\mathfrak{T}^{C5}_{final}",
+    "label_zh": "C5 最終 ETN 狀態",
+    "label_en": "C5 final ETN state",
+    "definition_zh": "第 43 節將 C5 最終 ETN 狀態定義為殘差類、緊緻元數據、邊狀態、債務向量與外部殺死閘門的五元組。",
+    "definition_en": "Section 43 defines the C5 final ETN state as the 5-tuple of residual class, compact metadata, edge status, debt vector, and external kill gates.",
+    "defining_relation": "\\mathfrak{T}^{C5}_{final}=(\\text{residual class},\\text{compact metadata},\\text{edge status},\\text{debt vector},\\text{external kill gates})",
+    "notes": "True-ETN transition object of this round; compact metadata inventory for each of the six classes is listed in Section 32."
+  },
+  {
+    "key": "ns.c5.c5m.etn_c6",
+    "latex": "\\mathfrak{T}^{C6}",
+    "label_zh": "C6 ETN 狀態",
+    "label_en": "C6 ETN state",
+    "definition_zh": "第 43 節將 C6 狀態定義為 SCC、迴路、迴路債務、復現頻率與迴路不相容性的五元組。",
+    "definition_en": "Section 43 defines the C6 ETN state as the 5-tuple of SCC, cycle, cycle debt, recurrence frequency, and cycle incompatibility.",
+    "defining_relation": "\\mathfrak{T}^{C6}=(\\text{SCC},\\text{cycle},\\text{cycle debt},\\text{recurrence frequency},\\text{cycle incompatibility})",
+    "notes": "Target state of proposed C6 / C6-A: cycle extraction, sink-SCC identification, and cross-domain closure rather than construction of a new isolated defect node."
+  }
+]

@@ -1,0 +1,269 @@
+[
+  {
+    "key": "ns.c3.c3r.beta_star",
+    "latex": "\\beta_\\ast",
+    "label_zh": "飽和門檻常數",
+    "label_en": "saturation threshold constant",
+    "definition_zh": "第1節固定的正常數，作為 shell 振幅比 $a_q^\\sigma$ 的飽和門檻，貫穿全篇 multi-core 能量與 enstrophy 估計。",
+    "definition_en": "A fixed positive constant from Section 1 serving as the saturation threshold for the shell-amplitude ratio $a_q^\\sigma$, used throughout the round's multi-core energy and enstrophy bounds."
+  },
+  {
+    "key": "ns.c3.c3r.r_scale",
+    "latex": "R",
+    "label_zh": "交叉尺度半徑",
+    "label_en": "crossing length scale",
+    "definition_zh": "第1節由 first-crossing shell 頻率 $q_Q$ 導出的長度尺度 $R=\\lambda_{q_Q}^{-1}$，是本輪所有 core／cluster 估計的基本標度。",
+    "definition_en": "The length scale $R=\\lambda_{q_Q}^{-1}$ derived in Section 1 from the first-crossing shell frequency $q_Q$; the basic unit for every core/cluster estimate in this round."
+  },
+  {
+    "key": "ns.c3.c3r.t_q",
+    "latex": "T_Q",
+    "label_zh": "首次前沿穿越時間",
+    "label_en": "first-frontier crossing time",
+    "definition_zh": "第1節定義，frontier $Q$ 之上任一 shell 比值 $a_q^\\sigma$ 首次達到門檻 $\\beta_\\ast$ 的時刻。",
+    "definition_en": "Defined in Section 1 as the first time any shell ratio $a_q^\\sigma$ at frequency $\\ge Q$ reaches the threshold $\\beta_\\ast$."
+  },
+  {
+    "key": "ns.c3.c3r.f_crossing",
+    "latex": "f(x)=u_{q_Q}^{\\sigma_Q}(x,T_Q)",
+    "label_zh": "穿越殼層速度場",
+    "label_en": "crossing-shell velocity field",
+    "definition_zh": "第2節定義的 first-crossing shell 速度場 $f=u_{q_Q}^{\\sigma_Q}(\\cdot,T_Q)$，其峰值 $M=\\|f\\|_\\infty=\\nu\\beta_\\ast\\lambda$ 是後續所有 core 能量下界的基準振幅。",
+    "definition_en": "The velocity field on the first-crossing shell, $f=u_{q_Q}^{\\sigma_Q}(\\cdot,T_Q)$ from Section 2, whose peak amplitude $M=\\|f\\|_\\infty=\\nu\\beta_\\ast\\lambda$ anchors every subsequent core energy bound."
+  },
+  {
+    "key": "ns.c3.c3r.eta",
+    "latex": "\\eta",
+    "label_zh": "近飽和鬆弛參數",
+    "label_en": "near-saturation slack parameter",
+    "definition_zh": "第3節固定的小參數 $0<\\eta<1/4$，用以定義近飽和集合 $\\Omega_\\eta$ 及核心分離半徑 $r_\\eta=\\eta/(4C_B)$（$C_B$ 為 Bernstein 常數）。",
+    "definition_en": "A small fixed parameter $0<\\eta<1/4$ from Section 3 that sets the near-saturation set $\\Omega_\\eta$ and the core-separation radius $r_\\eta=\\eta/(4C_B)$ ($C_B$ the Bernstein constant)."
+  },
+  {
+    "key": "ns.c3.c3r.omega_eta",
+    "latex": "\\Omega_\\eta",
+    "label_zh": "近飽和集合",
+    "label_en": "near-saturation set",
+    "definition_zh": "第3節定義 $\\Omega_\\eta=\\{x:|f(x)|\\ge(1-\\eta)\\|f\\|_\\infty\\}$，frontier core 中心即取自此集合。",
+    "definition_en": "Defined in Section 3 as $\\Omega_\\eta=\\{x:|f(x)|\\ge(1-\\eta)\\|f\\|_\\infty\\}$; frontier-core centers are chosen from this set."
+  },
+  {
+    "key": "ns.c3.c3r.c_eta",
+    "latex": "c_\\eta",
+    "label_zh": "局部振幅持續常數",
+    "label_en": "local amplitude persistence constant",
+    "definition_zh": "第4節導出的正常數，保證每個 core 球 $B(x_i,r_\\eta R)$ 內振幅至少維持 $c_\\eta M$，是每核心最小能量估計的關鍵常數。",
+    "definition_en": "The positive constant from Section 4 guaranteeing amplitude stays above $c_\\eta M$ throughout each core ball $B(x_i,r_\\eta R)$; key to the minimal per-core energy bound."
+  },
+  {
+    "key": "ns.c3.c3r.m_r",
+    "latex": "m_R",
+    "label_zh": "前沿核心多重度",
+    "label_en": "frontier core multiplicity",
+    "definition_zh": "第6節定理6.1（Frontier Multi-Core Energy Packing）中，同一 first-frontier crossing shell 內 pairwise $O(R)$-分離之近飽和核心個數。",
+    "definition_en": "The number of pairwise $O(R)$-separated near-saturation cores on one first-frontier crossing shell, defined and bounded in Theorem 6.1 (Section 6).",
+    "defining_relation": "m_R\\le\\frac{C\\|u_0\\|_2^2}{\\nu^2\\beta_\\ast^2R}",
+    "notes": "From Section 15 onward the same role is played by the unsubscripted symbol m, the core count of a spatial cluster."
+  },
+  {
+    "key": "ns.c3.c3r.mathfrak_e_r",
+    "latex": "\\mathfrak E_R",
+    "label_zh": "前沿尺度重標化enstrophy",
+    "label_en": "rescaled frontier-scale enstrophy",
+    "definition_zh": "第8–9節定義的無量綱 enstrophy $\\mathfrak E_R(T_Q)=R\\|\\nabla u(T_Q)\\|_2^2/\\nu^2$，定理9.1證明其隨核心數線性增長。",
+    "definition_en": "The dimensionless enstrophy $\\mathfrak E_R(T_Q)=R\\|\\nabla u(T_Q)\\|_2^2/\\nu^2$ from Sections 8-9; Theorem 9.1 shows it grows at least linearly with core count.",
+    "defining_relation": "\\mathfrak E_R(T_Q)=\\frac{R\\|\\nabla u(T_Q)\\|_2^2}{\\nu^2},\\qquad \\mathfrak E_R(T_Q)\\ge c\\,m_R\\beta_\\ast^2"
+  },
+  {
+    "key": "ns.c3.c3r.varepsilon_p",
+    "latex": "\\varepsilon_p",
+    "label_zh": "壓力容忍度",
+    "label_en": "pressure-decoupling tolerance",
+    "definition_zh": "第12節固定的正容忍值，用於定義 certified pressure horizon $\\kappa_{\\rm cert}$ 所保證之遠場 Hessian 上界。",
+    "definition_en": "The fixed positive tolerance from Section 12 used to define the far-Hessian bound guaranteed by the certified pressure horizon $\\kappa_{\\rm cert}$."
+  },
+  {
+    "key": "ns.c3.c3r.kappa_cert",
+    "latex": "\\kappa_{\\rm cert}",
+    "label_zh": "認證壓力視界",
+    "label_en": "certified pressure horizon",
+    "definition_zh": "第12節定義之無量綱半徑，由 universal far-pressure estimate保證半徑 $\\kappa_{\\rm cert}R$ 之外遠場 Hessian $\\le\\varepsilon_p$；第13節強調它僅是最壞情況證書半徑而非實際物理耦合長度。",
+    "definition_en": "The dimensionless radius from Section 12, guaranteed by the universal far-pressure estimate to make the far Hessian $\\le\\varepsilon_p$ beyond physical radius $\\kappa_{\\rm cert}R$; Section 13 stresses it is a worst-case certificate radius, not the actual physical coupling length.",
+    "defining_relation": "\\kappa_{\\rm cert}=\\left(\\frac{C\\mathfrak E_R}{\\varepsilon_p}\\right)^{1/3}"
+  },
+  {
+    "key": "ns.c3.c3r.l_cluster",
+    "latex": "L",
+    "label_zh": "群集半徑尺度",
+    "label_en": "cluster radius scale",
+    "definition_zh": "第15–16節引入，包住 $m$ 個核心中心的球 $B(x_\\ast,L)$ 之半徑，稠密封裝時 $L\\sim m^{1/3}R$。",
+    "definition_en": "The radius of the ball $B(x_\\ast,L)$ enclosing the $m$ core centers, introduced in Sections 15-16; under dense packing $L\\sim m^{1/3}R$."
+  },
+  {
+    "key": "ns.c3.c3r.ell_spread",
+    "latex": "\\ell",
+    "label_zh": "無量綱群集展幅",
+    "label_en": "dimensionless cluster spread",
+    "definition_zh": "第16節定義 $\\ell=L/R$，衡量群集半徑相對單一核心尺度之展開，並滿足 packing bound $m\\le C\\ell^3$。",
+    "definition_en": "The ratio $\\ell=L/R$ defined in Section 16, measuring cluster radius relative to a single core scale, satisfying the packing bound $m\\le C\\ell^3$."
+  },
+  {
+    "key": "ns.c3.c3r.delta_density",
+    "latex": "\\delta",
+    "label_zh": "無量綱核心密度",
+    "label_en": "dimensionless core density",
+    "definition_zh": "第16–17節定義 $\\delta=m/\\ell^3\\in(0,C]$，用以劃分 dense（$\\delta\\ge\\delta_0$）與 sparse（$\\delta\\to0$）multi-core cluster。",
+    "definition_en": "Defined in Sections 16-17 as $\\delta=m/\\ell^3\\in(0,C]$, splitting multi-core clusters into dense ($\\delta\\ge\\delta_0$) and sparse ($\\delta\\to0$) regimes.",
+    "defining_relation": "\\delta=\\frac{m}{\\ell^3}"
+  },
+  {
+    "key": "ns.c3.c3r.g_pmerge",
+    "latex": "G_{\\rm PMERGE}",
+    "label_zh": "壓力群集合併規則",
+    "label_en": "pressure-cluster merge rule",
+    "definition_zh": "第20節新增的 X-Integration guard，規定當多核心的 certified pressure neighborhoods顯著重疊時，須於群集尺度合併重做 near/far pressure 劃分，不得重複計入同一遠場來源。",
+    "definition_en": "An X-Integration guard added in Section 20 requiring that when multiple cores' certified pressure neighborhoods significantly overlap, the near/far pressure split must be redone at cluster scale, never double-counting one far source as independent."
+  },
+  {
+    "key": "ns.c3.c3r.mathfrak_e_l",
+    "latex": "\\mathfrak E_L",
+    "label_zh": "群集尺度重標化enstrophy",
+    "label_en": "cluster-scale rescaled enstrophy",
+    "definition_zh": "第21節定義之群集尺度無量綱 enstrophy $\\mathfrak E_L=L\\|\\nabla u\\|_2^2/\\nu^2$，稠密封裝下滿足 $\\mathfrak E_L\\gtrsim\\beta_\\ast^2m^{4/3}$。",
+    "definition_en": "The cluster-scale dimensionless enstrophy $\\mathfrak E_L=L\\|\\nabla u\\|_2^2/\\nu^2$ from Section 21, satisfying $\\mathfrak E_L\\gtrsim\\beta_\\ast^2m^{4/3}$ under dense packing.",
+    "defining_relation": "\\mathfrak E_L=\\frac{L\\|\\nabla u\\|_2^2}{\\nu^2},\\qquad \\mathfrak E_L\\gtrsim\\beta_\\ast^2m^{4/3}"
+  },
+  {
+    "key": "ns.c3.c3r.kappa_l_cert",
+    "latex": "\\kappa_L^{cert}",
+    "label_zh": "群集尺度認證壓力視界",
+    "label_en": "cluster-scale certified pressure horizon",
+    "definition_zh": "第22節定義之群集版無量綱認證視界 $\\kappa_L^{cert}\\sim\\mathfrak E_L^{1/3}$，稠密情形下滿足 $\\kappa_L^{cert}\\gtrsim m^{4/9}$。",
+    "definition_en": "The cluster-level dimensionless certified horizon $\\kappa_L^{cert}\\sim\\mathfrak E_L^{1/3}$ from Section 22, satisfying $\\kappa_L^{cert}\\gtrsim m^{4/9}$ in the dense case.",
+    "defining_relation": "\\kappa_L^{cert}\\sim\\mathfrak E_L^{1/3}\\ \\gtrsim\\ m^{4/9}"
+  },
+  {
+    "key": "ns.c3.c3r.r_pl_cert",
+    "latex": "R_{p,L}^{cert}",
+    "label_zh": "群集物理壓力視界半徑",
+    "label_en": "physical cluster pressure horizon radius",
+    "definition_zh": "第22節定義之有量綱群集壓力視界 $R_{p,L}^{cert}=L\\kappa_L^{cert}$，滿足 $R_{p,L}^{cert}\\gtrsim m^{7/9}R$，即 Pressure-Horizon Inflation under Dense Core Merging。",
+    "definition_en": "The dimensional cluster pressure horizon $R_{p,L}^{cert}=L\\kappa_L^{cert}$ from Section 22, satisfying $R_{p,L}^{cert}\\gtrsim m^{7/9}R$ — the Pressure-Horizon Inflation under Dense Core Merging.",
+    "defining_relation": "R_{p,L}^{cert}=L\\kappa_L^{cert}\\ \\gtrsim\\ m^{7/9}R"
+  },
+  {
+    "key": "ns.c3.c3r.h_star",
+    "latex": "H_\\ast",
+    "label_zh": "群集共同遠場壓力Hessian矩陣",
+    "label_en": "cluster common far-pressure Hessian matrix",
+    "definition_zh": "第26節定義，整個群集 $B(x_\\ast,L)$ 之遠場調和壓力在中心的 Hessian $H_\\ast=\\nabla^2p_{\\rm far}^{cluster}(x_\\ast)\\in\\operatorname{Sym}_0(3)$，球內展開誤差 $E_\\ast(x)$ 滿足 $\\|E_\\ast\\|_{L^\\infty(B_L)}\\le C\\kappa^{-4}L^{-3}\\|\\nabla u\\|_2^2$。",
+    "definition_en": "Defined in Section 26 as the Hessian $H_\\ast=\\nabla^2p_{\\rm far}^{cluster}(x_\\ast)\\in\\operatorname{Sym}_0(3)$ of the cluster's far harmonic pressure at its center; its expansion remainder $E_\\ast(x)$ satisfies $\\|E_\\ast\\|_{L^\\infty(B_L)}\\le C\\kappa^{-4}L^{-3}\\|\\nabla u\\|_2^2$.",
+    "defining_relation": "H_\\ast=\\nabla^2p_{\\rm far}^{cluster}(x_\\ast)\\in\\operatorname{Sym}_0(3),\\quad \\nabla^2p_{\\rm far}^{cluster}(x)=H_\\ast+E_\\ast(x)",
+    "notes": "Cluster-level common far matrix; plays the role that the single-core H_0 (recalled from C3-Q in Section 0) played before multi-core clustering."
+  },
+  {
+    "key": "ns.c3.c3r.m_i",
+    "latex": "M_i",
+    "label_zh": "局部平均應變矩陣",
+    "label_en": "local mean strain matrix",
+    "definition_zh": "第27節定義，以局部截止函數 $\\chi_i$ 對核心 $i$ 加權平均之無跡對稱應變 $M_i=\\int\\chi_iS\\,dx\\in\\operatorname{Sym}_0(3)$，是判斷共同遠場壓力能否 positive-support 所有核心之幾何對象。",
+    "definition_en": "Defined in Section 27 as the trace-free symmetric mean strain $M_i=\\int\\chi_iS\\,dx\\in\\operatorname{Sym}_0(3)$ of core $i$ weighted by local cutoff $\\chi_i$; the geometric object testing whether a common far matrix can positive-support all cores.",
+    "defining_relation": "M_i=\\int\\chi_iS\\,dx\\in\\operatorname{Sym}_0(3)"
+  },
+  {
+    "key": "ns.c3.c3r.b_i_h",
+    "latex": "B_i^{H}",
+    "label_zh": "共同矩陣壓力功",
+    "label_en": "common-matrix pressure work",
+    "definition_zh": "第27節定義 $B_i^H=-H_\\ast:M_i$，為理想化共同遠場矩陣 $H_\\ast$ 對核心 $i$ 所做之壓力功，其對所有 $i$ 同為正即定理28.1（C3-R.5）之判準對象。",
+    "definition_en": "Defined in Section 27 as $B_i^H=-H_\\ast:M_i$, the pressure work the idealized common far matrix $H_\\ast$ performs on core $i$; being positive for every $i$ is exactly what Theorem 28.1 (C3-R.5) tests."
+  },
+  {
+    "key": "ns.c3.c3r.conv_hull_criterion",
+    "latex": "0\\notin\\operatorname{conv}\\{M_1,\\ldots,M_m\\}",
+    "label_zh": "共同壓力支持之凸包判準",
+    "label_en": "common-support convex-hull criterion",
+    "definition_zh": "第28節定理28.1（C3-R.5）證明：存在 $H_\\ast$ 使 $-H_\\ast:M_i>0$ 對所有 $i$ 成立，若且唯若 $0\\notin\\operatorname{conv}\\{M_1,\\ldots,M_m\\}$，即凸包分離定理在 $\\operatorname{Sym}_0(3)\\simeq\\mathbb R^5$ 中之應用。",
+    "definition_en": "Theorem 28.1 (C3-R.5, Section 28) proves that some $H_\\ast$ makes $-H_\\ast:M_i>0$ for all $i$ if and only if $0\\notin\\operatorname{conv}\\{M_1,\\ldots,M_m\\}$ — the hyperplane-separation theorem applied in $\\operatorname{Sym}_0(3)\\simeq\\mathbb R^5$.",
+    "defining_relation": "\\exists H_\\ast:\\ -H_\\ast:M_i>0\\ (\\forall i)\\iff 0\\notin\\operatorname{conv}\\{M_1,\\ldots,M_m\\}"
+  },
+  {
+    "key": "ns.c3.c3r.strain_cone_debt",
+    "latex": "\\textbf{Five-Dimensional Strain-Cone Coherence Debt}",
+    "label_zh": "五維應變錐一致性負債",
+    "label_en": "five-dimensional strain-cone coherence debt",
+    "definition_zh": "第29節命名，指若要單一共同遠場矩陣 positive-support 所有核心，各核心之局部平均應變 $M_i$ 必須全部落在 $\\operatorname{Sym}_0(3)$ 中同一開半空間 $-H_\\ast:M_i>0$ 內的幾何負債。",
+    "definition_en": "Named in Section 29: the geometric debt that a single common far matrix can positive-support all cores only if every local mean strain $M_i$ lies in one common open half-space $-H_\\ast:M_i>0$ of $\\operatorname{Sym}_0(3)$."
+  },
+  {
+    "key": "ns.c3.c3r.six_core_obstruction",
+    "latex": "\\textbf{Six-Core Pressure Obstruction}",
+    "label_zh": "六核心壓力障礙",
+    "label_en": "six-core pressure obstruction",
+    "definition_zh": "第30節推論30.1（C3-R.6），因 $\\dim\\operatorname{Sym}_0(3)=5$，Carathéodory 定理給出：若 $0\\in\\operatorname{conv}\\{M_i\\}$，必有至多6個核心之子集合其凸包已含 $0$，故最多六個核心即足以見證無單一共同遠場 STF 矩陣可 positive-support 全部核心。",
+    "definition_en": "Corollary 30.1 (C3-R.6, Section 30): since $\\dim\\operatorname{Sym}_0(3)=5$, Carathéodory's theorem gives that if $0\\in\\operatorname{conv}\\{M_i\\}$ then some subset of at most 6 cores already has $0$ in its convex hull, so at most six cores suffice to witness that no single common far STF matrix can positive-support all cores.",
+    "defining_relation": "0\\in\\operatorname{conv}\\{M_1,\\ldots,M_m\\}\\ \\Rightarrow\\ \\exists\\,r\\le6:\\ 0\\in\\operatorname{conv}\\{M_{i_1},\\ldots,M_{i_r}\\}"
+  },
+  {
+    "key": "ns.c3.c3r.h_i",
+    "latex": "H_i",
+    "label_zh": "各核心實際遠場矩陣",
+    "label_en": "actual per-core far-pressure matrix",
+    "definition_zh": "第32節定義 $H_i=H_\\ast+E_i$，核心 $i$ 處相對共同矩陣 $H_\\ast$ 計入空間餘項 $E_i$ 後之實際遠場 Hessian。",
+    "definition_en": "Defined in Section 32 as $H_i=H_\\ast+E_i$, the actual far-pressure Hessian at core $i$ once the spatial remainder $E_i$ relative to the common matrix $H_\\ast$ is included."
+  },
+  {
+    "key": "ns.c3.c3r.b_i_far",
+    "latex": "B_i^{far}",
+    "label_zh": "實際遠場壓力功",
+    "label_en": "actual far-pressure work",
+    "definition_zh": "第32節定義 $B_i^{far}=-H_i:M_i=-H_\\ast:M_i-E_i:M_i$，計入空間餘項後核心 $i$ 實際承受之遠場壓力功，用於定理32.1 Robust Convexity Obstruction。",
+    "definition_en": "Defined in Section 32 as $B_i^{far}=-H_i:M_i=-H_\\ast:M_i-E_i:M_i$, the actual far-pressure work on core $i$ once the spatial remainder is included; used in Theorem 32.1's Robust Convexity Obstruction."
+  },
+  {
+    "key": "ns.c3.c3r.h_source",
+    "latex": "H^{(a)}",
+    "label_zh": "個別遠場來源矩陣",
+    "label_en": "individual far-pressure source matrices",
+    "definition_zh": "第35節定義，$N$ 個任意遠場來源區域各自貢獻之矩陣 $H^{(a)}\\in\\operatorname{Sym}_0(3)$，其和構成共同矩陣 $H_\\ast$；第35節證明5維並不能限制來源數 $N$。",
+    "definition_en": "Defined in Section 35 as the matrices $H^{(a)}\\in\\operatorname{Sym}_0(3)$ contributed by $N$ arbitrary far-source regions, summing to the common matrix $H_\\ast$; Section 35 shows the 5 dimensions do not force $N\\le5$.",
+    "defining_relation": "H_\\ast=\\sum_{a=1}^{N}H^{(a)}"
+  },
+  {
+    "key": "ns.c3.c3r.gamma_h",
+    "latex": "\\Gamma_H",
+    "label_zh": "壓力矩陣一致性指標",
+    "label_en": "pressure-matrix coherence index",
+    "definition_zh": "第36節定義之無量綱指標 $\\Gamma_H=|\\sum_aH^{(a)}|^2/\\sum_a|H^{(a)}|^2\\in[0,N]$，衡量各遠場來源矩陣係相長疊加（大）或大量抵消（小）。",
+    "definition_en": "The dimensionless index $\\Gamma_H=|\\sum_aH^{(a)}|^2/\\sum_a|H^{(a)}|^2\\in[0,N]$ from Section 36, measuring whether far-source matrices reinforce coherently (large) or largely cancel (small).",
+    "defining_relation": "\\Gamma_H=\\frac{\\left|\\sum_aH^{(a)}\\right|^2}{\\sum_a|H^{(a)}|^2},\\qquad 0\\le\\Gamma_H\\le N",
+    "notes": "A different level of cancellation from the C3-O bulk-SSA-vs-boundary-current corridor (rho to -1, Section 38); the two must not be conflated."
+  },
+  {
+    "key": "ns.c3.c3r.d_n",
+    "latex": "d_n",
+    "label_zh": "雙核心分離距離",
+    "label_en": "dual-core separation distance",
+    "definition_zh": "第41–42節定義 $d_n=|x_n^{anc}-x_n^{op}|$，為 ancestry core $x_n^{anc}$ 與 operator core $x_n^{op}$ 兩種不同選取準則所得中心點間之距離。",
+    "definition_en": "Defined in Sections 41-42 as $d_n=|x_n^{anc}-x_n^{op}|$, the distance between the centers picked out by two different selection principles: the ancestry core $x_n^{anc}$ and the operator core $x_n^{op}$.",
+    "notes": "Superscripts anc/op denote the ancestry core (C3-G/I first-crossing/helicity criterion) versus the operator core (Miller ratio Q_SV/Delta S criterion); the two need not coincide."
+  },
+  {
+    "key": "ns.c3.c3r.kappa_n_dual",
+    "latex": "\\kappa_n^{dual}",
+    "label_zh": "雙核心分離比",
+    "label_en": "dual-core separation ratio",
+    "definition_zh": "第42節定義之無量綱比 $\\kappa_n^{dual}=d_n/R_n$，劃分 near branch（$O(1)$）與 far branch（$\\to\\infty$）；第43節證明遠支若壓力仍相關則需 $\\mathfrak E_{R_n}\\gtrsim(\\kappa_n^{dual})^2$。",
+    "definition_en": "The dimensionless ratio $\\kappa_n^{dual}=d_n/R_n$ from Section 42, splitting the near branch ($O(1)$) from the far branch ($\\to\\infty$); Section 43 shows the far branch, if still pressure-relevant, forces $\\mathfrak E_{R_n}\\gtrsim(\\kappa_n^{dual})^2$.",
+    "defining_relation": "\\kappa_n^{dual}=\\frac{d_n}{R_n},\\qquad \\mathfrak E_{R_n}\\gtrsim b_0^{2/3}(\\kappa_n^{dual})^2"
+  },
+  {
+    "key": "ns.c3.c3r.theta_r_multi",
+    "latex": "\\Theta_R^{multi}",
+    "label_zh": "多核心相空間張力狀態",
+    "label_en": "multi-core phase-space tension state",
+    "definition_zh": "第50節 True ETN 更新，將單一 ancestry ray 擴充為多核心元組 $\\Theta_R^{multi}=\\langle\\{x_i\\},m_R,\\delta_R,\\mathfrak E_R,\\kappa_{\\rm cert},\\{M_i\\},H_\\ast,\\Gamma_H,\\operatorname{Prov}\\rangle$，可形成 multi-core ancestry hypergraph。",
+    "definition_en": "The True-ETN update of Section 50, extending the single ancestry ray into the multi-core tuple $\\Theta_R^{multi}=\\langle\\{x_i\\},m_R,\\delta_R,\\mathfrak E_R,\\kappa_{\\rm cert},\\{M_i\\},H_\\ast,\\Gamma_H,\\operatorname{Prov}\\rangle$, capable of forming a multi-core ancestry hypergraph.",
+    "defining_relation": "\\Theta_R^{multi}=\\left\\langle\\{x_i\\}_{i=1}^{m_R},m_R,\\delta_R,\\mathfrak E_R,\\kappa_{\\rm cert},\\{M_i\\},H_\\ast,\\Gamma_H,\\operatorname{Prov}\\right\\rangle"
+  }
+]

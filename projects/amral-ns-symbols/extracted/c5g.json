@@ -1,0 +1,270 @@
+[
+  {
+    "key": "ns.c5.c5g.theorem_3_5",
+    "latex": "\\text{Grujić--Xu Theorem 3.5}",
+    "label_zh": "Grujić–Xu 定理 3.5",
+    "label_en": "Grujić–Xu Theorem 3.5",
+    "definition_zh": "第1.1節將此定理作為不修改假設的外部閘：若在可容許稍後時刻上選定的 D^ku 分量/符號超水平集在尺度 ρ 上對每個 x_0 呈一維 δ-稀疏，則 T^* 不是爆破時刻。",
+    "definition_en": "Section 1.1 takes this theorem as an unmodified external gate: 1D δ-sparseness of a selected D^ku component/sign superlevel set at scale ρ about every x_0 on an admissible later time implies T^* is not a blow-up time.",
+    "notes": "Published external gate (J. Math. Fluid Mech. 26, Article 53, 2024); C5-G does not alter its hypotheses and does not mix in Theorem 3.14."
+  },
+  {
+    "key": "ns.c5.c5g.T_star",
+    "latex": "T^\\ast",
+    "label_zh": "假設首次爆破時刻",
+    "label_en": "putative first blow-up time",
+    "definition_zh": "第1.1節將 T^* 作為假設的首次爆破時刻，而定理 3.5 的結論是在空間稀疏條件成立時它不是爆破時刻。",
+    "definition_en": "Section 1.1 treats T^* as a putative first blow-up time, which Theorem 3.5 concludes is not a blow-up time once the spatial sparseness condition holds."
+  },
+  {
+    "key": "ns.c5.c5g.s_t",
+    "latex": "s=s(t)",
+    "label_zh": "定理可容許稍後時刻",
+    "label_en": "theorem-admissible later time",
+    "definition_zh": "第1.1節要求存在稍後時刻 s=s(t) 落在 D^ku 逃逸時刻 t 之後長度約 \\|D^ku(t)\\|_\\infty^{-6/(2k+3)} 的明確區間內，閘閉合只能在此窗口上宣告。",
+    "definition_en": "Section 1.1 requires a later time s=s(t) in an explicit interval of length ~\\|D^ku(t)\\|_\\infty^{-6/(2k+3)} after the D^ku escape time t; gate closure may be declared only on this window."
+  },
+  {
+    "key": "ns.c5.c5g.A_k",
+    "latex": "A_k(s)",
+    "label_zh": "k 階導數振幅",
+    "label_en": "k-th derivative L^∞ amplitude",
+    "definition_zh": "第4節在預奇異光滑時刻 s<T^* 上將固定階 k≥1 的導數振幅定義為 A_k(s)=\\|D^ku(s)\\|_\\infty。",
+    "definition_en": "Section 4 defines the fixed-order amplitude A_k(s)=\\|D^ku(s)\\|_\\infty at a pre-singular smooth time s<T^*.",
+    "defining_relation": "A_k(s)=\\|D^ku(s)\\|_\\infty"
+  },
+  {
+    "key": "ns.c5.c5g.L_k",
+    "latex": "L_k(s)",
+    "label_zh": "k 階導數 L^2 質量",
+    "label_en": "k-th derivative L^2 mass",
+    "definition_zh": "第4節在同一預奇異光滑時刻上將固定階 k 的導數 L^2 質量定義為 L_k(s)=\\|D^ku(s)\\|_2。",
+    "definition_en": "Section 4 defines the fixed-order L^2 mass L_k(s)=\\|D^ku(s)\\|_2 at the same pre-singular smooth time.",
+    "defining_relation": "L_k(s)=\\|D^ku(s)\\|_2"
+  },
+  {
+    "key": "ns.c5.c5g.V_lambda_k",
+    "latex": "V_{\\lambda,k}^{\\zeta,i,\\pm}",
+    "label_zh": "分量/符號超水平集",
+    "label_en": "component/sign superlevel set",
+    "definition_zh": "第5節對任意多重指標 |ζ|=k、分量 i 與符號 ± 定義超水平集 V_{λ,k}^{ζ,i,±}={x:(D^ζ u_i)^±(x)>λ A_k}，且本輪體積界對所有分量/符號一致成立。",
+    "definition_en": "Section 5 defines the component/sign superlevel set V_{λ,k}^{ζ,i,±}={x:(D^ζ u_i)^±(x)>λ A_k} for any multi-index |ζ|=k, component i and sign ±, with the volume bound holding uniformly over all such choices.",
+    "defining_relation": "V_{\\lambda,k}^{\\zeta,i,\\pm}=\\{x:(D^\\zeta u_i)^{\\pm}(x)>\\lambda A_k\\}"
+  },
+  {
+    "key": "ns.c5.c5g.V_k_eff",
+    "latex": "V_k^{\\mathrm{eff}}",
+    "label_zh": "固定階有效體積",
+    "label_en": "fixed-order effective volume",
+    "definition_zh": "第8節將固定階有效體積定義為具有體積量綱的比 V_k^{eff}=L_k^2/A_k^2。",
+    "definition_en": "Section 8 defines the fixed-order effective volume as the volume-dimension ratio V_k^{eff}=L_k^2/A_k^2.",
+    "defining_relation": "V_k^{\\mathrm{eff}}=L_k^2/A_k^2"
+  },
+  {
+    "key": "ns.c5.c5g.r_vol_k",
+    "latex": "r_{\\mathrm{vol},k}",
+    "label_zh": "有效體積一維稀疏尺度",
+    "label_en": "effective-volume 1D sparseness scale",
+    "definition_zh": "第8節在固定定理對 (λ,δ) 後把有效體積轉成一維稀疏尺度 r_{vol,k}=C_{λ,δ} L_k^{2/3} A_k^{-2/3}。",
+    "definition_en": "Section 8 converts effective volume into the 1D sparseness scale r_{vol,k}=C_{λ,δ} L_k^{2/3} A_k^{-2/3} after a theorem pair (λ,δ) is fixed.",
+    "defining_relation": "r_{\\mathrm{vol},k}=C_{\\lambda,\\delta}\\,L_k^{2/3}A_k^{-2/3}"
+  },
+  {
+    "key": "ns.c5.c5g.r_GX_k",
+    "latex": "r_{\\mathrm{GX},k}",
+    "label_zh": "定理 3.5 直接目標尺度",
+    "label_en": "Theorem 3.5 direct target scale",
+    "definition_zh": "第10節將已發表的定理 3.5 直接目標尺度定義為 r_{GX,k}=1/(2^k c_{GX,k} A_k^{3/(2k+3)})，其中 c_{GX,k}=c(M,\\|u_0\\|_2)。",
+    "definition_en": "Section 10 defines the published Theorem 3.5 direct target scale as r_{GX,k}=1/(2^k c_{GX,k} A_k^{3/(2k+3)}), with c_{GX,k}=c(M,\\|u_0\\|_2).",
+    "defining_relation": "r_{\\mathrm{GX},k}=\\frac{1}{2^k c_{\\mathrm{GX},k} A_k^{3/(2k+3)}}"
+  },
+  {
+    "key": "ns.c5.c5g.G_k_dir",
+    "latex": "\\mathfrak{G}_k^{\\mathrm{dir}}",
+    "label_zh": "固定階直接閘比",
+    "label_en": "fixed-order direct gate ratio",
+    "definition_zh": "第11節將定理就緒的固定階直接閘比定義為 \\mathfrak{G}_k^{dir}=r_{vol,k}/r_{GX,k}，並寫成 L_k^{2/3} A_k^{-(4k-3)/(3(2k+3))} 的顯式式。",
+    "definition_en": "Section 11 defines the theorem-ready fixed-order direct gate ratio \\mathfrak{G}_k^{dir}=r_{vol,k}/r_{GX,k}, equivalently C_{λ,δ} 2^k c_{GX,k} L_k^{2/3} A_k^{-(4k-3)/(3(2k+3))}.",
+    "defining_relation": "\\mathfrak{G}_k^{\\mathrm{dir}}=\\frac{r_{\\mathrm{vol},k}}{r_{\\mathrm{GX},k}}=C_{\\lambda,\\delta}2^k c_{\\mathrm{GX},k} L_k^{2/3} A_k^{-(4k-3)/(3(2k+3))}",
+    "notes": "C5-G's central theorem-ready interface: \\mathfrak{G}_k^{dir}(s)\\le1 at an admissible later time closes Theorem 3.5 (Theorem 12.1)."
+  },
+  {
+    "key": "ns.c5.c5g.C_k_eff",
+    "latex": "\\mathfrak{C}_k^{\\mathrm{eff}}",
+    "label_zh": "固定階有效濃度指標",
+    "label_en": "fixed-order effective concentration index",
+    "definition_zh": "第20節將固定階有效濃度指標定義為 \\mathfrak{C}_k^{eff}=L_k^2/A_k^{(4k-3)/(2k+3)}，在固定定理歸一化下閘條件即此量不大於 C_{GX,k}。",
+    "definition_en": "Section 20 defines the fixed-order effective concentration index \\mathfrak{C}_k^{eff}=L_k^2/A_k^{(4k-3)/(2k+3)}, so that the gate is \\mathfrak{C}_k^{eff}\\le C_{GX,k} under the theorem normalization.",
+    "defining_relation": "\\mathfrak{C}_k^{\\mathrm{eff}}=\\frac{L_k^2}{A_k^{(4k-3)/(2k+3)}}"
+  },
+  {
+    "key": "ns.c5.c5g.r_apr_k",
+    "latex": "r_{\\mathrm{apr},k}",
+    "label_zh": "定理 3.7 先驗稀疏尺度",
+    "label_en": "Theorem 3.7 a-priori sparseness scale",
+    "definition_zh": "第2節記錄定理 3.7 僅由 Leray 能量界得到的固定階先驗體積稀疏尺度 r_{apr,k}∼c(\\|u_0\\|_2) A_k^{-2/(2k+3)}，其指數大於定理 3.5 的 3/(2k+3)，即固定階尺度缺口。",
+    "definition_en": "Section 2 records the Theorem 3.7 a-priori volumetric sparseness scale r_{apr,k}∼c(\\|u_0\\|_2) A_k^{-2/(2k+3)} coming from the Leray energy bound, whose exponent is larger than the Theorem 3.5 exponent 3/(2k+3) and thus encodes the fixed-order scaling gap."
+  },
+  {
+    "key": "ns.c5.c5g.volume_to_line",
+    "latex": "\\text{volume-to-line lemma}",
+    "label_zh": "體積到線段稀疏引理",
+    "label_en": "volume-to-line sparseness lemma",
+    "definition_zh": "第7節沿用 C3-W 純幾何引理：若可測集 E⊂R^3 滿足 |E|<c_3 δ^3 r^3，則對任意基點 x_0 存在方向使 E 在長度 2r 的線段上佔有率 ≤δ。",
+    "definition_en": "Section 7 recalls the C3-W geometric lemma: if a measurable E⊂R^3 satisfies |E|<c_3 δ^3 r^3, then for any base point x_0 there is a line direction along which the one-dimensional occupancy of E on the segment of length 2r is ≤δ.",
+    "notes": "Carries over from C3-W; used in C5-G.2 to convert the global volume bound into 1D δ-sparseness at scale r_{vol,k}."
+  },
+  {
+    "key": "ns.c5.c5g.COMPSIGN",
+    "latex": "\\mathrm{COMPSIGN}",
+    "label_zh": "分量/符號缺陷（已旁路）",
+    "label_en": "component/sign defect (bypassed)",
+    "definition_zh": "第16節說明原 C5-A 的 COMPSIGN 缺陷——僅有模長幾何而定理要分量/符號幾何——在 C5-G 直接體積閘中不再是獨立缺陷。",
+    "definition_en": "Section 16 records that the C5-A COMPSIGN defect (magnitude geometry versus the theorem's required component/sign geometry) is no longer an independent defect on the C5-G direct-volume gate.",
+    "notes": "Introduced in C5-A; bypassed this round by Chebyshev on every (D^ζ u_i)^± superlevel set."
+  },
+  {
+    "key": "ns.c5.c5g.SHELLFULL",
+    "latex": "\\mathrm{SHELLFULL}",
+    "label_zh": "殼層/全場轉換缺陷（已旁路）",
+    "label_en": "shell/full conversion defect (bypassed)",
+    "definition_zh": "第17節說明因本輪直接對完整場 D^ku 估計量而不使用殼層場 u_q，故 SHELLFULL 也不再是固定階直接路線的獨立缺陷。",
+    "definition_en": "Section 17 records that SHELLFULL is no longer an independent fixed-k direct-route defect because the argument estimates the full field D^ku and never uses a shell field u_q.",
+    "notes": "Earlier C5 shell-to-full conversion debt; bypassed on the C5-G direct-volume route."
+  },
+  {
+    "key": "ns.c5.c5g.D_k_dir",
+    "latex": "\\mathfrak{D}_k^{\\mathrm{dir}}",
+    "label_zh": "固定階直接殘餘缺陷族",
+    "label_en": "fixed-order direct residual defect family",
+    "definition_zh": "第18節將固定階直接路線真正殘餘壓成缺陷族 \\mathfrak{D}_k^{dir}={MULT, TIME}，即有效體積/重數缺陷與稍後時刻缺陷。",
+    "definition_en": "Section 18 compresses the true residual of the fixed-order direct route to the defect family \\mathfrak{D}_k^{dir}={MULT, TIME}, namely the effective-volume/multiplicity defect and the later-time defect.",
+    "notes": "TIMECHAIN is retained only on the separate Theorem 3.14 chain-assisted route (Section 47)."
+  },
+  {
+    "key": "ns.c5.c5g.T_k",
+    "latex": "\\mathsf{T}_k",
+    "label_zh": "稍後時刻對齊旗標",
+    "label_en": "later-time alignment flag",
+    "definition_zh": "第46節以 \\mathsf{T}_k∈{0,1} 標記定理 3.5 稍後時刻窗口是否與有利幾何/振幅窗口對齊。",
+    "definition_en": "Section 46 lets \\mathsf{T}_k∈{0,1} indicate whether the Theorem 3.5 later-time window aligns with a favorable geometry/amplitude window."
+  },
+  {
+    "key": "ns.c5.c5g.Theta_k_dir",
+    "latex": "\\Theta_k^{\\mathrm{dir}}",
+    "label_zh": "固定階直接缺陷狀態",
+    "label_en": "fixed-order direct defect state",
+    "definition_zh": "第46節將固定階直接缺陷狀態定義為對 Θ_k^{dir}=⟨\\mathfrak{G}_k^{dir}, \\mathsf{T}_k⟩，假設生存者在每個相關逃逸時刻必須維持閘比>1 或時刻旗標為 0。",
+    "definition_en": "Section 46 defines the fixed-order direct defect state as the pair Θ_k^{dir}=⟨\\mathfrak{G}_k^{dir}, \\mathsf{T}_k⟩; a hypothetical survivor must recurrently keep the gate ratio >1 or the time flag equal to 0.",
+    "defining_relation": "\\Theta_k^{\\mathrm{dir}}=\\langle\\mathfrak{G}_k^{\\mathrm{dir}},\\mathsf{T}_k\\rangle"
+  },
+  {
+    "key": "ns.c5.c5g.F",
+    "latex": "F\\in\\operatorname{Sym}_0(3)",
+    "label_zh": "共同遠場壓力矩陣",
+    "label_en": "common far-pressure matrix",
+    "definition_zh": "第23節沿用 C5-F 的無跡對稱共同遠場壓力矩陣 F∈Sym_0(3) 作為壓力簽名狀態的承載物件。",
+    "definition_en": "Section 23 reuses the C5-F traceless symmetric common far-pressure matrix F∈Sym_0(3) as the carrier of pressure-signature state.",
+    "notes": "Carries over from C5-F; C3-U far-pressure heredity controls F_{j+1}-F_j."
+  },
+  {
+    "key": "ns.c5.c5g.hat_F",
+    "latex": "\\widehat{F}",
+    "label_zh": "正規化遠場壓力矩陣",
+    "label_en": "normalized far-pressure matrix",
+    "definition_zh": "第23節在 F≠0 時將其正規化為 \\widehat{F}=F/|F|_F，落在無跡對稱矩陣的單位球面 S^4∩Sym_0(3) 上。",
+    "definition_en": "Section 23 normalizes a nonzero far-pressure matrix to \\widehat{F}=F/|F|_F on the unit sphere S^4∩Sym_0(3) of traceless symmetric matrices.",
+    "defining_relation": "\\widehat{F}=F/|F|_F\\in S^4\\cap\\operatorname{Sym}_0(3)"
+  },
+  {
+    "key": "ns.c5.c5g.S_1_minus",
+    "latex": "\\mathcal{S}_{1-}",
+    "label_zh": "單壓縮簽名區域",
+    "label_en": "single-compression signature region",
+    "definition_zh": "第24節將單壓縮簽名區域定義為開集 \\mathcal{S}_{1-}={\\widehat{F}: sig F=(-,+,+)}。",
+    "definition_en": "Section 24 defines the single-compression signature region as the open set \\mathcal{S}_{1-}={\\widehat{F}: sig F=(-,+,+)}."
+  },
+  {
+    "key": "ns.c5.c5g.S_2_minus",
+    "latex": "\\mathcal{S}_{2-}",
+    "label_zh": "雙壓縮簽名區域",
+    "label_en": "double-compression signature region",
+    "definition_zh": "第24節將雙壓縮簽名區域定義為開集 \\mathcal{S}_{2-}={\\widehat{F}: sig F=(-,-,+)}。",
+    "definition_en": "Section 24 defines the double-compression signature region as the open set \\mathcal{S}_{2-}={\\widehat{F}: sig F=(-,-,+)}."
+  },
+  {
+    "key": "ns.c5.c5g.Sigma_P",
+    "latex": "\\Sigma_P",
+    "label_zh": "壓力簽名邊界",
+    "label_en": "pressure-signature boundary",
+    "definition_zh": "第24節將兩簽名開區域的共同邊界定義為行列式零集 Σ_P={\\widehat{F}: det F=0}。",
+    "definition_en": "Section 24 defines the common boundary of the two signature regions as the determinant-zero set Σ_P={\\widehat{F}: det F=0}.",
+    "defining_relation": "\\Sigma_P=\\{\\widehat{F}:\\det F=0\\}"
+  },
+  {
+    "key": "ns.c5.c5g.d_sig",
+    "latex": "d_{\\mathrm{sig}}(F)",
+    "label_zh": "壓力簽名缺陷距離",
+    "label_en": "pressure-signature defect distance",
+    "definition_zh": "第25節將壓力簽名缺陷距離定義為 d_{sig}(F)=dist(\\widehat{F},Σ_P)，並在 F=0 時令其為 0，從而使 d_{sig}∈[0,1] 成為緊緻簽名元資料。",
+    "definition_en": "Section 25 defines the pressure-signature defect distance d_{sig}(F)=dist(\\widehat{F},Σ_P), set to 0 when F=0, so that d_{sig}∈[0,1] is compact signature metadata.",
+    "defining_relation": "d_{\\mathrm{sig}}(F)=\\operatorname{dist}(\\widehat{F},\\Sigma_P)\\in[0,1]",
+    "notes": "Under strong far-matrix heredity, recurrent opposite-signature switching forces d_{sig}(F_j)\\to0 (C5-G.5); otherwise pressure turnover/fragmentation remains legal."
+  },
+  {
+    "key": "ns.c5.c5g.Delta_p",
+    "latex": "\\Delta p=-|S|^2+\\tfrac12|\\omega|^2",
+    "label_zh": "壓力 Poisson 恆等式",
+    "label_en": "pressure-Poisson identity",
+    "definition_zh": "第32節由不可壓縮公式寫出精確壓力 Poisson 恆等式 Δp=-|S|^2+(1/2)|ω|^2，用以把渦量主導洩漏同步成正壓力曲率。",
+    "definition_en": "Section 32 records the exact incompressible pressure-Poisson identity Δp=-|S|^2+(1/2)|ω|^2, used to synchronize vorticity-dominant leakage with positive pressure curvature.",
+    "defining_relation": "\\Delta p=-|S|^2+\\tfrac12|\\omega|^2"
+  },
+  {
+    "key": "ns.c5.c5g.E_omega",
+    "latex": "E_\\omega(\\eta)",
+    "label_zh": "渦量主導集",
+    "label_en": "vorticity-dominant set",
+    "definition_zh": "第33節回顧 C5-E 的渦量主導集 E_ω(η)={|S|^2<η|Q|}，作為把洩漏同步到 (Δp)_+ 的空間承載集。",
+    "definition_en": "Section 33 recalls the C5-E vorticity-dominant set E_ω(η)={|S|^2<η|Q|} as the spatial carrier that synchronizes leakage onto (Δp)_+.",
+    "defining_relation": "E_\\omega(\\eta)=\\{|S|^2<\\eta|Q|\\}",
+    "notes": "Carries over from C5-E; C5-G.6 shows that r_η<1/2 on this set forces Δp>0 pointwise."
+  },
+  {
+    "key": "ns.c5.c5g.r_eta",
+    "latex": "r_\\eta",
+    "label_zh": "渦量主導應變–渦量比",
+    "label_en": "vorticity-dominant strain-to-vorticity ratio",
+    "definition_zh": "第33節在 E_ω(η) 上得到點態比 |S|^2<r_η|ω|^2，其中 r_η=η c_ω/(1-η) 且 c_ω=√2/4。",
+    "definition_en": "Section 33 obtains the pointwise ratio |S|^2<r_η|ω|^2 on E_ω(η), with r_η=η c_ω/(1-η) and c_ω=√2/4.",
+    "defining_relation": "r_\\eta=\\frac{\\eta c_\\omega}{1-\\eta},\\qquad c_\\omega=\\frac{\\sqrt{2}}{4}"
+  },
+  {
+    "key": "ns.c5.c5g.P_st_perp",
+    "latex": "P_{st}^{\\perp}",
+    "label_zh": "應變約束正交補投影",
+    "label_en": "strain-constraint orthogonal complement",
+    "definition_zh": "第37節令 P_{st} 為對稱矩陣場到應變約束空間的 L^2 正交投影，並定義補投影 P_{st}^⊥=I-P_{st}。",
+    "definition_en": "Section 37 lets P_{st} be the L^2 orthogonal projection of symmetric-matrix fields onto the strain constraint space and defines the complement projection P_{st}^⊥=I-P_{st}.",
+    "notes": "Miller–Sawyer Helmholtz-type decomposition for symmetric-matrix fields."
+  },
+  {
+    "key": "ns.c5.c5g.constraint_complement_ledger",
+    "latex": "\\nabla^2p=-(C_A+C_S+C_\\omega)",
+    "label_zh": "約束補壓力帳本",
+    "label_en": "constraint-complement pressure ledger",
+    "definition_zh": "第39節對應變方程施加 P_{st}^⊥ 得到精確帳本 ∇^2p=-(C_A+C_S+C_ω)，三項分別為平流、應變平方與渦量非線性的約束補。",
+    "definition_en": "Section 39 applies P_{st}^⊥ to the strain equation to obtain the exact ledger ∇^2p=-(C_A+C_S+C_ω), the three terms being the advection, strain-square, and vorticity-nonlinear constraint complements.",
+    "defining_relation": "\\nabla^2p=-(C_A+C_S+C_\\omega),\\quad C_A=P_{st}^{\\perp}\\mathcal{A},\\; C_S=P_{st}^{\\perp}\\mathcal{S},\\; C_\\omega=P_{st}^{\\perp}\\mathcal{W}",
+    "notes": "C5-G.7 trichotomy: large \\|C_ω\\|_2 cannot stand alone and forces actual pressure Hessian or advection complement or strain-square complement."
+  },
+  {
+    "key": "ns.c5.c5g.Theta_DG",
+    "latex": "\\Theta_\\ast^{\\mathrm{DG}}",
+    "label_zh": "導數閘 True-ETN 狀態",
+    "label_en": "derivative-gate True-ETN state",
+    "definition_zh": "第60節將 C5-G 導數真 ETN 狀態打包為 Θ_*^{DG}=⟨k, A_k, L_k, V_k^{eff}, r_{vol,k}, r_{GX,k}, \\mathfrak{G}_k^{dir}, \\mathsf{T}_k⟩。",
+    "definition_en": "Section 60 packages the C5-G derivative True-ETN state as Θ_*^{DG}=⟨k, A_k, L_k, V_k^{eff}, r_{vol,k}, r_{GX,k}, \\mathfrak{G}_k^{dir}, \\mathsf{T}_k⟩.",
+    "notes": "Companion pressure and vorticity-pressure states Θ_*^{PS} and Θ_*^{VP} are defined in the same section."
+  }
+]
