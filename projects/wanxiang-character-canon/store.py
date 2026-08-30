@@ -78,9 +78,23 @@ class EntityConflict:
 
 
 @dataclass(frozen=True)
+class PlannedCell:
+    key: str
+    value: Any
+    source: str
+
+
+@dataclass(frozen=True)
+class EntityEnrichment:
+    entity_id: str
+    cells: tuple[PlannedCell, ...]
+
+
+@dataclass(frozen=True)
 class DiffPlan:
     build_id: int
     new: tuple[SourceEntity, ...]
+    enrich: tuple[EntityEnrichment, ...]
     unchanged: tuple[str, ...]
     conflicts: tuple[EntityConflict, ...]
     missing_from_source: tuple[str, ...]
@@ -94,6 +108,7 @@ class DiffPlan:
 @dataclass(frozen=True)
 class WriteResult:
     created_entities: int
+    enriched_entities: int
     created_cells: int
     integrity: str
     source_fingerprint: str
@@ -127,6 +142,18 @@ def _owned_values(entity: SourceEntity) -> dict[str, Any]:
     }
 
 
+def _selection_owned_keys(selection: SnapshotSelection) -> frozenset[str]:
+    if selection.owned_keys:
+        return selection.owned_keys
+    return frozenset(
+        key for entity in selection.entities for key in entity.values
+    )
+
+
+def _selection_scope_kinds(selection: SnapshotSelection) -> frozenset[str]:
+    return selection.scope_entity_kinds or frozenset(selection.counts)
+
+
 def _canonical_json(value: Any) -> str:
     return json.dumps(
         value,
@@ -137,6 +164,7 @@ def _canonical_json(value: Any) -> str:
 
 
 def _fingerprint(selection: SnapshotSelection) -> str:
+    owned_keys = _selection_owned_keys(selection)
     seen: set[str] = set()
     records = []
     for entity in sorted(selection.entities, key=lambda item: item.entity_id):
@@ -151,8 +179,14 @@ def _fingerprint(selection: SnapshotSelection) -> str:
                 "entity_id": entity.entity_id,
                 "kind": entity.kind,
                 "label": entity.label,
-                "values": _owned_values(entity),
-                "cell_source": entity.cell_source,
+                "cells": {
+                    key: {
+                        "value": value,
+                        "source": entity.source_for(key),
+                    }
+                    for key, value in _owned_values(entity).items()
+                    if key in owned_keys
+                },
             }
         )
     projection = {
@@ -161,6 +195,9 @@ def _fingerprint(selection: SnapshotSelection) -> str:
             key: selection.source_hashes[key]
             for key in sorted(selection.source_hashes)
         },
+        "scope_name": selection.scope_name,
+        "owned_keys": sorted(owned_keys),
+        "scope_entity_kinds": sorted(_selection_scope_kinds(selection)),
         "entities": records,
     }
     return hashlib.sha256(_canonical_json(projection).encode("utf-8")).hexdigest().upper()
@@ -300,6 +337,7 @@ class CanonStore:
                     "kind": row["kind"],
                     "label": row["label"],
                     "values": {},
+                    "sources": {},
                 }
                 for row in conn.execute(
                     "SELECT id,kind,label FROM entities"
@@ -307,7 +345,7 @@ class CanonStore:
             }
             rows = conn.execute(
                 f"""
-                SELECT c.entity_id,f.key,c.value_json
+                SELECT c.entity_id,f.key,c.value_json,c.source
                 FROM cells c
                 JOIN fields f ON f.id=c.field_id
                 WHERE f.namespace=? AND f.key IN ({placeholders})
@@ -319,6 +357,7 @@ class CanonStore:
                 state[row["entity_id"]]["values"][row["key"]] = json.loads(
                     row["value_json"]
                 )
+                state[row["entity_id"]]["sources"][row["key"]] = row["source"]
         return state
 
     def plan(self, selection: SnapshotSelection) -> DiffPlan:
@@ -329,6 +368,8 @@ class CanonStore:
                 f"selection BuildID {selection.build_id} != configured {self.config.build_id}",
             )
         source_fingerprint = _fingerprint(selection)
+        owned_keys = _selection_owned_keys(selection)
+        scope_kinds = _selection_scope_kinds(selection)
         state = self._owned_state()
         source_by_id = {entity.entity_id: entity for entity in selection.entities}
         if len(source_by_id) != len(selection.entities):
@@ -338,6 +379,7 @@ class CanonStore:
             )
 
         new: list[SourceEntity] = []
+        enrich: list[EntityEnrichment] = []
         unchanged: list[str] = []
         conflicts: list[EntityConflict] = []
         for entity in sorted(selection.entities, key=lambda item: item.entity_id):
@@ -366,9 +408,15 @@ class CanonStore:
                 )
             expected_values = _owned_values(entity)
             actual_values = actual["values"]
-            for key in sorted(SOURCE_OWNED_KEYS):
+            additions: list[PlannedCell] = []
+            for key in sorted(owned_keys):
                 expected = expected_values.get(key, MISSING)
                 observed = actual_values.get(key, MISSING)
+                if expected != MISSING and observed == MISSING:
+                    additions.append(
+                        PlannedCell(key, expected, entity.source_for(key))
+                    )
+                    continue
                 if expected != observed:
                     differences.append(
                         FieldDifference(
@@ -378,6 +426,19 @@ class CanonStore:
                             "value_mismatch",
                         )
                     )
+                    continue
+                if expected != MISSING:
+                    expected_source = entity.source_for(key)
+                    actual_source = actual["sources"].get(key, MISSING)
+                    if expected_source != actual_source:
+                        differences.append(
+                            FieldDifference(
+                                f"{key}.source",
+                                expected_source,
+                                actual_source,
+                                "source_mismatch",
+                            )
+                        )
             if differences:
                 conflicts.append(
                     EntityConflict(
@@ -385,13 +446,17 @@ class CanonStore:
                         tuple(differences),
                     )
                 )
+            elif additions:
+                enrich.append(
+                    EntityEnrichment(entity.entity_id, tuple(additions))
+                )
             else:
                 unchanged.append(entity.entity_id)
 
         missing: list[str] = []
         build_prefix = f"wx-build-{selection.build_id}"
         for entity_id, actual in state.items():
-            if entity_id in source_by_id or actual["kind"] not in PROJECT_ENTITY_KINDS:
+            if entity_id in source_by_id or actual["kind"] not in scope_kinds:
                 continue
             is_methodology = actual["kind"] == "wanxiang_methodology_reference"
             source_build = actual["values"].get("source_build_id")
@@ -404,6 +469,7 @@ class CanonStore:
         return DiffPlan(
             build_id=selection.build_id,
             new=tuple(new),
+            enrich=tuple(sorted(enrich, key=lambda item: item.entity_id)),
             unchanged=tuple(sorted(unchanged)),
             conflicts=tuple(sorted(conflicts, key=lambda item: item.entity_id)),
             missing_from_source=tuple(sorted(missing)),
@@ -414,17 +480,32 @@ class CanonStore:
         self,
         conn,
         entities: Sequence[SourceEntity],
+        enrichments: Sequence[EntityEnrichment],
         expected_cell_count: int,
     ) -> None:
-        ids = [entity.entity_id for entity in entities]
+        ids = list(
+            dict.fromkeys(
+                [entity.entity_id for entity in entities]
+                + [item.entity_id for item in enrichments]
+            )
+        )
         expected = {
             entity.entity_id: {
                 "kind": entity.kind,
                 "label": entity.label,
-                "values": _owned_values(entity),
-                "source": entity.cell_source,
+                "cells": {
+                    key: (value, entity.source_for(key))
+                    for key, value in _owned_values(entity).items()
+                },
             }
             for entity in entities
+        }
+        expected_enrichment = {
+            item.entity_id: {
+                cell.key: (cell.value, cell.source)
+                for cell in item.cells
+            }
+            for item in enrichments
         }
         actual_entities: dict[str, dict[str, Any]] = {}
         actual_cells: dict[str, dict[str, tuple[Any, str]]] = {
@@ -454,13 +535,15 @@ class CanonStore:
         if set(actual_entities) != set(ids):
             raise StorageError(
                 "readback_failure",
-                "created entity IDs do not match the write plan",
+                "planned entity IDs do not match readback",
             )
-        observed_cell_count = sum(len(values) for values in actual_cells.values())
-        if observed_cell_count != expected_cell_count:
+        planned_cell_count = sum(
+            len(record["cells"]) for record in expected.values()
+        ) + sum(len(cells) for cells in expected_enrichment.values())
+        if planned_cell_count != expected_cell_count:
             raise StorageError(
                 "readback_failure",
-                "created cell count does not match the write plan",
+                "planned cell count does not match insert rows",
             )
         for entity_id, record in expected.items():
             actual_entity = actual_entities[entity_id]
@@ -472,22 +555,18 @@ class CanonStore:
                     "readback_failure",
                     f"entity metadata mismatch: {entity_id}",
                 )
-            values = {
-                key: value_and_source[0]
-                for key, value_and_source in actual_cells[entity_id].items()
-            }
-            sources = {
-                value_and_source[1]
-                for value_and_source in actual_cells[entity_id].values()
-            }
-            if values != record["values"] or sources not in (
-                set(),
-                {record["source"]},
-            ):
+            if actual_cells[entity_id] != record["cells"]:
                 raise StorageError(
                     "readback_failure",
                     f"owned cell readback mismatch: {entity_id}",
                 )
+        for entity_id, cells in expected_enrichment.items():
+            for key, expected_cell in cells.items():
+                if actual_cells[entity_id].get(key) != expected_cell:
+                    raise StorageError(
+                        "readback_failure",
+                        f"enrichment cell mismatch: {entity_id}/{key}",
+                    )
 
     def apply(self, plan: DiffPlan) -> WriteResult:
         if plan.blocked:
@@ -501,8 +580,9 @@ class CanonStore:
                 "schema_not_initialized",
                 "project fields and views must be initialized before apply",
             )
-        if not plan.new:
+        if not plan.new and not plan.enrich:
             return WriteResult(
+                0,
                 0,
                 0,
                 self.integrity_check(),
@@ -525,6 +605,25 @@ class CanonStore:
                         f"source-owned fields missing at apply: {sorted(missing)}",
                     )
 
+                for enrichment in plan.enrich:
+                    if conn.execute(
+                        "SELECT 1 FROM entities WHERE id=?",
+                        (enrichment.entity_id,),
+                    ).fetchone() is None:
+                        raise StorageError(
+                            "stale_enrichment",
+                            f"entity disappeared: {enrichment.entity_id}",
+                        )
+                    for cell in enrichment.cells:
+                        if conn.execute(
+                            "SELECT 1 FROM cells WHERE entity_id=? AND field_id=?",
+                            (enrichment.entity_id, field_ids[cell.key]),
+                        ).fetchone() is not None:
+                            raise StorageError(
+                                "stale_enrichment",
+                                f"cell is no longer missing: {enrichment.entity_id}/{cell.key}",
+                            )
+
                 conn.executemany(
                     """
                     INSERT INTO entities(id,kind,label,created_at,updated_at)
@@ -541,18 +640,31 @@ class CanonStore:
                         for entity in plan.new
                     ],
                 )
-                cell_rows = [
+                new_cell_rows = [
                     (
                         entity.entity_id,
                         field_ids[key],
                         _canonical_json(value),
-                        entity.cell_source,
+                        entity.source_for(key),
                         None,
                         now,
                     )
                     for entity in plan.new
                     for key, value in _owned_values(entity).items()
                 ]
+                enrichment_cell_rows = [
+                    (
+                        enrichment.entity_id,
+                        field_ids[cell.key],
+                        _canonical_json(cell.value),
+                        cell.source,
+                        None,
+                        now,
+                    )
+                    for enrichment in plan.enrich
+                    for cell in enrichment.cells
+                ]
+                cell_rows = new_cell_rows + enrichment_cell_rows
                 conn.executemany(
                     """
                     INSERT INTO cells(
@@ -561,7 +673,12 @@ class CanonStore:
                     """,
                     cell_rows,
                 )
-                self._verify_readback(conn, plan.new, len(cell_rows))
+                self._verify_readback(
+                    conn,
+                    plan.new,
+                    plan.enrich,
+                    len(cell_rows),
+                )
                 integrity = conn.execute("PRAGMA integrity_check").fetchone()[0]
                 if integrity != "ok":
                     raise StorageError(
@@ -570,6 +687,7 @@ class CanonStore:
                     )
             return WriteResult(
                 len(plan.new),
+                len(plan.enrich),
                 len(cell_rows),
                 "ok",
                 plan.source_fingerprint,

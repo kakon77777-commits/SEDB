@@ -376,7 +376,10 @@ duplicate stable IDs and contradictory existing owned cells do block it.
 Before the first full-catalog apply:
 
 - close all project database connections;
-- verify no WAL/SHM sidecars remain;
+- run `PRAGMA wal_checkpoint(TRUNCATE)` and require exact `(0, 0, 0)` so no
+  uncheckpointed frames remain; Windows may retain an empty WAL and shared-memory
+  sidecar after a successful checkpoint, so sidecar filename presence alone is
+  not a failure;
 - create an ignored local Wave 1 SQLite backup;
 - record original database length and SHA in a committed evidence manifest;
 - verify the backup with `PRAGMA integrity_check=ok` and the accepted Wave 1

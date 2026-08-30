@@ -483,7 +483,7 @@ feat: define Wanxiang catalog schema and views
 - Produces `PlannedCell(key, value, source)`.
 - Produces `EntityEnrichment(entity_id, cells)`.
 - Extends `DiffPlan` with `enrich` while preserving existing fields.
-- Produces `BackupResult(path, length, sha256, integrity, entity_count, cell_count)`.
+- Produces `BackupResult(path, length, sha256, integrity, entity_count, cell_count, wal_checkpoint)`.
 - Produces `create_verified_backup(config, destination) -> BackupResult`.
 
 - [ ] **Step 1: Write failing scoped-plan tests**
@@ -571,8 +571,10 @@ def test_verified_backup_is_recoverable_and_never_overwritten(tmp_path):
 
 - [ ] **Step 7: Implement SQLite backup and verification**
 
-Use `sqlite3.Connection.backup()` after confirming no WAL/SHM sidecars. Hash
-the backup, reopen it for count/integrity verification and never overwrite.
+Run `PRAGMA wal_checkpoint(TRUNCATE)` and require `(0, 0, 0)` before
+`sqlite3.Connection.backup()`. Windows may retain empty WAL/SHM files; the
+checkpoint tuple, not filename absence, is authoritative. Hash the backup,
+reopen it for count/integrity verification and never overwrite.
 
 - [ ] **Step 8: Inject readback failure and prove total rollback**
 
