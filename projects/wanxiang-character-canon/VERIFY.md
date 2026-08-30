@@ -1,4 +1,38 @@
-# Wanxiang Character Canon SEDB — Wave 1 Verification
+# Wanxiang Character Canon SEDB — Verification
+
+Status: `FULL_STATIC_DATABASE_ACCEPTED`
+
+The current local database accepts the complete 36-table, 29,939-row frozen
+AllExcel projection and its explicit v1 reference graph for BuildID `25006280`.
+It remains a static documented-data result, not runtime or gameplay-fun
+acceptance.
+
+## Full static database result
+
+| Gate | Accepted result |
+| --- | --- |
+| Pre-edge entity base | 31,678 |
+| Reference graph | 40,075 edges: 31,117 resolved / 8,958 missing |
+| Full database | 71,753 entities / 1,102,664 cells |
+| Schema | 174 fields / 19 Task Views |
+| First apply | 69,786 new entities / 229 enriched entities |
+| Exact replay | 0 new / 0 enrich / 71,753 unchanged |
+| Source rows | 29,939 represented exactly once |
+| EventDialog | 17,210 complete row payloads |
+| SQLite integrity | `ok` |
+| Default DB SHA-256 | `3426A60131652D4797BF0A44A124B4CF74587A0645CF6E11C6598D3CD1E08B49` |
+| Wave 1 backup SHA-256 | `5403E4AA92D36C92ED7D04CD17AD1A56DC0BCB547D5E32C412A6E6986C7E3862` |
+| Full-catalog live test | 1 passed (146.69s) |
+| Inherited SEDB suite | 189 passed (86.01s) |
+
+Catalog fingerprint:
+`CD59082E7C2D92F0296EA5DCB91F33270470366DCD6A31F2BDD632A3A0A955FE`.
+
+Machine evidence:
+[`evidence/full-catalog-acceptance.json`](evidence/full-catalog-acceptance.json)
+and [`evidence/wave1-backup-manifest.json`](evidence/wave1-backup-manifest.json).
+
+## Historical Wave 1 verification
 
 Status: `WANXIANG_CANON_WAVE1_PASS`
 
@@ -70,8 +104,8 @@ commands intentionally return compact locator summaries.
 - Gameplay balance, runtime state transitions, route reachability, and actual
   player experience.
 - Runtime mod loading or any Steam/Workshop mutation.
-- Waves 2–5: full Hero context, faction/location normalization, relations,
-  events, and cross-Build reconciliation.
+- Runtime parity of the complete static catalog against packaged DAT data.
+- Cross-Build reconciliation after a future game update.
 - Visual-redesign quality or acceptance of generated/edited images.
 - Independent rereading of PNG bytes; Wave 1 consumes the validated output
   manifest projection.

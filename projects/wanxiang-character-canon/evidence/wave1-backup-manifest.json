@@ -1,0 +1,28 @@
+{
+  "schema": "wanxiang-wave1-backup/v1",
+  "status": "VERIFIED_RECOVERABLE",
+  "generated_at": "2026-08-30T21:53:42.0604643+08:00",
+  "build_id": 25006280,
+  "implementation_basis": {
+    "commit": "70c5d70ab305c679920743797844c03432d283cc",
+    "tree": "d1fe1912de90972f274dc5e69e142d3761218dea"
+  },
+  "source_database": {
+    "path": "D:/Ai/work together/SEDB/projects/wanxiang-character-canon/wanxiang-character-canon.sqlite",
+    "length_before_catalog": 14749696,
+    "sha256_before_catalog": "6843DB0E16DB57E8E110A04DABC5F95F37817A6E34C2527F2F463A8DFACF1F3B"
+  },
+  "backup": {
+    "path": "D:/Ai/work together/SEDB/projects/wanxiang-character-canon/local-backups/wave1-25006280.sqlite",
+    "git_ignored": true,
+    "length": 14749696,
+    "sha256": "5403E4AA92D36C92ED7D04CD17AD1A56DC0BCB547D5E32C412A6E6986C7E3862",
+    "wal_checkpoint": [0, 0, 0],
+    "integrity": "ok",
+    "entities": 1967,
+    "cells": 39600,
+    "fields": 118,
+    "views": 9
+  },
+  "claim_boundary": "Recoverable local Wave 1 SQLite backup created before catalog schema/entity mutation; not a release artifact."
+}

@@ -1,0 +1,133 @@
+{
+  "schema": "wanxiang-full-catalog-acceptance/v1",
+  "status": "FULL_STATIC_DATABASE_ACCEPTED",
+  "generated_at": "2026-08-30T21:53:42.0604643+08:00",
+  "build_id": 25006280,
+  "implementation_basis": {
+    "commit": "70c5d70ab305c679920743797844c03432d283cc",
+    "tree": "d1fe1912de90972f274dc5e69e142d3761218dea"
+  },
+  "source": {
+    "manifest_sha256": "0B607E20ADE02510181CB5B3145AE3F0D68E6AABA16C50458A0E725EFC5C6F1F",
+    "catalog_fingerprint": "CD59082E7C2D92F0296EA5DCB91F33270470366DCD6A31F2BDD632A3A0A955FE",
+    "reader_version": "wanxiang-openxml/v1",
+    "reference_rule_version": "wanxiang-reference-rules/v1",
+    "tables": 36,
+    "source_rows": 29939,
+    "event_dialog_rows": 17210,
+    "runtime_candidate_files": 52,
+    "event_selection_header_override": {
+      "workbook_sha256": "663C7422DE201BD6D5E8EC2923E5798AD94CA2C59F456138FB797AEBF50C2308",
+      "cell": "CY1",
+      "expected": "Condition9",
+      "replacement": "Condition16"
+    }
+  },
+  "first_bootstrap": {
+    "status": "created",
+    "new_entities": 69786,
+    "enriched_entities": 229,
+    "created_cells": 1063064,
+    "pre_edge_entities": 31678,
+    "reference_edges": 40075,
+    "integrity": "ok"
+  },
+  "replay": {
+    "status": "no_op",
+    "new": 0,
+    "enrich": 0,
+    "unchanged": 71753,
+    "conflicts": 0,
+    "missing_from_source": 0,
+    "created_entities": 0,
+    "created_cells": 0,
+    "backup_rewritten": false,
+    "integrity": "ok"
+  },
+  "database": {
+    "path": "D:/Ai/work together/SEDB/projects/wanxiang-character-canon/wanxiang-character-canon.sqlite",
+    "git_ignored": true,
+    "length": 399114240,
+    "sha256": "3426A60131652D4797BF0A44A124B4CF74587A0645CF6E11C6598D3CD1E08B49",
+    "integrity": "ok",
+    "entities": 71753,
+    "cells": 1102664,
+    "fields": 174,
+    "views": 19,
+    "per_kind": {
+      "wanxiang_build_snapshot": 1,
+      "wanxiang_character_form_snapshot": 228,
+      "wanxiang_character_identity": 165,
+      "wanxiang_hero_sentinel_snapshot": 1,
+      "wanxiang_methodology_reference": 2,
+      "wanxiang_reference_edge_snapshot": 40075,
+      "wanxiang_source_gap_snapshot": 8,
+      "wanxiang_table_row_snapshot": 29669,
+      "wanxiang_treasure_snapshot": 41,
+      "wanxiang_visual_asset_snapshot": 1391,
+      "wanxiang_visual_candidate_snapshot": 172
+    },
+    "edge_statuses": {
+      "resolved": 31117,
+      "missing_target": 8958,
+      "unknown_semantics": 0
+    }
+  },
+  "wave1_retention": {
+    "plan_status": "ready",
+    "source_fingerprint_under_scoped_comparison": "D9F16A148282D729B73497D7F5B3B16C134A3DC6EE8D4A5F6C3FABAE73F9E7B2",
+    "new": 0,
+    "enrich": 0,
+    "unchanged": 1967,
+    "conflicts": 0,
+    "missing_from_source": 0,
+    "backup_sha256": "5403E4AA92D36C92ED7D04CD17AD1A56DC0BCB547D5E32C412A6E6986C7E3862"
+  },
+  "tests": {
+    "project_default": {
+      "passed": 91,
+      "skipped": 5,
+      "failed": 0,
+      "elapsed_seconds": 78.66
+    },
+    "full_catalog_live": {
+      "passed": 1,
+      "failed": 0,
+      "elapsed_seconds": 146.69
+    },
+    "inherited_sedb": {
+      "passed": 189,
+      "failed": 0,
+      "elapsed_seconds": 86.01
+    }
+  },
+  "preservation": {
+    "research_tree": {
+      "files": 4171,
+      "bytes": 3612083998,
+      "metadata_sha256": "847B8F3D002DAE899972EFA49F0DA5FB220C12B6F87BFC0B5471C44CA3240FDF"
+    },
+    "installed_game_tree": {
+      "files": 529,
+      "bytes": 2495482349,
+      "metadata_sha256": "F3442EDB094C0BCC2871B3DA36D37583A6D83DFA14D7D213E9117C4C3B121D02"
+    },
+    "workshop_tree": {
+      "files": 0,
+      "bytes": 0,
+      "metadata_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    "current_diff_count": 0,
+    "unrelated_brief": {
+      "length": 6850,
+      "sha256": "30EF85D849D6FE6F711AB0C1FC39953B03DB3C4B8DD939501C21E7B76A64DF1F"
+    }
+  },
+  "not_measured": [
+    "Runtime ownership or behavioral parity of AllExcel versus packaged DAT data.",
+    "Runtime event reachability, RNG order, save boundaries, pacing, balance, and player fun.",
+    "Live MOD loading or save migration after data changes.",
+    "Gameplay-analysis reports and the final AI context index; those are later accepted tasks.",
+    "Push, publication, deployment, or release."
+  ]
+}

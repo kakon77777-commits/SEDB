@@ -93,5 +93,33 @@ The local SQLite file measured 14,749,696 bytes with SHA-256
 `6843DB0E16DB57E8E110A04DABC5F95F37817A6E34C2527F2F463A8DFACF1F3B`
 after the accepted no-op rerun. This accepts only the Wave 1 character/art
 foundation. The full-catalog implementation is present, but this table and hash
-remain the authoritative default-database state until the separate real catalog
-acceptance updates them.
+describe the preserved pre-catalog baseline; the current accepted database is
+the full static catalog below.
+
+## Measured full static catalog acceptance (2026-08-30)
+
+| Measurement | Accepted result |
+| --- | ---: |
+| AllExcel tables / rows | 36 / 29,939 |
+| EventDialog rows | 17,210 |
+| Pre-edge entities | 31,678 |
+| Reference edges | 40,075 |
+| Resolved / missing edges | 31,117 / 8,958 |
+| Total entities | 71,753 |
+| Total cells | 1,102,664 |
+| Registered fields / views | 174 / 19 |
+| First catalog apply | 69,786 new / 229 enriched |
+| Immediate replay | 71,753 unchanged, no-op |
+| SQLite integrity | `ok` |
+
+The accepted catalog fingerprint is
+`CD59082E7C2D92F0296EA5DCB91F33270470366DCD6A31F2BDD632A3A0A955FE`.
+The ignored database measures 399,114,240 bytes with SHA-256
+`3426A60131652D4797BF0A44A124B4CF74587A0645CF6E11C6598D3CD1E08B49`.
+
+The recoverable ignored Wave 1 backup is
+`local-backups/wave1-25006280.sqlite`, SHA-256
+`5403E4AA92D36C92ED7D04CD17AD1A56DC0BCB547D5E32C412A6E6986C7E3862`.
+Static reference edges do not prove runtime reachability, and this acceptance
+does not yet include the six gameplay-analysis reports or final AI context
+index.
