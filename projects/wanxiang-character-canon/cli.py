@@ -81,6 +81,8 @@ def _config_from_args(args, base: ProjectConfig) -> ProjectConfig:
 
 
 def _plan_payload(plan: DiffPlan) -> dict[str, Any]:
+    new_entity_ids = [entity.entity_id for entity in plan.new]
+    sample_limit = 20
     conflicts = [
         {
             "entity_id": conflict.entity_id,
@@ -92,7 +94,8 @@ def _plan_payload(plan: DiffPlan) -> dict[str, Any]:
     return {
         "build_id": plan.build_id,
         "new": len(plan.new),
-        "new_entity_ids": [entity.entity_id for entity in plan.new],
+        "new_entity_id_sample": new_entity_ids[:sample_limit],
+        "new_entity_ids_omitted": max(0, len(new_entity_ids) - sample_limit),
         "unchanged": len(plan.unchanged),
         "conflicts": conflicts,
         "missing_from_source": list(plan.missing_from_source),

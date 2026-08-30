@@ -98,6 +98,8 @@ def test_plan_is_read_only_for_entities(tmp_path):
     assert result.returncode == 0
     assert payload["status"] == "ready"
     assert payload["new"] == 11
+    assert len(payload["new_entity_id_sample"]) == 11
+    assert payload["new_entity_ids_omitted"] == 0
     with sqlite3.connect(database) as connection:
         assert connection.execute("SELECT COUNT(*) FROM entities").fetchone()[0] == 0
 
