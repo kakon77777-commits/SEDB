@@ -1,7 +1,8 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
+from typing import Mapping
 
 
 SOURCE_ROOT = Path(
@@ -29,6 +30,9 @@ class ProjectConfig:
     database_path: Path = Path(__file__).resolve().parent / DATABASE_NAME
     build_id: int = BUILD_ID
     namespace: str = NAMESPACE
+    expected_entity_counts: Mapping[str, int] = field(
+        default_factory=lambda: dict(ENTITY_COUNTS)
+    )
 
 
 def default_config() -> ProjectConfig:
