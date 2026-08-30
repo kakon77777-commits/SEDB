@@ -4,3 +4,4 @@
 *.sqlite-shm
 __pycache__/
 .pytest_cache/
+local-backups/

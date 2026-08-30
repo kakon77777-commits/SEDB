@@ -179,7 +179,12 @@ The reader must:
 - read shared strings, inline strings, booleans, integers, floats, strings,
   errors and blank cells deterministically;
 - preserve source row number;
-- reject a missing row-1 header or duplicate nonblank header name;
+- reject a missing row-1 header or duplicate nonblank header name by default;
+- permit only an audited, workbook-hash-bound header override: exact
+  EventSelection workbook SHA-256
+  `663C7422DE201BD6D5E8EC2923E5798AD94CA2C59F456138FB797AEBF50C2308`,
+  cell `CY1`, expected `Condition9`, replacement `Condition16`; this repairs the
+  documented slot-16 source typo without weakening duplicate-header rejection;
 - retain rows 2–4 as workbook metadata evidence but never emit them as source
   records;
 - canonicalize each data row with UTF-8, sorted keys and compact JSON;
@@ -189,6 +194,12 @@ The reader must:
 The existing reader failure on EventResult and Condition is a required
 regression case: their package-absolute relationship target must resolve to the
 same ZIP member as its relative equivalent.
+
+EventSelection is a second required regression: its source header row contains
+both the real slot-9 `Condition9` at `BI1` and a mislabeled slot-16 `Condition9`
+at `CY1`. An unqualified dictionary projection loses slot 9. The audited
+override must retain both `Condition9` and `Condition16`, and must fail if the
+workbook hash or expected `CY1` value changes.
 
 ## 5. Canon topology and stable identities
 

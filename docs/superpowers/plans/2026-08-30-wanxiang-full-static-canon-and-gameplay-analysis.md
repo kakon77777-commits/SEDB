@@ -81,6 +81,7 @@
 
 **Interfaces:**
 - Produces `WorkbookReadError(reason_code, message)`.
+- Produces `HeaderOverride(cell_reference, expected_header, replacement_header, reason, expected_workbook_sha256)`.
 - Produces immutable `WorkbookRow(row_number, values, canonical_json, sha256)`.
 - Produces immutable `WorkbookSnapshot(path, sha256, headers, metadata_rows, rows)`.
 - Produces `read_workbook(path: Path, sheet_name: str = "Sheet1") -> WorkbookSnapshot`.
@@ -111,6 +112,11 @@ def test_relative_and_package_absolute_targets_decode_identically(tmp_path):
 
 Also test path traversal, external target, missing relationship, duplicate
 header, missing row 1 and wrong sheet name with exact reason codes.
+
+Add one separate regression proving duplicate headers remain rejected without
+an override, while a hash-bound `B1: Condition9 -> Condition16` fixture retains
+both slot values. A wrong expected workbook hash must raise
+`header_override_workbook_mismatch`.
 
 - [ ] **Step 2: Run reader tests and verify RED**
 
@@ -173,6 +179,10 @@ assert row.sha256 == hashlib.sha256(payload).hexdigest().upper()
 `catalog_config.py` contains the ordered counts from the spec, total 29,939,
 manifest SHA, source-layer constants, reader version `wanxiang-openxml/v1` and
 exact source paths.
+
+It also defines the sole real override for EventSelection SHA
+`663C7422DE201BD6D5E8EC2923E5798AD94CA2C59F456138FB797AEBF50C2308`,
+`CY1`, expected `Condition9`, replacement `Condition16`.
 
 ```python
 @dataclass(frozen=True)
