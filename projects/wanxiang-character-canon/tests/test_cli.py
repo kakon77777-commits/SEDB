@@ -202,6 +202,10 @@ def test_search_expands_stored_identity_form_and_asset_links(tmp_path):
     assert "wanxiang_character_identity" in kinds
     assert "wanxiang_character_form_snapshot" in kinds
     assert "wanxiang_visual_asset_snapshot" in kinds
+    assert {record["match"] for record in payload["results"]} == {
+        "direct",
+        "stored_link",
+    }
 
 
 def test_show_returns_sparse_cells_and_stored_links(tmp_path):
@@ -243,3 +247,4 @@ def test_unresolved_lists_gap_and_ambiguous_candidate(tmp_path):
         "wanxiang_source_gap_snapshot",
         "wanxiang_visual_candidate_snapshot",
     }
+    assert all("gap_candidates" not in record["values"] for record in payload["results"])

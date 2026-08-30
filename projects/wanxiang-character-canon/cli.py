@@ -27,6 +27,26 @@ class JSONArgumentParser(argparse.ArgumentParser):
         raise CLIUsageError(message)
 
 
+SUMMARY_VALUE_KEYS = (
+    "normalized_name_key",
+    "identity_status",
+    "linked_form_ids",
+    "identity_entity_id",
+    "hero_id",
+    "name_zh",
+    "role_class",
+    "resource_numeric_id",
+    "resource_path",
+    "mapping_status",
+    "extraction_status",
+    "png_path",
+    "related_expected_path",
+    "gap_kind",
+    "gap_expected_path",
+    "gap_reason",
+)
+
+
 def _configure_utf8() -> None:
     for stream in (sys.stdout, sys.stderr):
         reconfigure = getattr(stream, "reconfigure", None)
@@ -155,6 +175,22 @@ def _record_matches(record: dict[str, Any], query: str) -> bool:
     return needle in projection.casefold()
 
 
+def _record_summary(record: dict[str, Any], *, match: str = "") -> dict[str, Any]:
+    result = {
+        "id": record["id"],
+        "kind": record["kind"],
+        "label": record["label"],
+        "values": {
+            key: record["values"][key]
+            for key in SUMMARY_VALUE_KEYS
+            if key in record["values"]
+        },
+    }
+    if match:
+        result["match"] = match
+    return result
+
+
 def _linked_ids(
     record: dict[str, Any], records: dict[str, dict[str, Any]]
 ) -> dict[str, set[str]]:
@@ -234,7 +270,10 @@ def _search(store: CanonStore, query: str, *, limit: int = 200) -> list[dict[str
         for linked in links.values():
             expanded.update(linked)
     return [
-        records[entity_id]
+        _record_summary(
+            records[entity_id],
+            match="direct" if entity_id in matched else "stored_link",
+        )
         for entity_id in sorted(
             expanded,
             key=lambda item: (
@@ -258,18 +297,21 @@ def _show(store: CanonStore, entity_id: str) -> tuple[dict[str, Any], dict[str, 
 
 def _unresolved(store: CanonStore) -> list[dict[str, Any]]:
     records = _load_records(store)
-    return sorted(
-        (
-            record
-            for record in records.values()
-            if record["kind"]
-            in {
-                "wanxiang_source_gap_snapshot",
-                "wanxiang_visual_candidate_snapshot",
-            }
-        ),
-        key=lambda record: (record["kind"], record["label"], record["id"]),
-    )
+    return [
+        _record_summary(record)
+        for record in sorted(
+            (
+                record
+                for record in records.values()
+                if record["kind"]
+                in {
+                    "wanxiang_source_gap_snapshot",
+                    "wanxiang_visual_candidate_snapshot",
+                }
+            ),
+            key=lambda record: (record["kind"], record["label"], record["id"]),
+        )
+    ]
 
 
 def _run(args, config: ProjectConfig) -> tuple[int, dict[str, Any]]:
