@@ -44,8 +44,13 @@ python -m pytest -q projects\wanxiang-character-canon\tests
 python projects\wanxiang-character-canon\cli.py plan --build 25006280
 python projects\wanxiang-character-canon\cli.py bootstrap --build 25006280
 python projects\wanxiang-character-canon\cli.py stats
+python projects\wanxiang-character-canon\cli.py search 万轻舟
+python projects\wanxiang-character-canon\cli.py show wx-char-IDENTIFIER
+python projects\wanxiang-character-canon\cli.py unresolved
 ```
 
 `plan` is read-only. `bootstrap` must recompute the complete plan and applies
-only an unblocked batch in one transaction. CLI implementation follows in the
-later Wave 1 tasks.
+only an unblocked batch in one transaction. Every command writes one UTF-8 JSON
+object to stdout. Exit codes are `0` for success/no-op/read-only queries, `2`
+for source or usage rejection, `3` for schema/source conflicts, and `4` for
+storage, readback, integrity, or lookup failures.
