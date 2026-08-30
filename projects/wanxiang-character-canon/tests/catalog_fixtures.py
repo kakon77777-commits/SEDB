@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import html
+import hashlib
+import json
 import zipfile
 from dataclasses import dataclass
 from pathlib import Path
@@ -11,6 +13,12 @@ from typing import Any, Iterable
 class XlsxCell:
     value: Any
     cell_type: str
+
+
+@dataclass(frozen=True)
+class CatalogFixture:
+    root: Path
+    contract: Any
 
 
 def _column_name(index: int) -> str:
@@ -128,3 +136,163 @@ def write_xlsx_fixture(
                 f"{items}</sst>",
             )
     return path
+
+
+def build_catalog_fixture(root: Path) -> CatalogFixture:
+    from catalog_config import CatalogContract
+
+    source_root = root / "AllExcel"
+    runtime_root = root / "StreamingAssets"
+    runtime_root.mkdir(parents=True, exist_ok=True)
+    books = {
+        "Hero": {
+            "headers": (
+                "Id",
+                "IdName",
+                "Name",
+                "Birth",
+                "Type",
+                "Title",
+                "CardName",
+                "BaseDesc",
+                "Desc",
+                "Level",
+                "Menpai",
+                "CardRare",
+                "CardPath",
+                "Image",
+                "Hp",
+                "Power",
+                "SkillId0",
+                "SkillId1",
+                "SkillId2",
+                "SkillId3",
+                "IsPlayer",
+                "Property0",
+                "Property1",
+                "Property2",
+                "Property3",
+                "Property4",
+                "Property5",
+                "Ji0",
+                "JiValue0",
+                "Ji1",
+                "JiValue1",
+                "Ji2",
+                "JiValue2",
+                "ParentId",
+                "IsAtlas",
+                "AtlasIndex",
+                "GetDesc",
+                "Point",
+                "ExtraHeroId",
+                "SkinGroupId",
+                "StoryId",
+                "RouteFilter",
+                "Flag",
+                "NameTw",
+                "TitleTw",
+                "DescTw",
+                "GetDescTw",
+                "CardNameTw",
+            ),
+            "rows": (
+                (
+                    1001, "万轻舟1", "万轻舟", 101, 0, "南天玉柱",
+                    "人物卡", "基础背景", "完整人物背景", 5, "1002", 3,
+                    "Roles/Card/1001", "Roles/Image/1001", 100, 20,
+                    10, 11, -1, None, False,
+                    1, 2, -1, None, None, None,
+                    7, 70, -1, -1, None, None,
+                    -1, False, -1, "取得说明", 8,
+                    None, None, None, -1, True,
+                    "萬輕舟", "南天玉柱", "完整人物背景繁中", "取得說明", "人物卡",
+                ),
+                (
+                    20001, "宝物一", "宝物一", 101, 1, "宝物",
+                    "宝物卡", None, "宝物描述", 1, None, 1,
+                    "Roles/Card/20001", "Roles/Image/20001", None, None,
+                    None, None, None, None, None,
+                    None, None, None, None, None, None,
+                    -1, -1, -1, -1, -1, -1,
+                    -1, False, -1, None, None,
+                    None, None, None, -1, True,
+                    "寶物一", "寶物", "寶物描述", None, "寶物卡",
+                ),
+                (
+                    -1, "无角色", "无角色", 101, None, None,
+                    None, None, None, None, None, None,
+                    None, None, None, None,
+                    None, None, None, None, None,
+                    -1, -1, -1, -1, -1, -1,
+                    -1, -1, -1, -1, -1, -1,
+                    -1, False, -1, None, None,
+                    None, None, None, -1, True,
+                    "無角色", None, None, None, None,
+                ),
+            ),
+        },
+        "EventDialog": {
+            "headers": ("Id", "Name", "Desc", "DescTw", "NextDialogId", "NextEventId"),
+            "rows": (
+                (10, "万轻舟", "完整对话甲", "完整對話甲", 11, -1),
+                (11, "主角", "完整对话乙", "完整對話乙", -1, 99),
+            ),
+        },
+        "Formula": {
+            "headers": ("Id", "BaseValue"),
+            "rows": ((None, 5),),
+        },
+    }
+    records = []
+    table_counts = {}
+    for table, spec in books.items():
+        headers = spec["headers"]
+        workbook = write_xlsx_fixture(
+            source_root / f"{table}.xlsx",
+            relationship_target="worksheets/sheet1.xml",
+            headers=headers,
+            metadata_rows=(
+                tuple("STRING" for _ in headers),
+                tuple(None for _ in headers),
+                tuple(f"{header} description" for header in headers),
+            ),
+            data_rows=spec["rows"],
+        )
+        data = workbook.read_bytes()
+        table_counts[table] = len(spec["rows"])
+        records.append(
+            {
+                "sourceClass": "GAME",
+                "relativePath": f"wanxiang/ModDocs/AllExcel/{table}.xlsx",
+                "length": len(data),
+                "lastWriteTimeUtc": "2026-08-30T00:00:00Z",
+                "attributes": "Archive",
+                "sha256": hashlib.sha256(data).hexdigest().upper(),
+            }
+        )
+    manifest = root / "current-verification.manifest.json"
+    manifest.write_text(
+        json.dumps(
+            {
+                "schema": "wanxiang-source-inventory/v1",
+                "roots": {"game": "fixture"},
+                "records": records,
+            },
+            ensure_ascii=False,
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+    contract = CatalogContract(
+        source_root=source_root,
+        manifest_path=manifest,
+        manifest_sha256=hashlib.sha256(manifest.read_bytes()).hexdigest().upper(),
+        table_counts=table_counts,
+        runtime_candidate_root=runtime_root,
+        runtime_candidate_count=0,
+    )
+    return CatalogFixture(root=root, contract=contract)

@@ -4,7 +4,7 @@ import hashlib
 import json
 import re
 from collections import Counter
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path, PurePosixPath
 from typing import Any, Iterable
 
@@ -112,6 +112,10 @@ class SourceEntity:
     label: str
     values: dict[str, Any]
     cell_source: str
+    cell_sources: dict[str, str] = field(default_factory=dict)
+
+    def source_for(self, key: str) -> str:
+        return self.cell_sources.get(key, self.cell_source)
 
 
 @dataclass(frozen=True)
@@ -120,6 +124,9 @@ class SnapshotSelection:
     source_hashes: dict[str, str]
     entities: tuple[SourceEntity, ...]
     counts: dict[str, int]
+    scope_name: str = "wave1"
+    owned_keys: frozenset[str] = frozenset()
+    scope_entity_kinds: frozenset[str] = frozenset()
 
 
 @dataclass(frozen=True)
@@ -977,4 +984,9 @@ def load_snapshot(config: ProjectConfig) -> SnapshotSelection:
         source_hashes=source_hashes,
         entities=tuple(entities),
         counts=counts,
+        scope_name="wave1",
+        owned_keys=frozenset(
+            key for entity in entities for key in entity.values
+        ),
+        scope_entity_kinds=frozenset(counts),
     )
