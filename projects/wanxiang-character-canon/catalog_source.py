@@ -219,6 +219,24 @@ def _row_source(row: CatalogRow) -> str:
     return f"wanxiang:{row.workbook_path}#row={row.row_number}"
 
 
+def catalog_row_entity_id(build_id: int, row: CatalogRow) -> str:
+    if row.table != "Hero":
+        table_key = row.table
+    elif row.payload.get("Type") == 0:
+        return form_entity_id(build_id, int(row.source_id))
+    elif row.payload.get("Type") == 1:
+        table_key = "HeroTreasure"
+    else:
+        table_key = "HeroSentinel"
+    return table_row_entity_id(
+        build_id,
+        table_key,
+        row.source_id,
+        row_number=row.row_number,
+        workbook_sha256=row.workbook_sha256,
+    )
+
+
 def _without_none(values: dict[str, Any]) -> dict[str, Any]:
     return {key: value for key, value in values.items() if value is not None}
 
@@ -258,13 +276,7 @@ def _row_entity(build_id: int, row: CatalogRow) -> SourceEntity:
         or f"row {row.row_number}"
     )
     return SourceEntity(
-        entity_id=table_row_entity_id(
-            build_id,
-            row.table,
-            row.source_id,
-            row_number=row.row_number,
-            workbook_sha256=row.workbook_sha256,
-        ),
+        entity_id=catalog_row_entity_id(build_id, row),
         kind="wanxiang_table_row_snapshot",
         label=f"{row.table} {label_value}",
         values=values,
@@ -332,7 +344,7 @@ def _hero_extension(build_id: int, row: CatalogRow) -> SourceEntity:
         )
     )
     return SourceEntity(
-        entity_id=form_entity_id(build_id, hero_id),
+        entity_id=catalog_row_entity_id(build_id, row),
         kind="wanxiang_character_form_snapshot",
         label=f"{payload.get('Name')} [{hero_id}]",
         values=values,
@@ -425,13 +437,7 @@ def _hero_non_form_entity(
         )
     )
     return SourceEntity(
-        entity_id=table_row_entity_id(
-            build_id,
-            table_key,
-            row.source_id,
-            row_number=row.row_number,
-            workbook_sha256=row.workbook_sha256,
-        ),
+        entity_id=catalog_row_entity_id(build_id, row),
         kind=kind,
         label=f"{row.payload.get('Name')} [{row.source_id}]",
         values=values,
@@ -536,17 +542,52 @@ def compose_full_selection(
     *,
     include_edges: bool = False,
 ) -> SnapshotSelection:
-    if include_edges:
-        raise CatalogSourceError(
-            "reference_graph_unavailable",
-            "reference graph is introduced by Task 5",
-        )
     entities = compose_catalog_entities(wave1.build_id, wave1.entities, catalog)
     represented_rows = sum("source_table" in entity.values for entity in entities)
     if represented_rows != len(catalog.rows):
         raise CatalogSourceError(
             "catalog_row_representation_mismatch",
             f"expected {len(catalog.rows)}, got {represented_rows}",
+        )
+    from reference_graph import normalize_repeated_operations
+
+    operation_fields = {
+        "Condition": "condition_operations",
+        "EventResult": "event_result_operations",
+        "EventSelection": "selection_options",
+        "Relation": "guide_steps",
+    }
+    by_id = {entity.entity_id: entity for entity in entities}
+    for row in catalog.rows:
+        field_key = operation_fields.get(row.table)
+        if field_key is None:
+            continue
+        entity_id = catalog_row_entity_id(wave1.build_id, row)
+        base = by_id[entity_id]
+        extension = SourceEntity(
+            entity_id=base.entity_id,
+            kind=base.kind,
+            label=base.label,
+            values={field_key: normalize_repeated_operations(row.table, row.payload)},
+            cell_source=_row_source(row),
+        )
+        by_id[entity_id] = merge_source_entities(base, extension)
+    entities = tuple(sorted(by_id.values(), key=lambda entity: entity.entity_id))
+    if include_edges:
+        from reference_graph import build_reference_edges
+
+        edge_entities = build_reference_edges(wave1.build_id, catalog)
+        known_ids = {entity.entity_id for entity in entities}
+        overlap = known_ids & {entity.entity_id for entity in edge_entities}
+        if overlap:
+            raise CatalogSourceError(
+                "duplicate_catalog_entity_id", str(sorted(overlap))
+            )
+        entities = tuple(
+            sorted(
+                (*entities, *edge_entities),
+                key=lambda entity: entity.entity_id,
+            )
         )
     counts = dict(Counter(entity.kind for entity in entities))
     source_hashes = dict(wave1.source_hashes)

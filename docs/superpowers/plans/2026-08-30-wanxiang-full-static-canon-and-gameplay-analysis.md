@@ -19,7 +19,7 @@
 - Source-manifest SHA-256 is `0B607E20ADE02510181CB5B3145AE3F0D68E6AABA16C50458A0E725EFC5C6F1F`; validate all 36 member length/hash records.
 - Exact source contract is 36 tables, 29,939 data rows, 228 `Type=0` Hero rows, 41 `Type=1`, one Hero sentinel, 17,210 EventDialog rows and one null-ID Formula row.
 - Register exactly 52 frozen `StreamingAssets/*.dat` runtime candidates by path, length and SHA without decoding them or adding row entities.
-- Exact pre-edge full-catalog entity count is 31,678. Reference-edge count is deterministic source output and must be printed and replay-verified before apply.
+- Exact pre-edge full-catalog entity count is 31,678; exact v1 reference-edge count is 40,075 (31,117 resolved / 8,958 missing), for 71,753 full entities.
 - `ModTools/Data`, `ModTools/Excel` and Workshop snapshots remain noncanonical provenance layers.
 - Default database is generated/ignored `projects/wanxiang-character-canon/wanxiang-character-canon.sqlite`; never stage it or its backup/sidecars.
 - Existing source-owned cells are immutable. Catalog migration may insert only new entities and absent source cells; any differing existing value/source blocks the invocation.
@@ -686,7 +686,8 @@ $env:WANXIANG_CANON_LIVE='1'
 python -m pytest -q projects\wanxiang-character-canon\tests\test_reference_graph.py -k real
 ```
 
-Print real deterministic edge/status/rule counts. Do not write the default DB.
+Require exactly 40,075 edges, 31,117 resolved, 8,958 missing and zero unknown;
+print the complete per-rule breakdown. Do not write the default DB.
 
 - [ ] **Step 8: Commit Task 5**
 
@@ -818,7 +819,7 @@ python projects\wanxiang-character-canon\cli.py catalog-plan --build 25006280
 python projects\wanxiang-character-canon\cli.py catalog-plan --build 25006280
 ```
 
-Require identical fingerprints, 31,678 pre-edge base, deterministic edges,
+Require identical fingerprints, 31,678 pre-edge base, 40,075 edges,
 zero conflicts/missing and zero DB entity changes.
 
 - [ ] **Step 5: Run first real catalog bootstrap**
@@ -1062,7 +1063,8 @@ backup, canonical context index, six reports, preservation and runtime/MOD work.
   `PlannedCell`, `EntityEnrichment`, `DiffPlan`, `ReferenceEdge`, `Claim` and
   `ContextIndex` each have one declared producer and named consumers.
 - Exact counts: 36 / 29,939 / 31,678 / 228 / 41 / 1 / 17,210 are hard gates;
-  edge count is deterministic output verified twice before apply.
+  edge count is 40,075 and is verified twice before apply; full entity count is
+  71,753.
 - No guessed enums: only documented Event LogicType 0–5 maps logic targets;
   Condition/EventResult operation targets remain raw/unknown.
 - No placeholders: steps name files, interfaces, tests, commands, failures and

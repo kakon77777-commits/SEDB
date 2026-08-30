@@ -57,3 +57,21 @@ def table_row_entity_id(
     if not re.fullmatch(r"[0-9A-F]{64}", normalized_sha):
         raise ValueError("workbook_sha256 must be 64 hexadecimal characters")
     return f"{prefix}-r{row_number}-{_digest([build_id, table_key, row_number, normalized_sha])}"
+
+
+def reference_edge_entity_id(
+    source_entity_id: str,
+    source_field: str,
+    slot: int,
+    target_table: str | None,
+    target_source_id: Any,
+) -> str:
+    return "wx-edge-" + _digest(
+        [
+            source_entity_id,
+            source_field,
+            slot,
+            target_table,
+            target_source_id,
+        ]
+    )

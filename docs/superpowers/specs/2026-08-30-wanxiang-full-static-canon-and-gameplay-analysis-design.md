@@ -328,9 +328,11 @@ Every explicit reference becomes a
 The stable edge ID is the first 16 characters of SHA-256 over canonical source
 entity ID, source field, slot, target table and canonical target ID.
 
-The exact edge count is source-derived. `plan` must publish the deterministic
-count and per-rule breakdown before apply; the accepted rerun must reproduce
-the same count and edge IDs.
+For the accepted Build/source/rule version, the exact edge count is 40,075:
+31,117 `resolved`, 8,958 `missing_target` and zero `unknown_semantics`.
+`plan` must publish the deterministic count and per-rule breakdown before apply;
+the accepted rerun must reproduce the same count and edge IDs. Combined with
+the 31,678 pre-edge base, the exact full entity count is 71,753.
 
 ### 7.2 Explicit reference families
 
@@ -645,7 +647,7 @@ Require:
 - all Wave 1 project tests remain green;
 - all new project tests pass;
 - inherited SEDB `current/` 189 tests pass;
-- exact 31,678 pre-edge entity base plus deterministic edge count;
+- exact 31,678 pre-edge entity base plus 40,075 edges, totaling 71,753;
 - 29,939 source rows represented exactly once;
 - 228 enriched forms, 41 treasures and one sentinel;
 - EventDialog count 17,210;
