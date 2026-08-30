@@ -1,0 +1,198 @@
+{
+  "schema": "wanxiang-full-static-verification/v1",
+  "status": "WANXIANG_FULL_STATIC_CANON_PASS",
+  "generated_at": "2026-08-30T22:48:06.9280869+08:00",
+  "build_id": 25006280,
+  "verification_basis": {
+    "commit": "8f5ea67327db00eeb07fc7f9f05de0f6dca5f8f8",
+    "tree": "f7e024923a937489590cb93c94419615f3fcec3e",
+    "meaning": "Accepted full database and gameplay-report implementation basis; final context and verification documents are committed with this evidence and do not claim a self-referential commit."
+  },
+  "accepted_static_canon": {
+    "source_manifest_sha256": "0B607E20ADE02510181CB5B3145AE3F0D68E6AABA16C50458A0E725EFC5C6F1F",
+    "catalog_fingerprint": "CD59082E7C2D92F0296EA5DCB91F33270470366DCD6A31F2BDD632A3A0A955FE",
+    "catalog_source_fingerprint": "BF86C777495A61766E40DA06E2AB96DE2BB9F2582DD0B91A8C6F477691F0860A",
+    "reference_rule_version": "wanxiang-reference-rules/v1",
+    "source_tables": 36,
+    "source_rows": 29939,
+    "event_dialog_rows": 17210,
+    "pre_edge_entities": 31678,
+    "reference_edges": 40075,
+    "resolved_edges": 31117,
+    "missing_target_edges": 8958,
+    "full_entities": 71753,
+    "cells": 1102664,
+    "fields": 174,
+    "views": 19
+  },
+  "database": {
+    "path": "D:/Ai/work together/SEDB/projects/wanxiang-character-canon/wanxiang-character-canon.sqlite",
+    "length": 399114240,
+    "sha256": "3426A60131652D4797BF0A44A124B4CF74587A0645CF6E11C6598D3CD1E08B49",
+    "integrity": "ok",
+    "git_ignored": true
+  },
+  "wave1_backup": {
+    "path": "D:/Ai/work together/SEDB/projects/wanxiang-character-canon/local-backups/wave1-25006280.sqlite",
+    "length": 14749696,
+    "sha256": "5403E4AA92D36C92ED7D04CD17AD1A56DC0BCB547D5E32C412A6E6986C7E3862",
+    "integrity": "ok",
+    "git_ignored": true
+  },
+  "replay": {
+    "catalog_plan": {
+      "status": "ready",
+      "new": 0,
+      "enrich": 0,
+      "unchanged": 71753,
+      "conflicts": 0,
+      "missing_from_source": 0
+    },
+    "catalog_bootstrap": {
+      "status": "no_op",
+      "created_entities": 0,
+      "enriched_entities": 0,
+      "created_cells": 0,
+      "backup": null,
+      "integrity": "ok"
+    },
+    "wave1_plan": {
+      "status": "ready",
+      "new": 0,
+      "enrich": 0,
+      "unchanged": 1967,
+      "conflicts": 0,
+      "missing_from_source": 0,
+      "source_fingerprint": "D9F16A148282D729B73497D7F5B3B16C134A3DC6EE8D4A5F6C3FABAE73F9E7B2"
+    },
+    "wave1_bootstrap": {
+      "status": "no_op",
+      "created_entities": 0,
+      "created_cells": 0,
+      "integrity": "ok"
+    }
+  },
+  "gameplay_reports": {
+    "output_root": "D:/AI_RESIDENCE/AI_gamedesign/Wanxiang-Qunxia-Zhuan-research/analysis/sedb-wave2-4",
+    "json_reports": 6,
+    "markdown_reports": 6,
+    "report_manifest_length": 2868,
+    "report_manifest_sha256": "F78F8ED32EAF9332F9FF4314C606206A5FD777257B6F7825A69270B006D803D0",
+    "deterministic_replay": true,
+    "database_metric_reconciliations": 6,
+    "claim_classes_per_report": [
+      "OBSERVED",
+      "INFERRED",
+      "UNKNOWN",
+      "FALSIFYING_TEST"
+    ]
+  },
+  "context_index": {
+    "canonical_human": {
+      "path": "D:/AI_RESIDENCE/AI_gamedesign/Wanxiang-Qunxia-Zhuan-research/AI_CONTEXT_INDEX.md",
+      "length": 8201,
+      "sha256": "9793C6B82AAFE51C794409F4502EA15C50B396F9C428CAD9463C10768D9A12CD"
+    },
+    "machine_json": {
+      "path": "D:/AI_RESIDENCE/AI_gamedesign/Wanxiang-Qunxia-Zhuan-research/analysis/sedb-wave2-4/context-index.json",
+      "length": 15481,
+      "sha256": "AB832E0E9F2EBB3318414D017C8A97D3D069591A8EF9BD2E1CF5645269185A90"
+    },
+    "sedb_pointer": {
+      "path": "D:/Ai/work together/SEDB/projects/wanxiang-character-canon/AI_CONTEXT_INDEX.md",
+      "length": 828,
+      "sha256": "9A060B831E7069CA8C3BFD83CBF636076073EB1A65238DEA55866237FB1A05BA"
+    },
+    "link_checks": 30,
+    "link_failures": 0,
+    "report_count": 6,
+    "reading_order_items": 6,
+    "single_canonical_human_index": true
+  },
+  "tests": {
+    "wanxiang_default": {
+      "passed": 101,
+      "failed": 0,
+      "skipped": 5,
+      "elapsed_seconds": 61.80
+    },
+    "wanxiang_live_full": {
+      "passed": 106,
+      "failed": 0,
+      "skipped": 0,
+      "elapsed_seconds": 217.15
+    },
+    "inherited_sedb": {
+      "passed": 189,
+      "failed": 0,
+      "elapsed_seconds": 53.64
+    },
+    "compileall": {
+      "exit_code": 0
+    }
+  },
+  "preservation": {
+    "algorithm": "sorted-relative-path-length-mtime-ns-json/v1",
+    "research_excluding_authorized_outputs": {
+      "before": {
+        "files": 4171,
+        "bytes": 3612083998,
+        "metadata_sha256": "4767B7BD6789662D2BD2040EAEE86D54AED155C7561F96FA6D27F4B46BF904F0"
+      },
+      "after": {
+        "files": 4171,
+        "bytes": 3612083998,
+        "metadata_sha256": "4767B7BD6789662D2BD2040EAEE86D54AED155C7561F96FA6D27F4B46BF904F0"
+      }
+    },
+    "installed_game": {
+      "before": {
+        "files": 529,
+        "bytes": 2495482349,
+        "metadata_sha256": "AE6AD02124B67EC72DD9692BBA8822C998683786830C7A84BFC7C31EC9FF4512"
+      },
+      "after": {
+        "files": 529,
+        "bytes": 2495482349,
+        "metadata_sha256": "AE6AD02124B67EC72DD9692BBA8822C998683786830C7A84BFC7C31EC9FF4512"
+      }
+    },
+    "workshop": {
+      "before": {
+        "files": 0,
+        "bytes": 0,
+        "metadata_sha256": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945"
+      },
+      "after": {
+        "files": 0,
+        "bytes": 0,
+        "metadata_sha256": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945"
+      }
+    },
+    "sedb_current_diff_count": 0,
+    "unrelated_brief": {
+      "path": "D:/Ai/work together/SEDB/docs/BRIEF_unbounded_axiom_corpus_sedb_2026-08-25.md",
+      "length": 6850,
+      "sha256": "30EF85D849D6FE6F711AB0C1FC39953B03DB3C4B8DD939501C21E7B76A64DF1F",
+      "tracked_or_staged": false
+    }
+  },
+  "scope": {
+    "installed_game_writes": 0,
+    "workshop_writes": 0,
+    "current_core_changes": 0,
+    "database_or_backup_committed": false,
+    "push": false,
+    "publication": false,
+    "deployment": false,
+    "release": false
+  },
+  "not_measured": [
+    "Runtime ownership or behavioral parity of AllExcel versus packaged DAT data.",
+    "Runtime event reachability, selection order, RNG behavior, save-state transitions, pacing, balance, and player fun.",
+    "Live MOD loading, compatibility, save migration, or actual Workshop publication.",
+    "Visual-redesign quality or adoption of a replacement character-art set.",
+    "Push, PR, publication, deployment, or release."
+  ],
+  "status_boundary": "WANXIANG_FULL_STATIC_CANON_PASS accepts the frozen static canon, explicit reference graph, six static analyses, and context handoff only. It does not accept runtime behavior or gameplay fun."
+}

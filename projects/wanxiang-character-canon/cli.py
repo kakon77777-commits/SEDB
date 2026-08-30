@@ -11,6 +11,7 @@ from catalog_config import CatalogContract, default_catalog_contract
 from catalog_source import CatalogSourceError, compose_full_catalog
 from backup import BackupError, create_verified_backup
 from config import ProjectConfig, default_config
+from context_index import ContextIndexError, validate_default_context_index
 from gameplay.common import GameplayDataError
 from gameplay.export import ANALYZERS, export_gameplay_reports
 from store import (
@@ -137,6 +138,10 @@ def _parser() -> JSONArgumentParser:
     )
     gameplay_report.add_argument("name", choices=("all", *ANALYZERS))
     gameplay_report.add_argument("--output-root", type=Path)
+    commands.add_parser(
+        "context-index",
+        help="Validate the canonical human and machine AI context indexes read-only.",
+    )
     return parser
 
 
@@ -648,6 +653,9 @@ def _run(
             "sha256_by_path": manifest.sha256_by_path,
         }
 
+    if args.command == "context-index":
+        return 0, validate_default_context_index(config)
+
     store = CanonStore.open(config)
     if args.command == "stats":
         return 0, {"status": "ok", **store.stats()}
@@ -765,6 +773,13 @@ def main(
             "message": str(exc),
         }
     except GameplayDataError as exc:
+        exit_code = 4
+        payload = {
+            "status": "error",
+            "reason_code": exc.reason_code,
+            "message": str(exc),
+        }
+    except ContextIndexError as exc:
         exit_code = 4
         payload = {
             "status": "error",

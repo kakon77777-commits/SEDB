@@ -1,11 +1,38 @@
 # Wanxiang Character Canon SEDB — Verification
 
-Status: `STATIC_GAMEPLAY_REPORTS_ACCEPTED`
+Status: `WANXIANG_FULL_STATIC_CANON_PASS`
 
 The current local database accepts the complete 36-table, 29,939-row frozen
 AllExcel projection and its explicit v1 reference graph for BuildID `25006280`.
 It remains a static documented-data result, not runtime or gameplay-fun
 acceptance.
+
+## Final full-static acceptance
+
+| Gate | Fresh result |
+| --- | --- |
+| Wanxiang project suite with all live gates | 106 passed / 0 failed (217.15s) |
+| Inherited SEDB suite | 189 passed / 0 failed (53.64s) |
+| Python compile gate | exit 0 |
+| Full catalog replay | 71,753 unchanged; bootstrap `no_op` |
+| Wave 1 replay | 1,967 unchanged; bootstrap `no_op` |
+| Gameplay report replay | 12 / 12 hashes identical |
+| Context validation | 30 links / 0 failures / 6 reports |
+| Research/game/Workshop preservation | exact before/after metadata signatures |
+| SEDB `current/` diff | 0 |
+| Installed game / Workshop writes | 0 / 0 |
+
+The canonical human handoff is
+`D:\AI_RESIDENCE\AI_gamedesign\Wanxiang-Qunxia-Zhuan-research\AI_CONTEXT_INDEX.md`.
+The machine index is `analysis\sedb-wave2-4\context-index.json`; the SEDB-side
+`AI_CONTEXT_INDEX.md` is intentionally only a discovery pointer. Machine final
+evidence is
+[`evidence/full-static-verification.json`](evidence/full-static-verification.json).
+
+`WANXIANG_FULL_STATIC_CANON_PASS` accepts only the frozen static canon, explicit
+reference graph, six static gameplay analyses, and context handoff. It does not
+accept runtime reachability, balance, player fun, live MOD loading, or an art
+replacement set.
 
 ## Static gameplay report result
 

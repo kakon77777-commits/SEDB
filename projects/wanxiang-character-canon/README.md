@@ -54,6 +54,8 @@ python projects\wanxiang-character-canon\cli.py dialog 10
 python projects\wanxiang-character-canon\cli.py edges ENTITY_ID --direction both
 python projects\wanxiang-character-canon\cli.py route 1
 python projects\wanxiang-character-canon\cli.py gameplay-report all
+python projects\wanxiang-character-canon\context_index.py refresh
+python projects\wanxiang-character-canon\cli.py context-index
 ```
 
 `plan` is read-only. `bootstrap` must recompute the complete plan and applies
@@ -137,5 +139,20 @@ choice/consequence, time/pacing fields, relationship routes, and
 combat/progression. Every report separates `OBSERVED`, `INFERRED`, `UNKNOWN`
 and `FALSIFYING_TEST`; static graph findings are never upgraded to runtime
 reachability or gameplay-fun claims. Machine acceptance evidence is in
-`evidence/gameplay-analysis-acceptance.json`. The final AI context index remains
-the next gate.
+`evidence/gameplay-analysis-acceptance.json`. The final AI context index is
+available through the canonical research-root index described below.
+
+## AI context handoff
+
+The single full human index is
+`D:\AI_RESIDENCE\AI_gamedesign\Wanxiang-Qunxia-Zhuan-research\AI_CONTEXT_INDEX.md`.
+Its machine companion is `analysis\sedb-wave2-4\context-index.json`; this SEDB
+project contains only a short discovery pointer in `AI_CONTEXT_INDEX.md` so
+changing counts and fingerprints are not duplicated.
+
+`context_index.py refresh` rebuilds the three authorized index artifacts from
+accepted database/report evidence. `cli.py context-index` is read-only: it
+recomputes the expected index, verifies all report hashes, compares both human
+and machine content, and checks all 30 local targets. The final accepted static
+status is `WANXIANG_FULL_STATIC_CANON_PASS`; runtime behavior and gameplay fun
+remain NotMeasured.
