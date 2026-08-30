@@ -534,7 +534,6 @@ def _run(
             include_edges=True,
         )
         store = CanonStore.open(config)
-        initialized = store.ensure_schema()
         first_plan = store.plan(first_selection)
         if first_plan.blocked:
             return 3, {
@@ -591,6 +590,7 @@ def _run(
                     **asdict(backup_result),
                     "path": str(backup_result.path),
                 }
+        initialized = store.ensure_schema()
         written = store.apply(verified_plan)
         return 0, {
             "status": (

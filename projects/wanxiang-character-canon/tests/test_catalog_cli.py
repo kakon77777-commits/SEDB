@@ -8,6 +8,7 @@ import sys
 from pathlib import Path
 
 from catalog_fixtures import build_catalog_fixture
+from catalog_schema import CATALOG_SOURCE_OWNED_KEYS, CATALOG_VIEW_SPECS
 from fixtures import build_snapshot_fixture
 from sedb.db import Database
 from sedb.entities import EntityService
@@ -248,6 +249,18 @@ def test_catalog_bootstrap_backs_up_existing_wave1_before_expansion(tmp_path):
     )
     assert seeded.returncode == 0
     assert seed_payload["created_entities"] == 11
+    historical = Database(database)
+    with historical.connect() as connection:
+        connection.executemany(
+            "DELETE FROM task_views WHERE name=?",
+            [(view.name,) for view in CATALOG_VIEW_SPECS],
+        )
+        connection.executemany(
+            "DELETE FROM fields WHERE key=?",
+            [(key,) for key in sorted(CATALOG_SOURCE_OWNED_KEYS)],
+        )
+    assert historical.scalar("SELECT COUNT(*) FROM fields") == 118
+    assert historical.scalar("SELECT COUNT(*) FROM task_views") == 9
 
     result, payload = run_catalog_cli(
         wave1, catalog, database, "catalog-bootstrap", "--build", "25006280"
@@ -261,3 +274,5 @@ def test_catalog_bootstrap_backs_up_existing_wave1_before_expansion(tmp_path):
     with sqlite3.connect(backup) as connection:
         assert connection.execute("PRAGMA integrity_check").fetchone()[0] == "ok"
         assert connection.execute("SELECT COUNT(*) FROM entities").fetchone()[0] == 11
+        assert connection.execute("SELECT COUNT(*) FROM fields").fetchone()[0] == 118
+        assert connection.execute("SELECT COUNT(*) FROM task_views").fetchone()[0] == 9
