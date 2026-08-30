@@ -54,3 +54,30 @@ only an unblocked batch in one transaction. Every command writes one UTF-8 JSON
 object to stdout. Exit codes are `0` for success/no-op/read-only queries, `2`
 for source or usage rejection, `3` for schema/source conflicts, and `4` for
 storage, readback, integrity, or lookup failures.
+
+## Measured Wave 1 acceptance (2026-08-30)
+
+The default local database was built from Steam BuildID `25006280` and remains
+Git-ignored at `projects/wanxiang-character-canon/wanxiang-character-canon.sqlite`.
+
+| Measurement | Accepted result |
+| --- | ---: |
+| Registered fields | 118 |
+| Task Views | 9 |
+| Entities | 1,967 |
+| Source-owned cells | 39,600 |
+| First bootstrap | 1,967 entities created |
+| Immediate second bootstrap | no-op, 1,967 unchanged |
+| Plan conflicts / missing | 0 / 0 |
+| SQLite integrity | `ok` |
+| Live acceptance | 1 passed |
+| Source tree before/after | 4,169 files / 3,612,075,730 bytes, unchanged |
+
+The accepted per-kind counts are the Wave 1 topology in the table above. The
+source fingerprint is
+`E9479199871688AD2C24F3F3A7336FB550FFDACB6D73A7CD4F4270FDDCB1C075`.
+The local SQLite file measured 14,749,696 bytes with SHA-256
+`6843DB0E16DB57E8E110A04DABC5F95F37817A6E34C2527F2F463A8DFACF1F3B`
+after the accepted no-op rerun. This accepts only the Wave 1 character/art
+foundation; the narrative and context work described as Waves 2–5 remains
+unimplemented.
