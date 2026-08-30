@@ -1,0 +1,156 @@
+{
+  "schema": "wanxiang-character-canon-verification/v1",
+  "status": "WANXIANG_CANON_WAVE1_PASS",
+  "generated_at": "2026-08-30T18:22:30.5679969+08:00",
+  "acceptance_scope": "Wave 1 character and art foundation only",
+  "verification_basis": {
+    "repository": "D:/Ai/work together/SEDB",
+    "branch": "main",
+    "direct_main_authority": true,
+    "normal_repository": true,
+    "pre_project_commit": "0d95c810661ecbeb83633ea9712dd24a41ce7e7f",
+    "tested_commit": "6093c3f51ab9247493d3faf7ead8990af46773a3",
+    "tested_tree": "c8f95ee90a2dec7f54042703653af9a9bfbd1caa",
+    "ahead_of_origin_main_before_verification_artifact_commit": 10,
+    "spec_sha256": "6133E9DA102F23D9244D887885AEF9F5BA4E76DD44524F7E8835273D0A384781",
+    "plan_sha256": "D21FF0810F291B35154E1F972637C2358C993E3B78B5A944C56CF14350AED097"
+  },
+  "tests": {
+    "project_live_suite": {
+      "command": "$env:PYTHONPATH='current\\src;projects\\wanxiang-character-canon'; $env:WANXIANG_CANON_LIVE='1'; python -m pytest -q projects\\wanxiang-character-canon\\tests",
+      "passed": 40,
+      "failed": 0,
+      "skipped": 0,
+      "elapsed_seconds": 20.08,
+      "exit_code": 0
+    },
+    "project_default_gate": {
+      "command": "python -m pytest -q projects\\wanxiang-character-canon\\tests",
+      "passed": 39,
+      "failed": 0,
+      "skipped": 1,
+      "elapsed_seconds": 15.89,
+      "exit_code": 0
+    },
+    "inherited_sedb_suite": {
+      "command": "$env:PYTHONPATH='current\\src'; python -m pytest -q current\\tests",
+      "passed": 189,
+      "failed": 0,
+      "elapsed_seconds": 47.18,
+      "exit_code": 0
+    },
+    "compile": {
+      "command": "python -m compileall -q current\\src projects\\wanxiang-character-canon",
+      "exit_code": 0
+    }
+  },
+  "selection": {
+    "build_id": 25006280,
+    "source_fingerprint": "E9479199871688AD2C24F3F3A7336FB550FFDACB6D73A7CD4F4270FDDCB1C075",
+    "total_entities": 1967,
+    "counts": {
+      "wanxiang_build_snapshot": 1,
+      "wanxiang_character_identity": 165,
+      "wanxiang_character_form_snapshot": 228,
+      "wanxiang_visual_asset_snapshot": 1391,
+      "wanxiang_visual_candidate_snapshot": 172,
+      "wanxiang_source_gap_snapshot": 8,
+      "wanxiang_methodology_reference": 2
+    },
+    "input_hash_count": 13
+  },
+  "bootstrap": {
+    "first": {
+      "status": "created",
+      "created_entities": 1967,
+      "created_cells": 39600,
+      "integrity": "ok"
+    },
+    "fresh_verification_plan": {
+      "status": "ready",
+      "new": 0,
+      "unchanged": 1967,
+      "conflicts": 0,
+      "missing_from_source": 0,
+      "blocked": false
+    },
+    "fresh_verification_rerun": {
+      "status": "no_op",
+      "created_entities": 0,
+      "created_cells": 0,
+      "integrity": "ok"
+    }
+  },
+  "database": {
+    "path": "D:/Ai/work together/SEDB/projects/wanxiang-character-canon/wanxiang-character-canon.sqlite",
+    "git_ignored": true,
+    "sidecars_present": [],
+    "length": 14749696,
+    "sha256_after_no_op": "6843DB0E16DB57E8E110A04DABC5F95F37817A6E34C2527F2F463A8DFACF1F3B",
+    "integrity": "ok",
+    "fields": 118,
+    "views": 9,
+    "entities": 1967,
+    "cells": 39600,
+    "density": 0.17061170327350433,
+    "per_kind": {
+      "wanxiang_build_snapshot": 1,
+      "wanxiang_character_identity": 165,
+      "wanxiang_character_form_snapshot": 228,
+      "wanxiang_visual_asset_snapshot": 1391,
+      "wanxiang_visual_candidate_snapshot": 172,
+      "wanxiang_source_gap_snapshot": 8,
+      "wanxiang_methodology_reference": 2
+    }
+  },
+  "source_preservation": {
+    "root": "D:/AI_RESIDENCE/AI_gamedesign/Wanxiang-Qunxia-Zhuan-research",
+    "before": {
+      "files": 4169,
+      "bytes": 3612075730,
+      "path_length_mtime_sha256": "0745D89D1496EDCCA7491887B8C679E68708D1C5AAA9E4C466A198B59A0A6312"
+    },
+    "after": {
+      "files": 4169,
+      "bytes": 3612075730,
+      "path_length_mtime_sha256": "0745D89D1496EDCCA7491887B8C679E68708D1C5AAA9E4C466A198B59A0A6312"
+    },
+    "observed_source_write_count": 0,
+    "input_hashes_unchanged": true,
+    "input_hashes": {
+      "art-engineering/evidence/extraction-output-manifest.json": "FE305B848568376A1B2742D9BAB9CE8954C0DB1021B9C7B52EC395714BE43884",
+      "art-engineering/evidence/extraction-result.json": "5C776D882D9917C369405848FC16BF40F98D009CE836A5CF913B6AF2AED74C1D",
+      "art-engineering/inventory/build-25006280/mapping-candidates.json": "76DAA8E7DC8122A75850CA81F56E287650B55B4F6F74AFFF6FB0D260FCA26CBB",
+      "art-engineering/inventory/build-25006280/role-targets.json": "79BBDDA84F8382E05E778FA837E4484D492531CD9117B61F69DAB35F9AF9231D",
+      "art-engineering/inventory/build-25006280/unity-object-index.json": "6212558761DCAD3CF7E1ED526120ABDC04B7F833ED011F581F68B6AABC5AE716",
+      "art-engineering/registry/characters.json": "19719EF047FF6C9CD4F8C42B46FDE33BAC8F749E9EEAA0EE0EB039BAE807E23F",
+      "evidence/checkpoints/task-18-art-extraction-final.json": "ACDD1FE71C5D588EED24F5F2AB28D8CF79494003BD99F09661E8AFAE7E883E74",
+      "evidence/checkpoints/task-19-methodology-papers.json": "39A438CCC24F2529A5A12199566D154F18A8701DF95AA907F7D85A00FC035755",
+      "evidence/source-inventory/source-roots.json": "FA4895EB357B7AF9C56837DB17A4B5248D5EADE126799724C51924297E1E4CD9",
+      "inputs/methodology-papers/2026-08-30/exposure-tension-decoupling-v0.1/documents/Exposure_Tension_Decoupling_SFW_Sensuality_Control_Internal_v0.1.md": "B9C9ACBD59E019B84BAD4D4A3D9CBE708BD57E5E02210791DC248EA0AE93A4BD",
+      "inputs/methodology-papers/2026-08-30/exposure-tension-decoupling-v0.1/documents/VALIDATION_MANIFEST.json": "B2D7EEC172863AE3E357839BF16B0F343263D4C55B3972A4FB9F6BDECF2D7C3B",
+      "inputs/methodology-papers/2026-08-30/heluo-character-art-methodology-v0.1/documents/Heluo_Character_Art_Methodology_Internal_Paper_v0.1.md": "4D35AF28A2A9AABB46E91CCC1A40A76CB68E705E8509CA6E9F864B5D73F4A8E4",
+      "inputs/methodology-papers/2026-08-30/heluo-character-art-methodology-v0.1/documents/VALIDATION_MANIFEST.json": "5021CEF819240514C1EDE9DE1EB9E9571B1BCB1758B77FEF95F8B2EDC573E368"
+    }
+  },
+  "git_scope": {
+    "changed_outside_approved_scope": [],
+    "current_directory_diff_count": 0,
+    "database_ignored": true,
+    "tracked_diff_check": "pass",
+    "known_untracked_file_only_before_verification_artifacts": "docs/BRIEF_unbounded_axiom_corpus_sedb_2026-08-25.md",
+    "known_untracked_file": {
+      "length": 6850,
+      "sha256": "30EF85D849D6FE6F711AB0C1FC39953B03DB3C4B8DD939501C21E7B76A64DF1F"
+    }
+  },
+  "not_measured": [
+    "Game runtime behavior, reachability, balance, and player-experience outcomes were not measured.",
+    "Steam or Workshop mutation and runtime mod loading were not exercised.",
+    "Wave 2-5 narrative, faction, location, relation, event, and cross-Build reconciliation are not implemented.",
+    "Visual redesign quality and generated or edited image acceptance were not measured.",
+    "PNG bytes were not reread by this importer; validated manifest SHA, length, dimensions, mode, and Alpha projections were used by design.",
+    "The full 3.6 GB research tree was not content-hashed; preservation used a full path/length/mtime signature plus SHA-256 for all 13 consumed inputs.",
+    "No release, push, publication, deployment, or external provider call was performed."
+  ]
+}
