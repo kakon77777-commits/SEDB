@@ -26,6 +26,10 @@ PROJECT_ENTITY_KINDS = frozenset(
         "wanxiang_visual_candidate_snapshot",
         "wanxiang_source_gap_snapshot",
         "wanxiang_methodology_reference",
+        "wanxiang_table_row_snapshot",
+        "wanxiang_treasure_snapshot",
+        "wanxiang_hero_sentinel_snapshot",
+        "wanxiang_reference_edge_snapshot",
     }
 )
 BUILD_SCOPED_KINDS = PROJECT_ENTITY_KINDS - {
@@ -722,10 +726,7 @@ class CanonStore:
                 (self.config.namespace, *sorted(PROJECT_ENTITY_KINDS)),
             ).fetchone()[0]
         observed = {row["kind"]: row["count"] for row in rows}
-        by_kind = {
-            kind: observed.get(kind, 0)
-            for kind in self.config.expected_entity_counts
-        }
+        by_kind = dict(sorted(observed.items()))
         return {
             "namespace": self.config.namespace,
             "database_path": str(self.config.database_path),

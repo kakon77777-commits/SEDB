@@ -47,6 +47,12 @@ python projects\wanxiang-character-canon\cli.py stats
 python projects\wanxiang-character-canon\cli.py search 万轻舟
 python projects\wanxiang-character-canon\cli.py show wx-char-IDENTIFIER
 python projects\wanxiang-character-canon\cli.py unresolved
+python projects\wanxiang-character-canon\cli.py catalog-plan --build 25006280
+python projects\wanxiang-character-canon\cli.py catalog-bootstrap --build 25006280
+python projects\wanxiang-character-canon\cli.py table EventDialog --id 10
+python projects\wanxiang-character-canon\cli.py dialog 10
+python projects\wanxiang-character-canon\cli.py edges ENTITY_ID --direction both
+python projects\wanxiang-character-canon\cli.py route 1
 ```
 
 `plan` is read-only. `bootstrap` must recompute the complete plan and applies
@@ -54,6 +60,13 @@ only an unblocked batch in one transaction. Every command writes one UTF-8 JSON
 object to stdout. Exit codes are `0` for success/no-op/read-only queries, `2`
 for source or usage rejection, `3` for schema/source conflicts, and `4` for
 storage, readback, integrity, or lookup failures.
+
+`catalog-plan` composes the 29,939-row AllExcel catalog and 40,075 static
+reference edges without creating entities. `catalog-bootstrap` reloads the
+sources, verifies the same fingerprint, makes a recoverable local Wave 1 backup
+when expanding an existing Wave 1 database, and then inserts new entities and
+missing cells atomically. List commands are compact; `show` and `dialog` return
+the complete stored payload explicitly.
 
 ## Measured Wave 1 acceptance (2026-08-30)
 
@@ -79,5 +92,6 @@ source fingerprint is
 The local SQLite file measured 14,749,696 bytes with SHA-256
 `6843DB0E16DB57E8E110A04DABC5F95F37817A6E34C2527F2F463A8DFACF1F3B`
 after the accepted no-op rerun. This accepts only the Wave 1 character/art
-foundation; the narrative and context work described as Waves 2–5 remains
-unimplemented.
+foundation. The full-catalog implementation is present, but this table and hash
+remain the authoritative default-database state until the separate real catalog
+acceptance updates them.

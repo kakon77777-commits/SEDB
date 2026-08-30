@@ -7,6 +7,9 @@ from dataclasses import asdict, replace
 from pathlib import Path
 from typing import Any, Sequence
 
+from catalog_config import CatalogContract, default_catalog_contract
+from catalog_source import CatalogSourceError, compose_full_catalog
+from backup import BackupError, create_verified_backup
 from config import ProjectConfig, default_config
 from store import (
     PROJECT_ENTITY_KINDS,
@@ -44,6 +47,22 @@ SUMMARY_VALUE_KEYS = (
     "gap_kind",
     "gap_expected_path",
     "gap_reason",
+    "source_table",
+    "source_record_id",
+    "source_row",
+    "source_row_sha256",
+    "next_dialog_id",
+    "next_event_id",
+    "guide_steps",
+    "edge_source_entity_id",
+    "edge_source_table",
+    "edge_source_field",
+    "edge_slot",
+    "edge_target_table",
+    "edge_target_source_id",
+    "edge_target_entity_id",
+    "edge_resolution_status",
+    "edge_rule_id",
 )
 
 
@@ -81,6 +100,15 @@ def _parser() -> JSONArgumentParser:
         "bootstrap", help="Validate and atomically create missing records."
     )
     bootstrap.add_argument("--build", type=int)
+    catalog_plan = commands.add_parser(
+        "catalog-plan", help="Compute a read-only full static-catalog diff."
+    )
+    catalog_plan.add_argument("--build", type=int)
+    catalog_bootstrap = commands.add_parser(
+        "catalog-bootstrap",
+        help="Atomically add the full static catalog and reference graph.",
+    )
+    catalog_bootstrap.add_argument("--build", type=int)
 
     commands.add_parser("stats", help="Report project and database counts.")
     search = commands.add_parser("search", help="Search canon records and stored links.")
@@ -88,6 +116,18 @@ def _parser() -> JSONArgumentParser:
     show = commands.add_parser("show", help="Show one record and stored links.")
     show.add_argument("entity_id")
     commands.add_parser("unresolved", help="List gap and ambiguous candidate records.")
+    table = commands.add_parser("table", help="List compact records from one AllExcel table.")
+    table.add_argument("table")
+    table.add_argument("--id", dest="source_id")
+    table.add_argument("--limit", type=int, default=50)
+    edges = commands.add_parser("edges", help="List static reference edges for an entity.")
+    edges.add_argument("entity_id")
+    edges.add_argument("--direction", choices=("in", "out", "both"), default="both")
+    edges.add_argument("--limit", type=int, default=200)
+    dialog = commands.add_parser("dialog", help="Show one complete EventDialog row.")
+    dialog.add_argument("dialog_id")
+    route = commands.add_parser("route", help="Show one Relation row and its edges.")
+    route.add_argument("relation_id")
     return parser
 
 
@@ -116,6 +156,11 @@ def _plan_payload(plan: DiffPlan) -> dict[str, Any]:
         "new": len(plan.new),
         "new_entity_id_sample": new_entity_ids[:sample_limit],
         "new_entity_ids_omitted": max(0, len(new_entity_ids) - sample_limit),
+        "enrich": len(plan.enrich),
+        "enrich_entity_id_sample": [
+            item.entity_id for item in plan.enrich[:sample_limit]
+        ],
+        "enrich_entity_ids_omitted": max(0, len(plan.enrich) - sample_limit),
         "unchanged": len(plan.unchanged),
         "conflicts": conflicts,
         "missing_from_source": list(plan.missing_from_source),
@@ -314,7 +359,94 @@ def _unresolved(store: CanonStore) -> list[dict[str, Any]]:
     ]
 
 
-def _run(args, config: ProjectConfig) -> tuple[int, dict[str, Any]]:
+def _source_id_matches(value: Any, query: str) -> bool:
+    if str(value) == query:
+        return True
+    return json.dumps(
+        value,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    ) == query
+
+
+def _table_records(
+    store: CanonStore,
+    table: str,
+    *,
+    source_id: str | None = None,
+    limit: int = 50,
+) -> list[dict[str, Any]]:
+    records = _load_records(store)
+    matched = [
+        record
+        for record in records.values()
+        if str(record["values"].get("source_table", "")).casefold()
+        == table.casefold()
+        and (
+            source_id is None
+            or _source_id_matches(
+                record["values"].get("source_record_id"), source_id
+            )
+        )
+    ]
+    matched.sort(
+        key=lambda record: (
+            record["values"].get("source_row", 0),
+            record["id"],
+        )
+    )
+    return [_record_summary(record) for record in matched[: max(1, min(limit, 500))]]
+
+
+def _edge_listing(
+    store: CanonStore,
+    entity_id: str,
+    *,
+    direction: str = "both",
+    limit: int = 200,
+) -> dict[str, Any]:
+    records = _load_records(store)
+    if entity_id not in records:
+        raise KeyError(f"entity not found: {entity_id}")
+    edges = []
+    for record in records.values():
+        if record["kind"] != "wanxiang_reference_edge_snapshot":
+            continue
+        values = record["values"]
+        outgoing = values.get("edge_source_entity_id") == entity_id
+        incoming = values.get("edge_target_entity_id") == entity_id
+        if (direction in {"out", "both"} and outgoing) or (
+            direction in {"in", "both"} and incoming
+        ):
+            edges.append(record)
+    edges.sort(key=lambda record: record["id"])
+    bounded = edges[: max(1, min(limit, 1000))]
+    return {
+        "entity_id": entity_id,
+        "direction": direction,
+        "count": len(edges),
+        "results": [_record_summary(record) for record in bounded],
+        "omitted": max(0, len(edges) - len(bounded)),
+    }
+
+
+def _full_table_record(
+    store: CanonStore,
+    table: str,
+    source_id: str,
+) -> dict[str, Any]:
+    records = _table_records(store, table, source_id=source_id, limit=2)
+    if len(records) != 1:
+        raise KeyError(f"{table} record not found or ambiguous: {source_id}")
+    return store.entities.get_entity(records[0]["id"])
+
+
+def _run(
+    args,
+    config: ProjectConfig,
+    catalog_contract: CatalogContract,
+) -> tuple[int, dict[str, Any]]:
     if args.command == "init":
         result = CanonStore.open(config).ensure_schema()
         return 0, {"status": "initialized", **asdict(result)}
@@ -369,6 +501,123 @@ def _run(args, config: ProjectConfig) -> tuple[int, dict[str, Any]]:
             "schema": asdict(initialized),
         }
 
+    if args.command == "catalog-plan":
+        selection = compose_full_catalog(
+            config,
+            catalog_contract,
+            include_edges=True,
+        )
+        plan = CanonStore.open(config).plan(selection)
+        payload = {
+            **_plan_payload(plan),
+            "pre_edge_entities": (
+                len(selection.entities)
+                - selection.counts.get("wanxiang_reference_edge_snapshot", 0)
+            ),
+            "edge_count": selection.counts.get(
+                "wanxiang_reference_edge_snapshot", 0
+            ),
+            "full_entities": len(selection.entities),
+        }
+        if plan.blocked:
+            return 3, {
+                "status": "blocked",
+                "reason_code": _blocked_reason(plan),
+                **payload,
+            }
+        return 0, {"status": "ready", **payload}
+
+    if args.command == "catalog-bootstrap":
+        first_selection = compose_full_catalog(
+            config,
+            catalog_contract,
+            include_edges=True,
+        )
+        store = CanonStore.open(config)
+        initialized = store.ensure_schema()
+        first_plan = store.plan(first_selection)
+        if first_plan.blocked:
+            return 3, {
+                "status": "blocked",
+                "reason_code": _blocked_reason(first_plan),
+                **_plan_payload(first_plan),
+            }
+        verified_selection = compose_full_catalog(
+            config,
+            catalog_contract,
+            include_edges=True,
+        )
+        verified_plan = store.plan(verified_selection)
+        if verified_plan.source_fingerprint != first_plan.source_fingerprint:
+            return 3, {
+                "status": "blocked",
+                "reason_code": "source_changed_during_catalog_bootstrap",
+                "initial_fingerprint": first_plan.source_fingerprint,
+                "verified_fingerprint": verified_plan.source_fingerprint,
+            }
+        if verified_plan.blocked:
+            return 3, {
+                "status": "blocked",
+                "reason_code": _blocked_reason(verified_plan),
+                **_plan_payload(verified_plan),
+            }
+        backup_payload = None
+        if verified_plan.new or verified_plan.enrich:
+            existing_entities = int(
+                store.db.scalar("SELECT COUNT(*) FROM entities") or 0
+            )
+            catalog_entities = int(
+                store.db.scalar(
+                    """
+                    SELECT COUNT(*) FROM entities
+                    WHERE kind IN (
+                        'wanxiang_table_row_snapshot',
+                        'wanxiang_treasure_snapshot',
+                        'wanxiang_hero_sentinel_snapshot',
+                        'wanxiang_reference_edge_snapshot'
+                    )
+                    """
+                )
+                or 0
+            )
+            if existing_entities and catalog_entities == 0:
+                backup_path = (
+                    config.database_path.parent
+                    / "local-backups"
+                    / f"wave1-{config.build_id}.sqlite"
+                )
+                backup_result = create_verified_backup(config, backup_path)
+                backup_payload = {
+                    **asdict(backup_result),
+                    "path": str(backup_result.path),
+                }
+        written = store.apply(verified_plan)
+        return 0, {
+            "status": (
+                "created"
+                if written.created_entities or written.enriched_entities
+                else "no_op"
+            ),
+            "build_id": verified_plan.build_id,
+            "source_fingerprint": written.source_fingerprint,
+            "created_entities": written.created_entities,
+            "enriched_entities": written.enriched_entities,
+            "created_cells": written.created_cells,
+            "integrity": written.integrity,
+            "pre_edge_entities": (
+                len(verified_selection.entities)
+                - verified_selection.counts.get(
+                    "wanxiang_reference_edge_snapshot", 0
+                )
+            ),
+            "edge_count": verified_selection.counts.get(
+                "wanxiang_reference_edge_snapshot", 0
+            ),
+            "full_entities": len(verified_selection.entities),
+            "schema": asdict(initialized),
+            "backup": backup_payload,
+        }
+
     store = CanonStore.open(config)
     if args.command == "stats":
         return 0, {"status": "ok", **store.stats()}
@@ -386,6 +635,44 @@ def _run(args, config: ProjectConfig) -> tuple[int, dict[str, Any]]:
     if args.command == "unresolved":
         results = _unresolved(store)
         return 0, {"status": "ok", "count": len(results), "results": results}
+    if args.command == "table":
+        results = _table_records(
+            store,
+            args.table,
+            source_id=args.source_id,
+            limit=args.limit,
+        )
+        return 0, {
+            "status": "ok",
+            "table": args.table,
+            "source_id": args.source_id,
+            "count": len(results),
+            "results": results,
+        }
+    if args.command == "edges":
+        return 0, {
+            "status": "ok",
+            **_edge_listing(
+                store,
+                args.entity_id,
+                direction=args.direction,
+                limit=args.limit,
+            ),
+        }
+    if args.command == "dialog":
+        entity = _full_table_record(store, "EventDialog", args.dialog_id)
+        return 0, {
+            "status": "ok",
+            "entity": entity,
+            "edges": _edge_listing(store, entity["id"], direction="out"),
+        }
+    if args.command == "route":
+        entity = _full_table_record(store, "Relation", args.relation_id)
+        return 0, {
+            "status": "ok",
+            "entity": entity,
+            "edges": _edge_listing(store, entity["id"], direction="out"),
+        }
     raise CLIUsageError(f"unsupported command: {args.command}")
 
 
@@ -393,13 +680,18 @@ def main(
     argv: Sequence[str] | None = None,
     *,
     base_config: ProjectConfig | None = None,
+    base_catalog_contract: CatalogContract | None = None,
 ) -> int:
     _configure_utf8()
     try:
         args = _parser().parse_args(argv)
         config = _config_from_args(args, base_config or default_config())
-        exit_code, payload = _run(args, config)
-    except SourceValidationError as exc:
+        exit_code, payload = _run(
+            args,
+            config,
+            base_catalog_contract or default_catalog_contract(),
+        )
+    except (SourceValidationError, CatalogSourceError) as exc:
         exit_code = 2
         payload = {
             "status": "error",
@@ -434,6 +726,13 @@ def main(
             "reason_code": exc.reason_code,
             "message": str(exc),
             "details": exc.details,
+        }
+    except BackupError as exc:
+        exit_code = 4
+        payload = {
+            "status": "error",
+            "reason_code": exc.reason_code,
+            "message": str(exc),
         }
     except KeyError as exc:
         exit_code = 4

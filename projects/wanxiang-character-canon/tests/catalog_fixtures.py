@@ -138,7 +138,11 @@ def write_xlsx_fixture(
     return path
 
 
-def build_catalog_fixture(root: Path) -> CatalogFixture:
+def build_catalog_fixture(
+    root: Path,
+    *,
+    include_relation: bool = False,
+) -> CatalogFixture:
     from catalog_config import CatalogContract
 
     source_root = root / "AllExcel"
@@ -244,6 +248,21 @@ def build_catalog_fixture(root: Path) -> CatalogFixture:
             "rows": ((None, 5),),
         },
     }
+    if include_relation:
+        books["Relation"] = {
+            "headers": (
+                "Id",
+                "Name",
+                "Birth",
+                "PropertyId",
+                "GuidDesc0",
+                "GuidDescTw0",
+                "GuidEvent0",
+            ),
+            "rows": (
+                (1, "万轻舟", 101, 20, "第一步", "第一步", "10&99"),
+            ),
+        }
     records = []
     table_counts = {}
     for table, spec in books.items():

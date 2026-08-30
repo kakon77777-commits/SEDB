@@ -81,7 +81,11 @@ class SnapshotFixture:
         self.write_json(checkpoint, manifest)
 
 
-def build_snapshot_fixture(root: Path) -> SnapshotFixture:
+def build_snapshot_fixture(
+    root: Path,
+    *,
+    catalog_compatible: bool = False,
+) -> SnapshotFixture:
     fixture = SnapshotFixture(
         root=root,
         config=ProjectConfig(
@@ -98,13 +102,13 @@ def build_snapshot_fixture(root: Path) -> SnapshotFixture:
             "expectedImagePath": "Roles/Image/1001",
             "extraHeroId": None,
             "id": 1001,
-            "idName": "万轻舟",
+            "idName": "万轻舟1" if catalog_compatible else "万轻舟",
             "menpai": "1002",
             "name": "万轻舟",
             "nameTw": "萬輕舟",
-            "parentId": 0,
+            "parentId": -1 if catalog_compatible else 0,
             "skinGroupId": None,
-            "sourceRow": 7,
+            "sourceRow": 5 if catalog_compatible else 7,
             "storyId": None,
             "title": "南天玉柱",
             "titleTw": "南天玉柱",
