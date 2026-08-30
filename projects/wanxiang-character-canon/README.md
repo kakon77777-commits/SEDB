@@ -53,6 +53,7 @@ python projects\wanxiang-character-canon\cli.py table EventDialog --id 10
 python projects\wanxiang-character-canon\cli.py dialog 10
 python projects\wanxiang-character-canon\cli.py edges ENTITY_ID --direction both
 python projects\wanxiang-character-canon\cli.py route 1
+python projects\wanxiang-character-canon\cli.py gameplay-report all
 ```
 
 `plan` is read-only. `bootstrap` must recompute the complete plan and applies
@@ -121,5 +122,20 @@ The recoverable ignored Wave 1 backup is
 `local-backups/wave1-25006280.sqlite`, SHA-256
 `5403E4AA92D36C92ED7D04CD17AD1A56DC0BCB547D5E32C412A6E6986C7E3862`.
 Static reference edges do not prove runtime reachability, and this acceptance
-does not yet include the six gameplay-analysis reports or final AI context
-index.
+does not by itself accept runtime behavior or player experience.
+
+## Static gameplay reports
+
+`gameplay-report all` verifies the accepted database SHA-256, SQLite integrity,
+catalog fingerprint, exact source-table counts and reference-rule version before
+writing anything. It then atomically writes six JSON reports, six Markdown
+reports and `manifest.json` under
+`analysis\sedb-wave2-4` in the research root. A second run is deterministic.
+
+The six analyses cover character/art coverage, the authored event graph,
+choice/consequence, time/pacing fields, relationship routes, and
+combat/progression. Every report separates `OBSERVED`, `INFERRED`, `UNKNOWN`
+and `FALSIFYING_TEST`; static graph findings are never upgraded to runtime
+reachability or gameplay-fun claims. Machine acceptance evidence is in
+`evidence/gameplay-analysis-acceptance.json`. The final AI context index remains
+the next gate.

@@ -1,11 +1,31 @@
 # Wanxiang Character Canon SEDB — Verification
 
-Status: `FULL_STATIC_DATABASE_ACCEPTED`
+Status: `STATIC_GAMEPLAY_REPORTS_ACCEPTED`
 
 The current local database accepts the complete 36-table, 29,939-row frozen
 AllExcel projection and its explicit v1 reference graph for BuildID `25006280`.
 It remains a static documented-data result, not runtime or gameplay-fun
 acceptance.
+
+## Static gameplay report result
+
+| Gate | Accepted result |
+| --- | --- |
+| Verified report input | accepted DB SHA, integrity, catalog/table counts and v1 rules |
+| Outputs | 6 JSON + 6 Markdown + 1 manifest |
+| Deterministic replay | all 12 report hashes identical |
+| Independent metric reconciliation | 6 / 6 |
+| Claim classes | `OBSERVED`, `INFERRED`, `UNKNOWN`, `FALSIFYING_TEST` in every report |
+| Atomic-write residue | 0 temporary files |
+| Manifest SHA-256 | `F78F8ED32EAF9332F9FF4314C606206A5FD777257B6F7825A69270B006D803D0` |
+| Immutable source projection | 4,171 files / 3,612,083,998 bytes, unchanged |
+
+The canonical output directory is
+`D:\AI_RESIDENCE\AI_gamedesign\Wanxiang-Qunxia-Zhuan-research\analysis\sedb-wave2-4`.
+Machine evidence is
+[`evidence/gameplay-analysis-acceptance.json`](evidence/gameplay-analysis-acceptance.json).
+The final `WANXIANG_FULL_STATIC_CANON_PASS` status remains gated on the AI
+context index and fresh complete verification.
 
 ## Full static database result
 

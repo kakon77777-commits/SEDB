@@ -11,6 +11,8 @@ from catalog_config import CatalogContract, default_catalog_contract
 from catalog_source import CatalogSourceError, compose_full_catalog
 from backup import BackupError, create_verified_backup
 from config import ProjectConfig, default_config
+from gameplay.common import GameplayDataError
+from gameplay.export import ANALYZERS, export_gameplay_reports
 from store import (
     PROJECT_ENTITY_KINDS,
     CanonStore,
@@ -91,6 +93,7 @@ def _parser() -> JSONArgumentParser:
     )
     parser.add_argument("--source-root", type=Path)
     parser.add_argument("--db", type=Path)
+    parser.add_argument("--acceptance", type=Path)
     commands = parser.add_subparsers(dest="command", required=True)
     commands.add_parser("init", help="Initialize and verify project fields/views.")
 
@@ -128,6 +131,12 @@ def _parser() -> JSONArgumentParser:
     dialog.add_argument("dialog_id")
     route = commands.add_parser("route", help="Show one Relation row and its edges.")
     route.add_argument("relation_id")
+    gameplay_report = commands.add_parser(
+        "gameplay-report",
+        help="Export one or all evidence-bounded static gameplay analyses.",
+    )
+    gameplay_report.add_argument("name", choices=("all", *ANALYZERS))
+    gameplay_report.add_argument("--output-root", type=Path)
     return parser
 
 
@@ -618,6 +627,27 @@ def _run(
             "backup": backup_payload,
         }
 
+    if args.command == "gameplay-report":
+        output_root = args.output_root or (
+            config.source_root / "analysis" / "sedb-wave2-4"
+        )
+        manifest = export_gameplay_reports(
+            config,
+            output_root,
+            name=args.name,
+            acceptance_path=args.acceptance,
+        )
+        return 0, {
+            "status": "created",
+            "analysis": args.name,
+            "output_root": str(manifest.output_root),
+            "manifest_path": str(manifest.manifest_path),
+            "report_count": len(manifest.report_paths) // 2,
+            "file_count": len(manifest.report_paths),
+            "catalog_fingerprint": manifest.catalog_fingerprint,
+            "sha256_by_path": manifest.sha256_by_path,
+        }
+
     store = CanonStore.open(config)
     if args.command == "stats":
         return 0, {"status": "ok", **store.stats()}
@@ -728,6 +758,13 @@ def main(
             "details": exc.details,
         }
     except BackupError as exc:
+        exit_code = 4
+        payload = {
+            "status": "error",
+            "reason_code": exc.reason_code,
+            "message": str(exc),
+        }
+    except GameplayDataError as exc:
         exit_code = 4
         payload = {
             "status": "error",

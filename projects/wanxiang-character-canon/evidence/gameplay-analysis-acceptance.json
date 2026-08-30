@@ -1,0 +1,132 @@
+{
+  "schema": "wanxiang-static-gameplay-acceptance/v1",
+  "status": "STATIC_GAMEPLAY_REPORTS_ACCEPTED",
+  "generated_at": "2026-08-30T22:23:38.7632620+08:00",
+  "build_id": 25006280,
+  "verified_input": {
+    "database_path": "D:/Ai/work together/SEDB/projects/wanxiang-character-canon/wanxiang-character-canon.sqlite",
+    "database_sha256": "3426A60131652D4797BF0A44A124B4CF74587A0645CF6E11C6598D3CD1E08B49",
+    "database_integrity": "ok",
+    "catalog_fingerprint": "CD59082E7C2D92F0296EA5DCB91F33270470366DCD6A31F2BDD632A3A0A955FE",
+    "catalog_source_fingerprint": "BF86C777495A61766E40DA06E2AB96DE2BB9F2582DD0B91A8C6F477691F0860A",
+    "reference_rule_version": "wanxiang-reference-rules/v1",
+    "source_tables": 36,
+    "source_rows": 29939,
+    "reference_edges": 40075,
+    "analysis_records_loaded": 71570
+  },
+  "reports": {
+    "output_root": "D:/AI_RESIDENCE/AI_gamedesign/Wanxiang-Qunxia-Zhuan-research/analysis/sedb-wave2-4",
+    "json_reports": 6,
+    "markdown_reports": 6,
+    "manifest_sha256": "F78F8ED32EAF9332F9FF4314C606206A5FD777257B6F7825A69270B006D803D0",
+    "generation_replay_hashes_identical": true,
+    "database_metric_reconciliations": 6,
+    "temporary_files_remaining": 0,
+    "sha256_by_path": {
+      "character-coverage.json": "0648B1D135DBFAD2F28E3EA6E26A88056D55BB694A870B8BB92C7D7FFE3B2ABE",
+      "character-coverage.md": "9EC07F8FDE046EBAE0DE26AA96E8891A51EF49BAF4CD0356412EDFADF5BE3AE5",
+      "choice-consequence.json": "49A060C6CD3BAB6F41734D2F9B9E6303B20B2CC7394D7245DCA92A547E8964C1",
+      "choice-consequence.md": "9E5150D11422A3037D4E97EC2E10793A7DD37C4BF67E9C980ED441E68AA189AA",
+      "combat-progression.json": "8BF5858A4EC7E0056C9AE8672B0B9BA47B163D2C15BAE0566578D1B633852D09",
+      "combat-progression.md": "FD75102053347F5726A24C393A069E0C19790E9F3E4C3B762CA47F4972591D96",
+      "event-network.json": "7794F060B96F03050852C367E54FCD694572100FA4A52DDDF79899FFE9EECCE3",
+      "event-network.md": "24B84D0D7EE976AF5C0AC54761FF766417988B22A657C3DC3C6B6CAB13F8FF02",
+      "relationship-routes.json": "9A84762CF2BD6BEE1150912D42A231552340B1B2DF4B6C03552D4118EABB0774",
+      "relationship-routes.md": "8E28293F002051976725074425D98FA9BF709D41AC90D874B7D6089416D302FB",
+      "time-pacing.json": "4B3D1755363A5BBD861274A8948199CCFD1EE3DE51BCCF277439788DEC2224F4",
+      "time-pacing.md": "10FCB6718133FD51EA2F729DBFC0ED25A51DA2757E81FA36AD3872B4A4463885"
+    }
+  },
+  "headline_metrics": {
+    "character_coverage": {
+      "forms": 228,
+      "forms_with_description": 228,
+      "forms_with_extracted_asset": 220,
+      "forms_with_dialog_portrait_rows": 182,
+      "forms_with_dialog_text_mentions": 215,
+      "forms_with_event_text_mentions": 167,
+      "forms_with_relation_text_mentions": 110
+    },
+    "event_network": {
+      "nodes": 21297,
+      "event_graph_resolved_edges": 19973,
+      "event_graph_missing_edges": 149,
+      "static_root_candidates": 1935,
+      "terminal_nodes": 1975,
+      "isolated_nodes": 20,
+      "cycle_components": 7
+    },
+    "choice_consequence": {
+      "selections": 155,
+      "options": 619,
+      "condition_gated_options": 270,
+      "distinct_event_destinations": 557,
+      "missing_event_destinations": 89,
+      "one_hop_result_convergence": 49
+    },
+    "time_pacing": {
+      "events": 3589,
+      "cost_time_average": 0.5338534410699359,
+      "cost_time_min": 0,
+      "cost_time_max": 99,
+      "once_in_turn": 6,
+      "repeatable_times": 1206
+    },
+    "relationship_routes": {
+      "routes": 50,
+      "guide_steps": 248,
+      "resolved_event_targets": 259,
+      "resolved_property_targets": 50,
+      "missing_event_targets": 0,
+      "routes_with_time_cues_in_guide_prose": 41
+    },
+    "combat_progression": {
+      "skills": 928,
+      "battles": 308,
+      "difficulty_profiles": 4,
+      "resolved_formula_links": 1041,
+      "missing_formula_links": 790,
+      "resolved_effect_links": 842,
+      "missing_effect_links": 21,
+      "resolved_battle_continuations": 575,
+      "missing_battle_continuations": 41
+    }
+  },
+  "preservation": {
+    "algorithm": "sorted-relative-path-length-mtime-ns-json/v1",
+    "excluded_authorized_outputs": [
+      "AI_CONTEXT_INDEX.md",
+      "analysis/sedb-wave2-4/**"
+    ],
+    "before": {
+      "files": 4171,
+      "bytes": 3612083998,
+      "metadata_sha256": "4767B7BD6789662D2BD2040EAEE86D54AED155C7561F96FA6D27F4B46BF904F0"
+    },
+    "after": {
+      "files": 4171,
+      "bytes": 3612083998,
+      "metadata_sha256": "4767B7BD6789662D2BD2040EAEE86D54AED155C7561F96FA6D27F4B46BF904F0"
+    }
+  },
+  "tests": {
+    "gameplay_analysis": {
+      "passed": 7,
+      "failed": 0
+    },
+    "full_project": {
+      "passed": 98,
+      "skipped": 5,
+      "failed": 0,
+      "elapsed_seconds": 30.80
+    }
+  },
+  "not_measured": [
+    "Runtime event reachability, selection order, RNG behavior, and save-state transitions.",
+    "Actual event frequency, waiting pressure, balance, dominant builds, and player fun.",
+    "Runtime ownership or behavioral parity of AllExcel versus packaged DAT data.",
+    "Live MOD loading, compatibility, and save migration after asset or data changes.",
+    "Final AI context index acceptance; this is Task 9."
+  ]
+}
