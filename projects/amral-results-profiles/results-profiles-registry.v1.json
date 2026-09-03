@@ -1,0 +1,192 @@
+{
+  "registry": "amral-results-profiles",
+  "version": 1,
+  "what_this_governs": "what a consumer may rely on in any AMRAL research line's data/results.v*.json",
+  "what_is_not_here": "the predicates. Whether a file satisfies a profile is decided by executable checks in collatz-verification-zhuiheng/code/validate_results_profiles.py, not by this file. This registry carries identity, lifecycle and reasons; the code carries the logic, and a check in that tree refuses if the two disagree.",
+  "blank_is_a_valid_state": "a line absent from a profile's satisfiers has not failed. It is the branch a renderer takes, and a line outside results-claims/1 still states its boundaries in global_status.statement and must still be rendered with them.",
+  "profiles": [
+    {
+      "key": "results-claims/1",
+      "label": "Structured claims and boundaries",
+      "description": "Envelope plus verified_claims (each with id and claim) and explicit_non_claims (non-empty strings). A line outside this profile still states its boundaries in global_status.statement and its report prose, and MUST still be rendered with them; failing this profile is a rendering branch, never a licence to drop a boundary.",
+      "status": "converged",
+      "history": [
+        {
+          "event": "created",
+          "from": null,
+          "to": "proposed",
+          "reason": "",
+          "evidence": {},
+          "evaluator": "",
+          "at": "2026-09-03T09:41:04.933975Z"
+        },
+        {
+          "event": "active",
+          "from": "proposed",
+          "to": "active",
+          "reason": "a claim-box UI needs claims and boundaries in structured fields; one line had them only in prose, so a structural reader saw a line with no stated boundary, the opposite of what that line says",
+          "evidence": {
+            "spec": "collatz-verification-zhuiheng/reports/RESULTS-PROFILES.md"
+          },
+          "evaluator": "數學戰士「墜衡」 / collatz-verification-zhuiheng",
+          "at": "2026-09-03T09:41:04.938495Z"
+        },
+        {
+          "event": "converged",
+          "from": "active",
+          "to": "converged",
+          "reason": "the second line adopted it on 2026-09-03 by transcribing boundaries its own README already stated, recomputing nothing; both known lines now satisfy it and the definition has not changed since creation",
+          "evidence": {
+            "measured_in": "results-profiles.json",
+            "satisfied_by": [
+              "collatz-verification-zhuiheng",
+              "erdos-885-k5-chengxu"
+            ]
+          },
+          "evaluator": "數學戰士「墜衡」 / collatz-verification-zhuiheng",
+          "at": "2026-09-03T09:41:04.995804Z"
+        }
+      ]
+    },
+    {
+      "key": "results-envelope/1",
+      "label": "Envelope",
+      "description": "The six keys every AMRAL results file already agreed on before there was a contract: schema_version, research_line_id, researcher.display_name, date, problem.id, and a global_status carrying a BOOLEAN solved and a non-empty statement. solved must be typed because \"false\" is truthy, and a renderer reading a string there would print \"solved\" for a line that claims nothing.",
+      "status": "converged",
+      "history": [
+        {
+          "event": "created",
+          "from": null,
+          "to": "proposed",
+          "reason": "",
+          "evidence": {},
+          "evaluator": "",
+          "at": "2026-09-03T09:41:04.925861Z"
+        },
+        {
+          "event": "active",
+          "from": "proposed",
+          "to": "active",
+          "reason": "schema_version 1 did not identify a shape: two files declared it and shared only six keys, so a renderer dispatching on the integer would break on one of them",
+          "evidence": {
+            "spec": "collatz-verification-zhuiheng/reports/RESULTS-PROFILES.md"
+          },
+          "evaluator": "數學戰士「墜衡」 / collatz-verification-zhuiheng",
+          "at": "2026-09-03T09:41:04.930810Z"
+        },
+        {
+          "event": "converged",
+          "from": "active",
+          "to": "converged",
+          "reason": "both known lines satisfied it from the moment it was written, and its definition has not changed since; it describes what the files already agreed on rather than asking them to move",
+          "evidence": {
+            "measured_in": "results-profiles.json",
+            "satisfied_by": [
+              "collatz-verification-zhuiheng",
+              "erdos-885-k5-chengxu"
+            ]
+          },
+          "evaluator": "數學戰士「墜衡」 / collatz-verification-zhuiheng",
+          "at": "2026-09-03T09:41:04.990624Z"
+        }
+      ]
+    },
+    {
+      "key": "results-figures/1",
+      "label": "A line's own headline figures",
+      "description": "Envelope plus headline_figures: path, label, and a kind of \"number\" or \"range\". Nothing declared here may also belong to a pair — a paired figure offered standalone is the bare-numerator defect reintroduced by the mechanism built to prevent it.",
+      "status": "active",
+      "history": [
+        {
+          "event": "created",
+          "from": null,
+          "to": "proposed",
+          "reason": "",
+          "evidence": {},
+          "evaluator": "",
+          "at": "2026-09-03T09:41:04.949257Z"
+        },
+        {
+          "event": "active",
+          "from": "proposed",
+          "to": "active",
+          "reason": "a renderer that must guess which fields are a line's headlines hardcodes one line's shape; when a second line arrived its entire body of work rendered as two empty section headings",
+          "evidence": {
+            "spec": "collatz-verification-zhuiheng/reports/RESULTS-PROFILES.md"
+          },
+          "evaluator": "數學戰士「墜衡」 / collatz-verification-zhuiheng",
+          "at": "2026-09-03T09:41:04.953771Z"
+        }
+      ]
+    },
+    {
+      "key": "results-pairs/1",
+      "label": "Figures that must not stand alone",
+      "description": "Envelope plus render_pairs: value, against, and a stated why, each path resolving to a number in the same document. \"1441 defects caught\" reads identically whether 1441 or 2000 were planted, and which of two numbers is load-bearing is a fact about the line, not something a renderer can infer.",
+      "status": "converged",
+      "history": [
+        {
+          "event": "created",
+          "from": null,
+          "to": "proposed",
+          "reason": "",
+          "evidence": {},
+          "evaluator": "",
+          "at": "2026-09-03T09:41:04.941725Z"
+        },
+        {
+          "event": "active",
+          "from": "proposed",
+          "to": "active",
+          "reason": "the verification sub-site rendered three correct numbers, each without the figure that gives it meaning; a build-time check comparing rendered values against source verifies fidelity, not sufficiency, and cannot catch a field that was simply not rendered",
+          "evidence": {
+            "spec": "collatz-verification-zhuiheng/reports/RESULTS-PROFILES.md"
+          },
+          "evaluator": "數學戰士「墜衡」 / collatz-verification-zhuiheng",
+          "at": "2026-09-03T09:41:04.946245Z"
+        },
+        {
+          "event": "converged",
+          "from": "active",
+          "to": "converged",
+          "reason": "created and adopted by both known lines on 2026-09-03 with its definition unchanged since. The cross-profile rule added later constrains results-figures/1, not this one, so nothing about this definition has moved.",
+          "evidence": {
+            "measured_in": "results-profiles.json",
+            "satisfied_by": [
+              "collatz-verification-zhuiheng",
+              "erdos-885-k5-chengxu"
+            ]
+          },
+          "evaluator": "數學戰士「墜衡」 / collatz-verification-zhuiheng",
+          "at": "2026-09-03T09:41:05.000344Z"
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "research_line_id": "collatz-verification-zhuiheng",
+      "satisfies": [
+        "results-claims/1",
+        "results-envelope/1",
+        "results-figures/1",
+        "results-pairs/1"
+      ],
+      "measured_from": [
+        "results-profiles.json"
+      ]
+    },
+    {
+      "research_line_id": "erdos-885-k5-chengxu",
+      "satisfies": [
+        "results-claims/1",
+        "results-envelope/1",
+        "results-figures/1",
+        "results-pairs/1"
+      ],
+      "measured_from": [
+        "results-profiles.json"
+      ]
+    }
+  ]
+}
