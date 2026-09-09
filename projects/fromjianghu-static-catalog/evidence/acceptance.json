@@ -1,0 +1,81 @@
+{
+  "schema": "fromjianghu-static-catalog.acceptance/v1",
+  "captured_at_utc": "2026-09-09T08:11:44.3371817Z",
+  "sedb": {
+    "version": "0.4.0b1",
+    "source_commit": "139b9952bb283b2e95f7690d76e3c5fbcdc680aa",
+    "repository_head": "2a04070a3774d77aca6b4369f25590d12e37007e",
+    "tracked_diff_count": 0,
+    "current_core_diff_count": 0,
+    "inherited_tests": {
+      "passed": 189,
+      "failed": 0
+    }
+  },
+  "source": {
+    "root": "D:\\AI_RESIDENCE\\AI_gamedesign\\FromJianghu-research",
+    "toolchain_commit": "280afaa60325e5e854118654abf1e1b4ada3e81b",
+    "toolchain_clean": true,
+    "pinned_file_count": 12,
+    "catalog_fingerprint": "a01b8a8cc52dc4b376fc557f1795073928c488cd8eb1a80dcd59bf2c38234027",
+    "runtime_status": "not_started"
+  },
+  "database": {
+    "path": "D:\\Ai\\work together\\SEDB\\projects\\fromjianghu-static-catalog\\fromjianghu-static-catalog.sqlite",
+    "bytes": 46174208,
+    "sha256": "bbdcc91bd8cbb20be5d297400bdea97f6ff32935b196b8cfbc72c350328194b7",
+    "integrity": "ok",
+    "fields": 92,
+    "views": 8,
+    "entities": 6979,
+    "cells": 142562,
+    "entity_counts": {
+      "fj_asset_snapshot": 3287,
+      "fj_build_delta": 1,
+      "fj_build_snapshot": 2,
+      "fj_evidence_claim": 23,
+      "fj_function_snapshot": 1209,
+      "fj_il_anchor": 21,
+      "fj_model_snapshot": 72,
+      "fj_trigger_snapshot": 2364
+    },
+    "proposals": 0
+  },
+  "bootstrap": {
+    "first_created_entities": 6979,
+    "first_created_cells": 142562,
+    "replay_status": "no_op",
+    "replay_new": 0,
+    "replay_unchanged": 6979,
+    "replay_no_op": true,
+    "database_hash_stable_across_replay": true
+  },
+  "plan": {
+    "status": "ready",
+    "write_performed": false,
+    "new": 0,
+    "unchanged": 6979,
+    "conflicts": 0,
+    "missing_from_source": 0
+  },
+  "query": {
+    "status": "ok",
+    "claim_id": "FJ-021",
+    "claim_status": "observed with causal static explanation",
+    "runtime_status": "not_started",
+    "integrity": "ok"
+  },
+  "tests": {
+    "project_live_suite_passed": 13,
+    "project_failed": 0,
+    "sedb_core_passed": 189,
+    "sedb_core_failed": 0
+  },
+  "closures": {
+    "behavioral": "PASS",
+    "structural": "PARTIAL",
+    "discriminative": "PARTIAL",
+    "runtime": "NOT_STARTED",
+    "independent_twin": "NOT_AVAILABLE"
+  }
+}

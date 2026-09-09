@@ -1,0 +1,44 @@
+{
+  "command": "bootstrap",
+  "details": {
+    "conflicts": [],
+    "missing_from_source": [],
+    "new_sample": []
+  },
+  "diff": {
+    "conflict": 0,
+    "missing_from_source": 0,
+    "new": 0,
+    "unchanged": 6979
+  },
+  "integrity": "ok",
+  "no_op": true,
+  "reason_code": null,
+  "result_version": 1,
+  "schema": {
+    "fields_created": 0,
+    "fields_reused": 92,
+    "integrity": "ok",
+    "views_created": 0
+  },
+  "source": {
+    "catalog_fingerprint": "a01b8a8cc52dc4b376fc557f1795073928c488cd8eb1a80dcd59bf2c38234027",
+    "entity_count": 6979,
+    "entity_counts": {
+      "fj_asset_snapshot": 3287,
+      "fj_build_delta": 1,
+      "fj_build_snapshot": 2,
+      "fj_evidence_claim": 23,
+      "fj_function_snapshot": 1209,
+      "fj_il_anchor": 21,
+      "fj_model_snapshot": 72,
+      "fj_trigger_snapshot": 2364
+    },
+    "source_file_count": 12
+  },
+  "status": "no_op",
+  "write": {
+    "created_cells": 0,
+    "created_entities": 0
+  }
+}

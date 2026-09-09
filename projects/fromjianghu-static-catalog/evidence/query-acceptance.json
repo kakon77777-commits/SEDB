@@ -1,0 +1,12 @@
+{
+  "schema": "fromjianghu-static-catalog.query-acceptance/v1",
+  "query": "FJ-021",
+  "search_status": "ok",
+  "search_result_count": 3,
+  "entity_id": "fj-claim-25099888-215cd3ec59757d5e44bf",
+  "entity_kind": "fj_evidence_claim",
+  "claim_status": "observed with causal static explanation",
+  "claim_id": "FJ-021",
+  "runtime_status": "not_started",
+  "integrity": "ok"
+}

@@ -1,0 +1,27 @@
+{
+  "command": "stats",
+  "result_version": 1,
+  "stats": {
+    "active_fields": 92,
+    "cells": 142562,
+    "converged_fields": 0,
+    "density": 0.2220356722340936,
+    "entities": 6979,
+    "entities_by_kind": {
+      "fj_asset_snapshot": 3287,
+      "fj_build_delta": 1,
+      "fj_build_snapshot": 2,
+      "fj_evidence_claim": 23,
+      "fj_function_snapshot": 1209,
+      "fj_il_anchor": 21,
+      "fj_model_snapshot": 72,
+      "fj_trigger_snapshot": 2364
+    },
+    "fields": 92,
+    "integrity": "ok",
+    "logical_capacity": 642068,
+    "proposals": 0,
+    "views": 8
+  },
+  "status": "ok"
+}
