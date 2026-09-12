@@ -78,8 +78,9 @@ storage/lookup failure.
 | Grounding catalog persisted | 15,007 namespaced groundings (944 evidence, 9,698 relations, 4,371 blocks+annotations, 13 execution paths, 10 teaching claims, 8 platform metadata, 2 synthetic) |
 | Catalog after registration + cognition | 15,057 entities, 225,484 cells, integrity `ok` |
 | Overview worker packet | 33.6 KB = 0.18 % of the manifest (bounded context, Paper 04 §70) |
-| Worker layer (GLM-5.3-Flash via MACR) | **blocked before any network call**: MACR's GLM provider-admission circuit is `open` with one `reconciliation_required` request from 2026-09-11 (another session's `ConnectionResetError`); reconciliation needs an operator authority MACR does not expose on its CLI. See `AI-Frontier-RKE-Lab\REQUEST_FOR_OPERATOR_GLM_ADMISSION_RECONCILIATION.md`. |
-| Synthetic mock run (labelled, separate DB copy) | exercised writer → deterministic checks → targeted revision → verifier → critic → SEO → hard gates → canonical Markdown → render → provenance chain; details in the lab `REPORT.md` files |
+| Worker layer (GLM-5.3-Flash via MACR) | Real run 2026-09-12 (after the operator closed MACR's GLM admission circuit): 7 dispatches, all `candidate_success` — taxonomy classifier (`cli-tools`, 0.82), writer (39 claims, 7 sections), verifier 1 (39/39 supported, no leakage, no hallucinated names), critic (3 overclaim flags, scores 0.65–0.90), SEO metadata, critic-driven targeted revision, verifier 2 (39/39 supported). Estimated list cost 0.061 USD, ~14 min of provider latency. Two earlier blocked attempts stay recorded as failed runs. |
+| Hard gates → canonical Markdown | 8/8 passed on validator v1.1; `assetrev_…_overview_v2` validated, `unpublished`; v1 recorded as a failed validation (v1.0 URL check tripped on trailing punctuation) |
+| Synthetic mock run (labelled, separate DB copy) | exercised the same chain before the real route was available; details in the lab `REPORT.md` files |
 
 Analyzer observations recorded for the slice (not corrected, per Paper 04 §185:
 evidence is never edited, issues are filed):
