@@ -57,7 +57,7 @@ python projects\ai-frontier-repository-intelligence\cli.py taxonomy  # seed taxo
 python projects\ai-frontier-repository-intelligence\cli.py stats
 python projects\ai-frontier-repository-intelligence\cli.py find af_repository af_full_name=simonw/llm
 python projects\ai-frontier-repository-intelligence\cli.py show analysis_f20a9f60553ce57f
-python projects\ai-frontier-repository-intelligence\cli.py chain assetrev_asset_repo_github_622352364_overview_v1
+python projects\ai-frontier-repository-intelligence\cli.py chain assetrev_asset_repo_github_622352364_overview_v2
 ```
 
 `chain` answers the ten FINAL_HANDOFF verification questions (repository,
