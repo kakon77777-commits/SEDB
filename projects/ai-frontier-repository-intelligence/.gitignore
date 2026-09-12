@@ -1,0 +1,6 @@
+# Local SQLite catalog and WAL/SHM sidecars are rebuilt from the lab artifacts; never commit them.
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+__pycache__/
+.pytest_cache/
