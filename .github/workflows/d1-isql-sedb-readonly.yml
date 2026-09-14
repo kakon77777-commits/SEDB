@@ -5,9 +5,6 @@ on:
     paths:
       - "projects/isql-sedb-readonly-adapter/**"
       - ".github/workflows/d1-isql-sedb-readonly.yml"
-  push:
-    branches:
-      - "agent/isql-sedb-d1-readonly-adapter"
 
 jobs:
   readonly-adapter:
@@ -17,18 +14,18 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: SEDB
-      - name: Checkout ISQL A2
+      - name: Checkout ISQL main
         uses: actions/checkout@v4
         with:
           repository: kakon77777-commits/ISQL
-          ref: agent/dual-address-a2-prototype
+          ref: main
           path: ISQL
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
       - name: Install SEDB current
         run: python -m pip install -e SEDB/current
-      - name: Install ISQL A2
+      - name: Install ISQL main
         run: python -m pip install -e ISQL
       - name: Install adapter
         run: python -m pip install -e SEDB/projects/isql-sedb-readonly-adapter
