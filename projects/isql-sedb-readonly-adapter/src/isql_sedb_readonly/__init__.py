@@ -8,6 +8,13 @@ from .adapter import (
     VerifiedSEDBRead,
     SEDBReadOnlyAdapter,
 )
+from .active_domain import (
+    ActiveDomainBudget,
+    TaskFieldSupport,
+    ActiveDomainEntity,
+    ActiveDomainPlan,
+    plan_active_domain,
+)
 
 __all__ = [
     "SEDB_ENTITY_SNAPSHOT_SCHEMA",
@@ -18,4 +25,9 @@ __all__ = [
     "SEDBEntitySnapshot",
     "VerifiedSEDBRead",
     "SEDBReadOnlyAdapter",
+    "ActiveDomainBudget",
+    "TaskFieldSupport",
+    "ActiveDomainEntity",
+    "ActiveDomainPlan",
+    "plan_active_domain",
 ]
