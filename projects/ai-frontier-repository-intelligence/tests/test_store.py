@@ -65,6 +65,16 @@ def test_current_kind_updates_in_place_with_provenance(store):
     assert ent["cells"]["af_repository_status"]["source"] == "ai-frontier:github_api"
 
 
+def test_grounding_projection_kind_is_immutable(store):
+    rec = {"entity_id": "proj_analysis_x_v1_1", "kind": "af_grounding_projection", "label": "ai-frontier-grounding/v1.1 · analysis_x", "values": {
+        "af_analysis_run_id": "analysis_x", "af_projection_version": "ai-frontier-grounding/v1.1", "af_grounding_bundle_sha256": "a" * 64,
+        "af_grounding_bundle_bytes": 1, "af_counts": {"groundings": 1}, "af_supersedes_projection_id": "proj_analysis_x_v1"}}
+    assert store.write([rec], source="repolumen").created_entities == 1
+    assert store.write([rec], source="repolumen").unchanged_entities == 1
+    with pytest.raises(ImmutableConflict):
+        store.write([dict(rec, values=dict(rec["values"], af_grounding_bundle_sha256="b" * 64))], source="repolumen")
+
+
 def test_unknown_field_or_kind_is_rejected(store):
     with pytest.raises(StorageError):
         store.write([{"entity_id": "a", "kind": "af_repository", "label": "a", "values": {"nope": 1}}], source="t")

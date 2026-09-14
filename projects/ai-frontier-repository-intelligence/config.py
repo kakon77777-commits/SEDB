@@ -29,6 +29,7 @@ IMMUTABLE_KINDS = (
     "af_metadata_snapshot",
     "af_license_record",
     "af_analysis_run",
+    "af_grounding_projection",
     "af_grounding",
     "af_asset_revision",
     "af_worker_run",
@@ -184,6 +185,10 @@ FIELD_SPECS = _fields((
     ("af_capability_profile", "Capability profile", "json", "Per-language analysis strength bound to the analyzer version."),
     ("af_counts", "Counts", "json", "Object counts produced by the run."),
     ("af_limitations", "Limitations", "json", "Analyzer limitations that apply to this run."),
+    # --- grounding projection (one immutable row per analysis run x projector version; the run row keeps its original projection)
+    ("af_projection_version", "Projection version", "text", "Grounding projector version that produced the bundle, e.g. ai-frontier-grounding/v1.1."),
+    ("af_grounding_bundle_bytes", "Grounding bundle bytes", "integer", "Size of the canonical grounding bundle in bytes."),
+    ("af_supersedes_projection_id", "Supersedes projection", "text", "Earlier projection of the same analysis run that this one extends, if any."),
     # --- grounding
     ("af_grounding_type", "Grounding type", "text", "source_span, symbol, file, import_edge, call_edge, execution_path, repository_metadata, documentation_claim, test_case, architecture_reconstruction, summary_repository, semantic_block, annotation."),
     ("af_origin_engine", "Origin engine", "text", "Engine that produced the local grounding ID."),
@@ -282,6 +287,7 @@ VIEW_SPECS = (
     ViewSpec("AI Frontier Category Assignments", ("af_repository_id", "af_category_id", "af_assignment_role", "af_confidence", "af_assignment_source", "af_validated", "af_taxonomy_version", "af_evidence_refs"), "Repository to category assignments with provenance."),
     ViewSpec("AI Frontier License Records", ("af_repository_id", "af_revision_id", "af_detected_spdx", "af_license_status", "af_license_file_path", "af_license_file_sha256", "af_license_source", "af_license_policy", "af_confidence"), "Revision-aware license state."),
     ViewSpec("AI Frontier Analysis Runs", ("af_repository_id", "af_revision_id", "af_engine", "af_engine_version", "af_manifest_schema_version", "af_analysis_mode", "af_external_provider", "af_analysis_status", "af_artifact_sha256", "af_grounding_bundle_sha256", "af_elapsed_seconds"), "Immutable deterministic analysis runs."),
+    ViewSpec("AI Frontier Grounding Projections", ("af_analysis_run_id", "af_projection_version", "af_grounding_bundle_sha256", "af_grounding_bundle_bytes", "af_supersedes_projection_id", "af_created_at"), "Immutable projection history per analysis run."),
     ViewSpec("AI Frontier Groundings", ("af_analysis_run_id", "af_grounding_type", "af_origin_local_id", "af_source_path", "af_start_line", "af_end_line", "af_symbol", "af_epistemic_status", "af_source_provenance"), "Namespaced grounding catalog."),
     ViewSpec("AI Frontier Knowledge Assets", ("af_repository_id", "af_asset_type", "af_asset_slug", "af_canonical_path", "af_asset_status", "af_current_revision_id"), "Knowledge assets per repository."),
     ViewSpec("AI Frontier Asset Revisions", ("af_asset_id", "af_repository_revision_id", "af_analysis_run_id", "af_grounding_bundle_sha256", "af_content_version", "af_canonical_source_sha256", "af_validation_status", "af_publication_status", "af_claim_count", "af_supported_claim_count"), "Versioned canonical content with dependencies."),
