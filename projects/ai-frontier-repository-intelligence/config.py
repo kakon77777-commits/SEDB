@@ -174,6 +174,7 @@ FIELD_SPECS = _fields((
     ("af_external_provider", "External provider", "text", "disabled for production deterministic runs."),
     ("af_analysis_status", "Analysis status", "text", "queued, running, passed, partial, failed, cancelled, superseded."),
     ("af_analysis_config_hash", "Analysis config hash", "text", "SHA-256 over result-affecting analyzer configuration."),
+    ("af_analysis_config", "Analysis config", "json", "Result-affecting analyzer configuration (engine, mode, bounds) whose hash is af_analysis_config_hash."),
     ("af_artifact_ref", "Artifact ref", "text", "Storage reference of the immutable artifact (relative to the artifact root)."),
     ("af_artifact_sha256", "Artifact SHA-256", "text", "SHA-256 of the canonical artifact bytes."),
     ("af_artifact_bytes", "Artifact bytes", "integer", "Size of the artifact in bytes."),
