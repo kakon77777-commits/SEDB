@@ -15,6 +15,16 @@ from .active_domain import (
     ActiveDomainPlan,
     plan_active_domain,
 )
+from .materializer import (
+    PARTIAL_ENTITY_PROJECTION_SCHEMA,
+    PARTIAL_DOMAIN_MATERIALIZATION_SCHEMA,
+    FieldProjectionState,
+    ProjectionFieldRef,
+    PartialFieldSlot,
+    PartialEntityProjection,
+    PartialDomainMaterialization,
+    materialize_partial_domain,
+)
 
 __all__ = [
     "SEDB_ENTITY_SNAPSHOT_SCHEMA",
@@ -30,4 +40,12 @@ __all__ = [
     "ActiveDomainEntity",
     "ActiveDomainPlan",
     "plan_active_domain",
+    "PARTIAL_ENTITY_PROJECTION_SCHEMA",
+    "PARTIAL_DOMAIN_MATERIALIZATION_SCHEMA",
+    "FieldProjectionState",
+    "ProjectionFieldRef",
+    "PartialFieldSlot",
+    "PartialEntityProjection",
+    "PartialDomainMaterialization",
+    "materialize_partial_domain",
 ]
