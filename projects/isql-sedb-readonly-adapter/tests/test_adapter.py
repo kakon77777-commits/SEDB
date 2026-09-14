@@ -26,9 +26,9 @@ def semantic(*concepts: str) -> SemanticAnalysis:
             entities=(),
             relations=(),
             claims=(),
-            intent="retrieve state",
+            intent=None,
             uncertainty=(),
-            tags=("sedb",),
+            tags=(),
             language="en",
         ),
     )
