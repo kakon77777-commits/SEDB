@@ -37,6 +37,9 @@ class D15DistributedUniverseAcceptanceTests(unittest.TestCase):
         self.assertAlmostEqual(report.active_domain_ratio, 4 / 64)
         self.assertGreaterEqual(report.replica_failover_count, 1)
         self.assertLess(report.physical_range_bytes, report.total_universe_bytes)
+        self.assertTrue(report.world_head_ral_anchor_verified)
+        self.assertTrue(report.materialization_ral_anchor_verified)
+        self.assertTrue(report.ral_final_chain_digest.startswith("sha256:sedb-ral-chain-v1:"))
         self.assertTrue(report.historical_world_head_valid_after_dsr_advance)
         self.assertFalse(report.historical_world_head_current_after_dsr_advance)
         self.assertTrue(report.new_world_head_current)
@@ -45,20 +48,20 @@ class D15DistributedUniverseAcceptanceTests(unittest.TestCase):
 
     def test_resource_ratios_shrink_as_universe_grows_with_fixed_active_domain(self):
         small = SyntheticUniverseConfig(
-            object_count=32,
+            object_count=16,
             topic_count=4,
-            active_entities=2,
-            artifact_size=512,
+            active_entities=1,
+            artifact_size=256,
             chunk_size=64,
             range_offset=16,
             range_length=16,
             seed="d15-ratio-small",
         )
         large = SyntheticUniverseConfig(
-            object_count=96,
+            object_count=48,
             topic_count=12,
-            active_entities=2,
-            artifact_size=512,
+            active_entities=1,
+            artifact_size=256,
             chunk_size=64,
             range_offset=16,
             range_length=16,
