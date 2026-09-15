@@ -54,6 +54,16 @@ from .sidecar import (
     build_proof_sidecar,
     verify_sidecar_proof_envelope,
 )
+from .history import (
+    CHECKPOINT_HISTORY_SCHEMA,
+    CHECKPOINT_RECORD_SCHEMA,
+    CheckpointHistoryConflict,
+    CheckpointHistoryRecord,
+    CheckpointStreamVerification,
+    CheckpointHeadVerification,
+    CheckpointHistoryLedger,
+    verify_sidecar_envelope_at_head,
+)
 
 __all__ = [
     "SEDB_ENTITY_SNAPSHOT_SCHEMA",
@@ -102,4 +112,12 @@ __all__ = [
     "ProofSidecar",
     "build_proof_sidecar",
     "verify_sidecar_proof_envelope",
+    "CHECKPOINT_HISTORY_SCHEMA",
+    "CHECKPOINT_RECORD_SCHEMA",
+    "CheckpointHistoryConflict",
+    "CheckpointHistoryRecord",
+    "CheckpointStreamVerification",
+    "CheckpointHeadVerification",
+    "CheckpointHistoryLedger",
+    "verify_sidecar_envelope_at_head",
 ]
