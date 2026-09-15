@@ -1,0 +1,53 @@
+name: D9 composite world head
+
+on:
+  pull_request:
+    paths:
+      - "projects/isql-sedb-readonly-adapter/src/isql_sedb_readonly/world_head.py"
+      - "projects/isql-sedb-readonly-adapter/tests/test_world_head_d9.py"
+      - "projects/isql-sedb-readonly-adapter/docs/D9_COMPOSITE_WORLD_HEAD_v0.1.md"
+      - ".github/workflows/isql-world-head-d9.yml"
+  push:
+    branches:
+      - "agent/d9-composite-world-head"
+
+jobs:
+  d9-world-head:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out SEDB
+        uses: actions/checkout@v4
+        with:
+          path: sedb
+      - name: Check out merged ISQL main
+        uses: actions/checkout@v4
+        with:
+          repository: kakon77777-commits/ISQL
+          ref: main
+          path: isql
+          persist-credentials: false
+      - name: Check out merged ISQL-DSP
+        uses: actions/checkout@v4
+        with:
+          repository: kakon77777-commits/ISQL-DSP
+          ref: main
+          path: isql-dsp
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install full integration dependency chain
+        run: |
+          python -m pip install -e ./sedb/current
+          python -m pip install -e ./isql
+          python -m pip install -e ./isql-dsp
+          python -m pip install -e ./sedb/projects/isql-sedb-readonly-adapter
+      - name: Compile integration modules
+        run: |
+          python -m compileall -q ./sedb/current/src
+          python -m compileall -q ./isql/src
+          python -m compileall -q ./isql-dsp/src
+          python -m compileall -q ./sedb/projects/isql-sedb-readonly-adapter/src
+      - name: Run D9 world-head tests
+        working-directory: sedb/projects/isql-sedb-readonly-adapter
+        run: python -m unittest discover -s tests -p 'test_world_head_d9.py' -v
