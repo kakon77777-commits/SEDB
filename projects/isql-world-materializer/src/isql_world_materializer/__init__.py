@@ -32,6 +32,16 @@ from .range_fetch import (
     VerifiedRangeFetchError,
     VerifiedRangeFetcher,
 )
+from .materialization import (
+    MATERIALIZATION_MANIFEST_SCHEMA,
+    MaterializationError,
+    MaterializationArtifactBinding,
+    WorldMaterializationManifest,
+    MaterializationManifestVerification,
+    MaterializationRangeReader,
+    build_materialization_manifest,
+    verify_materialization_manifest,
+)
 
 __all__ = [
     "ExactContentIdentity",
@@ -60,4 +70,12 @@ __all__ = [
     "VerifiedRangeFetch",
     "VerifiedRangeFetchError",
     "VerifiedRangeFetcher",
+    "MATERIALIZATION_MANIFEST_SCHEMA",
+    "MaterializationError",
+    "MaterializationArtifactBinding",
+    "WorldMaterializationManifest",
+    "MaterializationManifestVerification",
+    "MaterializationRangeReader",
+    "build_materialization_manifest",
+    "verify_materialization_manifest",
 ]
