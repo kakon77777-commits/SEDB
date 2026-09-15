@@ -1,0 +1,79 @@
+name: D15 distributed universe synthetic MVP
+
+on:
+  pull_request:
+    paths:
+      - "projects/isql-distributed-universe-mvp/**"
+      - ".github/workflows/d15-distributed-universe-mvp.yml"
+
+jobs:
+  d15-acceptance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout SEDB
+        uses: actions/checkout@v4
+        with:
+          path: SEDB
+      - name: Checkout ISQL main
+        uses: actions/checkout@v4
+        with:
+          repository: kakon77777-commits/ISQL
+          ref: main
+          path: ISQL
+          persist-credentials: false
+      - name: Checkout ISQL-DSP main
+        uses: actions/checkout@v4
+        with:
+          repository: kakon77777-commits/ISQL-DSP
+          ref: main
+          path: ISQL-DSP
+          persist-credentials: false
+      - name: Checkout RAL main
+        uses: actions/checkout@v4
+        with:
+          repository: kakon77777-commits/SEDB-RAL-SEDB-Residency-Attestation-Layer
+          ref: main
+          path: RAL
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install integrated runtime stack
+        run: |
+          python -m pip install -e ./SEDB/current
+          python -m pip install -e ./ISQL
+          python -m pip install -e ./ISQL-DSP
+          python -m pip install -e ./SEDB/projects/isql-sedb-readonly-adapter
+          python -m pip install -e ./SEDB/projects/isql-world-materializer
+          python -m pip install -e ./RAL
+          python -m pip install -e ./SEDB/projects/isql-distributed-universe-mvp
+      - name: Compile integration stack
+        run: |
+          python -m compileall -q ./SEDB/current/src
+          python -m compileall -q ./ISQL/src
+          python -m compileall -q ./ISQL-DSP/src
+          python -m compileall -q ./SEDB/projects/isql-sedb-readonly-adapter/src
+          python -m compileall -q ./SEDB/projects/isql-world-materializer/src
+          python -m compileall -q ./RAL/src
+          python -m compileall -q ./SEDB/projects/isql-distributed-universe-mvp/src
+      - name: Run D15 focused tests
+        working-directory: SEDB/projects/isql-distributed-universe-mvp
+        run: python -m unittest discover -s tests -p 'test_d15_acceptance.py' -v
+      - name: Run functional acceptance profile
+        working-directory: SEDB/projects/isql-distributed-universe-mvp
+        run: >-
+          python run_acceptance.py
+          --output d15-acceptance.json
+          --objects 128
+          --topics 16
+          --active 4
+          --artifact-size 2048
+          --chunk-size 128
+          --range-offset 48
+          --range-length 32
+      - name: Upload D15 acceptance report
+        uses: actions/upload-artifact@v4
+        with:
+          name: d15-distributed-universe-acceptance
+          path: SEDB/projects/isql-distributed-universe-mvp/d15-acceptance.json
+          if-no-files-found: error
