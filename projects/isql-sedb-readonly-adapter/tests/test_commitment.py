@@ -5,12 +5,12 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from isql_core.semantic_addressing import semantic_address_from_analysis
+from isql_core.semantic_addressing import ExactStateRef, semantic_address_from_analysis
 from isql_core.semantics import SemanticAnalysis, SemanticCoordinateSet
 from isql_sedb_readonly import SEDBExactStateMismatch, SEDBReadOnlyAdapter
 from isql_sedb_readonly.active_domain import ActiveDomainBudget, plan_active_domain
 from isql_sedb_readonly.commitment import (
-    MerkleMembershipProof,
+    SPARSE_MERKLE_DEPTH,
     issue_proof_carrying_projection,
     verify_membership_proof,
     verify_nonmembership_proof,
@@ -18,6 +18,9 @@ from isql_sedb_readonly.commitment import (
 )
 from isql_sedb_readonly.materializer import (
     FieldProjectionState,
+    PartialEntityProjection,
+    PartialFieldSlot,
+    ProjectionFieldRef,
     materialize_partial_domain,
 )
 from sedb.db import Database
@@ -53,8 +56,13 @@ class ProofCarryingPartialReadTests(unittest.TestCase):
         self.entities = EntityService(self.db)
         self.views = ViewService(self.db)
 
+        self.field_rows = {}
         for key in ("topic", "nullable", "missing", "hidden"):
-            self.fields.create_field(key=key, label=key.title(), value_type="json")
+            self.field_rows[key] = self.fields.create_field(
+                key=key,
+                label=key.title(),
+                value_type="json",
+            )
 
         self.entities.create_entity(label="Alpha", kind="record", entity_id="Entity-A")
         self.entities.set_cell(
@@ -120,6 +128,7 @@ class ProofCarryingPartialReadTests(unittest.TestCase):
         self.assertEqual(present.state, FieldProjectionState.PRESENT)
         self.assertIsNotNone(present_claim.cell_membership)
         self.assertIsNone(present_claim.cell_nonmembership)
+        self.assertEqual(len(present_claim.cell_membership.siblings), SPARSE_MERKLE_DEPTH)
 
         self.assertEqual(blank.state, FieldProjectionState.BLANK)
         self.assertIsNotNone(blank_claim.cell_membership)
@@ -128,6 +137,7 @@ class ProofCarryingPartialReadTests(unittest.TestCase):
         self.assertEqual(absent.state, FieldProjectionState.ABSENT)
         self.assertIsNone(absent_claim.cell_membership)
         self.assertIsNotNone(absent_claim.cell_nonmembership)
+        self.assertEqual(len(absent_claim.cell_nonmembership.siblings), SPARSE_MERKLE_DEPTH)
         self.assertTrue(verify_nonmembership_proof(
             absent_claim.cell_nonmembership,
             bundle.entity_commitment.cell_root_sha256,
@@ -170,11 +180,10 @@ class ProofCarryingPartialReadTests(unittest.TestCase):
         tampered = replace(bundle, projection=projection)
         self.assertFalse(verify_proof_carrying_projection(tampered))
 
-    def test_tampered_field_merkle_path_fails(self):
+    def test_tampered_field_sparse_merkle_path_fails(self):
         bundle = issue_proof_carrying_projection(self.adapter, self._projection())
         claim = bundle.claims[0]
         proof = claim.field_membership
-        self.assertTrue(proof.siblings)
         siblings = list(proof.siblings)
         siblings[0] = "00" * 32
         bad_proof = replace(proof, siblings=tuple(siblings))
@@ -182,7 +191,7 @@ class ProofCarryingPartialReadTests(unittest.TestCase):
         claims[0] = replace(claim, field_membership=bad_proof)
         self.assertFalse(verify_proof_carrying_projection(replace(bundle, claims=tuple(claims))))
 
-    def test_nonmembership_neighbor_index_tampering_fails(self):
+    def test_tampered_nonmembership_sparse_path_fails(self):
         bundle = issue_proof_carrying_projection(self.adapter, self._projection())
         index = next(
             i for i, slot in enumerate(bundle.projection.fields) if slot.field.key == "missing"
@@ -190,21 +199,42 @@ class ProofCarryingPartialReadTests(unittest.TestCase):
         claim = bundle.claims[index]
         proof = claim.cell_nonmembership
         self.assertIsNotNone(proof)
-        neighbor = proof.predecessor or proof.successor
-        self.assertIsNotNone(neighbor)
-        # Change the claimed position while keeping a syntactically valid proof object.
-        new_index = 0 if neighbor.index != 0 else min(1, neighbor.count - 1)
-        if new_index == neighbor.index:
-            self.skipTest("single-leaf boundary has no alternate valid index")
-        bad_neighbor = replace(neighbor, index=new_index)
-        bad_nonmembership = replace(
-            proof,
-            predecessor=bad_neighbor if proof.predecessor is not None else None,
-            successor=bad_neighbor if proof.predecessor is None else proof.successor,
-        )
+        siblings = list(proof.siblings)
+        siblings[-1] = "22" * 32
+        bad_nonmembership = replace(proof, siblings=tuple(siblings))
         claims = list(bundle.claims)
         claims[index] = replace(claim, cell_nonmembership=bad_nonmembership)
         self.assertFalse(verify_proof_carrying_projection(replace(bundle, claims=tuple(claims))))
+
+    def test_nonmembership_proof_for_completely_empty_entity_cell_tree(self):
+        self.entities.create_entity(label="Empty", kind="record", entity_id="Entity-Empty")
+        snapshot = self.adapter.read_entity_snapshot("Entity-Empty")
+        exact = ExactStateRef(entity_id="Entity-Empty", state_sha256=snapshot.sha256())
+        topic = self.field_rows["topic"]
+        projection = PartialEntityProjection(
+            source_exact=exact,
+            view_id=self.view["id"],
+            query_address_sha256="33" * 32,
+            fields=(
+                PartialFieldSlot(
+                    field=ProjectionFieldRef(
+                        ordinal=0,
+                        field_id=topic["id"],
+                        key="topic",
+                    ),
+                    state=FieldProjectionState.ABSENT,
+                ),
+            ),
+        )
+        bundle = issue_proof_carrying_projection(self.adapter, projection)
+        self.assertEqual(bundle.entity_commitment.cell_count, 0)
+        claim = bundle.claims[0]
+        self.assertIsNotNone(claim.cell_nonmembership)
+        self.assertTrue(verify_proof_carrying_projection(bundle))
+        self.assertTrue(verify_nonmembership_proof(
+            claim.cell_nonmembership,
+            bundle.entity_commitment.cell_root_sha256,
+        ))
 
     def test_global_field_addition_changes_registry_commitment_not_entity_commitment(self):
         projection = self._projection()
@@ -243,7 +273,7 @@ class ProofCarryingPartialReadTests(unittest.TestCase):
         self.assertTrue(verify_proof_carrying_projection(bundle))
 
         # A different bridge hash must fail projection/commitment consistency even though
-        # the Merkle roots themselves are unchanged.
+        # the sparse Merkle roots themselves are unchanged.
         fake = replace(bundle.entity_commitment, legacy_snapshot_sha256="11" * 32)
         self.assertFalse(verify_proof_carrying_projection(replace(bundle, entity_commitment=fake)))
 
