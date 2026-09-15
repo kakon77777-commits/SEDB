@@ -1,0 +1,47 @@
+name: D13 world materialization manifest
+
+on:
+  pull_request:
+    paths:
+      - "projects/isql-world-materializer/src/isql_world_materializer/materialization.py"
+      - "projects/isql-world-materializer/src/isql_world_materializer/__init__.py"
+      - "projects/isql-world-materializer/tests/test_d13_materialization_manifest.py"
+      - "projects/isql-world-materializer/docs/D13_WORLD_MATERIALIZATION_MANIFEST_v0.1.md"
+      - ".github/workflows/d13-materialization-manifest.yml"
+
+jobs:
+  d13-materialization:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout SEDB
+        uses: actions/checkout@v4
+        with:
+          path: sedb
+      - name: Checkout ISQL main
+        uses: actions/checkout@v4
+        with:
+          repository: kakon77777-commits/ISQL
+          ref: main
+          path: isql
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install integration chain
+        run: |
+          python -m pip install -e ./sedb/current
+          python -m pip install -e ./isql
+          python -m pip install -e ./sedb/projects/isql-sedb-readonly-adapter
+          python -m pip install -e ./sedb/projects/isql-world-materializer
+      - name: Compile sources
+        run: |
+          python -m compileall -q ./sedb/current/src
+          python -m compileall -q ./isql/src
+          python -m compileall -q ./sedb/projects/isql-sedb-readonly-adapter/src
+          python -m compileall -q ./sedb/projects/isql-world-materializer/src
+      - name: Run D13 tests
+        working-directory: sedb/projects/isql-world-materializer
+        run: python -m unittest discover -s tests -p 'test_d13_materialization_manifest.py' -v
+      - name: Re-run D12 regression tests
+        working-directory: sedb/projects/isql-world-materializer
+        run: python -m unittest discover -s tests -p 'test_d12_range_fetch.py' -v
