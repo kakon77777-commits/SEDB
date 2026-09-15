@@ -7,15 +7,20 @@ from isql_sedb_readonly.history import CheckpointHistoryLedger
 from isql_sedb_readonly.sidecar import ProofSidecarCheckpoint
 from isql_sedb_readonly.world_head import build_world_head_manifest, verify_world_head_manifest
 
-from isql_dsr.branch import NativeBranch
-from isql_dsr.branch_history import BranchHistoryLedger
-from isql_dsr.canonical import state_hash
-from isql_dsr.events import TransitionEvent
-from isql_dsr.machine import compile_registered_state, registered_state_hash
-from isql_dsr.model import PointValue, SemanticState, SpectrumAxis, TypedRelation
-from isql_dsr.registry import NativeSymbolRegistry, SymbolNamespace, extend_registry_for_events, extend_registry_for_state
-from isql_dsr.runtime import apply_event
-from isql_dsr.stream import build_event_stream
+try:
+    from isql_dsr.branch import NativeBranch
+    from isql_dsr.branch_history import BranchHistoryLedger
+    from isql_dsr.canonical import state_hash
+    from isql_dsr.events import TransitionEvent
+    from isql_dsr.machine import compile_registered_state, registered_state_hash
+    from isql_dsr.model import PointValue, SemanticState, SpectrumAxis, TypedRelation
+    from isql_dsr.registry import NativeSymbolRegistry, SymbolNamespace, extend_registry_for_events, extend_registry_for_state
+    from isql_dsr.runtime import apply_event
+    from isql_dsr.stream import build_event_stream
+except ModuleNotFoundError as exc:
+    if exc.name == "isql_dsr" or (exc.name or "").startswith("isql_dsr."):
+        raise unittest.SkipTest("D9 cross-repo tests require merged ISQL-DSP") from exc
+    raise
 
 
 def _sha(label: str) -> str:
