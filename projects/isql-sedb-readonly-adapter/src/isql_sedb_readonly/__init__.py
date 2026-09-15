@@ -42,6 +42,18 @@ from .commitment import (
     issue_proof_carrying_projection,
     verify_proof_carrying_projection,
 )
+from .sidecar import (
+    PROOF_SIDECAR_SCHEMA,
+    PROOF_SIDECAR_CHECKPOINT_SCHEMA,
+    PROOF_SIDECAR_ENVELOPE_SCHEMA,
+    ProofSidecarCheckpoint,
+    SidecarBuildResult,
+    SidecarReadStats,
+    SidecarProofEnvelope,
+    ProofSidecar,
+    build_proof_sidecar,
+    verify_sidecar_proof_envelope,
+)
 
 __all__ = [
     "SEDB_ENTITY_SNAPSHOT_SCHEMA",
@@ -80,4 +92,14 @@ __all__ = [
     "verify_nonmembership_proof",
     "issue_proof_carrying_projection",
     "verify_proof_carrying_projection",
+    "PROOF_SIDECAR_SCHEMA",
+    "PROOF_SIDECAR_CHECKPOINT_SCHEMA",
+    "PROOF_SIDECAR_ENVELOPE_SCHEMA",
+    "ProofSidecarCheckpoint",
+    "SidecarBuildResult",
+    "SidecarReadStats",
+    "SidecarProofEnvelope",
+    "ProofSidecar",
+    "build_proof_sidecar",
+    "verify_sidecar_proof_envelope",
 ]
