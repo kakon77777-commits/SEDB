@@ -36,23 +36,47 @@ D4 deliberately does **not** place the global field-registry root inside the ent
 
 ```text
 EntityStateCommitment
-  = entity metadata hash + sparse cell Merkle root
+  = entity metadata hash + sparse cell root
 
 FieldRegistryCommitment
-  = field-definition Merkle root
+  = field-definition root
 ```
 
 This prevents an unrelated global field addition from changing every entity commitment.
 
-## Merkle domain separation
+## Sparse Merkle design
+
+D4 uses a fixed-depth 256-bit sparse Merkle tree rather than an ordered-neighbor Merkle list.
+
+Each stable `field_id` maps to a tree path:
+
+$$
+K_f=\operatorname{SHA256}(0x02\parallel\operatorname{UTF8}(field\_id)).
+$$
+
+The path bits of $K_f$ select left/right branches from leaf depth 256 to the root.
+
+Domain-separated hashes:
 
 ```text
-leaf     = SHA-256(0x00 || canonical-json(leaf))
-internal = SHA-256(0x01 || left || right)
-empty    = SHA-256(0x02 || "empty")
+present leaf = SHA-256(0x00 || "present" || key_digest || canonical-json(payload))
+empty leaf   = SHA-256(0x00 || "empty")
+internal     = SHA-256(0x01 || left || right)
 ```
 
-Leaves are sorted by stable key (`field_id`) and must be unique. Odd nodes duplicate the final hash at that level. Membership proofs carry leaf index, total leaf count, and sibling hashes; proof direction is derived from `(index,count)` rather than trusted from the proof payload.
+Default empty-subtree hashes are precomputed recursively from the empty leaf.
+
+A proof carries exactly 256 sibling hashes. The verifier derives branch direction from the field-id key digest; it does not trust a direction bit supplied by the proof.
+
+### Why sparse Merkle instead of ordered-neighbor non-membership
+
+An ordinary sorted Merkle list can represent a deterministic tree, but a local non-membership proof based on predecessor/successor adjacency still relies on the global assumption that the committed tree was actually constructed in canonical sorted order.
+
+A sparse Merkle tree avoids that global ordering assumption for absence: the target `field_id` has one fixed cryptographic path. A non-membership proof starts from the canonical empty leaf at that exact path and folds the sibling hashes to the committed root.
+
+This gives native membership and non-membership under the same root.
+
+The v0.1 prototype uses full 256-sibling proofs for clarity. Future versions may compress runs of default empty siblings without changing root semantics.
 
 ## Cell claims
 
@@ -69,25 +93,27 @@ Require:
 Require:
 
 1. field-definition membership under $C_F$;
-2. cell **non-membership** under $C_E$.
-
-Non-membership is proven over the canonical sorted sparse-cell sequence using adjacent predecessor/successor membership proofs (or an empty tree proof). Adjacency and boundary indices are checked.
+2. sparse-Merkle empty-leaf proof for that `field_id` under $C_E$.
 
 ### unknown
 
-`unknown` is an external epistemic annotation, not a stored SEDB cell state. D4 therefore requires cell non-membership and preserves the explicit `unknown_reason` from D3.
+`unknown` is an external epistemic annotation, not a stored SEDB cell state. D4 therefore requires the same empty-leaf proof as `absent`, plus the explicit `unknown_reason` already required by D3.
 
 ### unloaded
 
-`unloaded` deliberately makes no cell-existence claim. D4 may prove the field definition, but must not attach a cell membership or non-membership proof.
+`unloaded` deliberately makes no cell-existence claim. D4 proves the field definition but must not attach either a cell membership or a cell non-membership proof.
 
 Therefore:
 
 $$
 \boxed{
-\text{unloaded}\neq\text{absent}
+\text{unloaded}\neq\text{absent}\neq\text{unknown}\neq\text{blank}
 }
 $$
+
+## Key-digest collisions
+
+The proof issuer rejects two distinct field IDs that map to the same 256-bit sparse-tree key digest. This is a defensive protocol condition; security otherwise relies on SHA-256 collision resistance.
 
 ## Legacy D1 SHA bridge
 
@@ -99,7 +125,7 @@ $$
 
 A Merkle proof cannot, in general, prove equality to that pre-existing flat hash without the full JSON preimage (or a stronger proof system). D4 therefore does **not** pretend otherwise.
 
-During commitment issuance the builder performs a full D1 read, derives the Merkle commitments from that same state, and records `legacy_snapshot_sha256` as a bridge reference. Later partial verification proves consistency with the D4 commitments, not self-authenticating equivalence to the legacy flat hash.
+During commitment issuance the builder performs a full D1 read, derives the sparse-Merkle commitments from that same state, and records `legacy_snapshot_sha256` as a bridge reference. Later partial verification proves consistency with the D4 commitments, not self-authenticating equivalence to the legacy flat hash.
 
 The architectural progression is therefore:
 
@@ -120,8 +146,8 @@ Verification is DB-independent and consumes only:
 - the commitments;
 - entity metadata;
 - selected field definitions;
-- selected cell payloads or sparse non-membership neighbors;
-- Merkle paths.
+- selected cell payloads or empty-leaf proofs;
+- sparse Merkle sibling paths.
 
 Thus D4 proves the cryptographic/data-structural boundary for future partial storage/network reads without claiming the current SQLite proof issuer is already I/O optimal.
 
@@ -135,8 +161,9 @@ D4 does not:
 - add write authority;
 - add signatures, consensus, or RAL attestation;
 - prove historical/current-head authority;
-- claim a D3 projection is a complete entity state.
+- claim a D3 projection is a complete entity state;
+- claim the uncompressed 256-sibling proof format is bandwidth-optimal.
 
 ## Next step
 
-After D4, the next storage-level experiment can persist commitment heads/proof indexes at mutation/checkpoint time so readers retrieve only selected cell/field leaves and Merkle paths instead of asking a proof issuer to reconstruct them from a complete SQLite view on demand.
+After D4, the next storage-level experiment can persist commitment heads and sparse-tree node/proof indexes at mutation/checkpoint time so readers retrieve only selected field/cell leaves and required sibling nodes instead of asking a proof issuer to reconstruct them from a complete SQLite view on demand.
