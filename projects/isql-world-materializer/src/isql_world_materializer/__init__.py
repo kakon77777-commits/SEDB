@@ -9,11 +9,28 @@ from .placement import (
 from .fetch import (
     FetchAttempt,
     FetchProvider,
+    RangeFetchProvider,
     LocalDirectoryProvider,
     ProviderReadError,
     VerifiedFetch,
     VerifiedFetchError,
     VerifiedFetcher,
+)
+from .range_proof import (
+    RANGE_COMMITMENT_SCHEMA,
+    RANGE_PROOF_SIDECAR_SCHEMA,
+    MAX_CHUNK_SIZE,
+    RangeProofError,
+    RangeCommitment,
+    ChunkProof,
+    RangeProofIndex,
+    build_range_proof_sidecar,
+    verify_chunk_proof,
+)
+from .range_fetch import (
+    VerifiedRangeFetch,
+    VerifiedRangeFetchError,
+    VerifiedRangeFetcher,
 )
 
 __all__ = [
@@ -25,9 +42,22 @@ __all__ = [
     "PlacementRecord",
     "FetchAttempt",
     "FetchProvider",
+    "RangeFetchProvider",
     "LocalDirectoryProvider",
     "ProviderReadError",
     "VerifiedFetch",
     "VerifiedFetchError",
     "VerifiedFetcher",
+    "RANGE_COMMITMENT_SCHEMA",
+    "RANGE_PROOF_SIDECAR_SCHEMA",
+    "MAX_CHUNK_SIZE",
+    "RangeProofError",
+    "RangeCommitment",
+    "ChunkProof",
+    "RangeProofIndex",
+    "build_range_proof_sidecar",
+    "verify_chunk_proof",
+    "VerifiedRangeFetch",
+    "VerifiedRangeFetchError",
+    "VerifiedRangeFetcher",
 ]
