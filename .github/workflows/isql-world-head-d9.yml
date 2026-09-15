@@ -19,6 +19,13 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: sedb
+      - name: Check out merged ISQL main
+        uses: actions/checkout@v4
+        with:
+          repository: kakon77777-commits/ISQL
+          ref: main
+          path: isql
+          persist-credentials: false
       - name: Check out merged ISQL-DSP
         uses: actions/checkout@v4
         with:
@@ -29,12 +36,16 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Install DSR and adapter
+      - name: Install full integration dependency chain
         run: |
+          python -m pip install -e ./sedb/current
+          python -m pip install -e ./isql
           python -m pip install -e ./isql-dsp
           python -m pip install -e ./sedb/projects/isql-sedb-readonly-adapter
       - name: Compile integration modules
         run: |
+          python -m compileall -q ./sedb/current/src
+          python -m compileall -q ./isql/src
           python -m compileall -q ./isql-dsp/src
           python -m compileall -q ./sedb/projects/isql-sedb-readonly-adapter/src
       - name: Run D9 world-head tests
