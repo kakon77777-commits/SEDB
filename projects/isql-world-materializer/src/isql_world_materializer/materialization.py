@@ -188,7 +188,8 @@ def verify_materialization_manifest(
     manifest_hash_valid = manifest.manifest_sha256 == expected_manifest
     world_head_binding_valid = manifest.world_head_manifest_sha256 == expected_world_head
 
-    artifact_commitments_valid = set(proof_indexes) == {binding.artifact_ref for binding in manifest.artifacts}
+    required_refs = {binding.artifact_ref for binding in manifest.artifacts}
+    artifact_commitments_valid = required_refs.issubset(set(proof_indexes))
     if artifact_commitments_valid:
         for binding in manifest.artifacts:
             index = proof_indexes.get(binding.artifact_ref)
