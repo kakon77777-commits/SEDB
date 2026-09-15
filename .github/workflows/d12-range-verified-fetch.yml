@@ -1,0 +1,32 @@
+name: D12 proof-verified range fetch
+
+on:
+  pull_request:
+    paths:
+      - "projects/isql-world-materializer/src/isql_world_materializer/fetch.py"
+      - "projects/isql-world-materializer/src/isql_world_materializer/range_proof.py"
+      - "projects/isql-world-materializer/src/isql_world_materializer/range_fetch.py"
+      - "projects/isql-world-materializer/src/isql_world_materializer/__init__.py"
+      - "projects/isql-world-materializer/tests/test_d12_range_fetch.py"
+      - "projects/isql-world-materializer/docs/D12_RANGE_VERIFIED_FETCH_v0.1.md"
+      - ".github/workflows/d12-range-verified-fetch.yml"
+
+jobs:
+  d12-range-fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout SEDB
+        uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install world materializer
+        run: python -m pip install -e ./projects/isql-world-materializer
+      - name: Compile project
+        run: python -m compileall -q ./projects/isql-world-materializer/src
+      - name: Run D12 range tests
+        working-directory: projects/isql-world-materializer
+        run: python -m unittest discover -s tests -p 'test_d12_range_fetch.py' -v
+      - name: Re-run D11 regression tests
+        working-directory: projects/isql-world-materializer
+        run: python -m unittest discover -s tests -p 'test_d11_physical_resolver.py' -v
