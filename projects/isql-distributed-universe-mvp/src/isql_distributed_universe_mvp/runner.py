@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+import calendar
 from dataclasses import asdict, dataclass
+from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
-from typing import Any
 
 from isql_core.semantic_addressing import semantic_address_from_analysis
 from isql_core.semantics import SemanticAnalysis, SemanticCoordinateSet
@@ -39,6 +40,8 @@ from sedb.db import Database
 from sedb.entities import EntityService
 from sedb.fields import FieldService
 from sedb.views import ViewService
+from sedb_ral.materialization_anchor import append_materialization_anchor, verify_materialization_anchor
+from sedb_ral.world_head_anchor import append_world_head_anchor, verify_world_head_anchor
 
 
 @dataclass(frozen=True, slots=True)
@@ -91,6 +94,9 @@ class SyntheticUniverseReport:
     replica_failover_count: int
     world_head_sha256: str
     materialization_manifest_sha256: str
+    world_head_ral_anchor_verified: bool
+    materialization_ral_anchor_verified: bool
+    ral_final_chain_digest: str
     historical_world_head_valid_after_dsr_advance: bool
     historical_world_head_current_after_dsr_advance: bool
     new_world_head_current: bool
@@ -142,6 +148,38 @@ def _semantic(topic: str) -> SemanticAnalysis:
     )
 
 
+def _ctcl_receipt(suffix: int, recorded_time: str) -> dict[str, object]:
+    parsed = datetime.fromisoformat(recorded_time.removesuffix("Z") + "+00:00").astimezone(timezone.utc)
+    seconds = calendar.timegm(parsed.utctimetuple())
+    ns = seconds * 1_000_000_000 + parsed.microsecond * 1_000
+    rfc3339 = parsed.isoformat(timespec="microseconds").replace("+00:00", "Z")
+    return {
+        "schema_version": "0.1",
+        "ctcl_instant_id": f"ctcl:instant:00000000-0000-4000-8000-{suffix:012x}",
+        "ctcl_call_kind": "registered_anchor",
+        "reference": {"timescale": "utc", "value": rfc3339},
+        "encodings": {
+            "unix_s": f"{ns / 1_000_000_000:.6f}",
+            "unix_ms": str(ns // 1_000_000),
+            "unix_us": str(ns // 1_000),
+            "unix_ns": str(ns),
+            "rfc3339": rfc3339,
+        },
+        "source": {"class": "fixture", "protocol": "https", "provider": "d15-ctcl", "sync_status": "synchronized"},
+        "quality": {"precision": "microsecond", "estimated_uncertainty_ns": 0, "synchronized": True, "note": "D15 synthetic anchor"},
+        "signature": {
+            "alg": "Ed25519",
+            "key_id": "d15-fixture-key",
+            "signed_fields": "instant_id|unix_ns|timescale",
+            "value": "d15-fixture-signature-not-cryptographically-verified",
+            "verify_endpoint": "https://example.invalid/verify",
+            "verification_status": "not_performed",
+        },
+        "retrievability": {"expected": True, "status": "unverified", "checked_at_ref": None, "retrieval_evidence_ref": None},
+        "service_returned_share_url": f"https://example.invalid/instant/{suffix}",
+    }
+
+
 def _build_dsr_history(root: Path):
     base = SemanticState(identity="world:d15")
     event1 = TransitionEvent(
@@ -159,7 +197,6 @@ def _build_dsr_history(root: Path):
         base_revision=1,
         previous_hash=state_hash(state1),
     )
-
     registry = extend_registry_for_state(NativeSymbolRegistry(), base)
     registry = extend_registry_for_events(registry, (event1, event2))
     registry, branch_ref = registry.intern_text(SymbolNamespace.BRANCH_ID, "d15-main")
@@ -167,7 +204,6 @@ def _build_dsr_history(root: Path):
     base_hash = registered_state_hash(native_base)
     branch_v1 = NativeBranch(branch_ref, native_base.revision, base_hash, build_event_stream(base, (event1,), registry))
     branch_v2 = NativeBranch(branch_ref, native_base.revision, base_hash, build_event_stream(base, (event1, event2), registry))
-
     ledger = BranchHistoryLedger(root / "dsr-branch-history.sqlite3")
     first = ledger.publish_branch(native_base, branch_v1, registry, expected_head_sha256=None)
     return ledger, native_base, registry, branch_v2, first
@@ -181,13 +217,11 @@ def _prepare_sedb(root: Path, config: SyntheticUniverseConfig):
     views = ViewService(db)
     for key in ("topic", "ordinal", "artifact_ref"):
         fields.create_field(key=key, label=key.title(), value_type="json")
-
     analyses: dict[str, SemanticAnalysis] = {}
     good_root = root / "provider-good"
     bad_root = root / "provider-bad"
     (good_root / "objects").mkdir(parents=True)
     (bad_root / "objects").mkdir(parents=True)
-
     total_bytes = 0
     for index in range(config.object_count):
         entity_id = f"Entity-{index:06d}"
@@ -202,23 +236,17 @@ def _prepare_sedb(root: Path, config: SyntheticUniverseConfig):
         content = _artifact_bytes(config.seed, index, config.artifact_size)
         (good_root / object_key).write_bytes(content)
         total_bytes += len(content)
-
-    view = views.create_view(
-        "d15-active-view",
-        ["topic", "ordinal", "artifact_ref"],
-        query_text="synthetic distributed universe active domain",
-    )
-    return db_path, entities, view, analyses, good_root, bad_root, total_bytes
+    view = views.create_view("d15-active-view", ["topic", "ordinal", "artifact_ref"], query_text="synthetic distributed universe active domain")
+    return db_path, view, analyses, good_root, bad_root, total_bytes
 
 
 def run_synthetic_acceptance(root: str | Path, config: SyntheticUniverseConfig = SyntheticUniverseConfig()) -> SyntheticUniverseReport:
     root = Path(root).resolve()
     root.mkdir(parents=True, exist_ok=True)
-    db_path, _, view, analyses, good_root, bad_root, total_bytes = _prepare_sedb(root, config)
+    db_path, view, analyses, good_root, bad_root, total_bytes = _prepare_sedb(root, config)
     adapter = SEDBReadOnlyAdapter(db_path)
     semantic_index = adapter.build_semantic_index(analyses)
-    target_topic = "topic-000"
-    query = semantic_address_from_analysis(_semantic(target_topic))
+    query = semantic_address_from_analysis(_semantic("topic-000"))
     target_population = sum(1 for index in range(config.object_count) if index % config.topic_count == 0)
     plan = plan_active_domain(
         adapter,
@@ -248,11 +276,7 @@ def run_synthetic_acceptance(root: str | Path, config: SyntheticUniverseConfig =
     )
 
     dsr_ledger, native_base, registry, branch_v2, branch_first = _build_dsr_history(root)
-    world_head = build_world_head_manifest(
-        world_id="world:d15",
-        reservoir_record=reservoir_record,
-        dsr_record=branch_first.record,
-    )
+    world_head = build_world_head_manifest(world_id="world:d15", reservoir_record=reservoir_record, dsr_record=branch_first.record)
     initial_world_verification = verify_world_head_manifest(
         world_head,
         expected_manifest_sha256=world_head.manifest_sha256(),
@@ -267,7 +291,6 @@ def run_synthetic_acceptance(root: str | Path, config: SyntheticUniverseConfig =
     commitments = {}
     selected_ids = [entity.exact.entity_id for entity in plan.selected_entities]
     selected_index_by_id = {f"Entity-{index:06d}": index for index in range(config.object_count)}
-
     for ordinal, entity_id in enumerate(selected_ids):
         index = selected_index_by_id[entity_id]
         content = _artifact_bytes(config.seed, index, config.artifact_size)
@@ -276,39 +299,15 @@ def run_synthetic_acceptance(root: str | Path, config: SyntheticUniverseConfig =
         object_key = f"objects/{entity_id}.bin"
         sidecar_path = root / "range-proofs" / f"{entity_id}.sqlite3"
         sidecar_path.parent.mkdir(parents=True, exist_ok=True)
-        commitment = build_range_proof_sidecar(
-            good_root / object_key,
-            sidecar_path,
-            identity,
-            chunk_size=config.chunk_size,
-        )
+        commitment = build_range_proof_sidecar(good_root / object_key, sidecar_path, identity, chunk_size=config.chunk_size)
         commitments[artifact_ref] = commitment
         proof_indexes[artifact_ref] = RangeProofIndex(sidecar_path)
-        catalog.register(PlacementRecord(
-            identity=identity,
-            placement_id=f"good:{entity_id}",
-            provider_id="good",
-            object_key=object_key,
-            size_bytes=config.artifact_size,
-            region="region-good",
-            tier="hot",
-            priority=10,
-        ))
+        catalog.register(PlacementRecord(identity=identity, placement_id=f"good:{entity_id}", provider_id="good", object_key=object_key, size_bytes=config.artifact_size, region="region-good", tier="hot", priority=10))
         if ordinal == 0:
             corrupted = bytearray(content)
-            corrupt_at = min(config.range_offset, len(corrupted) - 1)
-            corrupted[corrupt_at] ^= 0xFF
+            corrupted[min(config.range_offset, len(corrupted) - 1)] ^= 0xFF
             (bad_root / object_key).write_bytes(bytes(corrupted))
-            catalog.register(PlacementRecord(
-                identity=identity,
-                placement_id=f"bad:{entity_id}",
-                provider_id="bad",
-                object_key=object_key,
-                size_bytes=config.artifact_size,
-                region="region-bad",
-                tier="hot",
-                priority=0,
-            ))
+            catalog.register(PlacementRecord(identity=identity, placement_id=f"bad:{entity_id}", provider_id="bad", object_key=object_key, size_bytes=config.artifact_size, region="region-bad", tier="hot", priority=0))
 
     materialization = build_materialization_manifest(
         world_id=world_head.world_id,
@@ -317,29 +316,54 @@ def run_synthetic_acceptance(root: str | Path, config: SyntheticUniverseConfig =
         commitments=commitments,
     )
 
+    ral_root = root / "ral-history"
+    world_anchor = append_world_head_anchor(
+        ral_root,
+        world_head.to_dict(),
+        _ctcl_receipt(1, "2026-09-15T10:01:00Z"),
+        event_id="evt_d15_world_head_001",
+        ledger_id="ledger:d15/world",
+        expected_previous_chain_digest=None,
+        expected_manifest_sha256=world_head.manifest_sha256(),
+    )
+    materialization_anchor = append_materialization_anchor(
+        ral_root,
+        materialization.to_dict(),
+        _ctcl_receipt(2, "2026-09-15T10:02:00Z"),
+        event_id="evt_d15_materialization_001",
+        ledger_id="ledger:d15/world",
+        causal_parent_ids=(world_anchor.event_id,),
+        expected_previous_chain_digest=world_anchor.chain_digest,
+        expected_manifest_sha256=materialization.manifest_sha256,
+    )
+    world_anchor_verification = verify_world_head_anchor(
+        ral_root,
+        expected_ral_head=materialization_anchor.chain_digest,
+        manifest=world_head.to_dict(),
+        expected_manifest_sha256=world_head.manifest_sha256(),
+    )
+    materialization_anchor_verification = verify_materialization_anchor(
+        ral_root,
+        expected_ral_head=materialization_anchor.chain_digest,
+        manifest=materialization.to_dict(),
+        expected_manifest_sha256=materialization.manifest_sha256,
+    )
+    if not world_anchor_verification.valid or not materialization_anchor_verification.valid:
+        raise RuntimeError("D15_EXTERNAL_ANCHOR_VERIFICATION_FAILED")
+
     good_counter = CountingRangeProvider(LocalDirectoryProvider(good_root))
     bad_counter = CountingRangeProvider(LocalDirectoryProvider(bad_root))
-    range_fetcher = VerifiedRangeFetcher(
-        PhysicalPlacementResolver(catalog),
-        {"good": good_counter, "bad": bad_counter},
-    )
     reader = MaterializationRangeReader(
         materialization,
         expected_manifest_sha256=materialization.manifest_sha256,
         expected_world_head_manifest_sha256=world_head.manifest_sha256(),
         proof_indexes=proof_indexes,
-        range_fetcher=range_fetcher,
+        range_fetcher=VerifiedRangeFetcher(PhysicalPlacementResolver(catalog), {"good": good_counter, "bad": bad_counter}),
     )
-
     requested_payload_bytes = 0
     failovers = 0
     for entity_id in selected_ids:
-        artifact_ref = f"artifact:{entity_id}"
-        result = reader.fetch_range(
-            artifact_ref,
-            offset=config.range_offset,
-            length=config.range_length,
-        )
+        result = reader.fetch_range(f"artifact:{entity_id}", offset=config.range_offset, length=config.range_length)
         index = selected_index_by_id[entity_id]
         expected_content = _artifact_bytes(config.seed, index, config.artifact_size)
         if result.content != expected_content[config.range_offset : config.range_offset + config.range_length]:
@@ -351,23 +375,14 @@ def run_synthetic_acceptance(root: str | Path, config: SyntheticUniverseConfig =
     physical_range_bytes = good_counter.bytes_requested + bad_counter.bytes_requested
     range_sidecar_bytes = sum(index.path.stat().st_size for index in proof_indexes.values())
 
-    second = dsr_ledger.publish_branch(
-        native_base,
-        branch_v2,
-        registry,
-        expected_head_sha256=branch_first.record.record_sha256,
-    )
+    second = dsr_ledger.publish_branch(native_base, branch_v2, registry, expected_head_sha256=branch_first.record.record_sha256)
     historical = verify_world_head_manifest(
         world_head,
         expected_manifest_sha256=world_head.manifest_sha256(),
         reservoir_ledger=reservoir_history,
         dsr_ledger=dsr_ledger,
     )
-    new_world_head = build_world_head_manifest(
-        world_id="world:d15",
-        reservoir_record=reservoir_record,
-        dsr_record=second.record,
-    )
+    new_world_head = build_world_head_manifest(world_id="world:d15", reservoir_record=reservoir_record, dsr_record=second.record)
     new_verification = verify_world_head_manifest(
         new_world_head,
         expected_manifest_sha256=new_world_head.manifest_sha256(),
@@ -381,7 +396,7 @@ def run_synthetic_acceptance(root: str | Path, config: SyntheticUniverseConfig =
         proof_indexes=proof_indexes,
     )
 
-    report = SyntheticUniverseReport(
+    return SyntheticUniverseReport(
         schema="isql-distributed-universe-acceptance/v0.1",
         config=asdict(config),
         universe_objects=config.object_count,
@@ -401,12 +416,14 @@ def run_synthetic_acceptance(root: str | Path, config: SyntheticUniverseConfig =
         replica_failover_count=failovers,
         world_head_sha256=world_head.manifest_sha256(),
         materialization_manifest_sha256=materialization.manifest_sha256,
+        world_head_ral_anchor_verified=world_anchor_verification.valid,
+        materialization_ral_anchor_verified=materialization_anchor_verification.valid,
+        ral_final_chain_digest=materialization_anchor.chain_digest,
         historical_world_head_valid_after_dsr_advance=historical.valid,
         historical_world_head_current_after_dsr_advance=historical.current,
         new_world_head_current=new_verification.current,
         stale_materialization_rejected_for_new_world_head=not stale_materialization.world_head_binding_valid,
     )
-    return report
 
 
 def acceptance_passes(report: SyntheticUniverseReport) -> bool:
@@ -417,6 +434,9 @@ def acceptance_passes(report: SyntheticUniverseReport) -> bool:
         and report.physical_range_bytes < report.total_universe_bytes
         and report.requested_payload_bytes <= report.physical_range_bytes
         and report.replica_failover_count >= 1
+        and report.world_head_ral_anchor_verified
+        and report.materialization_ral_anchor_verified
+        and report.ral_final_chain_digest.startswith("sha256:sedb-ral-chain-v1:")
         and report.historical_world_head_valid_after_dsr_advance
         and not report.historical_world_head_current_after_dsr_advance
         and report.new_world_head_current
