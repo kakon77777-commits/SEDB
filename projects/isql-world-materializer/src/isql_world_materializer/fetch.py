@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import hashlib
-import os
 from pathlib import Path, PurePosixPath
 import stat
 from typing import Mapping, Protocol
@@ -24,13 +23,19 @@ class FetchProvider(Protocol):
     def read(self, object_key: str, *, max_bytes: int | None = None) -> bytes: ...
 
 
-class LocalDirectoryProvider:
-    """Read-only local provider used by the D11 experimental resolver.
+class RangeFetchProvider(FetchProvider, Protocol):
+    def read_range(
+        self,
+        object_key: str,
+        *,
+        offset: int,
+        length: int,
+        max_bytes: int | None = None,
+    ) -> bytes: ...
 
-    The provider resolves the requested key beneath one configured root and
-    rejects resolved paths that escape that root. It is a local fixture/runtime
-    provider, not a claim of hostile-filesystem race resistance.
-    """
+
+class LocalDirectoryProvider:
+    """Read-only local provider used by D11/D12 experimental fetchers."""
 
     def __init__(self, root: str | Path):
         root_path = Path(root)
@@ -55,34 +60,29 @@ class LocalDirectoryProvider:
             raise ProviderReadError("PROVIDER_OBJECT_KEY_NONCANONICAL")
         return tuple(path.parts)
 
-    def read(self, object_key: str, *, max_bytes: int | None = None) -> bytes:
+    def _resolved_regular(self, object_key: str) -> tuple[Path, int]:
         parts = self._parts(object_key)
-        if max_bytes is not None and (type(max_bytes) is not int or max_bytes < 0):
-            raise ProviderReadError("PROVIDER_MAX_BYTES_INVALID")
-
         candidate = self.root.joinpath(*parts)
         try:
             resolved = candidate.resolve(strict=True)
         except (OSError, RuntimeError) as exc:
             raise ProviderReadError("PROVIDER_OBJECT_UNAVAILABLE", object_key) from exc
-        try:
-            if not resolved.is_relative_to(self.root):
-                raise ProviderReadError("PROVIDER_OBJECT_ESCAPE", object_key)
-        except AttributeError:  # pragma: no cover - Python >=3.11 has is_relative_to
-            try:
-                resolved.relative_to(self.root)
-            except ValueError as exc:
-                raise ProviderReadError("PROVIDER_OBJECT_ESCAPE", object_key) from exc
-
+        if not resolved.is_relative_to(self.root):
+            raise ProviderReadError("PROVIDER_OBJECT_ESCAPE", object_key)
         try:
             info = resolved.stat()
         except OSError as exc:
             raise ProviderReadError("PROVIDER_OBJECT_UNAVAILABLE", object_key) from exc
         if not stat.S_ISREG(info.st_mode):
             raise ProviderReadError("PROVIDER_OBJECT_NOT_REGULAR", object_key)
-        if max_bytes is not None and info.st_size > max_bytes:
-            raise ProviderReadError("PROVIDER_OBJECT_TOO_LARGE", object_key)
+        return resolved, info.st_size
 
+    def read(self, object_key: str, *, max_bytes: int | None = None) -> bytes:
+        if max_bytes is not None and (type(max_bytes) is not int or max_bytes < 0):
+            raise ProviderReadError("PROVIDER_MAX_BYTES_INVALID")
+        resolved, size = self._resolved_regular(object_key)
+        if max_bytes is not None and size > max_bytes:
+            raise ProviderReadError("PROVIDER_OBJECT_TOO_LARGE", object_key)
         try:
             with resolved.open("rb") as stream:
                 content = stream.read() if max_bytes is None else stream.read(max_bytes + 1)
@@ -90,6 +90,35 @@ class LocalDirectoryProvider:
             raise ProviderReadError("PROVIDER_OBJECT_READ_FAILED", object_key) from exc
         if max_bytes is not None and len(content) > max_bytes:
             raise ProviderReadError("PROVIDER_OBJECT_TOO_LARGE", object_key)
+        return content
+
+    def read_range(
+        self,
+        object_key: str,
+        *,
+        offset: int,
+        length: int,
+        max_bytes: int | None = None,
+    ) -> bytes:
+        if type(offset) is not int or offset < 0:
+            raise ProviderReadError("PROVIDER_RANGE_OFFSET_INVALID")
+        if type(length) is not int or length < 0:
+            raise ProviderReadError("PROVIDER_RANGE_LENGTH_INVALID")
+        if max_bytes is not None and (type(max_bytes) is not int or max_bytes < 0):
+            raise ProviderReadError("PROVIDER_MAX_BYTES_INVALID")
+        if max_bytes is not None and length > max_bytes:
+            raise ProviderReadError("PROVIDER_RANGE_TOO_LARGE")
+        resolved, size = self._resolved_regular(object_key)
+        if offset > size or offset + length > size:
+            raise ProviderReadError("PROVIDER_RANGE_OUT_OF_BOUNDS")
+        try:
+            with resolved.open("rb") as stream:
+                stream.seek(offset)
+                content = stream.read(length)
+        except OSError as exc:
+            raise ProviderReadError("PROVIDER_OBJECT_READ_FAILED", object_key) from exc
+        if len(content) != length:
+            raise ProviderReadError("PROVIDER_RANGE_SHORT_READ")
         return content
 
 
@@ -115,11 +144,7 @@ class VerifiedFetchError(PlacementError):
 
 
 class VerifiedFetcher:
-    """Resolve placements, fetch bytes, and verify the requested exact identity.
-
-    A failed/corrupt placement may be skipped. The requested exact identity is
-    never changed during failover.
-    """
+    """Resolve placements, fetch bytes, and verify the requested exact identity."""
 
     def __init__(
         self,
@@ -142,7 +167,7 @@ class VerifiedFetcher:
 
     @staticmethod
     def _digest(identity: ExactContentIdentity, content: bytes) -> str:
-        if identity.algorithm != "sha256":  # defensive; v0.1 identity constructor already gates this
+        if identity.algorithm != "sha256":
             raise VerifiedFetchError("FETCH_IDENTITY_ALGORITHM_UNSUPPORTED")
         return hashlib.sha256(content).hexdigest()
 
@@ -163,61 +188,23 @@ class VerifiedFetcher:
             attempted_ids.append(placement.placement_id)
             provider = self.providers.get(placement.provider_id)
             if provider is None:
-                attempts.append(
-                    FetchAttempt(
-                        placement.placement_id,
-                        placement.provider_id,
-                        "FETCH_PROVIDER_UNAVAILABLE",
-                    )
-                )
+                attempts.append(FetchAttempt(placement.placement_id, placement.provider_id, "FETCH_PROVIDER_UNAVAILABLE"))
                 continue
             try:
-                content = provider.read(
-                    placement.object_key,
-                    max_bytes=placement.size_bytes,
-                )
+                content = provider.read(placement.object_key, max_bytes=placement.size_bytes)
             except PlacementError as exc:
-                attempts.append(
-                    FetchAttempt(
-                        placement.placement_id,
-                        placement.provider_id,
-                        exc.code,
-                    )
-                )
+                attempts.append(FetchAttempt(placement.placement_id, placement.provider_id, exc.code))
                 continue
             except Exception:
-                attempts.append(
-                    FetchAttempt(
-                        placement.placement_id,
-                        placement.provider_id,
-                        "FETCH_PROVIDER_ERROR",
-                    )
-                )
+                attempts.append(FetchAttempt(placement.placement_id, placement.provider_id, "FETCH_PROVIDER_ERROR"))
                 continue
 
             if len(content) != placement.size_bytes:
-                attempts.append(
-                    FetchAttempt(
-                        placement.placement_id,
-                        placement.provider_id,
-                        "FETCH_SIZE_MISMATCH",
-                    )
-                )
+                attempts.append(FetchAttempt(placement.placement_id, placement.provider_id, "FETCH_SIZE_MISMATCH"))
                 continue
             if self._digest(identity, content) != identity.digest:
-                attempts.append(
-                    FetchAttempt(
-                        placement.placement_id,
-                        placement.provider_id,
-                        "FETCH_DIGEST_MISMATCH",
-                    )
-                )
+                attempts.append(FetchAttempt(placement.placement_id, placement.provider_id, "FETCH_DIGEST_MISMATCH"))
                 continue
-            return VerifiedFetch(
-                identity=identity,
-                placement=placement,
-                content=content,
-                attempted_placement_ids=tuple(attempted_ids),
-            )
+            return VerifiedFetch(identity, placement, content, tuple(attempted_ids))
 
         raise VerifiedFetchError("FETCH_ALL_PLACEMENTS_FAILED", tuple(attempts))
