@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-from bisect import bisect_left
 from dataclasses import dataclass
 import hashlib
 import json
@@ -23,8 +22,7 @@ from .materializer import (
 ENTITY_STATE_COMMITMENT_SCHEMA = "isql-sedb.entity-state-commitment/v0.1"
 FIELD_REGISTRY_COMMITMENT_SCHEMA = "isql-sedb.field-registry-commitment/v0.1"
 PROOF_CARRYING_PROJECTION_SCHEMA = "isql-sedb.proof-carrying-partial-entity/v0.1"
-
-_EMPTY_ROOT = hashlib.sha256(b"\x02empty").digest()
+SPARSE_MERKLE_DEPTH = 256
 
 
 def _canonical_json_bytes(value: object) -> bytes:
@@ -52,11 +50,24 @@ def _require_hex64(value: str, code: str) -> str:
     return value.lower()
 
 
-def _leaf_hash(key: str, payload: object) -> bytes:
-    if not isinstance(key, str) or not key:
+def _require_key(key: str) -> str:
+    if not isinstance(key, str) or not key or "\x00" in key:
         raise SEDBReadOnlyAdapterError("COMMITMENT_LEAF_KEY_INVALID")
+    return key
+
+
+def _key_digest(key: str) -> bytes:
+    return hashlib.sha256(b"\x02" + _require_key(key).encode("utf-8")).digest()
+
+
+def _key_position(key: str) -> int:
+    return int.from_bytes(_key_digest(key), "big")
+
+
+def _present_leaf_hash(key: str, payload: object) -> bytes:
+    _canonical_json_bytes(payload)
     return hashlib.sha256(
-        b"\x00" + _canonical_json_bytes({"key": key, "payload": payload})
+        b"\x00present" + _key_digest(key) + _canonical_json_bytes(payload)
     ).digest()
 
 
@@ -64,198 +75,189 @@ def _internal_hash(left: bytes, right: bytes) -> bytes:
     return hashlib.sha256(b"\x01" + left + right).digest()
 
 
+def _empty_hashes() -> tuple[bytes, ...]:
+    values: list[bytes] = [b""] * (SPARSE_MERKLE_DEPTH + 1)
+    values[SPARSE_MERKLE_DEPTH] = hashlib.sha256(b"\x00empty").digest()
+    for depth in range(SPARSE_MERKLE_DEPTH - 1, -1, -1):
+        values[depth] = _internal_hash(values[depth + 1], values[depth + 1])
+    return tuple(values)
+
+
+_EMPTY_HASHES = _empty_hashes()
+
+
 def _canonical_leaves(leaves: Iterable[tuple[str, object]]) -> tuple[tuple[str, object], ...]:
     rows = tuple(sorted(leaves, key=lambda row: row[0]))
     keys = [key for key, _ in rows]
     if len(keys) != len(set(keys)):
         raise SEDBReadOnlyAdapterError("COMMITMENT_DUPLICATE_LEAF_KEY")
-    for key in keys:
-        if not isinstance(key, str) or not key or "\x00" in key:
-            raise SEDBReadOnlyAdapterError("COMMITMENT_LEAF_KEY_INVALID")
+    for key, payload in rows:
+        _require_key(key)
+        _canonical_json_bytes(payload)
     return rows
 
 
-def _merkle_root(leaves: tuple[tuple[str, object], ...]) -> bytes:
-    if not leaves:
-        return _EMPTY_ROOT
-    level = [_leaf_hash(key, payload) for key, payload in leaves]
-    while len(level) > 1:
-        next_level: list[bytes] = []
-        for index in range(0, len(level), 2):
-            left = level[index]
-            right = level[index + 1] if index + 1 < len(level) else left
-            next_level.append(_internal_hash(left, right))
-        level = next_level
-    return level[0]
+@dataclass(slots=True)
+class _SparseMerkleTree:
+    leaves: tuple[tuple[str, object], ...]
+    positions: dict[str, int]
+    payloads: dict[str, object]
+    levels: dict[int, dict[int, bytes]]
+    root: bytes
 
 
-def _expected_sibling_count(count: int) -> int:
-    levels = 0
-    size = count
-    while size > 1:
-        levels += 1
-        size = (size + 1) // 2
-    return levels
+def _build_sparse_tree(leaves: Iterable[tuple[str, object]]) -> _SparseMerkleTree:
+    rows = _canonical_leaves(leaves)
+    positions: dict[str, int] = {}
+    payloads: dict[str, object] = {}
+    leaf_nodes: dict[int, bytes] = {}
+    occupied: dict[int, str] = {}
+
+    for key, payload in rows:
+        position = _key_position(key)
+        other = occupied.get(position)
+        if other is not None and other != key:
+            raise SEDBReadOnlyAdapterError("SPARSE_MERKLE_KEY_DIGEST_COLLISION")
+        occupied[position] = key
+        positions[key] = position
+        payloads[key] = payload
+        leaf_nodes[position] = _present_leaf_hash(key, payload)
+
+    levels: dict[int, dict[int, bytes]] = {SPARSE_MERKLE_DEPTH: leaf_nodes}
+    current = leaf_nodes
+    for depth in range(SPARSE_MERKLE_DEPTH, 0, -1):
+        parent_indices = {position >> 1 for position in current}
+        parents: dict[int, bytes] = {}
+        default_child = _EMPTY_HASHES[depth]
+        default_parent = _EMPTY_HASHES[depth - 1]
+        for parent in parent_indices:
+            left = current.get(parent << 1, default_child)
+            right = current.get((parent << 1) | 1, default_child)
+            value = _internal_hash(left, right)
+            if value != default_parent:
+                parents[parent] = value
+        levels[depth - 1] = parents
+        current = parents
+
+    root = levels[0].get(0, _EMPTY_HASHES[0])
+    return _SparseMerkleTree(
+        leaves=rows,
+        positions=positions,
+        payloads=payloads,
+        levels=levels,
+        root=root,
+    )
 
 
 @dataclass(frozen=True, slots=True)
 class MerkleMembershipProof:
     key: str
     payload: object
-    index: int
-    count: int
     siblings: tuple[str, ...]
 
     def __post_init__(self) -> None:
-        if not isinstance(self.key, str) or not self.key or "\x00" in self.key:
-            raise SEDBReadOnlyAdapterError("MERKLE_PROOF_KEY_INVALID")
+        _require_key(self.key)
         _canonical_json_bytes(self.payload)
-        if not isinstance(self.index, int) or isinstance(self.index, bool) or self.index < 0:
-            raise SEDBReadOnlyAdapterError("MERKLE_PROOF_INDEX_INVALID")
-        if not isinstance(self.count, int) or isinstance(self.count, bool) or self.count <= 0:
-            raise SEDBReadOnlyAdapterError("MERKLE_PROOF_COUNT_INVALID")
-        if self.index >= self.count:
-            raise SEDBReadOnlyAdapterError("MERKLE_PROOF_INDEX_OUT_OF_RANGE")
-        if len(self.siblings) != _expected_sibling_count(self.count):
-            raise SEDBReadOnlyAdapterError("MERKLE_PROOF_SIBLING_COUNT_INVALID")
+        if len(self.siblings) != SPARSE_MERKLE_DEPTH:
+            raise SEDBReadOnlyAdapterError("SPARSE_MERKLE_PROOF_DEPTH_INVALID")
         for sibling in self.siblings:
-            _require_hex64(sibling, "MERKLE_PROOF_SIBLING_HASH_INVALID")
+            _require_hex64(sibling, "SPARSE_MERKLE_SIBLING_HASH_INVALID")
 
     def to_dict(self) -> dict[str, object]:
         return {
             "key": self.key,
             "payload": self.payload,
-            "index": self.index,
-            "count": self.count,
             "siblings": list(self.siblings),
         }
-
-
-def _membership_proof(
-    leaves: tuple[tuple[str, object], ...],
-    index: int,
-) -> MerkleMembershipProof:
-    if not leaves or not 0 <= index < len(leaves):
-        raise SEDBReadOnlyAdapterError("MERKLE_PROOF_INDEX_OUT_OF_RANGE")
-    level = [_leaf_hash(key, payload) for key, payload in leaves]
-    current_index = index
-    siblings: list[str] = []
-    while len(level) > 1:
-        if current_index % 2 == 0:
-            sibling_index = current_index + 1
-            sibling = level[sibling_index] if sibling_index < len(level) else level[current_index]
-        else:
-            sibling = level[current_index - 1]
-        siblings.append(sibling.hex())
-
-        next_level: list[bytes] = []
-        for pos in range(0, len(level), 2):
-            left = level[pos]
-            right = level[pos + 1] if pos + 1 < len(level) else left
-            next_level.append(_internal_hash(left, right))
-        current_index //= 2
-        level = next_level
-
-    key, payload = leaves[index]
-    return MerkleMembershipProof(
-        key=key,
-        payload=payload,
-        index=index,
-        count=len(leaves),
-        siblings=tuple(siblings),
-    )
-
-
-def verify_membership_proof(proof: MerkleMembershipProof, root_sha256: str) -> bool:
-    if not isinstance(proof, MerkleMembershipProof):
-        raise SEDBReadOnlyAdapterError("MERKLE_MEMBERSHIP_PROOF_REQUIRED")
-    root = bytes.fromhex(_require_hex64(root_sha256, "MERKLE_ROOT_HASH_INVALID"))
-    current = _leaf_hash(proof.key, proof.payload)
-    index = proof.index
-    count = proof.count
-    for sibling_hex in proof.siblings:
-        sibling = bytes.fromhex(sibling_hex)
-        if index % 2 == 0:
-            if index + 1 >= count and sibling != current:
-                return False
-            current = _internal_hash(current, sibling)
-        else:
-            current = _internal_hash(sibling, current)
-        index //= 2
-        count = (count + 1) // 2
-    return count == 1 and current == root
 
 
 @dataclass(frozen=True, slots=True)
 class MerkleNonMembershipProof:
     key: str
-    count: int
-    predecessor: MerkleMembershipProof | None
-    successor: MerkleMembershipProof | None
+    siblings: tuple[str, ...]
 
     def __post_init__(self) -> None:
-        if not isinstance(self.key, str) or not self.key or "\x00" in self.key:
-            raise SEDBReadOnlyAdapterError("MERKLE_NONMEMBERSHIP_KEY_INVALID")
-        if not isinstance(self.count, int) or isinstance(self.count, bool) or self.count < 0:
-            raise SEDBReadOnlyAdapterError("MERKLE_NONMEMBERSHIP_COUNT_INVALID")
-        if self.count == 0:
-            if self.predecessor is not None or self.successor is not None:
-                raise SEDBReadOnlyAdapterError("MERKLE_EMPTY_NONMEMBERSHIP_NEIGHBOR_FORBIDDEN")
-        elif self.predecessor is None and self.successor is None:
-            raise SEDBReadOnlyAdapterError("MERKLE_NONMEMBERSHIP_NEIGHBOR_REQUIRED")
+        _require_key(self.key)
+        if len(self.siblings) != SPARSE_MERKLE_DEPTH:
+            raise SEDBReadOnlyAdapterError("SPARSE_MERKLE_PROOF_DEPTH_INVALID")
+        for sibling in self.siblings:
+            _require_hex64(sibling, "SPARSE_MERKLE_SIBLING_HASH_INVALID")
 
     def to_dict(self) -> dict[str, object]:
-        return {
-            "key": self.key,
-            "count": self.count,
-            "predecessor": None if self.predecessor is None else self.predecessor.to_dict(),
-            "successor": None if self.successor is None else self.successor.to_dict(),
-        }
+        return {"key": self.key, "siblings": list(self.siblings)}
 
 
-def _nonmembership_proof(
-    leaves: tuple[tuple[str, object], ...],
-    key: str,
-) -> MerkleNonMembershipProof:
-    keys = [leaf_key for leaf_key, _ in leaves]
-    pos = bisect_left(keys, key)
-    if pos < len(keys) and keys[pos] == key:
-        raise SEDBReadOnlyAdapterError("MERKLE_NONMEMBERSHIP_KEY_EXISTS")
-    predecessor = _membership_proof(leaves, pos - 1) if pos > 0 else None
-    successor = _membership_proof(leaves, pos) if pos < len(leaves) else None
+def _proof_siblings(tree: _SparseMerkleTree, key: str) -> tuple[str, ...]:
+    position = _key_position(key)
+    siblings: list[str] = []
+    index = position
+    for depth in range(SPARSE_MERKLE_DEPTH, 0, -1):
+        sibling_index = index ^ 1
+        sibling = tree.levels[depth].get(sibling_index, _EMPTY_HASHES[depth])
+        siblings.append(sibling.hex())
+        index >>= 1
+    return tuple(siblings)
+
+
+def _membership_proof(tree: _SparseMerkleTree, key: str) -> MerkleMembershipProof:
+    if key not in tree.positions:
+        raise SEDBReadOnlyAdapterError("SPARSE_MERKLE_MEMBERSHIP_KEY_MISSING")
+    return MerkleMembershipProof(
+        key=key,
+        payload=tree.payloads[key],
+        siblings=_proof_siblings(tree, key),
+    )
+
+
+def _nonmembership_proof(tree: _SparseMerkleTree, key: str) -> MerkleNonMembershipProof:
+    if key in tree.positions:
+        raise SEDBReadOnlyAdapterError("SPARSE_MERKLE_NONMEMBERSHIP_KEY_EXISTS")
     return MerkleNonMembershipProof(
         key=key,
-        count=len(leaves),
-        predecessor=predecessor,
-        successor=successor,
+        siblings=_proof_siblings(tree, key),
     )
+
+
+def _fold_sparse_path(key: str, start_hash: bytes, siblings: tuple[str, ...]) -> bytes:
+    if len(siblings) != SPARSE_MERKLE_DEPTH:
+        raise SEDBReadOnlyAdapterError("SPARSE_MERKLE_PROOF_DEPTH_INVALID")
+    position = _key_position(key)
+    current = start_hash
+    for sibling_hex in siblings:
+        sibling = bytes.fromhex(_require_hex64(
+            sibling_hex,
+            "SPARSE_MERKLE_SIBLING_HASH_INVALID",
+        ))
+        if position & 1:
+            current = _internal_hash(sibling, current)
+        else:
+            current = _internal_hash(current, sibling)
+        position >>= 1
+    return current
+
+
+def verify_membership_proof(proof: MerkleMembershipProof, root_sha256: str) -> bool:
+    if not isinstance(proof, MerkleMembershipProof):
+        raise SEDBReadOnlyAdapterError("MERKLE_MEMBERSHIP_PROOF_REQUIRED")
+    root = _require_hex64(root_sha256, "MERKLE_ROOT_HASH_INVALID")
+    computed = _fold_sparse_path(
+        proof.key,
+        _present_leaf_hash(proof.key, proof.payload),
+        proof.siblings,
+    )
+    return computed.hex() == root
 
 
 def verify_nonmembership_proof(proof: MerkleNonMembershipProof, root_sha256: str) -> bool:
     if not isinstance(proof, MerkleNonMembershipProof):
         raise SEDBReadOnlyAdapterError("MERKLE_NONMEMBERSHIP_PROOF_REQUIRED")
-    root_sha256 = _require_hex64(root_sha256, "MERKLE_ROOT_HASH_INVALID")
-    if proof.count == 0:
-        return root_sha256 == _EMPTY_ROOT.hex()
-
-    predecessor = proof.predecessor
-    successor = proof.successor
-    if predecessor is not None:
-        if predecessor.count != proof.count or not verify_membership_proof(predecessor, root_sha256):
-            return False
-        if not predecessor.key < proof.key:
-            return False
-    if successor is not None:
-        if successor.count != proof.count or not verify_membership_proof(successor, root_sha256):
-            return False
-        if not proof.key < successor.key:
-            return False
-
-    if predecessor is None:
-        return successor is not None and successor.index == 0
-    if successor is None:
-        return predecessor.index == proof.count - 1
-    return successor.index == predecessor.index + 1
+    root = _require_hex64(root_sha256, "MERKLE_ROOT_HASH_INVALID")
+    computed = _fold_sparse_path(
+        proof.key,
+        _EMPTY_HASHES[SPARSE_MERKLE_DEPTH],
+        proof.siblings,
+    )
+    return computed.hex() == root
 
 
 @dataclass(frozen=True, slots=True)
@@ -383,15 +385,15 @@ def _slot_cell_payload(slot: PartialFieldSlot) -> dict[str, object]:
     }
 
 
-def _entity_cell_leaves(snapshot: SEDBEntitySnapshot) -> tuple[tuple[str, object], ...]:
-    return _canonical_leaves(
+def _entity_cell_tree(snapshot: SEDBEntitySnapshot) -> _SparseMerkleTree:
+    return _build_sparse_tree(
         (cell.field.field_id, _cell_payload(cell)) for cell in snapshot.cells
     )
 
 
 def _read_field_registry(
     adapter: SEDBReadOnlyAdapter,
-) -> tuple[tuple[SEDBFieldBindingSnapshot, ...], tuple[tuple[str, object], ...]]:
+) -> tuple[tuple[SEDBFieldBindingSnapshot, ...], _SparseMerkleTree]:
     with adapter._connect() as conn:
         adapter._require_schema(conn)
         rows = conn.execute(
@@ -420,8 +422,7 @@ def _read_field_registry(
         )
         for row in rows
     )
-    leaves = _canonical_leaves((field.field_id, field.to_dict()) for field in fields)
-    return fields, leaves
+    return fields, _build_sparse_tree((field.field_id, field.to_dict()) for field in fields)
 
 
 @dataclass(frozen=True, slots=True)
@@ -486,24 +487,22 @@ def issue_proof_carrying_projection(
     # D4 then derives compact commitments and proofs from that verified state.
     snapshot = adapter.read_current_exact(projection.source_exact)
     entity_metadata = CommittedEntityMetadata.from_snapshot(snapshot)
-    cell_leaves = _entity_cell_leaves(snapshot)
-    cell_keys = [key for key, _ in cell_leaves]
+    cell_tree = _entity_cell_tree(snapshot)
     cell_by_id = {cell.field.field_id: cell for cell in snapshot.cells}
 
-    fields, field_leaves = _read_field_registry(adapter)
+    fields, field_tree = _read_field_registry(adapter)
     field_by_id = {field.field_id: field for field in fields}
-    field_keys = [key for key, _ in field_leaves]
 
     entity_commitment = EntityStateCommitment(
         entity_id=snapshot.entity_id,
         legacy_snapshot_sha256=snapshot.sha256(),
         entity_metadata_sha256=entity_metadata.sha256(),
-        cell_root_sha256=_merkle_root(cell_leaves).hex(),
-        cell_count=len(cell_leaves),
+        cell_root_sha256=cell_tree.root.hex(),
+        cell_count=len(cell_tree.leaves),
     )
     field_commitment = FieldRegistryCommitment(
-        field_root_sha256=_merkle_root(field_leaves).hex(),
-        field_count=len(field_leaves),
+        field_root_sha256=field_tree.root.hex(),
+        field_count=len(field_tree.leaves),
     )
 
     claims: list[FieldClaimProof] = []
@@ -513,8 +512,7 @@ def issue_proof_carrying_projection(
             raise SEDBReadOnlyAdapterError("PROOF_FIELD_NOT_IN_REGISTRY")
         if field.key != slot.field.key:
             raise SEDBReadOnlyAdapterError("PROOF_FIELD_KEY_BINDING_MISMATCH")
-        field_index = bisect_left(field_keys, field.field_id)
-        field_membership = _membership_proof(field_leaves, field_index)
+        field_membership = _membership_proof(field_tree, field.field_id)
 
         cell_membership: MerkleMembershipProof | None = None
         cell_nonmembership: MerkleNonMembershipProof | None = None
@@ -523,12 +521,11 @@ def issue_proof_carrying_projection(
         if slot.state in (FieldProjectionState.PRESENT, FieldProjectionState.BLANK):
             if cell is None or _cell_payload(cell) != _slot_cell_payload(slot):
                 raise SEDBReadOnlyAdapterError("PROOF_CELL_PAYLOAD_BINDING_MISMATCH")
-            cell_index = bisect_left(cell_keys, field.field_id)
-            cell_membership = _membership_proof(cell_leaves, cell_index)
+            cell_membership = _membership_proof(cell_tree, field.field_id)
         elif slot.state in (FieldProjectionState.ABSENT, FieldProjectionState.UNKNOWN):
             if cell is not None:
                 raise SEDBReadOnlyAdapterError("PROOF_NONMEMBERSHIP_CONFLICTS_WITH_CELL")
-            cell_nonmembership = _nonmembership_proof(cell_leaves, field.field_id)
+            cell_nonmembership = _nonmembership_proof(cell_tree, field.field_id)
         elif slot.state is FieldProjectionState.UNLOADED:
             # Unloaded makes no source-cell presence/absence claim.
             pass
@@ -578,8 +575,6 @@ def verify_proof_carrying_projection(bundle: ProofCarryingPartialEntity) -> bool
             return False
         if claim.field_membership.payload != claim.field.to_dict():
             return False
-        if claim.field_membership.count != field_commitment.field_count:
-            return False
         if not verify_membership_proof(
             claim.field_membership,
             field_commitment.field_root_sha256,
@@ -593,8 +588,6 @@ def verify_proof_carrying_projection(bundle: ProofCarryingPartialEntity) -> bool
                 return False
             if claim.cell_membership.payload != _slot_cell_payload(slot):
                 return False
-            if claim.cell_membership.count != entity_commitment.cell_count:
-                return False
             if not verify_membership_proof(
                 claim.cell_membership,
                 entity_commitment.cell_root_sha256,
@@ -604,8 +597,6 @@ def verify_proof_carrying_projection(bundle: ProofCarryingPartialEntity) -> bool
             if claim.cell_membership is not None or claim.cell_nonmembership is None:
                 return False
             if claim.cell_nonmembership.key != slot.field.field_id:
-                return False
-            if claim.cell_nonmembership.count != entity_commitment.cell_count:
                 return False
             if not verify_nonmembership_proof(
                 claim.cell_nonmembership,
