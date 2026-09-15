@@ -1,4 +1,4 @@
-name: D1 ISQL-SEDB read-only adapter
+name: ISQL-SEDB read-only integration suite
 
 on:
   pull_request:
@@ -7,7 +7,7 @@ on:
       - ".github/workflows/d1-isql-sedb-readonly.yml"
 
 jobs:
-  readonly-adapter:
+  readonly-integration:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout SEDB
@@ -27,7 +27,7 @@ jobs:
         run: python -m pip install -e SEDB/current
       - name: Install ISQL main
         run: python -m pip install -e ISQL
-      - name: Install adapter
+      - name: Install integration project
         run: python -m pip install -e SEDB/projects/isql-sedb-readonly-adapter
       - name: Compile integration sources
         run: >-
@@ -35,7 +35,7 @@ jobs:
           SEDB/projects/isql-sedb-readonly-adapter/src
           ISQL/src
           SEDB/current/src
-      - name: Run adapter integration tests
+      - name: Run integration tests
         working-directory: SEDB
         run: >-
           python -m unittest discover
