@@ -25,6 +25,22 @@ from .materializer import (
     PartialDomainMaterialization,
     materialize_partial_domain,
 )
+from .commitment import (
+    ENTITY_STATE_COMMITMENT_SCHEMA,
+    FIELD_REGISTRY_COMMITMENT_SCHEMA,
+    PROOF_CARRYING_PROJECTION_SCHEMA,
+    MerkleMembershipProof,
+    MerkleNonMembershipProof,
+    EntityStateCommitment,
+    FieldRegistryCommitment,
+    CommittedEntityMetadata,
+    FieldClaimProof,
+    ProofCarryingPartialEntity,
+    verify_membership_proof,
+    verify_nonmembership_proof,
+    issue_proof_carrying_projection,
+    verify_proof_carrying_projection,
+)
 
 __all__ = [
     "SEDB_ENTITY_SNAPSHOT_SCHEMA",
@@ -48,4 +64,18 @@ __all__ = [
     "PartialEntityProjection",
     "PartialDomainMaterialization",
     "materialize_partial_domain",
+    "ENTITY_STATE_COMMITMENT_SCHEMA",
+    "FIELD_REGISTRY_COMMITMENT_SCHEMA",
+    "PROOF_CARRYING_PROJECTION_SCHEMA",
+    "MerkleMembershipProof",
+    "MerkleNonMembershipProof",
+    "EntityStateCommitment",
+    "FieldRegistryCommitment",
+    "CommittedEntityMetadata",
+    "FieldClaimProof",
+    "ProofCarryingPartialEntity",
+    "verify_membership_proof",
+    "verify_nonmembership_proof",
+    "issue_proof_carrying_projection",
+    "verify_proof_carrying_projection",
 ]
